@@ -19,9 +19,11 @@ package com.helger.masterdata.vat;
 
 import javax.annotation.Nonnull;
 
+import com.helger.commons.annotations.Nonempty;
+
 /**
  * Base interface for objects having a VAT item.
- * 
+ *
  * @author Philip Helger
  */
 public interface IHasVATItem
@@ -31,4 +33,11 @@ public interface IHasVATItem
    */
   @Nonnull
   IVATItem getVATItem ();
+
+  /**
+   * @return The IDof the VAT item of this object. May not be <code>null</code>.
+   */
+  @Nonnull
+  @Nonempty
+  String getVATItemID ();
 }

@@ -23,6 +23,7 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
@@ -32,7 +33,7 @@ import com.helger.masterdata.vat.IVATItem;
 
 /**
  * Default implementation of the {@link IReadonlyPrice} interface.
- * 
+ *
  * @author Philip Helger
  */
 public class ReadonlyPrice implements IReadonlyPrice
@@ -84,6 +85,13 @@ public class ReadonlyPrice implements IReadonlyPrice
   public IVATItem getVATItem ()
   {
     return m_aVATItem;
+  }
+
+  @Nonnull
+  @Nonempty
+  public String getVATItemID ()
+  {
+    return m_aVATItem.getID ();
   }
 
   @Nonnull

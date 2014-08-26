@@ -26,7 +26,7 @@ import com.helger.commons.microdom.impl.MicroElement;
 
 /**
  * Common base class for {@link Price} and {@link ReadonlyPrice}
- * 
+ *
  * @author Philip Helger
  */
 public abstract class AbstractPriceMicroTypeConverter implements IMicroTypeConverter
@@ -43,14 +43,10 @@ public abstract class AbstractPriceMicroTypeConverter implements IMicroTypeConve
   {
     final IReadonlyPrice aPrice = (IReadonlyPrice) aObject;
     final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
-    if (aPrice.getCurrency () != null)
-      ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
-    if (aPrice.getNetAmount () != null)
-      ePrice.setAttribute (ATTR_NETAMOUNT, aPrice.getNetAmount ().getValue ().toString ());
-    if (aPrice.getGrossAmount () != null)
-      ePrice.setAttribute (ATTR_GROSSAMOUNT, aPrice.getGrossAmount ().getValue ().toString ());
-    if (aPrice.getVATItem () != null)
-      ePrice.setAttribute (ATTR_VATITEM, aPrice.getVATItem ().getID ());
+    ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
+    ePrice.setAttributeWithConversion (ATTR_NETAMOUNT, aPrice.getNetAmount ().getValue ());
+    ePrice.setAttributeWithConversion (ATTR_GROSSAMOUNT, aPrice.getGrossAmount ().getValue ());
+    ePrice.setAttribute (ATTR_VATITEM, aPrice.getVATItemID ());
     return ePrice;
   }
 }

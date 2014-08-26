@@ -36,6 +36,7 @@ import org.eclipse.persistence.annotations.Convert;
 import org.eclipse.persistence.annotations.Converter;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
@@ -130,6 +131,14 @@ public class Price implements IPrice
   public IVATItem getVATItem ()
   {
     return m_aVATItem;
+  }
+
+  @Nonnull
+  @Nonempty
+  @Transient
+  public String getVATItemID ()
+  {
+    return m_aVATItem.getID ();
   }
 
   @Nonnull

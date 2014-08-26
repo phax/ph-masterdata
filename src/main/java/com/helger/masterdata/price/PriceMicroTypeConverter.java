@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.masterdata.currency.ECurrency;
+import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATManager;
 
 public final class PriceMicroTypeConverter extends AbstractPriceMicroTypeConverter
@@ -30,9 +31,17 @@ public final class PriceMicroTypeConverter extends AbstractPriceMicroTypeConvert
   @Nonnull
   public final Price convertToNative (@Nonnull final IMicroElement ePrice)
   {
-    final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttribute (ATTR_CURRENCY));
-    final BigDecimal aValue = ePrice.getAttributeWithConversion (ATTR_NETAMOUNT, BigDecimal.class);
+    final String sCurrency = ePrice.getAttribute (ATTR_CURRENCY);
+    final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrency);
+    if (eCurrency == null)
+      throw new IllegalStateException ("Failed to resolve currency with ID '" + sCurrency + "'");
+
+    final BigDecimal aNetAmount = ePrice.getAttributeWithConversion (ATTR_NETAMOUNT, BigDecimal.class);
     final String sVATItemID = ePrice.getAttribute (ATTR_VATITEM);
-    return new Price (eCurrency, aValue, VATManager.getDefaultInstance ().getVATItemOfID (sVATItemID));
+    final IVATItem aVATItem = VATManager.getDefaultInstance ().getVATItemOfID (sVATItemID);
+    if (aVATItem == null)
+      throw new IllegalStateException ("Failed to resolve VAT item with ID '" + sVATItemID + "'");
+
+    return new Price (eCurrency, aNetAmount, aVATItem);
   }
 }
