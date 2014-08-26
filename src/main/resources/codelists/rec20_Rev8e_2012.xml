@@ -350,7 +350,8 @@ Synonym: French, Charrière, Charrière gauge</text>
         <text locale="en">foot (U.S. survey) </text>
       </name>
       <description>
-        <text locale="en">Unit commonly used in the United States for ordnance survey.</text>
+        <text locale="en">Unit commonly used in the United States for ordnance survey.
+</text>
       </description>
     </item>
     <item groupnum="01" groupid="61" quantityid="3" level="2" status="unchanged" commoncode="M52" conversion="1,609347 x 10³ m" symbol="mi (US survey) ">
@@ -9975,7 +9976,8 @@ Use kip per square inch (common code N20).</text>
     </quantity>
     <quantity id="114">
       <name>
-        <text locale="en">phase velocity of electromagnetic waves, phase speed of electromagnetic waves</text>
+        <text locale="en">phase velocity of electromagnetic
+ waves, phase speed of electromagnetic waves</text>
       </name>
     </quantity>
     <quantity id="115">
