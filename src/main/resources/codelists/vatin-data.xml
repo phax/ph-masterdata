@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<vatins>
+  <vatin country="AT" pattern="^ATU[0-9]{8}$">
+    <example>ATU99999999</example>
+  </vatin>
+  <vatin country="BE" pattern="^BE0[0-9]{9}$">
+    <example>BE0999999999</example>
+  </vatin>
+  <vatin country="BG" pattern="^BG[0-9]{9,10}$">
+    <example>BG999999999</example>
+    <example>BG9999999999</example>
+  </vatin>
+  <vatin country="CY" pattern="^CY[0-9]{8}[A-Z]$">
+    <example>CY99999999L</example>
+  </vatin>
+  <vatin country="CZ" pattern="^CZ[0-9]{8,10}$">
+    <example>CZ99999999</example>
+    <example>CZ999999999</example>
+    <example>CZ9999999999</example>
+  </vatin>
+  <vatin country="DE" pattern="^DE[0-9]{9}$">
+    <example>DE999999999</example>
+  </vatin>
+  <vatin country="DK" pattern="^DK[0-9]{8}$">
+    <example>DK99 99 99 99</example>
+  </vatin>
+  <vatin country="EE" pattern="^EE[0-9]{9}$">
+    <example>EE999999999</example>
+  </vatin>
+  <vatin country="GR" pattern="^EL[0-9]{9}$">
+    <example>EL999999999</example>
+  </vatin>
+  <vatin country="ES" pattern="^ES[0-9A-Z][0-9]{7}[0-9A-Z]$">
+    <example>ESX9999999X</example>
+  </vatin>
+  <vatin country="FI" pattern="^FI[0-9]{8}$">
+    <example>FI99999999</example>
+  </vatin>
+  <vatin country="FR" pattern="^FR[0-9A-Z]{2}[0-9]{9}$">
+    <example>FRXX 999999999</example>
+  </vatin>
+  <vatin country="GB" pattern="^GB([0-9]{9}|[0-9]{12}|GD[0-9]{3}|HA[0-9]{3})$">
+    <example>GB999 9999 99</example>
+    <example>GB999 9999 99 999</example>
+    <example>GBGD999</example>
+    <example>GBHA999</example>
+  </vatin>
+  <vatin country="HR" pattern="^HR[0-9]{11}$">
+    <example>HR99999999999</example>
+  </vatin>
+  <vatin country="HU" pattern="^HU[0-9]{8}$">
+    <example>HU99999999</example>
+  </vatin>
+  <vatin country="IE" pattern="^IE[0-9][0-9A-Z\+\*][0-9]{5}[0-9A-Z]$">
+    <example>IE9S99999L</example>
+  </vatin>
+  <vatin country="IT" pattern="^IT[0-9]{11}$">
+    <example>IT99999999999</example>
+  </vatin>
+  <vatin country="LT" pattern="^LT([0-9]{9}|[0-9]{12})$">
+    <example>LT999999999</example>
+    <example>LT999999999999</example>
+  </vatin>
+  <vatin country="LU" pattern="^LU[0-9]{8}$">
+    <example>LU99999999</example>
+  </vatin>
+  <vatin country="LV" pattern="^LV[0-9]{11}$">
+    <example>LV99999999999</example>
+  </vatin>
+  <vatin country="MK" pattern="^MK[0-9]{13}$">
+    <example>MK9999999999999</example>
+  </vatin>
+  <vatin country="MT" pattern="^MT[0-9]{8}$">
+    <example>MT99999999</example>
+  </vatin>
+  <vatin country="NL" pattern="^NL[0-9]{9}B[0-9]{2}$">
+    <example>NL999999999B99</example>
+  </vatin>
+  <vatin country="PL" pattern="^PL[0-9]{10}$">
+    <example>PL9999999999</example>
+  </vatin>
+  <vatin country="PT" pattern="^PT[0-9]{9}$">
+    <example>PT999999999</example>
+  </vatin>
+  <vatin country="RO" pattern="^RO[0-9]{2,10}$">
+    <example>RO999999999</example>
+  </vatin>
+  <!-- New version of SR: -->
+  <vatin country="RS" pattern="^RS[0-9]{9}$">
+    <example>RS999999999</example>
+  </vatin>
+  <vatin country="SE" pattern="^SE[0-9]{12}$">
+    <example>SE999999999999</example>
+  </vatin>
+  <vatin country="SI" pattern="^SI[0-9]{8}$">
+    <example>SI99999999</example>
+  </vatin>
+  <vatin country="SK" pattern="^SK[0-9]{10}$">
+    <example>SK9999999999</example>
+  </vatin>
+  <!-- To be replaced by RS -->
+  <vatin country="SR" pattern="^SR[0-9]{9}$">
+    <example>SR999999999</example>
+  </vatin>
+</vatins>

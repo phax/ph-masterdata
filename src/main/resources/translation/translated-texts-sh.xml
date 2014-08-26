@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.helger.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<translationitems count="79">
+  <item id="com.helger.masterdata.currency.ECurrencyName.ALL">
+    <sh>Albanski Lek</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AMD">
+    <sh>Jermenski Dram</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AZN">
+    <sh>Azerbejdžanski Manat</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BAM">
+    <sh>Bosansko-Hercegovačka Konvertibilna Marka</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BGN">
+    <sh>Bugarski Lev</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BYR">
+    <sh>Beloruska Rublja</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CHF">
+    <sh>Švajcarski Franak</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CZK">
+    <sh>Češka Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.DKK">
+    <sh>Danska Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.EEK">
+    <sh>Estonska Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.EUR">
+    <sh>Evro</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GBP">
+    <sh>Funta Sterlinga</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GEL">
+    <sh>Gruzijski Lari</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HRK">
+    <sh>Hrvatska Kuna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HUF">
+    <sh>Mađarski Forint</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ISK">
+    <sh>Islandska Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LTL">
+    <sh>Litvanski Litas</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LVL">
+    <sh>Letonski Lats</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MDL">
+    <sh>Moldavski Leu</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MKD">
+    <sh>Makedonski Dinar</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NOK">
+    <sh>Norveška Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PLN">
+    <sh>Poljski Zlot</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RON">
+    <sh>Rumunski Leu</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RSD">
+    <sh>Srpski Dinar</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RUB">
+    <sh>Ruska Rublja</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SEK">
+    <sh>Švedska Kruna</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TRY">
+    <sh>Nove Turske Lire</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.UAH">
+    <sh>Ukrajnska Hrynia</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.USD">
+    <sh>Američki Dolar</sh>
+  </item>
+  <item id="com.helger.masterdata.currency.validation.ECurrencyErrorTexts.INVALID_CURRENCY_CODE">
+    <sh>Valuta nije validna</sh>
+  </item>
+  <item id="com.helger.masterdata.person.EGenderName.FEMALE">
+    <sh>Gospođa</sh>
+  </item>
+  <item id="com.helger.masterdata.person.EGenderName.MALE">
+    <sh>Gospodin</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.COMPANY">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.FAMILY">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.MISSES">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.MISTER">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.COMPANY">
+    <sh>Postovani Gospodine ili Gospođo</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.FAMILY">
+    <sh>Draga porodico</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.MISSES">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.MISTER">
+    <sh>Dragi</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.COMPANY">
+    <sh>Firma</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.FAMILY">
+    <sh>Porodica</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.MISSES">
+    <sh>Gospođa</sh>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.MISTER">
+    <sh>Gospodin</sh>
+  </item>
+  <item id="com.helger.masterdata.swift.validation.ESwiftErrorTexts.INVALID_BIC">
+    <sh>BIC nije validan.</sh>
+  </item>
+  <item id="com.helger.masterdata.swift.validation.ESwiftErrorTexts.INVALID_IBAN">
+    <sh>IBAN nije validan.</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.A">
+    <sh>Kombinovana poreska stopa</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AA">
+    <sh>Niža stopa</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AB">
+    <sh>Izuzeto od prodaje</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AC">
+    <sh>PDV ne dospeva sada za naplatu</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AD">
+    <sh>PDV dospeo za naplatu iz prethodne fakture</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AE">
+    <sh>Povraćaj PDV-a</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.B">
+    <sh>Preneti (PDV)</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.C">
+    <sh>Carina koju je platio Dobavljač</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.E">
+    <sh>Izuzeto od poreza</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.G">
+    <sh>Bez carinjenja, porez nije naplaćen</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.H">
+    <sh>Viša stopa</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.O">
+    <sh>Usluge van opsega oporezivanja</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.S">
+    <sh>Standardna stopa</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.Z">
+    <sh>Roba bez poreza</sh>
+  </item>
+  <item id="com.helger.masterdata.tax.validation.ETaxErrorTexts.INVALID_TAX_CATEGORY_UN5305">
+    <sh>Nevažeća poreska kategorija.</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CFR">
+    <sh>trošak i teret</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CIF">
+    <sh>trošak, osiguranje I teret</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CIP">
+    <sh>prenos i osiguranje plaćeni do</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CPT">
+    <sh>prenos plaćen do</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DAF">
+    <sh>dostava na granici</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DDP">
+    <sh>isporučeno ocarinjeno</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DDU">
+    <sh>isporučeno bez carine</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DEQ">
+    <sh>isporučeno kejom</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DES">
+    <sh>isporučeno brodom</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.EXW">
+    <sh>minuli rad</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FAS">
+    <sh>besplatno uz brod</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FCA">
+    <sh>besplatan prevoz</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FOB">
+    <sh>besplatan utovar</sh>
+  </item>
+  <item id="com.helger.masterdata.trade.validation.ETradeErrorTexts.INVALID_DELIVERY_TERMS">
+    <sh>Uslovi isporuke nisu validni.</sh>
+  </item>
+  <item id="com.helger.masterdata.vat.EVATItemText.VAT_PERC">
+    <sh>PDV {0}%</sh>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATIN">
+    <sh>PIB nije validan.</sh>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATIN_WITH_EXAMPLES">
+    <sh>PDV ID nije validan. Validni UID za {0} može da izgleda ovako: {1}</sh>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATITEM">
+    <sh>Navedena poreska stopa nije validna.</sh>
+  </item>
+</translationitems>

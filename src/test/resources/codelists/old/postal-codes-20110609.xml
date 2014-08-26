@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root>
+  <header>
+    <source>http://en.wikipedia.org/wiki/List_of_postal_codes</source>
+    <revision>20110609</revision>
+  </header>
+  <body>
+    <country iso="AC" name="Ascension island">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>ASCN 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="AD" name="Andorra">
+      <postalcodes validfrom="2004-01-01T00:00:00.000Z">
+        <format>CCNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="AL" name="Albania">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="AM" name="Armenia">
+      <postalcodes validfrom="2006-04-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="AR" name="Argentina">
+      <postalcodes validfrom="1974-01-01T00:00:00.000Z" validto="1998-12-31T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>Codigo Postal Argentino (CPA), where A is the province code as in ISO 3166-2:AR</note>
+      </postalcodes>
+      <postalcodes validfrom="1999-01-01T00:00:00.000Z">
+        <format>ANNNNAAA</format>
+        <note>Codigo Postal Argentino (CPA), where A is the province code as in ISO 3166-2:AR</note>
+      </postalcodes>
+    </country>
+    <country iso="AS" name="American Samoa">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="AT" name="Austria">
+      <postalcodes validfrom="1966-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="AU" name="Australia">
+      <postalcodes validfrom="1967-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="AX" name="Åland Islands">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>With Finland, first two numbers are 22.</note>
+      </postalcodes>
+    </country>
+    <country iso="AZ" name="Azerbaijan">
+      <postalcodes>
+        <format>CCNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BA" name="Bosnia and Herzegovina">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BB" name="Barbados">
+      <postalcodes>
+        <format>CCNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BD" name="Bangladesh">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BE" name="Belgium">
+      <postalcodes>
+        <format>NNNN</format>
+        <note>First number indicates the province. (not completely correct)</note>
+      </postalcodes>
+    </country>
+    <country iso="BG" name="Bulgaria">
+      <postalcodes validfrom="1975-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BN" name="Brunei">
+      <postalcodes>
+        <format>AANNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BR" name="Brazil">
+      <postalcodes validfrom="1972-01-01T00:00:00.000Z" validto="1991-12-31T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>Código de Endereçamento Postal (CEP)</note>
+      </postalcodes>
+      <postalcodes validfrom="1992-01-01T00:00:00.000Z">
+        <format>NNNNNNNN</format>
+        <format>NNNNN-NNN</format>
+      </postalcodes>
+    </country>
+    <country iso="BY" name="Belarus">
+      <postalcodes>
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="CA" name="Canada">
+      <postalcodes validfrom="1971-01-01T00:00:00.000Z">
+        <format>ANA NAN</format>
+        <note>The system was gradually introduced starting in April 1971 in Ottawa</note>
+      </postalcodes>
+    </country>
+    <country iso="CH" name="Switzerland">
+      <postalcodes validfrom="1964-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>With Liechtenstein, ordered from west to east</note>
+      </postalcodes>
+    </country>
+    <country iso="CL" name="Chile">
+      <postalcodes>
+        <format>NNNNNNN</format>
+        <format>NNN-NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="CN" name="China">
+      <postalcodes>
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="CO" name="Colombia">
+      <postalcodes>
+        <format>NNNNNN</format>
+        <note>First NN = 32 departments [12]</note>
+      </postalcodes>
+    </country>
+    <country iso="CR" name="Costa Rica">
+      <postalcodes validfrom="2007-03-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>First codes the provinces, next two the canton, last two the district.</note>
+      </postalcodes>
+    </country>
+    <country iso="CV" name="Cape Verde">
+      <postalcodes>
+        <format>NNNN</format>
+        <note>The first digit indicates the island.</note>
+      </postalcodes>
+    </country>
+    <country iso="CY" name="Cyprus">
+      <postalcodes validfrom="1994-10-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="CZ" name="Czech Republic">
+      <postalcodes validfrom="1973-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <format>NNN NN</format>
+        <note>with Slovak Republic, Poštovní sm?rovací ?íslo (PS?) - postal routing number</note>
+      </postalcodes>
+    </country>
+    <country iso="DE" name="Germany">
+      <postalcodes validfrom="1941-07-25T00:00:00.000Z" validto="1961-12-31T00:00:00.000Z">
+        <format>NN</format>
+        <note>Postleitzahl (PLZ)</note>
+      </postalcodes>
+      <postalcodes validfrom="1962-01-01T00:00:00.000Z" validto="1992-12-31T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>Postleitzahl (PLZ)</note>
+      </postalcodes>
+      <postalcodes validfrom="1993-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>Postleitzahl (PLZ)</note>
+      </postalcodes>
+    </country>
+    <country iso="DK" name="Denmark">
+      <postalcodes validfrom="1967-09-20T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="DZ" name="Algeria">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>First two as in ISO 3166-2:DZ</note>
+      </postalcodes>
+    </country>
+    <country iso="EC" name="Ecuador">
+      <postalcodes validfrom="2007-12-01T00:00:00.000Z">
+        <format>CCNNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="EE" name="Estonia">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="EG" name="Egypt">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="ES" name="Spain">
+      <postalcodes validfrom="1976-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>First two indicate the province, range 01-52</note>
+      </postalcodes>
+    </country>
+    <country iso="FI" name="Finland">
+      <postalcodes validfrom="1971-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="FK" name="Falkland Islands">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>FIQQ 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="FM" name="Micronesia">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="FR" name="France">
+      <postalcodes validfrom="1972-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>First mostly as in ISO 3166-2:FR.</note>
+      </postalcodes>
+    </country>
+    <country iso="GB" name="United Kingdom">
+      <postalcodes validfrom="1959-01-01T00:00:00.000Z">
+        <format>ANNAA</format>
+        <format>ANNNAA</format>
+        <format>AANNAA</format>
+        <format>AANNNAA</format>
+        <format>ANANAA</format>
+        <format>AANANAA</format>
+        <format>AN NAA</format>
+        <format>ANN NAA</format>
+        <format>AAN NAA</format>
+        <format>AANN NAA</format>
+        <format>ANA NAA</format>
+        <format>AANA NAA</format>
+        <note>Postcode, letters before the first number identify a town or district. AN NAA, ANN NAA, ANA NAA, AAN NAA, AANN NAA, AANA NAA. Complex as incorporates early non-systematic postal districts.</note>
+      </postalcodes>
+    </country>
+    <country iso="GE" name="Georgia">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="GG" name="Guernsey">
+      <postalcodes validfrom="1993-01-01T00:00:00.000Z">
+        <format>AAN NAA</format>
+        <note>UK-format postcode (first two letters are always GY not GG)</note>
+      </postalcodes>
+    </country>
+    <country iso="GR" name="Greece">
+      <postalcodes validfrom="1983-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="GS" name="South Georgia and the South Sandwich Islands">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>SIQQ 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="GU" name="Guam">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="HR" name="Croatia">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="HU" name="Hungary">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="ID" name="Indonesia">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>Kode Pos</note>
+      </postalcodes>
+    </country>
+    <country iso="IL" name="Israel">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="IM" name="Isle of Man">
+      <postalcodes validfrom="1993-01-01T00:00:00.000Z">
+        <format>CCN NAA</format>
+        <format>CCNN NAA</format>
+        <note>UK-format postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="IN" name="India">
+      <postalcodes validfrom="1972-08-15T00:00:00.000Z">
+        <format>NNNNNN</format>
+        <format>NNN NNN</format>
+        <note>Postal Index Number (PIN)</note>
+      </postalcodes>
+    </country>
+    <country iso="IO" name="British Indian Ocean Territory">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>BIQQ 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="IQ" name="Iraq">
+      <postalcodes validfrom="2004-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="IR" name="Iran">
+      <postalcodes>
+        <format>NNNNN-NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="IS" name="Iceland">
+      <postalcodes>
+        <format>NNN</format>
+      </postalcodes>
+    </country>
+    <country iso="IT" name="Italy">
+      <postalcodes validfrom="1967-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>Codice di Avviamento Postale (CAP)</note>
+      </postalcodes>
+    </country>
+    <country iso="JE" name="Jersey">
+      <postalcodes validfrom="1994-01-01T00:00:00.000Z">
+        <format>CCN NAA</format>
+        <note>UK-format postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="JP" name="Japan">
+      <postalcodes validfrom="1968-01-01T00:00:00.000Z">
+        <format>NNNNNNN</format>
+        <format>NNN-NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="KH" name="Cambodia">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="KR" name="South Korea">
+      <postalcodes>
+        <format>NNNNNN</format>
+        <format>NNN-NNN</format>
+      </postalcodes>
+    </country>
+    <country iso="KZ" name="Kazakhstan">
+      <postalcodes>
+        <format>NNNNNN</format>
+        <note>Reference:[13]</note>
+      </postalcodes>
+    </country>
+    <country iso="LI" name="Liechtenstein">
+      <postalcodes validfrom="1964-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>With Switzerland, ordered from west to east</note>
+      </postalcodes>
+    </country>
+    <country iso="LK" name="Sri Lanka">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>Reference: http://mohanjith.net/ZIPLook/</note>
+      </postalcodes>
+    </country>
+    <country iso="LT" name="Lithuania">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>References: http://www.post.lt/en/?id=421 http://www.post.lt/en/?id=271</note>
+      </postalcodes>
+    </country>
+    <country iso="LU" name="Luxembourg">
+      <postalcodes>
+        <format>NNNN</format>
+        <note>References: http://www.upu.int/post_code/en/countries/LUX.pdf</note>
+      </postalcodes>
+    </country>
+    <country iso="LV" name="Latvia">
+      <postalcodes>
+        <format>CC-NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="MA" name="Morocco">
+      <postalcodes validfrom="1997-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="MC" name="Monaco">
+      <postalcodes validfrom="1972-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>Similar to France, except when sending a letter from abroad, the address must carry the country name.
+The first three numbers are &quot;980&quot;</note>
+      </postalcodes>
+    </country>
+    <country iso="MD" name="Moldova">
+      <postalcodes>
+        <format>CCNNNN</format>
+        <format>CC-NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="ME" name="Montenegro">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="MH" name="Marshall Islands">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="MP" name="Northern Mariana Islands">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="MT" name="Malta">
+      <postalcodes>
+        <format>AAANNNN</format>
+        <format>AAA NNNN</format>
+        <note>Kodi?i Postali</note>
+      </postalcodes>
+    </country>
+    <country iso="MX" name="Mexico">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="MY" name="Malaysia">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="NI" name="Nigeria">
+      <postalcodes>
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="NL" name="Netherlands">
+      <postalcodes validfrom="1977-01-01T00:00:00.000Z">
+        <format>NNNNAA</format>
+        <format>NNNN AA</format>
+      </postalcodes>
+    </country>
+    <country iso="NO" name="Norway">
+      <postalcodes validfrom="1968-03-18T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>From south to north</note>
+      </postalcodes>
+    </country>
+    <country iso="NZ" name="New Zealand">
+      <postalcodes validfrom="2008-06-01T00:00:00.000Z">
+        <format>NNNN</format>
+        <note>Postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="PA" name="Panama">
+      <postalcodes>
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="PH" name="Philippines">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="PK" name="Pakistan">
+      <postalcodes>
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="PL" name="Poland">
+      <postalcodes validfrom="1973-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <format>NN-NNN</format>
+      </postalcodes>
+    </country>
+    <country iso="PN" name="Pitcairn Islands">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>PCRN 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="PR" name="Puerto Rico">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="PT" name="Portugal">
+      <postalcodes validfrom="1976-01-01T00:00:00.000Z" validto="1993-12-31T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+      <postalcodes validfrom="1994-01-01T00:00:00.000Z">
+        <format>NNNN-NNN</format>
+        <format>NNNN NNN</format>
+      </postalcodes>
+    </country>
+    <country iso="PW" name="Palau">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="PY" name="Paraguay">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="RO" name="Romania">
+      <postalcodes validfrom="2003-05-01T00:00:00.000Z">
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="RS" name="Serbia">
+      <postalcodes validfrom="2005-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>Poshtanski adresni kod (PAK)</note>
+      </postalcodes>
+    </country>
+    <country iso="RU" name="Russia">
+      <postalcodes validfrom="1971-01-01T00:00:00.000Z">
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="SE" name="Sweden">
+      <postalcodes validfrom="1968-05-12T00:00:00.000Z">
+        <format>NNNNN</format>
+        <format>NNN NN</format>
+      </postalcodes>
+    </country>
+    <country iso="SG" name="Singapore">
+      <postalcodes validfrom="1950-01-01T00:00:00.000Z" validto="1978-12-31T00:00:00.000Z">
+        <format>NN</format>
+      </postalcodes>
+      <postalcodes validfrom="1979-01-01T00:00:00.000Z" validto="1994-12-31T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+      <postalcodes validfrom="1995-01-01T00:00:00.000Z">
+        <format>NNNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="SI" name="Slovenia">
+      <postalcodes>
+        <format>CCNNNN</format>
+        <format>CC-NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="SK" name="Slovakia">
+      <postalcodes validfrom="1973-01-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <format>NNN NN</format>
+        <note>with Czech Republic from west to east, Poštové smerovacie ?íslo (PS?) - postal routing number</note>
+      </postalcodes>
+    </country>
+    <country iso="SM" name="San Marino">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>With Italy, uses a five-digit numeric CAP of Emilia Romagna</note>
+      </postalcodes>
+    </country>
+    <country iso="TC" name="Turks and Caicos Islands">
+      <postalcodes>
+        <format>AAAANAA</format>
+        <format>AAAA NAA</format>
+        <specific>TKCA 1ZZ</specific>
+        <note>UK territory, but not UK postcode</note>
+      </postalcodes>
+    </country>
+    <country iso="TH" name="Thailand">
+      <postalcodes validfrom="1982-02-25T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>The first two specify the province, numbers as in ISO 3166-2:TH, the third and fourth digits specify a district (amphoe)</note>
+      </postalcodes>
+    </country>
+    <country iso="TN" name="Tunisia">
+      <postalcodes>
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="TR" name="Turkey">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>The first two specify the province as in ISO 3166-2:TR</note>
+      </postalcodes>
+    </country>
+    <country iso="TW" name="Taiwan">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>includes some territories administrated by Japan</note>
+      </postalcodes>
+    </country>
+    <country iso="UA" name="Ukraine">
+      <postalcodes>
+        <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="US" name="United States">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <format>NNNNN-NNNN</format>
+        <format>NNNNN-NNNNNN</format>
+        <note>ZIP code</note>
+      </postalcodes>
+    </country>
+    <country iso="VA" name="Vatican">
+      <postalcodes>
+        <format>NNNNN</format>
+        <note>with Italy, uses a five-digit numeric CAP of Rome</note>
+      </postalcodes>
+    </country>
+    <country iso="VG" name="British Virgin Islands">
+      <postalcodes>
+        <format>CCNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="VI" name="U.S. Virgin Islands">
+      <postalcodes validfrom="1963-07-01T00:00:00.000Z">
+        <format>NNNNN</format>
+        <note>U.S. ZIP codes</note>
+      </postalcodes>
+    </country>
+    <country iso="VN" name="Vietnam">
+      <postalcodes>
+        <format>NNNNNN</format>
+        <note>First two indicate a province</note>
+      </postalcodes>
+    </country>
+    <country iso="ZA" name="South Africa">
+      <postalcodes validfrom="1975-01-01T00:00:00.000Z">
+        <format>NNNN</format>
+      </postalcodes>
+    </country>
+  </body>
+</root>

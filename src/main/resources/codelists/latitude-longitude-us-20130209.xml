@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root>
+  <header>
+    <source>http://dev.maxmind.com/geoip/codes/state_latlon</source>
+    <revision>20130209</revision>
+  </header>
+  <entry id="AK" latitude="61.3850" longitude="-152.2683" />
+  <entry id="AL" latitude="32.7990" longitude="-86.8073" />
+  <entry id="AR" latitude="34.9513" longitude="-92.3809" />
+  <entry id="AS" latitude="14.2417" longitude="-170.7197" />
+  <entry id="AZ" latitude="33.7712" longitude="-111.3877" />
+  <entry id="CA" latitude="36.1700" longitude="-119.7462" />
+  <entry id="CO" latitude="39.0646" longitude="-105.3272" />
+  <entry id="CT" latitude="41.5834" longitude="-72.7622" />
+  <entry id="DC" latitude="38.8964" longitude="-77.0262" />
+  <entry id="DE" latitude="39.3498" longitude="-75.5148" />
+  <entry id="FL" latitude="27.8333" longitude="-81.7170" />
+  <entry id="GA" latitude="32.9866" longitude="-83.6487" />
+  <entry id="HI" latitude="21.1098" longitude="-157.5311" />
+  <entry id="IA" latitude="42.0046" longitude="-93.2140" />
+  <entry id="ID" latitude="44.2394" longitude="-114.5103" />
+  <entry id="IL" latitude="40.3363" longitude="-89.0022" />
+  <entry id="IN" latitude="39.8647" longitude="-86.2604" />
+  <entry id="KS" latitude="38.5111" longitude="-96.8005" />
+  <entry id="KY" latitude="37.6690" longitude="-84.6514" />
+  <entry id="LA" latitude="31.1801" longitude="-91.8749" />
+  <entry id="MA" latitude="42.2373" longitude="-71.5314" />
+  <entry id="MD" latitude="39.0724" longitude="-76.7902" />
+  <entry id="ME" latitude="44.6074" longitude="-69.3977" />
+  <entry id="MI" latitude="43.3504" longitude="-84.5603" />
+  <entry id="MN" latitude="45.7326" longitude="-93.9196" />
+  <entry id="MO" latitude="38.4623" longitude="-92.3020" />
+  <entry id="MP" latitude="14.8058" longitude="145.5505" />
+  <entry id="MS" latitude="32.7673" longitude="-89.6812" />
+  <entry id="MT" latitude="46.9048" longitude="-110.3261" />
+  <entry id="NC" latitude="35.6411" longitude="-79.8431" />
+  <entry id="ND" latitude="47.5362" longitude="-99.7930" />
+  <entry id="NE" latitude="41.1289" longitude="-98.2883" />
+  <entry id="NH" latitude="43.4108" longitude="-71.5653" />
+  <entry id="NJ" latitude="40.3140" longitude="-74.5089" />
+  <entry id="NM" latitude="34.8375" longitude="-106.2371" />
+  <entry id="NV" latitude="38.4199" longitude="-117.1219" />
+  <entry id="NY" latitude="42.1497" longitude="-74.9384" />
+  <entry id="OH" latitude="40.3736" longitude="-82.7755" />
+  <entry id="OK" latitude="35.5376" longitude="-96.9247" />
+  <entry id="OR" latitude="44.5672" longitude="-122.1269" />
+  <entry id="PA" latitude="40.5773" longitude="-77.2640" />
+  <entry id="PR" latitude="18.2766" longitude="-66.3350" />
+  <entry id="RI" latitude="41.6772" longitude="-71.5101" />
+  <entry id="SC" latitude="33.8191" longitude="-80.9066" />
+  <entry id="SD" latitude="44.2853" longitude="-99.4632" />
+  <entry id="TN" latitude="35.7449" longitude="-86.7489" />
+  <entry id="TX" latitude="31.1060" longitude="-97.6475" />
+  <entry id="UT" latitude="40.1135" longitude="-111.8535" />
+  <entry id="VA" latitude="37.7680" longitude="-78.2057" />
+  <entry id="VI" latitude="18.0001" longitude="-64.8199" />
+  <entry id="VT" latitude="44.0407" longitude="-72.7093" />
+  <entry id="WA" latitude="47.3917" longitude="-121.5708" />
+  <entry id="WI" latitude="44.2563" longitude="-89.6385" />
+  <entry id="WV" latitude="38.4680" longitude="-80.9696" />
+  <entry id="WY" latitude="42.7475" longitude="-107.2085" />
+</root>

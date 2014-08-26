@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<iso639-2>
+  <item alpha3="aar" alpha2="aa" en="Afar" fr="afar" />
+  <item alpha3="abk" alpha2="ab" en="Abkhazian" fr="abkhaze" />
+  <item alpha3="ace" en="Achinese" fr="aceh" />
+  <item alpha3="ach" en="Acoli" fr="acoli" />
+  <item alpha3="ada" en="Adangme" fr="adangme" />
+  <item alpha3="ady" en="Adyghe; Adygei" fr="adyghé" />
+  <item alpha3="afa" en="Afro-Asiatic languages" fr="afro-asiatiques, langues" />
+  <item alpha3="afh" en="Afrihili" fr="afrihili" />
+  <item alpha3="afr" alpha2="af" en="Afrikaans" fr="afrikaans" />
+  <item alpha3="ain" en="Ainu" fr="aïnou" />
+  <item alpha3="aka" alpha2="ak" en="Akan" fr="akan" />
+  <item alpha3="akk" en="Akkadian" fr="akkadien" />
+  <item alpha3="alb" alpha3t="sqi" alpha2="sq" en="Albanian" fr="albanais" />
+  <item alpha3="ale" en="Aleut" fr="aléoute" />
+  <item alpha3="alg" en="Algonquian languages" fr="algonquines, langues" />
+  <item alpha3="alt" en="Southern Altai" fr="altai du Sud" />
+  <item alpha3="amh" alpha2="am" en="Amharic" fr="amharique" />
+  <item alpha3="ang" en="English, Old (ca.450-1100)" fr="anglo-saxon (ca.450-1100)" />
+  <item alpha3="anp" en="Angika" fr="angika" />
+  <item alpha3="apa" en="Apache languages" fr="apaches, langues" />
+  <item alpha3="ara" alpha2="ar" en="Arabic" fr="arabe" />
+  <item alpha3="arc" en="Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)" fr="araméen d&#39;empire (700-300 BCE)" />
+  <item alpha3="arg" alpha2="an" en="Aragonese" fr="aragonais" />
+  <item alpha3="arm" alpha3t="hye" alpha2="hy" en="Armenian" fr="arménien" />
+  <item alpha3="arn" en="Mapudungun; Mapuche" fr="mapudungun; mapuche; mapuce" />
+  <item alpha3="arp" en="Arapaho" fr="arapaho" />
+  <item alpha3="art" en="Artificial languages" fr="artificielles, langues" />
+  <item alpha3="arw" en="Arawak" fr="arawak" />
+  <item alpha3="asm" alpha2="as" en="Assamese" fr="assamais" />
+  <item alpha3="ast" en="Asturian; Bable; Leonese; Asturleonese" fr="asturien; bable; léonais; asturoléonais" />
+  <item alpha3="ath" en="Athapascan languages" fr="athapascanes, langues" />
+  <item alpha3="aus" en="Australian languages" fr="australiennes, langues" />
+  <item alpha3="ava" alpha2="av" en="Avaric" fr="avar" />
+  <item alpha3="ave" alpha2="ae" en="Avestan" fr="avestique" />
+  <item alpha3="awa" en="Awadhi" fr="awadhi" />
+  <item alpha3="aym" alpha2="ay" en="Aymara" fr="aymara" />
+  <item alpha3="aze" alpha2="az" en="Azerbaijani" fr="azéri" />
+  <item alpha3="bad" en="Banda languages" fr="banda, langues" />
+  <item alpha3="bai" en="Bamileke languages" fr="bamiléké, langues" />
+  <item alpha3="bak" alpha2="ba" en="Bashkir" fr="bachkir" />
+  <item alpha3="bal" en="Baluchi" fr="baloutchi" />
+  <item alpha3="bam" alpha2="bm" en="Bambara" fr="bambara" />
+  <item alpha3="ban" en="Balinese" fr="balinais" />
+  <item alpha3="baq" alpha3t="eus" alpha2="eu" en="Basque" fr="basque" />
+  <item alpha3="bas" en="Basa" fr="basa" />
+  <item alpha3="bat" en="Baltic languages" fr="baltes, langues" />
+  <item alpha3="bej" en="Beja; Bedawiyet" fr="bedja" />
+  <item alpha3="bel" alpha2="be" en="Belarusian" fr="biélorusse" />
+  <item alpha3="bem" en="Bemba" fr="bemba" />
+  <item alpha3="ben" alpha2="bn" en="Bengali" fr="bengali" />
+  <item alpha3="ber" en="Berber languages" fr="berbères, langues" />
+  <item alpha3="bho" en="Bhojpuri" fr="bhojpuri" />
+  <item alpha3="bih" alpha2="bh" en="Bihari languages" fr="langues biharis" />
+  <item alpha3="bik" en="Bikol" fr="bikol" />
+  <item alpha3="bin" en="Bini; Edo" fr="bini; edo" />
+  <item alpha3="bis" alpha2="bi" en="Bislama" fr="bichlamar" />
+  <item alpha3="bla" en="Siksika" fr="blackfoot" />
+  <item alpha3="bnt" en="Bantu (Other)" fr="bantoues, autres langues" />
+  <item alpha3="bos" alpha2="bs" en="Bosnian" fr="bosniaque" />
+  <item alpha3="bra" en="Braj" fr="braj" />
+  <item alpha3="bre" alpha2="br" en="Breton" fr="breton" />
+  <item alpha3="btk" en="Batak languages" fr="batak, langues" />
+  <item alpha3="bua" en="Buriat" fr="bouriate" />
+  <item alpha3="bug" en="Buginese" fr="bugi" />
+  <item alpha3="bul" alpha2="bg" en="Bulgarian" fr="bulgare" />
+  <item alpha3="bur" alpha3t="mya" alpha2="my" en="Burmese" fr="birman" />
+  <item alpha3="byn" en="Blin; Bilin" fr="blin; bilen" />
+  <item alpha3="cad" en="Caddo" fr="caddo" />
+  <item alpha3="cai" en="Central American Indian languages" fr="amérindiennes de L&#39;Amérique centrale, langues" />
+  <item alpha3="car" en="Galibi Carib" fr="karib; galibi; carib" />
+  <item alpha3="cat" alpha2="ca" en="Catalan; Valencian" fr="catalan; valencien" />
+  <item alpha3="cau" en="Caucasian languages" fr="caucasiennes, langues" />
+  <item alpha3="ceb" en="Cebuano" fr="cebuano" />
+  <item alpha3="cel" en="Celtic languages" fr="celtiques, langues; celtes, langues" />
+  <item alpha3="cha" alpha2="ch" en="Chamorro" fr="chamorro" />
+  <item alpha3="chb" en="Chibcha" fr="chibcha" />
+  <item alpha3="che" alpha2="ce" en="Chechen" fr="tchétchène" />
+  <item alpha3="chg" en="Chagatai" fr="djaghataï" />
+  <item alpha3="chi" alpha3t="zho" alpha2="zh" en="Chinese" fr="chinois" />
+  <item alpha3="chk" en="Chuukese" fr="chuuk" />
+  <item alpha3="chm" en="Mari" fr="mari" />
+  <item alpha3="chn" en="Chinook jargon" fr="chinook, jargon" />
+  <item alpha3="cho" en="Choctaw" fr="choctaw" />
+  <item alpha3="chp" en="Chipewyan; Dene Suline" fr="chipewyan" />
+  <item alpha3="chr" en="Cherokee" fr="cherokee" />
+  <item alpha3="chu" alpha2="cu" en="Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" fr="slavon d&#39;église; vieux slave; slavon liturgique; vieux bulgare" />
+  <item alpha3="chv" alpha2="cv" en="Chuvash" fr="tchouvache" />
+  <item alpha3="chy" en="Cheyenne" fr="cheyenne" />
+  <item alpha3="cmc" en="Chamic languages" fr="chames, langues" />
+  <item alpha3="cop" en="Coptic" fr="copte" />
+  <item alpha3="cor" alpha2="kw" en="Cornish" fr="cornique" />
+  <item alpha3="cos" alpha2="co" en="Corsican" fr="corse" />
+  <item alpha3="cpe" en="Creoles and pidgins, English based" fr="créoles et pidgins basés sur l&#39;anglais" />
+  <item alpha3="cpf" en="Creoles and pidgins, French-based " fr="créoles et pidgins basés sur le français" />
+  <item alpha3="cpp" en="Creoles and pidgins, Portuguese-based " fr="créoles et pidgins basés sur le portugais" />
+  <item alpha3="cre" alpha2="cr" en="Cree" fr="cree" />
+  <item alpha3="crh" en="Crimean Tatar; Crimean Turkish" fr="tatar de Crimé" />
+  <item alpha3="crp" en="Creoles and pidgins " fr="créoles et pidgins" />
+  <item alpha3="csb" en="Kashubian" fr="kachoube" />
+  <item alpha3="cus" en="Cushitic languages" fr="couchitiques, langues" />
+  <item alpha3="cze" alpha3t="ces" alpha2="cs" en="Czech" fr="tchèque" />
+  <item alpha3="dak" en="Dakota" fr="dakota" />
+  <item alpha3="dan" alpha2="da" en="Danish" fr="danois" />
+  <item alpha3="dar" en="Dargwa" fr="dargwa" />
+  <item alpha3="day" en="Land Dayak languages" fr="dayak, langues" />
+  <item alpha3="del" en="Delaware" fr="delaware" />
+  <item alpha3="den" en="Slave (Athapascan)" fr="esclave (athapascan)" />
+  <item alpha3="dgr" en="Dogrib" fr="dogrib" />
+  <item alpha3="din" en="Dinka" fr="dinka" />
+  <item alpha3="div" alpha2="dv" en="Divehi; Dhivehi; Maldivian" fr="maldivien" />
+  <item alpha3="doi" en="Dogri" fr="dogri" />
+  <item alpha3="dra" en="Dravidian languages" fr="dravidiennes, langues" />
+  <item alpha3="dsb" en="Lower Sorbian" fr="bas-sorabe" />
+  <item alpha3="dua" en="Duala" fr="douala" />
+  <item alpha3="dum" en="Dutch, Middle (ca.1050-1350)" fr="néerlandais moyen (ca. 1050-1350)" />
+  <item alpha3="dut" alpha3t="nld" alpha2="nl" en="Dutch; Flemish" fr="néerlandais; flamand" />
+  <item alpha3="dyu" en="Dyula" fr="dioula" />
+  <item alpha3="dzo" alpha2="dz" en="Dzongkha" fr="dzongkha" />
+  <item alpha3="efi" en="Efik" fr="efik" />
+  <item alpha3="egy" en="Egyptian (Ancient)" fr="égyptien" />
+  <item alpha3="eka" en="Ekajuk" fr="ekajuk" />
+  <item alpha3="elx" en="Elamite" fr="élamite" />
+  <item alpha3="eng" alpha2="en" en="English" fr="anglais" />
+  <item alpha3="enm" en="English, Middle (1100-1500)" fr="anglais moyen (1100-1500)" />
+  <item alpha3="epo" alpha2="eo" en="Esperanto" fr="espéranto" />
+  <item alpha3="est" alpha2="et" en="Estonian" fr="estonien" />
+  <item alpha3="ewe" alpha2="ee" en="Ewe" fr="éwé" />
+  <item alpha3="ewo" en="Ewondo" fr="éwondo" />
+  <item alpha3="fan" en="Fang" fr="fang" />
+  <item alpha3="fao" alpha2="fo" en="Faroese" fr="féroïen" />
+  <item alpha3="fat" en="Fanti" fr="fanti" />
+  <item alpha3="fij" alpha2="fj" en="Fijian" fr="fidjien" />
+  <item alpha3="fil" en="Filipino; Pilipino" fr="filipino; pilipino" />
+  <item alpha3="fin" alpha2="fi" en="Finnish" fr="finnois" />
+  <item alpha3="fiu" en="Finno-Ugrian languages" fr="finno-ougriennes, langues" />
+  <item alpha3="fon" en="Fon" fr="fon" />
+  <item alpha3="fre" alpha3t="fra" alpha2="fr" en="French" fr="français" />
+  <item alpha3="frm" en="French, Middle (ca.1400-1600)" fr="français moyen (1400-1600)" />
+  <item alpha3="fro" en="French, Old (842-ca.1400)" fr="français ancien (842-ca.1400)" />
+  <item alpha3="frr" en="Northern Frisian" fr="frison septentrional" />
+  <item alpha3="frs" en="Eastern Frisian" fr="frison oriental" />
+  <item alpha3="fry" alpha2="fy" en="Western Frisian" fr="frison occidental" />
+  <item alpha3="ful" alpha2="ff" en="Fulah" fr="peul" />
+  <item alpha3="fur" en="Friulian" fr="frioulan" />
+  <item alpha3="gaa" en="Ga" fr="ga" />
+  <item alpha3="gay" en="Gayo" fr="gayo" />
+  <item alpha3="gba" en="Gbaya" fr="gbaya" />
+  <item alpha3="gem" en="Germanic languages" fr="germaniques, langues" />
+  <item alpha3="geo" alpha3t="kat" alpha2="ka" en="Georgian" fr="géorgien" />
+  <item alpha3="ger" alpha3t="deu" alpha2="de" en="German" fr="allemand" />
+  <item alpha3="gez" en="Geez" fr="guèze" />
+  <item alpha3="gil" en="Gilbertese" fr="kiribati" />
+  <item alpha3="gla" alpha2="gd" en="Gaelic; Scottish Gaelic" fr="gaélique; gaélique écossais" />
+  <item alpha3="gle" alpha2="ga" en="Irish" fr="irlandais" />
+  <item alpha3="glg" alpha2="gl" en="Galician" fr="galicien" />
+  <item alpha3="glv" alpha2="gv" en="Manx" fr="manx; mannois" />
+  <item alpha3="gmh" en="German, Middle High (ca.1050-1500)" fr="allemand, moyen haut (ca. 1050-1500)" />
+  <item alpha3="goh" en="German, Old High (ca.750-1050)" fr="allemand, vieux haut (ca. 750-1050)" />
+  <item alpha3="gon" en="Gondi" fr="gond" />
+  <item alpha3="gor" en="Gorontalo" fr="gorontalo" />
+  <item alpha3="got" en="Gothic" fr="gothique" />
+  <item alpha3="grb" en="Grebo" fr="grebo" />
+  <item alpha3="grc" en="Greek, Ancient (to 1453)" fr="grec ancien (jusqu&#39;à 1453)" />
+  <item alpha3="gre" alpha3t="ell" alpha2="el" en="Greek, Modern (1453-)" fr="grec moderne (après 1453)" />
+  <item alpha3="grn" alpha2="gn" en="Guarani" fr="guarani" />
+  <item alpha3="gsw" en="Swiss German; Alemannic; Alsatian" fr="suisse alémanique; alémanique; alsacien" />
+  <item alpha3="guj" alpha2="gu" en="Gujarati" fr="goudjrati" />
+  <item alpha3="gwi" en="Gwich&#39;in" fr="gwich&#39;in" />
+  <item alpha3="hai" en="Haida" fr="haida" />
+  <item alpha3="hat" alpha2="ht" en="Haitian; Haitian Creole" fr="haïtien; créole haïtien" />
+  <item alpha3="hau" alpha2="ha" en="Hausa" fr="haoussa" />
+  <item alpha3="haw" en="Hawaiian" fr="hawaïen" />
+  <item alpha3="heb" alpha2="he" en="Hebrew" fr="hébreu" />
+  <item alpha3="her" alpha2="hz" en="Herero" fr="herero" />
+  <item alpha3="hil" en="Hiligaynon" fr="hiligaynon" />
+  <item alpha3="him" en="Himachali languages; Western Pahari languages" fr="langues himachalis; langues paharis occidentales" />
+  <item alpha3="hin" alpha2="hi" en="Hindi" fr="hindi" />
+  <item alpha3="hit" en="Hittite" fr="hittite" />
+  <item alpha3="hmn" en="Hmong; Mong" fr="hmong" />
+  <item alpha3="hmo" alpha2="ho" en="Hiri Motu" fr="hiri motu" />
+  <item alpha3="hrv" alpha2="hr" en="Croatian" fr="croate" />
+  <item alpha3="hsb" en="Upper Sorbian" fr="haut-sorabe" />
+  <item alpha3="hun" alpha2="hu" en="Hungarian" fr="hongrois" />
+  <item alpha3="hup" en="Hupa" fr="hupa" />
+  <item alpha3="iba" en="Iban" fr="iban" />
+  <item alpha3="ibo" alpha2="ig" en="Igbo" fr="igbo" />
+  <item alpha3="ice" alpha3t="isl" alpha2="is" en="Icelandic" fr="islandais" />
+  <item alpha3="ido" alpha2="io" en="Ido" fr="ido" />
+  <item alpha3="iii" alpha2="ii" en="Sichuan Yi; Nuosu" fr="yi de Sichuan" />
+  <item alpha3="ijo" en="Ijo languages" fr="ijo, langues" />
+  <item alpha3="iku" alpha2="iu" en="Inuktitut" fr="inuktitut" />
+  <item alpha3="ile" alpha2="ie" en="Interlingue; Occidental" fr="interlingue" />
+  <item alpha3="ilo" en="Iloko" fr="ilocano" />
+  <item alpha3="ina" alpha2="ia" en="Interlingua (International Auxiliary Language Association)" fr="interlingua (langue auxiliaire internationale)" />
+  <item alpha3="inc" en="Indic languages" fr="indo-aryennes, langues" />
+  <item alpha3="ind" alpha2="id" en="Indonesian" fr="indonésien" />
+  <item alpha3="ine" en="Indo-European languages" fr="indo-européennes, langues" />
+  <item alpha3="inh" en="Ingush" fr="ingouche" />
+  <item alpha3="ipk" alpha2="ik" en="Inupiaq" fr="inupiaq" />
+  <item alpha3="ira" en="Iranian languages" fr="iraniennes, langues" />
+  <item alpha3="iro" en="Iroquoian languages" fr="iroquoises, langues" />
+  <item alpha3="ita" alpha2="it" en="Italian" fr="italien" />
+  <item alpha3="jav" alpha2="jv" en="Javanese" fr="javanais" />
+  <item alpha3="jbo" en="Lojban" fr="lojban" />
+  <item alpha3="jpn" alpha2="ja" en="Japanese" fr="japonais" />
+  <item alpha3="jpr" en="Judeo-Persian" fr="judéo-persan" />
+  <item alpha3="jrb" en="Judeo-Arabic" fr="judéo-arabe" />
+  <item alpha3="kaa" en="Kara-Kalpak" fr="karakalpak" />
+  <item alpha3="kab" en="Kabyle" fr="kabyle" />
+  <item alpha3="kac" en="Kachin; Jingpho" fr="kachin; jingpho" />
+  <item alpha3="kal" alpha2="kl" en="Kalaallisut; Greenlandic" fr="groenlandais" />
+  <item alpha3="kam" en="Kamba" fr="kamba" />
+  <item alpha3="kan" alpha2="kn" en="Kannada" fr="kannada" />
+  <item alpha3="kar" en="Karen languages" fr="karen, langues" />
+  <item alpha3="kas" alpha2="ks" en="Kashmiri" fr="kashmiri" />
+  <item alpha3="kau" alpha2="kr" en="Kanuri" fr="kanouri" />
+  <item alpha3="kaw" en="Kawi" fr="kawi" />
+  <item alpha3="kaz" alpha2="kk" en="Kazakh" fr="kazakh" />
+  <item alpha3="kbd" en="Kabardian" fr="kabardien" />
+  <item alpha3="kha" en="Khasi" fr="khasi" />
+  <item alpha3="khi" en="Khoisan languages" fr="khoïsan, langues" />
+  <item alpha3="khm" alpha2="km" en="Central Khmer" fr="khmer central" />
+  <item alpha3="kho" en="Khotanese; Sakan" fr="khotanais; sakan" />
+  <item alpha3="kik" alpha2="ki" en="Kikuyu; Gikuyu" fr="kikuyu" />
+  <item alpha3="kin" alpha2="rw" en="Kinyarwanda" fr="rwanda" />
+  <item alpha3="kir" alpha2="ky" en="Kirghiz; Kyrgyz" fr="kirghiz" />
+  <item alpha3="kmb" en="Kimbundu" fr="kimbundu" />
+  <item alpha3="kok" en="Konkani" fr="konkani" />
+  <item alpha3="kom" alpha2="kv" en="Komi" fr="kom" />
+  <item alpha3="kon" alpha2="kg" en="Kongo" fr="kongo" />
+  <item alpha3="kor" alpha2="ko" en="Korean" fr="coréen" />
+  <item alpha3="kos" en="Kosraean" fr="kosrae" />
+  <item alpha3="kpe" en="Kpelle" fr="kpellé" />
+  <item alpha3="krc" en="Karachay-Balkar" fr="karatchai balkar" />
+  <item alpha3="krl" en="Karelian" fr="carélien" />
+  <item alpha3="kro" en="Kru languages" fr="krou, langues" />
+  <item alpha3="kru" en="Kurukh" fr="kurukh" />
+  <item alpha3="kua" alpha2="kj" en="Kuanyama; Kwanyama" fr="kuanyama; kwanyama" />
+  <item alpha3="kum" en="Kumyk" fr="koumyk" />
+  <item alpha3="kur" alpha2="ku" en="Kurdish" fr="kurde" />
+  <item alpha3="kut" en="Kutenai" fr="kutenai" />
+  <item alpha3="lad" en="Ladino" fr="judéo-espagnol" />
+  <item alpha3="lah" en="Lahnda" fr="lahnda" />
+  <item alpha3="lam" en="Lamba" fr="lamba" />
+  <item alpha3="lao" alpha2="lo" en="Lao" fr="lao" />
+  <item alpha3="lat" alpha2="la" en="Latin" fr="latin" />
+  <item alpha3="lav" alpha2="lv" en="Latvian" fr="letton" />
+  <item alpha3="lez" en="Lezghian" fr="lezghien" />
+  <item alpha3="lim" alpha2="li" en="Limburgan; Limburger; Limburgish" fr="limbourgeois" />
+  <item alpha3="lin" alpha2="ln" en="Lingala" fr="lingala" />
+  <item alpha3="lit" alpha2="lt" en="Lithuanian" fr="lituanien" />
+  <item alpha3="lol" en="Mongo" fr="mongo" />
+  <item alpha3="loz" en="Lozi" fr="lozi" />
+  <item alpha3="ltz" alpha2="lb" en="Luxembourgish; Letzeburgesch" fr="luxembourgeois" />
+  <item alpha3="lua" en="Luba-Lulua" fr="luba-lulua" />
+  <item alpha3="lub" alpha2="lu" en="Luba-Katanga" fr="luba-katanga" />
+  <item alpha3="lug" alpha2="lg" en="Ganda" fr="ganda" />
+  <item alpha3="lui" en="Luiseno" fr="luiseno" />
+  <item alpha3="lun" en="Lunda" fr="lunda" />
+  <item alpha3="luo" en="Luo (Kenya and Tanzania)" fr="luo (Kenya et Tanzanie)" />
+  <item alpha3="lus" en="Lushai" fr="lushai" />
+  <item alpha3="mac" alpha3t="mkd" alpha2="mk" en="Macedonian" fr="macédonien" />
+  <item alpha3="mad" en="Madurese" fr="madourais" />
+  <item alpha3="mag" en="Magahi" fr="magahi" />
+  <item alpha3="mah" alpha2="mh" en="Marshallese" fr="marshall" />
+  <item alpha3="mai" en="Maithili" fr="maithili" />
+  <item alpha3="mak" en="Makasar" fr="makassar" />
+  <item alpha3="mal" alpha2="ml" en="Malayalam" fr="malayalam" />
+  <item alpha3="man" en="Mandingo" fr="mandingue" />
+  <item alpha3="mao" alpha3t="mri" alpha2="mi" en="Maori" fr="maori" />
+  <item alpha3="map" en="Austronesian languages" fr="austronésiennes, langues" />
+  <item alpha3="mar" alpha2="mr" en="Marathi" fr="marathe" />
+  <item alpha3="mas" en="Masai" fr="massaï" />
+  <item alpha3="may" alpha3t="msa" alpha2="ms" en="Malay" fr="malais" />
+  <item alpha3="mdf" en="Moksha" fr="moksa" />
+  <item alpha3="mdr" en="Mandar" fr="mandar" />
+  <item alpha3="men" en="Mende" fr="mendé" />
+  <item alpha3="mga" en="Irish, Middle (900-1200)" fr="irlandais moyen (900-1200)" />
+  <item alpha3="mic" en="Mi&#39;kmaq; Micmac" fr="mi&#39;kmaq; micmac" />
+  <item alpha3="min" en="Minangkabau" fr="minangkabau" />
+  <item alpha3="mis" en="Uncoded languages" fr="langues non codées" />
+  <item alpha3="mkh" en="Mon-Khmer languages" fr="môn-khmer, langues" />
+  <item alpha3="mlg" alpha2="mg" en="Malagasy" fr="malgache" />
+  <item alpha3="mlt" alpha2="mt" en="Maltese" fr="maltais" />
+  <item alpha3="mnc" en="Manchu" fr="mandchou" />
+  <item alpha3="mni" en="Manipuri" fr="manipuri" />
+  <item alpha3="mno" en="Manobo languages" fr="manobo, langues" />
+  <item alpha3="moh" en="Mohawk" fr="mohawk" />
+  <item alpha3="mon" alpha2="mn" en="Mongolian" fr="mongol" />
+  <item alpha3="mos" en="Mossi" fr="moré" />
+  <item alpha3="mul" en="Multiple languages" fr="multilingue" />
+  <item alpha3="mun" en="Munda languages" fr="mounda, langues" />
+  <item alpha3="mus" en="Creek" fr="muskogee" />
+  <item alpha3="mwl" en="Mirandese" fr="mirandais" />
+  <item alpha3="mwr" en="Marwari" fr="marvari" />
+  <item alpha3="myn" en="Mayan languages" fr="maya, langues" />
+  <item alpha3="myv" en="Erzya" fr="erza" />
+  <item alpha3="nah" en="Nahuatl languages" fr="nahuatl, langues" />
+  <item alpha3="nai" en="North American Indian languages" fr="nord-amérindiennes, langues" />
+  <item alpha3="nap" en="Neapolitan" fr="napolitain" />
+  <item alpha3="nau" alpha2="na" en="Nauru" fr="nauruan" />
+  <item alpha3="nav" alpha2="nv" en="Navajo; Navaho" fr="navaho" />
+  <item alpha3="nbl" alpha2="nr" en="Ndebele, South; South Ndebele" fr="ndébélé du Sud" />
+  <item alpha3="nde" alpha2="nd" en="Ndebele, North; North Ndebele" fr="ndébélé du Nord" />
+  <item alpha3="ndo" alpha2="ng" en="Ndonga" fr="ndonga" />
+  <item alpha3="nds" en="Low German; Low Saxon; German, Low; Saxon, Low" fr="bas allemand; bas saxon; allemand, bas; saxon, bas" />
+  <item alpha3="nep" alpha2="ne" en="Nepali" fr="népalais" />
+  <item alpha3="new" en="Nepal Bhasa; Newari" fr="nepal bhasa; newari" />
+  <item alpha3="nia" en="Nias" fr="nias" />
+  <item alpha3="nic" en="Niger-Kordofanian languages" fr="nigéro-kordofaniennes, langues" />
+  <item alpha3="niu" en="Niuean" fr="niué" />
+  <item alpha3="nno" alpha2="nn" en="Norwegian Nynorsk; Nynorsk, Norwegian" fr="norvégien nynorsk; nynorsk, norvégien" />
+  <item alpha3="nob" alpha2="nb" en="Bokmål, Norwegian; Norwegian Bokmål" fr="norvégien bokmål" />
+  <item alpha3="nog" en="Nogai" fr="nogaï; nogay" />
+  <item alpha3="non" en="Norse, Old" fr="norrois, vieux" />
+  <item alpha3="nor" alpha2="no" en="Norwegian" fr="norvégien" />
+  <item alpha3="nqo" en="N&#39;Ko" fr="n&#39;ko" />
+  <item alpha3="nso" en="Pedi; Sepedi; Northern Sotho" fr="pedi; sepedi; sotho du Nord" />
+  <item alpha3="nub" en="Nubian languages" fr="nubiennes, langues" />
+  <item alpha3="nwc" en="Classical Newari; Old Newari; Classical Nepal Bhasa" fr="newari classique" />
+  <item alpha3="nya" alpha2="ny" en="Chichewa; Chewa; Nyanja" fr="chichewa; chewa; nyanja" />
+  <item alpha3="nym" en="Nyamwezi" fr="nyamwezi" />
+  <item alpha3="nyn" en="Nyankole" fr="nyankolé" />
+  <item alpha3="nyo" en="Nyoro" fr="nyoro" />
+  <item alpha3="nzi" en="Nzima" fr="nzema" />
+  <item alpha3="oci" alpha2="oc" en="Occitan (post 1500); Provençal" fr="occitan (après 1500); provençal" />
+  <item alpha3="oji" alpha2="oj" en="Ojibwa" fr="ojibwa" />
+  <item alpha3="ori" alpha2="or" en="Oriya" fr="oriya" />
+  <item alpha3="orm" alpha2="om" en="Oromo" fr="galla" />
+  <item alpha3="osa" en="Osage" fr="osage" />
+  <item alpha3="oss" alpha2="os" en="Ossetian; Ossetic" fr="ossète" />
+  <item alpha3="ota" en="Turkish, Ottoman (1500-1928)" fr="turc ottoman (1500-1928)" />
+  <item alpha3="oto" en="Otomian languages" fr="otomi, langues" />
+  <item alpha3="paa" en="Papuan languages" fr="papoues, langues" />
+  <item alpha3="pag" en="Pangasinan" fr="pangasinan" />
+  <item alpha3="pal" en="Pahlavi" fr="pahlavi" />
+  <item alpha3="pam" en="Pampanga; Kapampangan" fr="pampangan" />
+  <item alpha3="pan" alpha2="pa" en="Panjabi; Punjabi" fr="pendjabi" />
+  <item alpha3="pap" en="Papiamento" fr="papiamento" />
+  <item alpha3="pau" en="Palauan" fr="palau" />
+  <item alpha3="peo" en="Persian, Old (ca.600-400 B.C.)" fr="perse, vieux (ca. 600-400 av. J.-C.)" />
+  <item alpha3="per" alpha3t="fas" alpha2="fa" en="Persian" fr="persan" />
+  <item alpha3="phi" en="Philippine languages" fr="philippines, langues" />
+  <item alpha3="phn" en="Phoenician" fr="phénicien" />
+  <item alpha3="pli" alpha2="pi" en="Pali" fr="pali" />
+  <item alpha3="pol" alpha2="pl" en="Polish" fr="polonais" />
+  <item alpha3="pon" en="Pohnpeian" fr="pohnpei" />
+  <item alpha3="por" alpha2="pt" en="Portuguese" fr="portugais" />
+  <item alpha3="pra" en="Prakrit languages" fr="prâkrit, langues" />
+  <item alpha3="pro" en="Provençal, Old (to 1500)" fr="provençal ancien (jusqu&#39;à 1500)" />
+  <item alpha3="pus" alpha2="ps" en="Pushto; Pashto" fr="pachto" />
+  <item alpha3="que" alpha2="qu" en="Quechua" fr="quechua" />
+  <item alpha3="raj" en="Rajasthani" fr="rajasthani" />
+  <item alpha3="rap" en="Rapanui" fr="rapanui" />
+  <item alpha3="rar" en="Rarotongan; Cook Islands Maori" fr="rarotonga; maori des îles Cook" />
+  <item alpha3="roa" en="Romance languages" fr="romanes, langues" />
+  <item alpha3="roh" alpha2="rm" en="Romansh" fr="romanche" />
+  <item alpha3="rom" en="Romany" fr="tsigane" />
+  <item alpha3="rum" alpha3t="ron" alpha2="ro" en="Romanian; Moldavian; Moldovan" fr="roumain; moldave" />
+  <item alpha3="run" alpha2="rn" en="Rundi" fr="rundi" />
+  <item alpha3="rup" en="Aromanian; Arumanian; Macedo-Romanian" fr="aroumain; macédo-roumain" />
+  <item alpha3="rus" alpha2="ru" en="Russian" fr="russe" />
+  <item alpha3="sad" en="Sandawe" fr="sandawe" />
+  <item alpha3="sag" alpha2="sg" en="Sango" fr="sango" />
+  <item alpha3="sah" en="Yakut" fr="iakoute" />
+  <item alpha3="sai" en="South American Indian (Other)" fr="indiennes d&#39;Amérique du Sud, autres langues" />
+  <item alpha3="sal" en="Salishan languages" fr="salishennes, langues" />
+  <item alpha3="sam" en="Samaritan Aramaic" fr="samaritain" />
+  <item alpha3="san" alpha2="sa" en="Sanskrit" fr="sanskrit" />
+  <item alpha3="sas" en="Sasak" fr="sasak" />
+  <item alpha3="sat" en="Santali" fr="santal" />
+  <item alpha3="scn" en="Sicilian" fr="sicilien" />
+  <item alpha3="sco" en="Scots" fr="écossais" />
+  <item alpha3="sel" en="Selkup" fr="selkoupe" />
+  <item alpha3="sem" en="Semitic languages" fr="sémitiques, langues" />
+  <item alpha3="sga" en="Irish, Old (to 900)" fr="irlandais ancien (jusqu&#39;à 900)" />
+  <item alpha3="sgn" en="Sign Languages" fr="langues des signes" />
+  <item alpha3="shn" en="Shan" fr="chan" />
+  <item alpha3="sid" en="Sidamo" fr="sidamo" />
+  <item alpha3="sin" alpha2="si" en="Sinhala; Sinhalese" fr="singhalais" />
+  <item alpha3="sio" en="Siouan languages" fr="sioux, langues" />
+  <item alpha3="sit" en="Sino-Tibetan languages" fr="sino-tibétaines, langues" />
+  <item alpha3="sla" en="Slavic languages" fr="slaves, langues" />
+  <item alpha3="slo" alpha3t="slk" alpha2="sk" en="Slovak" fr="slovaque" />
+  <item alpha3="slv" alpha2="sl" en="Slovenian" fr="slovène" />
+  <item alpha3="sma" en="Southern Sami" fr="sami du Sud" />
+  <item alpha3="sme" alpha2="se" en="Northern Sami" fr="sami du Nord" />
+  <item alpha3="smi" en="Sami languages" fr="sames, langues" />
+  <item alpha3="smj" en="Lule Sami" fr="sami de Lule" />
+  <item alpha3="smn" en="Inari Sami" fr="sami d&#39;Inari" />
+  <item alpha3="smo" alpha2="sm" en="Samoan" fr="samoan" />
+  <item alpha3="sms" en="Skolt Sami" fr="sami skolt" />
+  <item alpha3="sna" alpha2="sn" en="Shona" fr="shona" />
+  <item alpha3="snd" alpha2="sd" en="Sindhi" fr="sindhi" />
+  <item alpha3="snk" en="Soninke" fr="soninké" />
+  <item alpha3="sog" en="Sogdian" fr="sogdien" />
+  <item alpha3="som" alpha2="so" en="Somali" fr="somali" />
+  <item alpha3="son" en="Songhai languages" fr="songhai, langues" />
+  <item alpha3="sot" alpha2="st" en="Sotho, Southern" fr="sotho du Sud" />
+  <item alpha3="spa" alpha2="es" en="Spanish; Castilian" fr="espagnol; castillan" />
+  <item alpha3="srd" alpha2="sc" en="Sardinian" fr="sarde" />
+  <item alpha3="srn" en="Sranan Tongo" fr="sranan tongo" />
+  <item alpha3="srp" alpha2="sr" en="Serbian" fr="serbe" />
+  <item alpha3="srr" en="Serer" fr="sérère" />
+  <item alpha3="ssa" en="Nilo-Saharan languages" fr="nilo-sahariennes, langues" />
+  <item alpha3="ssw" alpha2="ss" en="Swati" fr="swati" />
+  <item alpha3="suk" en="Sukuma" fr="sukuma" />
+  <item alpha3="sun" alpha2="su" en="Sundanese" fr="soundanais" />
+  <item alpha3="sus" en="Susu" fr="soussou" />
+  <item alpha3="sux" en="Sumerian" fr="sumérien" />
+  <item alpha3="swa" alpha2="sw" en="Swahili" fr="swahili" />
+  <item alpha3="swe" alpha2="sv" en="Swedish" fr="suédois" />
+  <item alpha3="syc" en="Classical Syriac" fr="syriaque classique" />
+  <item alpha3="syr" en="Syriac" fr="syriaque" />
+  <item alpha3="tah" alpha2="ty" en="Tahitian" fr="tahitien" />
+  <item alpha3="tai" en="Tai languages" fr="tai, langues" />
+  <item alpha3="tam" alpha2="ta" en="Tamil" fr="tamoul" />
+  <item alpha3="tat" alpha2="tt" en="Tatar" fr="tatar" />
+  <item alpha3="tel" alpha2="te" en="Telugu" fr="télougou" />
+  <item alpha3="tem" en="Timne" fr="temne" />
+  <item alpha3="ter" en="Tereno" fr="tereno" />
+  <item alpha3="tet" en="Tetum" fr="tetum" />
+  <item alpha3="tgk" alpha2="tg" en="Tajik" fr="tadjik" />
+  <item alpha3="tgl" alpha2="tl" en="Tagalog" fr="tagalog" />
+  <item alpha3="tha" alpha2="th" en="Thai" fr="thaï" />
+  <item alpha3="tib" alpha3t="bod" alpha2="bo" en="Tibetan" fr="tibétain" />
+  <item alpha3="tig" en="Tigre" fr="tigré" />
+  <item alpha3="tir" alpha2="ti" en="Tigrinya" fr="tigrigna" />
+  <item alpha3="tiv" en="Tiv" fr="tiv" />
+  <item alpha3="tkl" en="Tokelau" fr="tokelau" />
+  <item alpha3="tlh" en="Klingon; tlhIngan-Hol" fr="klingon" />
+  <item alpha3="tli" en="Tlingit" fr="tlingit" />
+  <item alpha3="tmh" en="Tamashek" fr="tamacheq" />
+  <item alpha3="tog" en="Tonga (Nyasa)" fr="tonga (Nyasa)" />
+  <item alpha3="ton" alpha2="to" en="Tonga (Tonga Islands)" fr="tongan (Îles Tonga)" />
+  <item alpha3="tpi" en="Tok Pisin" fr="tok pisin" />
+  <item alpha3="tsi" en="Tsimshian" fr="tsimshian" />
+  <item alpha3="tsn" alpha2="tn" en="Tswana" fr="tswana" />
+  <item alpha3="tso" alpha2="ts" en="Tsonga" fr="tsonga" />
+  <item alpha3="tuk" alpha2="tk" en="Turkmen" fr="turkmène" />
+  <item alpha3="tum" en="Tumbuka" fr="tumbuka" />
+  <item alpha3="tup" en="Tupi languages" fr="tupi, langues" />
+  <item alpha3="tur" alpha2="tr" en="Turkish" fr="turc" />
+  <item alpha3="tut" en="Altaic languages" fr="altaïques, langues" />
+  <item alpha3="tvl" en="Tuvalu" fr="tuvalu" />
+  <item alpha3="twi" alpha2="tw" en="Twi" fr="twi" />
+  <item alpha3="tyv" en="Tuvinian" fr="touva" />
+  <item alpha3="udm" en="Udmurt" fr="oudmourte" />
+  <item alpha3="uga" en="Ugaritic" fr="ougaritique" />
+  <item alpha3="uig" alpha2="ug" en="Uighur; Uyghur" fr="ouïgour" />
+  <item alpha3="ukr" alpha2="uk" en="Ukrainian" fr="ukrainien" />
+  <item alpha3="umb" en="Umbundu" fr="umbundu" />
+  <item alpha3="und" en="Undetermined" fr="indéterminée" />
+  <item alpha3="urd" alpha2="ur" en="Urdu" fr="ourdou" />
+  <item alpha3="uzb" alpha2="uz" en="Uzbek" fr="ouszbek" />
+  <item alpha3="vai" en="Vai" fr="vaï" />
+  <item alpha3="ven" alpha2="ve" en="Venda" fr="venda" />
+  <item alpha3="vie" alpha2="vi" en="Vietnamese" fr="vietnamien" />
+  <item alpha3="vol" alpha2="vo" en="Volapük" fr="volapük" />
+  <item alpha3="vot" en="Votic" fr="vote" />
+  <item alpha3="wak" en="Wakashan languages" fr="wakashanes, langues" />
+  <item alpha3="wal" en="Walamo" fr="walamo" />
+  <item alpha3="war" en="Waray" fr="waray" />
+  <item alpha3="was" en="Washo" fr="washo" />
+  <item alpha3="wel" alpha3t="cym" alpha2="cy" en="Welsh" fr="gallois" />
+  <item alpha3="wen" en="Sorbian languages" fr="sorabes, langues" />
+  <item alpha3="wln" alpha2="wa" en="Walloon" fr="wallon" />
+  <item alpha3="wol" alpha2="wo" en="Wolof" fr="wolof" />
+  <item alpha3="xal" en="Kalmyk; Oirat" fr="kalmouk; oïrat" />
+  <item alpha3="xho" alpha2="xh" en="Xhosa" fr="xhosa" />
+  <item alpha3="yao" en="Yao" fr="yao" />
+  <item alpha3="yap" en="Yapese" fr="yapois" />
+  <item alpha3="yid" alpha2="yi" en="Yiddish" fr="yiddish" />
+  <item alpha3="yor" alpha2="yo" en="Yoruba" fr="yoruba" />
+  <item alpha3="ypk" en="Yupik languages" fr="yupik, langues" />
+  <item alpha3="zap" en="Zapotec" fr="zapotèque" />
+  <item alpha3="zbl" en="Blissymbols; Blissymbolics; Bliss" fr="symboles Bliss; Bliss" />
+  <item alpha3="zen" en="Zenaga" fr="zenaga" />
+  <item alpha3="zgh" en="Standard Moroccan Tamazight" fr="amazighe standard marocain" />
+  <item alpha3="zha" alpha2="za" en="Zhuang; Chuang" fr="zhuang; chuang" />
+  <item alpha3="znd" en="Zande languages" fr="zandé, langues" />
+  <item alpha3="zul" alpha2="zu" en="Zulu" fr="zoulou" />
+  <item alpha3="zun" en="Zuni" fr="zuni" />
+  <item alpha3="zxx" en="No linguistic content; Not applicable" fr="pas de contenu linguistique; non applicable" />
+  <item alpha3="zza" en="Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki" fr="zaza; dimili; dimli; kirdki; kirmanjki; zazaki" />
+</iso639-2>

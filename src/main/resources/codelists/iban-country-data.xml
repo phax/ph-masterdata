@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!--
+Primary source: http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf (Version 47)
+Secondary source: http://en.wikipedia.org/wiki/International_Bank_Account_Number (2014-02-26)
+Layout: upper case alpha characters (A–Z) denoted by "a", 
+        numeric characters (0–9) denoted by "n" 
+        mixed case alphanumeric characters (a–z, A–Z, 0–9) denoted by "c" 
+ -->
+<iban>
+  <country name="Albania" len="28" layout="8n,16c">ALkk bbbs sssx cccc cccc cccc cccc</country>
+  <country name="Andorra" len="24" layout="8n,12c">ADkk bbbb ssss cccc cccc cccc</country>
+  <country name="Austria" len="20" layout="16n">ATkk bbbb bccc cccc cccc</country>
+  <country name="Republic of Azerbaijan" len="28" layout="4a,20c" validfrom="2013-01-03">AZkk bbbb cccc cccc cccc cccc cccc</country>
+  <country name="Bahrain" len="22" layout="4a,14c" validfrom="2012-01-31">BHkk bbbb cccc cccc cccc cc</country>
+  <country name="Belgium" len="16" layout="12n">BEkk bbbc cccc ccxx</country>
+  <country name="Bosnia and Herzegovina" len="20" layout="16n" checkdigits="39">BAkk bbbs sscc cccc ccxx</country>
+  <country name="Brazil" len="29" layout="23n,1a,1c" validfrom="2013-07-01">BRkk bbbb bbbb ssss sccc cccc ccct n</country>
+  <country name="Bulgaria" len="22" layout="4a,6n,8c">BGkk bbbb ssss ddcc cccc cc</country>
+  <country name="Costa Rica" len="21" layout="17n" validfrom="2011-06-01">CRkk bbbc cccc cccc cccc c</country>
+  <country name="Croatia" len="21" layout="17n">HRkk bbbb bbbc cccc cccc c</country>
+  <country name="Cyprus" len="28" layout="8n,16c">CYkk bbbs ssss cccc cccc cccc cccc</country>
+  <country name="Czech Republic" len="24" layout="20n">CZkk bbbb ssss sscc cccc cccc</country>
+  <country name="Denmark" len="18" layout="14n">DKkk bbbb cccc cccc cc</country>
+  <country name="Denmark (Faroe Islands)" len="18" layout="14n">FOkk bbbb cccc cccc cc</country>
+  <country name="Denmark (Greenland)" len="18" layout="14n">GLkk bbbb cccc cccc cc</country>
+  <country name="Dominican Republic" len="28" layout="4c,20n">DOkk bbbb cccc cccc cccc cccc cccc</country>
+  <country name="Estonia" len="20" layout="16n">EEkk bbss cccc cccc cccx</country>
+  <country name="Finland" len="18" layout="14n">FIkk bbbb bbcc cccc cx</country>
+  <country name="France" len="27" layout="10n,11c,2n">FRkk bbbb bggg ggcc cccc cccc cxx</country>
+  <country name="Georgia" len="22" layout="2a,16n">GEkk bbcc cccc cccc cccc cc</country>
+  <country name="Germany" len="22" layout="18n">DEkk bbbb bbbb cccc cccc cc</country>
+  <country name="Gibraltar" len="23" layout="4a,15c">GIkk bbbb cccc cccc cccc ccc</country>
+  <country name="Greece" len="27" layout="7n,16c">GRkk bbbs sssc cccc cccc cccc ccc</country>
+  <country name="Guatemala" len="28" layout="24c" validfrom="2014-07-01">GTkk bbbb cccc cccc cccc cccc cccc</country>
+  <country name="Hungary" len="28" layout="24n">HUkk bbbs sssk cccc cccc cccc cccx</country>
+  <country name="Iceland" len="26" layout="22n">ISkk bbbb sscc cccc iiii iiii ii</country>
+  <country name="Ireland" len="22" layout="4a,14n">IEkk aaaa bbbb bbcc cccc cc</country>
+  <country name="Israel" len="23" layout="19n">ILkk bbbn nncc cccc cccc ccc</country>
+  <country name="Italy" len="27" layout="1a,10n,12c">ITkk xaaa aabb bbbc cccc cccc ccc</country>
+  <country name="Jordan" len="30" layout="4a,4n,18c" validfrom="2014-02-02">JOkk bbbb nnnn cccc cccc cccc cccc cc</country>
+  <country name="Kazakhstan" len="20" layout="3n,13c" validfrom="2010-06-11">KZkk bbbc cccc cccc cccc</country>
+  <country name="Kuwait" len="30" layout="4a,22c">KWkk bbbb cccc cccc cccc cccc cccc cc</country>
+  <country name="Latvia" len="21" layout="4a,13c">LVkk bbbb cccc cccc cccc c</country>
+  <country name="Lebanon" len="28" layout="4n,20c">LBkk bbbb cccc cccc cccc cccc cccc</country>
+  <country name="Principality of Liechtenstein" len="21" layout="5n,12c">LIkk bbbb bccc cccc cccc c</country>
+  <country name="Lithuania" len="20" layout="16n">LTkk bbbb bccc cccc cccc</country>
+  <country name="Luxembourg" len="20" layout="3n,13c">LUkk bbbc cccc cccc cccc</country>
+  <country name="Macedonia, Former Yugoslav Republic of" len="19" layout="3n,10c,2n" checkdigits="07">MKkk bbbc cccc cccc cxx</country>
+  <country name="Malta" len="31" layout="4a,5n,18c">MTkk bbbb ssss sccc cccc cccc cccc ccc</country>
+  <country name="Mauritania" len="27" layout="23n" checkdigits="13" validfrom="2012-01-01">MRkk bbbb bsss sscc cccc cccc cxx</country>
+  <country name="Mauritius" len="30" layout="4a,19n,3a">MUkk bbbb bbss cccc cccc cccc cccc cc</country>
+  <country name="Republic of Moldova" len="24" layout="2c,18c" validfrom="2013-01-01">MDkk bbcc cccc cccc cccc cccc</country>
+  <country name="Monaco" len="27" layout="10n,11c,2n">MCkk bbbb bsss sscc cccc cccc cxx</country>
+  <country name="Montenegro" len="22" layout="18n" checkdigits="25">MEkk bbbc cccc cccc cccc xx</country>
+  <country name="The Netherlands" len="18" layout="4a,10n">NLkk bbbb cccc cccc cc</country>
+  <country name="Norway" len="15" layout="11n">NOkk bbbb cccc ccx</country>
+  <country name="Pakistan" len="24" layout="4a,16c" validfrom="2012-12-31">PKkk bbbb cccc cccc cccc cccc</country>
+  <country name="Palestine, State of." len="29" layout="4a,21c">PSkk bbbb xxxx xxxx xccc cccc cccc c</country>
+  <country name="Poland" len="28" layout="24n">PLkk bbbs sssx cccc cccc cccc cccc</country>
+  <country name="Portugal" len="25" layout="21n" checkdigits="50">PTkk bbbb ssss cccc cccc cccx x</country>
+  <country name="Romania" len="24" layout="4a,16c">ROkk bbbb cccc cccc cccc cccc</country>
+  <country name="Qatar" len="29" layout="4a,21c" validfrom="2014-01-01">QAkk bbbb cccc cccc cccc cccc cccc c</country>
+  <country name="San Marino" len="27" layout="1a,10n,12c">SMkk xaaa aabb bbbc cccc cccc ccc</country>
+  <country name="Saudi Arabia" len="24" layout="2n,18c">SAkk bbcc cccc cccc cccc cccc</country>
+  <country name="Serbia" len="22" layout="18n">RSkk bbbc cccc cccc cccc xx</country>
+  <country name="Slovak Republic" len="24" layout="20n">SKkk bbbb ssss sscc cccc cccc</country>
+  <country name="Slovenia" len="19" layout="15n" checkdigits="56">SIkk bbss sccc cccc cxx</country>
+  <country name="Spain" len="24" layout="20n">ESkk bbbb gggg xxcc cccc cccc</country>
+  <country name="Sweden" len="24" layout="20n">SEkk bbbc cccc cccc cccc cccc</country>
+  <country name="Switzerland" len="21" layout="5n,12c">CHkk bbbb bccc cccc cccc c</country>
+  <country name="Tunisia" len="24" layout="20n" checkdigits="59">TNkk bbss sccc cccc cccc cccc</country>
+  <country name="Turkey" len="26" layout="5n,17c">TRkk bbbb bxcc cccc cccc cccc cc</country>
+  <country name="United Arab Emirates" len="23" layout="3n,16n" validfrom="2011-10-15">AEkk bbbc cccc cccc cccc ccc</country>
+  <country name="United Kingdom" len="22" layout="4a,14n">GBkk bbbb ssss sscc cccc cc</country>
+  <country name="Virgin Islands, British" len="24" layout="4a,16n" validfrom="2011-10-01">VGkk bbbb cccc cccc cccc cccc</country>
+
+  <!-- No layout available for BF -->
+  <country name="Burkina Faso" len="24">BFkkk sssss cccccccccccc dd</country>
+  
+  <!-- According to Wikipedia, Montenegro declared independence on 2006/06/03 -->
+  <country name="Serbia and Montenegro" len="22" validuntil="2006-06-02">CSkk bbbc cccc cccc cccc xx</country>
+</iban>

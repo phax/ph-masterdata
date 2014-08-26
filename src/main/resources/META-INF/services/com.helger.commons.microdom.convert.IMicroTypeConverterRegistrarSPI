@@ -1,0 +1,7 @@
+com.helger.masterdata.address.AddressTypeConverterRegistrar
+com.helger.masterdata.currency.CurrencyValueTypeConverterRegistrar
+com.helger.masterdata.currency.exchangeratio.ExchangeRatioTypeConverterRegistrar
+com.helger.masterdata.email.EmailAddressTypeConverterRegistrar
+com.helger.masterdata.person.PersonTypeConverterRegistrar
+com.helger.masterdata.price.PriceTypeConverterRegistrar
+com.helger.masterdata.telephone.TelephoneTypeConverterRegistrar

@@ -1,0 +1,2161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root>
+  <header>
+    <source>http://www.unece.org/cefact/recommendations/rec21/rec21_Rev9e_2012.xls</source>
+    <revision>9</revision>
+  </header>
+  <body>
+    <item status="unchanged" code="1A" numericcodes="34">
+      <name>
+        <text locale="en">Drum, steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="1B" numericcodes="34">
+      <name>
+        <text locale="en">Drum, aluminium</text>
+      </name>
+    </item>
+    <item status="unchanged" code="1D" numericcodes="34">
+      <name>
+        <text locale="en">Drum, plywood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="1F" numericcodes="93">
+      <name>
+        <text locale="en">Container, flexible</text>
+      </name>
+      <description>
+        <text locale="en">A packaging container of flexible construction.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="1G" numericcodes="34">
+      <name>
+        <text locale="en">Drum, fibre</text>
+      </name>
+    </item>
+    <item status="unchanged" code="1W" numericcodes="34,35">
+      <name>
+        <text locale="en">Drum, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="2C" numericcodes="44,45">
+      <name>
+        <text locale="en">Barrel, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="3A" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="3H" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="43" numericcodes="64">
+      <name>
+        <text locale="en">Bag, super bulk</text>
+      </name>
+      <description>
+        <text locale="en">A cloth plastic or paper based bag having the dimensions of the pallet on which it is constructed.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="44" numericcodes="62,63">
+      <name>
+        <text locale="en">Bag, polybag</text>
+      </name>
+      <description>
+        <text locale="en">A type of plastic bag, typically used to wrap promotional pieces, publications, product samples, and/or catalogues. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="4A" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4B" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, aluminium</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4C" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, natural wood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4D" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, plywood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4F" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, reconstituted wood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4G" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, fibreboard</text>
+      </name>
+    </item>
+    <item status="unchanged" code="4H" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="5H" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, woven plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="5L" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, textile </text>
+      </name>
+    </item>
+    <item status="unchanged" code="5M" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, paper </text>
+      </name>
+    </item>
+    <item status="unchanged" code="6H" numericcodes="24,25,33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle</text>
+      </name>
+    </item>
+    <item status="unchanged" code="6P" numericcodes="23,24,25,33,34,62,63">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle</text>
+      </name>
+    </item>
+    <item status="unchanged" code="7A" numericcodes="22,23">
+      <name>
+        <text locale="en">Case, car</text>
+      </name>
+      <description>
+        <text locale="en">A type of portable container designed to store equipment for carriage in an automobile.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="7B" numericcodes="24,25">
+      <name>
+        <text locale="en">Case, wooden</text>
+      </name>
+      <description>
+        <text locale="en">A case made of wood for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="8A" numericcodes="24,25">
+      <name>
+        <text locale="en">Pallet, wooden</text>
+      </name>
+      <description>
+        <text locale="en">A platform or open-ended box, made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="8B" numericcodes="23,24,25,26,27">
+      <name>
+        <text locale="en">Crate, wooden</text>
+      </name>
+      <description>
+        <text locale="en">A receptacle, made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="8C" numericcodes="16">
+      <name>
+        <text locale="en">Bundle, wooden</text>
+      </name>
+      <description>
+        <text locale="en">Loose or unpacked pieces of wood tied or wrapped together. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="AA" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="AB" numericcodes="21,22,23,31,32,33,41,42,43">
+      <name>
+        <text locale="en">Receptacle, fibre </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of fibre used for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AC" numericcodes="21,22,23,31,32,33,41,42,43">
+      <name>
+        <text locale="en">Receptacle, paper </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of paper for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AD" numericcodes="21,22,23,31,32,33,41,42,43">
+      <name>
+        <text locale="en">Receptacle, wooden </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of wood for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AE" numericcodes="42,43">
+      <name>
+        <text locale="en">Aerosol</text>
+      </name>
+    </item>
+    <item status="unchanged" code="AF" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, modular, collars 80cms * 60cms </text>
+      </name>
+      <description>
+        <text locale="en">Standard sized pallet of dimensions 80 centimeters by 60 centimeters (cms).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AG" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, shrinkwrapped </text>
+      </name>
+      <description>
+        <text locale="en">Pallet load secured with transparent plastic film that has been wrapped around and then shrunk tightly.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AH" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, 100cms * 110cms </text>
+      </name>
+      <description>
+        <text locale="en">Standard sized pallet of dimensions 100centimeters by 110 centimeters (cms).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AI" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Clamshell</text>
+      </name>
+    </item>
+    <item status="unchanged" code="AJ" numericcodes="51">
+      <name>
+        <text locale="en">Cone</text>
+      </name>
+      <description>
+        <text locale="en">Container used in the transport of linear material such as yarn.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AL" numericcodes="46">
+      <name>
+        <text locale="en">Ball</text>
+      </name>
+      <description>
+        <text locale="en">A spherical containment vessel for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="AM" numericcodes="31">
+      <name>
+        <text locale="en">Ampoule, non-protected </text>
+      </name>
+    </item>
+    <item status="unchanged" code="AP" numericcodes="31">
+      <name>
+        <text locale="en">Ampoule, protected </text>
+      </name>
+    </item>
+    <item status="unchanged" code="AT" numericcodes="42,43">
+      <name>
+        <text locale="en">Atomizer </text>
+      </name>
+    </item>
+    <item status="unchanged" code="AV" numericcodes="92">
+      <name>
+        <text locale="en">Capsule</text>
+      </name>
+    </item>
+    <item status="unchanged" code="B4" numericcodes="93">
+      <name>
+        <text locale="en">Belt</text>
+      </name>
+      <description>
+        <text locale="en">A band use to retain multiple articles together.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BA" numericcodes="44,45">
+      <name>
+        <text locale="en">Barrel </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BB" numericcodes="91">
+      <name>
+        <text locale="en">Bobbin </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BC" numericcodes="29">
+      <name>
+        <text locale="en">Bottlecrate / bottlerack </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BD" numericcodes="16">
+      <name>
+        <text locale="en">Board</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BE" numericcodes="61,62,63,64,65">
+      <name>
+        <text locale="en">Bundle </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BF" numericcodes="42,43">
+      <name>
+        <text locale="en">Balloon, non-protected </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BG" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag</text>
+      </name>
+      <description>
+        <text locale="en">A receptacle made of flexible material with an open or closed top.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BH" numericcodes="61,62,63,64,65">
+      <name>
+        <text locale="en">Bunch</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BI" numericcodes="21,25">
+      <name>
+        <text locale="en">Bin</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BJ" numericcodes="51">
+      <name>
+        <text locale="en">Bucket </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BK" numericcodes="27">
+      <name>
+        <text locale="en">Basket </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BL" numericcodes="65">
+      <name>
+        <text locale="en">Bale, compressed </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BM" numericcodes="51">
+      <name>
+        <text locale="en">Basin</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BN" numericcodes="65">
+      <name>
+        <text locale="en">Bale, non-compressed </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BO" numericcodes="32,33">
+      <name>
+        <text locale="en">Bottle, non-protected, cylindrical </text>
+      </name>
+      <description>
+        <text locale="en">A narrow-necked cylindrical shaped vessel without external protective packing material.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BP" numericcodes="42,43">
+      <name>
+        <text locale="en">Balloon, protected </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BQ" numericcodes="32,33">
+      <name>
+        <text locale="en">Bottle, protected cylindrical</text>
+      </name>
+      <description>
+        <text locale="en">A narrow-necked cylindrical shaped vessel with external protective packing material.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BR" numericcodes="16">
+      <name>
+        <text locale="en">Bar</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BS" numericcodes="42,43">
+      <name>
+        <text locale="en">Bottle, non-protected, bulbous </text>
+      </name>
+      <description>
+        <text locale="en">A narrow-necked bulb shaped vessel without external protective packing material.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BT" numericcodes="13">
+      <name>
+        <text locale="en">Bolt </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BU" numericcodes="44,45">
+      <name>
+        <text locale="en">Butt </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BV" numericcodes="42,43">
+      <name>
+        <text locale="en">Bottle, protected bulbous</text>
+      </name>
+      <description>
+        <text locale="en">A narrow-necked bulb shaped vessel with external protective packing material.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="BW" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, for liquids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BX" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="BY" numericcodes="16">
+      <name>
+        <text locale="en">Board, in bundle/bunch/truss </text>
+      </name>
+    </item>
+    <item status="unchanged" code="BZ" numericcodes="16">
+      <name>
+        <text locale="en">Bars, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CA" numericcodes="22">
+      <name>
+        <text locale="en">Can, rectangular </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CB" numericcodes="23,24,25,26,27">
+      <name>
+        <text locale="en">Crate, beer</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CC" numericcodes="32,33">
+      <name>
+        <text locale="en">Churn</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CD" numericcodes="22">
+      <name>
+        <text locale="en">Can, with handle and spout </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CE" numericcodes="27">
+      <name>
+        <text locale="en">Creel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CF" numericcodes="24">
+      <name>
+        <text locale="en">Coffer </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CG" numericcodes="26">
+      <name>
+        <text locale="en">Cage </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CH" numericcodes="25">
+      <name>
+        <text locale="en">Chest</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CI" numericcodes="21,22">
+      <name>
+        <text locale="en">Canister </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CJ" numericcodes="54">
+      <name>
+        <text locale="en">Coffin </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CK" numericcodes="44,45">
+      <name>
+        <text locale="en">Cask </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CL" numericcodes="14">
+      <name>
+        <text locale="en">Coil </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CM" numericcodes="67">
+      <name>
+        <text locale="en">Card</text>
+      </name>
+      <description>
+        <text locale="en">A flat package usually made of fibreboard from/to which product is often hung or attached.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="CN" numericcodes="25">
+      <name>
+        <text locale="en">Container, not otherwise specified as transport equipment</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CO" numericcodes="43">
+      <name>
+        <text locale="en">Carboy, non-protected</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CP" numericcodes="43">
+      <name>
+        <text locale="en">Carboy, protected</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CQ" numericcodes="92">
+      <name>
+        <text locale="en">Cartridge</text>
+      </name>
+      <description>
+        <text locale="en">Package containing a charge such as propelling explosive for firearms or ink toner for a printer.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="CR" numericcodes="24,25">
+      <name>
+        <text locale="en">Crate</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CS" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Case </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CT" numericcodes="22,23,24">
+      <name>
+        <text locale="en">Carton </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CU" numericcodes="51">
+      <name>
+        <text locale="en">Cup</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CV" numericcodes="67">
+      <name>
+        <text locale="en">Cover</text>
+      </name>
+    </item>
+    <item status="unchanged" code="CW" numericcodes="26">
+      <name>
+        <text locale="en">Cage, roll </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CX" numericcodes="32">
+      <name>
+        <text locale="en">Can, cylindrical </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CY" numericcodes="12">
+      <name>
+        <text locale="en">Cylinder </text>
+      </name>
+    </item>
+    <item status="unchanged" code="CZ" numericcodes="67">
+      <name>
+        <text locale="en">Canvas </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DA" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, multiple layer, plastic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DB" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, multiple layer, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DC" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, multiple layer, cardboard </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DG" numericcodes="26">
+      <name>
+        <text locale="en">Cage, Commonwealth Handling Equipment Pool  (CHEP)</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DH" numericcodes="27">
+      <name>
+        <text locale="en">Box, Commonwealth Handling Equipment Pool (CHEP), Eurobox</text>
+      </name>
+      <description>
+        <text locale="en">A box mounted on a pallet base under the control of CHEP.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="DI" numericcodes="34">
+      <name>
+        <text locale="en">Drum, iron </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DJ" numericcodes="43">
+      <name>
+        <text locale="en">Demijohn, non-protected</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DK" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, bulk, cardboard </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DL" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, bulk, plastic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DM" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, bulk, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DN" numericcodes="93">
+      <name>
+        <text locale="en">Dispenser</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DP" numericcodes="43">
+      <name>
+        <text locale="en">Demijohn, protected</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DR" numericcodes="34">
+      <name>
+        <text locale="en">Drum </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DS" numericcodes="27">
+      <name>
+        <text locale="en">Tray, one layer no cover, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DT" numericcodes="27">
+      <name>
+        <text locale="en">Tray, one layer no cover, wooden </text>
+      </name>
+    </item>
+    <item status="unchanged" code="DU" numericcodes="27">
+      <name>
+        <text locale="en">Tray, one layer no cover, polystyrene</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DV" numericcodes="27">
+      <name>
+        <text locale="en">Tray, one layer no cover, cardboard</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DW" numericcodes="27,29">
+      <name>
+        <text locale="en">Tray, two layers no cover, plastic tray</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DX" numericcodes="27,29">
+      <name>
+        <text locale="en">Tray, two layers no cover, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="DY" numericcodes="27,29">
+      <name>
+        <text locale="en">Tray, two layers no cover, cardboard </text>
+      </name>
+    </item>
+    <item status="unchanged" code="EC" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, plastic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ED" numericcodes="23,24,25">
+      <name>
+        <text locale="en">Case, with pallet base </text>
+      </name>
+    </item>
+    <item status="unchanged" code="EE" numericcodes="23,24,25">
+      <name>
+        <text locale="en">Case, with pallet base, wooden </text>
+      </name>
+    </item>
+    <item status="unchanged" code="EF" numericcodes="23,24,25">
+      <name>
+        <text locale="en">Case, with pallet base, cardboard</text>
+      </name>
+    </item>
+    <item status="unchanged" code="EG" numericcodes="23,24,25">
+      <name>
+        <text locale="en">Case, with pallet base, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="EH" numericcodes="23,24,25">
+      <name>
+        <text locale="en">Case, with pallet base, metal</text>
+      </name>
+    </item>
+    <item status="unchanged" code="EI" numericcodes="22,23,24,25">
+      <name>
+        <text locale="en">Case, isothermic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="EN" numericcodes="67">
+      <name>
+        <text locale="en">Envelope </text>
+      </name>
+    </item>
+    <item status="unchanged" code="FB" numericcodes="65">
+      <name>
+        <text locale="en">Flexibag</text>
+      </name>
+      <description>
+        <text locale="en">A flexible containment bag made of plastic, typically for the transportation bulk non-hazardous cargoes using standard size shipping containers.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="FC" numericcodes="23,24,25,26,27">
+      <name>
+        <text locale="en">Crate, fruit </text>
+      </name>
+    </item>
+    <item status="unchanged" code="FD" numericcodes="26">
+      <name>
+        <text locale="en">Crate, framed</text>
+      </name>
+    </item>
+    <item status="unchanged" code="FE" numericcodes="65">
+      <name>
+        <text locale="en">Flexitank</text>
+      </name>
+      <description>
+        <text locale="en">A flexible containment tank made of plastic, typically for the transportation bulk non-hazardous cargoes using standard size shipping containers.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="FI" numericcodes="44,45">
+      <name>
+        <text locale="en">Firkin </text>
+      </name>
+    </item>
+    <item status="unchanged" code="FL" numericcodes="42,43">
+      <name>
+        <text locale="en">Flask</text>
+      </name>
+    </item>
+    <item status="unchanged" code="FO" numericcodes="23">
+      <name>
+        <text locale="en">Footlocker </text>
+      </name>
+    </item>
+    <item status="unchanged" code="FP" numericcodes="67">
+      <name>
+        <text locale="en">Filmpack </text>
+      </name>
+    </item>
+    <item status="unchanged" code="FR" numericcodes="26">
+      <name>
+        <text locale="en">Frame</text>
+      </name>
+    </item>
+    <item status="unchanged" code="FT" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Foodtainer</text>
+      </name>
+    </item>
+    <item status="unchanged" code="FW" numericcodes="94">
+      <name>
+        <text locale="en">Cart, flatbed</text>
+      </name>
+      <description>
+        <text locale="en">Wheeled flat bedded device on which trays or other regular shaped items are packed for transportation purposes.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="FX" numericcodes="61,62,63,64,65,66">
+      <name>
+        <text locale="en">Bag, flexible container</text>
+      </name>
+    </item>
+    <item status="unchanged" code="GB" numericcodes="31,35">
+      <name>
+        <text locale="en">Bottle, gas</text>
+      </name>
+      <description>
+        <text locale="en">A narrow-necked metal cylinder for retention of liquefied or compressed gas.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="GI" numericcodes="16">
+      <name>
+        <text locale="en">Girder </text>
+      </name>
+    </item>
+    <item status="unchanged" code="GL" numericcodes="32">
+      <name>
+        <text locale="en">Container, gallon</text>
+      </name>
+      <description>
+        <text locale="en">A container with a capacity of one gallon.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="GR" numericcodes="21,22,23,31,32,33,41,42,43">
+      <name>
+        <text locale="en">Receptacle, glass </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of glass for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="GU" numericcodes="27">
+      <name>
+        <text locale="en">Tray, containing horizontally stacked flat items</text>
+      </name>
+      <description>
+        <text locale="en">Tray containing flat items stacked on top of one another.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="GY" numericcodes="63,64">
+      <name>
+        <text locale="en">Bag, gunny</text>
+      </name>
+      <description>
+        <text locale="en">A sack made of gunny or burlap, used for transporting coarse commodities, such as grains, potatoes, and other agricultural products. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="GZ" numericcodes="16">
+      <name>
+        <text locale="en">Girders, in bundle/bunch/truss </text>
+      </name>
+    </item>
+    <item status="unchanged" code="HA" numericcodes="27">
+      <name>
+        <text locale="en">Basket, with handle, plastic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="HB" numericcodes="27">
+      <name>
+        <text locale="en">Basket, with handle, wooden</text>
+      </name>
+    </item>
+    <item status="unchanged" code="HC" numericcodes="27">
+      <name>
+        <text locale="en">Basket, with handle, cardboard </text>
+      </name>
+    </item>
+    <item status="unchanged" code="HG" numericcodes="44,45">
+      <name>
+        <text locale="en">Hogshead </text>
+      </name>
+    </item>
+    <item status="unchanged" code="HN" numericcodes="93">
+      <name>
+        <text locale="en">Hanger</text>
+      </name>
+      <description>
+        <text locale="en">A purpose shaped device with a hook at the top for hanging items from a rail.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="HR" numericcodes="23">
+      <name>
+        <text locale="en">Hamper </text>
+      </name>
+    </item>
+    <item status="unchanged" code="IA" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, display, wooden </text>
+      </name>
+    </item>
+    <item status="unchanged" code="IB" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, display, cardboard</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IC" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, display, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ID" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, display, metal</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IE" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, show</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IF" numericcodes="61,62">
+      <name>
+        <text locale="en">Package, flow </text>
+      </name>
+      <description>
+        <text locale="en">A flexible tubular package or skin, possibly transparent, often used for containment of foodstuffs (e.g. salami sausage).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="IG" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, paper wrapped</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IH" numericcodes="34">
+      <name>
+        <text locale="en">Drum, plastic</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IK" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package, cardboard, with bottle grip-holes </text>
+      </name>
+      <description>
+        <text locale="en">Packaging material made out of cardboard that facilitates the separation of individual glass or plastic bottles.    </text>
+      </description>
+    </item>
+    <item status="unchanged" code="IL" numericcodes="27">
+      <name>
+        <text locale="en">Tray, rigid, lidded stackable (CEN TS 14482:2002)</text>
+      </name>
+      <description>
+        <text locale="en">Lidded stackable rigid tray compliant with CEN TS 14482:2002.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="IN" numericcodes="17">
+      <name>
+        <text locale="en">Ingot</text>
+      </name>
+    </item>
+    <item status="unchanged" code="IZ" numericcodes="17">
+      <name>
+        <text locale="en">Ingots, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="JB" numericcodes="65">
+      <name>
+        <text locale="en">Bag, jumbo</text>
+      </name>
+      <description>
+        <text locale="en">A flexible containment bag, widely used for storage, transportation and handling of powder, flake or granular materials. Typically constructed from woven polypropylene (PP) fabric in the form of cubic bags. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="JC" numericcodes="23">
+      <name>
+        <text locale="en">Jerrican, rectangular</text>
+      </name>
+    </item>
+    <item status="unchanged" code="JG" numericcodes="41">
+      <name>
+        <text locale="en">Jug</text>
+      </name>
+    </item>
+    <item status="unchanged" code="JR" numericcodes="41">
+      <name>
+        <text locale="en">Jar</text>
+      </name>
+    </item>
+    <item status="unchanged" code="JT" numericcodes="61,65">
+      <name>
+        <text locale="en">Jutebag</text>
+      </name>
+    </item>
+    <item status="unchanged" code="JY" numericcodes="33">
+      <name>
+        <text locale="en">Jerrican, cylindrical</text>
+      </name>
+    </item>
+    <item status="unchanged" code="KG" numericcodes="44,45">
+      <name>
+        <text locale="en">Keg</text>
+      </name>
+    </item>
+    <item status="unchanged" code="KI" numericcodes="92">
+      <name>
+        <text locale="en">Kit</text>
+      </name>
+      <description>
+        <text locale="en">A set of articles or implements used for a specific purpose.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="LE" numericcodes="21,22,23,61,62,63">
+      <name>
+        <text locale="en">Luggage</text>
+      </name>
+      <description>
+        <text locale="en">A collection of bags, cases and/or containers which hold personal belongings for a journey.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="LG" numericcodes="12">
+      <name>
+        <text locale="en">Log</text>
+      </name>
+    </item>
+    <item status="unchanged" code="LT" numericcodes="1,2,3">
+      <name>
+        <text locale="en">Lot</text>
+      </name>
+    </item>
+    <item status="unchanged" code="LU" numericcodes="23">
+      <name>
+        <text locale="en">Lug</text>
+      </name>
+      <description>
+        <text locale="en">A wooden box for the transportation and storage of fruit or vegetables.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="LV" numericcodes="22,23,24">
+      <name>
+        <text locale="en">Liftvan</text>
+      </name>
+      <description>
+        <text locale="en">A wooden or metal container used for packing household goods and personal effects.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="LZ" numericcodes="12">
+      <name>
+        <text locale="en">Logs, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="MA" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Crate, metal</text>
+      </name>
+      <description>
+        <text locale="en">Containment box made of metal for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="MB" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, multiply</text>
+      </name>
+    </item>
+    <item status="unchanged" code="MC" numericcodes="27">
+      <name>
+        <text locale="en">Crate, milk</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ME" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Container, metal</text>
+      </name>
+      <description>
+        <text locale="en">A type of containment box made of metal for retaining substances or articles, not otherwise specified as transport equipment.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="MR" numericcodes="21,22,23,31,32,33">
+      <name>
+        <text locale="en">Receptacle, metal </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of metal for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="MS" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Sack, multi-wall </text>
+      </name>
+    </item>
+    <item status="unchanged" code="MT" numericcodes="67">
+      <name>
+        <text locale="en">Mat</text>
+      </name>
+    </item>
+    <item status="unchanged" code="MW" numericcodes="21,22,23,31,32,33,41,42,43,61,62,63">
+      <name>
+        <text locale="en">Receptacle, plastic wrapped </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel wrapped with plastic for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="MX" numericcodes="21">
+      <name>
+        <text locale="en">Matchbox </text>
+      </name>
+    </item>
+    <item status="unchanged" code="NA" numericcodes="0">
+      <name>
+        <text locale="en">Not available</text>
+      </name>
+    </item>
+    <item status="unchanged" code="NE" numericcodes="0">
+      <name>
+        <text locale="en">Unpacked or unpackaged </text>
+      </name>
+    </item>
+    <item status="unchanged" code="NF" numericcodes="0">
+      <name>
+        <text locale="en">Unpacked or unpackaged, single unit</text>
+      </name>
+    </item>
+    <item status="unchanged" code="NG" numericcodes="0">
+      <name>
+        <text locale="en">Unpacked or unpackaged, multiple units</text>
+      </name>
+    </item>
+    <item status="unchanged" code="NS" numericcodes="24">
+      <name>
+        <text locale="en">Nest </text>
+      </name>
+    </item>
+    <item status="unchanged" code="NT" numericcodes="66">
+      <name>
+        <text locale="en">Net</text>
+      </name>
+    </item>
+    <item status="unchanged" code="NU" numericcodes="66">
+      <name>
+        <text locale="en">Net, tube, plastic </text>
+      </name>
+    </item>
+    <item status="unchanged" code="NV" numericcodes="66">
+      <name>
+        <text locale="en">Net, tube, textile </text>
+      </name>
+    </item>
+    <item status="unchanged" code="OA" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, CHEP 40 cm x 60 cm</text>
+      </name>
+      <description>
+        <text locale="en">Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 40 centimeters x 60 centimeters.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OB" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, CHEP 80 cm x 120 cm</text>
+      </name>
+      <description>
+        <text locale="en">Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 80 centimeters x 120 centimeters.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OC" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, CHEP 100 cm x 120 cm</text>
+      </name>
+      <description>
+        <text locale="en">Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 100 centimeters x 120 centimeters.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OD" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, AS 4068-1993</text>
+      </name>
+      <description>
+        <text locale="en">Australian standard pallet of dimensions 115.5 centimeters x 116.5 centimeters.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OE" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, ISO T11</text>
+      </name>
+      <description>
+        <text locale="en">ISO standard pallet of dimensions 110 centimeters x 110 centimeters, prevalent in Asia - Pacific region.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OF" numericcodes="92">
+      <name>
+        <text locale="en">Platform, unspecified weight or dimension</text>
+      </name>
+      <description>
+        <text locale="en">A pallet equivalent shipping platform of unknown dimensions or unknown weight. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="OK" numericcodes="17">
+      <name>
+        <text locale="en">Block</text>
+      </name>
+      <description>
+        <text locale="en">A solid piece of a hard substance, such as granite, having one or more flat sides.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OT" numericcodes="25">
+      <name>
+        <text locale="en">Octabin</text>
+      </name>
+      <description>
+        <text locale="en">A standard cardboard container of large dimensions for storing for example vegetables, granules of plastics or other dry products.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="OU" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Container, outer</text>
+      </name>
+      <description>
+        <text locale="en">A type of containment box that serves as the outer shipping container, not otherwise specified as transport equipment.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="P2" numericcodes="51">
+      <name>
+        <text locale="en">Pan</text>
+      </name>
+      <description>
+        <text locale="en">A shallow, wide, open container, usually of metal.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PA" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Packet </text>
+      </name>
+      <description>
+        <text locale="en">Small package.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PB" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, box Combined open-ended box and pallet</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PC" numericcodes="21,22,23,61,62,63">
+      <name>
+        <text locale="en">Parcel </text>
+      </name>
+    </item>
+    <item status="unchanged" code="PD" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, modular, collars 80cms * 100cms </text>
+      </name>
+      <description>
+        <text locale="en">Standard sized pallet of dimensions 80 centimeters by 100 centimeters (cms).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PE" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, modular, collars 80cms * 120cms </text>
+      </name>
+      <description>
+        <text locale="en">Standard sized pallet of dimensions 80 centimeters by 120 centimeters (cms).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PF" numericcodes="26,27">
+      <name>
+        <text locale="en">Pen </text>
+      </name>
+      <description>
+        <text locale="en">A small open top enclosure for retaining animals.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PG" numericcodes="15">
+      <name>
+        <text locale="en">Plate</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PH" numericcodes="41">
+      <name>
+        <text locale="en">Pitcher</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PI" numericcodes="11">
+      <name>
+        <text locale="en">Pipe </text>
+      </name>
+    </item>
+    <item status="unchanged" code="PJ" numericcodes="27">
+      <name>
+        <text locale="en">Punnet</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PK" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Package</text>
+      </name>
+      <description>
+        <text locale="en">Standard packaging unit.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PL" numericcodes="51">
+      <name>
+        <text locale="en">Pail </text>
+      </name>
+    </item>
+    <item status="unchanged" code="PN" numericcodes="16">
+      <name>
+        <text locale="en">Plank</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PO" numericcodes="61">
+      <name>
+        <text locale="en">Pouch</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PP" numericcodes="19">
+      <name>
+        <text locale="en">Piece</text>
+      </name>
+      <description>
+        <text locale="en">A loose or unpacked article. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="PR" numericcodes="21,22,23,31,32,33,41,42,43,61,62,63">
+      <name>
+        <text locale="en">Receptacle, plastic </text>
+      </name>
+      <description>
+        <text locale="en">Containment vessel made of plastic for retaining substances or articles.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PT" numericcodes="41">
+      <name>
+        <text locale="en">Pot</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PU" numericcodes="27">
+      <name>
+        <text locale="en">Tray </text>
+      </name>
+    </item>
+    <item status="unchanged" code="PV" numericcodes="11">
+      <name>
+        <text locale="en">Pipes, in bundle/bunch/truss </text>
+      </name>
+    </item>
+    <item status="unchanged" code="PX" numericcodes="92">
+      <name>
+        <text locale="en">Pallet </text>
+      </name>
+      <description>
+        <text locale="en">Platform or open-ended box, usually made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="PY" numericcodes="15">
+      <name>
+        <text locale="en">Plates, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="PZ" numericcodes="16">
+      <name>
+        <text locale="en">Planks, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QA" numericcodes="34">
+      <name>
+        <text locale="en">Drum, steel, non-removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QB" numericcodes="34">
+      <name>
+        <text locale="en">Drum, steel, removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QC" numericcodes="34">
+      <name>
+        <text locale="en">Drum, aluminium, non-removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QD" numericcodes="34">
+      <name>
+        <text locale="en">Drum, aluminium, removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QF" numericcodes="34">
+      <name>
+        <text locale="en">Drum, plastic, non-removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QG" numericcodes="34">
+      <name>
+        <text locale="en">Drum, plastic, removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QH" numericcodes="44,45">
+      <name>
+        <text locale="en">Barrel, wooden, bung type</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QJ" numericcodes="44,45">
+      <name>
+        <text locale="en">Barrel, wooden, removable head </text>
+      </name>
+    </item>
+    <item status="unchanged" code="QK" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, steel, non-removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QL" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, steel, removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QM" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, plastic, non-removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QN" numericcodes="23,33">
+      <name>
+        <text locale="en">Jerrican, plastic, removable head</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QP" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, wooden, natural wood, ordinary</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QQ" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, wooden, natural wood, with sift proof walls</text>
+      </name>
+    </item>
+    <item status="unchanged" code="QR" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, plastic, expanded </text>
+      </name>
+    </item>
+    <item status="unchanged" code="QS" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Box, plastic, solid</text>
+      </name>
+    </item>
+    <item status="unchanged" code="RD" numericcodes="12">
+      <name>
+        <text locale="en">Rod</text>
+      </name>
+    </item>
+    <item status="unchanged" code="RG" numericcodes="14">
+      <name>
+        <text locale="en">Ring </text>
+      </name>
+    </item>
+    <item status="unchanged" code="RJ" numericcodes="93">
+      <name>
+        <text locale="en">Rack, clothing hanger</text>
+      </name>
+    </item>
+    <item status="unchanged" code="RK" numericcodes="93">
+      <name>
+        <text locale="en">Rack </text>
+      </name>
+    </item>
+    <item status="unchanged" code="RL" numericcodes="91">
+      <name>
+        <text locale="en">Reel </text>
+      </name>
+      <description>
+        <text locale="en">Cylindrical rotatory device with a rim at each end on which materials are wound.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="RO" numericcodes="13">
+      <name>
+        <text locale="en">Roll </text>
+      </name>
+    </item>
+    <item status="unchanged" code="RT" numericcodes="66">
+      <name>
+        <text locale="en">Rednet </text>
+      </name>
+      <description>
+        <text locale="en">Containment material made of red mesh netting for retaining articles (e.g. trees).</text>
+      </description>
+    </item>
+    <item status="unchanged" code="RZ" numericcodes="12">
+      <name>
+        <text locale="en">Rods, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SA" numericcodes="65">
+      <name>
+        <text locale="en">Sack </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SB" numericcodes="16,17">
+      <name>
+        <text locale="en">Slab</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SC" numericcodes="27">
+      <name>
+        <text locale="en">Crate, shallow </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SD" numericcodes="91">
+      <name>
+        <text locale="en">Spindle</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SE" numericcodes="22,23">
+      <name>
+        <text locale="en">Sea-chest</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SH" numericcodes="61">
+      <name>
+        <text locale="en">Sachet </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SI" numericcodes="92">
+      <name>
+        <text locale="en">Skid </text>
+      </name>
+      <description>
+        <text locale="en">A low movable platform or pallet to facilitate the handling and transport of goods.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="SK" numericcodes="26">
+      <name>
+        <text locale="en">Case, skeleton </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SL" numericcodes="67">
+      <name>
+        <text locale="en">Slipsheet </text>
+      </name>
+      <description>
+        <text locale="en">Hard plastic sheeting primarily used as the base on which to stack goods to optimise the space within a container. May be used as an alternative to a palletized packaging.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="SM" numericcodes="15">
+      <name>
+        <text locale="en">Sheetmetal </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SO" numericcodes="91">
+      <name>
+        <text locale="en">Spool </text>
+      </name>
+      <description>
+        <text locale="en">A packaging container used in the transport of such items as wire, cable, tape and yarn.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="SP" numericcodes="15">
+      <name>
+        <text locale="en">Sheet, plastic wrapping</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SS" numericcodes="21,22,23,24,25">
+      <name>
+        <text locale="en">Case, steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ST" numericcodes="15">
+      <name>
+        <text locale="en">Sheet</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SU" numericcodes="21,22,23,61,62,63">
+      <name>
+        <text locale="en">Suitcase </text>
+      </name>
+    </item>
+    <item status="unchanged" code="SV" numericcodes="67">
+      <name>
+        <text locale="en">Envelope, steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SW" numericcodes="67">
+      <name>
+        <text locale="en">Shrinkwrapped  </text>
+      </name>
+      <description>
+        <text locale="en">Goods retained in a transparent plastic film that has been wrapped around and then shrunk tightly on to the goods.</text>
+      </description>
+    </item>
+    <item status="markeddeleted" code="SX" numericcodes="11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45">
+      <name>
+        <text locale="en">Set</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SY" numericcodes="69">
+      <name>
+        <text locale="en">Sleeve</text>
+      </name>
+    </item>
+    <item status="unchanged" code="SZ" numericcodes="15">
+      <name>
+        <text locale="en">Sheets, in bundle/bunch/truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="T1" numericcodes="16">
+      <name>
+        <text locale="en">Tablet</text>
+      </name>
+      <description>
+        <text locale="en">A loose or unpacked article in the form of a bar, block or piece. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="TB" numericcodes="51">
+      <name>
+        <text locale="en">Tub</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TC" numericcodes="21,22,23">
+      <name>
+        <text locale="en">Tea-chest</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TD" numericcodes="61,62,63,64,65">
+      <name>
+        <text locale="en">Tube, collapsible</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TE" numericcodes="93">
+      <name>
+        <text locale="en">Tyre</text>
+      </name>
+      <description>
+        <text locale="en">A ring made of rubber and/or metal surrounding a wheel.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="TG" numericcodes="93">
+      <name>
+        <text locale="en">Tank container, generic</text>
+      </name>
+      <description>
+        <text locale="en">A specially constructed container for transporting liquids and gases in bulk.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="TI" numericcodes="44">
+      <name>
+        <text locale="en">Tierce</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TK" numericcodes="24,25">
+      <name>
+        <text locale="en">Tank, rectangular</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TL" numericcodes="51">
+      <name>
+        <text locale="en">Tub, with lid</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TN" numericcodes="21,22">
+      <name>
+        <text locale="en">Tin</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TO" numericcodes="44,45">
+      <name>
+        <text locale="en">Tun</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TR" numericcodes="24,25">
+      <name>
+        <text locale="en">Trunk</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TS" numericcodes="16">
+      <name>
+        <text locale="en">Truss</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TT" numericcodes="62,63">
+      <name>
+        <text locale="en">Bag, tote</text>
+      </name>
+      <description>
+        <text locale="en">A capacious bag or basket.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="TU" numericcodes="11">
+      <name>
+        <text locale="en">Tube </text>
+      </name>
+    </item>
+    <item status="unchanged" code="TV" numericcodes="31,32">
+      <name>
+        <text locale="en">Tube, with nozzle </text>
+      </name>
+      <description>
+        <text locale="en">A tube made of plastic, metal or cardboard fitted with a nozzle, containing a liquid or semi-liquid product, e.g. silicon.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="TW" numericcodes="92">
+      <name>
+        <text locale="en">Pallet, triwall</text>
+      </name>
+      <description>
+        <text locale="en">A lightweight pallet made from heavy duty corrugated board.  </text>
+      </description>
+    </item>
+    <item status="unchanged" code="TY" numericcodes="34,35">
+      <name>
+        <text locale="en">Tank, cylindrical</text>
+      </name>
+    </item>
+    <item status="unchanged" code="TZ" numericcodes="11">
+      <name>
+        <text locale="en">Tubes, in bundle/bunch/truss </text>
+      </name>
+    </item>
+    <item status="unchanged" code="UC" numericcodes="0">
+      <name>
+        <text locale="en">Uncaged </text>
+      </name>
+    </item>
+    <item status="unchanged" code="UN" numericcodes="23,24,25,27">
+      <name>
+        <text locale="en">Unit</text>
+      </name>
+      <description>
+        <text locale="en">A type of package composed of a single item or object, not otherwise specified as a unit of transport equipment.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="VA" numericcodes="35">
+      <name>
+        <text locale="en">Vat</text>
+      </name>
+    </item>
+    <item status="unchanged" code="VG" numericcodes="6">
+      <name>
+        <text locale="en">Bulk, gas (at 1031 mbar and 15°C)</text>
+      </name>
+    </item>
+    <item status="unchanged" code="VI" numericcodes="31">
+      <name>
+        <text locale="en">Vial </text>
+      </name>
+    </item>
+    <item status="unchanged" code="VK" numericcodes="99">
+      <name>
+        <text locale="en">Vanpack </text>
+      </name>
+      <description>
+        <text locale="en">A type of wooden crate. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="VL" numericcodes="4">
+      <name>
+        <text locale="en">Bulk, liquid </text>
+      </name>
+    </item>
+    <item status="unchanged" code="VO" numericcodes="3">
+      <name>
+        <text locale="en">Bulk, solid, large particles (“nodules”) </text>
+      </name>
+    </item>
+    <item status="unchanged" code="VP" numericcodes="67">
+      <name>
+        <text locale="en">Vacuum-packed</text>
+      </name>
+    </item>
+    <item status="unchanged" code="VQ" numericcodes="5">
+      <name>
+        <text locale="en">Bulk, liquefied gas (at abnormal temperature/pressure) </text>
+      </name>
+    </item>
+    <item status="unchanged" code="VN" numericcodes="93">
+      <name>
+        <text locale="en">Vehicle</text>
+      </name>
+      <description>
+        <text locale="en">A self-propelled means of conveyance.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="VR" numericcodes="2">
+      <name>
+        <text locale="en">Bulk, solid, granular particles (“grains”) </text>
+      </name>
+    </item>
+    <item status="unchanged" code="VS" numericcodes="9">
+      <name>
+        <text locale="en">Bulk, scrap metal</text>
+      </name>
+      <description>
+        <text locale="en">Loose or unpacked scrap metal transported in bulk form. </text>
+      </description>
+    </item>
+    <item status="unchanged" code="VY" numericcodes="1">
+      <name>
+        <text locale="en">Bulk, solid, fine particles (“powders”)</text>
+      </name>
+    </item>
+    <item status="unchanged" code="WA" numericcodes="23,24,25,26,62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container</text>
+      </name>
+      <description>
+        <text locale="en">A reusable container made of metal, plastic, textile, wood or composite materials used to facilitate transportation of bulk solids and liquids in manageable volumes.</text>
+      </description>
+    </item>
+    <item status="unchanged" code="WB" numericcodes="42,43">
+      <name>
+        <text locale="en">Wickerbottle </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WC" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, steel </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WD" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, aluminium </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WF" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, metal </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WG" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, steel, pressurised &gt; 10 kpa</text>
+      </name>
+    </item>
+    <item status="unchanged" code="WH" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, aluminium, pressurised &gt; 10 kpa</text>
+      </name>
+    </item>
+    <item status="unchanged" code="WJ" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, metal, pressure 10 kpa </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WK" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, steel, liquid </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WL" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, aluminium, liquid </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WM" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, metal, liquid </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WN" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, woven plastic, without coat/liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WP" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, woven plastic, coated </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WQ" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, woven plastic, with liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WR" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, woven plastic, coated and liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WS" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, plastic film</text>
+      </name>
+    </item>
+    <item status="unchanged" code="WT" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, textile with out coat/liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WU" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, natural wood, with inner liner</text>
+      </name>
+    </item>
+    <item status="unchanged" code="WV" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, textile, coated </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WW" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, textile, with liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WX" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, textile, coated and liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WY" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, plywood, with inner liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="WZ" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, reconstituted wood, with inner liner</text>
+      </name>
+    </item>
+    <item status="unchanged" code="XA" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, woven plastic, without inner coat/liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XB" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, woven plastic, sift proof </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XC" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, woven plastic, water resistant</text>
+      </name>
+    </item>
+    <item status="unchanged" code="XD" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, plastics film </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XF" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, textile, without inner coat/liner </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XG" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, textile, sift proof </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XH" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, textile, water resistant</text>
+      </name>
+    </item>
+    <item status="unchanged" code="XJ" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, paper, multi-wall </text>
+      </name>
+    </item>
+    <item status="unchanged" code="XK" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, paper, multi-wall, water resistant</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YA" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in steel drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YB" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in steel crate box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YC" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in aluminium drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YD" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in aluminium crate</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YF" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in wooden box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YG" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in plywood drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YH" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in plywood box </text>
+      </name>
+    </item>
+    <item status="unchanged" code="YJ" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in fibre drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YK" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in fibreboard box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YL" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in plastic drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YM" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, plastic receptacle in solid plastic box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YN" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in steel drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YP" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in steel crate box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YQ" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in aluminium drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YR" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in aluminium crate</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YS" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in wooden box</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YT" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in plywood drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YV" numericcodes="23">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in wickerwork hamper</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YW" numericcodes="33,34">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in fibre drum</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YX" numericcodes="24,25">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in fibreboard box </text>
+      </name>
+    </item>
+    <item status="unchanged" code="YY" numericcodes="62,63">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in expandable plastic pack</text>
+      </name>
+    </item>
+    <item status="unchanged" code="YZ" numericcodes="23,24">
+      <name>
+        <text locale="en">Composite packaging, glass receptacle in solid plastic pack</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZA" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, paper, multi-wall </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZB" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Bag, large </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZC" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, paper, multi-wall, water resistant</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZD" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, with structural equipment, solids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZF" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, freestanding, solids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZG" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, with structural equipment, pressurised</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZH" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, freestanding, pressurised</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZJ" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, with structural equipment, liquids </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZK" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, rigid plastic, freestanding, liquids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZL" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, rigid plastic, solids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZM" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, flexible plastic, solids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZN" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, rigid plastic, pressurised </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZP" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, flexible plastic, pressurised</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZQ" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, rigid plastic, liquids</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZR" numericcodes="62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, composite, flexible plastic, liquids </text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZS" numericcodes="23,24,25,26,62,63,64">
+      <name>
+        <text locale="en">Intermediate bulk container, composite</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZT" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, fibreboard</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZU" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, flexible</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZV" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, metal, other than steel</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZW" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, natural wood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZX" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, plywood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZY" numericcodes="23,24,25,26">
+      <name>
+        <text locale="en">Intermediate bulk container, reconstituted wood</text>
+      </name>
+    </item>
+    <item status="unchanged" code="ZZ" numericcodes="0">
+      <name>
+        <text locale="en">Mutually defined </text>
+      </name>
+    </item>
+  </body>
+</root>

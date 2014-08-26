@@ -1,0 +1,2404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.helger.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<translationitems count="595">
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS">
+    <de>Adresse</de>
+    <en>Address</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_CITY">
+    <de>Stadt</de>
+    <en>City</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_COUNTRY">
+    <de>Land</de>
+    <en>Country</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_POBOX">
+    <de>Postfach</de>
+    <en>PO Box</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_POSTALCODE">
+    <de>PLZ</de>
+    <en>Postal code</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_STATE">
+    <de>Bundesland</de>
+    <en>State</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS_STREET">
+    <de>Straße und Hausnummer</de>
+    <en>Street and building number</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_TYPE_OFFICE">
+    <de>Büro</de>
+    <en>Office</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_TYPE_OFFICE2">
+    <de>Büro (2)</de>
+    <en>Office (2)</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_TYPE_OTHER">
+    <de>Sonstige</de>
+    <en>Other</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_TYPE_PERSONAL">
+    <de>Privat</de>
+    <en>Personal</en>
+  </item>
+  <item id="com.helger.masterdata.address.EAddressText.MSG_TYPE_PERSONAL2">
+    <de>Privat (2)</de>
+    <en>Personal (2)</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ALL">
+    <de>Albanische Lek</de>
+    <en>Albanian Lek</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AMD">
+    <de>Armenische Dram</de>
+    <en>Armenian Dram</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AZN">
+    <de>Aserbaidschanische Manat</de>
+    <en>Azerbaijani Manat</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BAM">
+    <de>Konvertible Marks</de>
+    <en>Bosnia-Herzegovina Convertible Mark</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BGN">
+    <de>Bulgarische Leva</de>
+    <en>Bulgarian Lev</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BYR">
+    <de>Weißrussische Rubel</de>
+    <en>Belarusian Ruble</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CHF">
+    <de>Schweizer Franken</de>
+    <en>Swiss Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CZK">
+    <de>Tschechische Kronen</de>
+    <en>Czech Koruna</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.DKK">
+    <de>Dänische Kronen</de>
+    <en>Danish Krone</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.EEK">
+    <de>Estnische Krone</de>
+    <en>Estonian Kroon</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.EUR">
+    <de>Euro</de>
+    <en>Euro</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GBP">
+    <de>Pfund Sterling</de>
+    <en>Pound Sterling</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GEL">
+    <de>Georgische Lari</de>
+    <en>Georgian Lari</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HRK">
+    <de>Kroatische Kuna</de>
+    <en>Croatian Kuna</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HUF">
+    <de>Ungarische Forint</de>
+    <en>Hungarian Forint</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ISK">
+    <de>Isländische Krone</de>
+    <en>Icelandic Krona</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LTL">
+    <de>Litauische Litas</de>
+    <en>Lithuanian Litas</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LVL">
+    <de>Lettische Lats</de>
+    <en>Latvian Lats</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MDL">
+    <de>Moldawische Leu</de>
+    <en>Moldovan Leu</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MKD">
+    <de>Mazedonische Dinar</de>
+    <en>Macedonia Denar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NOK">
+    <de>Norwegische Krone</de>
+    <en>Norwegian Krone</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PLN">
+    <de>Polnische Złoty</de>
+    <en>Polish Złoty</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RON">
+    <de>Rumänische Leu</de>
+    <en>Romanian Leu</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RSD">
+    <de>Serbische Dinar</de>
+    <en>Serbian dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RUB">
+    <de>Russische Rubel</de>
+    <en>Russian Ruble</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SEK">
+    <de>Schwedische Kronen</de>
+    <en>Swedish Krona</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TRY">
+    <de>Türkische Lira</de>
+    <en>New Turkish Lira</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.UAH">
+    <de>Ukrainische Hrywnja</de>
+    <en>Ukrainian Hryvnia</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.USD">
+    <de>US Dollar</de>
+    <en>United States Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.validation.ECurrencyErrorTexts.INVALID_CURRENCY_CODE">
+    <de>Die Währung ist ungültig.</de>
+    <en>The currency is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_EMAIL">
+    <de>E-Mail</de>
+    <en>E-mail</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_EMAIL_ADDRESS">
+    <de>E-Mail-Adresse</de>
+    <en>E-mail address</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_EMAIL_PERSONAL">
+    <de>E-Mail-Kontaktname</de>
+    <en>E-mail contact name</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_TYPE_OFFICE">
+    <de>Büro</de>
+    <en>Office</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_TYPE_OFFICE2">
+    <de>Büro (2)</de>
+    <en>Office (2)</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_TYPE_OTHER">
+    <de>Sonstige</de>
+    <en>Other</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_TYPE_PERSONAL">
+    <de>Privat</de>
+    <en>Personal</en>
+  </item>
+  <item id="com.helger.masterdata.email.EEmailAddressText.MSG_TYPE_PERSONAL2">
+    <de>Privat (2)</de>
+    <en>Personal (2)</en>
+  </item>
+  <item id="com.helger.masterdata.person.EGenderName.FEMALE">
+    <de>Frau</de>
+    <en>Mrs.</en>
+  </item>
+  <item id="com.helger.masterdata.person.EGenderName.MALE">
+    <de>Herr</de>
+    <en>Mr.</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.CLUB">
+    <de>Sehr geehrte</de>
+    <en>Dear</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.COMPANY">
+    <de>Sehr geehrte</de>
+    <en>Dear</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.FAMILY">
+    <de>Sehr geehrte</de>
+    <en>Dear</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.MISSES">
+    <de>Sehr geehrte</de>
+    <en>Dear</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreeting.MISTER">
+    <de>Sehr geehrter</de>
+    <en>Dear</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.CLUB">
+    <de>Sehr geehrte Damen und Herren</de>
+    <en>Dear Sir or Madam</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.COMPANY">
+    <de>Sehr geehrte Damen und Herren</de>
+    <en>Dear Sir or Madam</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.FAMILY">
+    <de>Liebe Familie</de>
+    <en>Dear Familiy</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.MISSES">
+    <de>Sehr geehrte Frau</de>
+    <en>Dear Ms</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationGreetingComplete.MISTER">
+    <de>Sehr geehrter Herr</de>
+    <en>Dear Mr</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.CLUB">
+    <de>Verein</de>
+    <en>Club</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.COMPANY">
+    <de>Firma</de>
+    <en>Company</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.FAMILY">
+    <de>Familie</de>
+    <en>Family</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.MISSES">
+    <de>Frau</de>
+    <en>Mrs.</en>
+  </item>
+  <item id="com.helger.masterdata.person.ESalutationName.MISTER">
+    <de>Herr</de>
+    <en>Mr.</en>
+  </item>
+  <item id="com.helger.masterdata.postal.validation.EPostalCodeErrorTexts.INVALID_POSTAL_CODE">
+    <de>Die eingegebene Postleitzahl ist ungültig.</de>
+    <en>The postal code is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.postal.validation.EPostalCodeErrorTexts.INVALID_POSTAL_CODE_WITH_EXAMPLES">
+    <de>Geben Sie eine Postleitzahl in einem gültigen Format ein: {0}</de>
+    <en>Enter a postal code in a valid format: {0}</en>
+  </item>
+  <item id="com.helger.masterdata.swift.validation.ESwiftErrorTexts.INVALID_BIC">
+    <de>Der BIC ist ungültig.</de>
+    <en>The BIC is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.swift.validation.ESwiftErrorTexts.INVALID_IBAN">
+    <de>Die IBAN ist ungültig.</de>
+    <en>The IBAN is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.A">
+    <de>Gemischter Steuersatz</de>
+    <en>Mixed tax rate</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AA">
+    <de>Niedrigerer Steuersatz</de>
+    <en>Lower rate</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AB">
+    <de>Ausnahme für Wiederverkauf</de>
+    <en>Exempt for resale</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AC">
+    <de>MwSt. ist noch nicht zu zahlen</de>
+    <en>Value Added Tax (VAT) not now due for payment</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AD">
+    <de>MwSt. von einer vorherigen Rechnung offen</de>
+    <en>Value Added Tax (VAT) due from a previous invoice</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.AE">
+    <de>Umkehr der Steuerschuld</de>
+    <en>VAT Reverse Charge</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.B">
+    <de>Steuer direkt ans Finanzamt abzuführen</de>
+    <en>Transferred (VAT)</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.C">
+    <de>Lieferant zahlt Schuld</de>
+    <en>Duty paid by supplier</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.E">
+    <de>Steuerausnahme</de>
+    <en>Exempt from tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.G">
+    <de>Freier Export-Artikel, keine Steuerschuld</de>
+    <en>Free export item, tax not charged</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.H">
+    <de>Höherer Steuersatz</de>
+    <en>Higher rate</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.O">
+    <de>Dienstleistung nicht steuerrelevant</de>
+    <en>Services outside scope of tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.S">
+    <de>Standard Steuersatz</de>
+    <en>Standard rate</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxCategoryUN5305Name.Z">
+    <de>Steuersatz 0%</de>
+    <en>Zero rated goods</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAA">
+    <de>Erdölsteuer</de>
+    <en>Petroleum tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAB">
+    <de>Provisorische Ausgleichsabgabe</de>
+    <en>Provisional countervailing duty cash</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAC">
+    <de>Provisorische Ausgleichsabgabe Schuld</de>
+    <en>Provisional countervailing duty bond</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAD">
+    <de>Tabaksteuer</de>
+    <en>Tobacco tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAE">
+    <de>Energieabgabe</de>
+    <en>Energy fee</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAF">
+    <de>Kaffeesteuer</de>
+    <en>Coffee tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAG">
+    <de>Harmonisierte Umsatzsteuer, Kanada</de>
+    <en>Harmonised sales tax, Canadian</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAH">
+    <de>Quebecs&#39; Umsatzsteuer</de>
+    <en>Quebec sales tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAI">
+    <de>Kanadische Regionale Umsatzsteuer</de>
+    <en>Canadian provincial sales tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAJ">
+    <de>Tax on replacement part</de>
+    <en>Tax on replacement part</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAK">
+    <de>Mineralölsteuer</de>
+    <en>Mineral oil tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAL">
+    <de>Spezialsteuer</de>
+    <en>Special tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.ADD">
+    <de>Anti-dumping Abgabe</de>
+    <en>Anti-dumping duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.BOL">
+    <de>Stempelgebühr (Italien)</de>
+    <en>Stamp duty (Imposta di Bollo)</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.CAP">
+    <de>Agrarabgabe</de>
+    <en>Agricultural levy</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.CAR">
+    <de>Kraftfahrzeugssteuer</de>
+    <en>Car tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.COC">
+    <de>Paper consortium tax (Italien)</de>
+    <en>Paper consortium tax (Italy)</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.CST">
+    <de>Spezielle Zollabgaben</de>
+    <en>Commodity specific tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.CUD">
+    <de>Zollabgaben</de>
+    <en>Customs duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.CVD">
+    <de>Ausgleichsabgabe</de>
+    <en>Countervailing duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.ENV">
+    <de>Umweltsteuer</de>
+    <en>Environmental tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.EXC">
+    <de>Verbrauchssteuer</de>
+    <en>Excise duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.EXP">
+    <de>Agrar-Ausfuhrvergütung</de>
+    <en>Agricultural export rebate</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.FET">
+    <de>Bundesverbrauchssteuer</de>
+    <en>Federal excise tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.FRE">
+    <de>Frei</de>
+    <en>Free</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.GCN">
+    <de>Allgemeine Bausteuer</de>
+    <en>General construction tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.GST">
+    <de>Waren- und Dienstleistungssteuer</de>
+    <en>Goods and services tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.ILL">
+    <de>Leuchtmittelsteuer</de>
+    <en>Illuminants tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.IMP">
+    <de>Importsteuer</de>
+    <en>Import tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.IND">
+    <de>Individual-Steuer</de>
+    <en>Individual tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.LAC">
+    <de>Gewerbesteuer</de>
+    <en>Business license fee</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.LCN">
+    <de>Regionale Bausteuer</de>
+    <en>Local construction tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.LDP">
+    <de>Leuchtturmabgaben</de>
+    <en>Light dues payable</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.LOC">
+    <de>Lokale Umsatzsteuer</de>
+    <en>Local sales tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.LST">
+    <de>LUST Steuer</de>
+    <en>Lust tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.MCA">
+    <de>Monetäre Ausgleichssumme</de>
+    <en>Monetary compensatory amount</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.MCD">
+    <de>Diverse Bareinlage</de>
+    <en>Miscellaneous cash deposit</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.OTH">
+    <de>Sonstige Steuern</de>
+    <en>Other taxes</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.PDB">
+    <de>Provisorische Anleihenschuld</de>
+    <en>Provisional duty bond</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.PDC">
+    <de>Provisorische Abgabenschuld</de>
+    <en>Provisional duty cash</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.PRF">
+    <de>Vorzugsabgabe</de>
+    <en>Preference duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.SCN">
+    <de>Spezialbausteuer</de>
+    <en>Special construction tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.SSS">
+    <de>Verschiebung der Sozialen Sicherheit</de>
+    <en>Shifted social securities</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.STT">
+    <de>Regionale Umsatzsteuer</de>
+    <en>State/provincial sales tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.SUP">
+    <de>Außer Kraft gesetzte Steuer</de>
+    <en>Suspended duty</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.SUR">
+    <de>Zusatzsteuer/Zuschlag/Ergänzungsabgabe</de>
+    <en>Surtax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.SWT">
+    <de>Verschobene Lohnsteuer</de>
+    <en>Shifted wage tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.TAC">
+    <de>Alkoholsteuer</de>
+    <en>Alcohol mark tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.TOT">
+    <de>Summe/Gesamt</de>
+    <en>Total</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.TOX">
+    <de>Umsatzsteuer</de>
+    <en>Turnover tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.TTA">
+    <de>Tonnagensteuer</de>
+    <en>Tonnage taxes</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.VAD">
+    <de>Wertansatz Abgabe</de>
+    <en>Valuation deposit</en>
+  </item>
+  <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.VAT">
+    <de>Mehrwertsteuer</de>
+    <en>Value added tax</en>
+  </item>
+  <item id="com.helger.masterdata.tax.validation.ETaxErrorTexts.INVALID_TAX_CATEGORY_UN5305">
+    <de>Die Steuerkategorie ist ungültig.</de>
+    <en>The tax category is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_FAX">
+    <de>Fax</de>
+    <en>Telefax</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_FAX_AREACODE">
+    <de>Fax Vorwahl</de>
+    <en>Telefax area code</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_FAX_COUNTRYCODE">
+    <de>Fax Ländervorwahl</de>
+    <en>Telefax country code</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_FAX_DIRECTDIAL">
+    <de>Faxdurchwahl</de>
+    <en>Telefax direct dial</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_FAX_LINE">
+    <de>Faxnummer</de>
+    <en>Telefax line</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TELEPHONE">
+    <de>Telefon</de>
+    <en>Telephone</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TELEPHONE_AREACODE">
+    <de>Telefon Vorwahl</de>
+    <en>Telephone area code</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TELEPHONE_COUNTRYCODE">
+    <de>Telefon Ländervorwahl</de>
+    <en>Telephone country code</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TELEPHONE_DIRECTDIAL">
+    <de>Telefondurchwahl</de>
+    <en>Telephone direct dial</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TELEPHONE_LINE">
+    <de>Telefonnummer</de>
+    <en>Telephone line</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_ASSISTANT">
+    <de>Assistent</de>
+    <en>Assistant</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_BUSINESS">
+    <de>Geschäftlich</de>
+    <en>Business</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_BUSINESS2">
+    <de>Geschäftlich (2)</de>
+    <en>Business (2)</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_BUSINESS_FAX">
+    <de>Fax geschäftlich</de>
+    <en>Business fax</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_ISDN">
+    <de>ISDN</de>
+    <en>ISDN</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_MOBILE">
+    <de>Mobil</de>
+    <en>Mobile</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_OFFICE">
+    <de>Büro</de>
+    <en>Office</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_OFFICE_FAX">
+    <de>Fax Büro</de>
+    <en>Office fax</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_OTHER">
+    <de>Sonstige</de>
+    <en>Other</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_OTHER_FAX">
+    <de>Fax sonstige</de>
+    <en>Other fax</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_PERSONAL">
+    <de>Persönlich</de>
+    <en>Personal</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_PERSONAL2">
+    <de>Persönlich (2)</de>
+    <en>Personal (2)</en>
+  </item>
+  <item id="com.helger.masterdata.telephone.ETelephoneText.MSG_TYPE_PERSONAL_FAX">
+    <de>Fax persönlich</de>
+    <en>Personal fax</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CFR">
+    <de>Kosten und Fracht</de>
+    <en>cost and freight</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CIF">
+    <de>Kosten, Versicherung und Fracht bis zum Bestimmungshafen/Bestimmungsort</de>
+    <en>cost,insurance and freight</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CIP">
+    <de>Fracht, Porto und Versicherung bezahlt bis</de>
+    <en>carriage and insurance paid to</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.CPT">
+    <de>Fracht, Porto bezahlt bis</de>
+    <en>carriage paid to</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DAF">
+    <de>frei Grenze</de>
+    <en>delivered at frontier</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DDP">
+    <de>frei verzollt</de>
+    <en>delivered duty paid</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DDU">
+    <de>frei unverzollt</de>
+    <en>delivered duty unpaid</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DEQ">
+    <de>frei ab Kai</de>
+    <en>delivered ex quay</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.DES">
+    <de>frei ab Schiff</de>
+    <en>delivered ex ship</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.EXW">
+    <de>ab Werk</de>
+    <en>ex works</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FAS">
+    <de>frei längsseits Schiff</de>
+    <en>free alongside ship</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FCA">
+    <de>frei Frachtführer</de>
+    <en>free carrier</en>
+  </item>
+  <item id="com.helger.masterdata.trade.EIncotermName.FOB">
+    <de>frei an Bord</de>
+    <en>free on board</en>
+  </item>
+  <item id="com.helger.masterdata.trade.validation.ETradeErrorTexts.INVALID_DELIVERY_TERMS">
+    <de>Die Handelsklausel ist ungültig.</de>
+    <en>The delivery term is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_0">
+    <de>Grundprinzipien</de>
+    <en>General principles</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_1">
+    <de>Raum und Zeit</de>
+    <en>Space and time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_10">
+    <de>Kernreaktionen und ionisierende Strahlungen</de>
+    <en>Nuclear reactions and ionizing radiations</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_11">
+    <de>Mathematische Zeichen und Symbole</de>
+    <en>Mathematical signs and symbols for use in the physical sciences and technology</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_12">
+    <de>Kennzahlen</de>
+    <en>Characteristic numbers</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_13">
+    <de>Festkörperphysik</de>
+    <en>Solid state physics</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_2">
+    <de>Periodizität und verwandte Phänomene</de>
+    <en>Periodic and related phenomena</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_3">
+    <de>Mechanik</de>
+    <en>Mechanics</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_4">
+    <de>Wärme</de>
+    <en>Heat</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_5">
+    <de>Elektrizität und Magnetismus</de>
+    <en>Electricity and magnetism</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_6">
+    <de>Licht und verwandte elektromagnetische Strahlung</de>
+    <en>Light and related electromagnetic radiations</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_7">
+    <de>Akustik</de>
+    <en>Acoustics</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_8">
+    <de>Physikalische Chemie und Molekularphysik</de>
+    <en>Physical chemistry and molecular physics</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EISO31Name.ISO31_9">
+    <de>Atomphysik und Kernphysik</de>
+    <en>Atomic and nuclear physics</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ABSOLUTE_ACTIVITY">
+    <de>absolute activity</de>
+    <en>absolute activity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ABSORBED_DOSE">
+    <de>absorbed dose</de>
+    <en>absorbed dose</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ABSORBED_DOSE_RATE">
+    <de>absorbed dose rate</de>
+    <en>absorbed dose rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACCELERATION_ACCELERATION_OF_FREE_FALL_PLUS">
+    <de>Beschleuniggung, Erdbeschleunigung</de>
+    <en>acceleration, acceleration of free fall, acceleration due to gravity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACIDITY_AND_ALKALINITY">
+    <de>acidity and alkalinity</de>
+    <en>acidity and alkalinity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACOUSTIC_IMPEDANCE">
+    <de>acoustic impedance</de>
+    <en>acoustic impedance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACTIVE_ENERGY">
+    <de>active energy</de>
+    <en>active energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACTIVITY">
+    <de>activity</de>
+    <en>activity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACTIVITY_COEFFICIENT_OF_B_IN_A_LIQUID_AS_A_SOLID_MIXTURE">
+    <de>activity coefficient of B (in a liquid as a solid mixture)</de>
+    <en>activity coefficient of B (in a liquid as a solid mixture)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACTIVITY_COEFFICIENT_OF_SOLUTE_B_ESPECIALLY_IN_A_DILUTE_SOLUTION_STANDARD_ABSOLUTE_ACTIVITY_OF_SOLUTE_B_PLUS">
+    <de>activity coefficient of solute B (especially in a dilute solution),standard absolute activity of solute B (especially in a dilute solution)</de>
+    <en>activity coefficient of solute B (especially in a dilute solution),standard absolute activity of solute B (especially in a dilute solution)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ACTIVITY_OF_SOLVENT_A_RELATIVE_ACTIVITY_OF_SOLVENT_A_ESPECIALLY_IN_A_DILUTE_SOLUTION_PLUS">
+    <de>activity of solvent A, relative activity of solvent A (especially in a dilute solution), osmotic coefficient of the solvent A (especially in a dilute solution), standard absolute activity of solvent A (especially in a dilute solution)</de>
+    <en>activity of solvent A, relative activity of solvent A (especially in a dilute solution), osmotic coefficient of the solvent A (especially in a dilute solution), standard absolute activity of solvent A (especially in a dilute solution)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AFFINITY_OF_A_CHEMICAL_REACTION">
+    <de>affinity (of a chemical reaction)</de>
+    <en>affinity (of a chemical reaction)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ALFVEN_NUMBER">
+    <de>Alfvén-Zahl</de>
+    <en>Alfvén number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AMOUNT_OF_SUBSTANCE">
+    <de>amount of substance</de>
+    <en>amount of substance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGLE_OF_OPTICAL_ROTATION">
+    <de>angle of optical rotation</de>
+    <en>angle of optical rotation</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGLE_PLANE">
+    <de>Flächenwinkel</de>
+    <en>angle (plane)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_ACCELERATION">
+    <de>Winkelbeschleunigung</de>
+    <en>angular acceleration</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_CROSS_SECTION">
+    <de>angular cross-section</de>
+    <en>angular cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_FREQUENCY_PULSATANCE">
+    <de>Kreisfrequenz, Winkelfrequenz</de>
+    <en>angular frequency, pulsatance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_IMPULSE">
+    <de>Winkelimpuls</de>
+    <en>angular impulse</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_RECIPROCAL_LATTICE_VECTOR_FUNDAMENTAL_RECIPROCAL_LATTICE_VECTOR">
+    <de>angular reciprocal lattice vector, fundamental reciprocal lattice vector</de>
+    <en>angular reciprocal lattice vector, fundamental reciprocal lattice vector</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_REPETENCY_ANGULAR_WAVENUMBER">
+    <de>angular repetency, angular wavenumber</de>
+    <en>angular repetency, angular wavenumber</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_REPETENCY_ANGULAR_WAVE_NUMBER">
+    <de>angular repetency, angular wave number</de>
+    <en>angular repetency, angular wave number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_VELOCITY">
+    <de>Winkelgeschwindigkeit</de>
+    <en>angular velocity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ANGULAR_WAVE_NUMBER_ANGULAR_REPETENCY">
+    <de>angular wave number, angular repetency</de>
+    <en>angular wave number, angular repetency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.APPARENT_POWER">
+    <de>apparent power</de>
+    <en>apparent power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AREA">
+    <de>Fläche</de>
+    <en>area</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ATOMIC_ATTENUATION_COEFFICIENT">
+    <de>atomic attenuation coefficient</de>
+    <en>atomic attenuation coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ATTENUATION_COEFFICIENT_PHASE_COEFFICIENT_PLUS">
+    <de>attenuation coefficient, phase coefficient, propagation coefficient</de>
+    <en>attenuation coefficient, phase coefficient, propagation coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AVERAGE_ENERGY_LOSS_PER_ION_PAIR_FORMED_PLUS">
+    <de>average energy loss per ion, pair formed, (average energy  loss per elementary charge of the same sign produced)</de>
+    <en>average energy loss per ion, pair formed, (average energy  loss per elementary charge of the same sign produced)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AVERAGE_LOGARITHMIC_ENERGY_DECREMENT">
+    <de>average logarithmic energy decrement</de>
+    <en>average logarithmic energy decrement</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.AVOGADRO_CONSTANT">
+    <de>Avogadro constant</de>
+    <en>Avogadro constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.BOHR_RADIUS">
+    <de>Bohr radius</de>
+    <en>Bohr radius</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.BOLTZMANN_CONSTANT">
+    <de>Boltzmann constant</de>
+    <en>Boltzmann constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.BRAGG_ANGLE">
+    <de>Braggwinkel</de>
+    <en>Bragg angle</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.BURST_INDEX">
+    <de>burst index</de>
+    <en>burst index</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CAPACITANCE">
+    <de>capacitance</de>
+    <en>capacitance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CATALYTIC_ACTIVITY">
+    <de>catalytic activity</de>
+    <en>catalytic activity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CHARACTERISTIC_IMPEDANCE_OF_A_MEDIUM">
+    <de>characteristic impedance of a medium</de>
+    <en>characteristic impedance of a medium</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CHARGE_NUMBER_OF_ION">
+    <de>charge number of ion</de>
+    <en>charge number of ion</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CHEMICAL_POTENTIAL">
+    <de>chemical potential</de>
+    <en>chemical potential</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CIE_COLORIMETRIC_FUNCTIONS">
+    <de>CIE colorimetric functions</de>
+    <en>CIE colorimetric functions</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CIRCULAR_FREQUENCY">
+    <de>circular frequency</de>
+    <en>circular frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COEFFICIENT_OF_HEAT_TRANSFER">
+    <de>coefficient of heat transfer</de>
+    <en>coefficient of heat transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COEFFICIENT_PERFORMANCE_CHARACTERISTIC">
+    <de>coefficient, performance characteristic</de>
+    <en>coefficient, performance characteristic</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COMPRESSIBILITY_BULK_COMPRESSIBILITY">
+    <de>Kompressibilität</de>
+    <en>compressibility, bulk compressibility</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CONDUCTANCE_FOR_DIRECT_CURRENT_ADMITTANCE_PLUS">
+    <de>conductance (for direct current), admittance, (complex admittance), modulus of admittance,(admittance), conductance (for alternating current)</de>
+    <en>conductance (for direct current), admittance, (complex admittance), modulus of admittance,(admittance), conductance (for alternating current)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CONDUCTIVITY">
+    <de>conductivity</de>
+    <en>conductivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COORDINATES_TRICHROMATIC">
+    <de>coordinates trichromatic</de>
+    <en>coordinates trichromatic</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COUPLING_COEFFICIENT_LEAKAGE_COEFFICIENT">
+    <de>coupling coefficient, leakage coefficient</de>
+    <en>coupling coefficient, leakage coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.COWLING_NUMBER">
+    <de>Cowling-Zahl</de>
+    <en>Cowling number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CROSS_SECTION">
+    <de>cross-section</de>
+    <en>cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CURRENT_DENSITY">
+    <de>current density</de>
+    <en>current density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.CURVATURE">
+    <de>Krümmung</de>
+    <en>curvature</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DAMPING_COEFFICIENT">
+    <de>Dämpfungskoeffizient</de>
+    <en>damping coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DEBYE_ANGULAR_FREQUENCY">
+    <de>Debye angular frequency</de>
+    <en>Debye angular frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DEBYE_ANGULAR_REPETENCY_DEBYE_ANGULAR_WAVE_NUMBER">
+    <de>Debye angular repetency, Debye angular wave number</de>
+    <en>Debye angular repetency, Debye angular wave number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DEBYE_TEMPERATURE_CURIE_TEMPERATURE_PLUS">
+    <de>Debye temperature, Curie temperature, Néel temperature, Fermi temperature, Super conductor transition temperature</de>
+    <en>Debye temperature, Curie temperature, Néel temperature, Fermi temperature, Super conductor transition temperature</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DEBYE_WALLE_FACTOR">
+    <de>Debye-Walle factor</de>
+    <en>Debye-Walle factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DECAY_CONSTANT_DISINTEGRATION_CONSTANT">
+    <de>decay constant, disintegration constant</de>
+    <en>decay constant, disintegration constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DEGREE_OF_DISSOCIATION">
+    <de>degree of dissociation</de>
+    <en>degree of dissociation</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DENSITY_MASS_DENSITY_PLUS">
+    <de>Dichte, Massendichte</de>
+    <en>density, mass density, volumic mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DENSITY_OF_HEAT_FLOW_RATE">
+    <de>density of heat flow rate</de>
+    <en>density of heat flow rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DENSITY_OF_STATES">
+    <de>density of states</de>
+    <en>density of states</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DIFFUSION_COEFFICIENT">
+    <de>diffusion coefficient</de>
+    <en>diffusion coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DIFFUSION_COEFFICIENT_DIFFUSION_COEFFICIENT_FOR_NEUTRON_NUMBER_DENSITY">
+    <de>diffusion coefficient, diffusion coefficient for neutron number density</de>
+    <en>diffusion coefficient, diffusion coefficient for neutron number density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DIFFUSION_COEFFICIENT_FOR_NEUTRON_FLUENCE_RATE_DIFFUSION_COEFFICIENT_FOR_NEUTRON_FLUX_DENSITY">
+    <de>diffusion coefficient for neutron fluence rate, (diffusion coefficient for neutron flux density)</de>
+    <en>diffusion coefficient for neutron fluence rate, (diffusion coefficient for neutron flux density)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DISSIPATION_FACTOR_DISSIPANCE_PLUS">
+    <de>dissipation factor, dissipance, reflection factor, reflectance, transmission factor, transmittance, absorption factor, absorbance</de>
+    <en>dissipation factor, dissipance, reflection factor, reflectance, transmission factor, transmittance, absorption factor, absorbance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DONOR_IONIZATION_ENERGY_ACCEPTOR_IONIZATION_ENERGY_PLUS">
+    <de>donor ionization energy, acceptor ionization energy, exchange intergral, superconductor energy gap, electron affinity</de>
+    <en>donor ionization energy, acceptor ionization energy, exchange intergral, superconductor energy gap, electron affinity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.DOSE_EQUIVALENT">
+    <de>dose equivalent</de>
+    <en>dose equivalent</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EFFECTIVE_MASS">
+    <de>effective mass</de>
+    <en>effective mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_CHARGE_QUANTITY_OF_ELECTRICITY_PLUS">
+    <de>electric charge, quantity of electricity, electric flux (flux of displacement)</de>
+    <en>electric charge, quantity of electricity, electric flux (flux of displacement)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_CURRENT_MAGNETIC_POTENTIAL_DIFFERENCE_PLUS">
+    <de>electric current, magnetic potential difference, magnetomotive force,current linkage</de>
+    <en>electric current, magnetic potential difference, magnetomotive force,current linkage</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_DIPOLE_MOMENT">
+    <de>electric dipole moment</de>
+    <en>electric dipole moment</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_DIPOLE_MOMENT_OF_MOLECULE">
+    <de>electric dipole moment of molecule</de>
+    <en>electric dipole moment of molecule</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_FIELD_STRENGTH">
+    <de>electric field strength</de>
+    <en>electric field strength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_POLARIZABILITY_OF_A_MOLECULE">
+    <de>electric polarizability of a molecule</de>
+    <en>electric polarizability of a molecule</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_POTENTIAL_POTENTIAL_DIFFERENCE_PLUS">
+    <de>electric potential, potential difference, tension, voltage, electromotive force</de>
+    <en>electric potential, potential difference, tension, voltage, electromotive force</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRIC_SUSCEPTIBILITY">
+    <de>electric susceptibility</de>
+    <en>electric susceptibility</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTROLYTIC_CONDUCTIVITY">
+    <de>electrolytic conductivity</de>
+    <en>electrolytic conductivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTROMAGNETIC_ENERGY_DENSITY_VOLUMIC_ELECTROMAGNETIC_ENERGY">
+    <de>electromagnetic energy density, volumic electromagnetic energy</de>
+    <en>electromagnetic energy density, volumic electromagnetic energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTROMAGNETIC_MOMENT_MAGNETIC_MOMENT_PLUS">
+    <de>electromagnetic moment, magnetic moment, (magnetic area moment)</de>
+    <en>electromagnetic moment, magnetic moment, (magnetic area moment)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELECTRON_NUMBER_DENSITY_VOLUMIC_ELECTRON_NUMBER_PLUS">
+    <de>electron number density, volumic electron number, hole number density, volumic hole number, donor number density, volumic donor number, intrinsic number density, volumic intrinsis number, acceptor number density, volumic acceptor number</de>
+    <en>electron number density, volumic electron number, hole number density, volumic hole number, donor number density, volumic donor number, intrinsic number density, volumic intrinsis number, acceptor number density, volumic acceptor number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ELEMENTARY_CHARGE">
+    <de>elementary charge</de>
+    <en>elementary charge</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EMISSIVITY_SPECTRAL_EMISSIVITY_PLUS">
+    <de>emissivity, spectral emissivity, emissivity at a specified wavelength, directional spectral emissivity</de>
+    <en>emissivity, spectral emissivity, emissivity at a specified wavelength, directional spectral emissivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ENERGY_DENSITY">
+    <de>energy density</de>
+    <en>energy density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ENERGY_FLUENCE">
+    <de>energy fluence</de>
+    <en>energy fluence</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ENERGY_FLUENCE_RATE_ENERGY_FLUX_DENSITY">
+    <de>energy fluence rate, (energy flux density)</de>
+    <en>energy fluence rate, (energy flux density)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ENERGY_IMPARTED_MEAN_ENERGY_IMPARTED">
+    <de>energy imparted, mean energy imparted</de>
+    <en>energy imparted, mean energy imparted</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EQUIVALENCE_DOSE_OUTPUT">
+    <de>equivalence dose output</de>
+    <en>equivalence dose output</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EQUIVALENT_ABSORPTION_AREA_OF_A_SURFACE_OR_OBJECT">
+    <de>equivalent absorption area of a surface or object</de>
+    <en>equivalent absorption area of a surface or object</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EULER_NUMBER">
+    <de>Eulersche Zahl</de>
+    <en>Euler number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EXPOSURE">
+    <de>exposure</de>
+    <en>exposure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.EXPOSURE_RATE">
+    <de>exposure rate</de>
+    <en>exposure rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FAHRENHEIT_TEMPERATURE">
+    <de>Fahrenheit Temperatur</de>
+    <en>fahrenheit temperature</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FARADAY_CONSTANT">
+    <de>Faraday constant</de>
+    <en>Faraday constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FAST_FISSION_FACTOR">
+    <de>fast fission factor</de>
+    <en>fast fission factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FERMI_ANGULAR_REPETENCY_FERMI_ANGULAR_WAVE_NUMBER">
+    <de>Fermi angular repetency, Fermi angular wave number</de>
+    <en>Fermi angular repetency, Fermi angular wave number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FERMI_ENERGY">
+    <de>Fermienergie</de>
+    <en>Fermi energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FINE_STRUCTURE_CONSTANT">
+    <de>fine structure constant</de>
+    <en>fine structure constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FORCE_DIVIDED_BY_LENGTH">
+    <de>Kraft dividiert durch Länge</de>
+    <en>force divided by length</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FORCE_WEIGHT">
+    <de>Kraft, Gewicht</de>
+    <en>force, weight</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FOURIER_NUMBER">
+    <de>Fourier-Zahl</de>
+    <en>Fourier number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FOURIER_NUMBER_FOR_MASS_TRANSFER">
+    <de>Fourier number for mass transfer</de>
+    <en>Fourier number for mass transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FREQUENCY">
+    <de>Frequenz</de>
+    <en>frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FREQUENCY_INTERVAL">
+    <de>frequency interval</de>
+    <en>frequency interval</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FRICTION_FACTOR_COEFFICIENT_OF_FRICTION">
+    <de>Reibungsfaktor, Reibungszahl</de>
+    <en>friction factor, coefficient of friction</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.FROUDE_NUMBER">
+    <de>Froude-Zahl</de>
+    <en>Froude number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GAP_ENERGY">
+    <de>gap energy</de>
+    <en>gap energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GIBBS_FUNCTION_GIBBS_FREE_ENERGY">
+    <de>Gibbs function, Gibbs free energy</de>
+    <en>Gibbs function, Gibbs free energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GRASHOF_NUMBER">
+    <de>Grashof-Zahl</de>
+    <en>Grashof number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GRASHOF_NUMBER_FOR_MASS_TRANSFER">
+    <de>Grashof number for mass transfer</de>
+    <en>Grashof number for mass transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GRAVITATIONAL_CONSTANT">
+    <de>Gravitationskonstante</de>
+    <en>gravitational constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GR_NEISEN_PARAMETER">
+    <de>Grüneisen parameter</de>
+    <en>Grüneisen parameter</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.GYROMAGNETIC_COEFFICIENT_GYROMAGNETIC_RATIO">
+    <de>gyromagnetic coefficient, (gyromagnetic ratio)</de>
+    <en>gyromagnetic coefficient, (gyromagnetic ratio)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.G_FACTOR_OF_ATOM_OR_ELECTRON_G_FACTOR_OF_NUCLEUS">
+    <de>g-factor of atom or electron, g-factor of nucleus</de>
+    <en>g-factor of atom or electron, g-factor of nucleus</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HALF_THICKNESS_HALF_VALUE_THICKNESS">
+    <de>half-thickness, half-value thickness</de>
+    <en>half-thickness, half-value thickness</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HALL_COEFFICIENT">
+    <de>Hall coefficient</de>
+    <en>Hall coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HARDNESS_INDEX">
+    <de>hardness index</de>
+    <en>hardness index</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HARTMANN_NUMBER">
+    <de>Hartmann-Zahl</de>
+    <en>Hartmann number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HARTREE_ENERGY">
+    <de>Hartree energy</de>
+    <en>Hartree energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HEAT_CAPACITY_ENTROPY">
+    <de>heat capacity, entropy</de>
+    <en>heat capacity, entropy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HEAT_FLOW_RATE">
+    <de>heat flow rate</de>
+    <en>heat flow rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HEAT_QUANTITY_OF_HEAT_PLUS">
+    <de>heat, quantity of heat, energy, thermodynamic energy, enthalpy, Helmholtz function, Helmholtz free energy</de>
+    <en>heat, quantity of heat, energy, thermodynamic energy, enthalpy, Helmholtz function, Helmholtz free energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.HYPERFINE_STRUCTURE_QUANTUM_NUMBER">
+    <de>hyperfine structure quantum number</de>
+    <en>hyperfine structure quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ILLUMINANCE">
+    <de>illuminance</de>
+    <en>illuminance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.IMPULSE">
+    <de>Impuls</de>
+    <en>impulse</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.INSTANTANEOUS_SOUND_PARTICLE_ACCELERATION">
+    <de>(instantaneous) sound particle acceleration</de>
+    <en>(instantaneous) sound particle acceleration</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.INSTANTANEOUS_SOUND_PARTICLE_DISPLACEMENT">
+    <de>(instantaneous) sound particle displacement</de>
+    <en>(instantaneous) sound particle displacement</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.INSTANTANEOUS_SOUND_PARTICLE_VELOCITY">
+    <de>(instantaneous) sound particle velocity</de>
+    <en>(instantaneous) sound particle velocity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.INSTANTANEOUS_VOLUME_FLOW_RATE">
+    <de>(instantaneous) volume flow rate</de>
+    <en>(instantaneous) volume flow rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.INTERNAL_CONVERSION_FACTOR">
+    <de>internal conversion factor</de>
+    <en>internal conversion factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.IONIC_STRENGTH">
+    <de>ionic strength</de>
+    <en>ionic strength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ION_NUMBER_DENSITY_ION_DENSITY_PLUS">
+    <de>ion number density, ion density, neutron number density</de>
+    <en>ion number density, ion density, neutron number density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ISOTHERMAL_COMPRESSIBILITY_ISENTROPIC_COMPRESSIBILITY">
+    <de>isothermal compressibility, isentropic compressibility</de>
+    <en>isothermal compressibility, isentropic compressibility</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.KERMA">
+    <de>kerma</de>
+    <en>kerma</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.KERMA_RATE">
+    <de>kerma rate</de>
+    <en>kerma rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.KINEMATIC_VISCOSITY">
+    <de>kinematische Viskosität</de>
+    <en>kinematic viscosity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.KNUDSEN_NUMBER">
+    <de>Knudsen-Zahl</de>
+    <en>Knudsen number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LANDAU_GINZBURG_NUMBER">
+    <de>Landau-Ginzburg number</de>
+    <en>Landau-Ginzburg number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LARMOR_ANGULAR_FREQUENCY">
+    <de>Larmor angular frequency</de>
+    <en>Larmor angular frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LATTICE_PLANE_SPACING_BURGERS_VECTOR">
+    <de>lattice plane spacing, Burgers vector</de>
+    <en>lattice plane spacing, Burgers vector</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LATTICE_VECTOR_FUNDAMENTAL_LATTICE_VECTOR">
+    <de>lattice vector, fundamental lattice vector</de>
+    <en>lattice vector, fundamental lattice vector</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LEAKAGE_RATE_OF_GAS">
+    <de>Leckrate eines Gases</de>
+    <en>leakage rate of gas</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LENGTH_BREADTH_PLUS">
+    <de>Länge, Breite, Höhe, Dicke, Radius, Krümmungsradius, kartesische Koordinaten, Durchmesser, Pfadlänge, Distanz</de>
+    <en>length, breadth, height, thickness, radius, radius of curvature, cartesian coordinates, diameter, length of path, distance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LETHARGY">
+    <de>lethargy</de>
+    <en>lethargy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY">
+    <de>level of a field quantity, level of a power quantity</de>
+    <en>level of a field quantity, level of a power quantity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LEVEL_WIDTH_ALPHA_DISINTEGRATION_ENERGY">
+    <de>level width, alpha disintegration energy</de>
+    <en>level width, alpha disintegration energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LEWIS_NUMBER">
+    <de>Lewis-Zahl</de>
+    <en>Lewis number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LIGHT_EXPOSURE">
+    <de>light exposure</de>
+    <en>light exposure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_ATTENUATION_COEFFICIENT">
+    <de>linear attenuation coefficient</de>
+    <en>linear attenuation coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_ATTENUATION_COEFFICIENT_LINEAR_EXTINCTION_COEFFICIENT_PLUS">
+    <de>linear attenuation coefficient, linear extinction coefficient,linear absorption coefficient</de>
+    <en>linear attenuation coefficient, linear extinction coefficient,linear absorption coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_DENSITY_LINEAR_MASS">
+    <de>lineare Dichte, lineare Masse</de>
+    <en>linear density, linear mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_ELECTRIC_CURRENT_DENSITY_LINEIC_ELECTRIC_CURRENT_PLUS">
+    <de>linear electric current density, lineic electric current, magnetic field strength</de>
+    <en>linear electric current density, lineic electric current, magnetic field strength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_ENERGY_TRANSFER">
+    <de>linear energy transfer</de>
+    <en>linear energy transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_EXPANSION_COEFFICIENT_CUBIC_EXPANSION_COEFFICIENT_PLUS">
+    <de>linear expansion coefficient, cubic expansion coefficient, relative pressure coefficient</de>
+    <en>linear expansion coefficient, cubic expansion coefficient, relative pressure coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_IONIZATION_BY_A_PARTICLE_TOTAL_IONIZATION_BY_A_PARTICLE">
+    <de>linear ionization by a particle, total ionization by a particle</de>
+    <en>linear ionization by a particle, total ionization by a particle</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEAR_STRAIN_RELATIVE_ELONGATION_PLUS">
+    <de>Dehnlänge, relative Dehnung, Scherdehnung, Volumendehnung</de>
+    <en>linear strain, relative elongation, shear strain, volume or bulk strain</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEIC_CHARGE">
+    <de>lineic charge</de>
+    <en>lineic charge</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LINEIC_RESISTANCE">
+    <de>lineic resistance</de>
+    <en>lineic resistance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LOGARITHMIC_DECREMENT">
+    <de>logarithmisches Dekrament</de>
+    <en>logarithmic decrement</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LOUDNESS">
+    <de>loudness</de>
+    <en>loudness</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LOUDNESS_LEVEL">
+    <de>loudness level</de>
+    <en>loudness level</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINANCE">
+    <de>luminance</de>
+    <en>luminance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINIOUS_EFFICACY_SPECTRAL_LUMINOUS_EFFICACY_PLUS">
+    <de>luminious efficacy, spectral luminous efficacy, luminous efficacy at a specified wavelength, maximum spectral luminous efficacy</de>
+    <en>luminious efficacy, spectral luminous efficacy, luminous efficacy at a specified wavelength, maximum spectral luminous efficacy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINOUS_EFFICIENCY_SPECTRAL_LUMINOUS_EFFICIENCY_PLUS">
+    <de>luminous efficiency, spectral luminous efficiency,luminous efficiency at a specified wavelength</de>
+    <en>luminous efficiency, spectral luminous efficiency,luminous efficiency at a specified wavelength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINOUS_EXITANCE">
+    <de>luminous exitance</de>
+    <en>luminous exitance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINOUS_FLUX">
+    <de>luminous flux</de>
+    <en>luminous flux</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.LUMINOUS_INTENSITY">
+    <de>luminous intensity</de>
+    <en>luminous intensity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MACH_NUMBER">
+    <de>Mach-Zahl</de>
+    <en>Mach number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MACROSCOPIC_CROSS_SECTION_VOLUMIC_CROSS_SECTION_PLUS">
+    <de>macroscopic cross-section, volumic cross-section, volumic total cross-section, macroscopic total cross-section</de>
+    <en>macroscopic cross-section, volumic cross-section, volumic total cross-section, macroscopic total cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MADELUNG_CONSTANT">
+    <de>Madelung constant</de>
+    <en>Madelung constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_DIPOLE_MOMENT">
+    <de>magnetic dipole moment</de>
+    <en>magnetic dipole moment</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_FLUX">
+    <de>magnetic flux</de>
+    <en>magnetic flux</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_FLUX_DENSITY_MAGNETIC_INDUCTION_PLUS">
+    <de>magnetic flux density, magnetic induction, magnetic polarization</de>
+    <en>magnetic flux density, magnetic induction, magnetic polarization</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_FLUX_QUANTUM">
+    <de>magnetic flux quantum</de>
+    <en>magnetic flux quantum</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_MOMENT_OF_PARTICLE_BOHR_MAGNETON_PLUS">
+    <de>magnetic moment of particle, Bohr magneton, nuclear magneton ornucleus</de>
+    <en>magnetic moment of particle, Bohr magneton, nuclear magneton ornucleus</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_QUANTUM_NUMBER">
+    <de>magnetic quantum number</de>
+    <en>magnetic quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_REYNOLDS_NUMBER">
+    <de>magnetische Reynolds-Zahl</de>
+    <en>magnetic Reynolds number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_SUSCEPTIBILITY">
+    <de>magnetic susceptibility</de>
+    <en>magnetic susceptibility</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIC_VECTOR_POTENTIAL">
+    <de>magnetic vector potential</de>
+    <en>magnetic vector potential</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAGNETIZATION">
+    <de>magnetization</de>
+    <en>magnetization</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS">
+    <de>Masse</de>
+    <en>mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIC_ENERGY_SPECIFIC_ENERGY">
+    <de>massic energy, specific energy</de>
+    <en>massic energy, specific energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIC_ENTHALPY_SPECIFIC_ENTHALPY">
+    <de>massic enthalpy, specific enthalpy</de>
+    <en>massic enthalpy, specific enthalpy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIC_HELMHOLTZ_FREE_ENERGY">
+    <de>massic Helmholtz free energy,</de>
+    <en>massic Helmholtz free energy,</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIC_OPTICAL_ROTATORY_POWER_PLUS">
+    <de>massic optical, rotatory power, specific optical rotatory power</de>
+    <en>massic optical, rotatory power, specific optical rotatory power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIC_THERMODYNAMIC_ENERGY">
+    <de>massic thermodynamic energy,</de>
+    <en>massic thermodynamic energy,</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASSIEU_FUNCTION_PLANCK_FUNCTION">
+    <de>massieu function, planck function</de>
+    <en>massieu function, planck function</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_ATTENUATION_COEFFICIENT">
+    <de>mass attenuation coefficient</de>
+    <en>mass attenuation coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_DEFECT">
+    <de>mass defect</de>
+    <en>mass defect</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_ENERGY_TRANSFER_COEFFICIENT">
+    <de>mass energy transfer coefficient</de>
+    <en>mass energy transfer coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_EXCESS">
+    <de>mass excess</de>
+    <en>mass excess</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_FLOW_RATE">
+    <de>Mengendurchsatz</de>
+    <en>mass flow rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_OF_ATOM_OF_A_NUCLIDE_X_NUCLIDIC_MASS">
+    <de>mass of atom (of a nuclide x), nuclidic mass</de>
+    <en>mass of atom (of a nuclide x), nuclidic mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_OF_ATOM_OF_A_NUCLIDE_X_NUCLIDIC_MASS_PLUS">
+    <de>mass of atom (of a nuclide x), nuclidic mass, unified atomic mass constant</de>
+    <en>mass of atom (of a nuclide x), nuclidic mass, unified atomic mass constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_OF_MOLECULE">
+    <de>mass of molecule</de>
+    <en>mass of molecule</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MASS_RATIO">
+    <de>Masseverhältnis</de>
+    <en>mass ratio</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MAXIMUM_BETA_PARTICLE_ENERGY_BETA_DISINTEGRATION_ENERGY">
+    <de>maximum beta particle energy, beta disintegration energy</de>
+    <en>maximum beta particle energy, beta disintegration energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MEAN_FREE_PATH">
+    <de>mean free path</de>
+    <en>mean free path</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MEAN_FREE_PATH_OF_PHONONS_OR_ELECTRONS_LONDON_PENETRATION_DEPTH_PLUS">
+    <de>mean free path of phonons or electrons, London penetration depth, coherence length, diffusion length</de>
+    <en>mean free path of phonons or electrons, London penetration depth, coherence length, diffusion length</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MEAN_LIFE_HALF_LIFE">
+    <de>mean life, half life</de>
+    <en>mean life, half life</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MEAN_LINEAR_RANGE_MEAN_FREE_PATH">
+    <de>mean linear range, mean free path</de>
+    <en>mean linear range, mean free path</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MEAN_MASS_RANGE">
+    <de>mean mass range</de>
+    <en>mean mass range</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MECHANICAL_IMPEDANCE">
+    <de>mechanical impedance</de>
+    <en>mechanical impedance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MICROCANONICAL_PARTITION_FUNCTION_CANONICAL_PARTITION_FUNCTION_PLUS">
+    <de>microcanonical partition function, canonical partition function, grand-canonical partition function, grand partition function, molecular partition function, partition function of a molecule</de>
+    <en>microcanonical partition function, canonical partition function, grand-canonical partition function, grand partition function, molecular partition function, partition function of a molecule</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOBILITY">
+    <de>mobility</de>
+    <en>mobility</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOBILITY_RATIO">
+    <de>mobility ratio</de>
+    <en>mobility ratio</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLALITY_OF_SOLUTE_B">
+    <de>molality of solute B</de>
+    <en>molality of solute B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_ABSORPTION_COEFFICIENT">
+    <de>molar absorption coefficient</de>
+    <en>molar absorption coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_ATTENUATION_COEFFICIENT">
+    <de>molar attenuation coefficient</de>
+    <en>molar attenuation coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_CONDUCTIVITY">
+    <de>molar conductivity</de>
+    <en>molar conductivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_FLUX">
+    <de>molar flux</de>
+    <en>molar flux</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_HEAT_CAPACITY_MOLAR_ENTROPY_PLUS">
+    <de>molar heat capacity, molar entropy, molar gas constant</de>
+    <en>molar heat capacity, molar entropy, molar gas constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_MASS">
+    <de>molar mass</de>
+    <en>molar mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_OPTICAL_ROTATORY_POWER">
+    <de>molar optical rotatory power</de>
+    <en>molar optical rotatory power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_THERMODYNAMIC_ENERGY">
+    <de>molar thermodynamic energy</de>
+    <en>molar thermodynamic energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLAR_VOLUME">
+    <de>molar volume</de>
+    <en>molar volume</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOLE_FRACTION_OF_B_MOLE_RATIO_OF_SOLUTE_B">
+    <de>mole fraction of B, mole ratio of solute B</de>
+    <en>mole fraction of B, mole ratio of solute B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOMENTUM">
+    <de>Impuls</de>
+    <en>momentum</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOMENT_OF_FORCE_MOMENT_OF_A_COUPLE_PLUS">
+    <de>Moment einer Kraft, Moment eines Kräftepaars, Drehmoment</de>
+    <en>moment of force, moment of a couple, torque</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOMENT_OF_INERTIA_DYNAMIC_MOMENT_OF_INERTIA">
+    <de>Trägheitsmoment (dynamisches Trägheitsmoment)</de>
+    <en>moment of inertia (dynamic moment of inertia)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MOMENT_OF_MOMENTUM_ANGULAR_MOMENTUM">
+    <de>Drehmoment, Drehimpuls</de>
+    <en>moment of momentum, angular momentum</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.MULTIPLICATION_FACTOR_INFINITE_MEDIUM_MULTIPLICATION_FACTOR_PLUS">
+    <de>multiplication factor, infinite medium multiplication factor, effective multiplication factor</de>
+    <en>multiplication factor, infinite medium multiplication factor, effective multiplication factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NEUTRON_NUMBER">
+    <de>neutron number</de>
+    <en>neutron number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NEUTRON_SOURCE_DENSITY">
+    <de>neutron source density</de>
+    <en>neutron source density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NEUTRON_SPEED">
+    <de>neutron speed</de>
+    <en>neutron speed</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NEUTRON_YIELD_PER_FISSION_NEUTRON_YIELD_PER_ABSORPTION">
+    <de>neutron yield per fission, neutron yield per absorption</de>
+    <en>neutron yield per fission, neutron yield per absorption</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NON_LEAKAGE_PROBABILITY">
+    <de>non leakage probability</de>
+    <en>non leakage probability</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUCLEAR_PRECESSION_CYCLOTRON_ANGULAR_FREQUENCY">
+    <de>nuclear precession, cyclotron angular frequency</de>
+    <en>nuclear precession, cyclotron angular frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUCLEAR_QUADRUPOLE_MOMENT">
+    <de>nuclear quadrupole moment</de>
+    <en>nuclear quadrupole moment</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUCLEAR_RADIUS_ELECTRON_RADIUS_PLUS">
+    <de>nuclear radius, electron radius, Compton wavelength</de>
+    <en>nuclear radius, electron radius, Compton wavelength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUCLEAR_SPIN_QUANTUM_NUMBER">
+    <de>nuclear spin quantum number</de>
+    <en>nuclear spin quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUCLEON_NUMBER_MASS_NUMBER">
+    <de>nucleon number, mass number</de>
+    <en>nucleon number, mass number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUMBER_OF_MOLECULES_OR_OTHER_ELEMENTARY_ENTITIES">
+    <de>number of molecules or other elementary entities</de>
+    <en>number of molecules or other elementary entities</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUMBER_OF_TURNS_IN_A_WINDING_NUMBER_OF_PHASES_PLUS">
+    <de>number of turns in a winding, number of phases, number of pairs of poles</de>
+    <en>number of turns in a winding, number of phases, number of pairs of poles</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUSSELT_NUMBER">
+    <de>Nusselt-Zahl</de>
+    <en>Nusselt number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.NUSSELT_NUMBER_FOR_MASS_TRANSFER">
+    <de>Nusselt number for mass transfer</de>
+    <en>Nusselt number for mass transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.OBJECT_DISTANCE_IMAGE_DISTANCE_PLUS">
+    <de>object distance, image distance, focal distance</de>
+    <en>object distance, image distance, focal distance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.OPTICAL_DENSITY">
+    <de>optical density</de>
+    <en>optical density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ORBITAL_ANGULAR_MOMENTUM_QUANTUM_NUMBER">
+    <de>orbital angular momentum quantum number</de>
+    <en>orbital angular momentum quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ORDER_OF_REFLEXION">
+    <de>order of reflexion</de>
+    <en>order of reflexion</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PACKING_FRACTION_BINDING_FRACTION">
+    <de>packing fraction, binding fraction</de>
+    <en>packing fraction, binding fraction</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PARTIAL_PRESSURE_OF_B_IN_A_GASEOUS_MIXTURE_FUGACITY_OF_B_PLUS">
+    <de>partial pressure of B (in a gaseous mixture), fugacity of B (in a gaseous mixture), osmotic pressure</de>
+    <en>partial pressure of B (in a gaseous mixture), fugacity of B (in a gaseous mixture), osmotic pressure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PARTICLE_FLUENCE">
+    <de>particle fluence</de>
+    <en>particle fluence</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PARTICLE_FLUENCE_RATE_PARTICAL_FLUX_DENSITY_PLUS">
+    <de>particle fluence rate, (partical flux density), neutron fluence rate, (neutronflux density), current density of particles</de>
+    <en>particle fluence rate, (partical flux density), neutron fluence rate, (neutronflux density), current density of particles</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PARTICLE_POSITION_VECTOR_EQUILIBRIUM_POSITION_VECTOR_OF_ION_OR_ATOM_PLUS">
+    <de>particle position vector, equilibrium position vector of ion or atom, displacement vector of ion or atom</de>
+    <en>particle position vector, equilibrium position vector of ion or atom, displacement vector of ion or atom</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PECLET_NUMBER">
+    <de>Péclet-Zahl</de>
+    <en>Péclet number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PECLET_NUMBER_FOR_MASS_TRANSFER">
+    <de>Peclet number for mass transfer</de>
+    <en>Peclet number for mass transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PERIOD_PERIODIC_TIME">
+    <de>period, periodic time</de>
+    <en>period, periodic time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PERMEABILITY_PERMEABILITY_OF_VACUUM_PLUS">
+    <de>permeability, permeability of vacuum, magnetic constant</de>
+    <en>permeability, permeability of vacuum, magnetic constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PERMITTIVITY_PERMITTIVITY_OF_VACUUM_PLUS">
+    <de>permittivity, permittivity of vacuum, (electric constant)</de>
+    <en>permittivity, permittivity of vacuum, (electric constant)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHASE_DIFFERENCE_PHASE_DISPLACEMENT_PLUS">
+    <de>phase difference, phase displacement, loss angle</de>
+    <en>phase difference, phase displacement, loss angle</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHASE_VELOCITY_OF_ELECTROMAGNETIC_WAVES_PHASE_SPEED_OF_ELECTROMAGNETIC_WAVES">
+    <de>phase velocity of electromagnetic
+ waves, phase speed of electromagnetic waves</de>
+    <en>phase velocity of electromagnetic
+ waves, phase speed of electromagnetic waves</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHOTON_EXITANCE_IRRADIANCE">
+    <de>photon exitance, irradiance</de>
+    <en>photon exitance, irradiance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHOTON_EXPOSURE">
+    <de>photon exposure</de>
+    <en>photon exposure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHOTON_FLUX">
+    <de>photon flux</de>
+    <en>photon flux</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHOTON_INTENSITY">
+    <de>photon intensity</de>
+    <en>photon intensity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PHOTON_LUMINANCE_PHOTON_RADIANCE">
+    <de>photon luminance, photon radiance</de>
+    <en>photon luminance, photon radiance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PLANCK_CONSTANT">
+    <de>Planck constant</de>
+    <en>Planck constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.POISSON_RATIO_POISSON_NUMBER">
+    <de>Poissonzahl</de>
+    <en>poisson ratio, poisson number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.POROSITY">
+    <de>Porosität</de>
+    <en>porosity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.POWER">
+    <de>Leistung</de>
+    <en>power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.POWER_FOR_DIRECT_CURRENT_ACTIVE_POWER">
+    <de>power (for direct current), active power</de>
+    <en>power (for direct current), active power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.POYNTING_VECTOR">
+    <de>Poynting vector</de>
+    <en>Poynting vector</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PRANDTL_NUMBER">
+    <de>Prandtl-Zahl</de>
+    <en>Prandtl number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PRESSURE_COEFFICIENT">
+    <de>pressure coefficient</de>
+    <en>pressure coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PRESSURE_NORMAL_STRESS_PLUS">
+    <de>Druck, normale Spannung, Scherspannung, Elastizitätsmodul, Schubmodul, Kompressionsmodul</de>
+    <en>pressure, normal stress, shear stress, modulus of elasticity,shear modulus, modulus of rigidity, bulk modulus, modulus of compression</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PRESSURE_RATIO">
+    <de>Verdichtungsverhältnis</de>
+    <en>pressure ratio</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PRINCIPLE_QUANTUM_NUMBER">
+    <de>principle quantum number</de>
+    <en>principle quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PROTON_NUMBER">
+    <de>proton number</de>
+    <en>proton number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.PROTON_NUMBER_ATOMIC_NUMBER">
+    <de>proton number, atomic number</de>
+    <en>proton number, atomic number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.QUANTITY_OF_LIGHT">
+    <de>quantity of light</de>
+    <en>quantity of light</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANCE">
+    <de>radiance</de>
+    <en>radiance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_ENERGY">
+    <de>radiant energy</de>
+    <en>radiant energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_ENERGY_DENSITY">
+    <de>radiant energy density</de>
+    <en>radiant energy density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_ENERGY_FLUENCE_RADIANCE_EXPOSURE">
+    <de>radiant energy fluence, radiance exposure</de>
+    <en>radiant energy fluence, radiance exposure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_ENERGY_FLUENCE_RATE_PLUS">
+    <de>radiant energy, fluence rate, radiant exitance, irradiance, first radiation constant</de>
+    <en>radiant energy, fluence rate, radiant exitance, irradiance, first radiation constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_INTENSITY">
+    <de>radiant intensity</de>
+    <en>radiant intensity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RADIANT_POWER_RADIANT_ENERGYFLUX">
+    <de>radiant power, (radiant energyflux)</de>
+    <en>radiant power, (radiant energyflux)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RATIO_OF_THE_SPECIFIC_HEAT_CAPACITIES_RATIO_OF_THE_MASSIC_HEAT_CAPACITY_PLUS">
+    <de>ratio of the specific heat capacities, ratio of the massic heat capacity, isentropic exponent</de>
+    <en>ratio of the specific heat capacities, ratio of the massic heat capacity, isentropic exponent</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RAYLEIGH_NUMBER">
+    <de>Rayleigh-Zahl</de>
+    <en>Rayleigh number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REACTION_ENERGY">
+    <de>reaction energy</de>
+    <en>reaction energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REACTIVE_POWER">
+    <de>reactive power</de>
+    <en>reactive power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REACTIVITY">
+    <de>reactivity</de>
+    <en>reactivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REACTOR_TIME_CONSTANT">
+    <de>reactor time constant</de>
+    <en>reactor time constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RECOMBINATION_COEFFICIENT">
+    <de>recombination coefficient</de>
+    <en>recombination coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REFRACTIVE_INDEX">
+    <de>refractive index</de>
+    <en>refractive index</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_ATOMIC_MASS">
+    <de>relative atomic mass</de>
+    <en>relative atomic mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_DENSITY_RELATIVE_MASS_DENSITY">
+    <de>relative Dichte, relative Massendichte</de>
+    <en>relative density, relative mass density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_MASS_EXCESS_RELATIVE_MASS_DEFECT">
+    <de>relative mass excess, relative mass defect</de>
+    <en>relative mass excess, relative mass defect</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_MOLECULAR_MASS">
+    <de>relative molecular mass</de>
+    <en>relative molecular mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_PERMEABILITY">
+    <de>relative permeability</de>
+    <en>relative permeability</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELATIVE_PERMITTIVITY">
+    <de>relative permittivity</de>
+    <en>relative permittivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELAXATION_TIME_CARRIER_LIFE_TIME">
+    <de>relaxation time, carrier life time</de>
+    <en>relaxation time, carrier life time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RELUCTANCE">
+    <de>reluctance</de>
+    <en>reluctance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REPETENCY_WAVENUMBER">
+    <de>repetency, wavenumber</de>
+    <en>repetency, wavenumber</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESIDUAL_RESISTIVITY">
+    <de>residual resistivity</de>
+    <en>residual resistivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESISTANCE_LOAD_PER_UNIT_LENGTH">
+    <de>resistance load per unit length</de>
+    <en>resistance load per unit length</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESISTANCE_TO_DIRECT_CURRENT_IMPEDANCE_PLUS">
+    <de>resistance (to direct current), impedance, (complex impedances), modulus of impedance, resistance (to alternating current), reactance</de>
+    <en>resistance (to direct current), impedance, (complex impedances), modulus of impedance, resistance (to alternating current), reactance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESISTIVITY">
+    <de>resistivity</de>
+    <en>resistivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESONANCE_ENERGY">
+    <de>resonance energy</de>
+    <en>resonance energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RESONANCE_ESCAPE_PROBABILITY">
+    <de>resonance escape probability</de>
+    <en>resonance escape probability</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REST_MASS_OF_ELECTRON_REST_MASS_OF_PROTON_PLUS">
+    <de>(rest) mass of electron, (rest) mass of proton, (rest) mass of neutron</de>
+    <en>(rest) mass of electron, (rest) mass of proton, (rest) mass of neutron</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REVERBERATION_TIME">
+    <de>reverberation time</de>
+    <en>reverberation time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.REYNOLDS_NUMBER">
+    <de>Reynolds-Zahl</de>
+    <en>Reynolds number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RICHARDSON_CONSTANT">
+    <de>Richardson constant</de>
+    <en>Richardson constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.ROTATIONAL_FREQUENCY">
+    <de>Rotationsfrequenz</de>
+    <en>rotational frequency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.RYDBERG_CONSTANT">
+    <de>Rydberg constant</de>
+    <en>Rydberg constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SCHMIDT_NUMBER">
+    <de>Schmidt-Zahl</de>
+    <en>Schmidt number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SECOND_MOMENT_OF_AREA_SECOND_AXIAL_MOMENT_OF_AREA">
+    <de>Flächenträgheitsmoment, axiales Flächenträgheitsmoment</de>
+    <en>second moment of area, second axial moment of area</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SECOND_POLAR_MOMENT_OF_AREA">
+    <de>polares Flächenträgheitsmoment</de>
+    <en>second polar moment of area</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SECOND_RADIATION_CONSTANT">
+    <de>second radiation constant</de>
+    <en>second radiation constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SECTION_MODULUS">
+    <de>Widerstandsmoment</de>
+    <en>section modulus</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SEEBECK_COEFFICIENT_FOR_SUBSTANCES_A_AND_B">
+    <de>Seebeck coefficient for substances a and b</de>
+    <en>Seebeck coefficient for substances a and b</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SELF_INDUCTANCE_MUTUAL_INDUCTANCE_PLUS">
+    <de>self inductance, mutual inductance, permeance</de>
+    <en>self inductance, mutual inductance, permeance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SHORT_RANGE_ORDER_PARAMETER_LONG_RANGE_ORDER_PARAMETER">
+    <de>short-range order parameter, long-range order parameter</de>
+    <en>short-range order parameter, long-range order parameter</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SLOWING_DOWN_AREA_DIFFUSION_AREA_PLUS">
+    <de>slowing down area, diffusion area, migration area</de>
+    <en>slowing down area, diffusion area, migration area</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SLOWING_DOWN_DENSITY">
+    <de>slowing down density</de>
+    <en>slowing down density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SLOWING_DOWN_LENGTH_DIFFUSION_LENGTH_PLUS">
+    <de>slowing-down length, diffusion length, migration length</de>
+    <en>slowing-down length, diffusion length, migration length</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOLID_ANGLE">
+    <de>Raumwinkel</de>
+    <en>solid angle</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_ENERGY_DENSITY_VOLUMIC_PLUS">
+    <de>sound energy density, volumic, sound energy</de>
+    <en>sound energy density, volumic, sound energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_EXPOSURE">
+    <de>sound exposure</de>
+    <en>sound exposure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_INTENSITY">
+    <de>sound intensity</de>
+    <en>sound intensity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_POWER">
+    <de>sound power</de>
+    <en>sound power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_PRESSURE_LEVEL_SOUND_POWER_LEVEL">
+    <de>sound pressure level, sound power level</de>
+    <en>sound pressure level, sound power level</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SOUND_REDUCTION_INDEX">
+    <de>sound reduction index</de>
+    <en>sound reduction index</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_ACTIVITY_IN_A_SAMPLE">
+    <de>specific activity in a sample</de>
+    <en>specific activity in a sample</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_ENERGY_IMPARTED_MASSIC_ENERGY_IMPARTED">
+    <de>specific energy imparted, massic energy imparted</de>
+    <en>specific energy imparted, massic energy imparted</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_HEAT_CAPACITY_AT_CONSTANT_PRESSURE_CONSTANT_VOLUME_PLUS">
+    <de>specific heat capacity at: - constant pressure, -constant volume,- saturation</de>
+    <en>specific heat capacity at: - constant pressure, -constant volume,- saturation</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_HELMHOLTZ_FREE_ENERGY">
+    <de>specific Helmholtz free energy</de>
+    <en>specific Helmholtz free energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_HELMHOLTZ_FUNCTION_MASSIC_GIBBS_FREE_ENERGY_PLUS">
+    <de>specific Helmholtz function, massic Gibbs free energy, specific Gibbs free energy</de>
+    <en>specific Helmholtz function, massic Gibbs free energy, specific Gibbs free energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_THERMODYNAMIC_ENERGY">
+    <de>specific thermodynamic energy,</de>
+    <en>specific thermodynamic energy,</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECIFIC_VOLUME_MASSIC_VOLUME">
+    <de>spezifisches Volumen</de>
+    <en>specific volume, massic volume</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECTRAL_ABSORPTION_FACTOR_SPECTRAL_ABSORPTANCE_PLUS">
+    <de>spectral absorption factor, spectral absorptance, spectral reflectionfactor,spectral reflectance, spectral transmission factor, spectral transmittance, spectral radiance factor</de>
+    <en>spectral absorption factor, spectral absorptance, spectral reflectionfactor,spectral reflectance, spectral transmission factor, spectral transmittance, spectral radiance factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECTRAL_ANGULAR_CROSS_SECTION">
+    <de>spectral angular cross-section</de>
+    <en>spectral angular cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECTRAL_CONCENTRATION_OF_RADIANT_ENERGY_DENSITY_IN_TERMS_OF_WAVELENGTH_SPECTRAL_RADIANT_ENERGY_DENSITY_PLUS">
+    <de>spectral concentration of radiant energy density (in terms of wavelength),spectral radiant energy density (in terms of wave length)</de>
+    <en>spectral concentration of radiant energy density (in terms of wavelength),spectral radiant energy density (in terms of wave length)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECTRAL_CONCENTRATION_OF_VIBRATIONAL_MODES_IN_TERMS_OF_ANGULAR_FREQUENCY">
+    <de>spectral concentration of vibrational modes (in terms of angular frequency)</de>
+    <en>spectral concentration of vibrational modes (in terms of angular frequency)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPECTRAL_CROSS_SECTION">
+    <de>spectral cross-section</de>
+    <en>spectral cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SPIN_ANGULAR_MOMENTUM_QUANTUM_NUMBER">
+    <de>spin angular momentum quantum number</de>
+    <en>spin angular momentum quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STANDARD_ABSOLUTE_ACTIVITY_OF_B_IN_A_GASEOUS_MIXTURE">
+    <de>standard absolute activity of B (in a gaseous mixture)</de>
+    <en>standard absolute activity of B (in a gaseous mixture)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STANDARD_ABSOLUTE_ACTIVITY_OF_B_IN_A_LIQUID_OR_A_SOLID_MIXTURE">
+    <de>standard absolute activity of B (in a liquid or a solid mixture)</de>
+    <en>standard absolute activity of B (in a liquid or a solid mixture)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STANDARD_EQUILIBRIUM_CONSTANT">
+    <de>standard equilibrium constant</de>
+    <en>standard equilibrium constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STANTON_NUMBER">
+    <de>Stanton-Zahl</de>
+    <en>Stanton number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STANTON_NUMBER_FOR_MASS_TRANSFER">
+    <de>Stanton number for mass transfer</de>
+    <en>Stanton number for mass transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STATIC_PRESSURE_INSTANTANEOUS_SOUND_PRESSURE">
+    <de>static pressure, (instantaneous) sound pressure</de>
+    <en>static pressure, (instantaneous) sound pressure</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STATISTICAL_WEIGHT">
+    <de>statistical weight</de>
+    <en>statistical weight</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STEFAN_BOLTZMANN_CONSTANT">
+    <de>Stefan-Boltzmann constant</de>
+    <en>Stefan-Boltzmann constant</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STOICHIOMETRIC_NUMBER_OF_B">
+    <de>stoichiometric number of B</de>
+    <en>stoichiometric number of B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.STROUHAL_NUMBER">
+    <de>Strouhal-Zahl</de>
+    <en>Strouhal number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SURFACE_COEFFICIENT_OF_HEAT_TRANSFER">
+    <de>surface coefficient of heat transfer</de>
+    <en>surface coefficient of heat transfer</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SURFACE_DENSITY_AREIC_MASS">
+    <de>Belegungsdichte, Massenbelegung</de>
+    <en>surface density, areic mass</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SURFACE_DENSITY_OF_CHARGE_ELECTRIC_FLUX_DENSITY_PLUS">
+    <de>surface density of charge, electric flux density, displacement electric polarization</de>
+    <en>surface density of charge, electric flux density, displacement electric polarization</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SURFACE_DENSITY_OF_MECHANICAL_IMPEDANCE">
+    <de>surface density of mechanical impedance</de>
+    <en>surface density of mechanical impedance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SURFACE_TENSION">
+    <de>Oberflächenspannung</de>
+    <en>surface tension</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.SUSCEPTANCE">
+    <de>susceptance</de>
+    <en>susceptance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TEMPERATURE">
+    <de>Temperatur</de>
+    <en>temperature</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TEMPERATURE_VARIATION_OVER_TIME">
+    <de>Temperaturänderung im Laufe der Zeit</de>
+    <en>temperature variation over time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_CONDUCTANCE">
+    <de>thermal conductance</de>
+    <en>thermal conductance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_CONDUCTIVITY">
+    <de>thermal conductivity</de>
+    <en>thermal conductivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_DIFFUSION_COEFFICIENT">
+    <de>thermal diffusion coefficient</de>
+    <en>thermal diffusion coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_DIFFUSION_RATIO_THERMAL_DIFFUSION_FACTOR">
+    <de>thermal diffusion ratio, thermal diffusion factor</de>
+    <en>thermal diffusion ratio, thermal diffusion factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_DIFFUSIVITY">
+    <de>thermal diffusivity</de>
+    <en>thermal diffusivity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_INSULANCE_COEFFICIENT_OF_THERMAL_INSULATION">
+    <de>thermal insulance, coefficient of thermal insulation</de>
+    <en>thermal insulance, coefficient of thermal insulation</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_RESISTANCE">
+    <de>thermal resistance</de>
+    <en>thermal resistance</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMAL_UTILIZATION_FACTOR">
+    <de>thermal utilization factor</de>
+    <en>thermal utilization factor</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMODYNAMIC">
+    <de>Thermodynamik</de>
+    <en>thermodynamic</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMODYNAMIC_CRITICAL_MAGNETIC_FLUX_DENSITY_LOWER_CRITICAL_MAGNETIC_FLUX_DENSITY_PLUS">
+    <de>thermodynamic critical magnetic flux density, lower critical magnetic flux density, upper critical magnetic flux density</de>
+    <en>thermodynamic critical magnetic flux density, lower critical magnetic flux density, upper critical magnetic flux density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THERMOELECTROMOTIVE_FORCE_BETWEEN_SUBSTANCES_A_AND_B_PELTIER_COEFFICIENT_FOR_SUBSTANCES_A_AND_B">
+    <de>thermoelectromotive force between substances a and b, Peltier coefficient for substances a and b</de>
+    <en>thermoelectromotive force between substances a and b, Peltier coefficient for substances a and b</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.THOMPSON_COEFFICIENT">
+    <de>Thompson coefficient</de>
+    <en>Thompson coefficient</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TIME">
+    <de>Zeit</de>
+    <en>time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TIME_CONSTANT_RELAXATION_TIME">
+    <de>time constant, relaxation time</de>
+    <en>time constant, relaxation time</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TORSIONAL_STIFFNESS_AREA_RELATED_TORSIONAL_MOMENT">
+    <de>Torsionssteife, Flächentorsionsmoment</de>
+    <en>torsional stiffness, area-related torsional moment</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TOTAL_ANGULAR_MOMENTUM_QUANTUM_NUMBER">
+    <de>total angular momentum quantum number</de>
+    <en>total angular momentum quantum number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TOTAL_ATOMIC_STOPPING_POWER">
+    <de>total atomic stopping power</de>
+    <en>total atomic stopping power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TOTAL_CROSS_SECTION">
+    <de>total cross-section</de>
+    <en>total cross-section</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TOTAL_LINEAR_STOPPING_POWER">
+    <de>total linear stopping power</de>
+    <en>total linear stopping power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TOTAL_MASS_STOPPING_POWER">
+    <de>total mass stopping power</de>
+    <en>total mass stopping power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.TRANSPORT_NUMBER_OF_ION_B_CURRENT_FRACTION_OF_ION_B">
+    <de>transport number of ion B, current fraction of ion B</de>
+    <en>transport number of ion B, current fraction of ion B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VELOCITY_OF_SOUND_PHASE_VELOCITY_GROUP_VELOCITY">
+    <de>velocity of sound (phase velocity), group velocity</de>
+    <en>velocity of sound (phase velocity), group velocity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VELOCITY_PHASE_VELOCITY_PLUS">
+    <de>Geschwindigkeit, Phasengeschwindigkeit, Gruppengeschwindigkeit</de>
+    <en>velocity, phase velocity, group velocity</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VELOCITY_SPEED_ON_PROPAGATION_OF_ELECTROMAGNETIC_WAVES_IN_VACUO">
+    <de>velocity (speed) on propagation of electromagnetic waves in vacuo</de>
+    <en>velocity (speed) on propagation of electromagnetic waves in vacuo</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VERGENCE_LENS_POWER">
+    <de>vergence, lens power</de>
+    <en>vergence, lens power</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VISCOSITY_DYNAMIC_VISCOSITY">
+    <de>Viskosität (dynamische Viskosität)</de>
+    <en>viscosity (dynamic viscosity)</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUME">
+    <de>Volumen</de>
+    <en>volume</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUME_DENSITY_OF_CHARGE_CHARGE_DENSITY_PLUS">
+    <de>volume density of charge, charge density, volumic charge</de>
+    <en>volume density of charge, charge density, volumic charge</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUME_FLOW_RATE">
+    <de>Volumenstrom</de>
+    <en>volume flow rate</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUME_PER_TEMPERATURE">
+    <de>Volumen pro Temperatur</de>
+    <en>volume per temperature</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUME_RATIO">
+    <de>Volumenverhältnis</de>
+    <en>volume ratio</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUMIC_ACTIVITY_ACTIVITY_CONCENTRATION">
+    <de>volumic activity, activity concentration</de>
+    <en>volumic activity, activity concentration</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUMIC_DOSE">
+    <de>volumic dose</de>
+    <en>volumic dose</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUMIC_MASS_DENSITY_PLUS">
+    <de>volumic mass, density, mass density</de>
+    <en>volumic mass, density, mass density</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUMIC_MASS_MASS_DENSITY_PLUS">
+    <de>volumic mass, mass density, density, mass concentration of B, amount of substance, concentration of B</de>
+    <en>volumic mass, mass density, density, mass concentration of B, amount of substance, concentration of B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.VOLUMIC_NUMBER_OF_MOLECULES_OR_PARTICLES_NUMBER_DENSITY_OF_MOLECULES_PLUS">
+    <de>volumic number of molecules (or particles), number density of molecules  (or particles), molecular concentration of B</de>
+    <en>volumic number of molecules (or particles), number density of molecules  (or particles), molecular concentration of B</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WAVELENGTH">
+    <de>Wellenlänge</de>
+    <en>wavelength</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WAVENUMBER_REPETENCY">
+    <de>wavenumber, repetency</de>
+    <en>wavenumber, repetency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WAVE_NUMBER_ATTENUATION_COEFFICIENT_PLUS">
+    <de>Wellenzahl, Schwächungskoeffizient, Phasenwinkel, Fortpflanzungskonstante, Wellenzahl</de>
+    <en>wave number, attenuation coefficient, phase coefficient, propagation coefficient, repetency</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WEBER_NUMBER">
+    <de>Weber-Zahl</de>
+    <en>Weber number</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WORK_ENERGY_PLUS">
+    <de>Arbeit, Energie, Potentialenergie, kinetische Energie</de>
+    <en>work, energy, potential energy, kinetic energy</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WORK_FUNCTION">
+    <de>work function</de>
+    <en>work function</en>
+  </item>
+  <item id="com.helger.masterdata.unit.EUnitQuantityName.WORK_PER_UNIT_WEIGHT">
+    <de>Arbeit pro Gewichtseinheit</de>
+    <en>work per unit weight</en>
+  </item>
+  <item id="com.helger.masterdata.vat.EVATItemText.VAT_PERC">
+    <de>{0}% USt.</de>
+    <en>VAT {0}%</en>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATIN">
+    <de>Die UID ist ungültig.</de>
+    <en>The VATIN is invalid.</en>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATIN_WITH_EXAMPLES">
+    <de>Die UID ist ungültig. Eine UID für {0} kann z.B. so aussehen: {1}</de>
+    <en>The VATIN is invalid. A valid UID for {0} can look like this: {1}</en>
+  </item>
+  <item id="com.helger.masterdata.vat.validation.EVATErrorTexts.INVALID_VATITEM">
+    <de>Der angegebene Steuersatz ist ungültig.</de>
+    <en>The specified tax rate is invalid.</en>
+  </item>
+</translationitems>

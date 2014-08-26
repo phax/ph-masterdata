@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root>
+  <header>
+    <source>http://dev.maxmind.com/geoip/codes/country_latlon</source>
+    <revision>20130209</revision>
+  </header>
+  <entry id="AD" latitude="42.5000" longitude="1.5000" />
+  <entry id="AE" latitude="24.0000" longitude="54.0000" />
+  <entry id="AF" latitude="33.0000" longitude="65.0000" />
+  <entry id="AG" latitude="17.0500" longitude="-61.8000" />
+  <entry id="AI" latitude="18.2500" longitude="-63.1667" />
+  <entry id="AL" latitude="41.0000" longitude="20.0000" />
+  <entry id="AM" latitude="40.0000" longitude="45.0000" />
+  <entry id="AN" latitude="12.2500" longitude="-68.7500" />
+  <entry id="AO" latitude="-12.5000" longitude="18.5000" />
+  <entry id="AP" latitude="35.0000" longitude="105.0000" />
+  <entry id="AQ" latitude="-90.0000" longitude="0.0000" />
+  <entry id="AR" latitude="-34.0000" longitude="-64.0000" />
+  <entry id="AS" latitude="-14.3333" longitude="-170.0000" />
+  <entry id="AT" latitude="47.3333" longitude="13.3333" />
+  <entry id="AU" latitude="-27.0000" longitude="133.0000" />
+  <entry id="AW" latitude="12.5000" longitude="-69.9667" />
+  <entry id="AZ" latitude="40.5000" longitude="47.5000" />
+  <entry id="BA" latitude="44.0000" longitude="18.0000" />
+  <entry id="BB" latitude="13.1667" longitude="-59.5333" />
+  <entry id="BD" latitude="24.0000" longitude="90.0000" />
+  <entry id="BE" latitude="50.8333" longitude="4.0000" />
+  <entry id="BF" latitude="13.0000" longitude="-2.0000" />
+  <entry id="BG" latitude="43.0000" longitude="25.0000" />
+  <entry id="BH" latitude="26.0000" longitude="50.5500" />
+  <entry id="BI" latitude="-3.5000" longitude="30.0000" />
+  <entry id="BJ" latitude="9.5000" longitude="2.2500" />
+  <entry id="BM" latitude="32.3333" longitude="-64.7500" />
+  <entry id="BN" latitude="4.5000" longitude="114.6667" />
+  <entry id="BO" latitude="-17.0000" longitude="-65.0000" />
+  <entry id="BR" latitude="-10.0000" longitude="-55.0000" />
+  <entry id="BS" latitude="24.2500" longitude="-76.0000" />
+  <entry id="BT" latitude="27.5000" longitude="90.5000" />
+  <entry id="BV" latitude="-54.4333" longitude="3.4000" />
+  <entry id="BW" latitude="-22.0000" longitude="24.0000" />
+  <entry id="BY" latitude="53.0000" longitude="28.0000" />
+  <entry id="BZ" latitude="17.2500" longitude="-88.7500" />
+  <entry id="CA" latitude="60.0000" longitude="-95.0000" />
+  <entry id="CC" latitude="-12.5000" longitude="96.8333" />
+  <entry id="CD" latitude="0.0000" longitude="25.0000" />
+  <entry id="CF" latitude="7.0000" longitude="21.0000" />
+  <entry id="CG" latitude="-1.0000" longitude="15.0000" />
+  <entry id="CH" latitude="47.0000" longitude="8.0000" />
+  <entry id="CI" latitude="8.0000" longitude="-5.0000" />
+  <entry id="CK" latitude="-21.2333" longitude="-159.7667" />
+  <entry id="CL" latitude="-30.0000" longitude="-71.0000" />
+  <entry id="CM" latitude="6.0000" longitude="12.0000" />
+  <entry id="CN" latitude="35.0000" longitude="105.0000" />
+  <entry id="CO" latitude="4.0000" longitude="-72.0000" />
+  <entry id="CR" latitude="10.0000" longitude="-84.0000" />
+  <entry id="CU" latitude="21.5000" longitude="-80.0000" />
+  <entry id="CV" latitude="16.0000" longitude="-24.0000" />
+  <entry id="CX" latitude="-10.5000" longitude="105.6667" />
+  <entry id="CY" latitude="35.0000" longitude="33.0000" />
+  <entry id="CZ" latitude="49.7500" longitude="15.5000" />
+  <entry id="DE" latitude="51.0000" longitude="9.0000" />
+  <entry id="DJ" latitude="11.5000" longitude="43.0000" />
+  <entry id="DK" latitude="56.0000" longitude="10.0000" />
+  <entry id="DM" latitude="15.4167" longitude="-61.3333" />
+  <entry id="DO" latitude="19.0000" longitude="-70.6667" />
+  <entry id="DZ" latitude="28.0000" longitude="3.0000" />
+  <entry id="EC" latitude="-2.0000" longitude="-77.5000" />
+  <entry id="EE" latitude="59.0000" longitude="26.0000" />
+  <entry id="EG" latitude="27.0000" longitude="30.0000" />
+  <entry id="EH" latitude="24.5000" longitude="-13.0000" />
+  <entry id="ER" latitude="15.0000" longitude="39.0000" />
+  <entry id="ES" latitude="40.0000" longitude="-4.0000" />
+  <entry id="ET" latitude="8.0000" longitude="38.0000" />
+  <entry id="EU" latitude="47.0000" longitude="8.0000" />
+  <entry id="FI" latitude="64.0000" longitude="26.0000" />
+  <entry id="FJ" latitude="-18.0000" longitude="175.0000" />
+  <entry id="FK" latitude="-51.7500" longitude="-59.0000" />
+  <entry id="FM" latitude="6.9167" longitude="158.2500" />
+  <entry id="FO" latitude="62.0000" longitude="-7.0000" />
+  <entry id="FR" latitude="46.0000" longitude="2.0000" />
+  <entry id="GA" latitude="-1.0000" longitude="11.7500" />
+  <entry id="GB" latitude="54.0000" longitude="-2.0000" />
+  <entry id="GD" latitude="12.1167" longitude="-61.6667" />
+  <entry id="GE" latitude="42.0000" longitude="43.5000" />
+  <entry id="GF" latitude="4.0000" longitude="-53.0000" />
+  <entry id="GH" latitude="8.0000" longitude="-2.0000" />
+  <entry id="GI" latitude="36.1833" longitude="-5.3667" />
+  <entry id="GL" latitude="72.0000" longitude="-40.0000" />
+  <entry id="GM" latitude="13.4667" longitude="-16.5667" />
+  <entry id="GN" latitude="11.0000" longitude="-10.0000" />
+  <entry id="GP" latitude="16.2500" longitude="-61.5833" />
+  <entry id="GQ" latitude="2.0000" longitude="10.0000" />
+  <entry id="GR" latitude="39.0000" longitude="22.0000" />
+  <entry id="GS" latitude="-54.5000" longitude="-37.0000" />
+  <entry id="GT" latitude="15.5000" longitude="-90.2500" />
+  <entry id="GU" latitude="13.4667" longitude="144.7833" />
+  <entry id="GW" latitude="12.0000" longitude="-15.0000" />
+  <entry id="GY" latitude="5.0000" longitude="-59.0000" />
+  <entry id="HK" latitude="22.2500" longitude="114.1667" />
+  <entry id="HM" latitude="-53.1000" longitude="72.5167" />
+  <entry id="HN" latitude="15.0000" longitude="-86.5000" />
+  <entry id="HR" latitude="45.1667" longitude="15.5000" />
+  <entry id="HT" latitude="19.0000" longitude="-72.4167" />
+  <entry id="HU" latitude="47.0000" longitude="20.0000" />
+  <entry id="ID" latitude="-5.0000" longitude="120.0000" />
+  <entry id="IE" latitude="53.0000" longitude="-8.0000" />
+  <entry id="IL" latitude="31.5000" longitude="34.7500" />
+  <entry id="IN" latitude="20.0000" longitude="77.0000" />
+  <entry id="IO" latitude="-6.0000" longitude="71.5000" />
+  <entry id="IQ" latitude="33.0000" longitude="44.0000" />
+  <entry id="IR" latitude="32.0000" longitude="53.0000" />
+  <entry id="IS" latitude="65.0000" longitude="-18.0000" />
+  <entry id="IT" latitude="42.8333" longitude="12.8333" />
+  <entry id="JM" latitude="18.2500" longitude="-77.5000" />
+  <entry id="JO" latitude="31.0000" longitude="36.0000" />
+  <entry id="JP" latitude="36.0000" longitude="138.0000" />
+  <entry id="KE" latitude="1.0000" longitude="38.0000" />
+  <entry id="KG" latitude="41.0000" longitude="75.0000" />
+  <entry id="KH" latitude="13.0000" longitude="105.0000" />
+  <entry id="KI" latitude="1.4167" longitude="173.0000" />
+  <entry id="KM" latitude="-12.1667" longitude="44.2500" />
+  <entry id="KN" latitude="17.3333" longitude="-62.7500" />
+  <entry id="KP" latitude="40.0000" longitude="127.0000" />
+  <entry id="KR" latitude="37.0000" longitude="127.5000" />
+  <entry id="KW" latitude="29.3375" longitude="47.6581" />
+  <entry id="KY" latitude="19.5000" longitude="-80.5000" />
+  <entry id="KZ" latitude="48.0000" longitude="68.0000" />
+  <entry id="LA" latitude="18.0000" longitude="105.0000" />
+  <entry id="LB" latitude="33.8333" longitude="35.8333" />
+  <entry id="LC" latitude="13.8833" longitude="-61.1333" />
+  <entry id="LI" latitude="47.1667" longitude="9.5333" />
+  <entry id="LK" latitude="7.0000" longitude="81.0000" />
+  <entry id="LR" latitude="6.5000" longitude="-9.5000" />
+  <entry id="LS" latitude="-29.5000" longitude="28.5000" />
+  <entry id="LT" latitude="56.0000" longitude="24.0000" />
+  <entry id="LU" latitude="49.7500" longitude="6.1667" />
+  <entry id="LV" latitude="57.0000" longitude="25.0000" />
+  <entry id="LY" latitude="25.0000" longitude="17.0000" />
+  <entry id="MA" latitude="32.0000" longitude="-5.0000" />
+  <entry id="MC" latitude="43.7333" longitude="7.4000" />
+  <entry id="MD" latitude="47.0000" longitude="29.0000" />
+  <entry id="ME" latitude="42.0000" longitude="19.0000" />
+  <entry id="MG" latitude="-20.0000" longitude="47.0000" />
+  <entry id="MH" latitude="9.0000" longitude="168.0000" />
+  <entry id="MK" latitude="41.8333" longitude="22.0000" />
+  <entry id="ML" latitude="17.0000" longitude="-4.0000" />
+  <entry id="MM" latitude="22.0000" longitude="98.0000" />
+  <entry id="MN" latitude="46.0000" longitude="105.0000" />
+  <entry id="MO" latitude="22.1667" longitude="113.5500" />
+  <entry id="MP" latitude="15.2000" longitude="145.7500" />
+  <entry id="MQ" latitude="14.6667" longitude="-61.0000" />
+  <entry id="MR" latitude="20.0000" longitude="-12.0000" />
+  <entry id="MS" latitude="16.7500" longitude="-62.2000" />
+  <entry id="MT" latitude="35.8333" longitude="14.5833" />
+  <entry id="MU" latitude="-20.2833" longitude="57.5500" />
+  <entry id="MV" latitude="3.2500" longitude="73.0000" />
+  <entry id="MW" latitude="-13.5000" longitude="34.0000" />
+  <entry id="MX" latitude="23.0000" longitude="-102.0000" />
+  <entry id="MY" latitude="2.5000" longitude="112.5000" />
+  <entry id="MZ" latitude="-18.2500" longitude="35.0000" />
+  <entry id="NA" latitude="-22.0000" longitude="17.0000" />
+  <entry id="NC" latitude="-21.5000" longitude="165.5000" />
+  <entry id="NE" latitude="16.0000" longitude="8.0000" />
+  <entry id="NF" latitude="-29.0333" longitude="167.9500" />
+  <entry id="NG" latitude="10.0000" longitude="8.0000" />
+  <entry id="NI" latitude="13.0000" longitude="-85.0000" />
+  <entry id="NL" latitude="52.5000" longitude="5.7500" />
+  <entry id="NO" latitude="62.0000" longitude="10.0000" />
+  <entry id="NP" latitude="28.0000" longitude="84.0000" />
+  <entry id="NR" latitude="-0.5333" longitude="166.9167" />
+  <entry id="NU" latitude="-19.0333" longitude="-169.8667" />
+  <entry id="NZ" latitude="-41.0000" longitude="174.0000" />
+  <entry id="OM" latitude="21.0000" longitude="57.0000" />
+  <entry id="PA" latitude="9.0000" longitude="-80.0000" />
+  <entry id="PE" latitude="-10.0000" longitude="-76.0000" />
+  <entry id="PF" latitude="-15.0000" longitude="-140.0000" />
+  <entry id="PG" latitude="-6.0000" longitude="147.0000" />
+  <entry id="PH" latitude="13.0000" longitude="122.0000" />
+  <entry id="PK" latitude="30.0000" longitude="70.0000" />
+  <entry id="PL" latitude="52.0000" longitude="20.0000" />
+  <entry id="PM" latitude="46.8333" longitude="-56.3333" />
+  <entry id="PR" latitude="18.2500" longitude="-66.5000" />
+  <entry id="PS" latitude="32.0000" longitude="35.2500" />
+  <entry id="PT" latitude="39.5000" longitude="-8.0000" />
+  <entry id="PW" latitude="7.5000" longitude="134.5000" />
+  <entry id="PY" latitude="-23.0000" longitude="-58.0000" />
+  <entry id="QA" latitude="25.5000" longitude="51.2500" />
+  <entry id="RE" latitude="-21.1000" longitude="55.6000" />
+  <entry id="RO" latitude="46.0000" longitude="25.0000" />
+  <entry id="RS" latitude="44.0000" longitude="21.0000" />
+  <entry id="RU" latitude="60.0000" longitude="100.0000" />
+  <entry id="RW" latitude="-2.0000" longitude="30.0000" />
+  <entry id="SA" latitude="25.0000" longitude="45.0000" />
+  <entry id="SB" latitude="-8.0000" longitude="159.0000" />
+  <entry id="SC" latitude="-4.5833" longitude="55.6667" />
+  <entry id="SD" latitude="15.0000" longitude="30.0000" />
+  <entry id="SE" latitude="62.0000" longitude="15.0000" />
+  <entry id="SG" latitude="1.3667" longitude="103.8000" />
+  <entry id="SH" latitude="-15.9333" longitude="-5.7000" />
+  <entry id="SI" latitude="46.0000" longitude="15.0000" />
+  <entry id="SJ" latitude="78.0000" longitude="20.0000" />
+  <entry id="SK" latitude="48.6667" longitude="19.5000" />
+  <entry id="SL" latitude="8.5000" longitude="-11.5000" />
+  <entry id="SM" latitude="43.7667" longitude="12.4167" />
+  <entry id="SN" latitude="14.0000" longitude="-14.0000" />
+  <entry id="SO" latitude="10.0000" longitude="49.0000" />
+  <entry id="SR" latitude="4.0000" longitude="-56.0000" />
+  <entry id="ST" latitude="1.0000" longitude="7.0000" />
+  <entry id="SV" latitude="13.8333" longitude="-88.9167" />
+  <entry id="SY" latitude="35.0000" longitude="38.0000" />
+  <entry id="SZ" latitude="-26.5000" longitude="31.5000" />
+  <entry id="TC" latitude="21.7500" longitude="-71.5833" />
+  <entry id="TD" latitude="15.0000" longitude="19.0000" />
+  <entry id="TF" latitude="-43.0000" longitude="67.0000" />
+  <entry id="TG" latitude="8.0000" longitude="1.1667" />
+  <entry id="TH" latitude="15.0000" longitude="100.0000" />
+  <entry id="TJ" latitude="39.0000" longitude="71.0000" />
+  <entry id="TK" latitude="-9.0000" longitude="-172.0000" />
+  <entry id="TM" latitude="40.0000" longitude="60.0000" />
+  <entry id="TN" latitude="34.0000" longitude="9.0000" />
+  <entry id="TO" latitude="-20.0000" longitude="-175.0000" />
+  <entry id="TR" latitude="39.0000" longitude="35.0000" />
+  <entry id="TT" latitude="11.0000" longitude="-61.0000" />
+  <entry id="TV" latitude="-8.0000" longitude="178.0000" />
+  <entry id="TW" latitude="23.5000" longitude="121.0000" />
+  <entry id="TZ" latitude="-6.0000" longitude="35.0000" />
+  <entry id="UA" latitude="49.0000" longitude="32.0000" />
+  <entry id="UG" latitude="1.0000" longitude="32.0000" />
+  <entry id="UM" latitude="19.2833" longitude="166.6000" />
+  <entry id="US" latitude="38.0000" longitude="-97.0000" />
+  <entry id="UY" latitude="-33.0000" longitude="-56.0000" />
+  <entry id="UZ" latitude="41.0000" longitude="64.0000" />
+  <entry id="VA" latitude="41.9000" longitude="12.4500" />
+  <entry id="VC" latitude="13.2500" longitude="-61.2000" />
+  <entry id="VE" latitude="8.0000" longitude="-66.0000" />
+  <entry id="VG" latitude="18.5000" longitude="-64.5000" />
+  <entry id="VI" latitude="18.3333" longitude="-64.8333" />
+  <entry id="VN" latitude="16.0000" longitude="106.0000" />
+  <entry id="VU" latitude="-16.0000" longitude="167.0000" />
+  <entry id="WF" latitude="-13.3000" longitude="-176.2000" />
+  <entry id="WS" latitude="-13.5833" longitude="-172.3333" />
+  <entry id="YE" latitude="15.0000" longitude="48.0000" />
+  <entry id="YT" latitude="-12.8333" longitude="45.1667" />
+  <entry id="ZA" latitude="-29.0000" longitude="24.0000" />
+  <entry id="ZM" latitude="-15.0000" longitude="30.0000" />
+  <entry id="ZW" latitude="-20.0000" longitude="30.0000" />
+</root>

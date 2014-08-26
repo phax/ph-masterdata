@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2006-2014 phloc systems
+    http://www.phloc.com
+    office[at]phloc[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root>
+  <sources>
+    <source>http://www.tmf-vat.com/vat/eu-vat-rates.html</source>
+    <source>http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf 22.8.2013</source>
+  </sources>
+  <!-- EU countries -->
+  <vattypes country="at" zerovat="true" countryname="Austria">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v19" percentage="19" type="other" />
+    <item id="v12" percentage="12" type="inbetween" />
+    <item id="v10" percentage="10" type="reduced" />
+    <item id="v08" percentage="8" type="other" />
+  </vattypes>
+  <vattypes country="be" zerovat="true" countryname="Belgium">
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v12" percentage="12" type="reduced" />
+    <item id="v06" percentage="6" type="reduced" />
+  </vattypes>
+  <vattypes country="bg" zerovat="true" countryname="Bulgaria">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v09" percentage="9" type="reduced" />
+    <item id="v07" percentage="7" type="reduced" deprecated="true"/>
+  </vattypes>
+  <vattypes country="cy" zerovat="true" countryname="Cyprus">
+    <item id="v18" percentage="18" type="regular" />
+    <item id="v15" percentage="15" type="regular" deprecated="true" />
+    <item id="v08" percentage="8" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="cz" zerovat="false" countryname="Czech Republic">
+    <comment>Czech VAT cut from 20% to 17.5% in 2013</comment>
+    <comment>Czech reduced VAT increased from 10% to 14% on 2012-01-01</comment>
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v20" percentage="20" type="regular" deprecated="true" />
+    <item id="v15" percentage="15" type="reduced" />
+    <item id="v14" percentage="14" type="reduced" deprecated="true" validfrom="2012-01-01"/>
+    <item id="v10" percentage="10" type="reduced" deprecated="true" validto="2011-12-31"/>
+  </vattypes>
+  <vattypes country="de" zerovat="true" countryname="Germany">
+    <item id="v19" percentage="19" type="regular" />
+    <item id="v07" percentage="7" type="reduced" />
+  </vattypes>
+  <vattypes country="dk" zerovat="true" countryname="Denmark">
+    <item id="v25" percentage="25" type="regular" />
+  </vattypes>
+  <vattypes country="ee" zerovat="true" countryname="Estonia">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v18" percentage="18" type="regular" deprecated="true" />
+    <item id="v09" percentage="9" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" deprecated="true" />
+  </vattypes>
+  <vattypes country="es" zerovat="false" countryname="Spain">
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v18" percentage="18" type="regular" deprecated="true" />
+    <item id="v10" percentage="10" type="reduced" />
+    <item id="v08" percentage="8" type="reduced" deprecated="true" />
+    <item id="v04" percentage="4" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="fi" zerovat="true" countryname="Finland">
+    <item id="v24" percentage="24" type="regular" />
+    <item id="v23" percentage="23" type="regular" deprecated="true" />
+    <item id="v22" percentage="22" type="regular" deprecated="true" />
+    <item id="v17" percentage="17" type="reduced" deprecated="true" />
+    <item id="v14" percentage="14" type="reduced" />
+    <item id="v13" percentage="13" type="reduced" deprecated="true" />
+    <item id="v10" percentage="10" type="reduced" />
+    <item id="v09" percentage="9" type="reduced" deprecated="true" />
+    <item id="v08" percentage="8" type="reduced" deprecated="true" />
+  </vattypes>
+  <vattypes country="fr" zerovat="false" countryname="France">
+    <item id="v196" percentage="19.6" type="regular" />
+    <item id="v07" percentage="7" type="reduced" />
+    <item id="v055" percentage="5.5" type="reduced" />
+    <item id="v021" percentage="2.1" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="gb" zerovat="true" countryname="United Kingdom">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v175" percentage="17.5" type="regular" deprecated="true" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="gr" zerovat="true" countryname="Greece">
+    <item id="v23" percentage="23" type="regular" />
+    <item id="v13" percentage="13" type="reduced" />
+    <item id="v11" percentage="11" type="reduced" deprecated="true" />
+    <item id="v065" percentage="6.5" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" deprecated="true"/>
+  </vattypes>
+  <vattypes country="hr" zerovat="true" countryname="Croatia">
+    <comment>Some want 18% as well in here</comment>
+    <item id="v25" percentage="25" type="regular" />
+    <item id="v23" percentage="23" type="regular" deprecated="true"/>
+    <item id="v10" percentage="10" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="hu" zerovat="true" countryname="Hungary">
+    <item id="v27" percentage="27" type="regular" validfrom="2012-01-01"/>
+    <item id="v25" percentage="25" type="regular" deprecated="true" validto="2011-12-31"/>
+    <item id="v18" percentage="18" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="ie" zerovat="true" countryname="Ireland">
+    <comment>Ireland increases VAT to 22% in 2013 and 23% in 2014</comment>
+    <item id="v23" percentage="23" type="regular" />
+    <item id="v21" percentage="21" type="regular" deprecated="true" />
+    <item id="v135" percentage="13.5" type="reduced" />
+    <item id="v12" percentage="12" type="reduced" deprecated="true" />
+    <item id="v09" percentage="9" type="reduced" />
+    <item id="v048" percentage="4.8" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="it" zerovat="false" countryname="Italy">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v10" percentage="10" type="reduced" />
+    <item id="v06" percentage="6" type="reduced" deprecated="true" />
+    <item id="v04" percentage="4" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="lu" zerovat="false" countryname="Luxembourg">
+    <item id="v15" percentage="15" type="regular" />
+    <item id="v12" percentage="12" type="reduced" />
+    <item id="v06" percentage="6" type="reduced" />
+    <item id="v03" percentage="3" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="lt" zerovat="false" countryname="Lithuania">
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v09" percentage="9" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="lv" zerovat="true" countryname="Latvia">
+    <item id="v22" percentage="22" type="regular" deprecated="true" />
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v12" percentage="12" type="reduced" />
+    <item id="v10" percentage="10" type="reduced" deprecated="true" />
+  </vattypes>
+  <vattypes country="mt" zerovat="true" countryname="Malta">
+    <item id="v18" percentage="18" type="regular" />
+    <item id="v07" percentage="7" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="nl" zerovat="false" countryname="Netherlands">
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v19" percentage="19" type="regular" deprecated="true" />
+    <item id="v06" percentage="06" type="reduced" />
+  </vattypes>
+  <vattypes country="pl" zerovat="true" countryname="Poland">
+    <item id="v23" percentage="23" type="regular" />
+    <item id="v22" percentage="22" type="regular" deprecated="true"/>
+    <item id="v08" percentage="8" type="reduced" />
+    <item id="v07" percentage="7" type="reduced" deprecated="true" />
+    <item id="v05" percentage="5" type="reduced" />
+    <item id="v03" percentage="3" type="reduced" deprecated="true" />
+  </vattypes>
+  <vattypes country="pt" zerovat="false" countryname="Portugal">
+    <item id="v23" percentage="23" type="regular" />
+    <item id="v21" percentage="21" type="regular" deprecated="true"/>
+    <item id="v13" percentage="13" type="reduced" />
+    <item id="v12" percentage="12" type="reduced" deprecated="true"/>
+    <item id="v06" percentage="6" type="reduced" />
+    <item id="v05" percentage="5" type="reduced_heavily" deprecated="true" />
+  </vattypes>
+  <vattypes country="ro" zerovat="false" countryname="Romania">
+    <item id="v24" percentage="24" type="regular" />
+    <item id="v09" percentage="9" type="reduced" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="se" zerovat="true" countryname="Sweden">
+    <item id="v25" percentage="25" type="regular" />
+    <item id="v12" percentage="12" type="reduced" />
+    <item id="v06" percentage="6" type="reduced" />
+  </vattypes>
+  <vattypes country="si" zerovat="false" countryname="Slovenia">
+    <item id="v22" percentage="22" type="regular" />
+    <item id="v20" percentage="20" type="regular" deprecated="true" />
+    <item id="v095" percentage="9.5" type="reduced" />
+    <item id="v085" percentage="8.5" type="reduced" deprecated="true" />
+  </vattypes>
+  <vattypes country="sk" zerovat="false" countryname="Slovakia">
+    <item id="v20" percentage="20" type="regular" />
+    <item id="v19" percentage="19" type="regular" deprecated="true"  />
+    <item id="v10" percentage="10" type="reduced" />
+  </vattypes>
+  
+  <!-- non EU countries -->
+  <vattypes country="al" zerovat="true">
+    <item id="v20" percentage="20" type="regular" />
+  </vattypes>
+  <vattypes country="ad" zerovat="false" countryname="Andorra">
+    <!-- Some say: 4.5/1/no-zero -->
+    <item id="v045" percentage="4.5" type="regular" />
+    <item id="v04" percentage="4" type="regular" deprecated="true"/>
+    <item id="v01" percentage="1" type="reduced" />
+    <item id="_none_" percentage="0" type="reduced" deprecated="true"/>
+  </vattypes>
+  <vattypes country="ar" zerovat="true">
+    <item id="v21" percentage="21" type="regular" />
+    <item id="v105" percentage="10.5" type="reduced" />
+  </vattypes>
+  <vattypes country="au" zerovat="false">
+    <item id="v10" percentage="10" type="regular" />
+  </vattypes>
+  <vattypes country="bo" zerovat="false">
+    <item id="v13" percentage="13" type="regular" />
+    <item id="v03" percentage="3" type="reduced" />
+  </vattypes>
+  <vattypes country="ba" zerovat="false">
+    <item id="v17" percentage="17" type="regular" />
+  </vattypes>
+  <vattypes country="br" zerovat="false">
+    <item id="v17" percentage="17" type="regular" />
+  </vattypes>
+  <vattypes country="cl" zerovat="false">
+    <item id="v19" percentage="19" type="regular" />
+  </vattypes>
+  <vattypes country="cn" zerovat="false">
+    <item id="v17" percentage="17" type="regular" />
+    <item id="v06" percentage="6" type="reduced" />
+    <item id="v03" percentage="3" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="fo" zerovat="true" countryname="Färöer">
+    <item id="v25" percentage="25" type="regular" />
+  </vattypes>
+  <vattypes country="in" zerovat="true">
+    <item id="v125" percentage="12.5" type="regular" />
+    <item id="v04" percentage="4" type="reduced" />
+    <item id="v01" percentage="1" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="is" zerovat="false">
+    <item id="v245" percentage="24.5" type="regular" />
+    <item id="v14" percentage="14" type="reduced" />
+  </vattypes>
+  <vattypes country="il" zerovat="false">
+    <item id="v165" percentage="16.5" type="regular" />
+  </vattypes>
+  <vattypes country="jp" zerovat="false">
+    <item id="v05" percentage="5" type="regular" />
+  </vattypes>
+  <vattypes country="ca" zerovat="true">
+    <item id="v05" percentage="5" type="regular" />
+  </vattypes>
+  <vattypes country="cs" zerovat="true" countryname="Kosovo">
+    <item id="v16" percentage="16" type="regular" />
+  </vattypes>
+  <vattypes country="li" zerovat="true" countryname="Liechtenstein">
+    <comment>1.1.2011-31.12.2017: 8/3.8/2.5</comment>
+    <item id="v08" percentage="8" type="regular" />
+    <item id="v076" percentage="7.6" type="regular" deprecated="true" />
+    <item id="v038" percentage="3.8" type="reduced" />
+    <item id="v036" percentage="3.6" type="reduced" deprecated="true"/>
+    <item id="v025" percentage="2.5" type="reduced_heavily" />
+    <item id="v024" percentage="2.4" type="reduced_heavily" deprecated="true" />
+  </vattypes>
+  <vattypes country="ma" zerovat="false">
+    <item id="v20" percentage="20" type="regular" />
+  </vattypes>
+  <vattypes country="mk" zerovat="false"> 
+    <!-- Some pages say 18% -->
+    <item id="v19" percentage="19" type="regular" />
+    <item id="v05" percentage="5" type="reduced" />
+  </vattypes>
+  <vattypes country="mx" zerovat="true">
+    <item id="v15" percentage="15" type="regular" />
+  </vattypes>
+  <vattypes country="me" zerovat="false">
+    <item id="v17" percentage="17" type="regular" />
+    <item id="v08" percentage="8" type="reduced" />
+  </vattypes>
+  <vattypes country="nz" zerovat="false">
+    <item id="v125" percentage="12.5" type="regular" />
+  </vattypes>
+  <vattypes country="no" zerovat="false" countryname="Norway">
+    <item id="v25" percentage="25" type="regular" />
+    <item id="v14" percentage="14" type="reduced" />
+    <item id="v11" percentage="11" type="reduced" deprecated="true" />
+    <item id="v08" percentage="8" type="reduced_heavily" />
+    <item id="v07" percentage="7" type="reduced_heavily" deprecated="true" />
+  </vattypes>
+  <vattypes country="ru" zerovat="true">
+    <item id="v18" percentage="18" type="regular" />
+    <item id="v10" percentage="10" type="reduced" />
+  </vattypes>
+  <vattypes country="ch" zerovat="true" countryname="Switzerland">
+    <comment>1.1.2011-31.12.2017: 8/3.8/2.5</comment>
+    <item id="v08" percentage="8" type="regular" />
+    <item id="v076" percentage="7.6" type="regular" deprecated="true" />
+    <item id="v038" percentage="3.8" type="reduced" />
+    <item id="v036" percentage="3.6" type="reduced" deprecated="true"/>
+    <item id="v025" percentage="2.5" type="reduced_heavily" />
+    <item id="v024" percentage="2.4" type="reduced_heavily" deprecated="true" />
+  </vattypes>
+  <vattypes country="rs" zerovat="true" countryname="Serbia">
+    <item id="v18" percentage="18" type="regular" />
+    <item id="v08" percentage="8" type="reduced" />
+  </vattypes>
+  <vattypes country="sg" zerovat="false">
+    <item id="v07" percentage="7" type="regular" />
+  </vattypes>
+  <vattypes country="lk" zerovat="false" countryname="Sri Lanka">
+    <item id="v15" percentage="15" type="regular" />
+  </vattypes>
+  <vattypes country="za" zerovat="false">
+    <item id="v14" percentage="14" type="regular" />
+    <item id="v07" percentage="7" type="reduced" />
+    <item id="v04" percentage="4" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="kr" zerovat="false">
+    <item id="v10" percentage="10" type="regular" />
+  </vattypes>
+  <vattypes country="tw" zerovat="false">
+    <item id="v05" percentage="5" type="regular" />
+  </vattypes>
+  <vattypes country="th" zerovat="false">
+    <item id="v07" percentage="7" type="regular" />
+  </vattypes>
+  <vattypes country="tr" zerovat="false">
+    <item id="v18" percentage="18" type="regular" />
+    <item id="v08" percentage="8" type="reduced" />
+    <item id="v01" percentage="1" type="reduced_heavily" />
+  </vattypes>
+  <vattypes country="ua" zerovat="true">
+    <item id="v20" percentage="20" type="regular" />
+  </vattypes>
+  <vattypes country="ve" zerovat="true">
+    <item id="v09" percentage="9" type="regular" />
+  </vattypes>
+</root>

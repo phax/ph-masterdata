@@ -1,0 +1,59 @@
+/**
+ * Copyright (C) 2006-2014 phloc systems
+ * http://www.phloc.com
+ * office[at]phloc[dot]com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.helger.masterdata.address;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Locale;
+
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.helger.commons.microdom.IMicroElement;
+import com.helger.commons.microdom.convert.MicroTypeConverter;
+import com.helger.commons.microdom.serialize.MicroWriter;
+
+/**
+ * Test class for class {@link AddressTypeConverterRegistrar}.
+ * 
+ * @author Philip Helger
+ */
+public final class AddressTypeConverterRegistrarTest
+{
+  private static final Logger s_aLogger = LoggerFactory.getLogger (AddressTypeConverterRegistrarTest.class);
+
+  @Test
+  public void testMarshal ()
+  {
+    final Locale aLocale = Locale.GERMAN;
+    final Address aAddress = new Address ();
+    aAddress.setStreet ("Cumberlandstraße", aLocale);
+    aAddress.setPostalCode ("1140");
+    aAddress.setCity ("Vienna", aLocale);
+    aAddress.setState ("W", aLocale);
+    aAddress.setCountry ("AT", aLocale);
+    final IMicroElement aElement = MicroTypeConverter.convertToMicroElement (aAddress, "addr");
+    assertNotNull (aElement);
+    s_aLogger.info (MicroWriter.getXMLString (aElement));
+
+    final IAddress aAddress2 = MicroTypeConverter.convertToNative (aElement, Address.class);
+    assertEquals (aAddress, aAddress2);
+  }
+}
