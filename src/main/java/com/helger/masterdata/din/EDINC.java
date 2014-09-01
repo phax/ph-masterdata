@@ -1,5 +1,4 @@
 /**
- * Copyright (C) 2006-2014 phloc systems (www.phloc.com)
  * Copyright (C) 2014 Philip Helger (www.helger.com)
  * philip[at]helger[dot]com
  *
@@ -21,6 +20,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.commons.CGlobal;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.lang.EnumHelper;
 
@@ -29,7 +29,7 @@ import com.helger.commons.lang.EnumHelper;
  * <a href=
  * "http://www.din-formate.de/reihe-c-din-groessen-liste-papierformate-seitengroesse-masseinheiten-in-dpi-mm-pixel.html"
  * >Source</a>
- * 
+ *
  * @author Philip Helger
  */
 public enum EDINC implements IDINSize
@@ -45,9 +45,6 @@ public enum EDINC implements IDINSize
   C8 ("c8", 57, 81),
   C9 ("c9", 40, 57),
   C10 ("c10", 28, 40);
-
-  // TODO replace with CGlobal constant in phloc-commons > 4.3.3
-  private static final double MM_PER_INCH = 25.4;
 
   private final String m_sID;
   private final int m_nWidthMM;
@@ -82,7 +79,7 @@ public enum EDINC implements IDINSize
   @Nonnegative
   public double getWidthPixel (@Nonnegative final int nDPI)
   {
-    return nDPI * m_nWidthMM / MM_PER_INCH;
+    return nDPI * m_nWidthMM / (double) CGlobal.MM_PER_INCH;
   }
 
   @Nonnegative
@@ -94,7 +91,7 @@ public enum EDINC implements IDINSize
   @Nonnegative
   public double getWidthDPI (@Nonnegative final int nPixel)
   {
-    return nPixel * MM_PER_INCH / m_nWidthMM;
+    return nPixel * (double) CGlobal.MM_PER_INCH / m_nWidthMM;
   }
 
   @Nonnegative
@@ -118,7 +115,7 @@ public enum EDINC implements IDINSize
   @Nonnegative
   public double getHeightPixel (@Nonnegative final int nDPI)
   {
-    return nDPI * m_nHeightMM / MM_PER_INCH;
+    return nDPI * m_nHeightMM / (double) CGlobal.MM_PER_INCH;
   }
 
   @Nonnegative
@@ -130,7 +127,7 @@ public enum EDINC implements IDINSize
   @Nonnegative
   public double getHeightDPI (@Nonnegative final int nPixel)
   {
-    return nPixel * MM_PER_INCH / m_nHeightMM;
+    return nPixel * (double) CGlobal.MM_PER_INCH / m_nHeightMM;
   }
 
   @Nonnegative
