@@ -280,6 +280,7 @@ public class Price implements IPrice
    *        The net amount to use. May not be <code>null</code>.
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromNetAmount (@Nonnull final ECurrency eCurrency,
@@ -296,6 +297,7 @@ public class Price implements IPrice
    *        The net amount to use. May not be <code>null</code>.
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromNetAmount (@Nonnull final IReadonlyCurrencyValue aNetAmount,
@@ -314,6 +316,7 @@ public class Price implements IPrice
    *        The gross amount to use. May not be <code>null</code>.
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromGrossAmount (@Nonnull final ECurrency eCurrency,
@@ -342,6 +345,7 @@ public class Price implements IPrice
    *        result.
    * @param eRoundingMode
    *        The rounding mode to be used to create a valid result.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromGrossAmount (@Nonnull final ECurrency eCurrency,
@@ -369,6 +373,7 @@ public class Price implements IPrice
    *        The gross amount to use. May not be <code>null</code>.
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromGrossAmount (@Nonnull final IReadonlyCurrencyValue aGrossAmount,
@@ -393,6 +398,7 @@ public class Price implements IPrice
    *        result.
    * @param eRoundingMode
    *        The rounding mode to be used to create a valid result.
+   * @return The created {@link Price}
    */
   @Nonnull
   public static Price createFromGrossAmount (@Nonnull final IReadonlyCurrencyValue aGrossAmount,
