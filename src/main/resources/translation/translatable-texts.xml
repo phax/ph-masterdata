@@ -17,7 +17,7 @@
     limitations under the License.
 
 -->
-<translationitems count="595">
+<translationitems count="738" hashcode="cf1f2a7f">
   <item id="com.helger.masterdata.address.EAddressText.MSG_ADDRESS">
     <de>Adresse</de>
     <en>Address</en>
@@ -66,121 +66,657 @@
     <de>Privat (2)</de>
     <en>Personal (2)</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AED">
+    <de>VAE Dirham</de>
+    <en>Emirati Dirham</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AFN">
+    <de>Afghani</de>
+    <en>Afghanistan Afghani</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.ALL">
-    <de>Albanische Lek</de>
+    <de>Lek</de>
     <en>Albanian Lek</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.AMD">
-    <de>Armenische Dram</de>
+    <de>Dram</de>
     <en>Armenian Dram</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ANG">
+    <de>Antillen-Gulden</de>
+    <en>Dutch Guilder</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AOA">
+    <de>Kwanza</de>
+    <en>Angolan Kwanza</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ARS">
+    <de>Argentinischer Peso</de>
+    <en>Argentine Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AUD">
+    <de>Australischer Dollar</de>
+    <en>Australian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.AWG">
+    <de>Aruba-Florin</de>
+    <en>Aruban or Dutch Guilder</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.AZN">
-    <de>Aserbaidschanische Manat</de>
+    <de>Aserbaidschan-Manat</de>
     <en>Azerbaijani Manat</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.BAM">
-    <de>Konvertible Marks</de>
+    <de>Konvertible Mark</de>
     <en>Bosnia-Herzegovina Convertible Mark</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BBD">
+    <de>Barbados-Dollar</de>
+    <en>Barbadian or Bajan Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BDT">
+    <de>Taka</de>
+    <en>Bangladeshi Taka</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.BGN">
-    <de>Bulgarische Leva</de>
+    <de>Lew</de>
     <en>Bulgarian Lev</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BHD">
+    <de>Bahrain-Dinar</de>
+    <en>Bahraini Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BIF">
+    <de>Burundi-Franc</de>
+    <en>Burundian Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BMD">
+    <de>Bermuda-Dollar</de>
+    <en>Bermudian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BND">
+    <de>Brunei-Dollar</de>
+    <en>Bruneian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BOB">
+    <de>Boliviano</de>
+    <en>Bolivian Boliviano</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BRL">
+    <de>Brasilianischer Real</de>
+    <en>Brazilian Real</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BSD">
+    <de>Bahama-Dollar</de>
+    <en>Bahamian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BTN">
+    <de>Ngultrum</de>
+    <en>Bhutanese Ngultrum</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BWP">
+    <de>Pula</de>
+    <en>Botswana Pula</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.BYR">
-    <de>Weißrussische Rubel</de>
+    <de>Weißrussischer Rubel</de>
     <en>Belarusian Ruble</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.BZD">
+    <de>Belize-Dollar</de>
+    <en>Belizean Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CAD">
+    <de>Kanadischer Dollar</de>
+    <en>Canadian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CDF">
+    <de>Kongo-Franc</de>
+    <en>Congolese Franc</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.CHF">
     <de>Schweizer Franken</de>
     <en>Swiss Franc</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CLP">
+    <de>Chilenischer Peso</de>
+    <en>Chilean Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CNY">
+    <de>Remnibi Yuan</de>
+    <en>Chinese Yuan Renminbi</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.COP">
+    <de>Kolumbianischer Peso</de>
+    <en>Colombian Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CRC">
+    <de>Costa-Rica Colón</de>
+    <en>Costa Rican Colón</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CSD">
+    <de>Serbischer Dinar</de>
+    <en>Serbian Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CUC">
+    <de>Peso concertible</de>
+    <en>Cuban Convertible Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CUP">
+    <de>Kubanischer Peso</de>
+    <en>Cuban Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.CVE">
+    <de>Kap-Verde-Escudo</de>
+    <en>Cape Verdean Escudo</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.CZK">
     <de>Tschechische Kronen</de>
     <en>Czech Koruna</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.DJF">
+    <de>Dschibuti-Franc</de>
+    <en>Djiboutian Franc</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.DKK">
     <de>Dänische Kronen</de>
     <en>Danish Krone</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.DOP">
+    <de>Dominikanischer Peso</de>
+    <en>Dominican Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.DZD">
+    <de>Algerischer Dinar</de>
+    <en>Algerian Dinar</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.EEK">
     <de>Estnische Krone</de>
     <en>Estonian Kroon</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.EGP">
+    <de>Ägyptisches Pfund</de>
+    <en>Egyptian Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ERN">
+    <de>Nakfa</de>
+    <en>Eritrean Nakfa</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ETB">
+    <de>Birr</de>
+    <en>Ethiopian Birr</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.EUR">
     <de>Euro</de>
     <en>Euro</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.FJD">
+    <de>Fidschi-Dollar</de>
+    <en>Fijian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.FKP">
+    <de>Falkland-Pfund</de>
+    <en>Falkland Island Pound</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.GBP">
     <de>Pfund Sterling</de>
     <en>Pound Sterling</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.GEL">
-    <de>Georgische Lari</de>
+    <de>Lari</de>
     <en>Georgian Lari</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GHS">
+    <de>Ghanaischer Cedi</de>
+    <en>Ghanaian Cedi</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GIP">
+    <de>Gibraltar-Pfund</de>
+    <en>Gibraltar Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GMD">
+    <de>Dalasi</de>
+    <en>Gambian Dalasi</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GNF">
+    <de>Guinea-Franc</de>
+    <en>Guinean Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GTQ">
+    <de>Quetzal</de>
+    <en>Guatemalan Quetzal</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.GYD">
+    <de>Guyana-Dollar</de>
+    <en>Guyanese Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HKD">
+    <de>Hongkong-Dollar</de>
+    <en>Hong Kong Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HNL">
+    <de>Lempira</de>
+    <en>Honduran Lempira</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.HRK">
-    <de>Kroatische Kuna</de>
+    <de>Kuna</de>
     <en>Croatian Kuna</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.HTG">
+    <de>Gourde</de>
+    <en>Haitian Gourde</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.HUF">
-    <de>Ungarische Forint</de>
+    <de>Forint</de>
     <en>Hungarian Forint</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.IDR">
+    <de>Indonesische Rupiah</de>
+    <en>Indonesian Rupiah</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ILS">
+    <de>Neuer Schekel</de>
+    <en>Israeli Shekel</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.INR">
+    <de>Indische Rupie</de>
+    <en>Indian Rupee</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.IQD">
+    <de>Irakischer Dinar</de>
+    <en>Iraqi Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.IRR">
+    <de>Iranischer Rial</de>
+    <en>Iranian Rial</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.ISK">
     <de>Isländische Krone</de>
     <en>Icelandic Krona</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.JMD">
+    <de>Jamaikanischer Dollar</de>
+    <en>Jamaican Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.JOD">
+    <de>Jordanischer Dinar</de>
+    <en>Jordanian Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.JPY">
+    <de>Yen</de>
+    <en>Japanese Yen</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KES">
+    <de>Kenia-Schilling</de>
+    <en>Kenyan Shilling</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KGS">
+    <de>Som</de>
+    <en>Kyrgyzstani Som</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KHR">
+    <de>Riel</de>
+    <en>Cambodian Riel</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KMF">
+    <de>Komoren-Franc</de>
+    <en>Comoran Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KPW">
+    <de>Nordkoreanischer Won</de>
+    <en>North Korean Won</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KRW">
+    <de>Südkoreanischer Won</de>
+    <en>South Korean Won</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KWD">
+    <de>Kuwait-Dinar</de>
+    <en>Kuwaiti Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KYD">
+    <de>Kaiman-Dollar</de>
+    <en>Caymanian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.KZT">
+    <de>Tenge</de>
+    <en>Kazakhstani Tenge</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LAK">
+    <de>Kip</de>
+    <en>Lao or Laotian Kip</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LBP">
+    <de>Libanesisches Pfund</de>
+    <en>Lebanese Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LKR">
+    <de>Sri Lanka-Rupie</de>
+    <en>Sri Lankan Rupee</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LRD">
+    <de>Liberianischer Dollar</de>
+    <en>Liberian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LSL">
+    <de>Loti</de>
+    <en>Basotho Loti</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.LTL">
-    <de>Litauische Litas</de>
+    <de>Litas</de>
     <en>Lithuanian Litas</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.LVL">
-    <de>Lettische Lats</de>
+    <de>Lats</de>
     <en>Latvian Lats</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.LYD">
+    <de>Libyscher Dinar</de>
+    <en>Libyan Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MAD">
+    <de>Marokkanischer Dirham</de>
+    <en>Moroccan Dirham</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.MDL">
-    <de>Moldawische Leu</de>
+    <de>Moldawischer Leu</de>
     <en>Moldovan Leu</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MGA">
+    <de>Ariary</de>
+    <en>Malagasy Ariary</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.MKD">
-    <de>Mazedonische Dinar</de>
+    <de>Mazedonischer Denar</de>
     <en>Macedonia Denar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MMK">
+    <de>Kyat</de>
+    <en>Burmese Kyat</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MNT">
+    <de>Tugrik</de>
+    <en>Mongolian Tughrik</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MOP">
+    <de>Pataca</de>
+    <en>Macau Pataca</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MRO">
+    <de>Ouguiya</de>
+    <en>Mauritanian Ouguiya</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MUR">
+    <de>Mauritius-Rupie</de>
+    <en>Mauritian Rupee</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MVR">
+    <de>Rufiyaa</de>
+    <en>Maldivian Rufiyaa</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MWK">
+    <de>Malawi-Kwacha</de>
+    <en>Malawian Kwacha</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MXN">
+    <de>Mexikanischer Peso</de>
+    <en>Mexican Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MYR">
+    <de>Ringgit</de>
+    <en>Malaysian Ringgit</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.MZN">
+    <de>Metical</de>
+    <en>Mozambican Metical</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NAD">
+    <de>Namibischer Dollar</de>
+    <en>Namibian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NGN">
+    <de>Naira</de>
+    <en>Nigerian Naira</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NIO">
+    <de>Córdoba Oro</de>
+    <en>Nicaraguan Cordoba</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.NOK">
     <de>Norwegische Krone</de>
     <en>Norwegian Krone</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NPR">
+    <de>Nepalesische Rupie</de>
+    <en>Nepalese Rupee</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.NZD">
+    <de>Neuseeland-Dollar</de>
+    <en>New Zealand Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.OMR">
+    <de>Omanischer Rial</de>
+    <en>Omani Rial</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PAB">
+    <de>Balboa</de>
+    <en>Panamanian Balboa</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PEN">
+    <de>Nuevo Sol</de>
+    <en>Peruvian Nuevo Sol</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PGK">
+    <de>Kina</de>
+    <en>Papua New Guinean Kina</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PHP">
+    <de>Philippinischer Peso</de>
+    <en>Philippine Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PKR">
+    <de>Pakistanische Rupie</de>
+    <en>Pakistani Rupee</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.PLN">
-    <de>Polnische Złoty</de>
+    <de>Złoty</de>
     <en>Polish Złoty</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.PYG">
+    <de>Guarani</de>
+    <en>Paraguayan Guarani</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.QAR">
+    <de>Katar-Riyal</de>
+    <en>Qatari Riyal</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.RON">
-    <de>Rumänische Leu</de>
+    <de>Rumänischer Leu</de>
     <en>Romanian Leu</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.RSD">
-    <de>Serbische Dinar</de>
+    <de>Serbischer Dinar</de>
     <en>Serbian dinar</en>
   </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.RUB">
     <de>Russische Rubel</de>
     <en>Russian Ruble</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.RWF">
+    <de>Ruanda-Franc</de>
+    <en>Rwandan Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SAR">
+    <de>Saudi-Rial</de>
+    <en>Saudi Arabian Riyal</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SBD">
+    <de>Salomonen-Dollar</de>
+    <en>Solomon Islander Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SCR">
+    <de>Seychellen-Rupie</de>
+    <en>Seychellois Rupee</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SDG">
+    <de>Sudanesisches Pfund</de>
+    <en>Sudanese Pound</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.SEK">
     <de>Schwedische Kronen</de>
     <en>Swedish Krona</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SGD">
+    <de>Singapur-Dollar</de>
+    <en>Singapore Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SHP">
+    <de>St.-Helena-Pfund</de>
+    <en>Saint Helenian Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SLL">
+    <de>Leone</de>
+    <en>Sierra Leonean Leone</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SOS">
+    <de>Somalia-Schilling</de>
+    <en>Somali Shilling</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SRD">
+    <de>Suriname-Dollar</de>
+    <en>Surinamese Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SSP">
+    <de>Südsudanesisches Pfund</de>
+    <en>South Sudan Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.STD">
+    <de>Dobra</de>
+    <en>Sao Tomean Dobra</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SVC">
+    <de>Colon</de>
+    <en>Salvadoran Colon</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SYP">
+    <de>Syrisches Pfund</de>
+    <en>Syrian Pound</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.SZL">
+    <de>Lilangeni</de>
+    <en>Swazi Lilangeni</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.THB">
+    <de>Baht</de>
+    <en>Thai Baht</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TJS">
+    <de>Somoni</de>
+    <en>Tajikistani Somoni</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TMT">
+    <de>Turkmenistan-Manat</de>
+    <en>Turkmenistani Manat</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TND">
+    <de>Tunesischer Dinar</de>
+    <en>Tunisian Dinar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TOP">
+    <de>Pa'anga</de>
+    <en>Tongan Pa'anga</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.TRY">
-    <de>Türkische Lira</de>
+    <de>Neue Lira</de>
     <en>New Turkish Lira</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TTD">
+    <de>Trinidad und Tobago Dollar</de>
+    <en>Trinidadian Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TWD">
+    <de>Taiwan-Dollar</de>
+    <en>Taiwan New Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.TZS">
+    <de>Tansania-Schilling</de>
+    <en>Tanzanian Shilling</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.UAH">
-    <de>Ukrainische Hrywnja</de>
+    <de>Hrywna</de>
     <en>Ukrainian Hryvnia</en>
   </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.UGX">
+    <de>Uganda-Schilling</de>
+    <en>Ugandan Shilling</en>
+  </item>
   <item id="com.helger.masterdata.currency.ECurrencyName.USD">
-    <de>US Dollar</de>
+    <de>US-Dollar</de>
     <en>United States Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.UYU">
+    <de>Uruguayischer Peso</de>
+    <en>Uruguayan Peso</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.UZS">
+    <de>So'm</de>
+    <en>Uzbekistani Som</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.VEF">
+    <de>Bolívar fuerte</de>
+    <en>Venezuelan Bolivar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.VND">
+    <de>Dong</de>
+    <en>Vietnamese Dong</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.VUV">
+    <de>Vatu</de>
+    <en>Ni-Vanuatu Vatu</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.WST">
+    <de>Tala</de>
+    <en>Samoan Tala</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.XAF">
+    <de>CFA-Franc BEAC</de>
+    <en>CFA Franc BEAC</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.XCD">
+    <de>Ostkaribischer Dollar</de>
+    <en>East Caribbean Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.XOF">
+    <de>CFA-Franc BCEAO</de>
+    <en>CFA Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.XPF">
+    <de>CFP-Franc</de>
+    <en>CFP Franc</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.YER">
+    <de>Jemen-Rial</de>
+    <en>Yemeni Rial</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ZAR">
+    <de>Rand</de>
+    <en>South African Rand</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ZMK">
+    <de>Kwacha</de>
+    <en>Zambian Kwacha</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ZMW">
+    <de>Neuer Kwacha</de>
+    <en>New Zambian Kwacha</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ZWD">
+    <de>Simbabwe-Dollar</de>
+    <en>Zimbabwean Dollar</en>
+  </item>
+  <item id="com.helger.masterdata.currency.ECurrencyName.ZWL">
+    <de>Simbabwe-Dollar</de>
+    <en>Zimbabwean Dollar</en>
   </item>
   <item id="com.helger.masterdata.currency.validation.ECurrencyErrorTexts.INVALID_CURRENCY_CODE">
     <de>Die Währung ist ungültig.</de>
@@ -218,6 +754,38 @@
     <de>Privat (2)</de>
     <en>Personal (2)</en>
   </item>
+  <item id="com.helger.masterdata.locale.EContinentName.AFRICA">
+    <de>Afrika</de>
+    <en>Africa</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.ANTARCTICA">
+    <de>Antarktis</de>
+    <en>Antarctica</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.ASIA">
+    <de>Asien</de>
+    <en>Asia</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.EUROPE">
+    <de>Europa</de>
+    <en>Europe</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.NORTH_AMERICA">
+    <de>Nordamerika</de>
+    <en>North America</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.OCEANIA">
+    <de>Ozeanien</de>
+    <en>Oceania</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.SOUTH_AMERICA">
+    <de>Südamerika</de>
+    <en>South America</en>
+  </item>
+  <item id="com.helger.masterdata.locale.EContinentName.UNDEFINED">
+    <de>Undefiniert</de>
+    <en>Undefined</en>
+  </item>
   <item id="com.helger.masterdata.person.EGenderName.FEMALE">
     <de>Frau</de>
     <en>Mrs.</en>
@@ -225,6 +793,10 @@
   <item id="com.helger.masterdata.person.EGenderName.MALE">
     <de>Herr</de>
     <en>Mr.</en>
+  </item>
+  <item id="com.helger.masterdata.person.EGenderName.OTHER">
+    <de>Anders</de>
+    <en>Different</en>
   </item>
   <item id="com.helger.masterdata.person.ESalutationGreeting.CLUB">
     <de>Sehr geehrte</de>
@@ -387,7 +959,7 @@
     <en>Harmonised sales tax, Canadian</en>
   </item>
   <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAH">
-    <de>Quebecs&#39; Umsatzsteuer</de>
+    <de>Quebecs' Umsatzsteuer</de>
     <en>Quebec sales tax</en>
   </item>
   <item id="com.helger.masterdata.tax.ETaxTypeUN5153Name.AAI">
