@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -48,7 +47,7 @@ public enum EIncotermName implements IHasDisplayText
   DDU ("frei unverzollt", "delivered duty unpaid"),
   DDP ("frei verzollt", "delivered duty paid");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EIncotermName (@Nonnull final String sDE, @Nonnull final String sEN)
   {

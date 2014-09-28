@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ISimpleMultiLingualText;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -434,7 +433,7 @@ public enum EUnitQuantityName implements IHasDisplayText
   HARDNESS_INDEX ("hardness index", "hardness index"),
   POROSITY ("Porosität", "porosity");
 
-  private final ISimpleMultiLingualText m_aTP;
+  private final TextProvider m_aTP;
 
   private EUnitQuantityName (@Nonnull final String sDE, @Nonnull final String sEN)
   {

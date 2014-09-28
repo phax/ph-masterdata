@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -35,7 +34,7 @@ public enum ESalutationName implements IHasDisplayText
   COMPANY ("Firma", "Company"),
   CLUB ("Verein", "Club");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private ESalutationName (@Nonnull final String sDE, @Nonnull final String sEN)
   {

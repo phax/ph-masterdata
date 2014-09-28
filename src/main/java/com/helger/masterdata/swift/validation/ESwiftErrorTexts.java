@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -32,7 +31,7 @@ public enum ESwiftErrorTexts implements IHasDisplayText
   INVALID_BIC ("Der BIC ist ungültig.", "The BIC is invalid."),
   INVALID_IBAN ("Die IBAN ist ungültig.", "The IBAN is invalid.");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private ESwiftErrorTexts (@Nonnull final String sDE, @Nonnull final String sEN)
   {

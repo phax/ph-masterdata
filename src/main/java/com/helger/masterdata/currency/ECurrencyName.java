@@ -24,13 +24,12 @@ import javax.annotation.Nullable;
 import com.helger.commons.annotations.DevelopersNote;
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
 /**
  * Contains the names of all currencies. Accessed by {@link ECurrency}.
- * 
+ *
  * @author Philip Helger
  */
 @Translatable
@@ -205,7 +204,7 @@ public enum ECurrencyName implements IHasDisplayText
   @Deprecated
   ZWL ("Simbabwe-Dollar", "Zimbabwean Dollar");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private ECurrencyName (@Nonnull final String sDE, @Nonnull final String sEN)
   {

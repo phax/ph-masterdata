@@ -23,13 +23,12 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
 /**
  * Name of the continents as used by {@link EContinent}.
- * 
+ *
  * @author Philip Helger
  */
 @Translatable
@@ -44,7 +43,7 @@ public enum EContinentName implements IHasDisplayText
   SOUTH_AMERICA ("Südamerika", "South America"),
   UNDEFINED ("Undefiniert", "Undefined");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EContinentName (@Nonnull final String sDE, @Nonnull final String sEN)
   {

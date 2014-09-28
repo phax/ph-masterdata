@@ -23,13 +23,12 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
 /**
  * Texts for {@link ETaxCategoryUN5305}.
- * 
+ *
  * @author Philip Helger
  */
 @Translatable
@@ -86,7 +85,7 @@ public enum ETaxCategoryUN5305Name implements IHasDisplayText
   /** Code specifying that the goods are at a zero rate. */
   Z ("Steuersatz 0%", "Zero rated goods");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private ETaxCategoryUN5305Name (@Nonnull final String sDE, @Nonnull final String sEN)
   {

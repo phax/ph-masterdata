@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
 import com.helger.commons.name.IHasDisplayTextWithArgs;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -34,7 +33,7 @@ public enum EPostalCodeErrorTexts implements IHasDisplayText, IHasDisplayTextWit
   INVALID_POSTAL_CODE ("Die eingegebene Postleitzahl ist ungültig.", "The postal code is invalid."),
   INVALID_POSTAL_CODE_WITH_EXAMPLES ("Geben Sie eine Postleitzahl in einem gültigen Format ein: {0}", "Enter a postal code in a valid format: {0}");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EPostalCodeErrorTexts (@Nonnull final String sDE, @Nonnull final String sEN)
   {

@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -38,7 +37,7 @@ public enum EEmailAddressText implements IHasDisplayText
   MSG_TYPE_OFFICE2 ("Büro (2)", "Office (2)"),
   MSG_TYPE_OTHER ("Sonstige", "Other");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EEmailAddressText (@Nonnull final String sDE, @Nonnull final String sEN)
   {

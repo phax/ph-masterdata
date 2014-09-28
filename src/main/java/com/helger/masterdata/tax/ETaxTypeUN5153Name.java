@@ -23,13 +23,12 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
 /**
  * Texts for {@link ETaxTypeUN5153}.
- * 
+ *
  * @author Philip Helger
  */
 @Translatable
@@ -237,7 +236,7 @@ public enum ETaxTypeUN5153Name implements IHasDisplayText
    */
   VAT ("Mehrwertsteuer", "Value added tax");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private ETaxTypeUN5153Name (@Nonnull final String sDE, @Nonnull final String sEN)
   {

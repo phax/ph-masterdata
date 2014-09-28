@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayTextWithArgs;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -32,7 +31,7 @@ public enum EVATItemText implements IHasDisplayTextWithArgs
 {
   VAT_PERC ("{0}% USt.", "VAT {0}%");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EVATItemText (@Nonnull final String sDE, @Nonnull final String sEN)
   {

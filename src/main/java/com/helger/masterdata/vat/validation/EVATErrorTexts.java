@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.Translatable;
 import com.helger.commons.name.IHasDisplayText;
-import com.helger.commons.text.ITextProvider;
 import com.helger.commons.text.impl.TextProvider;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 
@@ -33,7 +32,7 @@ public enum EVATErrorTexts implements IHasDisplayText
   INVALID_VATITEM ("Der angegebene Steuersatz ist ungültig.", "The specified tax rate is invalid."),
   INVALID_VATIN_WITH_EXAMPLES ("Die UID ist ungültig. Eine UID für {0} kann z.B. so aussehen: {1}", "The VATIN is invalid. A valid UID for {0} can look like this: {1}");
 
-  private final ITextProvider m_aTP;
+  private final TextProvider m_aTP;
 
   private EVATErrorTexts (@Nonnull final String sDE, @Nonnull final String sEN)
   {
