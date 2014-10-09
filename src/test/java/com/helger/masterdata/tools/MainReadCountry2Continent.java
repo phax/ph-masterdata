@@ -51,7 +51,7 @@ public class MainReadCountry2Continent
   @Nullable
   private static Locale _findCountry (final String s)
   {
-    for (final Locale l : CountryCache.getAllCountryLocales ())
+    for (final Locale l : CountryCache.getInstance ().getAllCountryLocales ())
       if (l.getDisplayCountry (LOC).equals (s))
         return l;
     return null;

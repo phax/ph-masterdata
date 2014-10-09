@@ -303,7 +303,7 @@ public final class ECurrencyTest extends AbstractPHTestCase
   public void testGetFromCountry ()
   {
     // The following countries have multiple currencies:
-    final Locale aLocCuba = CountryCache.getCountry ("CU");
+    final Locale aLocCuba = CountryCache.getInstance ().getCountry ("CU");
 
     for (final ECurrency e : ECurrency.values ())
       if (!e.isDeprecated ())

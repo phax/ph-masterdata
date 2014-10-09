@@ -41,7 +41,7 @@ import com.helger.masterdata.MasterdataUtils;
 // ESCA-JAVA0116:
 /**
  * Writable implementation of the {@link IAddress} interface.
- * 
+ *
  * @author Philip Helger
  */
 @MappedSuperclass
@@ -156,7 +156,7 @@ public class Address implements IAddress
   @Nullable
   public String getCountryDisplayName (@Nonnull final Locale aDisplayLocale)
   {
-    final Locale aCountry = CountryCache.getCountry (m_sCountry);
+    final Locale aCountry = CountryCache.getInstance ().getCountry (m_sCountry);
     return aCountry == null ? null : aCountry.getDisplayCountry (aDisplayLocale);
   }
 
@@ -164,7 +164,7 @@ public class Address implements IAddress
   @Nullable
   public Locale getCountryLocale ()
   {
-    return CountryCache.getCountry (m_sCountry);
+    return CountryCache.getInstance ().getCountry (m_sCountry);
   }
 
   @Nonnull

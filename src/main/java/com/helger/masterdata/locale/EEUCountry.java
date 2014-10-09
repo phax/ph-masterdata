@@ -75,7 +75,7 @@ public enum EEUCountry implements IHasID <String>
   private EEUCountry (@Nonnull @Nonempty final String sCountryCode, @Nonnull final LocalDate aJoinDate)
   {
     m_sCountryCode = sCountryCode;
-    m_aCountry = CountryCache.getCountry (sCountryCode);
+    m_aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
     if (m_aCountry == null)
       throw new IllegalStateException ("Failed to resolve country '" + sCountryCode + "'");
     m_aJoinDate = aJoinDate;

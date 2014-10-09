@@ -28,7 +28,7 @@ import com.helger.commons.locale.country.CountryCache;
 
 /**
  * Test class for class {@link DeprecatedLocaleHandler}.
- * 
+ *
  * @author Philip Helger
  */
 public final class DeprecatedLocaleHandlerTest
@@ -41,21 +41,21 @@ public final class DeprecatedLocaleHandlerTest
     assertEquals (1, x.getAllDeprecatedLocales ().size ());
 
     // Deprecated one
-    assertTrue (x.isDeprecatedLocale (CountryCache.getCountry ("CS")));
+    assertTrue (x.isDeprecatedLocale (CountryCache.getInstance ().getCountry ("CS")));
 
     // This locale is only implicitly deprecated
     assertFalse (x.isDeprecatedLocale (LocaleCache.getLocale ("cs", "CS")));
 
     // This country is not deprecated
-    assertFalse (x.isDeprecatedLocale (CountryCache.getCountry ("AT")));
+    assertFalse (x.isDeprecatedLocale (CountryCache.getInstance ().getCountry ("AT")));
 
     // Deprecated one with fallback
-    assertTrue (x.isDeprecatedLocaleWithFallback (CountryCache.getCountry ("CS")));
+    assertTrue (x.isDeprecatedLocaleWithFallback (CountryCache.getInstance ().getCountry ("CS")));
 
     // This locale is implicitly also deprecated
     assertTrue (x.isDeprecatedLocaleWithFallback (LocaleCache.getLocale ("cs", "CS")));
 
     // This country is not deprecated
-    assertFalse (x.isDeprecatedLocaleWithFallback (CountryCache.getCountry ("AT")));
+    assertFalse (x.isDeprecatedLocaleWithFallback (CountryCache.getInstance ().getCountry ("AT")));
   }
 }

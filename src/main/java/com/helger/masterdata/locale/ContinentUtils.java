@@ -31,7 +31,7 @@ import com.helger.commons.locale.country.CountryCache;
 
 /**
  * Contains the country to continent assignment
- * 
+ *
  * @author Philip Helger
  */
 public final class ContinentUtils
@@ -297,7 +297,7 @@ public final class ContinentUtils
 
   /**
    * Register assignment
-   * 
+   *
    * @param sCountryCode
    *        Country code to be used. May not be <code>null</code> nor empty
    * @param aContinents
@@ -306,7 +306,7 @@ public final class ContinentUtils
    */
   private static void _register (@Nonnull @Nonempty final String sCountryCode, @Nonnull final EContinent... aContinents)
   {
-    final Locale aCountry = CountryCache.getCountry (sCountryCode);
+    final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
     if (s_aMap.containsKey (aCountry))
       throw new IllegalArgumentException ("Country code '" + sCountryCode + "' is already registered!");
     for (final EContinent eContinent : aContinents)
@@ -315,7 +315,7 @@ public final class ContinentUtils
 
   /**
    * Get all continents for the specified country ID
-   * 
+   *
    * @param aLocale
    *        The locale to be used. May be <code>null</code>.
    * @return <code>null</code> if no continent data is defined. Otherwise a non-
@@ -326,7 +326,7 @@ public final class ContinentUtils
   @ReturnsMutableCopy
   public static Set <EContinent> getContinentsOfCountry (@Nullable final Locale aLocale)
   {
-    final Locale aCountry = CountryCache.getCountry (aLocale);
+    final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
     if (aCountry != null)
     {
       final Set <EContinent> ret = s_aMap.get (aCountry);
@@ -338,7 +338,7 @@ public final class ContinentUtils
 
   /**
    * Get all continents for the specified country ID
-   * 
+   *
    * @param sCountryID
    *        The country ID to be used. May be <code>null</code>.
    * @return <code>null</code> if no continent data is defined. Otherwise a non-
@@ -349,7 +349,7 @@ public final class ContinentUtils
   @ReturnsMutableCopy
   public static Set <EContinent> getContinentsOfCountry (@Nullable final String sCountryID)
   {
-    final Locale aCountry = CountryCache.getCountry (sCountryID);
+    final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryID);
     if (aCountry != null)
     {
       final Set <EContinent> ret = s_aMap.get (aCountry);

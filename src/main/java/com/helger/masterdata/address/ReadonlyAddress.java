@@ -29,7 +29,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Read-only implementation of the {@link IReadonlyAddress} interface.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -92,7 +92,7 @@ public final class ReadonlyAddress implements IReadonlyAddress
   @Nullable
   public Locale getCountryLocale ()
   {
-    return CountryCache.getCountry (m_sCountry);
+    return CountryCache.getInstance ().getCountry (m_sCountry);
   }
 
   @Nullable

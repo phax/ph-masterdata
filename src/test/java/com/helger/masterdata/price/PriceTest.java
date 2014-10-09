@@ -122,7 +122,7 @@ public final class PriceTest
   {
     for (final String sNumber : new String [] { "1", "10", "12", "3.66666", "0.000555" })
       for (final IVATItem aVATItem : VATManager.getDefaultInstance ()
-                                               .getAllVATItemsForCountry (CountryCache.getCountry ("AT"))
+                                               .getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("AT"))
                                                .values ())
       {
         Price p = Price.createFromNetAmount (ECurrency.EUR, new BigDecimal (sNumber), aVATItem);

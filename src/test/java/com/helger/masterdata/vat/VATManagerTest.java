@@ -33,7 +33,7 @@ import com.helger.datetime.PDTFactory;
 
 /**
  * Test class for class {@link VATManager}.
- * 
+ *
  * @author Philip Helger
  */
 public final class VATManagerTest
@@ -67,7 +67,8 @@ public final class VATManagerTest
   public void testValidity ()
   {
     final VATManager aVATMgr = VATManager.getDefaultInstance ();
-    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getCountry ("hu"));
+    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ()
+                                                                                       .getCountry ("hu"));
     assertNotNull (aData);
 
     IVATItem aItem = aData.get ("hu.v25");

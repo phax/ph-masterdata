@@ -53,7 +53,7 @@ import com.helger.datetime.format.PDTFromString;
 
 /**
  * Manages the available VAT types.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -116,7 +116,7 @@ public class VATManager implements IVATItemResolver
     {
       // Country
       final String sCountry = eVATTypes.getAttribute ("country");
-      final Locale aCountry = CountryCache.getCountry (sCountry);
+      final Locale aCountry = CountryCache.getInstance ().getCountry (sCountry);
       if (m_aVATItemsPerCountry.containsKey (aCountry))
       {
         s_aLogger.warn ("VAT types for country " + aCountry + " have already been defined!");
@@ -214,7 +214,7 @@ public class VATManager implements IVATItemResolver
 
   /**
    * Check if zero VAT is allowed for the passed country
-   * 
+   *
    * @param aCountry
    *        The country to be checked.
    * @param bUndefinedValue
@@ -227,7 +227,7 @@ public class VATManager implements IVATItemResolver
     ValueEnforcer.notNull (aCountry, "Country");
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getCountry (aCountry));
+    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
     return aVATCountryData != null ? aVATCountryData.isZeroVATAllowed () : bUndefinedValue;
   }
 
@@ -235,7 +235,7 @@ public class VATManager implements IVATItemResolver
    * Get all VAT types matching the given locale (without any fallback!). It
    * contains both the specific definitions and the locale independent
    * definitions.
-   * 
+   *
    * @param aCountry
    *        The locale to use. May not be <code>null</code>.
    * @return A non-<code>null</code> map from ID to the matching VAT item. Also
@@ -250,7 +250,7 @@ public class VATManager implements IVATItemResolver
     final Map <String, IVATItem> ret = new HashMap <String, IVATItem> ();
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getCountry (aCountry));
+    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
     if (aVATCountryData != null)
     {
       if (aVATCountryData.isZeroVATAllowed ())
@@ -262,7 +262,7 @@ public class VATManager implements IVATItemResolver
 
   /**
    * Get the VAT type with the given ID.
-   * 
+   *
    * @param sID
    *        The VAT type ID to search.
    * @return <code>null</code> if no such VAT type exists.
@@ -285,7 +285,7 @@ public class VATManager implements IVATItemResolver
   /**
    * Find a matching VAT item with the passed properties, independent of the
    * country.
-   * 
+   *
    * @param eType
    *        The VAT type to use. May be <code>null</code> resulting in a
    *        <code>null</code> result.

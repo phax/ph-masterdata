@@ -40,7 +40,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Represents a VATIN structure for a single country.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -59,7 +59,7 @@ public final class VATINStructure implements IHasCountry
     ValueEnforcer.notNull (sRegEx, "RegEx");
     ValueEnforcer.notEmpty (aExamples, "Example");
 
-    m_aCountry = CountryCache.getCountry (sCountry);
+    m_aCountry = CountryCache.getInstance ().getCountry (sCountry);
     if (m_aCountry == null)
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;

@@ -39,7 +39,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Manages postal code definitions for different countries.
- * 
+ *
  * @author Philip Helger
  */
 @ThreadSafe
@@ -67,7 +67,7 @@ public final class PostalCodeManager
     ValueEnforcer.notNull (aPostalCountry, "PostalCountry");
 
     // Unify ISO code
-    final Locale aCountry = CountryCache.getCountry (aPostalCountry.getISO ());
+    final Locale aCountry = CountryCache.getInstance ().getCountry (aPostalCountry.getISO ());
 
     m_aRWLock.writeLock ().lock ();
     try
@@ -85,13 +85,13 @@ public final class PostalCodeManager
   @Nullable
   public IPostalCodeCountry getPostalCountryOfCountry (@Nullable final String sISO)
   {
-    return getPostalCountryOfCountry (CountryCache.getCountry (sISO));
+    return getPostalCountryOfCountry (CountryCache.getInstance ().getCountry (sISO));
   }
 
   @Nullable
   public IPostalCodeCountry getPostalCountryOfCountry (@Nullable final Locale aCountry)
   {
-    final Locale aRealCountry = CountryCache.getCountry (aCountry);
+    final Locale aRealCountry = CountryCache.getInstance ().getCountry (aCountry);
     m_aRWLock.readLock ().lock ();
     try
     {
@@ -120,7 +120,7 @@ public final class PostalCodeManager
 
   /**
    * Check if the passed postal code is valid for the passed country.
-   * 
+   *
    * @param aCountry
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
@@ -143,7 +143,7 @@ public final class PostalCodeManager
    * Check if the passed postal code is valid for the passed country. If no
    * information for that specific country is defined, the postal code is
    * assumed valid!
-   * 
+   *
    * @param aCountry
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
@@ -161,7 +161,7 @@ public final class PostalCodeManager
    * Check if the passed postal code is valid for the passed country. If no
    * information for that specific country is defined, the postal code is
    * assumed invalid!
-   * 
+   *
    * @param aCountry
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
@@ -177,7 +177,7 @@ public final class PostalCodeManager
 
   /**
    * Get a list of possible postal code examples for the passed country.
-   * 
+   *
    * @param aCountry
    *        The country for which the examples are to be retrieved. May be
    *        <code>null</code>.

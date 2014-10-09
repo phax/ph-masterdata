@@ -27,7 +27,7 @@ import com.helger.commons.locale.country.CountryCache;
 
 /**
  * Test class for class {@link PostalCodeManager}.
- * 
+ *
  * @author Philip Helger
  */
 public final class PostalCodeManagerTest
@@ -39,33 +39,33 @@ public final class PostalCodeManagerTest
     assertNotNull (aMgr);
 
     // check valid
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("AT"), "1234"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("AT"), "123"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("AT"), "12345"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("AT"), "A123"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("AT"), "1234"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("AT"), "123"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("AT"), "12345"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("AT"), "A123"));
 
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("DE"), "12345"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("DE"), "1234"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("DE"), "123456"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("DE"), "123 456"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("DE"), "12345"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("DE"), "1234"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("DE"), "123456"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("DE"), "123 456"));
 
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("CZ"), "12345"));
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("CZ"), "123 45"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("CZ"), "12 345"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("CZ"), "1234 5"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("CZ"), "a234 5"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "12345"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "123 45"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "12 345"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "1234 5"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "a234 5"));
 
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "12345"));
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "12-345"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "123-45"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "1234-5"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "a234 5"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("PL"), "1234 5"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "12345"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "12-345"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "123-45"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "1234-5"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "a234 5"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "1234 5"));
 
     // Special one with country code
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("IM"), "IM1 1AA"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("IM"), "IN1 1AA"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getCountry ("IM"), "im1 1AA"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("IM"), "IM1 1AA"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("IM"), "IN1 1AA"));
+    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("IM"), "im1 1AA"));
   }
 
   @Test

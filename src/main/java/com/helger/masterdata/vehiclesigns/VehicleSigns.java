@@ -34,7 +34,7 @@ import com.helger.commons.locale.country.CountryCache;
 
 /**
  * Source: http://www.unece.org/trans/main/wp1/wp1fdoc/disting-signs-5-2001.pdf
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -190,7 +190,7 @@ public final class VehicleSigns
 
   private static void _add (@Nonnull final String sCountryCode, @Nonnull final String sSign)
   {
-    final Locale aCountry = CountryCache.getCountry (sCountryCode);
+    final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
     if (s_aCountryToSign.containsKey (aCountry))
       throw new InitializationException ("Locale " + aCountry + " is already contained!");
     s_aCountryToSign.put (aCountry, sSign);
@@ -210,7 +210,7 @@ public final class VehicleSigns
   @Nullable
   public static String getVehicleSignOrNull (@Nullable final String sCountry)
   {
-    return s_aCountryToSign.get (CountryCache.getCountry (sCountry));
+    return s_aCountryToSign.get (CountryCache.getInstance ().getCountry (sCountry));
   }
 
   @Nullable
