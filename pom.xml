@@ -87,13 +87,13 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-scopes</artifactId>
-      <version>6.4.0</version>
+      <version>6.5.0</version>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-db-jpa</artifactId>
-      <version>3.2.0</version>
+      <version>3.2.1</version>
       <optional>true</optional>
     </dependency>
     
