@@ -30,13 +30,13 @@ public final class PriceMicroTypeConverter extends AbstractPriceMicroTypeConvert
   @Nonnull
   public final Price convertToNative (@Nonnull final IMicroElement ePrice)
   {
-    final String sCurrency = ePrice.getAttribute (ATTR_CURRENCY);
+    final String sCurrency = ePrice.getAttributeValue (ATTR_CURRENCY);
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrency);
     if (eCurrency == null)
       throw new IllegalStateException ("Failed to resolve currency with ID '" + sCurrency + "'");
 
     final BigDecimal aNetAmount = ePrice.getAttributeWithConversion (ATTR_NETAMOUNT, BigDecimal.class);
-    final String sVATItemID = ePrice.getAttribute (ATTR_VATITEM);
+    final String sVATItemID = ePrice.getAttributeValue (ATTR_VATITEM);
     final IVATItem aVATItem = VATManager.getDefaultInstance ().getVATItemOfID (sVATItemID);
     if (aVATItem == null)
       throw new IllegalStateException ("Failed to resolve VAT item with ID '" + sVATItemID + "'");

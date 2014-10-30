@@ -37,7 +37,7 @@ import com.helger.masterdata.MasterdataLogger;
 // ESCA-JAVA0116:
 /**
  * Read postal code definitions from an XML resource.
- * 
+ *
  * @author Philip Helger
  */
 public final class PostalCodeListReader
@@ -101,16 +101,16 @@ public final class PostalCodeListReader
     // Read all countries
     for (final IMicroElement eCountry : eBody.getAllChildElements (ELEMENT_COUNTRY))
     {
-      final String sCountryName = eCountry.getAttribute (ATTR_NAME);
-      final String sISO = eCountry.getAttribute (ATTR_ISO);
+      final String sCountryName = eCountry.getAttributeValue (ATTR_NAME);
+      final String sISO = eCountry.getAttributeValue (ATTR_ISO);
       final PostalCodeCountry aCountry = new PostalCodeCountry (sISO);
 
       // Read all postal code definitions
       for (final IMicroElement ePostalCode : eCountry.getAllChildElements (ELEMENT_POSTALCODES))
       {
-        final String sValidFrom = ePostalCode.getAttribute (ATTR_VALIDFROM);
+        final String sValidFrom = ePostalCode.getAttributeValue (ATTR_VALIDFROM);
         final LocalDate aValidFrom = sValidFrom == null ? null : ISODateTimeFormat.date ().parseLocalDate (sValidFrom);
-        final String sValidTo = ePostalCode.getAttribute (ATTR_VALIDTO);
+        final String sValidTo = ePostalCode.getAttributeValue (ATTR_VALIDTO);
         final LocalDate aValidTo = sValidTo == null ? null : ISODateTimeFormat.date ().parseLocalDate (sValidTo);
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))

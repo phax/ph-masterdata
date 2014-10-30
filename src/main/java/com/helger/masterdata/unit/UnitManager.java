@@ -37,7 +37,7 @@ import com.helger.commons.text.IReadonlyMultiLingualText;
 
 /**
  * FIXME THIS CLASS IS NOT YET FINISHED!
- * 
+ *
  * @author Philip Helger
  */
 @WorkInProgress
@@ -62,7 +62,7 @@ public final class UnitManager
     // Read all sectors
     for (final IMicroElement eSector : eRoot.getFirstChildElement ("sectors").getAllChildElements ("sector"))
     {
-      final int nGroupNum = StringParser.parseInt (eSector.getAttribute ("groupnum"), CGlobal.ILLEGAL_UINT);
+      final int nGroupNum = StringParser.parseInt (eSector.getAttributeValue ("groupnum"), CGlobal.ILLEGAL_UINT);
       final IReadonlyMultiLingualText aName = MicroTypeConverter.convertToNative (eSector.getFirstChildElement ("name"),
                                                                                   IReadonlyMultiLingualText.class);
       final UnitSector aSector = new UnitSector (nGroupNum, aName);
@@ -78,7 +78,7 @@ public final class UnitManager
     for (final IMicroElement eItem : eRoot.getFirstChildElement ("body").getAllChildElements ("item"))
     {
       // TODO
-      eItem.getAttribute ("id");
+      eItem.getAttributeValue ("id");
     }
   }
 

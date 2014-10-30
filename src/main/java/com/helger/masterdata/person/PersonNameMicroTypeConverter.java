@@ -63,12 +63,12 @@ public final class PersonNameMicroTypeConverter implements IMicroTypeConverter
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
     final PersonName aName = new PersonName ();
-    aName.setSalutation (ESalutation.getFromIDOrNull (eAddress.getAttribute (ATTR_SALUTATION)));
-    aName.setPrefixTitle (eAddress.getAttribute (ATTR_PREFIXTITLE));
-    aName.setFirstName (eAddress.getAttribute (ATTR_FIRSTNAME), aLocale);
-    aName.setMiddleName (eAddress.getAttribute (ATTR_MIDDLENAME), aLocale);
-    aName.setLastName (eAddress.getAttribute (ATTR_LASTNAME), aLocale);
-    aName.setSuffixTitle (eAddress.getAttribute (ATTR_SUFFIXTITLE));
+    aName.setSalutation (ESalutation.getFromIDOrNull (eAddress.getAttributeValue (ATTR_SALUTATION)));
+    aName.setPrefixTitle (eAddress.getAttributeValue (ATTR_PREFIXTITLE));
+    aName.setFirstName (eAddress.getAttributeValue (ATTR_FIRSTNAME), aLocale);
+    aName.setMiddleName (eAddress.getAttributeValue (ATTR_MIDDLENAME), aLocale);
+    aName.setLastName (eAddress.getAttributeValue (ATTR_LASTNAME), aLocale);
+    aName.setSuffixTitle (eAddress.getAttributeValue (ATTR_SUFFIXTITLE));
     return aName;
   }
 }

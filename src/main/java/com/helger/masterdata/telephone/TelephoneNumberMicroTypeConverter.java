@@ -23,17 +23,13 @@ import com.helger.commons.microdom.IMicroElement;
 public final class TelephoneNumberMicroTypeConverter extends AbstractTelephoneNumberMicroTypeConverter
 {
   @Nonnull
-   public TelephoneNumber convertToNative (@Nonnull final IMicroElement eTelNo)
-   {
-     final ETelephoneType eType = ETelephoneType.getFromIDOrNull (eTelNo.getAttribute (ATTR_TYPE));
-     final String sCountryCode = eTelNo.getAttribute (ATTR_COUNTRYCODE);
-     final String sAreaCode = eTelNo.getAttribute (ATTR_AREACODE);
-     final String sLine = eTelNo.getAttribute (ATTR_LINE);
-     final String sDirectDial = eTelNo.getAttribute (ATTR_DIRECTDIAL);
-     return new TelephoneNumber (eType,
-                                 sCountryCode,
-                                 sAreaCode,
-                                 sLine,
-                                 sDirectDial);
-   }
+  public TelephoneNumber convertToNative (@Nonnull final IMicroElement eTelNo)
+  {
+    final ETelephoneType eType = ETelephoneType.getFromIDOrNull (eTelNo.getAttributeValue (ATTR_TYPE));
+    final String sCountryCode = eTelNo.getAttributeValue (ATTR_COUNTRYCODE);
+    final String sAreaCode = eTelNo.getAttributeValue (ATTR_AREACODE);
+    final String sLine = eTelNo.getAttributeValue (ATTR_LINE);
+    final String sDirectDial = eTelNo.getAttributeValue (ATTR_DIRECTDIAL);
+    return new TelephoneNumber (eType, sCountryCode, sAreaCode, sLine, sDirectDial);
+  }
 }

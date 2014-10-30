@@ -34,7 +34,7 @@ import com.helger.commons.text.IReadonlyMultiLingualText;
 
 /**
  * Test class for class {@link UnitManager}.
- * 
+ *
  * @author Philip Helger
  */
 public final class FuncTestCreateQuantityEnum
@@ -49,7 +49,7 @@ public final class FuncTestCreateQuantityEnum
     final Map <Integer, String> aTexts = new LinkedHashMap <Integer, String> ();
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
-      final int nQuantity = StringParser.parseInt (eQuantity.getAttribute ("id"), CGlobal.ILLEGAL_UINT);
+      final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
       final IReadonlyMultiLingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"),
                                                                                   IReadonlyMultiLingualText.class);
       final String sEN = aName.getTextWithLocaleFallback (Locale.ENGLISH).trim ();

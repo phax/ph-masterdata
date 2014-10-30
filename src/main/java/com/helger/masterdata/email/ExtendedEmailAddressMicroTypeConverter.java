@@ -25,9 +25,9 @@ public final class ExtendedEmailAddressMicroTypeConverter extends AbstractExtend
   @Nonnull
   public ExtendedEmailAddress convertToNative (@Nonnull final IMicroElement eEmail)
   {
-    final EEmailAddressType eType = EEmailAddressType.getFromIDOrNull (eEmail.getAttribute (ATTR_TYPE));
-    final String sAddress = eEmail.getAttribute (ATTR_ADDRESS);
-    final String sPersonal = eEmail.getAttribute (ATTR_PERSONAL);
+    final EEmailAddressType eType = EEmailAddressType.getFromIDOrNull (eEmail.getAttributeValue (ATTR_TYPE));
+    final String sAddress = eEmail.getAttributeValue (ATTR_ADDRESS);
+    final String sPersonal = eEmail.getAttributeValue (ATTR_PERSONAL);
     return new ExtendedEmailAddress (eType, sAddress, sPersonal);
   }
 }

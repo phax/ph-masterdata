@@ -124,22 +124,22 @@ public final class IBANManager
       if (eCountry.hasAttribute (ATTR_VALIDFROM))
       {
         // Constant format, conforming to XML date
-        aValidFrom = PDTFromString.getLocalDateFromString (eCountry.getAttribute (ATTR_VALIDFROM), aDTPattern);
+        aValidFrom = PDTFromString.getLocalDateFromString (eCountry.getAttributeValue (ATTR_VALIDFROM), aDTPattern);
       }
 
       LocalDate aValidTo = null;
       if (eCountry.hasAttribute (ATTR_VALIDUNTIL))
       {
         // Constant format, conforming to XML date
-        aValidTo = PDTFromString.getLocalDateFromString (eCountry.getAttribute (ATTR_VALIDUNTIL), aDTPattern);
+        aValidTo = PDTFromString.getLocalDateFromString (eCountry.getAttributeValue (ATTR_VALIDUNTIL), aDTPattern);
       }
 
-      final String sLayout = eCountry.getAttribute (ATTR_LAYOUT);
+      final String sLayout = eCountry.getAttributeValue (ATTR_LAYOUT);
 
-      final String sCheckDigits = eCountry.getAttribute (ATTR_CHECKDIGITS);
+      final String sCheckDigits = eCountry.getAttributeValue (ATTR_CHECKDIGITS);
 
       // get expected length
-      final String sLen = eCountry.getAttribute (ATTR_LEN);
+      final String sLen = eCountry.getAttributeValue (ATTR_LEN);
       final int nExpectedLength = StringParser.parseInt (sLen, CGlobal.ILLEGAL_UINT);
       if (nExpectedLength == CGlobal.ILLEGAL_UINT)
         throw new InitializationException ("Failed to convert length '" + sLen + "' to int!");

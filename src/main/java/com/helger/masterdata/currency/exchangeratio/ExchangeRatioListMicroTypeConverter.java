@@ -48,7 +48,7 @@ public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConv
   @Nonnull
   public ExchangeRatioList convertToNative (@Nonnull final IMicroElement aElement)
   {
-    final String sCurrencyID = aElement.getAttribute (ATTR_CURRENCY);
+    final String sCurrencyID = aElement.getAttributeValue (ATTR_CURRENCY);
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrencyID);
     if (eCurrency == null)
       throw new IllegalStateException ("Failed to resolve currency with ID '" + sCurrencyID + "'");

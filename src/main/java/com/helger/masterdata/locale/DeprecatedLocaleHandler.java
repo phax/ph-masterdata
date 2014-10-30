@@ -42,7 +42,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * This class manages the deprecated locales.
- * 
+ *
  * @author Philip Helger
  */
 public final class DeprecatedLocaleHandler
@@ -91,9 +91,9 @@ public final class DeprecatedLocaleHandler
 
     for (final IMicroElement eLocale : aDoc.getDocumentElement ().getAllChildElements ("locale"))
     {
-      final String sLanguage = eLocale.getAttribute ("language");
-      final String sCountry = eLocale.getAttribute ("country");
-      final String sVariant = eLocale.getAttribute ("variant");
+      final String sLanguage = eLocale.getAttributeValue ("language");
+      final String sCountry = eLocale.getAttributeValue ("country");
+      final String sVariant = eLocale.getAttributeValue ("variant");
 
       final Locale aLocale = LocaleCache.getLocale (sLanguage, sCountry, sVariant);
       if (aLocale == null)
@@ -118,7 +118,7 @@ public final class DeprecatedLocaleHandler
 
   /**
    * Check if the passed locale is directly deprecated.
-   * 
+   *
    * @param aLocale
    *        The locale to check
    * @return <code>true</code> if it is deprecated
@@ -132,7 +132,7 @@ public final class DeprecatedLocaleHandler
    * Check if the passed locale is deprecated. Also checks fallbacks (e.g. the
    * country "CS" is marked deprecated, therefore the locale "sr_CS" is also
    * implicitly deprecated)
-   * 
+   *
    * @param aLocale
    *        The locale to check
    * @return <code>true</code> if it is deprecated

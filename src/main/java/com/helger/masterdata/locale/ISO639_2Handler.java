@@ -65,11 +65,11 @@ public class ISO639_2Handler
     final IMicroDocument aDoc = MicroReader.readMicroXML (aRes);
     for (final IMicroElement eItem : aDoc.getDocumentElement ().getAllChildElements ("item"))
     {
-      final String sAlpha3B = eItem.getAttribute ("alpha3");
-      final String sAlpha3T = eItem.getAttribute ("alpha3t");
-      final String sAlpha2 = eItem.getAttribute ("alpha2");
-      final String sEN = eItem.getAttribute ("en");
-      final String sFR = eItem.getAttribute ("fr");
+      final String sAlpha3B = eItem.getAttributeValue ("alpha3");
+      final String sAlpha3T = eItem.getAttributeValue ("alpha3t");
+      final String sAlpha2 = eItem.getAttributeValue ("alpha2");
+      final String sEN = eItem.getAttributeValue ("en");
+      final String sFR = eItem.getAttributeValue ("fr");
       final ISO639_2Item aItem = new ISO639_2Item (sAlpha3B, sAlpha3T, sAlpha2, sEN, sFR);
       registerItem (aItem);
     }

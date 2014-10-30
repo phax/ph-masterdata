@@ -115,17 +115,17 @@ public class VATManager implements IVATItemResolver
     for (final IMicroElement eVATTypes : aDoc.getDocumentElement ().getAllChildElements ("vattypes"))
     {
       // Country
-      final String sCountry = eVATTypes.getAttribute ("country");
+      final String sCountry = eVATTypes.getAttributeValue ("country");
       final Locale aCountry = CountryCache.getInstance ().getCountry (sCountry);
       if (m_aVATItemsPerCountry.containsKey (aCountry))
       {
         s_aLogger.warn ("VAT types for country " + aCountry + " have already been defined!");
         continue;
       }
-      final String sCountryName = eVATTypes.getAttribute ("countryname");
+      final String sCountryName = eVATTypes.getAttributeValue ("countryname");
 
       // zero VAT allowed?
-      final String sZeroVATAllowed = eVATTypes.getAttribute ("zerovat");
+      final String sZeroVATAllowed = eVATTypes.getAttributeValue ("zerovat");
       final boolean bZeroVATAllowed = StringParser.parseBool (sZeroVATAllowed);
 
       // Internal comment?
@@ -139,7 +139,7 @@ public class VATManager implements IVATItemResolver
       for (final IMicroElement eVATItem : eVATTypes.getAllChildElements ("item"))
       {
         // item ID
-        final String sID = eVATItem.getAttribute ("id");
+        final String sID = eVATItem.getAttributeValue ("id");
         if (StringHelper.hasNoText (sID))
         {
           s_aLogger.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
@@ -148,7 +148,7 @@ public class VATManager implements IVATItemResolver
         final String sRealID = _getCountryString (aCountry) + "." + sID;
 
         // item type
-        final String sType = eVATItem.getAttribute ("type");
+        final String sType = eVATItem.getAttributeValue ("type");
         final EVATType eType = EVATType.getFromIDOrNull (sType);
         if (eType == null)
         {
@@ -157,7 +157,7 @@ public class VATManager implements IVATItemResolver
         }
 
         // item percentage
-        final String sPercentage = eVATItem.getAttribute ("percentage");
+        final String sPercentage = eVATItem.getAttributeValue ("percentage");
         final BigDecimal aPercentage = StringParser.parseBigDecimal (sPercentage, null);
         if (aPercentage == null)
         {
@@ -170,15 +170,15 @@ public class VATManager implements IVATItemResolver
         }
 
         // Deprecated?
-        final String sDeprecated = eVATItem.getAttribute ("deprecated");
+        final String sDeprecated = eVATItem.getAttributeValue ("deprecated");
         final boolean bDeprecated = sDeprecated != null && StringParser.parseBool (sDeprecated);
 
         // Valid from (optional)
-        final String sValidFrom = eVATItem.getAttribute ("validfrom");
+        final String sValidFrom = eVATItem.getAttributeValue ("validfrom");
         final LocalDate aValidFrom = PDTFromString.getLocalDateFromString (sValidFrom, DATE_FORMAT);
 
         // Valid to (optional)
-        final String sValidTo = eVATItem.getAttribute ("validto");
+        final String sValidTo = eVATItem.getAttributeValue ("validto");
         final LocalDate aValidTo = PDTFromString.getLocalDateFromString (sValidTo, DATE_FORMAT);
 
         // build and add item

@@ -32,7 +32,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * This class handles the different VATIN structures for different countries.
- * 
+ *
  * @author Philip Helger
  */
 public final class VATINStructureManager
@@ -48,8 +48,8 @@ public final class VATINStructureManager
     for (final IMicroElement eVatin : eRoot.getAllChildElements ("vatin"))
     {
       // Read country and pattern
-      final String sCountry = eVatin.getAttribute ("country");
-      final String sPattern = eVatin.getAttribute ("pattern");
+      final String sCountry = eVatin.getAttributeValue ("country");
+      final String sPattern = eVatin.getAttributeValue ("pattern");
 
       // Read all examples
       final List <String> aExamples = new ArrayList <String> ();
@@ -66,7 +66,7 @@ public final class VATINStructureManager
 
   /**
    * Determine the structure for a given VATIN.
-   * 
+   *
    * @param sVATIN
    *        The VATIN to check
    * @return <code>null</code> if no VATIN structure was found for the passed
@@ -85,7 +85,7 @@ public final class VATINStructureManager
   /**
    * Resolve the VATIN structure only from the country part of the given VATIN.
    * This should help indicate how the VATIN is valid.
-   * 
+   *
    * @param sVATIN
    *        The VATIN with at least 2 characters for the country code.
    * @return <code>null</code> if the passed string is shorter than 2 characters
@@ -106,7 +106,7 @@ public final class VATINStructureManager
 
   /**
    * Check if the passed VATIN is valid.
-   * 
+   *
    * @param sVATIN
    *        The VATIN to check
    * @return <code>true</code> if the passed VATIN is valid, <code>false</code>
