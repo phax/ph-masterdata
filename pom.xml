@@ -127,6 +127,9 @@
             <Export-Package>
               com.helger.masterdata.*
             </Export-Package>
+            <Import-Package>
+              !javax.annotation.*,*
+            </Import-Package>
           </instructions>
         </configuration>
       </plugin>
