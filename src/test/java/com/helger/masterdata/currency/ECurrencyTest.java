@@ -98,6 +98,7 @@ public final class ECurrencyTest extends AbstractPHTestCase
   @Test
   public void testFormatting ()
   {
+    final BigDecimal aBD = new BigDecimal ("1234.56");
     for (final ECurrency eCurrency : ECurrency.values ())
     {
       final int nDefaultFractionDigits = eCurrency.getScale ();
@@ -111,6 +112,13 @@ public final class ECurrencyTest extends AbstractPHTestCase
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat (null, BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("", BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("    ", BigDecimal.TEN));
+      if (false)
+      {
+        final BigDecimal aParsed = eCurrency.parseCurrencyFormat (eCurrency.getCurrencyFormatted (aBD), BigDecimal.TEN);
+        // Set the correct scale!
+        assertTrue (aBD + " -- " + eCurrency.getCurrencyFormatted (aBD) + " -- " + aParsed,
+                    EqualsUtils.equals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed));
+      }
 
       // value format
       assertNotNull (eCurrency.getValueFormat ());
@@ -119,6 +127,13 @@ public final class ECurrencyTest extends AbstractPHTestCase
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat (null, BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat ("", BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat ("    ", BigDecimal.TEN));
+      if (false)
+      {
+        final BigDecimal aParsed2 = eCurrency.parseValueFormat (eCurrency.getValueFormatted (aBD), BigDecimal.TEN);
+        // Set the correct scale!
+        assertTrue (aBD + " -- " + aParsed2,
+                    EqualsUtils.equals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed2));
+      }
 
       // No decimal separator
       final BigDecimal FIVE = new BigDecimal ("5").setScale (nDefaultFractionDigits);

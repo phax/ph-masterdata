@@ -49,7 +49,7 @@ import com.helger.commons.string.StringHelper;
 /**
  * A list of pre-selected currencies as specified in ISO 4217.<br>
  * http://en.wikipedia.org/wiki/ISO_4217
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -388,7 +388,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
 
   /**
    * Check if the passed locale filter matches any locale of this currency.
-   * 
+   *
    * @param aLocaleFilter
    *        The locale filter to be used. May not be <code>null</code>.
    * @return <code>true</code> if the filter matched at least one locale,
@@ -405,7 +405,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
 
   /**
    * Check if the passed locale filter matches all locales of this currency.
-   * 
+   *
    * @param aLocaleFilter
    *        The locale filter to be used. May not be <code>null</code>.
    * @return <code>true</code> if the filter matched all locales,
@@ -507,7 +507,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   /**
    * Set the minimum fraction digits to be used for formatting. Applies to the
    * currency-formatting and the value-formatting.
-   * 
+   *
    * @param nDecimals
    *        The new minimum fraction digits. May not be negative.
    */
@@ -520,7 +520,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
 
   /**
    * Adopt the passed text value according to the requested decimal separator.
-   * 
+   *
    * @param sTextValue
    *        The text to be manipulated. May be <code>null</code>.
    * @param eDecimalSep
@@ -533,8 +533,12 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   private static String _getTextValueForDecimalSeparator (@Nullable final String sTextValue,
                                                           @Nonnull final EDecimalSeparator eDecimalSep)
   {
+    ValueEnforcer.notNull (eDecimalSep, "DecimalSeparator");
+
     final String ret = StringHelper.trim (sTextValue);
-    if (ret != null)
+
+    // Replace only, if the desired decimal separator is not present
+    if (ret != null && ret.indexOf (eDecimalSep.getChar ()) < 0)
       switch (eDecimalSep)
       {
         case COMMA:
@@ -566,7 +570,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   /**
    * Try to parse a string value formatted by the {@link NumberFormat} object
    * returned from {@link #getCurrencyFormat()}. E.g. <code>5,00 &euro;</code>
-   * 
+   *
    * @param sTextValue
    *        The string value.
    * @param aDefault
@@ -589,7 +593,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   /**
    * Try to parse a string value formatted by the {@link DecimalFormat} object
    * returned from {@link #getValueFormat()}
-   * 
+   *
    * @param sTextValue
    *        The string value.
    * @param aDefault
@@ -626,7 +630,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * "0.33333333..." which results in an {@link ArithmeticException} thrown by
    * the divide method!<br>
    * The default scaling of this currency is used.
-   * 
+   *
    * @param aDividend
    *        Dividend
    * @param aDivisor
@@ -648,7 +652,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * This method takes a custom scaling. If the default scaling of this currency
    * should be used, than {@link #getDivided(BigDecimal, BigDecimal)} should be
    * used instead.
-   * 
+   *
    * @param aDividend
    *        Dividend
    * @param aDivisor
@@ -672,7 +676,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * Get the passed value rounded to the appropriate number of fraction digits,
    * based on this currencies default fraction digits.<br>
    * The default scaling of this currency is used.
-   * 
+   *
    * @param aValue
    *        The value to be rounded. May not be <code>null</code>.
    * @return The rounded value. Never <code>null</code>.
@@ -690,7 +694,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * This method takes a custom scaling. If the default scaling of this currency
    * should be used, than {@link #getRounded(BigDecimal)} should be used
    * instead.
-   * 
+   *
    * @param aValue
    *        The value to be rounded. May not be <code>null</code>.
    * @param nFractionDigits
@@ -717,7 +721,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
 
   /**
    * Change the rounding mode of this currency.
-   * 
+   *
    * @param eRoundingMode
    *        The rounding mode to be used. May not be <code>null</code>.
    */
