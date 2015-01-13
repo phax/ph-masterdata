@@ -112,12 +112,16 @@ public final class ECurrencyTest extends AbstractPHTestCase
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat (null, BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("", BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("    ", BigDecimal.TEN));
-      if (false)
       {
         final BigDecimal aParsed = eCurrency.parseCurrencyFormat (eCurrency.getCurrencyFormatted (aBD), BigDecimal.TEN);
         // Set the correct scale!
-        assertTrue (aBD + " -- " + eCurrency.getCurrencyFormatted (aBD) + " -- " + aParsed,
-                    EqualsUtils.equals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed));
+        assertEquals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed);
+      }
+      {
+        final BigDecimal aParsed = eCurrency.parseCurrencyFormatUnchanged (eCurrency.getCurrencyFormatted (aBD),
+                                                                           BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed);
       }
 
       // value format
@@ -127,12 +131,16 @@ public final class ECurrencyTest extends AbstractPHTestCase
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat (null, BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat ("", BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseValueFormat ("    ", BigDecimal.TEN));
-      if (false)
+      {
+        final BigDecimal aParsed2 = eCurrency.parseValueFormatUnchanged (eCurrency.getValueFormatted (aBD),
+                                                                         BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed2);
+      }
       {
         final BigDecimal aParsed2 = eCurrency.parseValueFormat (eCurrency.getValueFormatted (aBD), BigDecimal.TEN);
         // Set the correct scale!
-        assertTrue (aBD + " -- " + aParsed2,
-                    EqualsUtils.equals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed2));
+        assertEquals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed2);
       }
 
       // No decimal separator
@@ -144,29 +152,34 @@ public final class ECurrencyTest extends AbstractPHTestCase
       if (false)
       {
         final BigDecimal MFIVE = new BigDecimal ("-5").setScale (nDefaultFractionDigits);
-        assertEquals (FIVE, eCurrency.parseValueFormat ("+5", BigDecimal.TEN));
-        assertEquals (MFIVE, eCurrency.parseValueFormat ("-5", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormatUnchanged ("+5", BigDecimal.TEN));
+        assertEquals (MFIVE, eCurrency.parseValueFormatUnchanged ("-5", BigDecimal.TEN));
       }
 
-      // comma as decimal separator
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5,0", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat (" 5,0", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5,0 ", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat (" 5,0 ", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5,0000", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5," +
-                                                      StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
-                                                      "9", BigDecimal.TEN));
+      if (false)
+      {
+        // comma as decimal separator
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5,0", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat (" 5,0", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5,0 ", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat (" 5,0 ", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5,0000", BigDecimal.TEN));
+        assertEquals (FIVE,
+                      eCurrency.parseValueFormat ("5," +
+                                                  StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                  "9", BigDecimal.TEN));
 
-      // dot as decimal separator
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5.0", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat (" 5.0", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5.0 ", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat (" 5.0 ", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5.0000", BigDecimal.TEN));
-      assertEquals (FIVE, eCurrency.parseValueFormat ("5." +
-                                                      StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
-                                                      "9", BigDecimal.TEN));
+        // dot as decimal separator
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5.0", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat (" 5.0", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5.0 ", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat (" 5.0 ", BigDecimal.TEN));
+        assertEquals (FIVE, eCurrency.parseValueFormat ("5.0000", BigDecimal.TEN));
+        assertEquals (FIVE,
+                      eCurrency.parseValueFormat ("5." +
+                                                  StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                  "9", BigDecimal.TEN));
+      }
 
       // symbol
       assertTrue (eCurrency.getValueFormat ().format (5).contains ("5"));

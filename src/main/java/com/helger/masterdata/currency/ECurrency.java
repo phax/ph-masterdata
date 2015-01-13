@@ -103,7 +103,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   EGP ("EGP", ECurrencyName.EGP, "_EG", "ar_EG"),
   ERN ("ERN", ECurrencyName.ERN, "_ER"),
   ETB ("ETB", ECurrencyName.ETB, "_ET"),
-  EUR ("EUR", ECurrencyName.EUR, "_AD", "_AT", "_AX", "_BE", "_BL", "_CY", "_DE", "_EE", "_ES", "_FI", "_FR", "_GF", "_GP", "_GR", "_IE", "_IT", "_LU", "_MC", "_ME", "_MF", "_MQ", "_MT", "_NL", "_PM", "_PT", "_RE", "_SI", "_SK", "_SM", "_TF", "_VA", "_YT", "ca_ES", "de_AT", "de_DE", "de_LU", "el_CY", "el_GR", "en_IE", "en_MT", "es_ES", "et_EE", "fi_FI", "fr_BE", "fr_FR", "fr_LU", "ga_IE", "it_IT", "mt_MT", "nl_BE", "nl_NL", "pt_PT", "sk_SK", "sl_SI", "sr_ME"),
+  EUR ("EUR", ECurrencyName.EUR, "_AD", "_AT", "_AX", "_BE", "_BL", "_CY", "_DE", "_EE", "_ES", "_FI", "_FR", "_GF", "_GP", "_GR", "_IE", "_IT", "_LT", "_LU", "_LV", "_MC", "_ME", "_MF", "_MQ", "_MT", "_NL", "_PM", "_PT", "_RE", "_SI", "_SK", "_SM", "_TF", "_VA", "_YT", "ca_ES", "de_AT", "de_DE", "de_LU", "el_CY", "el_GR", "en_IE", "en_MT", "es_ES", "et_EE", "fi_FI", "fr_BE", "fr_FR", "fr_LU", "ga_IE", "it_IT", "lt_LT", "lv_LV", "mt_MT", "nl_BE", "nl_NL", "pt_PT", "sk_SK", "sl_SI", "sr_ME"),
   FJD ("FJD", ECurrencyName.FJD, "_FJ"),
   FKP ("FKP", ECurrencyName.FKP, "_FK"),
   GBP ("GBP", ECurrencyName.GBP, "_GB", "_GG", "_GS", "_IM", "_JE", "en_GB"),
@@ -142,8 +142,12 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   LKR ("LKR", ECurrencyName.LKR, "_LK"),
   LRD ("LRD", ECurrencyName.LRD, "_LR"),
   LSL ("LSL", ECurrencyName.LSL, "_LS"),
-  LTL ("LTL", ECurrencyName.LTL, "_LT", "lt_LT"),
-  LVL ("LVL", ECurrencyName.LVL, "_LV", "lv_LV"),
+  // Used until 31.12.2014
+  @Deprecated
+  LTL ("LTL", true, ECurrencyName.LTL, "_LT", "lt_LT"),
+  // Used until 31.12.2013
+  @Deprecated
+  LVL ("LVL", true, ECurrencyName.LVL, "_LV", "lv_LV"),
   LYD ("LYD", ECurrencyName.LYD, "_LY", "ar_LY"),
   MAD ("MAD", ECurrencyName.MAD, "_EH", "_MA", "ar_MA"),
   MDL ("MDL", ECurrencyName.MDL, "_MD"),
@@ -518,6 +522,18 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     m_aValueFormat.setMinimumFractionDigits (nDecimals);
   }
 
+  @Nullable
+  public EDecimalSeparator getDecimalSeparator ()
+  {
+    return EDecimalSeparator.getFromCharOrNull (m_aCurrencyFormat.getDecimalFormatSymbols ().getDecimalSeparator ());
+  }
+
+  @Nullable
+  public EGroupingSeparator getGroupingSeparator ()
+  {
+    return EGroupingSeparator.getFromCharOrNull (m_aCurrencyFormat.getDecimalFormatSymbols ().getGroupingSeparator ());
+  }
+
   /**
    * Adopt the passed text value according to the requested decimal separator.
    *
@@ -526,14 +542,19 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * @param eDecimalSep
    *        The decimal separator that is required. May not be <code>null</code>
    *        .
+   * @param eGroupingSep
+   *        The grouping separator that is required. May not be
+   *        <code>null</code> .
    * @return The manipulated text so that it matches the required decimal
    *         separator or the original text
    */
   @Nullable
   private static String _getTextValueForDecimalSeparator (@Nullable final String sTextValue,
-                                                          @Nonnull final EDecimalSeparator eDecimalSep)
+                                                          @Nonnull final EDecimalSeparator eDecimalSep,
+                                                          @Nonnull final EGroupingSeparator eGroupingSep)
   {
     ValueEnforcer.notNull (eDecimalSep, "DecimalSeparator");
+    ValueEnforcer.notNull (eGroupingSep, "GroupingSeparator");
 
     final String ret = StringHelper.trim (sTextValue);
 
@@ -544,7 +565,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
         case COMMA:
         {
           // Decimal separator is a ","
-          if (ret.indexOf ('.') > -1)
+          if (ret.indexOf ('.') > -1 && eGroupingSep.getChar () != '.')
           {
             // Currency expects "," but user passed "."
             return ret.replace ('.', eDecimalSep.getChar ());
@@ -554,7 +575,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
         case POINT:
         {
           // Decimal separator is a "."
-          if (ret.indexOf (',') > -1)
+          if (ret.indexOf (',') > -1 && eGroupingSep.getChar () != ',')
           {
             // Pattern contains no "," but value contains ","
             return ret.replace (',', eDecimalSep.getChar ());
@@ -569,14 +590,16 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
 
   /**
    * Try to parse a string value formatted by the {@link NumberFormat} object
-   * returned from {@link #getCurrencyFormat()}. E.g. <code>5,00 &euro;</code>
+   * returned from {@link #getCurrencyFormat()}. E.g. <code>&euro; 5,00</code>
    *
    * @param sTextValue
-   *        The string value.
+   *        The string value. It will be trimmed, and the decimal separator will
+   *        be adopted.
    * @param aDefault
    *        The default value to be used in case parsing fails. May be
    *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value.
+   * @return The {@link BigDecimal} value matching the string value or the
+   *         passed default value.
    */
   @Nullable
   public BigDecimal parseCurrencyFormat (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
@@ -584,10 +607,29 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
 
     // Adopt the decimal separator
-    final EDecimalSeparator eDecSep = EDecimalSeparator.getFromCharOrNull (aCurrencyFormat.getDecimalFormatSymbols ()
-                                                                                          .getDecimalSeparator ());
-    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue, eDecSep);
-    return CurrencyUtils.parseCurrency (sRealTextValue, aCurrencyFormat, aDefault);
+    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
+                                                                    getDecimalSeparator (),
+                                                                    getGroupingSeparator ());
+    return CurrencyUtils.parseCurrency (sRealTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
+  }
+
+  /**
+   * Try to parse a string value formatted by the {@link NumberFormat} object
+   * returned from {@link #getCurrencyFormat()}. E.g. <code>&euro; 5,00</code>
+   *
+   * @param sTextValue
+   *        The string value. It will be parsed unmodified!
+   * @param aDefault
+   *        The default value to be used in case parsing fails. May be
+   *        <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the
+   *         passed default value.
+   */
+  @Nullable
+  public BigDecimal parseCurrencyFormatUnchanged (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
+  {
+    final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
+    return CurrencyUtils.parseCurrency (sTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
   }
 
   /**
@@ -595,11 +637,13 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * returned from {@link #getValueFormat()}
    *
    * @param sTextValue
-   *        The string value.
+   *        The string value. It will be trimmed, and the decimal separator will
+   *        be adopted.
    * @param aDefault
    *        The default value to be used in case parsing fails. May be
    *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value.
+   * @return The {@link BigDecimal} value matching the string value or the
+   *         passed default value.
    */
   @Nullable
   public BigDecimal parseValueFormat (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
@@ -607,10 +651,30 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     final DecimalFormat aValueFormat = getValueFormat ();
 
     // Adopt the decimal separator
-    final EDecimalSeparator eDecSep = EDecimalSeparator.getFromCharOrNull (aValueFormat.getDecimalFormatSymbols ()
-                                                                                       .getDecimalSeparator ());
-    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue, eDecSep);
-    return CurrencyUtils.parseCurrency (sRealTextValue, aValueFormat, aDefault);
+    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
+                                                                    getDecimalSeparator (),
+                                                                    getGroupingSeparator ());
+    return CurrencyUtils.parseCurrency (sRealTextValue, aValueFormat, aDefault, getRoundingMode ());
+  }
+
+  /**
+   * Try to parse a string value formatted by the {@link DecimalFormat} object
+   * returned from {@link #getValueFormat()}
+   *
+   * @param sTextValue
+   *        The string value. It will be parsed unmodified!
+   * @param aDefault
+   *        The default value to be used in case parsing fails. May be
+   *        <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the
+   *         passed default value.
+   */
+  @Nullable
+  public BigDecimal parseValueFormatUnchanged (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
+  {
+    final DecimalFormat aValueFormat = getValueFormat ();
+
+    return CurrencyUtils.parseCurrency (sTextValue, aValueFormat, aDefault, getRoundingMode ());
   }
 
   /**
