@@ -27,7 +27,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * This class manages the SWIFT Bank Identification Code (BIC).
- * 
+ *
  * @author Philip Helger
  */
 public final class BICManager
@@ -49,7 +49,6 @@ public final class BICManager
   private static final Pattern s_aBICPattern = RegExPool.getPattern (BIC_PATTERN);
 
   @PresentForCodeCoverage
-  @SuppressWarnings ("unused")
   private static final BICManager s_aInstance = new BICManager ();
 
   private BICManager ()
@@ -57,7 +56,7 @@ public final class BICManager
 
   /**
    * Check if the passed BIC is valid.<br>
-   * 
+   *
    * <pre>
    * BBBB  4-stelliger Bankcode, vom Geldinstitut frei wählbar (nur Alphazeichen)
    *  CC    2-stelliger Ländercode nach ISO 3166-1 (nur Alphazeichen)
@@ -68,7 +67,7 @@ public final class BICManager
    *        Standard: <code>XXX</code> (ohne Leerzeichen!), kann weggelassen werden,
    *        andere Kennzeichen nicht) (alphanumerische Zeichen)
    * </pre>
-   * 
+   *
    * @param sBIC
    *        The BIC to check. May be <code>null</code>.
    * @return <code>true</code> if the passed BIC is valid, <code>false</code>
@@ -88,7 +87,7 @@ public final class BICManager
 
   /**
    * Determine whether the passed BIC is a test-only BIC.
-   * 
+   *
    * @param sBIC
    *        The BIC to be tested.
    * @return <code>true</code> if the passed BIC is a test BIC,

@@ -45,7 +45,6 @@ import com.helger.masterdata.vat.VATManager;
  */
 public final class PriceTest
 {
-  @SuppressWarnings ("deprecation")
   @Test
   public void testAll ()
   {

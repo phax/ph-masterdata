@@ -26,14 +26,13 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Utility class that makes verification of GTIN numbers a bit simpler :)
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
 public final class GTINValidator
 {
   @PresentForCodeCoverage
-  @SuppressWarnings ("unused")
   private static final GTINValidator s_aInstance = new GTINValidator ();
 
   private GTINValidator ()
