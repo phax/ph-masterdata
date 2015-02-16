@@ -87,7 +87,7 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-web</artifactId>
-      <version>6.1.0</version>
+      <version>6.1.1</version>
       <optional>true</optional>
     </dependency>
     <dependency>
