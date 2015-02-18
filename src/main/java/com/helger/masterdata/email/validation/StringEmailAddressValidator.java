@@ -19,13 +19,13 @@ package com.helger.masterdata.email.validation;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.smtp.EmailAddressValidator;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
 import com.helger.validation.result.ValidationResultError;
 import com.helger.validation.result.ValidationResultSuccess;
 import com.helger.validation.validator.string.AbstractStringValidator;
 import com.helger.validation.validator.string.StringEmailAddressNoMXCheckValidator;
-import com.helger.web.smtp.EmailAddressValidator;
 
 /**
  * Validator for email addresses. Uses the {@link EmailAddressValidator} class.<br>
