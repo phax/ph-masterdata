@@ -25,7 +25,7 @@ import com.helger.commons.microdom.IMicroElement;
 public final class ReadonlyCurrencyMicroTypeConverter extends AbstractCurrencyMicroTypeConverter
 {
   @Nonnull
-  public final ReadonlyCurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
+  public ReadonlyCurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
   {
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
     final BigDecimal aValue = ePrice.getAttributeWithConversion (ATTR_VALUE, BigDecimal.class);

@@ -28,7 +28,7 @@ import com.helger.masterdata.vat.VATManager;
 public final class ReadonlyPriceMicroTypeConverter extends AbstractPriceMicroTypeConverter
 {
   @Nonnull
-  public final ReadonlyPrice convertToNative (@Nonnull final IMicroElement ePrice)
+  public ReadonlyPrice convertToNative (@Nonnull final IMicroElement ePrice)
   {
     final String sCurrency = ePrice.getAttributeValue (ATTR_CURRENCY);
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrency);
