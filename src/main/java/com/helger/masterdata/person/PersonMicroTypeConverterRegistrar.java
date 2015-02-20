@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.address;
+package com.helger.masterdata.person;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
@@ -25,11 +25,10 @@ import com.helger.commons.microdom.convert.IMicroTypeConverterRegistry;
 
 @Immutable
 @IsSPIImplementation
-public final class AddressTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
+public final class PersonMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (Address.class, new AddressMicroTypeConverter ());
-    aRegistry.registerMicroElementTypeConverter (ReadonlyAddress.class, new ReadonlyAddressMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (PersonName.class, new PersonNameMicroTypeConverter ());
   }
 }

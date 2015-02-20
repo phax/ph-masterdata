@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.price;
+package com.helger.masterdata.address;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
@@ -25,11 +25,11 @@ import com.helger.commons.microdom.convert.IMicroTypeConverterRegistry;
 
 @Immutable
 @IsSPIImplementation
-public final class PriceTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
+public final class AddressMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (ReadonlyPrice.class, new ReadonlyPriceMicroTypeConverter ());
-    aRegistry.registerMicroElementTypeConverter (Price.class, new PriceMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (Address.class, new AddressMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (ReadonlyAddress.class, new ReadonlyAddressMicroTypeConverter ());
   }
 }

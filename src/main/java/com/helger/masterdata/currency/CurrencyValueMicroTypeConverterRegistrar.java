@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.person;
+package com.helger.masterdata.currency;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
@@ -25,10 +25,11 @@ import com.helger.commons.microdom.convert.IMicroTypeConverterRegistry;
 
 @Immutable
 @IsSPIImplementation
-public final class PersonTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
+public final class CurrencyValueMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (PersonName.class, new PersonNameMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (ReadonlyCurrencyValue.class, new ReadonlyCurrencyMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (CurrencyValue.class, new CurrencyMicroTypeConverter ());
   }
 }

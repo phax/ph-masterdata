@@ -30,7 +30,7 @@ import com.helger.commons.microdom.convert.MicroTypeConverter;
 import com.helger.commons.microdom.serialize.MicroWriter;
 
 /**
- * Test class for class {@link AddressTypeConverterRegistrar}.
+ * Test class for class {@link AddressMicroTypeConverterRegistrar}.
  * 
  * @author Philip Helger
  */

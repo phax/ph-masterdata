@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency.exchangeratio;
+package com.helger.masterdata.telephone;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
@@ -25,11 +25,13 @@ import com.helger.commons.microdom.convert.IMicroTypeConverterRegistry;
 
 @Immutable
 @IsSPIImplementation
-public final class ExchangeRatioTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
+public final class TelephoneMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (ExchangeRatio.class, new ExchangeRatioMicroTypeConverter ());
-    aRegistry.registerMicroElementTypeConverter (ExchangeRatioList.class, new ExchangeRatioListMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (TelephoneNumber.class,
+                                                 new TelephoneNumberMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (ReadonlyTelephoneNumber.class,
+                                                 new ReadonlyTelephoneNumberMicroTypeConverter ());
   }
 }
