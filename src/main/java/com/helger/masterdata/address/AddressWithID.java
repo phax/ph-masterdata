@@ -33,10 +33,9 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.id.IHasSimpleIntID;
 import com.helger.commons.string.ToStringGenerator;
 
-// ESCA-JAVA0116:
 /**
  * Writable implementation of the {@link IAddress} interface.
- * 
+ *
  * @author Philip Helger
  */
 @MappedSuperclass

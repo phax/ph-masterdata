@@ -33,10 +33,9 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.MasterdataUtils;
 
-// ESCA-JAVA0116:
 /**
  * Default writable version of {@link ITelephoneNumber}.
- * 
+ *
  * @author Philip Helger
  */
 @MappedSuperclass

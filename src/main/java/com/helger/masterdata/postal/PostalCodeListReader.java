@@ -34,7 +34,6 @@ import com.helger.commons.string.StringHelper;
 import com.helger.datetime.PDTFactory;
 import com.helger.masterdata.MasterdataLogger;
 
-// ESCA-JAVA0116:
 /**
  * Read postal code definitions from an XML resource.
  *

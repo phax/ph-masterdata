@@ -46,7 +46,6 @@ import com.helger.masterdata.address.IReadonlyAddress;
 import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
 
-// ESCA-JAVA0116:
 @Entity
 @Converter (name = "joda-localdate", converterClass = JPAJodaLocalDateConverter.class)
 @MappedSuperclass

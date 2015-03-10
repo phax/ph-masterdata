@@ -36,10 +36,9 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
 
-// ESCA-JAVA0116:
 /**
  * The default implementation of the {@link ICompany} interface.
- * 
+ *
  * @author Philip Helger
  */
 public final class Company implements ICompany

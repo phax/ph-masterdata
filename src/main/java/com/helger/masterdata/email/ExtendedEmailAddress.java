@@ -37,10 +37,9 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.MasterdataUtils;
 
-// ESCA-JAVA0116:
 /**
  * Default writable implementation of {@link IExtendedEmailAddress}.
- * 
+ *
  * @author Philip Helger
  */
 @MappedSuperclass
@@ -123,7 +122,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   /**
    * Set the address part of the email address. Performs a validity check of the
    * email address.
-   * 
+   *
    * @return {@link EChange#CHANGED} if the address was valid and different from
    *         the existing one. Returns {@link EChange#UNCHANGED} if the email
    *         address was the same as before, or the email address itself was

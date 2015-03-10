@@ -37,10 +37,9 @@ import com.helger.masterdata.telephone.ETelephoneType;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
-// ESCA-JAVA0116:
 /**
  * The default implementation of the {@link ICompanySite} interface.
- * 
+ *
  * @author Philip Helger
  */
 public final class CompanySite implements ICompanySite

@@ -48,7 +48,6 @@ import com.helger.masterdata.currency.ReadonlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.JPAVATItemIDConverter;
 
-// ESCA-JAVA0116:
 /**
  * Default implementation of the {@link IPrice} interface.
  *

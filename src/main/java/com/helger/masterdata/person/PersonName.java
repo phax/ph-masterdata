@@ -36,7 +36,6 @@ import com.helger.commons.system.SystemHelper;
 import com.helger.db.jpa.annotations.UsedOnlyByJPA;
 import com.helger.masterdata.MasterdataUtils;
 
-// ESCA-JAVA0116:
 @Entity
 @Embeddable
 @Access (value = AccessType.PROPERTY)

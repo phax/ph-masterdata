@@ -35,11 +35,10 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.db.jpa.annotations.UsedOnlyByJPA;
 
-// ESCA-JAVA0116:
 /**
  * This class represents a single currency value as the combination of a value
  * and a currency.
- * 
+ *
  * @author Philip Helger
  */
 @Embeddable
