@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.state.EChange;
@@ -114,7 +114,7 @@ public final class Company implements ICompany
   @ReturnsMutableCopy
   public Collection <ICompanySite> getAllSites ()
   {
-    return ContainerHelper.newList (m_aAllSites.values ());
+    return CollectionHelper.newList (m_aAllSites.values ());
   }
 
   @Nonnull
@@ -173,7 +173,7 @@ public final class Company implements ICompany
     if (m_aHeadQuarterSite != null)
       return m_aHeadQuarterSite;
     if (m_aAllSites.size () == 1)
-      return ContainerHelper.getFirstElement (m_aAllSites.values ());
+      return CollectionHelper.getFirstElement (m_aAllSites.values ());
     return null;
   }
 

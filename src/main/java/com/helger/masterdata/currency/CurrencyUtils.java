@@ -32,13 +32,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleFormatter;
 
 /**
  * Some currency helper methods.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -104,7 +104,7 @@ public final class CurrencyUtils
 
   /**
    * Check if a currency could be available for the given locale.
-   * 
+   *
    * @param aLocale
    *        The locale to check.
    * @return <code>true</code> if a currency is available for the given locale,
@@ -132,7 +132,7 @@ public final class CurrencyUtils
   @ReturnsMutableCopy
   public static Map <Locale, Currency> getLocaleToCurrencyMap ()
   {
-    return ContainerHelper.newMap (s_aLocaleToCurrency);
+    return CollectionHelper.newMap (s_aLocaleToCurrency);
   }
 
   /**
@@ -140,7 +140,7 @@ public final class CurrencyUtils
    * mode.<br>
    * Source:
    * <code>http://wheelworkshop.blogspot.com/2006/02/parsing-currency-into-bigdecimal.html</code>
-   * 
+   *
    * @param sStr
    *        The string to be parsed.
    * @param aFormat
@@ -160,7 +160,7 @@ public final class CurrencyUtils
 
   /**
    * Parse a currency value from string using a custom rounding mode.
-   * 
+   *
    * @param sStr
    *        The string to be parsed.
    * @param aFormat

@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.ReturnsImmutableObject;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -124,6 +124,6 @@ public final class VATINStructureManager
   @ReturnsImmutableObject
   public static List <VATINStructure> getAllStructures ()
   {
-    return ContainerHelper.makeUnmodifiable (s_aList);
+    return CollectionHelper.makeUnmodifiable (s_aList);
   }
 }

@@ -38,7 +38,7 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.CodingStyleguideUnaware;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
@@ -300,7 +300,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
-      aRelevantLocale = ContainerHelper.getFirstElement (m_aLocales);
+      aRelevantLocale = CollectionHelper.getFirstElement (m_aLocales);
     }
 
     m_sID = sCurrencyCode;
@@ -387,7 +387,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   @ReturnsMutableCopy
   public List <Locale> getAllMatchingLocales ()
   {
-    return ContainerHelper.newList (m_aLocales);
+    return CollectionHelper.newList (m_aLocales);
   }
 
   /**

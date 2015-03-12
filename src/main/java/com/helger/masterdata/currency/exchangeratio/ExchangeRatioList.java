@@ -30,7 +30,7 @@ import com.helger.commons.ICloneable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.compare.ESortOrder;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -40,7 +40,7 @@ import com.helger.masterdata.currency.ECurrency;
 /**
  * This class maintains an ordered list of {@link ExchangeRatio}, sorted
  * ascending by date.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -112,7 +112,7 @@ public final class ExchangeRatioList implements ICloneable <ExchangeRatioList>
   @ReturnsMutableCopy
   public List <ExchangeRatio> getAllExchangeRatios ()
   {
-    return ContainerHelper.newList (m_aList);
+    return CollectionHelper.newList (m_aList);
   }
 
   @Nonnull

@@ -34,7 +34,7 @@ import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.collections.multimap.IMultiMapSetBased;
 import com.helger.commons.collections.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsUtils;
@@ -395,12 +395,12 @@ public final class ECurrencyTest extends AbstractPHTestCase
         aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
       }
     }
-    for (final Map.Entry <Currency, Set <Locale>> a : ContainerHelper.getSortedByKey (aAllOfCurrency,
+    for (final Map.Entry <Currency, Set <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
                                                                                       new ComparatorCurrencyCode ())
                                                                      .entrySet ())
     {
       String sLocale = "";
-      for (final Locale aLoc : ContainerHelper.getSorted (a.getValue (), new ComparatorLocale ()))
+      for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), new ComparatorLocale ()))
       {
         if (sLocale.length () > 0)
           sLocale += ',';

@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.io.IInputStreamProvider;
 import com.helger.commons.io.resource.ClassPathResource;
@@ -199,7 +199,7 @@ public class VATManager implements IVATItemResolver
   @ReturnsMutableCopy
   public List <String> getSources ()
   {
-    return ContainerHelper.newList (m_aSources);
+    return CollectionHelper.newList (m_aSources);
   }
 
   /**
@@ -209,7 +209,7 @@ public class VATManager implements IVATItemResolver
   @ReturnsMutableCopy
   public Set <Locale> getAllAvailableCountries ()
   {
-    return ContainerHelper.newSet (m_aVATItemsPerCountry.keySet ());
+    return CollectionHelper.newSet (m_aVATItemsPerCountry.keySet ());
   }
 
   /**

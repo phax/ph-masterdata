@@ -27,13 +27,13 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.IHasCountry;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Represents all the different VAT items for a single country.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -100,7 +100,7 @@ public final class VATCountryData implements IHasCountry
   @ReturnsMutableCopy
   public Map <String, IVATItem> getAllItems ()
   {
-    return ContainerHelper.newMap (m_aItems);
+    return CollectionHelper.newMap (m_aItems);
   }
 
   @Override

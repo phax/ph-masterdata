@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.collections.multimap.IMultiMapSetBased;
 import com.helger.commons.collections.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.locale.country.CountryCache;
@@ -331,7 +331,7 @@ public final class ContinentUtils
     {
       final Set <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
-        return ContainerHelper.newSortedSet (ret);
+        return CollectionHelper.newSortedSet (ret);
     }
     return null;
   }
@@ -354,7 +354,7 @@ public final class ContinentUtils
     {
       final Set <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
-        return ContainerHelper.newSortedSet (ret);
+        return CollectionHelper.newSortedSet (ret);
     }
     return null;
   }

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.collections.multimap.IMultiMapSetBased;
 import com.helger.commons.collections.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.exceptions.InitializationException;
@@ -224,6 +224,6 @@ public final class VehicleSigns
   public static Locale getCountryFromVehicleSign (@Nullable final String sSign)
   {
     final Set <Locale> aCountries = s_aSignToCountry.get (sSign);
-    return ContainerHelper.isEmpty (aCountries) ? null : aCountries.iterator ().next ();
+    return CollectionHelper.isEmpty (aCountries) ? null : aCountries.iterator ().next ();
   }
 }

@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsImmutableObject;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.collections.multimap.IMultiMapListBased;
 import com.helger.commons.collections.multimap.MultiHashMapArrayListBased;
 import com.helger.commons.compare.AbstractComparator;
@@ -79,7 +79,7 @@ public class MainReadPostalCodeListExcel
         throw new IllegalArgumentException ("country");
       if (StringHelper.hasNoText (sISO))
         throw new IllegalArgumentException ("ISO");
-      if (ContainerHelper.isEmpty (aFormats))
+      if (CollectionHelper.isEmpty (aFormats))
         throw new IllegalArgumentException ("formats");
       m_sCountry = sCountry;
       m_aValidFrom = aValidFrom == null ? null : PDTFactory.createLocalDateFromMillis (aValidFrom.getTime ());
@@ -123,7 +123,7 @@ public class MainReadPostalCodeListExcel
     @ReturnsImmutableObject
     public List <String> getFormats ()
     {
-      return ContainerHelper.makeUnmodifiable (m_aFormats);
+      return CollectionHelper.makeUnmodifiable (m_aFormats);
     }
 
     @Nullable
@@ -207,7 +207,7 @@ public class MainReadPostalCodeListExcel
     // Sort all sub-lists by introduction date
     for (final List <Item> aSubList : aMap.values ())
     {
-      ContainerHelper.getSortedInline (aSubList, new ComparatorItemValidFrom ());
+      CollectionHelper.getSortedInline (aSubList, new ComparatorItemValidFrom ());
       for (int i = 1; i < aSubList.size (); ++i)
       {
         final Item aPrevItem = aSubList.get (i - 1);
@@ -218,7 +218,7 @@ public class MainReadPostalCodeListExcel
     }
 
     // Print sorted by ISO code
-    for (final Map.Entry <String, List <Item>> aEntry : ContainerHelper.getSortedByKey (aMap).entrySet ())
+    for (final Map.Entry <String, List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
     {
       IMicroElement eCountry = null;
       for (final Item aItem : aEntry.getValue ())

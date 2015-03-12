@@ -28,7 +28,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.io.file.FileUtils;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -42,7 +42,7 @@ import com.helger.poi.excel.ExcelReadUtils;
 /**
  * Utility to read the Excel file from CEFACT Recommendation No. 20 and convert
  * it to XML for internal use.
- * 
+ *
  * @author Philip Helger
  */
 public final class MainReadUnitTypeCodeListExcel
@@ -125,7 +125,7 @@ public final class MainReadUnitTypeCodeListExcel
 
     // sectors
     final IMicroElement eSectors = eRoot.appendElement ("sectors");
-    for (final Map.Entry <String, String> aEntry : ContainerHelper.getSortedByKey (aSectors).entrySet ())
+    for (final Map.Entry <String, String> aEntry : CollectionHelper.getSortedByKey (aSectors).entrySet ())
     {
       final IMicroElement eSector = eSectors.appendElement ("sector");
       eSector.setAttribute ("groupnum", aEntry.getKey ());
@@ -137,7 +137,7 @@ public final class MainReadUnitTypeCodeListExcel
 
     // quantities
     final IMicroElement eQuantities = eRoot.appendElement ("quantities");
-    for (final Map.Entry <String, Integer> aEntry : ContainerHelper.getSortedByValue (aQuantities).entrySet ())
+    for (final Map.Entry <String, Integer> aEntry : CollectionHelper.getSortedByValue (aQuantities).entrySet ())
     {
       final IMicroElement eSector = eQuantities.appendElement ("quantity");
       eSector.setAttribute ("id", aEntry.getValue ().intValue ());

@@ -31,7 +31,7 @@ import com.helger.commons.IHasCountry;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.regex.RegExPool;
@@ -64,7 +64,7 @@ public final class VATINStructure implements IHasCountry
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;
     m_aPattern = RegExPool.getPattern (sRegEx);
-    m_aExamples = ContainerHelper.newList (aExamples);
+    m_aExamples = CollectionHelper.newList (aExamples);
 
     if (GlobalDebug.isDebugMode ())
       for (final String s : m_aExamples)
@@ -107,7 +107,7 @@ public final class VATINStructure implements IHasCountry
   @ReturnsMutableCopy
   public List <String> getExamples ()
   {
-    return ContainerHelper.newList (m_aExamples);
+    return CollectionHelper.newList (m_aExamples);
   }
 
   @Override

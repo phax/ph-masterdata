@@ -26,7 +26,7 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
 import com.helger.commons.collections.ArrayHelper;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.string.StringHelper;
 
 @Immutable
@@ -83,7 +83,7 @@ public final class PersonNameUtils
   /**
    * Determine the order how the customer display name is assembled. This was
    * introduced for starkl.hu as they want the lastname before the firstname
-   * 
+   *
    * @return <code>true</code> if the customer display name is
    *         "firstname lastname". <code>false</code> if the customer display
    *         name is "lastname firstname"
@@ -99,7 +99,7 @@ public final class PersonNameUtils
    * <li>Remove leading and trailing whitespaces</li>
    * <li>If the name is all uppercase, downcase all except the first character</li>
    * </ul>
-   * 
+   *
    * @param sPart
    *        The string part to be unified
    * @param aSortLocale
@@ -193,7 +193,7 @@ public final class PersonNameUtils
    * Get the name of the person consisting of first name, middle name and last
    * name. Titles are not considered here. {@link #isFirstNameFirst()} is
    * considered!
-   * 
+   *
    * @param aName
    *        The name to be converted. May not be <code>null</code>.
    * @return The non-<code>null</code> display name
@@ -233,7 +233,7 @@ public final class PersonNameUtils
   /**
    * Get the display name of the person consisting of titles, first name, middle
    * name and last name. {@link #isFirstNameFirst()} is considered!
-   * 
+   *
    * @param aName
    *        The name to be converted. May not be <code>null</code>.
    * @return The non-<code>null</code> display name
@@ -250,6 +250,6 @@ public final class PersonNameUtils
   @ReturnsMutableCopy
   public static List <String> getAllNobiliaryParticles ()
   {
-    return ContainerHelper.newList (NOBILIARY_PARTICLES);
+    return CollectionHelper.newList (NOBILIARY_PARTICLES);
   }
 }

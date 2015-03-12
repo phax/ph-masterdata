@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
 import com.helger.commons.CGlobal;
 import com.helger.commons.annotations.ReturnsMutableCopy;
 import com.helger.commons.annotations.WorkInProgress;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.io.IReadableResource;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.microdom.IMicroDocument;
@@ -97,6 +97,6 @@ public final class UnitManager
   @ReturnsMutableCopy
   public Collection <UnitSector> getAllSectors ()
   {
-    return ContainerHelper.newList (m_aSectors.values ());
+    return CollectionHelper.newList (m_aSectors.values ());
   }
 }

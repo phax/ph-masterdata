@@ -24,13 +24,13 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.string.StringHelper;
 
 /**
  * This class represents a single IBAN number (SEPA). An IBAN number is a
  * combination of different values that are country dependent.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -41,14 +41,14 @@ public final class IBAN
   public IBAN (@Nonnull final List <IBANElementValue> aValues)
   {
     ValueEnforcer.notNull (aValues, "Values");
-    m_aValues = ContainerHelper.newList (aValues);
+    m_aValues = CollectionHelper.newList (aValues);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public List <IBANElementValue> getValues ()
   {
-    return ContainerHelper.newList (m_aValues);
+    return CollectionHelper.newList (m_aValues);
   }
 
   @Nonnull

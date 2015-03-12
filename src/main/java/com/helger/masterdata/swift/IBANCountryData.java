@@ -30,7 +30,7 @@ import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.regex.RegExPool;
 import com.helger.commons.string.StringHelper;
@@ -41,7 +41,7 @@ import com.helger.datetime.period.LocalDatePeriod;
 /**
  * The IBAN country data defines a list of elements that are contained within
  * the IBAN number of that country.
- * 
+ *
  * @author Philip Helger
  */
 public final class IBANCountryData extends LocalDatePeriod
@@ -83,7 +83,7 @@ public final class IBANCountryData extends LocalDatePeriod
 
     m_nExpectedLength = nExpectedLength;
     m_aPattern = aPattern;
-    m_aElements = ContainerHelper.newList (aElements);
+    m_aElements = CollectionHelper.newList (aElements);
     m_sFixedCheckDigits = sFixedCheckDigits;
 
     int nCalcedLength = 0;
@@ -128,7 +128,7 @@ public final class IBANCountryData extends LocalDatePeriod
   @ReturnsMutableCopy
   public List <IBANElement> getElements ()
   {
-    return ContainerHelper.newList (m_aElements);
+    return CollectionHelper.newList (m_aElements);
   }
 
   public boolean hasFixedCheckDigits ()
@@ -145,7 +145,7 @@ public final class IBANCountryData extends LocalDatePeriod
   /**
    * Parse a given IBAN number string and convert it to elements according to
    * this country's definition of IBAN numbers.
-   * 
+   *
    * @param sIBAN
    *        The IBAN number string to parse. May not be <code>null</code>.
    * @return The list of parsed elements.
@@ -284,7 +284,7 @@ public final class IBANCountryData extends LocalDatePeriod
   /**
    * This method is used to create an instance of this class from a string
    * representation.
-   * 
+   *
    * @param sCountryCode
    *        Country code to use. Neither <code>null</code> nor empty.
    * @param nExpectedLength

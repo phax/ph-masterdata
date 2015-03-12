@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.ReturnsImmutableObject;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.state.EChange;
@@ -37,7 +37,7 @@ import com.helger.masterdata.vat.IVATItem;
 /**
  * Default implementation of the {@link IPriceGraduation} and
  * {@link IReadonlyPriceGraduation} interfaces.
- * 
+ *
  * @author Philip Helger
  */
 public class PriceGraduation implements IPriceGraduation
@@ -50,7 +50,7 @@ public class PriceGraduation implements IPriceGraduation
   /**
    * Create a new price graduation valid only for the given currency and VAT
    * type.
-   * 
+   *
    * @param eCurrency
    *        The currency to use. May not be <code>null</code>.
    */
@@ -68,26 +68,26 @@ public class PriceGraduation implements IPriceGraduation
   @Nullable
   public IPriceGraduationItem getSmallestMinimumQuantityItem ()
   {
-    return ContainerHelper.getFirstElement (m_aItems);
+    return CollectionHelper.getFirstElement (m_aItems);
   }
 
   @Nullable
   public IPriceGraduationItem getLargestMinimumQuantityItem ()
   {
-    return ContainerHelper.getLastElement (m_aItems);
+    return CollectionHelper.getLastElement (m_aItems);
   }
 
   @Nonnull
   @ReturnsImmutableObject
   public List <? extends IPriceGraduationItem> getAllItems ()
   {
-    return ContainerHelper.makeUnmodifiable (m_aItems);
+    return CollectionHelper.makeUnmodifiable (m_aItems);
   }
 
   @Nullable
   public IPriceGraduationItem getItemOfIndex (@Nonnegative final int nIndex)
   {
-    return ContainerHelper.getSafe (m_aItems, nIndex);
+    return CollectionHelper.getSafe (m_aItems, nIndex);
   }
 
   @Nonnull
@@ -214,7 +214,7 @@ public class PriceGraduation implements IPriceGraduation
   /**
    * Create a simple price graduation that contains one item with the minimum
    * quantity of 1.
-   * 
+   *
    * @param aPrice
    *        The price to use. May not be <code>null</code>.
    * @return Never <code>null</code>.
