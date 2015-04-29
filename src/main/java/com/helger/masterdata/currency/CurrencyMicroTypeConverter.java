@@ -28,7 +28,7 @@ public final class CurrencyMicroTypeConverter extends AbstractCurrencyMicroTypeC
   public CurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
   {
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
-    final BigDecimal aValue = ePrice.getAttributeWithConversion (ATTR_VALUE, BigDecimal.class);
+    final BigDecimal aValue = ePrice.getAttributeValueWithConversion (ATTR_VALUE, BigDecimal.class);
     return new CurrencyValue (eCurrency, aValue);
   }
 }

@@ -47,8 +47,8 @@ public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverte
   @Nonnull
   public ExchangeRatio convertToNative (@Nonnull final IMicroElement aElement)
   {
-    final LocalDate aDate = aElement.getAttributeWithConversion (ATTR_DATE, LocalDate.class);
-    final BigDecimal aRatio = aElement.getAttributeWithConversion (ATTR_RATIO, BigDecimal.class);
+    final LocalDate aDate = aElement.getAttributeValueWithConversion (ATTR_DATE, LocalDate.class);
+    final BigDecimal aRatio = aElement.getAttributeValueWithConversion (ATTR_RATIO, BigDecimal.class);
     return new ExchangeRatio (aDate, aRatio);
   }
 }

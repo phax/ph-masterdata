@@ -35,7 +35,7 @@ public final class ReadonlyPriceMicroTypeConverter extends AbstractPriceMicroTyp
     if (eCurrency == null)
       throw new IllegalStateException ("Failed to resolve currency with ID '" + sCurrency + "'");
 
-    final BigDecimal aNetAmount = ePrice.getAttributeWithConversion (ATTR_NETAMOUNT, BigDecimal.class);
+    final BigDecimal aNetAmount = ePrice.getAttributeValueWithConversion (ATTR_NETAMOUNT, BigDecimal.class);
     final String sVATItemID = ePrice.getAttributeValue (ATTR_VATITEM);
     final IVATItem aVATItem = VATManager.getDefaultInstance ().getVATItemOfID (sVATItemID);
     if (aVATItem == null)
