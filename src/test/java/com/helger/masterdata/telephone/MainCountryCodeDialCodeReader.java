@@ -18,10 +18,10 @@ package com.helger.masterdata.telephone;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Locale;
 
-import au.com.bytecode.opencsv.CSVReader;
-
+import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.streams.StreamUtils;
 import com.helger.commons.locale.LocaleCache;
@@ -30,19 +30,18 @@ public final class MainCountryCodeDialCodeReader
 {
   public static void main (final String [] args) throws IOException
   {
-    final CSVReader aReader = new CSVReader (new InputStreamReader (ClassPathResource.getInputStream ("countrycode.org.csv")),
-                                             ';');
+    final CSVReader aReader = new CSVReader (new InputStreamReader (ClassPathResource.getInputStream ("countrycode.org.csv"))).setSeparatorChar (';');
     try
     {
       for (int i = 0; i < 4; ++i)
         aReader.readNext ();
 
-      String [] aLine;
+      List <String> aLine;
       while ((aLine = aReader.readNext ()) != null)
       {
         // Country;ISO;Country;IDD;NDD
-        final String sISO = aLine[1].replace ((char) 65533, ' ').trim ();
-        final String sCountryCode = aLine[2].replace ((char) 65533, ' ').trim ();
+        final String sISO = aLine.get (1).replace ((char) 65533, ' ').trim ();
+        final String sCountryCode = aLine.get (2).replace ((char) 65533, ' ').trim ();
         if (sISO.length () < 2 || sCountryCode.length () == 0)
           continue;
 

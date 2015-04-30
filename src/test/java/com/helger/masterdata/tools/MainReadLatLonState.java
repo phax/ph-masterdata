@@ -19,13 +19,13 @@ package com.helger.masterdata.tools;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import au.com.bytecode.opencsv.CSVReader;
-
 import com.helger.commons.charset.CCharset;
+import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.file.FileUtils;
 import com.helger.commons.io.resource.FileSystemResource;
 import com.helger.commons.microdom.IMicroDocument;
@@ -37,7 +37,7 @@ import com.helger.commons.string.StringParser;
 /**
  * Read average county longitude and latitude from CSV. The CSV can be
  * downloaded and read as-is!
- * 
+ *
  * @author Philip Helger
  */
 public final class MainReadLatLonState
@@ -62,12 +62,12 @@ public final class MainReadLatLonState
     eHeader.appendElement ("source").appendText (sSource);
     eHeader.appendElement ("revision").appendText (sRevision);
 
-    String [] aLine;
+    List <String> aLine;
     while ((aLine = aReader.readNext ()) != null)
     {
-      final String sISO = aLine[0];
-      final BigDecimal aLatitude = StringParser.parseBigDecimal (aLine[1]);
-      final BigDecimal aLongitude = StringParser.parseBigDecimal (aLine[2]);
+      final String sISO = aLine.get (0);
+      final BigDecimal aLatitude = StringParser.parseBigDecimal (aLine.get (1));
+      final BigDecimal aLongitude = StringParser.parseBigDecimal (aLine.get (2));
       eRoot.appendElement ("entry")
            .setAttribute ("id", sISO)
            .setAttributeWithConversion ("latitude", aLatitude)
