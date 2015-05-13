@@ -18,30 +18,23 @@ package com.helger.masterdata.person;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Transient;
+import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.email.EEmailAddressType;
-import com.helger.masterdata.email.ExtendedEmailAddressWithID;
+import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
 
 /**
  * Person specific implementation
- * 
+ *
  * @author Philip Helger
  */
-@Entity
-@Access (value = AccessType.PROPERTY)
-public class PersonEmailAddress extends ExtendedEmailAddressWithID
+@NotThreadSafe
+public class PersonEmailAddress extends ExtendedEmailAddress
 {
   private Person m_aOwner;
 
@@ -76,16 +69,12 @@ public class PersonEmailAddress extends ExtendedEmailAddressWithID
     setOwner (aOwner);
   }
 
-  @ManyToOne
-  @PrimaryKeyJoinColumn
-  @JoinColumn (name = "owner", nullable = false)
   @Nullable
   public Person getOwner ()
   {
     return m_aOwner;
   }
 
-  @Transient
   @Nullable
   public String getOwnerID ()
   {

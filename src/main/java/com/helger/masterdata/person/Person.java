@@ -20,20 +20,7 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
-import org.eclipse.persistence.annotations.Convert;
-import org.eclipse.persistence.annotations.Converter;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.ValueEnforcer;
@@ -41,15 +28,10 @@ import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.db.jpa.eclipselink.converter.JPAJodaLocalDateConverter;
 import com.helger.masterdata.address.IReadonlyAddress;
 import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
 
-@Entity
-@Converter (name = "joda-localdate", converterClass = JPAJodaLocalDateConverter.class)
-@MappedSuperclass
-@Access (value = AccessType.PROPERTY)
 public class Person implements IPerson
 {
   public static final String FIELD_ID = "id";
@@ -98,9 +80,6 @@ public class Person implements IPerson
     setAddress (aAddress, aSortLocale);
   }
 
-  @Column (name = FIELD_ID)
-  @Id
-  @GeneratedValue (generator = "person_gen")
   @Nullable
   public String getID ()
   {
@@ -112,7 +91,6 @@ public class Person implements IPerson
     m_sID = sID;
   }
 
-  @Column (name = FIELD_GENDER, length = LENGTH_GENDER)
   @Nullable
   public EGender getGender ()
   {
@@ -128,7 +106,6 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @Embedded
   @Nullable
   public PersonName getName ()
   {
@@ -145,7 +122,6 @@ public class Person implements IPerson
   }
 
   @Nonnull
-  @Transient
   public EChange setName (@Nullable final IReadonlyPersonName aName, @Nonnull final Locale aSortLocale)
   {
     PersonName aRealName = null;
@@ -154,8 +130,6 @@ public class Person implements IPerson
     return setName (aRealName);
   }
 
-  @Column (name = FIELD_BIRTHDAY)
-  @Convert ("joda-localdate")
   @Nullable
   public LocalDate getBirthday ()
   {
@@ -171,7 +145,6 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @OneToOne (mappedBy = "owner", cascade = CascadeType.ALL)
   @Nullable
   public PersonTelephoneNumber getTelephoneNumber ()
   {
@@ -187,7 +160,6 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public EChange setTelephoneNumber (@Nullable final IReadonlyTelephoneNumber aTelephoneNumber)
   {
@@ -197,7 +169,6 @@ public class Person implements IPerson
     return setTelephoneNumber (aPersonTelNo);
   }
 
-  @OneToOne (mappedBy = "owner", cascade = CascadeType.ALL)
   @Nullable
   public PersonEmailAddress getEmailAddress ()
   {
@@ -213,7 +184,6 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public EChange setEmailAddress (@Nullable final IReadonlyExtendedEmailAddress aEmailAddress)
   {
@@ -223,7 +193,6 @@ public class Person implements IPerson
     return setEmailAddress (aPersonEmailAddress);
   }
 
-  @OneToOne (mappedBy = "owner", cascade = CascadeType.ALL)
   @Nullable
   public PersonAddress getAddress ()
   {
@@ -239,7 +208,6 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public EChange setAddress (@Nullable final IReadonlyAddress aAddress, @Nonnull final Locale aSortLocale)
   {

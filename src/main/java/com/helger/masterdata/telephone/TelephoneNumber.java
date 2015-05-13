@@ -18,12 +18,7 @@ package com.helger.masterdata.telephone;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
@@ -31,29 +26,15 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.MasterdataUtils;
 
 /**
  * Default writable version of {@link ITelephoneNumber}.
  *
  * @author Philip Helger
  */
-@MappedSuperclass
-@Embeddable
-@Access (value = AccessType.PROPERTY)
+@NotThreadSafe
 public class TelephoneNumber implements ITelephoneNumber
 {
-  public static final String FIELD_TYPE = "teltype";
-  public static final int LENGTH_TYPE = 6;
-  public static final String FIELD_COUNTRYCODE = "telcountry";
-  public static final int LENGTH_COUNTRYCODE = 5;
-  public static final String FIELD_AREACODE = "telareacode";
-  public static final int LENGTH_AREACODE = 10;
-  public static final String FIELD_LINE = "telline";
-  public static final int LENGTH_LINE = 100;
-  public static final String FIELD_DIRECTDIAL = "teldirect";
-  public static final int LENGTH_DIRECTDIAL = 50;
-
   private ETelephoneType m_eType;
   private String m_sCountryCode;
   private String m_sAreaCode;
@@ -91,7 +72,6 @@ public class TelephoneNumber implements ITelephoneNumber
     setDirectDial (sDirectDial);
   }
 
-  @Column (name = FIELD_TYPE, length = LENGTH_TYPE)
   @Nullable
   public ETelephoneType getType ()
   {
@@ -107,7 +87,6 @@ public class TelephoneNumber implements ITelephoneNumber
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_COUNTRYCODE, length = LENGTH_COUNTRYCODE)
   @Nullable
   public String getCountryCode ()
   {
@@ -117,14 +96,13 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setCountryCode (@Nullable final String sCountryCode)
   {
-    final String sRealCountryCode = MasterdataUtils.getEnsuredLength (sCountryCode, LENGTH_COUNTRYCODE);
+    final String sRealCountryCode = sCountryCode;
     if (EqualsUtils.equals (m_sCountryCode, sRealCountryCode))
       return EChange.UNCHANGED;
     m_sCountryCode = sRealCountryCode;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_AREACODE, length = LENGTH_AREACODE)
   @Nullable
   public String getAreaCode ()
   {
@@ -134,14 +112,13 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setAreaCode (@Nullable final String sAreaCode)
   {
-    final String sRealAreaCode = MasterdataUtils.getEnsuredLength (sAreaCode, LENGTH_AREACODE);
+    final String sRealAreaCode = sAreaCode;
     if (EqualsUtils.equals (m_sAreaCode, sRealAreaCode))
       return EChange.UNCHANGED;
     m_sAreaCode = sRealAreaCode;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_LINE, length = LENGTH_LINE)
   @Nullable
   public String getLine ()
   {
@@ -151,14 +128,13 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setLine (@Nullable final String sLine)
   {
-    final String sRealLine = MasterdataUtils.getEnsuredLength (TelephoneUtils.getCleanedLine (sLine), LENGTH_LINE);
+    final String sRealLine = TelephoneUtils.getCleanedLine (sLine);
     if (EqualsUtils.equals (m_sLine, sRealLine))
       return EChange.UNCHANGED;
     m_sLine = sRealLine;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_DIRECTDIAL, length = LENGTH_DIRECTDIAL)
   @Nullable
   public String getDirectDial ()
   {
@@ -168,14 +144,13 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setDirectDial (@Nullable final String sDirectDial)
   {
-    final String sRealDirectDial = MasterdataUtils.getEnsuredLength (sDirectDial, LENGTH_DIRECTDIAL);
+    final String sRealDirectDial = sDirectDial;
     if (EqualsUtils.equals (m_sDirectDial, sRealDirectDial))
       return EChange.UNCHANGED;
     m_sDirectDial = sRealDirectDial;
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public TelephoneNumber getClone ()
   {

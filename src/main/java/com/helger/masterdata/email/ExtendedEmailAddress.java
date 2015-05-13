@@ -18,12 +18,7 @@ package com.helger.masterdata.email;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+import javax.annotation.concurrent.NotThreadSafe;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,23 +30,15 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.MasterdataUtils;
 
 /**
  * Default writable implementation of {@link IExtendedEmailAddress}.
  *
  * @author Philip Helger
  */
-@MappedSuperclass
-@Embeddable
-@Access (value = AccessType.PROPERTY)
+@NotThreadSafe
 public class ExtendedEmailAddress implements IExtendedEmailAddress
 {
-  public static final String FIELD_TYPE = "emailtype";
-  public static final String FIELD_ADDRESS = "addr";
-  public static final int LENGTH_ADDRESS = 256;
-  public static final String FIELD_PERSONAL = "personal";
-  public static final int LENGTH_PERSONAL = 256;
   private static final Logger s_aLogger = LoggerFactory.getLogger (ExtendedEmailAddress.class);
 
   private EEmailAddressType m_eType;
@@ -96,7 +83,6 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     setPersonal (sPersonal);
   }
 
-  @Column (name = FIELD_TYPE)
   @Nullable
   public EEmailAddressType getType ()
   {
@@ -112,7 +98,6 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_ADDRESS, length = LENGTH_ADDRESS)
   @Nullable
   public String getAddress ()
   {
@@ -131,8 +116,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   @Nonnull
   public EChange setAddress (@Nullable final String sAddress)
   {
-    final String sRealAddress = MasterdataUtils.getEnsuredLength (EmailAddressUtils.getUnifiedEmailAddress (sAddress),
-                                                                  LENGTH_ADDRESS);
+    final String sRealAddress = EmailAddressUtils.getUnifiedEmailAddress (sAddress);
     if (EqualsUtils.equals (sRealAddress, m_sAddress))
       return EChange.UNCHANGED;
 
@@ -147,7 +131,6 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_PERSONAL, length = LENGTH_PERSONAL)
   @Nullable
   public String getPersonal ()
   {
@@ -157,14 +140,13 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   @Nonnull
   public EChange setPersonal (@Nullable final String sPersonal)
   {
-    final String sRealPersonal = MasterdataUtils.getEnsuredLength (sPersonal, LENGTH_PERSONAL);
+    final String sRealPersonal = sPersonal;
     if (EqualsUtils.equals (sRealPersonal, m_sPersonal))
       return EChange.UNCHANGED;
     m_sPersonal = sRealPersonal;
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public String getDisplayName ()
   {
@@ -173,7 +155,6 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     return m_sAddress;
   }
 
-  @Transient
   @Nonnull
   public ExtendedEmailAddress getClone ()
   {

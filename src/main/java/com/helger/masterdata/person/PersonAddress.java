@@ -20,29 +20,20 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Transient;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.address.AddressWithID;
+import com.helger.masterdata.address.Address;
 import com.helger.masterdata.address.IReadonlyAddress;
 
 /**
  * Person specific implementation
- * 
+ *
  * @author Philip Helger
  */
-@Entity
-@Access (value = AccessType.PROPERTY)
-public class PersonAddress extends AddressWithID
+public class PersonAddress extends Address
 {
   private Person m_aOwner;
 
@@ -62,9 +53,6 @@ public class PersonAddress extends AddressWithID
     setOwner (aOwner);
   }
 
-  @ManyToOne
-  @PrimaryKeyJoinColumn
-  @JoinColumn (name = "owner", nullable = false)
   @Nullable
   public Person getOwner ()
   {
@@ -77,7 +65,6 @@ public class PersonAddress extends AddressWithID
     m_aOwner = aOwner;
   }
 
-  @Transient
   @Nullable
   public String getOwnerID ()
   {

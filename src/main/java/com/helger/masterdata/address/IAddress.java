@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.address;
 
+import java.util.Locale;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -24,7 +26,7 @@ import com.helger.commons.state.EChange;
 
 /**
  * The writable version of the address interface.
- * 
+ *
  * @author Philip Helger
  */
 public interface IAddress extends IReadonlyAddress, ICloneable <IAddress>
@@ -39,23 +41,38 @@ public interface IAddress extends IReadonlyAddress, ICloneable <IAddress>
   EChange setType (@Nullable EAddressType eAddressType);
 
   /**
-   * @param sCountry
-   *        The country the address resides in. The uppercase two-letter
-   *        ISO-3166 code as used by java.util.Locale.
+   * @param aCountry
+   *        The country the address resides in.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setCountry (@Nullable String sCountry);
+  EChange setCountry (@Nullable Locale aCountry, @Nonnull Locale aSortLocale);
+
+  /**
+   * @param sCountry
+   *        The country the address resides in. The uppercase two-letter
+   *        ISO-3166 code as used by java.util.Locale.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
+   * @return {@link EChange#CHANGED} if something changed,
+   *         {@link EChange#UNCHANGED} otherwise.
+   */
+  @Nonnull
+  EChange setCountry (@Nullable String sCountry, @Nonnull Locale aSortLocale);
 
   /**
    * @param sState
    *        The optional state within the country. May be <code>null</code>.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setState (@Nullable String sState);
+  EChange setState (@Nullable String sState, @Nonnull Locale aSortLocale);
 
   /**
    * @param sZipCode
@@ -69,20 +86,24 @@ public interface IAddress extends IReadonlyAddress, ICloneable <IAddress>
   /**
    * @param sCity
    *        The name of the city the address resides in.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setCity (@Nullable String sCity);
+  EChange setCity (@Nullable String sCity, @Nonnull Locale aSortLocale);
 
   /**
    * @param sStreet
    *        The street (including the number) of the address.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setStreet (@Nullable String sStreet);
+  EChange setStreet (@Nullable String sStreet, @Nonnull Locale aSortLocale);
 
   /**
    * @param sBuildingNumber
@@ -98,9 +119,11 @@ public interface IAddress extends IReadonlyAddress, ICloneable <IAddress>
    * @param sPOBox
    *        An optional post office box that should be used instead the street.
    *        May be <code>null</code>.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setPostOfficeBox (@Nullable String sPOBox);
+  EChange setPostOfficeBox (@Nullable String sPOBox, @Nonnull Locale aSortLocale);
 }

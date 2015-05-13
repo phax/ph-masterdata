@@ -21,12 +21,6 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
@@ -34,37 +28,15 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.commons.system.SystemHelper;
-import com.helger.db.jpa.annotations.UsedOnlyByJPA;
-import com.helger.masterdata.MasterdataUtils;
 
 /**
  * Writable implementation of the {@link IAddress} interface.
  *
  * @author Philip Helger
  */
-@MappedSuperclass
-@Embeddable
-@Access (value = AccessType.PROPERTY)
 @NotThreadSafe
 public class Address implements IAddress
 {
-  public static final String FIELD_TYPE = "addresstype";
-  public static final String FIELD_COUNTRY = "country";
-  public static final int LENGTH_COUNTRY = 100;
-  public static final String FIELD_STATE = "state";
-  public static final int LENGTH_STATE = 100;
-  public static final String FIELD_POSTALCODE = "zipcode";
-  public static final int LENGTH_POSTALCODE = 20;
-  public static final String FIELD_CITY = "city";
-  public static final int LENGTH_CITY = 100;
-  public static final String FIELD_STREET = "street";
-  public static final int LENGTH_STREET = 200;
-  public static final String FIELD_BUILDINGNUMBER = "buildingnumber";
-  public static final int LENGTH_BUILDINGNUMBER = 50;
-  public static final String FIELD_POBOX = "pobox";
-  public static final int LENGTH_POBOX = 50;
-
   private EAddressType m_eType;
   private String m_sCountry;
   private String m_sState;
@@ -128,7 +100,6 @@ public class Address implements IAddress
     setPostOfficeBox (sPostOfficeBox, aSortLocale);
   }
 
-  @Column (name = FIELD_TYPE)
   @Nullable
   public EAddressType getType ()
   {
@@ -144,14 +115,12 @@ public class Address implements IAddress
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_COUNTRY, length = LENGTH_COUNTRY)
   @Nullable
   public String getCountry ()
   {
     return m_sCountry;
   }
 
-  @Transient
   @Nullable
   public String getCountryDisplayName (@Nonnull final Locale aDisplayLocale)
   {
@@ -159,19 +128,10 @@ public class Address implements IAddress
     return aCountry == null ? null : aCountry.getDisplayCountry (aDisplayLocale);
   }
 
-  @Transient
   @Nullable
   public Locale getCountryLocale ()
   {
     return CountryCache.getInstance ().getCountry (m_sCountry);
-  }
-
-  @Nonnull
-  @Deprecated
-  @UsedOnlyByJPA
-  public EChange setCountry (@Nullable final String sCountry)
-  {
-    return setCountry (sCountry, SystemHelper.getSystemLocale ());
   }
 
   @Nonnull
@@ -183,15 +143,13 @@ public class Address implements IAddress
   @Nonnull
   public EChange setCountry (@Nullable final String sCountry, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCountry = MasterdataUtils.getEnsuredLength (AddressUtils.getUnifiedCountry (sCountry, aSortLocale),
-                                                                  LENGTH_COUNTRY);
+    final String sRealCountry = AddressUtils.getUnifiedCountry (sCountry, aSortLocale);
     if (EqualsUtils.equals (m_sCountry, sRealCountry))
       return EChange.UNCHANGED;
     m_sCountry = sRealCountry == null ? null : sRealCountry.intern ();
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_STATE, length = LENGTH_STATE)
   @Nullable
   public String getState ()
   {
@@ -199,25 +157,15 @@ public class Address implements IAddress
   }
 
   @Nonnull
-  @Deprecated
-  @UsedOnlyByJPA
-  public EChange setState (@Nullable final String sState)
-  {
-    return setState (sState, SystemHelper.getSystemLocale ());
-  }
-
-  @Nonnull
   public EChange setState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
   {
-    final String sRealState = MasterdataUtils.getEnsuredLength (AddressUtils.getUnifiedState (sState, aSortLocale),
-                                                                LENGTH_STATE);
+    final String sRealState = AddressUtils.getUnifiedState (sState, aSortLocale);
     if (EqualsUtils.equals (m_sState, sRealState))
       return EChange.UNCHANGED;
     m_sState = sRealState;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_POSTALCODE, length = LENGTH_POSTALCODE)
   @Nullable
   public String getPostalCode ()
   {
@@ -227,14 +175,13 @@ public class Address implements IAddress
   @Nonnull
   public EChange setPostalCode (@Nullable final String sPostalCode)
   {
-    final String sRealPostalCode = MasterdataUtils.getEnsuredLength (sPostalCode, LENGTH_POSTALCODE);
+    final String sRealPostalCode = sPostalCode;
     if (EqualsUtils.equals (m_sPostalCode, sRealPostalCode))
       return EChange.UNCHANGED;
     m_sPostalCode = sRealPostalCode;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_CITY, length = LENGTH_CITY)
   @Nullable
   public String getCity ()
   {
@@ -242,25 +189,15 @@ public class Address implements IAddress
   }
 
   @Nonnull
-  @Deprecated
-  @UsedOnlyByJPA
-  public EChange setCity (@Nullable final String sCity)
-  {
-    return setCity (sCity, SystemHelper.getSystemLocale ());
-  }
-
-  @Nonnull
   public EChange setCity (@Nullable final String sCity, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCity = MasterdataUtils.getEnsuredLength (AddressUtils.getUnifiedCity (sCity, aSortLocale),
-                                                               LENGTH_CITY);
+    final String sRealCity = AddressUtils.getUnifiedCity (sCity, aSortLocale);
     if (EqualsUtils.equals (m_sCity, sRealCity))
       return EChange.UNCHANGED;
     m_sCity = sRealCity;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_STREET, length = LENGTH_STREET)
   @Nullable
   public String getStreet ()
   {
@@ -268,25 +205,15 @@ public class Address implements IAddress
   }
 
   @Nonnull
-  @UsedOnlyByJPA
-  @Deprecated
-  public EChange setStreet (@Nullable final String sStreet)
-  {
-    return setStreet (sStreet, SystemHelper.getSystemLocale ());
-  }
-
-  @Nonnull
   public EChange setStreet (@Nullable final String sStreet, @Nonnull final Locale aSortLocale)
   {
-    final String sRealStreet = MasterdataUtils.getEnsuredLength (AddressUtils.getUnifiedStreet (sStreet, aSortLocale),
-                                                                 LENGTH_STREET);
+    final String sRealStreet = AddressUtils.getUnifiedStreet (sStreet, aSortLocale);
     if (EqualsUtils.equals (m_sStreet, sRealStreet))
       return EChange.UNCHANGED;
     m_sStreet = sRealStreet;
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_BUILDINGNUMBER, length = LENGTH_BUILDINGNUMBER)
   @Nullable
   public String getBuildingNumber ()
   {
@@ -302,7 +229,6 @@ public class Address implements IAddress
     return EChange.CHANGED;
   }
 
-  @Column (name = FIELD_POBOX, length = LENGTH_POBOX)
   @Nullable
   public String getPostOfficeBox ()
   {
@@ -310,19 +236,9 @@ public class Address implements IAddress
   }
 
   @Nonnull
-  @Deprecated
-  @UsedOnlyByJPA
-  public EChange setPostOfficeBox (@Nullable final String sPostOfficeBox)
-  {
-    return setPostOfficeBox (sPostOfficeBox, SystemHelper.getSystemLocale ());
-  }
-
-  @Nonnull
   public EChange setPostOfficeBox (@Nullable final String sPostOfficeBox, @Nonnull final Locale aSortLocale)
   {
-    final String sRealPostOfficeBox = MasterdataUtils.getEnsuredLength (AddressUtils.getUnifiedPOBox (sPostOfficeBox,
-                                                                                                      aSortLocale),
-                                                                        LENGTH_POBOX);
+    final String sRealPostOfficeBox = AddressUtils.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
     if (EqualsUtils.equals (m_sPostOfficeBox, sRealPostOfficeBox))
       return EChange.UNCHANGED;
     m_sPostOfficeBox = sRealPostOfficeBox;

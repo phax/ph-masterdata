@@ -21,11 +21,6 @@ import java.math.BigDecimal;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
@@ -33,7 +28,6 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.db.jpa.annotations.UsedOnlyByJPA;
 
 /**
  * This class represents a single currency value as the combination of a value
@@ -41,21 +35,11 @@ import com.helger.db.jpa.annotations.UsedOnlyByJPA;
  *
  * @author Philip Helger
  */
-@Embeddable
-@Entity
-@Access (value = AccessType.PROPERTY)
 @NotThreadSafe
 public final class CurrencyValue extends AbstractCurrencyValue implements ICurrencyValue
 {
-  public static final String FIELD_CURRENCY = "currency";
-  public static final String FIELD_CURRENCYVALUE = "currencyvalue";
-
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;
-
-  @UsedOnlyByJPA
-  public CurrencyValue ()
-  {}
 
   public CurrencyValue (@Nonnull final IReadonlyCurrencyValue aCurrencyValue)
   {
@@ -74,7 +58,6 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   }
 
   @Nonnull
-  @Column (name = FIELD_CURRENCY)
   public ECurrency getCurrency ()
   {
     return m_eCurrency;
@@ -102,7 +85,6 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   }
 
   @Nonnull
-  @Column (name = FIELD_CURRENCYVALUE)
   public BigDecimal getValue ()
   {
     return m_aValue;

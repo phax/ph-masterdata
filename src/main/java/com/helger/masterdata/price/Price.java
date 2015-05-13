@@ -22,17 +22,6 @@ import java.math.RoundingMode;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
-
-import org.eclipse.persistence.annotations.Convert;
-import org.eclipse.persistence.annotations.Converter;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotations.Nonempty;
@@ -46,17 +35,12 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IReadonlyCurrencyValue;
 import com.helger.masterdata.currency.ReadonlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
-import com.helger.masterdata.vat.JPAVATItemIDConverter;
 
 /**
  * Default implementation of the {@link IPrice} interface.
  *
  * @author Philip Helger
  */
-@Entity
-@Embeddable
-@Access (value = AccessType.PROPERTY)
-@Converter (name = "vatitemid", converterClass = JPAVATItemIDConverter.class)
 public class Price implements IPrice
 {
   public static final String FIELD_VATITEM = "vatitem";
@@ -104,7 +88,6 @@ public class Price implements IPrice
   }
 
   @Nonnull
-  @Embedded
   public CurrencyValue getNetAmount ()
   {
     return m_aNetAmount;
@@ -123,9 +106,6 @@ public class Price implements IPrice
   }
 
   @Nonnull
-  @Basic
-  @Column (name = FIELD_VATITEM)
-  @Convert ("vatitemid")
   public IVATItem getVATItem ()
   {
     return m_aVATItem;
@@ -133,7 +113,6 @@ public class Price implements IPrice
 
   @Nonnull
   @Nonempty
-  @Transient
   public String getVATItemID ()
   {
     return m_aVATItem.getID ();
@@ -150,7 +129,6 @@ public class Price implements IPrice
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public IReadonlyCurrencyValue getTaxAmount ()
   {
@@ -163,7 +141,6 @@ public class Price implements IPrice
    * (because the corresponding setter method is also present!)
    */
   @Nonnull
-  @Transient
   public ECurrency getCurrency ()
   {
     return m_aNetAmount.getCurrency ();
@@ -175,7 +152,6 @@ public class Price implements IPrice
     return m_aNetAmount.setCurrency (eCurrency);
   }
 
-  @Transient
   @Nonnull
   public IReadonlyCurrencyValue getGrossAmount ()
   {
@@ -183,7 +159,6 @@ public class Price implements IPrice
     return m_aNetAmount.getMultiplied (aMultiplicationFactor);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getAdded (@Nonnull final BigDecimal aValue)
@@ -191,7 +166,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getAdded (aValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getAdded (final long nValue)
@@ -199,7 +173,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getAdded (nValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getSubtracted (@Nonnull final BigDecimal aValue)
@@ -207,7 +180,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getSubtracted (aValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getSubtracted (final long nValue)
@@ -215,7 +187,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getSubtracted (nValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getMultiplied (@Nonnull final BigDecimal aValue)
@@ -223,7 +194,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getMultiplied (aValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getMultiplied (final long nValue)
@@ -231,7 +201,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getMultiplied (nValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getDivided (@Nonnull final BigDecimal aValue)
@@ -239,7 +208,6 @@ public class Price implements IPrice
     return new Price (m_aNetAmount.getDivided (aValue), m_aVATItem);
   }
 
-  @Transient
   @Nonnull
   @CheckReturnValue
   public Price getDivided (final long nValue)

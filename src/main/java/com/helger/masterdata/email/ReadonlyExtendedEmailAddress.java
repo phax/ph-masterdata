@@ -19,7 +19,6 @@ package com.helger.masterdata.email;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-import javax.persistence.Transient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +31,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Default read-only implementation of {@link IReadonlyExtendedEmailAddress}.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -87,7 +86,6 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
     return m_sPersonal;
   }
 
-  @Transient
   @Nonnull
   public String getDisplayName ()
   {

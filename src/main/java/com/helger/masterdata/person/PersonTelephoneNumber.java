@@ -18,13 +18,6 @@ package com.helger.masterdata.person;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Transient;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsUtils;
@@ -32,16 +25,14 @@ import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.telephone.ETelephoneType;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
-import com.helger.masterdata.telephone.TelephoneNumberWithID;
+import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
  * Person specific implementation
- * 
+ *
  * @author Philip Helger
  */
-@Entity
-@Access (value = AccessType.PROPERTY)
-public class PersonTelephoneNumber extends TelephoneNumberWithID
+public class PersonTelephoneNumber extends TelephoneNumber
 {
   private Person m_aOwner;
 
@@ -70,16 +61,12 @@ public class PersonTelephoneNumber extends TelephoneNumberWithID
     setOwner (aOwner);
   }
 
-  @ManyToOne
-  @PrimaryKeyJoinColumn
-  @JoinColumn (name = "owner", nullable = false)
   @Nullable
   public Person getOwner ()
   {
     return m_aOwner;
   }
 
-  @Transient
   @Nullable
   public String getOwnerID ()
   {
