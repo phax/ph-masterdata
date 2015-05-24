@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.person;
 
-import java.beans.Transient;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -199,7 +198,6 @@ public class PersonName implements IPersonName
     return EChange.CHANGED;
   }
 
-  @Transient
   @Nonnull
   public PersonName getClone ()
   {
