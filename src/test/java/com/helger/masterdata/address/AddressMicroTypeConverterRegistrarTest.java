@@ -34,9 +34,9 @@ import com.helger.commons.microdom.serialize.MicroWriter;
  * 
  * @author Philip Helger
  */
-public final class AddressTypeConverterRegistrarTest
+public final class AddressMicroTypeConverterRegistrarTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (AddressTypeConverterRegistrarTest.class);
+  private static final Logger s_aLogger = LoggerFactory.getLogger (AddressMicroTypeConverterRegistrarTest.class);
 
   @Test
   public void testMarshal ()

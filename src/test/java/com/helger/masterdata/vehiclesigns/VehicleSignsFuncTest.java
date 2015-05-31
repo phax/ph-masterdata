@@ -35,9 +35,9 @@ import com.helger.commons.system.SystemHelper;
  * 
  * @author Philip Helger
  */
-public final class FuncTestVehicleSigns
+public final class VehicleSignsFuncTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (FuncTestVehicleSigns.class);
+  private static final Logger s_aLogger = LoggerFactory.getLogger (VehicleSignsFuncTest.class);
 
   @Ignore
   @Test

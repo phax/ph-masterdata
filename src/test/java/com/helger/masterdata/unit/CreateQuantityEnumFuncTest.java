@@ -37,7 +37,7 @@ import com.helger.commons.text.IReadonlyMultiLingualText;
  *
  * @author Philip Helger
  */
-public final class FuncTestCreateQuantityEnum
+public final class CreateQuantityEnumFuncTest
 {
   @Ignore
   @Test
