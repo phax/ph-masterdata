@@ -29,7 +29,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Contains utility methods for addresses.
- * 
+ *
  * @author Philip Helger
  */
 @ThreadSafe
@@ -140,6 +140,22 @@ public final class AddressUtils
   }
 
   @Nullable
+  public static String getStreetAndBuildingNumber (@Nullable final IReadonlyAddress aAddress)
+  {
+    if (aAddress == null)
+      return null;
+    return StringHelper.getImplodedNonEmpty (' ', aAddress.getStreet (), aAddress.getBuildingNumber ());
+  }
+
+  @Nullable
+  public static String getPostalCodeAndCity (@Nullable final IReadonlyAddress aAddress)
+  {
+    if (aAddress == null)
+      return null;
+    return StringHelper.getImplodedNonEmpty (' ', aAddress.getPostalCode (), aAddress.getCity ());
+  }
+
+  @Nullable
   public static String getAddressString (@Nullable final IReadonlyAddress aAddress, @Nonnull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aDisplayLocale, "\n");
@@ -158,12 +174,12 @@ public final class AddressUtils
     final StringBuilder aSB = new StringBuilder ();
 
     // Street + building number
-    final String sStreet = StringHelper.getImplodedNonEmpty (' ', aAddress.getStreet (), aAddress.getBuildingNumber ());
+    final String sStreet = getStreetAndBuildingNumber (aAddress);
     if (StringHelper.hasText (sStreet))
       aSB.append (sStreet);
 
     // Postal code + city
-    final String sNextLine = StringHelper.getImplodedNonEmpty (' ', aAddress.getPostalCode (), aAddress.getCity ());
+    final String sNextLine = getPostalCodeAndCity (aAddress);
     if (StringHelper.hasText (sNextLine))
     {
       if (aSB.length () > 0)
