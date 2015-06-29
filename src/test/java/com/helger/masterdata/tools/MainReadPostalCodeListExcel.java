@@ -42,7 +42,7 @@ import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.multimap.IMultiMapListBased;
 import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
-import com.helger.commons.compare.AbstractComparator;
+import com.helger.commons.compare.AbstractPartComparatorComparable;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -50,7 +50,6 @@ import com.helger.commons.microdom.MicroDocument;
 import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringHelper;
 import com.helger.datetime.PDTFactory;
-import com.helger.datetime.PDTUtils;
 import com.helger.masterdata.postal.PostalCodeListReader;
 import com.helger.poi.excel.ExcelReadUtils;
 
@@ -133,12 +132,12 @@ public class MainReadPostalCodeListExcel
     }
   }
 
-  private static final class ComparatorItemValidFrom extends AbstractComparator <Item>
+  private static final class ComparatorItemValidFrom extends AbstractPartComparatorComparable <Item, LocalDate>
   {
     @Override
-    protected int mainCompare (final Item aElement1, final Item aElement2)
+    protected LocalDate getPart (@Nonnull final Item aElement)
     {
-      return PDTUtils.nullSafeCompare (aElement1.getValidFrom (), aElement2.getValidFrom ());
+      return aElement.getValidFrom ();
     }
   }
 

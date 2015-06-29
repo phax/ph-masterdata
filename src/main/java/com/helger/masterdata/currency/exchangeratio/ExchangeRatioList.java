@@ -34,7 +34,7 @@ import com.helger.commons.compare.ESortOrder;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.datetime.PDTUtils;
+import com.helger.datetime.util.PDTHelper;
 import com.helger.masterdata.currency.ECurrency;
 
 /**
@@ -102,7 +102,7 @@ public final class ExchangeRatioList implements ICloneable <ExchangeRatioList>
     {
       // As the exchange ratios are sorted from oldest to newest, we use the
       // first entry where the date is >= the expected date
-      if (PDTUtils.isGreaterOrEqual (aExchangeRatio.getDate (), aDate))
+      if (PDTHelper.isGreaterOrEqual (aExchangeRatio.getDate (), aDate))
         return aExchangeRatio;
     }
     return null;
