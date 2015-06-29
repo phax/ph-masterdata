@@ -21,9 +21,9 @@ import java.math.BigDecimal;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.MustImplementEqualsAndHashcode;
+import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.id.IHasID;
-import com.helger.commons.name.IHasDisplayText;
+import com.helger.commons.text.display.IHasDisplayText;
 import com.helger.datetime.period.ILocalDatePeriod;
 
 /**

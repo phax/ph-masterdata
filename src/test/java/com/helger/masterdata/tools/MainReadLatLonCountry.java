@@ -26,11 +26,10 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.charset.CCharset;
 import com.helger.commons.csv.CSVReader;
-import com.helger.commons.io.file.FileUtils;
-import com.helger.commons.io.resource.FileSystemResource;
+import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.impl.MicroDocument;
+import com.helger.commons.microdom.MicroDocument;
 import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringParser;
 
@@ -49,10 +48,9 @@ public final class MainReadLatLonCountry
     final String sRevision = "20130209";
     final String sSource = "http://dev.maxmind.com/geoip/codes/country_latlon";
 
-    final CSVReader aReader = new CSVReader (FileSystemResource.getReader (new File ("src/test/resources/country_latlon-" +
-                                                                                     sRevision +
-                                                                                     ".csv"),
-                                                                           CCharset.CHARSET_ISO_8859_1_OBJ));
+    final CSVReader aReader = new CSVReader (FileHelper.getReader (new File ("src/test/resources/country_latlon-" +
+                                                                             sRevision +
+                                                                             ".csv"), CCharset.CHARSET_ISO_8859_1_OBJ));
     // Skip one row
     aReader.readNext ();
 
@@ -75,9 +73,9 @@ public final class MainReadLatLonCountry
     }
     aReader.close ();
     MicroWriter.writeToStream (aDoc,
-                               FileUtils.getOutputStream ("src/main/resources/codelists/latitude-longitude-country-" +
-                                                          sRevision +
-                                                          ".xml"));
+                               FileHelper.getOutputStream ("src/main/resources/codelists/latitude-longitude-country-" +
+                                                           sRevision +
+                                                           ".xml"));
     s_aLogger.info ("Done");
   }
 }

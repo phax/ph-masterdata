@@ -25,14 +25,14 @@ import javax.annotation.concurrent.Immutable;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Represents a single currency exchange ratio compared to a base currency (e.g.
  * EUR)
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -68,7 +68,7 @@ public final class ExchangeRatio
     if (!(o instanceof ExchangeRatio))
       return false;
     final ExchangeRatio rhs = (ExchangeRatio) o;
-    return m_aDate.equals (rhs.m_aDate) && EqualsUtils.equals (m_aRatio, rhs.m_aRatio);
+    return m_aDate.equals (rhs.m_aDate) && EqualsHelper.equals (m_aRatio, rhs.m_aRatio);
   }
 
   @Override

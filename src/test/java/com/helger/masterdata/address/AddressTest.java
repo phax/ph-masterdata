@@ -23,15 +23,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link Address}
  *
  * @author Philip Helger
  */
-public final class AddressTest extends AbstractPHTestCase
+public final class AddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
@@ -109,50 +109,50 @@ public final class AddressTest extends AbstractPHTestCase
   public void testDefaultImpl ()
   {
     Address a = new Address ();
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setType (EAddressType.PERSONAL);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setCountry ("de", L_DE);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setState ("Wien", L_DE);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setPostalCode ("1140");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setCity ("St. Plöten", L_DE);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setStreet ("Hauptstr. 1", L_DE);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
 
     a = new Address ();
     a.setPostOfficeBox ("12AB", L_DE);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new Address ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
   }
 }

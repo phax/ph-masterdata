@@ -23,8 +23,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -109,7 +109,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setType (@Nullable final EAddressType eType)
   {
-    if (EqualsUtils.equals (m_eType, eType))
+    if (EqualsHelper.equals (m_eType, eType))
       return EChange.UNCHANGED;
     m_eType = eType;
     return EChange.CHANGED;
@@ -144,7 +144,7 @@ public class Address implements IAddress
   public EChange setCountry (@Nullable final String sCountry, @Nonnull final Locale aSortLocale)
   {
     final String sRealCountry = AddressUtils.getUnifiedCountry (sCountry, aSortLocale);
-    if (EqualsUtils.equals (m_sCountry, sRealCountry))
+    if (EqualsHelper.equals (m_sCountry, sRealCountry))
       return EChange.UNCHANGED;
     m_sCountry = sRealCountry == null ? null : sRealCountry.intern ();
     return EChange.CHANGED;
@@ -160,7 +160,7 @@ public class Address implements IAddress
   public EChange setState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
   {
     final String sRealState = AddressUtils.getUnifiedState (sState, aSortLocale);
-    if (EqualsUtils.equals (m_sState, sRealState))
+    if (EqualsHelper.equals (m_sState, sRealState))
       return EChange.UNCHANGED;
     m_sState = sRealState;
     return EChange.CHANGED;
@@ -176,7 +176,7 @@ public class Address implements IAddress
   public EChange setPostalCode (@Nullable final String sPostalCode)
   {
     final String sRealPostalCode = sPostalCode;
-    if (EqualsUtils.equals (m_sPostalCode, sRealPostalCode))
+    if (EqualsHelper.equals (m_sPostalCode, sRealPostalCode))
       return EChange.UNCHANGED;
     m_sPostalCode = sRealPostalCode;
     return EChange.CHANGED;
@@ -192,7 +192,7 @@ public class Address implements IAddress
   public EChange setCity (@Nullable final String sCity, @Nonnull final Locale aSortLocale)
   {
     final String sRealCity = AddressUtils.getUnifiedCity (sCity, aSortLocale);
-    if (EqualsUtils.equals (m_sCity, sRealCity))
+    if (EqualsHelper.equals (m_sCity, sRealCity))
       return EChange.UNCHANGED;
     m_sCity = sRealCity;
     return EChange.CHANGED;
@@ -208,7 +208,7 @@ public class Address implements IAddress
   public EChange setStreet (@Nullable final String sStreet, @Nonnull final Locale aSortLocale)
   {
     final String sRealStreet = AddressUtils.getUnifiedStreet (sStreet, aSortLocale);
-    if (EqualsUtils.equals (m_sStreet, sRealStreet))
+    if (EqualsHelper.equals (m_sStreet, sRealStreet))
       return EChange.UNCHANGED;
     m_sStreet = sRealStreet;
     return EChange.CHANGED;
@@ -223,7 +223,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setBuildingNumber (@Nullable final String sBuildingNumber)
   {
-    if (EqualsUtils.equals (m_sBuildingNumber, sBuildingNumber))
+    if (EqualsHelper.equals (m_sBuildingNumber, sBuildingNumber))
       return EChange.UNCHANGED;
     m_sBuildingNumber = sBuildingNumber;
     return EChange.CHANGED;
@@ -239,7 +239,7 @@ public class Address implements IAddress
   public EChange setPostOfficeBox (@Nullable final String sPostOfficeBox, @Nonnull final Locale aSortLocale)
   {
     final String sRealPostOfficeBox = AddressUtils.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
-    if (EqualsUtils.equals (m_sPostOfficeBox, sRealPostOfficeBox))
+    if (EqualsHelper.equals (m_sPostOfficeBox, sRealPostOfficeBox))
       return EChange.UNCHANGED;
     m_sPostOfficeBox = sRealPostOfficeBox;
     return EChange.CHANGED;
@@ -259,14 +259,14 @@ public class Address implements IAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final Address rhs = (Address) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sCountry, rhs.m_sCountry) &&
-           EqualsUtils.equals (m_sState, rhs.m_sState) &&
-           EqualsUtils.equals (m_sPostalCode, rhs.m_sPostalCode) &&
-           EqualsUtils.equals (m_sCity, rhs.m_sCity) &&
-           EqualsUtils.equals (m_sStreet, rhs.m_sStreet) &&
-           EqualsUtils.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
-           EqualsUtils.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
+           EqualsHelper.equals (m_sState, rhs.m_sState) &&
+           EqualsHelper.equals (m_sPostalCode, rhs.m_sPostalCode) &&
+           EqualsHelper.equals (m_sCity, rhs.m_sCity) &&
+           EqualsHelper.equals (m_sStreet, rhs.m_sStreet) &&
+           EqualsHelper.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
+           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
   }
 
   @Override

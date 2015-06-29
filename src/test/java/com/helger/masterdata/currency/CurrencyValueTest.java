@@ -24,10 +24,10 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
-public final class CurrencyValueTest extends AbstractPHTestCase
+public final class CurrencyValueTest extends AbstractCommonsTestCase
 {
   @Test
   public void testGetFormatted ()
@@ -47,7 +47,7 @@ public final class CurrencyValueTest extends AbstractPHTestCase
       final String sValueFormatted = aCV.getValueFormatted ();
       assertNotNull (sValueFormatted);
       assertTrue (sValueFormatted, sValueFormatted.indexOf (eCurrency.getCurrencySymbol ()) < 0);
-      PHTestUtils.testGetClone (aCV);
+      CommonsTestHelper.testGetClone (aCV);
 
       // There seems to be a bug in the optimizer of 1.6.0_45 so that the output
       // values are sometimes reordered - dunno why :(

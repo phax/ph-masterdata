@@ -35,16 +35,16 @@ import javax.annotation.concurrent.NotThreadSafe;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.CodingStyleguideUnaware;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.CollectionHelper;
+import com.helger.commons.annotation.CodingStyleguideUnaware;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.name.IHasDisplayText;
 import com.helger.commons.string.StringHelper;
+import com.helger.commons.text.display.IHasDisplayText;
 
 /**
  * A list of pre-selected currencies as specified in ISO 4217.<br>
@@ -258,7 +258,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   {
     final List <Locale> ret = new ArrayList <Locale> ();
     for (final String sCountry : aCountries)
-      ret.add (LocaleCache.getLocale (sCountry));
+      ret.add (LocaleCache.getInstance ().getLocale (sCountry));
     return ret;
   }
 

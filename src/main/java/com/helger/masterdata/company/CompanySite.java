@@ -20,10 +20,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
-import com.helger.commons.idfactory.GlobalIDFactory;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.id.factory.GlobalIDFactory;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
@@ -71,7 +71,7 @@ public final class CompanySite implements ICompanySite
   }
 
   @Nonnull
-  public ObjectType getTypeID ()
+  public ObjectType getObjectType ()
   {
     return TYPE_COMPANY_SITE;
   }
@@ -98,7 +98,7 @@ public final class CompanySite implements ICompanySite
   @Nonnull
   public EChange setDisplayName (@Nullable final String sDisplayName)
   {
-    if (EqualsUtils.equals (m_sDisplayName, sDisplayName))
+    if (EqualsHelper.equals (m_sDisplayName, sDisplayName))
       return EChange.UNCHANGED;
     m_sDisplayName = sDisplayName;
     return EChange.CHANGED;
@@ -113,7 +113,7 @@ public final class CompanySite implements ICompanySite
   @Nonnull
   public EChange setLongName (@Nullable final String sLongName)
   {
-    if (EqualsUtils.equals (m_sLongName, sLongName))
+    if (EqualsHelper.equals (m_sLongName, sLongName))
       return EChange.UNCHANGED;
     m_sLongName = sLongName;
     return EChange.CHANGED;

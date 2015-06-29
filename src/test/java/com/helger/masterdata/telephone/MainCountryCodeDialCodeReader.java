@@ -23,7 +23,7 @@ import java.util.Locale;
 
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.streams.StreamUtils;
+import com.helger.commons.io.stream.StreamHelper;
 import com.helger.commons.locale.LocaleCache;
 
 public final class MainCountryCodeDialCodeReader
@@ -47,7 +47,7 @@ public final class MainCountryCodeDialCodeReader
 
         final String sISO2 = sISO.substring (0, 2);
         Locale aCountry = null;
-        for (final Locale aLocale : LocaleCache.getAllLocales ())
+        for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
           if (aLocale.getCountry ().equals (sISO2))
           {
             aCountry = aLocale;
@@ -66,7 +66,7 @@ public final class MainCountryCodeDialCodeReader
     }
     finally
     {
-      StreamUtils.close (aReader);
+      StreamHelper.close (aReader);
     }
   }
 }

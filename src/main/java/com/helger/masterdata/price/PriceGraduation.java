@@ -25,10 +25,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.ReturnsImmutableObject;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
@@ -183,7 +183,7 @@ public class PriceGraduation implements IPriceGraduation
   }
 
   @Nonnegative
-  public int size ()
+  public int getSize ()
   {
     return m_aItems.size ();
   }
@@ -196,7 +196,7 @@ public class PriceGraduation implements IPriceGraduation
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final PriceGraduation rhs = (PriceGraduation) o;
-    return EqualsUtils.equals (m_eCurrency, rhs.m_eCurrency) && m_aItems.equals (rhs.m_aItems);
+    return EqualsHelper.equals (m_eCurrency, rhs.m_eCurrency) && m_aItems.equals (rhs.m_aItems);
   }
 
   @Override

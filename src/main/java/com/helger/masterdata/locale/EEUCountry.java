@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import org.joda.time.DateTimeConstants;
 import org.joda.time.LocalDate;
 
-import com.helger.commons.annotations.Nonempty;
+import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.country.CountryCache;

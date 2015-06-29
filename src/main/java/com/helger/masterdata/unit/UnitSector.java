@@ -25,18 +25,18 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.id.IHasIntID;
-import com.helger.commons.name.IHasDisplayText;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.commons.text.IReadonlyMultiLingualText;
+import com.helger.commons.text.IMultilingualText;
+import com.helger.commons.text.display.IHasDisplayText;
 
 @Immutable
 public final class UnitSector implements IHasIntID, IHasDisplayText
 {
   private final int m_nGroupNumber;
-  private final IReadonlyMultiLingualText m_aName;
+  private final IMultilingualText m_aName;
   private final EISO31 m_eISO31;
 
-  public UnitSector (@Nonnegative final int nGroupNumber, @Nonnull final IReadonlyMultiLingualText aName)
+  public UnitSector (@Nonnegative final int nGroupNumber, @Nonnull final IMultilingualText aName)
   {
     ValueEnforcer.isGE0 (nGroupNumber, "GroupNumber");
     ValueEnforcer.notNull (aName, "Name");
@@ -58,7 +58,7 @@ public final class UnitSector implements IHasIntID, IHasDisplayText
   }
 
   @Nonnull
-  public IReadonlyMultiLingualText getName ()
+  public IMultilingualText getName ()
   {
     return m_aName;
   }
@@ -66,7 +66,7 @@ public final class UnitSector implements IHasIntID, IHasDisplayText
   @Nullable
   public String getDisplayText (@Nonnull final Locale aContentLocale)
   {
-    return m_aName.getTextWithLocaleFallback (aContentLocale);
+    return m_aName.getText (aContentLocale);
   }
 
   @Nullable

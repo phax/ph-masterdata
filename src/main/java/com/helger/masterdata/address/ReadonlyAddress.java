@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -146,14 +146,14 @@ public final class ReadonlyAddress implements IReadonlyAddress
     if (!(o instanceof ReadonlyAddress))
       return false;
     final ReadonlyAddress rhs = (ReadonlyAddress) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sCountry, rhs.m_sCountry) &&
-           EqualsUtils.equals (m_sState, rhs.m_sState) &&
-           EqualsUtils.equals (m_sPostalCode, rhs.m_sPostalCode) &&
-           EqualsUtils.equals (m_sCity, rhs.m_sCity) &&
-           EqualsUtils.equals (m_sStreet, rhs.m_sStreet) &&
-           EqualsUtils.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
-           EqualsUtils.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
+           EqualsHelper.equals (m_sState, rhs.m_sState) &&
+           EqualsHelper.equals (m_sPostalCode, rhs.m_sPostalCode) &&
+           EqualsHelper.equals (m_sCity, rhs.m_sCity) &&
+           EqualsHelper.equals (m_sStreet, rhs.m_sStreet) &&
+           EqualsHelper.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
+           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
   }
 
   @Override

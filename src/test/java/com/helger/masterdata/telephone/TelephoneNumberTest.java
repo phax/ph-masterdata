@@ -23,15 +23,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link TelephoneNumber}
  *
  * @author Philip Helger
  */
-public final class TelephoneNumberTest extends AbstractPHTestCase
+public final class TelephoneNumberTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
@@ -88,38 +88,38 @@ public final class TelephoneNumberTest extends AbstractPHTestCase
   public void testDefaultImpl ()
   {
     TelephoneNumber a = new TelephoneNumber ();
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setType (ETelephoneType.PERSONAL);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setCountryCode ("0043");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setAreaCode ("01");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setLine ("1231234");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setDirectDial ("47");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    CommonsTestHelper.testGetClone (a);
   }
 }

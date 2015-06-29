@@ -22,9 +22,9 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-import com.helger.commons.exceptions.InitializationException;
+import com.helger.commons.exception.InitializationException;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.microdom.reader.XMLMapHandler;
+import com.helger.commons.microdom.util.XMLMapHandler;
 import com.helger.commons.string.StringHelper;
 
 /**

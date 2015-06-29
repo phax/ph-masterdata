@@ -21,26 +21,27 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.annotations.Translatable;
-import com.helger.commons.name.IHasDisplayTextWithArgs;
-import com.helger.commons.text.impl.TextProvider;
+import com.helger.commons.annotation.Translatable;
+import com.helger.commons.text.IMultilingualText;
+import com.helger.commons.text.display.IHasDisplayTextWithArgs;
 import com.helger.commons.text.resolve.DefaultTextResolver;
+import com.helger.commons.text.util.TextHelper;
 
 @Translatable
 public enum EVATItemText implements IHasDisplayTextWithArgs
 {
   VAT_PERC ("{0}% USt.", "VAT {0}%");
 
-  private final TextProvider m_aTP;
+  private final IMultilingualText m_aTP;
 
   private EVATItemText (@Nonnull final String sDE, @Nonnull final String sEN)
   {
-    m_aTP = TextProvider.create_DE_EN (sDE, sEN);
+    m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }
 
   @Nullable
   public String getDisplayTextWithArgs (@Nonnull final Locale aContentLocale, @Nullable final Object... aArgs)
   {
-    return DefaultTextResolver.getTextWithArgs (this, m_aTP, aContentLocale, aArgs);
+    return DefaultTextResolver.getTextWithArgsStatic (this, m_aTP, aContentLocale, aArgs);
   }
 }

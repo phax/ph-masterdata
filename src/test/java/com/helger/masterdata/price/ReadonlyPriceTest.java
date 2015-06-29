@@ -25,8 +25,8 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHAssert;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsAssert;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.EVATType;
 import com.helger.masterdata.vat.VATItem;
@@ -68,15 +68,15 @@ public final class ReadonlyPriceTest
                                                 new BigDecimal ("9.9"),
                                                 VATManager.VATTYPE_NONE);
     assertEquals (ECurrency.DEFAULT_CURRENCY, p1.getCurrency ());
-    PHAssert.assertEquals (9.9, p1.getNetAmount ().getValue ().doubleValue ());
-    PHAssert.assertEquals (9.9, p1.getGrossAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p1.getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p1.getGrossAmount ().getValue ().doubleValue ());
     assertEquals (VATManager.VATTYPE_NONE, p1.getVATItem ());
     assertEquals (p1, p1.getMultiplied (BigDecimal.ONE));
 
     final ReadonlyPrice p2 = new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
                                                 new BigDecimal ("9.9"),
                                                 VATManager.VATTYPE_NONE);
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (p1, p2);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (p1, p2);
 
     final VATItem v1 = new VATItem ("vat20", EVATType.REGULAR, new BigDecimal ("20"), false);
     assertTrue (p2.equals (new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
@@ -89,7 +89,7 @@ public final class ReadonlyPriceTest
     assertFalse (p2.equals (new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1)));
 
     final ReadonlyPrice p3 = new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1);
-    PHAssert.assertEquals (9.9, p3.getNetAmount ().getValue ().doubleValue ());
-    PHAssert.assertEquals (11.88, p3.getGrossAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p3.getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (11.88, p3.getGrossAmount ().getValue ().doubleValue ());
   }
 }

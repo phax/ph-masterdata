@@ -24,9 +24,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.email.EmailAddressUtils;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.email.EmailAddressHelper;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
@@ -92,7 +92,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   @Nonnull
   public EChange setType (@Nullable final EEmailAddressType eType)
   {
-    if (EqualsUtils.equals (eType, m_eType))
+    if (EqualsHelper.equals (eType, m_eType))
       return EChange.UNCHANGED;
     m_eType = eType;
     return EChange.CHANGED;
@@ -116,13 +116,13 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   @Nonnull
   public EChange setAddress (@Nullable final String sAddress)
   {
-    final String sRealAddress = EmailAddressUtils.getUnifiedEmailAddress (sAddress);
-    if (EqualsUtils.equals (sRealAddress, m_sAddress))
+    final String sRealAddress = EmailAddressHelper.getUnifiedEmailAddress (sAddress);
+    if (EqualsHelper.equals (sRealAddress, m_sAddress))
       return EChange.UNCHANGED;
 
     // Check only without MX record check here, because this is a performance
     // bottleneck when having multiple customers
-    if (sRealAddress != null && !EmailAddressUtils.isValid (sRealAddress))
+    if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
       s_aLogger.error ("Found an illegal email address: '" + sRealAddress + "'");
       return EChange.UNCHANGED;
@@ -141,7 +141,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
   public EChange setPersonal (@Nullable final String sPersonal)
   {
     final String sRealPersonal = sPersonal;
-    if (EqualsUtils.equals (sRealPersonal, m_sPersonal))
+    if (EqualsHelper.equals (sRealPersonal, m_sPersonal))
       return EChange.UNCHANGED;
     m_sPersonal = sRealPersonal;
     return EChange.CHANGED;
@@ -169,9 +169,9 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ExtendedEmailAddress rhs = (ExtendedEmailAddress) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sAddress, rhs.m_sAddress) &&
-           EqualsUtils.equals (m_sPersonal, rhs.m_sPersonal);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sAddress, rhs.m_sAddress) &&
+           EqualsHelper.equals (m_sPersonal, rhs.m_sPersonal);
   }
 
   @Override

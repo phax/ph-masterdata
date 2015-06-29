@@ -18,27 +18,20 @@ package com.helger.masterdata.currency.exchangeratio;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.compare.AbstractComparator;
-import com.helger.commons.compare.ESortOrder;
+import org.joda.time.LocalDate;
+
+import com.helger.commons.compare.AbstractPartComparatorComparable;
 
 /**
  * A comparator comparing {@link ExchangeRatio} objects by their date.
- * 
+ *
  * @author Philip Helger
  */
-public class ComparatorExchangeRatioDate extends AbstractComparator <ExchangeRatio>
+public class ComparatorExchangeRatioDate extends AbstractPartComparatorComparable <ExchangeRatio, LocalDate>
 {
-  public ComparatorExchangeRatioDate ()
-  {}
-
-  public ComparatorExchangeRatioDate (@Nonnull final ESortOrder eSortOrder)
-  {
-    super (eSortOrder);
-  }
-
   @Override
-  protected int mainCompare (@Nonnull final ExchangeRatio aElement1, @Nonnull final ExchangeRatio aElement2)
+  protected LocalDate getPart (@Nonnull final ExchangeRatio aElement)
   {
-    return aElement1.getDate ().compareTo (aElement2.getDate ());
+    return aElement.getDate ();
   }
 }

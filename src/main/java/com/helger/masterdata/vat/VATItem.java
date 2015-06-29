@@ -28,16 +28,16 @@ import org.joda.time.LocalDate;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
-import com.helger.commons.idfactory.GlobalIDFactory;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.id.factory.GlobalIDFactory;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.period.LocalDatePeriod;
 
 /**
  * Default implementation of {@link IVATItem}.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -137,7 +137,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
     final VATItem rhs = (VATItem) o;
     return m_sID.equals (rhs.m_sID) &&
            m_eType.equals (rhs.m_eType) &&
-           EqualsUtils.equals (m_aPercentage, rhs.m_aPercentage) &&
+           EqualsHelper.equals (m_aPercentage, rhs.m_aPercentage) &&
            m_bDeprecated == rhs.m_bDeprecated;
   }
 

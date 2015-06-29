@@ -32,7 +32,7 @@ import com.helger.commons.system.SystemHelper;
 
 /**
  * Source: http://www.unece.org/trans/main/wp1/wp1fdoc/disting-signs-5-2001.pdf
- * 
+ *
  * @author Philip Helger
  */
 public final class VehicleSignsFuncTest
@@ -44,7 +44,7 @@ public final class VehicleSignsFuncTest
   public void testFindVehicleCountries ()
   {
     if (false)
-      for (final Locale aLocale : LocaleCache.getAllLocales ())
+      for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
         if (aLocale.getDisplayCountry (Locale.UK).contains ("zi"))
           s_aLogger.info (aLocale + " -- " + aLocale.getDisplayCountry (Locale.UK));
     final Map <String, String> map = new LinkedHashMap <String, String> ();
@@ -212,7 +212,7 @@ public final class VehicleSignsFuncTest
     for (final String sCountry : map.keySet ())
     {
       Locale aFound = null;
-      outer: for (final Locale aLocale : LocaleCache.getAllLocales ())
+      outer: for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
       {
         if (aLocale.getCountry ().length () == 0)
           continue;
@@ -247,8 +247,8 @@ public final class VehicleSignsFuncTest
   public void testGetAllCountries ()
   {
     final Set <String> aSet = new TreeSet <String> ();
-    for (final Locale aLocale : LocaleCache.getAllLocales ())
-      for (final Locale aLocale2 : LocaleCache.getAllLocales ())
+    for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
+      for (final Locale aLocale2 : LocaleCache.getInstance ().getAllLocales ())
         aSet.add (aLocale.getDisplayCountry (aLocale2));
     for (final String sUnique : aSet)
       s_aLogger.info (sUnique);

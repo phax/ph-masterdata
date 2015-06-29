@@ -23,9 +23,9 @@ import javax.annotation.concurrent.Immutable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.email.EmailAddressUtils;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.email.EmailAddressHelper;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -58,8 +58,8 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
                                        @Nullable final String sPersonal)
   {
     m_eType = eType;
-    String sRealAddress = EmailAddressUtils.getUnifiedEmailAddress (sAddress);
-    if (sRealAddress != null && !EmailAddressUtils.isValid (sRealAddress))
+    String sRealAddress = EmailAddressHelper.getUnifiedEmailAddress (sAddress);
+    if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
       s_aLogger.error ("Illegal email address passed: '" + sRealAddress + "'");
       sRealAddress = null;
@@ -102,9 +102,9 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
     if (!(o instanceof ReadonlyExtendedEmailAddress))
       return false;
     final ReadonlyExtendedEmailAddress rhs = (ReadonlyExtendedEmailAddress) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sAddress, rhs.m_sAddress) &&
-           EqualsUtils.equals (m_sPersonal, rhs.m_sPersonal);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sAddress, rhs.m_sAddress) &&
+           EqualsHelper.equals (m_sPersonal, rhs.m_sPersonal);
   }
 
   @Override

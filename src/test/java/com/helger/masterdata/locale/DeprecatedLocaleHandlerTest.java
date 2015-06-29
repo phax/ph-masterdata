@@ -44,7 +44,7 @@ public final class DeprecatedLocaleHandlerTest
     assertTrue (x.isDeprecatedLocale (CountryCache.getInstance ().getCountry ("CS")));
 
     // This locale is only implicitly deprecated
-    assertFalse (x.isDeprecatedLocale (LocaleCache.getLocale ("cs", "CS")));
+    assertFalse (x.isDeprecatedLocale (LocaleCache.getInstance ().getLocale ("cs", "CS")));
 
     // This country is not deprecated
     assertFalse (x.isDeprecatedLocale (CountryCache.getInstance ().getCountry ("AT")));
@@ -53,7 +53,7 @@ public final class DeprecatedLocaleHandlerTest
     assertTrue (x.isDeprecatedLocaleWithFallback (CountryCache.getInstance ().getCountry ("CS")));
 
     // This locale is implicitly also deprecated
-    assertTrue (x.isDeprecatedLocaleWithFallback (LocaleCache.getLocale ("cs", "CS")));
+    assertTrue (x.isDeprecatedLocaleWithFallback (LocaleCache.getInstance ().getLocale ("cs", "CS")));
 
     // This country is not deprecated
     assertFalse (x.isDeprecatedLocaleWithFallback (CountryCache.getInstance ().getCountry ("AT")));

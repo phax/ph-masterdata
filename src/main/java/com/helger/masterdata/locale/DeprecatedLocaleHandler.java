@@ -30,9 +30,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.io.IInputStreamProvider;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.microdom.IMicroDocument;
@@ -95,7 +95,7 @@ public final class DeprecatedLocaleHandler
       final String sCountry = eLocale.getAttributeValue ("country");
       final String sVariant = eLocale.getAttributeValue ("variant");
 
-      final Locale aLocale = LocaleCache.getLocale (sLanguage, sCountry, sVariant);
+      final Locale aLocale = LocaleCache.getInstance ().getLocale (sLanguage, sCountry, sVariant);
       if (aLocale == null)
         s_aLogger.warn ("Deprecated locale could not be resolved!");
       else
@@ -157,7 +157,7 @@ public final class DeprecatedLocaleHandler
   }
 
   @Nonnull
-  public static DeprecatedLocaleHandler readFromXML (@Nonnull final IInputStreamProvider aISP)
+  public static DeprecatedLocaleHandler readFromXML (@Nonnull final IHasInputStream aISP)
   {
     ValueEnforcer.notNull (aISP, "InputStreamProvider");
 

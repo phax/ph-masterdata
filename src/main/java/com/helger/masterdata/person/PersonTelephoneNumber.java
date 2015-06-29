@@ -20,8 +20,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.telephone.ETelephoneType;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
@@ -87,7 +87,7 @@ public class PersonTelephoneNumber extends TelephoneNumber
     if (!super.equals (o))
       return false;
     final PersonTelephoneNumber rhs = (PersonTelephoneNumber) o;
-    return EqualsUtils.equals (getOwnerID (), rhs.getOwnerID ());
+    return EqualsHelper.equals (getOwnerID (), rhs.getOwnerID ());
   }
 
   @Override

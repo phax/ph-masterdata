@@ -26,8 +26,8 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHAssert;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsAssert;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.EVATType;
 import com.helger.masterdata.vat.IVATItem;
@@ -184,7 +184,10 @@ public final class PriceGraduationTest
     assertTrue (pg.isEmpty ());
     assertTrue (pg.addItem (1, new BigDecimal ("19.9")).isChanged ());
     assertTrue (pg.addItem (5, new BigDecimal ("14.9")).isChanged ());
-    PHAssert.assertEquals (19.9, pg.getSinglePriceOfQuantity (1, aVATItem).getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (19.9, pg.getSinglePriceOfQuantity (1, aVATItem)
+                                        .getNetAmount ()
+                                        .getValue ()
+                                        .doubleValue ());
     assertEquals (ECurrency.GBP, pg.getSinglePriceOfQuantity (1, aVATItem).getCurrency ());
     assertEquals (aVATItem, pg.getSinglePriceOfQuantity (1, aVATItem).getVATItem ());
   }
@@ -194,19 +197,19 @@ public final class PriceGraduationTest
   {
     final IPriceGraduation pg1 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
     final IPriceGraduation pg2 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (pg1, pg2);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);
 
     final BigDecimal aNetAmount1 = new BigDecimal ("19.9");
     pg1.addItem (new PriceGraduationItem (1, aNetAmount1));
     pg2.addItem (new PriceGraduationItem (1, aNetAmount1));
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (pg1, pg2);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);
 
     for (int i = 2; i <= 100; ++i)
     {
       final BigDecimal aNetAmount = new BigDecimal ("19.9").add (new BigDecimal (i));
       pg1.addItem (new PriceGraduationItem (i, aNetAmount));
       pg2.addItem (new PriceGraduationItem (i, aNetAmount));
-      PHTestUtils.testDefaultImplementationWithEqualContentObject (pg1, pg2);
+      CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);
     }
   }
 

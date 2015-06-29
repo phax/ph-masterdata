@@ -35,17 +35,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.io.IInputStreamProvider;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.locale.LocaleUtils;
+import com.helger.commons.locale.LocaleHelper;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.serialize.MicroReader;
-import com.helger.commons.microdom.utils.MicroUtils;
+import com.helger.commons.microdom.util.MicroHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.string.ToStringGenerator;
@@ -89,7 +89,7 @@ public class VATManager implements IVATItemResolver
       return null;
 
     // Is it "all" or "independent"?
-    if (LocaleUtils.isSpecialLocale (aLocale))
+    if (LocaleHelper.isSpecialLocale (aLocale))
       return aLocale.getLanguage ();
     return aLocale.getCountry ().toLowerCase (Locale.US);
   }
@@ -129,7 +129,7 @@ public class VATManager implements IVATItemResolver
       final boolean bZeroVATAllowed = StringParser.parseBool (sZeroVATAllowed);
 
       // Internal comment?
-      final String sInternalComment = MicroUtils.getChildTextContent (eVATTypes, "comment");
+      final String sInternalComment = MicroHelper.getChildTextContent (eVATTypes, "comment");
 
       // read all items
       final VATCountryData aVATCountryData = new VATCountryData (aCountry,
@@ -299,7 +299,7 @@ public class VATManager implements IVATItemResolver
   {
     if (eType != null && aPercentage != null)
       for (final IVATItem aVATItem : m_aAllVATItems.values ())
-        if (aVATItem.getType ().equals (eType) && EqualsUtils.equals (aVATItem.getPercentage (), aPercentage))
+        if (aVATItem.getType ().equals (eType) && EqualsHelper.equals (aVATItem.getPercentage (), aPercentage))
           return aVATItem;
     return null;
   }
@@ -314,7 +314,7 @@ public class VATManager implements IVATItemResolver
   }
 
   @Nonnull
-  public static VATManager readFromXML (@Nonnull final IInputStreamProvider aISP)
+  public static VATManager readFromXML (@Nonnull final IHasInputStream aISP)
   {
     ValueEnforcer.notNull (aISP, "InputStreamProvider");
 

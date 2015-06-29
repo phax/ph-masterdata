@@ -22,9 +22,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -120,8 +120,8 @@ public class ISO639_2Item implements Serializable
       return false;
     final ISO639_2Item rhs = (ISO639_2Item) o;
     return m_sAlpha3B.equals (rhs.m_sAlpha3B) &&
-           EqualsUtils.equals (m_sAlpha3T, rhs.m_sAlpha3T) &&
-           EqualsUtils.equals (m_sAlpha2, rhs.m_sAlpha2) &&
+           EqualsHelper.equals (m_sAlpha3T, rhs.m_sAlpha3T) &&
+           EqualsHelper.equals (m_sAlpha2, rhs.m_sAlpha2) &&
            m_sEN.equals (rhs.m_sEN) &&
            m_sFR.equals (rhs.m_sFR);
   }

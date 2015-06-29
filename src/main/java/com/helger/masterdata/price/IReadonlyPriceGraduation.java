@@ -22,9 +22,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.IHasSize;
-import com.helger.commons.annotations.MustImplementEqualsAndHashcode;
-import com.helger.commons.annotations.ReturnsImmutableObject;
+import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.lang.IHasSize;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.vat.IVATItem;
@@ -39,7 +39,7 @@ import com.helger.masterdata.vat.IVATItem;
  * the minimum quantity 1 exists. If you're selling certain items only in higher
  * quantities (e.g. balloons or other small things), you should instead use a
  * packaging unit (German: Verpackungseinheit) and define a quantity of 1.
- * 
+ *
  * @see IReadonlyPriceGraduationItem
  * @author Philip Helger
  */
@@ -87,7 +87,7 @@ public interface IReadonlyPriceGraduation extends IHasSize, IHasCurrency
 
   /**
    * Get the price of a single item, for the given quantity.
-   * 
+   *
    * @param nQuantity
    *        The quantity to query. Must be &ge; 1.
    * @param aVAT
@@ -100,7 +100,7 @@ public interface IReadonlyPriceGraduation extends IHasSize, IHasCurrency
   /**
    * Get the total price of all items for the given quantity. This is a shortcut
    * for <code>getSinglePriceOfQuantity (nQuantity).multiply (nQuantity)</code>
-   * 
+   *
    * @param nQuantity
    *        The quantity to query. Must be &ge; 1.
    * @param aVAT
@@ -113,7 +113,7 @@ public interface IReadonlyPriceGraduation extends IHasSize, IHasCurrency
   /**
    * Delivers a price object based on the net amount of the passed item and the
    * currency and VAT set for the price graduation
-   * 
+   *
    * @param aItem
    *        the price graduation item for which to retrieve the price
    * @param aVAT
@@ -133,5 +133,5 @@ public interface IReadonlyPriceGraduation extends IHasSize, IHasCurrency
    * @return The number of quantity-price pairs in this object. Always &ge; 0.
    */
   @Nonnegative
-  int size ();
+  int getSize ();
 }

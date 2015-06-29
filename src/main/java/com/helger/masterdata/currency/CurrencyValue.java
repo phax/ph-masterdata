@@ -23,8 +23,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -95,7 +95,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   {
     ValueEnforcer.notNull (aValue, "Value");
 
-    if (EqualsUtils.equals (aValue, m_aValue))
+    if (EqualsHelper.equals (aValue, m_aValue))
       return EChange.UNCHANGED;
     m_aValue = aValue;
     return EChange.CHANGED;
@@ -198,7 +198,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
     if (!(o instanceof CurrencyValue))
       return false;
     final CurrencyValue rhs = (CurrencyValue) o;
-    return m_eCurrency.equals (rhs.m_eCurrency) && EqualsUtils.equals (m_aValue, rhs.m_aValue);
+    return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);
   }
 
   @Override

@@ -26,10 +26,10 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.collections.multimap.IMultiMapSetBased;
-import com.helger.commons.collections.multimap.MultiHashMapHashSetBased;
-import com.helger.commons.exceptions.InitializationException;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.multimap.IMultiMapSetBased;
+import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.exception.InitializationException;
 import com.helger.commons.locale.country.CountryCache;
 
 /**

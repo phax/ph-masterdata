@@ -29,10 +29,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.io.file.FileUtils;
+import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.impl.MicroDocument;
+import com.helger.commons.microdom.MicroDocument;
 import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
@@ -94,7 +94,7 @@ public class MainReadPackageTypeCodeListExcel
 
     // Ideally don't change anything from here on
     final File f = new File ("src/test/resources/" + sBaseName + ".xls");
-    final Workbook aWB = new HSSFWorkbook (FileUtils.getInputStream (f));
+    final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f));
     final Sheet aSheet = aWB.getSheetAt (0);
     final Iterator <Row> it = aSheet.rowIterator ();
 
@@ -135,7 +135,7 @@ public class MainReadPackageTypeCodeListExcel
       }
     }
 
-    MicroWriter.writeToStream (aDoc, FileUtils.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
+    MicroWriter.writeToStream (aDoc, FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
     s_aLogger.info ("Done");
   }
 }

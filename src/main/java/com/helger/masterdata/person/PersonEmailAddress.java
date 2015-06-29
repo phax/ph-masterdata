@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.email.EEmailAddressType;
 import com.helger.masterdata.email.ExtendedEmailAddress;
@@ -95,7 +95,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
     if (!super.equals (o))
       return false;
     final PersonEmailAddress rhs = (PersonEmailAddress) o;
-    return EqualsUtils.equals (getOwnerID (), rhs.getOwnerID ());
+    return EqualsHelper.equals (getOwnerID (), rhs.getOwnerID ());
   }
 
   @Override

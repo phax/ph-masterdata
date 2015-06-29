@@ -30,7 +30,7 @@ import com.helger.commons.microdom.convert.MicroTypeConverter;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringParser;
-import com.helger.commons.text.IReadonlyMultiLingualText;
+import com.helger.commons.text.IMultilingualText;
 
 /**
  * Test class for class {@link UnitManager}.
@@ -50,9 +50,9 @@ public final class CreateQuantityEnumFuncTest
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
       final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
-      final IReadonlyMultiLingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"),
-                                                                                  IReadonlyMultiLingualText.class);
-      final String sEN = aName.getTextWithLocaleFallback (Locale.ENGLISH).trim ();
+      final IMultilingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"),
+                                                                          IMultilingualText.class);
+      final String sEN = aName.getText (Locale.ENGLISH).trim ();
       aTexts.put (Integer.valueOf (nQuantity), sEN);
     }
 

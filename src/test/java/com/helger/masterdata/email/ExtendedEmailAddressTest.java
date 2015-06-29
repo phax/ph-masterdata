@@ -23,15 +23,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link ExtendedEmailAddress}
  *
  * @author Philip Helger
  */
-public final class ExtendedEmailAddressTest extends AbstractPHTestCase
+public final class ExtendedEmailAddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
@@ -70,27 +70,27 @@ public final class ExtendedEmailAddressTest extends AbstractPHTestCase
   public void testDefaultImpl ()
   {
     ExtendedEmailAddress a = new ExtendedEmailAddress ();
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new ExtendedEmailAddress ();
     a.setType (EEmailAddressType.PERSONAL);
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new ExtendedEmailAddress ();
     a.setAddress ("test@example.org");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
-    PHTestUtils.testGetClone (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
+    CommonsTestHelper.testGetClone (a);
 
     a = new ExtendedEmailAddress ();
     a.setPersonal ("Ich & Du");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
-    PHTestUtils.testGetClone (a);
-    PHTestUtils.testDefaultSerialization (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
+    CommonsTestHelper.testGetClone (a);
+    CommonsTestHelper.testDefaultSerialization (a);
   }
 }

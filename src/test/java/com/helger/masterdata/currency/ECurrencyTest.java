@@ -34,13 +34,13 @@ import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.collections.multimap.IMultiMapSetBased;
-import com.helger.commons.collections.multimap.MultiHashMapHashSetBased;
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.multimap.IMultiMapSetBased;
+import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.ComparatorLocale;
 import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.mock.AbstractPHTestCase;
+import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
 import com.helger.masterdata.locale.FilterLocaleCountryOnAnyContinent;
@@ -48,7 +48,7 @@ import com.helger.masterdata.locale.FilterLocaleCountryOnContinent;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-public final class ECurrencyTest extends AbstractPHTestCase
+public final class ECurrencyTest extends AbstractCommonsTestCase
 {
   @Test
   public void testGetFromIDOrNull ()
@@ -336,7 +336,7 @@ public final class ECurrencyTest extends AbstractPHTestCase
     for (final ECurrency e : ECurrency.values ())
       if (!e.isDeprecated ())
         for (final Locale aLocale : e.getAllMatchingLocales ())
-          if (!EqualsUtils.equals (aLocale, aLocCuba))
+          if (!EqualsHelper.equals (aLocale, aLocCuba))
             assertSame (e, ECurrency.getFromLocaleOrNull (aLocale, false));
   }
 
@@ -396,8 +396,8 @@ public final class ECurrencyTest extends AbstractPHTestCase
       }
     }
     for (final Map.Entry <Currency, Set <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
-                                                                                      new ComparatorCurrencyCode ())
-                                                                     .entrySet ())
+                                                                                       new ComparatorCurrencyCode ())
+                                                                      .entrySet ())
     {
       String sLocale = "";
       for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), new ComparatorLocale ()))

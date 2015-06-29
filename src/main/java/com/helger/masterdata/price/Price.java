@@ -24,9 +24,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -99,7 +99,7 @@ public class Price implements IPrice
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 
     final CurrencyValue aRealNetAmount = new CurrencyValue (aNetAmount);
-    if (EqualsUtils.equals (m_aNetAmount, aRealNetAmount))
+    if (EqualsHelper.equals (m_aNetAmount, aRealNetAmount))
       return EChange.UNCHANGED;
     m_aNetAmount = aRealNetAmount;
     return EChange.CHANGED;

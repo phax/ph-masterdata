@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
@@ -81,7 +81,7 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setType (@Nullable final ETelephoneType eType)
   {
-    if (EqualsUtils.equals (m_eType, eType))
+    if (EqualsHelper.equals (m_eType, eType))
       return EChange.UNCHANGED;
     m_eType = eType;
     return EChange.CHANGED;
@@ -97,7 +97,7 @@ public class TelephoneNumber implements ITelephoneNumber
   public EChange setCountryCode (@Nullable final String sCountryCode)
   {
     final String sRealCountryCode = sCountryCode;
-    if (EqualsUtils.equals (m_sCountryCode, sRealCountryCode))
+    if (EqualsHelper.equals (m_sCountryCode, sRealCountryCode))
       return EChange.UNCHANGED;
     m_sCountryCode = sRealCountryCode;
     return EChange.CHANGED;
@@ -113,7 +113,7 @@ public class TelephoneNumber implements ITelephoneNumber
   public EChange setAreaCode (@Nullable final String sAreaCode)
   {
     final String sRealAreaCode = sAreaCode;
-    if (EqualsUtils.equals (m_sAreaCode, sRealAreaCode))
+    if (EqualsHelper.equals (m_sAreaCode, sRealAreaCode))
       return EChange.UNCHANGED;
     m_sAreaCode = sRealAreaCode;
     return EChange.CHANGED;
@@ -129,7 +129,7 @@ public class TelephoneNumber implements ITelephoneNumber
   public EChange setLine (@Nullable final String sLine)
   {
     final String sRealLine = TelephoneUtils.getCleanedLine (sLine);
-    if (EqualsUtils.equals (m_sLine, sRealLine))
+    if (EqualsHelper.equals (m_sLine, sRealLine))
       return EChange.UNCHANGED;
     m_sLine = sRealLine;
     return EChange.CHANGED;
@@ -145,7 +145,7 @@ public class TelephoneNumber implements ITelephoneNumber
   public EChange setDirectDial (@Nullable final String sDirectDial)
   {
     final String sRealDirectDial = sDirectDial;
-    if (EqualsUtils.equals (m_sDirectDial, sRealDirectDial))
+    if (EqualsHelper.equals (m_sDirectDial, sRealDirectDial))
       return EChange.UNCHANGED;
     m_sDirectDial = sRealDirectDial;
     return EChange.CHANGED;
@@ -165,11 +165,11 @@ public class TelephoneNumber implements ITelephoneNumber
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final TelephoneNumber rhs = (TelephoneNumber) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sCountryCode, rhs.m_sCountryCode) &&
-           EqualsUtils.equals (m_sAreaCode, rhs.m_sAreaCode) &&
-           EqualsUtils.equals (m_sLine, rhs.m_sLine) &&
-           EqualsUtils.equals (m_sDirectDial, rhs.m_sDirectDial);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sCountryCode, rhs.m_sCountryCode) &&
+           EqualsHelper.equals (m_sAreaCode, rhs.m_sAreaCode) &&
+           EqualsHelper.equals (m_sLine, rhs.m_sLine) &&
+           EqualsHelper.equals (m_sDirectDial, rhs.m_sDirectDial);
   }
 
   @Override

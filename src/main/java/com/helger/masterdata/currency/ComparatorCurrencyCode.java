@@ -16,35 +16,23 @@
  */
 package com.helger.masterdata.currency;
 
-import java.util.Comparator;
 import java.util.Currency;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
-import com.helger.commons.compare.AbstractComparator;
-import com.helger.commons.compare.ESortOrder;
+import com.helger.commons.compare.AbstractPartComparatorComparable;
 
 /**
  * A Comparator implementation that compares {@link Currency} objects by their
  * currency code.
- * 
+ *
  * @author Philip Helger
  */
-public final class ComparatorCurrencyCode extends AbstractComparator <Currency>
+public final class ComparatorCurrencyCode extends AbstractPartComparatorComparable <Currency, String>
 {
-  public ComparatorCurrencyCode ()
-  {}
-
-  public ComparatorCurrencyCode (@Nonnull final ESortOrder eSortOrder,
-                                 @Nullable final Comparator <? super Currency> aNestedComparator)
-  {
-    super (eSortOrder, aNestedComparator);
-  }
-
   @Override
-  protected int mainCompare (@Nonnull final Currency aCurrency1, @Nonnull final Currency aCurrency2)
+  protected String getPart (@Nonnull final Currency aCurrency)
   {
-    return aCurrency1.getCurrencyCode ().compareTo (aCurrency2.getCurrencyCode ());
+    return aCurrency.getCurrencyCode ();
   }
 }

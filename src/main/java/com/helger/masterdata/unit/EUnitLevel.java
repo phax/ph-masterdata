@@ -19,10 +19,10 @@ package com.helger.masterdata.unit;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasSimpleIntID;
+import com.helger.commons.id.IHasIntID;
 import com.helger.commons.lang.EnumHelper;
 
-public enum EUnitLevel implements IHasSimpleIntID
+public enum EUnitLevel implements IHasIntID
 {
   NORMATIVE (1),
   NORMATIVE_EQUIVALENT (2),

@@ -20,14 +20,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Default read-only implementation of {@link IReadonlyTelephoneNumber}
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -95,11 +95,11 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
     if (!(o instanceof ReadonlyTelephoneNumber))
       return false;
     final ReadonlyTelephoneNumber rhs = (ReadonlyTelephoneNumber) o;
-    return EqualsUtils.equals (m_eType, rhs.m_eType) &&
-           EqualsUtils.equals (m_sCountryCode, rhs.m_sCountryCode) &&
-           EqualsUtils.equals (m_sAreaCode, rhs.m_sAreaCode) &&
-           EqualsUtils.equals (m_sLine, rhs.m_sLine) &&
-           EqualsUtils.equals (m_sDirectDial, rhs.m_sDirectDial);
+    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+           EqualsHelper.equals (m_sCountryCode, rhs.m_sCountryCode) &&
+           EqualsHelper.equals (m_sAreaCode, rhs.m_sAreaCode) &&
+           EqualsHelper.equals (m_sLine, rhs.m_sLine) &&
+           EqualsHelper.equals (m_sDirectDial, rhs.m_sDirectDial);
   }
 
   @Override

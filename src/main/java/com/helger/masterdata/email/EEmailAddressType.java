@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
-import com.helger.commons.name.IHasDisplayText;
+import com.helger.commons.text.display.IHasDisplayText;
 
 public enum EEmailAddressType implements IHasID <String>, IHasDisplayText
 {

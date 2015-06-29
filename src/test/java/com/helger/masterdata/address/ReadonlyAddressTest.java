@@ -21,15 +21,15 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link ReadonlyAddress}
  *
  * @author Philip Helger
  */
-public final class ReadonlyAddressTest extends AbstractPHTestCase
+public final class ReadonlyAddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
@@ -69,78 +69,79 @@ public final class ReadonlyAddressTest extends AbstractPHTestCase
                                                    "1",
                                                    "12AB",
                                                    L_DE);
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                         "de",
-                                                                                         "NÖ",
-                                                                                         "1010",
-                                                                                         "Wien",
-                                                                                         "Hauptstr.",
-                                                                                         "1",
-                                                                                         "12AB",
-                                                                                         L_DE));
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (a, L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE2,
-                                                                                             "de",
-                                                                                             "NÖ",
-                                                                                             "1010",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "at",
-                                                                                             "NÖ",
-                                                                                             "1010",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "de",
-                                                                                             "OÖ",
-                                                                                             "1010",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "de",
-                                                                                             "NÖ",
-                                                                                             "1020",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "de",
-                                                                                             "NÖ",
-                                                                                             "1010",
-                                                                                             "Graz",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "de",
-                                                                                             "NÖ",
-                                                                                             "1010",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "2",
-                                                                                             "12AB",
-                                                                                             L_DE));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
-                                                                                             "de",
-                                                                                             "NÖ",
-                                                                                             "1010",
-                                                                                             "Wien",
-                                                                                             "Hauptstr.",
-                                                                                             "1",
-                                                                                             "13AB",
-                                                                                             L_DE));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                               "de",
+                                                                                               "NÖ",
+                                                                                               "1010",
+                                                                                               "Wien",
+                                                                                               "Hauptstr.",
+                                                                                               "1",
+                                                                                               "12AB",
+                                                                                               L_DE));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (a, L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadonlyAddress (EAddressType.OFFICE2,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "at",
+                                                                                                   "NÖ",
+                                                                                                   "1010",
+                                                                                                   "Wien",
+                                                                                                   "Hauptstr.",
+                                                                                                   "1",
+                                                                                                   "12AB",
+                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "de",
+                                                                                                   "OÖ",
+                                                                                                   "1010",
+                                                                                                   "Wien",
+                                                                                                   "Hauptstr.",
+                                                                                                   "1",
+                                                                                                   "12AB",
+                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "de",
+                                                                                                   "NÖ",
+                                                                                                   "1020",
+                                                                                                   "Wien",
+                                                                                                   "Hauptstr.",
+                                                                                                   "1",
+                                                                                                   "12AB",
+                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "de",
+                                                                                                   "NÖ",
+                                                                                                   "1010",
+                                                                                                   "Graz",
+                                                                                                   "Hauptstr.",
+                                                                                                   "1",
+                                                                                                   "12AB",
+                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "de",
+                                                                                                   "NÖ",
+                                                                                                   "1010",
+                                                                                                   "Wien",
+                                                                                                   "Hauptstr.",
+                                                                                                   "2",
+                                                                                                   "12AB",
+                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+                                                                                                   "de",
+                                                                                                   "NÖ",
+                                                                                                   "1010",
+                                                                                                   "Wien",
+                                                                                                   "Hauptstr.",
+                                                                                                   "1",
+                                                                                                   "13AB",
+                                                                                                   L_DE));
   }
 }

@@ -37,16 +37,16 @@ import org.joda.time.format.ISODateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.annotations.ReturnsImmutableObject;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.collections.multimap.IMultiMapListBased;
-import com.helger.commons.collections.multimap.MultiHashMapArrayListBased;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.multimap.IMultiMapListBased;
+import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
 import com.helger.commons.compare.AbstractComparator;
-import com.helger.commons.io.file.FileUtils;
+import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.impl.MicroDocument;
+import com.helger.commons.microdom.MicroDocument;
 import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringHelper;
 import com.helger.datetime.PDTFactory;
@@ -148,7 +148,7 @@ public class MainReadPostalCodeListExcel
     final String sRevision = "20130209";
 
     final File f = new File ("src/test/resources/" + sRevision + "PostalCodes.xls");
-    final Workbook aWB = new HSSFWorkbook (FileUtils.getInputStream (f));
+    final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f));
     final Sheet aSheet = aWB.getSheetAt (0);
     final Iterator <Row> it = aSheet.rowIterator ();
 
@@ -253,9 +253,9 @@ public class MainReadPostalCodeListExcel
     }
 
     MicroWriter.writeToStream (aDoc,
-                               FileUtils.getOutputStream ("src/main/resources/codelists/postal-codes-" +
-                                                          sRevision +
-                                                          ".xml"));
+                               FileHelper.getOutputStream ("src/main/resources/codelists/postal-codes-" +
+                                                           sRevision +
+                                                           ".xml"));
     s_aLogger.info ("Done");
   }
 }

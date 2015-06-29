@@ -27,9 +27,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import com.helger.commons.io.IReadableResource;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.locale.country.ComparatorLocaleCountry;
+import com.helger.commons.io.resource.IReadableResource;
+import com.helger.commons.locale.country.CollatingComparatorLocaleCountry;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
@@ -102,7 +102,7 @@ public class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final Map <Locale, EContinent> aMap = new TreeMap <Locale, EContinent> (new ComparatorLocaleCountry (LOC));
+    final Map <Locale, EContinent> aMap = new TreeMap <Locale, EContinent> (new CollatingComparatorLocaleCountry (LOC));
     while (true)
     {
       final Row aRow = aSheet.getRow (nRow);

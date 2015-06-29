@@ -22,15 +22,15 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Default implementation class of {@link IPriceGraduationItem} and
  * {@link IReadonlyPriceGraduationItem}.
- * 
+ *
  * @author Philip Helger
  */
 public class PriceGraduationItem implements IPriceGraduationItem
@@ -72,7 +72,7 @@ public class PriceGraduationItem implements IPriceGraduationItem
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 
-    if (EqualsUtils.equals (aNetAmount, m_aNetAmount))
+    if (EqualsHelper.equals (aNetAmount, m_aNetAmount))
       return EChange.UNCHANGED;
     m_aNetAmount = aNetAmount;
     return EChange.CHANGED;
@@ -86,7 +86,7 @@ public class PriceGraduationItem implements IPriceGraduationItem
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final PriceGraduationItem rhs = (PriceGraduationItem) o;
-    return m_nMinimumQuantity == rhs.m_nMinimumQuantity && EqualsUtils.equals (m_aNetAmount, rhs.m_aNetAmount);
+    return m_nMinimumQuantity == rhs.m_nMinimumQuantity && EqualsHelper.equals (m_aNetAmount, rhs.m_aNetAmount);
   }
 
   @Override

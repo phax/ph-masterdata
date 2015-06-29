@@ -16,67 +16,23 @@
  */
 package com.helger.masterdata.vat;
 
-import java.util.Comparator;
+import java.math.BigDecimal;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
-import com.helger.commons.compare.AbstractNumericComparator;
-import com.helger.commons.compare.ESortOrder;
+import com.helger.commons.compare.AbstractBigDecimalComparator;
 
 /**
  * Comparator that sorts {@link IVATItem} objects by their percentage.
- * 
+ *
  * @author Philip Helger
  */
-public class ComparatorVATItemPercentage extends AbstractNumericComparator <IVATItem>
+public class ComparatorVATItemPercentage extends AbstractBigDecimalComparator <IVATItem>
 {
-  public ComparatorVATItemPercentage ()
-  {
-    super ();
-  }
-
-  /**
-   * Compare with a special order.
-   * 
-   * @param eSortOrder
-   *        The sort order to use. May not be <code>null</code>.
-   */
-  public ComparatorVATItemPercentage (@Nonnull final ESortOrder eSortOrder)
-  {
-    super (eSortOrder);
-  }
-
-  /**
-   * Comparator with default sort order and a nested comparator.
-   * 
-   * @param aNestedComparator
-   *        The nested comparator to be invoked, when the main comparison
-   *        resulted in 0.
-   */
-  public ComparatorVATItemPercentage (@Nullable final Comparator <? super IVATItem> aNestedComparator)
-  {
-    super (aNestedComparator);
-  }
-
-  /**
-   * Comparator with sort order and a nested comparator.
-   * 
-   * @param eSortOrder
-   *        The sort order to use. May not be <code>null</code>.
-   * @param aNestedComparator
-   *        The nested comparator to be invoked, when the main comparison
-   *        resulted in 0.
-   */
-  public ComparatorVATItemPercentage (@Nonnull final ESortOrder eSortOrder,
-                                      @Nullable final Comparator <? super IVATItem> aNestedComparator)
-  {
-    super (eSortOrder, aNestedComparator);
-  }
-
   @Override
-  protected double asDouble (@Nullable final IVATItem aVATItem)
+  @Nonnull
+  protected BigDecimal getAsBigDecimal (@Nonnull final IVATItem aVATItem)
   {
-    return aVATItem == null ? 0 : aVATItem.getPercentage ().doubleValue ();
+    return aVATItem.getPercentage ();
   }
 }

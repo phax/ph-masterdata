@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -92,7 +92,7 @@ public class PersonName implements IPersonName
   @Nonnull
   public EChange setSalutation (@Nullable final ESalutation eSalutation)
   {
-    if (EqualsUtils.equals (m_eSalutation, eSalutation))
+    if (EqualsHelper.equals (m_eSalutation, eSalutation))
       return EChange.UNCHANGED;
     m_eSalutation = eSalutation;
     return EChange.CHANGED;
@@ -128,7 +128,7 @@ public class PersonName implements IPersonName
   public EChange setPrefixTitle (@Nullable final String sPrefixTitle)
   {
     final String sRealPrefixTitle = sPrefixTitle;
-    if (EqualsUtils.equals (m_sPrefixTitle, sRealPrefixTitle))
+    if (EqualsHelper.equals (m_sPrefixTitle, sRealPrefixTitle))
       return EChange.UNCHANGED;
     m_sPrefixTitle = sRealPrefixTitle;
     return EChange.CHANGED;
@@ -144,7 +144,7 @@ public class PersonName implements IPersonName
   public EChange setFirstName (@Nullable final String sFirstName, @Nonnull final Locale aSortLocale)
   {
     final String sRealFirstName = PersonNameUtils.unifyName (sFirstName, aSortLocale);
-    if (EqualsUtils.equals (m_sFirstName, sRealFirstName))
+    if (EqualsHelper.equals (m_sFirstName, sRealFirstName))
       return EChange.UNCHANGED;
     m_sFirstName = sRealFirstName;
     return EChange.CHANGED;
@@ -160,7 +160,7 @@ public class PersonName implements IPersonName
   public EChange setMiddleName (@Nullable final String sMiddleName, @Nonnull final Locale aSortLocale)
   {
     final String sRealMiddleName = PersonNameUtils.unifyName (sMiddleName, aSortLocale);
-    if (EqualsUtils.equals (m_sMiddleName, sRealMiddleName))
+    if (EqualsHelper.equals (m_sMiddleName, sRealMiddleName))
       return EChange.UNCHANGED;
     m_sMiddleName = sRealMiddleName;
     return EChange.CHANGED;
@@ -176,7 +176,7 @@ public class PersonName implements IPersonName
   public EChange setLastName (@Nullable final String sLastName, @Nonnull final Locale aSortLocale)
   {
     final String sRealLastName = PersonNameUtils.unifyName (sLastName, aSortLocale);
-    if (EqualsUtils.equals (m_sLastName, sRealLastName))
+    if (EqualsHelper.equals (m_sLastName, sRealLastName))
       return EChange.UNCHANGED;
     m_sLastName = sRealLastName;
     return EChange.CHANGED;
@@ -192,7 +192,7 @@ public class PersonName implements IPersonName
   public EChange setSuffixTitle (@Nullable final String sSuffixTitle)
   {
     final String sRealSuffixTitle = sSuffixTitle;
-    if (EqualsUtils.equals (m_sSuffixTitle, sRealSuffixTitle))
+    if (EqualsHelper.equals (m_sSuffixTitle, sRealSuffixTitle))
       return EChange.UNCHANGED;
     m_sSuffixTitle = sRealSuffixTitle;
     return EChange.CHANGED;
@@ -212,12 +212,12 @@ public class PersonName implements IPersonName
     if (!(o instanceof PersonName))
       return false;
     final PersonName rhs = (PersonName) o;
-    return EqualsUtils.equals (m_eSalutation, rhs.m_eSalutation) &&
-           EqualsUtils.equals (m_sPrefixTitle, rhs.m_sPrefixTitle) &&
-           EqualsUtils.equals (m_sFirstName, rhs.m_sFirstName) &&
-           EqualsUtils.equals (m_sMiddleName, rhs.m_sMiddleName) &&
-           EqualsUtils.equals (m_sLastName, rhs.m_sLastName) &&
-           EqualsUtils.equals (m_sSuffixTitle, rhs.m_sSuffixTitle);
+    return EqualsHelper.equals (m_eSalutation, rhs.m_eSalutation) &&
+           EqualsHelper.equals (m_sPrefixTitle, rhs.m_sPrefixTitle) &&
+           EqualsHelper.equals (m_sFirstName, rhs.m_sFirstName) &&
+           EqualsHelper.equals (m_sMiddleName, rhs.m_sMiddleName) &&
+           EqualsHelper.equals (m_sLastName, rhs.m_sLastName) &&
+           EqualsHelper.equals (m_sSuffixTitle, rhs.m_sSuffixTitle);
   }
 
   @Override

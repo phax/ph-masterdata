@@ -21,33 +21,17 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.compare.AbstractCollationComparator;
+import com.helger.commons.text.display.CollatingComparatorHasDisplayText;
 
 /**
  * Comparator that sorts {@link IVATItem} objects by their name.
- * 
+ *
  * @author Philip Helger
  */
-public class ComparatorVATItemName extends AbstractCollationComparator <IVATItem>
+public class ComparatorVATItemName extends CollatingComparatorHasDisplayText <IVATItem>
 {
-  private final Locale m_aContentLocale;
-
   public ComparatorVATItemName (@Nullable final Locale aSortLocale, @Nonnull final Locale aContentLocale)
   {
-    super (aSortLocale);
-    m_aContentLocale = ValueEnforcer.notNull (aContentLocale, "ContentLocale");
-  }
-
-  @Nonnull
-  public Locale getContentLocale ()
-  {
-    return m_aContentLocale;
-  }
-
-  @Override
-  protected String asString (@Nonnull final IVATItem aVATItem)
-  {
-    return aVATItem.getDisplayText (m_aContentLocale);
+    super (aSortLocale, aContentLocale);
   }
 }

@@ -24,8 +24,8 @@ import javax.annotation.Nullable;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.microdom.IMicroElement;
+import com.helger.commons.microdom.MicroElement;
 import com.helger.commons.microdom.convert.IMicroTypeConverter;
-import com.helger.commons.microdom.impl.MicroElement;
 
 public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverter
 {

@@ -20,9 +20,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
+import com.helger.commons.mock.AbstractCommonsTestCase;
 
-public final class ESalutationTest extends AbstractPHTestCase
+public final class ESalutationTest extends AbstractCommonsTestCase
 {
   @Test
   public void testGetText ()

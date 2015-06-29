@@ -23,15 +23,15 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
  * This class represents a single read only currency value as the combination of
  * a value and a currency.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -158,7 +158,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
     if (!(o instanceof ReadonlyCurrencyValue))
       return false;
     final ReadonlyCurrencyValue rhs = (ReadonlyCurrencyValue) o;
-    return m_eCurrency.equals (rhs.m_eCurrency) && EqualsUtils.equals (m_aValue, rhs.m_aValue);
+    return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);
   }
 
   @Override

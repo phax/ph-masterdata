@@ -27,11 +27,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
@@ -62,7 +62,7 @@ public final class Company implements ICompany
   }
 
   @Nonnull
-  public ObjectType getTypeID ()
+  public ObjectType getObjectType ()
   {
     return TYPE_COMPANY;
   }
@@ -83,7 +83,7 @@ public final class Company implements ICompany
   @Nonnull
   public EChange setPublicName (@Nullable final String sPublicName)
   {
-    if (EqualsUtils.equals (m_sPublicName, sPublicName))
+    if (EqualsHelper.equals (m_sPublicName, sPublicName))
       return EChange.UNCHANGED;
     m_sPublicName = sPublicName;
     return EChange.CHANGED;
@@ -98,7 +98,7 @@ public final class Company implements ICompany
   @Nonnull
   public EChange setOfficialName (@Nullable final String sOfficialName)
   {
-    if (EqualsUtils.equals (m_sOfficialName, sOfficialName))
+    if (EqualsHelper.equals (m_sOfficialName, sOfficialName))
       return EChange.UNCHANGED;
     m_sOfficialName = sOfficialName;
     return EChange.CHANGED;

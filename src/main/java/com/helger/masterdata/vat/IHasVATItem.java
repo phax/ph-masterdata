@@ -18,7 +18,7 @@ package com.helger.masterdata.vat;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.Nonempty;
+import com.helger.commons.annotation.Nonempty;
 
 /**
  * Base interface for objects having a VAT item.

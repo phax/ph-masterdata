@@ -22,11 +22,11 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasSimpleIntID;
+import com.helger.commons.id.IHasIntID;
 import com.helger.commons.lang.EnumHelper;
-import com.helger.commons.name.IHasDisplayText;
+import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EUnitQuantity implements IHasSimpleIntID, IHasDisplayText
+public enum EUnitQuantity implements IHasIntID, IHasDisplayText
 {
   ANGLE_PLANE (1, EUnitQuantityName.ANGLE_PLANE),
   SOLID_ANGLE (2, EUnitQuantityName.SOLID_ANGLE),

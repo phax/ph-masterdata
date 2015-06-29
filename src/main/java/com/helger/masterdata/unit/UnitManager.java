@@ -23,17 +23,17 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.CGlobal;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.annotations.WorkInProgress;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.io.IReadableResource;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.annotation.WorkInProgress;
+import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.io.resource.ClassPathResource;
+import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.convert.MicroTypeConverter;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.StringParser;
-import com.helger.commons.text.IReadonlyMultiLingualText;
+import com.helger.commons.text.IMultilingualText;
 
 /**
  * FIXME THIS CLASS IS NOT YET FINISHED!
@@ -63,8 +63,8 @@ public final class UnitManager
     for (final IMicroElement eSector : eRoot.getFirstChildElement ("sectors").getAllChildElements ("sector"))
     {
       final int nGroupNum = StringParser.parseInt (eSector.getAttributeValue ("groupnum"), CGlobal.ILLEGAL_UINT);
-      final IReadonlyMultiLingualText aName = MicroTypeConverter.convertToNative (eSector.getFirstChildElement ("name"),
-                                                                                  IReadonlyMultiLingualText.class);
+      final IMultilingualText aName = MicroTypeConverter.convertToNative (eSector.getFirstChildElement ("name"),
+                                                                          IMultilingualText.class);
       final UnitSector aSector = new UnitSector (nGroupNum, aName);
       final Integer aKey = aSector.getIDObj ();
       if (m_aSectors.containsKey (aKey))

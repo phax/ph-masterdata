@@ -21,15 +21,15 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractPHTestCase;
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.AbstractCommonsTestCase;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link ReadonlyExtendedEmailAddress}
  *
  * @author Philip Helger
  */
-public final class ReadonlyExtendedEmailAddressTest extends AbstractPHTestCase
+public final class ReadonlyExtendedEmailAddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
@@ -51,19 +51,19 @@ public final class ReadonlyExtendedEmailAddressTest extends AbstractPHTestCase
     final ReadonlyExtendedEmailAddress a = new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
                                                                              "test@example.org",
                                                                              "Ich");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a,
-                                                                     new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE2,
-                                                                                                       "test@example.org",
-                                                                                                       "Ich"));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a,
-                                                                     new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
-                                                                                                       "test@example.com",
-                                                                                                       "Ich"));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (a,
-                                                                     new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
-                                                                                                       "test@example.org",
-                                                                                                       "Du"));
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (a, new ReadonlyExtendedEmailAddress (a));
-    PHTestUtils.testDefaultSerialization (a);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE2,
+                                                                                                             "test@example.org",
+                                                                                                             "Ich"));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
+                                                                                                             "test@example.com",
+                                                                                                             "Ich"));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
+                                                                                                             "test@example.org",
+                                                                                                             "Du"));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyExtendedEmailAddress (a));
+    CommonsTestHelper.testDefaultSerialization (a);
   }
 }

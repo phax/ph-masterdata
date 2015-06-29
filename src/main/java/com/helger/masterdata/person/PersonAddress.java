@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.address.Address;
 import com.helger.masterdata.address.IReadonlyAddress;
@@ -79,7 +79,7 @@ public class PersonAddress extends Address
     if (!super.equals (o))
       return false;
     final PersonAddress rhs = (PersonAddress) o;
-    return EqualsUtils.equals (getOwnerID (), rhs.getOwnerID ());
+    return EqualsHelper.equals (getOwnerID (), rhs.getOwnerID ());
   }
 
   @Override

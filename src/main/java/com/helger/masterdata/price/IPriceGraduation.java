@@ -23,7 +23,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.annotations.ReturnsImmutableObject;
+import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.IClearable;
 import com.helger.masterdata.vat.IVATItem;

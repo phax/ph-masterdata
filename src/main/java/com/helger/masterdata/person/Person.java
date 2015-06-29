@@ -24,8 +24,8 @@ import javax.annotation.Nullable;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsUtils;
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.address.IReadonlyAddress;
@@ -100,7 +100,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setGender (@Nullable final EGender eGender)
   {
-    if (EqualsUtils.equals (m_eGender, eGender))
+    if (EqualsHelper.equals (m_eGender, eGender))
       return EChange.UNCHANGED;
     m_eGender = eGender;
     return EChange.CHANGED;
@@ -115,7 +115,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setName (@Nullable final PersonName aName)
   {
-    if (EqualsUtils.equals (aName, m_aName))
+    if (EqualsHelper.equals (aName, m_aName))
       return EChange.UNCHANGED;
     m_aName = aName;
     return EChange.CHANGED;
@@ -139,7 +139,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setBirthday (@Nullable final LocalDate aBirthday)
   {
-    if (EqualsUtils.equals (m_aBirthday, aBirthday))
+    if (EqualsHelper.equals (m_aBirthday, aBirthday))
       return EChange.UNCHANGED;
     m_aBirthday = aBirthday;
     return EChange.CHANGED;
@@ -154,7 +154,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setTelephoneNumber (@Nullable final PersonTelephoneNumber aTelephoneNumber)
   {
-    if (EqualsUtils.equals (m_aTelephoneNumber, aTelephoneNumber))
+    if (EqualsHelper.equals (m_aTelephoneNumber, aTelephoneNumber))
       return EChange.UNCHANGED;
     m_aTelephoneNumber = aTelephoneNumber;
     return EChange.CHANGED;
@@ -178,7 +178,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setEmailAddress (@Nullable final PersonEmailAddress aEmailAddress)
   {
-    if (EqualsUtils.equals (m_aEmailAddress, aEmailAddress))
+    if (EqualsHelper.equals (m_aEmailAddress, aEmailAddress))
       return EChange.UNCHANGED;
     m_aEmailAddress = aEmailAddress;
     return EChange.CHANGED;
@@ -202,7 +202,7 @@ public class Person implements IPerson
   @Nonnull
   public EChange setAddress (@Nullable final PersonAddress aAddress)
   {
-    if (EqualsUtils.equals (m_aAddress, aAddress))
+    if (EqualsHelper.equals (m_aAddress, aAddress))
       return EChange.UNCHANGED;
     m_aAddress = aAddress;
     return EChange.CHANGED;
@@ -225,13 +225,13 @@ public class Person implements IPerson
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final Person rhs = (Person) o;
-    return EqualsUtils.equals (m_sID, rhs.m_sID) &&
-           EqualsUtils.equals (m_eGender, rhs.m_eGender) &&
-           EqualsUtils.equals (m_aName, rhs.m_aName) &&
-           EqualsUtils.equals (m_aBirthday, rhs.m_aBirthday) &&
-           EqualsUtils.equals (m_aTelephoneNumber, rhs.m_aTelephoneNumber) &&
-           EqualsUtils.equals (m_aEmailAddress, rhs.m_aEmailAddress) &&
-           EqualsUtils.equals (m_aAddress, rhs.m_aAddress);
+    return EqualsHelper.equals (m_sID, rhs.m_sID) &&
+           EqualsHelper.equals (m_eGender, rhs.m_eGender) &&
+           EqualsHelper.equals (m_aName, rhs.m_aName) &&
+           EqualsHelper.equals (m_aBirthday, rhs.m_aBirthday) &&
+           EqualsHelper.equals (m_aTelephoneNumber, rhs.m_aTelephoneNumber) &&
+           EqualsHelper.equals (m_aEmailAddress, rhs.m_aEmailAddress) &&
+           EqualsHelper.equals (m_aAddress, rhs.m_aAddress);
   }
 
   @Override

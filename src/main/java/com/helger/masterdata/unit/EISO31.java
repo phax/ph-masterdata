@@ -22,11 +22,11 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasSimpleIntID;
+import com.helger.commons.id.IHasIntID;
 import com.helger.commons.lang.EnumHelper;
-import com.helger.commons.name.IHasDisplayText;
+import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EISO31 implements IHasSimpleIntID, IHasDisplayText
+public enum EISO31 implements IHasIntID, IHasDisplayText
 {
   ISO31_0 (0, EISO31Name.ISO31_0),
   ISO31_1 (1, EISO31Name.ISO31_1),

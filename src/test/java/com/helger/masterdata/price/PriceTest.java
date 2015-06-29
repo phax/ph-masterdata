@@ -25,9 +25,9 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.mock.PHAssert;
+import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
@@ -50,7 +50,7 @@ public final class PriceTest
   {
     final Price p = new Price (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), VATManager.VATTYPE_NONE);
     assertEquals (ECurrency.DEFAULT_CURRENCY, p.getCurrency ());
-    PHAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
     assertEquals (VATManager.VATTYPE_NONE, p.getVATItem ());
 
     // Setter
@@ -66,12 +66,12 @@ public final class PriceTest
     assertEquals (EChange.CHANGED, p.setVATItem (aVATItem));
     assertEquals (aVATItem, p.getVATItem ());
     assertEquals (EChange.UNCHANGED, p.setVATItem (aVATItem));
-    PHAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
     // 14.85 = 9.9 * 1.5 (50%)
-    PHAssert.assertEquals (14.85, p.getGrossAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (14.85, p.getGrossAmount ().getValue ().doubleValue ());
     assertEquals (EChange.CHANGED, p.setVATItem (VATManager.VATTYPE_NONE));
-    PHAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
-    PHAssert.assertEquals (9.9, p.getGrossAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, p.getGrossAmount ().getValue ().doubleValue ());
 
     assertEquals (p, p.getMultiplied (BigDecimal.ONE));
 
@@ -108,12 +108,12 @@ public final class PriceTest
     final IVATItem aVATItem = VATManager.getDefaultInstance ().getVATItemOfID ("at.v20");
     assertNotNull (aVATItem);
     Price p = Price.createFromNetAmount (ECurrency.EUR, new BigDecimal ("10"), aVATItem);
-    assertTrue (EqualsUtils.equals (new BigDecimal ("10"), p.getNetAmount ().getValue ()));
-    assertTrue (EqualsUtils.equals (new BigDecimal ("12"), p.getGrossAmount ().getValue ()));
+    assertTrue (EqualsHelper.equals (new BigDecimal ("10"), p.getNetAmount ().getValue ()));
+    assertTrue (EqualsHelper.equals (new BigDecimal ("12"), p.getGrossAmount ().getValue ()));
 
     p = Price.createFromGrossAmount (ECurrency.EUR, new BigDecimal ("12"), aVATItem);
-    assertTrue (EqualsUtils.equals (new BigDecimal ("10"), p.getNetAmount ().getValue ()));
-    assertTrue (EqualsUtils.equals (new BigDecimal ("12"), p.getGrossAmount ().getValue ()));
+    assertTrue (EqualsHelper.equals (new BigDecimal ("10"), p.getNetAmount ().getValue ()));
+    assertTrue (EqualsHelper.equals (new BigDecimal ("12"), p.getGrossAmount ().getValue ()));
   }
 
   @Test

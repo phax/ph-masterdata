@@ -26,7 +26,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHAssert;
+import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.state.EChange;
 
 /**
@@ -44,7 +44,7 @@ public final class PriceGraduationItemTest
     final PriceGraduationItem aPGI = new PriceGraduationItem (5, aNetAmount);
     assertEquals (5, aPGI.getMinimumQuantity ());
     assertNotNull (aPGI.getUnitNetAmount ());
-    PHAssert.assertEquals (19.9, aPGI.getUnitNetAmount ().doubleValue ());
+    CommonsAssert.assertEquals (19.9, aPGI.getUnitNetAmount ().doubleValue ());
 
     // Test setter
     assertEquals (EChange.CHANGED, aPGI.setMinimumQuantity (4));
@@ -53,7 +53,7 @@ public final class PriceGraduationItemTest
     assertEquals (EChange.CHANGED, aPGI.setMinimumQuantity (5));
 
     assertEquals (EChange.CHANGED, aPGI.setUnitNetAmount (aNetAmountNew));
-    PHAssert.assertEquals (9.9, aPGI.getUnitNetAmount ().doubleValue ());
+    CommonsAssert.assertEquals (9.9, aPGI.getUnitNetAmount ().doubleValue ());
     assertEquals (EChange.UNCHANGED, aPGI.setUnitNetAmount (aNetAmountNew));
     try
     {
