@@ -20,6 +20,7 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotation.OverrideOnDemand;
 import com.helger.commons.string.StringHelper;
@@ -30,6 +31,7 @@ import com.helger.validation.result.ValidationResultError;
 import com.helger.validation.result.ValidationResultSuccess;
 import com.helger.validation.validator.string.AbstractStringValidator;
 
+@Immutable
 public class StringVATINValidator extends AbstractStringValidator
 {
   @Nullable
@@ -50,7 +52,7 @@ public class StringVATINValidator extends AbstractStringValidator
     {
       final Locale aDisplayLocale = getDisplayLocale ();
       final String sCountry = aDisplayLocale == null ? aStructure.getCountry ().getDisplayCountry ()
-                                                    : aStructure.getCountry ().getDisplayCountry (aDisplayLocale);
+                                                     : aStructure.getCountry ().getDisplayCountry (aDisplayLocale);
       final String sExamples = StringHelper.getImploded (", ", aStructure.getExamples ());
       final Object [] aArgs = { sCountry, sExamples };
       return new ValidationResultError (EVATErrorTexts.INVALID_VATIN_WITH_EXAMPLES, aArgs);

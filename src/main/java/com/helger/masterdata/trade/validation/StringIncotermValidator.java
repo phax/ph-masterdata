@@ -18,6 +18,7 @@ package com.helger.masterdata.trade.validation;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.masterdata.trade.EIncoterm;
 import com.helger.validation.result.IValidationResult;
@@ -25,7 +26,8 @@ import com.helger.validation.result.ValidationResultError;
 import com.helger.validation.result.ValidationResultSuccess;
 import com.helger.validation.validator.string.AbstractStringValidator;
 
-public final class StringIncotermValidator extends AbstractStringValidator
+@Immutable
+public class StringIncotermValidator extends AbstractStringValidator
 {
   @Nonnull
   public IValidationResult validate (@Nullable final String sValue)

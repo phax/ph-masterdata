@@ -20,6 +20,7 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +34,13 @@ import com.helger.validation.result.ValidationResultError;
 import com.helger.validation.result.ValidationResultSuccess;
 import com.helger.validation.validator.string.AbstractStringValidator;
 
-public final class StringPostalCodeValidator extends AbstractStringValidator
+/**
+ * Postal code validator
+ *
+ * @author Philip Helger
+ */
+@Immutable
+public class StringPostalCodeValidator extends AbstractStringValidator
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (StringPostalCodeValidator.class);
 
@@ -77,7 +84,7 @@ public final class StringPostalCodeValidator extends AbstractStringValidator
 
   /**
    * Simple validation code.
-   * 
+   *
    * @param aCountry
    *        The code for which a postal code should be validated. May not be
    *        <code>null</code>.

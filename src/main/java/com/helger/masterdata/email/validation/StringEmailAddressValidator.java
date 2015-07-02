@@ -18,6 +18,7 @@ package com.helger.masterdata.email.validation;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.smtp.EmailAddressValidator;
 import com.helger.validation.EStandardValidationErrorTexts;
@@ -28,16 +29,18 @@ import com.helger.validation.validator.string.AbstractStringValidator;
 import com.helger.validation.validator.string.StringEmailAddressNoMXCheckValidator;
 
 /**
- * Validator for email addresses. Uses the {@link EmailAddressValidator} class.<br>
+ * Validator for email addresses. Uses the {@link EmailAddressValidator} class.
+ * <br>
  * Warning: this may be slow if the MX record check is enabled because DNS
  * lookups take place
- * 
+ *
  * @see EmailAddressValidator
  * @see StringEmailAddressNoMXCheckValidator
  * @see StringEmailAddressWithMXCheckValidator
  * @author Philip Helger
  */
-public final class StringEmailAddressValidator extends AbstractStringValidator
+@Immutable
+public class StringEmailAddressValidator extends AbstractStringValidator
 {
   @Nonnull
   public IValidationResult validate (@Nullable final String sValue)

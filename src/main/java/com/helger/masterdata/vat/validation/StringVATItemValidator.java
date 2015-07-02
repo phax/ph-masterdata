@@ -18,6 +18,7 @@ package com.helger.masterdata.vat.validation;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATManager;
@@ -26,7 +27,8 @@ import com.helger.validation.result.ValidationResultError;
 import com.helger.validation.result.ValidationResultSuccess;
 import com.helger.validation.validator.string.AbstractStringValidator;
 
-public final class StringVATItemValidator extends AbstractStringValidator
+@Immutable
+public class StringVATItemValidator extends AbstractStringValidator
 {
   @Nonnull
   public IValidationResult validate (@Nullable final String sValue)

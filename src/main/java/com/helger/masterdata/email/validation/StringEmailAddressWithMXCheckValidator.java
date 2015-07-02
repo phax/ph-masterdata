@@ -18,6 +18,7 @@ package com.helger.masterdata.email.validation;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.smtp.EmailAddressValidator;
 import com.helger.validation.EStandardValidationErrorTexts;
@@ -32,13 +33,14 @@ import com.helger.validation.validator.string.StringEmailAddressNoMXCheckValidat
  * explicitly using a MX record check.<br>
  * Warning: this may be slow when called very often, as a DNS lookup is
  * performed
- * 
+ *
  * @see EmailAddressValidator
  * @see StringEmailAddressValidator
  * @see StringEmailAddressNoMXCheckValidator
  * @author Philip Helger
  */
-public final class StringEmailAddressWithMXCheckValidator extends AbstractStringValidator
+@Immutable
+public class StringEmailAddressWithMXCheckValidator extends AbstractStringValidator
 {
   @Nonnull
   public IValidationResult validate (@Nullable final String sValue)
