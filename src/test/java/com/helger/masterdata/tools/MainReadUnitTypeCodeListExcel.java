@@ -37,7 +37,7 @@ import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.masterdata.EUNCodelistStatus;
-import com.helger.poi.excel.ExcelReadUtils;
+import com.helger.poi.excel.ExcelReadHelper;
 
 /**
  * Utility to read the Excel file from CEFACT Recommendation No. 20 and convert
@@ -76,20 +76,20 @@ public final class MainReadUnitTypeCodeListExcel
     while (it.hasNext ())
     {
       final Row aRow = it.next ();
-      final String sGroupNumber = ExcelReadUtils.getCellValueString (aRow.getCell (0));
-      final String sSector = ExcelReadUtils.getCellValueString (aRow.getCell (1));
-      final String sGroupID = ExcelReadUtils.getCellValueString (aRow.getCell (2));
-      final String sQuantity = ExcelReadUtils.getCellValueString (aRow.getCell (3));
-      final String sLevel = ExcelReadUtils.getCellValueString (aRow.getCell (4));
+      final String sGroupNumber = ExcelReadHelper.getCellValueString (aRow.getCell (0));
+      final String sSector = ExcelReadHelper.getCellValueString (aRow.getCell (1));
+      final String sGroupID = ExcelReadHelper.getCellValueString (aRow.getCell (2));
+      final String sQuantity = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+      final String sLevel = ExcelReadHelper.getCellValueString (aRow.getCell (4));
       final int nLevel = StringParser.parseInt (sLevel.substring (0, 1), -1);
       final String sLevelSuffix = sLevel.length () != 2 ? null : sLevel.substring (1, 2);
-      final String sStatus = ExcelReadUtils.getCellValueString (aRow.getCell (5));
+      final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (5));
       final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
-      final String sCommonCode = ExcelReadUtils.getCellValueString (aRow.getCell (6));
-      final String sName = ExcelReadUtils.getCellValueString (aRow.getCell (7));
-      final String sConversionFactor = ExcelReadUtils.getCellValueString (aRow.getCell (8));
-      final String sSymbol = ExcelReadUtils.getCellValueString (aRow.getCell (9));
-      final String sDescription = ExcelReadUtils.getCellValueString (aRow.getCell (10));
+      final String sCommonCode = ExcelReadHelper.getCellValueString (aRow.getCell (6));
+      final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (7));
+      final String sConversionFactor = ExcelReadHelper.getCellValueString (aRow.getCell (8));
+      final String sSymbol = ExcelReadHelper.getCellValueString (aRow.getCell (9));
+      final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (10));
 
       // Avoid reading empty lines
       if (StringHelper.hasText (sCommonCode))

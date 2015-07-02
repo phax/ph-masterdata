@@ -51,7 +51,7 @@ import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringHelper;
 import com.helger.datetime.PDTFactory;
 import com.helger.masterdata.postal.PostalCodeListReader;
-import com.helger.poi.excel.ExcelReadUtils;
+import com.helger.poi.excel.ExcelReadHelper;
 
 public class MainReadPostalCodeListExcel
 {
@@ -167,7 +167,7 @@ public class MainReadPostalCodeListExcel
     {
       final Row aRow = it.next ();
       ++nRow;
-      final String sCountry = ExcelReadUtils.getCellValueString (aRow.getCell (0));
+      final String sCountry = ExcelReadHelper.getCellValueString (aRow.getCell (0));
       if (StringHelper.hasNoText (sCountry))
       {
         s_aLogger.warn ("Line " + nRow + ": No country name present");
@@ -177,24 +177,24 @@ public class MainReadPostalCodeListExcel
       Date aIntroducedDate = null;
       if (aDateCell != null && aDateCell.getCellType () != Cell.CELL_TYPE_BLANK)
       {
-        final Number aNum = ExcelReadUtils.getCellValueNumber (aDateCell);
+        final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
         final int nYear = aNum.intValue ();
         if (nYear > 1800 && nYear < 3000)
           aIntroducedDate = PDTFactory.createLocalDate (nYear, DateTimeConstants.JANUARY, 1).toDate ();
         else
-          aIntroducedDate = ExcelReadUtils.getCellValueJavaDate (aDateCell);
+          aIntroducedDate = ExcelReadHelper.getCellValueJavaDate (aDateCell);
       }
-      final String sISO = ExcelReadUtils.getCellValueString (aRow.getCell (2));
+      final String sISO = ExcelReadHelper.getCellValueString (aRow.getCell (2));
       if (StringHelper.hasNoText (sISO))
       {
         s_aLogger.warn ("Line " + nRow + ": No ISO code for " + sCountry);
         continue;
       }
-      final String sFormat = ExcelReadUtils.getCellValueString (aRow.getCell (3));
+      final String sFormat = ExcelReadHelper.getCellValueString (aRow.getCell (3));
       if (NO_CODES.equals (sFormat) || StringHelper.hasNoText (sFormat))
         continue;
       final List <String> aFormats = StringHelper.getExploded ("\n", sFormat);
-      final String sNote = ExcelReadUtils.getCellValueString (aRow.getCell (4));
+      final String sNote = ExcelReadHelper.getCellValueString (aRow.getCell (4));
       aItems.add (new Item (sCountry, aIntroducedDate, sISO, aFormats, sNote));
     }
 

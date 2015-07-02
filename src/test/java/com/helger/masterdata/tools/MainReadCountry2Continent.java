@@ -33,7 +33,7 @@ import com.helger.commons.locale.country.CollatingComparatorLocaleCountry;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
-import com.helger.poi.excel.ExcelReadUtils;
+import com.helger.poi.excel.ExcelReadHelper;
 
 public class MainReadCountry2Continent
 {
@@ -97,7 +97,7 @@ public class MainReadCountry2Continent
   public static void main (final String [] args)
   {
     final IReadableResource aRes = new ClassPathResource ("country2continent.xlsx");
-    final Workbook aWB = ExcelReadUtils.readWorkbookFromInputStream (aRes);
+    final Workbook aWB = ExcelReadHelper.readWorkbookFromInputStream (aRes);
     final Sheet aSheet = aWB.getSheetAt (0);
     // Skip one row
     int nRow = 1;
@@ -108,11 +108,11 @@ public class MainReadCountry2Continent
       final Row aRow = aSheet.getRow (nRow);
       if (aRow == null)
         break;
-      final String sContinent = ExcelReadUtils.getCellValueString (aRow.getCell (0));
+      final String sContinent = ExcelReadHelper.getCellValueString (aRow.getCell (0));
       if (StringHelper.hasNoText (sContinent))
         break;
       final EContinent eContinent = _findContinent (sContinent);
-      final String sCountryName = ExcelReadUtils.getCellValueString (aRow.getCell (1));
+      final String sCountryName = ExcelReadHelper.getCellValueString (aRow.getCell (1));
       final Locale aCountry = _findCountryComplex (sCountryName);
       if (aCountry == null)
       {

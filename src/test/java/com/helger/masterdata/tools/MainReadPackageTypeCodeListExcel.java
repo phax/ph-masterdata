@@ -38,7 +38,7 @@ import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.masterdata.EUNCodelistStatus;
-import com.helger.poi.excel.ExcelReadUtils;
+import com.helger.poi.excel.ExcelReadHelper;
 
 public class MainReadPackageTypeCodeListExcel
 {
@@ -112,12 +112,12 @@ public class MainReadPackageTypeCodeListExcel
     while (it.hasNext ())
     {
       final Row aRow = it.next ();
-      final String sStatus = ExcelReadUtils.getCellValueString (aRow.getCell (0));
+      final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (0));
       final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
-      final String sCode = ExcelReadUtils.getCellValueString (aRow.getCell (1));
-      final String sName = ExcelReadUtils.getCellValueString (aRow.getCell (2));
-      final String sDescription = ExcelReadUtils.getCellValueString (aRow.getCell (3));
-      final String sNumericCode = _convertNumericCodes (ExcelReadUtils.getCellValueString (aRow.getCell (4)));
+      final String sCode = ExcelReadHelper.getCellValueString (aRow.getCell (1));
+      final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (2));
+      final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+      final String sNumericCode = _convertNumericCodes (ExcelReadHelper.getCellValueString (aRow.getCell (4)));
 
       // Avoid reading empty lines
       if (StringHelper.hasText (sCode))
