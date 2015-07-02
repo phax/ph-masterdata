@@ -99,7 +99,7 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
   {
     if (o == this)
       return true;
-    if (!(o instanceof ReadonlyExtendedEmailAddress))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadonlyExtendedEmailAddress rhs = (ReadonlyExtendedEmailAddress) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&

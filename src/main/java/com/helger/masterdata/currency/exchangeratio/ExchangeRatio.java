@@ -65,7 +65,7 @@ public final class ExchangeRatio
   {
     if (o == this)
       return true;
-    if (!(o instanceof ExchangeRatio))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ExchangeRatio rhs = (ExchangeRatio) o;
     return m_aDate.equals (rhs.m_aDate) && EqualsHelper.equals (m_aRatio, rhs.m_aRatio);

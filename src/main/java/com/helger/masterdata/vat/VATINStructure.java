@@ -115,7 +115,7 @@ public final class VATINStructure implements IHasCountry
   {
     if (o == this)
       return true;
-    if (!(o instanceof VATINStructure))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final VATINStructure rhs = (VATINStructure) o;
     return m_aCountry.equals (rhs.m_aCountry) &&

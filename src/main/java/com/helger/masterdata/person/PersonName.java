@@ -209,7 +209,7 @@ public class PersonName implements IPersonName
   {
     if (o == this)
       return true;
-    if (!(o instanceof PersonName))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final PersonName rhs = (PersonName) o;
     return EqualsHelper.equals (m_eSalutation, rhs.m_eSalutation) &&

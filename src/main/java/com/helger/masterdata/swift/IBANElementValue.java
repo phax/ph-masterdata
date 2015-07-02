@@ -25,7 +25,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Represents the real value of an IBAN element with an IBAN number string.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -64,7 +64,7 @@ final class IBANElementValue
   {
     if (o == this)
       return true;
-    if (!(o instanceof IBANElementValue))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final IBANElementValue rhs = (IBANElementValue) o;
     return m_aElement.equals (rhs.m_aElement) && m_sValue.equals (rhs.m_sValue);

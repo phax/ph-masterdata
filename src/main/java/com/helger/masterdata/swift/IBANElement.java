@@ -28,7 +28,7 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Represents a single IBAN element within a country's IBAN description.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -60,7 +60,7 @@ final class IBANElement implements Serializable
   {
     if (o == this)
       return true;
-    if (!(o instanceof IBANElement))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final IBANElement rhs = (IBANElement) o;
     return m_eElementType.equals (rhs.m_eElementType) && m_nLength == rhs.m_nLength;

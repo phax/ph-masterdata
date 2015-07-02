@@ -34,7 +34,7 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @Immutable
-public final class IBAN
+public class IBAN
 {
   private final List <IBANElementValue> m_aValues;
 
@@ -46,7 +46,7 @@ public final class IBAN
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IBANElementValue> getValues ()
+  public List <IBANElementValue> getAllValues ()
   {
     return CollectionHelper.newList (m_aValues);
   }

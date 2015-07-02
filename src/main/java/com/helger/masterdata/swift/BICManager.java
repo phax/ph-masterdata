@@ -64,7 +64,7 @@ public final class BICManager
    *        Zeichen eine 1 ist, so handelt es sich um einen passiven SWIFT-Teilnehmer;
    *        wenn das zweite Zeichen eine 0 ist, so handelt es sich um einen Test-BIC)
    *  bbb   3-stellige Kennzeichnung (Branch-Code) der Filiale oder Abteilung (optional,
-   *        Standard: <code>XXX</code> (ohne Leerzeichen!), kann weggelassen werden,
+   *        Standard: X X X (drei 'X' ohne Leerzeichen!), kann weggelassen werden,
    *        andere Kennzeichen nicht) (alphanumerische Zeichen)
    * </pre>
    *

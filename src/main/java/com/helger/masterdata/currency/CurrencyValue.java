@@ -195,7 +195,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   {
     if (o == this)
       return true;
-    if (!(o instanceof CurrencyValue))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final CurrencyValue rhs = (CurrencyValue) o;
     return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);

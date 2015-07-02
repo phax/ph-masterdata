@@ -205,7 +205,7 @@ public final class Company implements ICompany
   {
     if (o == this)
       return true;
-    if (!(o instanceof Company))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final Company rhs = (Company) o;
     return m_sID.equals (rhs.m_sID);

@@ -92,7 +92,7 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
   {
     if (o == this)
       return true;
-    if (!(o instanceof ReadonlyTelephoneNumber))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadonlyTelephoneNumber rhs = (ReadonlyTelephoneNumber) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&

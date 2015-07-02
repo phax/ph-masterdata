@@ -143,7 +143,7 @@ public final class ReadonlyAddress implements IReadonlyAddress
   {
     if (o == this)
       return true;
-    if (!(o instanceof ReadonlyAddress))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadonlyAddress rhs = (ReadonlyAddress) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&

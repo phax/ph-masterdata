@@ -232,7 +232,7 @@ public final class CompanySite implements ICompanySite
   {
     if (o == this)
       return true;
-    if (!(o instanceof CompanySite))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final CompanySite rhs = (CompanySite) o;
     return m_sID.equals (rhs.m_sID);

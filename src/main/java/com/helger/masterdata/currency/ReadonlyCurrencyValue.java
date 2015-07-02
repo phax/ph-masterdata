@@ -155,7 +155,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
   {
     if (o == this)
       return true;
-    if (!(o instanceof ReadonlyCurrencyValue))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadonlyCurrencyValue rhs = (ReadonlyCurrencyValue) o;
     return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);

@@ -76,10 +76,11 @@ public final class IBANCountryData extends LocalDatePeriod
   {
     super (aValidFrom, aValidTo);
     ValueEnforcer.notNull (aElements, "Elements");
-    if (sFixedCheckDigits != null && sFixedCheckDigits.length () != 2)
-      throw new IllegalArgumentException ("Check digits must be length 2!");
-    if (sFixedCheckDigits != null && !StringParser.isUnsignedInt (sFixedCheckDigits))
-      throw new IllegalArgumentException ("Check digits must be all numeric!");
+    if (sFixedCheckDigits != null)
+    {
+      ValueEnforcer.isTrue (sFixedCheckDigits.length () == 2, "Check digits must be length 2!");
+      ValueEnforcer.isTrue (StringParser.isUnsignedInt (sFixedCheckDigits), "Check digits must be all numeric!");
+    }
 
     m_nExpectedLength = nExpectedLength;
     m_aPattern = aPattern;
@@ -126,7 +127,7 @@ public final class IBANCountryData extends LocalDatePeriod
    */
   @Nonnull
   @ReturnsMutableCopy
-  public List <IBANElement> getElements ()
+  public List <IBANElement> getAllElements ()
   {
     return CollectionHelper.newList (m_aElements);
   }
