@@ -283,7 +283,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     {
       if (aLocale == null)
         throw new IllegalArgumentException ("Passed locale is null!");
-      if (!CurrencyUtils.localeSupportsCurrencyRetrieval (aLocale))
+      if (!CurrencyHelper.localeSupportsCurrencyRetrieval (aLocale))
         throw new IllegalArgumentException ("Passed locale " + aLocale + " does not support currency retrieval!");
       if (!m_aLocales.add (aLocale))
         throw new IllegalArgumentException ("The locale " + aLocale + " is contained more than once.");
@@ -610,7 +610,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
                                                                     getDecimalSeparator (),
                                                                     getGroupingSeparator ());
-    return CurrencyUtils.parseCurrency (sRealTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
+    return CurrencyHelper.parseCurrency (sRealTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
   }
 
   /**
@@ -629,7 +629,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   public BigDecimal parseCurrencyFormatUnchanged (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
   {
     final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
-    return CurrencyUtils.parseCurrency (sTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
+    return CurrencyHelper.parseCurrency (sTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
   }
 
   /**
@@ -654,7 +654,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
                                                                     getDecimalSeparator (),
                                                                     getGroupingSeparator ());
-    return CurrencyUtils.parseCurrency (sRealTextValue, aValueFormat, aDefault, getRoundingMode ());
+    return CurrencyHelper.parseCurrency (sRealTextValue, aValueFormat, aDefault, getRoundingMode ());
   }
 
   /**
@@ -674,7 +674,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   {
     final DecimalFormat aValueFormat = getValueFormat ();
 
-    return CurrencyUtils.parseCurrency (sTextValue, aValueFormat, aDefault, getRoundingMode ());
+    return CurrencyHelper.parseCurrency (sTextValue, aValueFormat, aDefault, getRoundingMode ());
   }
 
   /**

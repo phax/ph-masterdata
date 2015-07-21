@@ -19,56 +19,152 @@ package com.helger.masterdata.currency;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
+import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
- * Writable version of a currency value. The reading methods are inherited from
- * {@link IReadonlyCurrencyValue}.
- * 
+ * Read only interface of a currency value.
+ *
  * @author Philip Helger
  */
-public interface ICurrencyValue extends IReadonlyCurrencyValue, ICloneable <ICurrencyValue>
+@MustImplementEqualsAndHashcode
+public interface ICurrencyValue extends IHasCurrency
 {
-  @Nonnull
-  EChange setCurrency (@Nonnull ECurrency eCurrency);
+  /**
+   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
+   *         is &ge; 0.
+   */
+  boolean isLowerThanZero ();
 
+  /**
+   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
+   *         is &le; 0.
+   */
+  boolean isGreaterThanZero ();
+
+  /**
+   * @return The contained numeric currency value.
+   */
+  @Nonnull
+  BigDecimal getValue ();
+
+  /**
+   * Sum up this currency value with the passed scalar value.
+   *
+   * @param aValue
+   *        The value to add.
+   * @return The added value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getAdded (@Nonnull BigDecimal aValue);
 
+  /**
+   * Sum up this currency value with the passed scalar value.
+   *
+   * @param nValue
+   *        The value to add.
+   * @return The added value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getAdded (long nValue);
 
+  /**
+   * Subtract this currency value with the passed scalar value.
+   *
+   * @param aValue
+   *        The value to subtract.
+   * @return The subtracted value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getSubtracted (@Nonnull BigDecimal aValue);
 
+  /**
+   * Subtract this currency value with the passed scalar value.
+   *
+   * @param nValue
+   *        The value to subtract.
+   * @return The subtracted value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getSubtracted (long nValue);
 
+  /**
+   * Multiply this currency value with the passed scalar value.
+   *
+   * @param aValue
+   *        The multiplicator to use.
+   * @return The multiplied value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getMultiplied (@Nonnull BigDecimal aValue);
 
+  /**
+   * Multiply this currency value with the passed scalar value.
+   *
+   * @param nValue
+   *        The multiplicator to use.
+   * @return The multiplied value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getMultiplied (long nValue);
 
+  /**
+   * Divide this currency value with the passed scalar value.
+   *
+   * @param aValue
+   *        The divisor to use.
+   * @return The divided value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getDivided (@Nonnull BigDecimal aValue);
 
+  /**
+   * Divide this currency value with the passed scalar value.
+   *
+   * @param nValue
+   *        The divisor to use.
+   * @return The divided value with the same currency.
+   */
   @Nonnull
   @CheckReturnValue
   ICurrencyValue getDivided (long nValue);
 
+  /**
+   * @return The value as a formatted currency including the currency sign. The
+   *         scale is defined by the currency.
+   */
   @Nonnull
-  EChange setValue (@Nonnull BigDecimal aValue);
+  String getCurrencyFormatted ();
 
-  void addValue (@Nonnull BigDecimal aValue);
+  /**
+   * @param nFractionDigits
+   *        The number of fraction digits to be used.
+   * @return The value as a formatted currency including the currency sign.
+   */
+  @Nonnull
+  String getCurrencyFormatted (@Nonnegative int nFractionDigits);
+
+  /**
+   * @return The value as a formatted currency excluding the currency sign. The
+   *         scale is defined by the currency.
+   */
+  @Nonnull
+  String getValueFormatted ();
+
+  /**
+   * @param nFractionDigits
+   *        The number of fraction digits to be used.
+   * @return The value as a formatted currency excluding the currency sign.
+   */
+  @Nonnull
+  String getValueFormatted (@Nonnegative int nFractionDigits);
 }

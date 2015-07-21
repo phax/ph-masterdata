@@ -23,14 +23,14 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
+import com.helger.masterdata.currency.IMutableCurrencyValue;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.currency.IReadonlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 public interface IPrice extends IReadonlyPrice
 {
   @Nonnull
-  ICurrencyValue getNetAmount ();
+  IMutableCurrencyValue getNetAmount ();
 
   /**
    * Change the amount of this price.
@@ -40,7 +40,7 @@ public interface IPrice extends IReadonlyPrice
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setNetAmount (@Nonnull IReadonlyCurrencyValue aValue);
+  EChange setNetAmount (@Nonnull ICurrencyValue aValue);
 
   /**
    * Change the VAT type of this price.

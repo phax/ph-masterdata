@@ -24,7 +24,7 @@ import java.util.Locale;
 import org.junit.Test;
 
 /**
- * Test class for class {@link AddressUtils}.
+ * Test class for class {@link AddressHelper}.
  * 
  * @author Philip Helger
  */
@@ -33,20 +33,20 @@ public final class AddressUtilsTest
   @Test
   public void testEnabled ()
   {
-    AddressUtils.setComplexAddressHandlingEnabled (true);
+    AddressHelper.setComplexAddressHandlingEnabled (true);
     try
     {
       final Locale aLocale = Locale.GERMAN;
-      assertNull (AddressUtils.getUnifiedStreet (null, aLocale));
-      assertEquals ("Abc", AddressUtils.getUnifiedStreet ("abc", aLocale));
-      assertEquals ("Straße", AddressUtils.getUnifiedStreet ("str.", aLocale));
-      assertEquals ("Gasse", AddressUtils.getUnifiedStreet ("g.", aLocale));
-      assertEquals ("Hauptstraße 1", AddressUtils.getUnifiedStreet ("Hauptstr. 1", aLocale));
-      assertEquals ("Sandgasse 1", AddressUtils.getUnifiedStreet ("Sandg. 1", aLocale));
+      assertNull (AddressHelper.getUnifiedStreet (null, aLocale));
+      assertEquals ("Abc", AddressHelper.getUnifiedStreet ("abc", aLocale));
+      assertEquals ("Straße", AddressHelper.getUnifiedStreet ("str.", aLocale));
+      assertEquals ("Gasse", AddressHelper.getUnifiedStreet ("g.", aLocale));
+      assertEquals ("Hauptstraße 1", AddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
+      assertEquals ("Sandgasse 1", AddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
     }
     finally
     {
-      AddressUtils.setComplexAddressHandlingEnabled (false);
+      AddressHelper.setComplexAddressHandlingEnabled (false);
     }
   }
 
@@ -54,11 +54,11 @@ public final class AddressUtilsTest
   public void testDisabled ()
   {
     final Locale aLocale = Locale.GERMAN;
-    assertNull (AddressUtils.getUnifiedStreet (null, aLocale));
-    assertEquals ("abc", AddressUtils.getUnifiedStreet ("abc", aLocale));
-    assertEquals ("str.", AddressUtils.getUnifiedStreet ("str.", aLocale));
-    assertEquals ("g.", AddressUtils.getUnifiedStreet ("g.", aLocale));
-    assertEquals ("Hauptstr. 1", AddressUtils.getUnifiedStreet ("Hauptstr. 1", aLocale));
-    assertEquals ("Sandg. 1", AddressUtils.getUnifiedStreet ("Sandg. 1", aLocale));
+    assertNull (AddressHelper.getUnifiedStreet (null, aLocale));
+    assertEquals ("abc", AddressHelper.getUnifiedStreet ("abc", aLocale));
+    assertEquals ("str.", AddressHelper.getUnifiedStreet ("str.", aLocale));
+    assertEquals ("g.", AddressHelper.getUnifiedStreet ("g.", aLocale));
+    assertEquals ("Hauptstr. 1", AddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
+    assertEquals ("Sandg. 1", AddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
   }
 }

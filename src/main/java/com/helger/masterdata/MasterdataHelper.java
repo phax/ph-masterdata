@@ -28,9 +28,9 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @Immutable
-public final class MasterdataUtils
+public final class MasterdataHelper
 {
-  private MasterdataUtils ()
+  private MasterdataHelper ()
   {}
 
   @Nullable

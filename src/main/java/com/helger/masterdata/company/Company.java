@@ -37,11 +37,11 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
 
 /**
- * The default implementation of the {@link ICompany} interface.
+ * The default implementation of the {@link IMutableCompany} interface.
  *
  * @author Philip Helger
  */
-public final class Company implements ICompany
+public final class Company implements IMutableCompany
 {
   public static final ObjectType TYPE_COMPANY = new ObjectType ("company");
 
@@ -53,8 +53,8 @@ public final class Company implements ICompany
   private final String m_sID;
   private String m_sPublicName;
   private String m_sOfficialName;
-  private final Map <String, ICompanySite> m_aAllSites = new HashMap <String, ICompanySite> ();
-  private ICompanySite m_aHeadQuarterSite;
+  private final Map <String, IMutableCompanySite> m_aAllSites = new HashMap <String, IMutableCompanySite> ();
+  private IMutableCompanySite m_aHeadQuarterSite;
 
   public Company (@Nonnull @Nonempty final String sID)
   {
@@ -112,17 +112,17 @@ public final class Company implements ICompany
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <ICompanySite> getAllSites ()
+  public Collection <IMutableCompanySite> getAllSites ()
   {
     return CollectionHelper.newList (m_aAllSites.values ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <ICompanySite> getAllNonVirtualSites ()
+  public Collection <IMutableCompanySite> getAllNonVirtualSites ()
   {
-    final List <ICompanySite> ret = new ArrayList <ICompanySite> ();
-    for (final ICompanySite aSite : m_aAllSites.values ())
+    final List <IMutableCompanySite> ret = new ArrayList <IMutableCompanySite> ();
+    for (final IMutableCompanySite aSite : m_aAllSites.values ())
       if (!aSite.isVirtualSite ())
         ret.add (aSite);
     return ret;
@@ -130,17 +130,17 @@ public final class Company implements ICompany
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <ICompanySite> getAllVirtualSites ()
+  public Collection <IMutableCompanySite> getAllVirtualSites ()
   {
-    final List <ICompanySite> ret = new ArrayList <ICompanySite> ();
-    for (final ICompanySite aSite : m_aAllSites.values ())
+    final List <IMutableCompanySite> ret = new ArrayList <IMutableCompanySite> ();
+    for (final IMutableCompanySite aSite : m_aAllSites.values ())
       if (aSite.isVirtualSite ())
         ret.add (aSite);
     return ret;
   }
 
   @Nonnull
-  public EChange addSite (@Nonnull final ICompanySite aSite)
+  public EChange addSite (@Nonnull final IMutableCompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
@@ -152,7 +152,7 @@ public final class Company implements ICompany
   }
 
   @Nonnull
-  public EChange removeSite (@Nonnull final ICompanySite aSite)
+  public EChange removeSite (@Nonnull final IMutableCompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
@@ -162,13 +162,13 @@ public final class Company implements ICompany
   }
 
   @Nullable
-  public ICompanySite getSiteOfID (@Nullable final String sSiteID)
+  public IMutableCompanySite getSiteOfID (@Nullable final String sSiteID)
   {
     return m_aAllSites.get (sSiteID);
   }
 
   @Nullable
-  public ICompanySite getHeadQuarterSite ()
+  public IMutableCompanySite getHeadQuarterSite ()
   {
     if (m_aHeadQuarterSite != null)
       return m_aHeadQuarterSite;
@@ -178,7 +178,7 @@ public final class Company implements ICompany
   }
 
   @Nonnull
-  public EChange setHeadQuarterSite (@Nonnull final ICompanySite aHeadQuarterSite)
+  public EChange setHeadQuarterSite (@Nonnull final IMutableCompanySite aHeadQuarterSite)
   {
     ValueEnforcer.notNull (aHeadQuarterSite, "HeadQuarterSite");
 
@@ -194,7 +194,7 @@ public final class Company implements ICompany
 
   public boolean containsAtLeastOneNotDeletableSite ()
   {
-    for (final IReadonlyCompanySite aSite : m_aAllSites.values ())
+    for (final ICompanySite aSite : m_aAllSites.values ())
       if (!aSite.isDeletable ())
         return true;
     return false;

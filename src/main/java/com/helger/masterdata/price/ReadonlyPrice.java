@@ -26,7 +26,7 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.IReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ICurrencyValue;
 import com.helger.masterdata.currency.ReadonlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
@@ -37,7 +37,7 @@ import com.helger.masterdata.vat.IVATItem;
  */
 public class ReadonlyPrice implements IReadonlyPrice
 {
-  private final IReadonlyCurrencyValue m_aNetAmount;
+  private final ICurrencyValue m_aNetAmount;
   private final IVATItem m_aVATItem;
 
   public ReadonlyPrice (@Nonnull final IReadonlyPrice aOtherPrice)
@@ -53,7 +53,7 @@ public class ReadonlyPrice implements IReadonlyPrice
     m_aVATItem = ValueEnforcer.notNull (aVATItem, "VATItem");
   }
 
-  public ReadonlyPrice (@Nonnull final IReadonlyCurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
+  public ReadonlyPrice (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
     // Make a copy of the net amount!
@@ -68,13 +68,13 @@ public class ReadonlyPrice implements IReadonlyPrice
   }
 
   @Nonnull
-  public IReadonlyCurrencyValue getNetAmount ()
+  public ICurrencyValue getNetAmount ()
   {
     return m_aNetAmount;
   }
 
   @Nonnull
-  public IReadonlyCurrencyValue getGrossAmount ()
+  public ICurrencyValue getGrossAmount ()
   {
     final BigDecimal aMultiplicationFactor = m_aVATItem.getMultiplicationFactorNetToGross ();
     return m_aNetAmount.getMultiplied (aMultiplicationFactor);
@@ -94,7 +94,7 @@ public class ReadonlyPrice implements IReadonlyPrice
   }
 
   @Nonnull
-  public IReadonlyCurrencyValue getTaxAmount ()
+  public ICurrencyValue getTaxAmount ()
   {
     return m_aNetAmount.getMultiplied (m_aVATItem.getPercentageFactor ());
   }

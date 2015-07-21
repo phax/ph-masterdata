@@ -42,7 +42,7 @@ import com.helger.commons.locale.LocaleParser;
  * @author Philip Helger
  */
 @Immutable
-public final class CurrencyUtils
+public final class CurrencyHelper
 {
   // Sorted set of all available currencies
   private static SortedSet <Currency> s_aAllCurrencies = new TreeSet <Currency> (new ComparatorCurrencyCode ());
@@ -69,7 +69,7 @@ public final class CurrencyUtils
     }
   }
 
-  private CurrencyUtils ()
+  private CurrencyHelper ()
   {}
 
   @Nonnull

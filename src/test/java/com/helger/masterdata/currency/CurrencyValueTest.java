@@ -32,7 +32,7 @@ public final class CurrencyValueTest extends AbstractCommonsTestCase
   @Test
   public void testGetFormatted ()
   {
-    ICurrencyValue aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal (5));
+    IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal (5));
     assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));
     assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());

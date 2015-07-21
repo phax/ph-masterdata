@@ -40,7 +40,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
   private final ECurrency m_eCurrency;
   private final BigDecimal m_aValue;
 
-  public ReadonlyCurrencyValue (@Nonnull final IReadonlyCurrencyValue aCurrencyValue)
+  public ReadonlyCurrencyValue (@Nonnull final ICurrencyValue aCurrencyValue)
   {
     this (aCurrencyValue.getCurrency (), aCurrencyValue.getValue ());
   }
@@ -75,7 +75,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getAdded (@Nonnull final BigDecimal aValue)
+  public ICurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -85,7 +85,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getAdded (final long nValue)
+  public ICurrencyValue getAdded (final long nValue)
   {
     if (nValue == 0)
       return this;
@@ -94,7 +94,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
+  public ICurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -104,7 +104,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getSubtracted (final long nValue)
+  public ICurrencyValue getSubtracted (final long nValue)
   {
     if (nValue == 0)
       return this;
@@ -113,7 +113,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
+  public ICurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -123,7 +123,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getMultiplied (final long nValue)
+  public ICurrencyValue getMultiplied (final long nValue)
   {
     if (nValue == 1)
       return this;
@@ -132,7 +132,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getDivided (@Nonnull final BigDecimal aValue)
+  public ICurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -143,7 +143,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public IReadonlyCurrencyValue getDivided (final long nValue)
+  public ICurrencyValue getDivided (final long nValue)
   {
     if (nValue == 1)
       return this;
@@ -174,7 +174,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
   }
 
   @Nonnull
-  public static IReadonlyCurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
+  public static ICurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
                                                                     @Nonnull final ECurrency eCurrency,
                                                                     @Nonnull final BigDecimal aDefaultValue)
   {
@@ -182,7 +182,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
   }
 
   @Nonnull
-  public static IReadonlyCurrencyValue fromValueFormattedString (@Nonnull final String sText,
+  public static ICurrencyValue fromValueFormattedString (@Nonnull final String sText,
                                                                  @Nonnull final ECurrency eCurrency,
                                                                  @Nonnull final BigDecimal aDefaultValue)
   {

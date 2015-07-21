@@ -385,7 +385,7 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
   @Ignore
   public void testGetMissingCurrencies ()
   {
-    final Map <Locale, Currency> aMap = CurrencyUtils.getLocaleToCurrencyMap ();
+    final Map <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
 
     final IMultiMapSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <Currency, Locale> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())

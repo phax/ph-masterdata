@@ -29,7 +29,7 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
 import com.helger.masterdata.address.Address;
 import com.helger.masterdata.address.EAddressType;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.IMutableAddress;
 import com.helger.masterdata.email.EEmailAddressType;
 import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
@@ -38,33 +38,33 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
- * The default implementation of the {@link ICompanySite} interface.
+ * The default implementation of the {@link IMutableCompanySite} interface.
  *
  * @author Philip Helger
  */
-public final class CompanySite implements ICompanySite
+public final class CompanySite implements IMutableCompanySite
 {
   public static final ObjectType TYPE_COMPANY_SITE = new ObjectType ("company-site");
   public static final boolean DEFAULT_DELETABLE = true;
   public static final boolean DEFAULT_VIRTUALSITE = false;
 
   private final String m_sID;
-  private final ICompany m_aCompany;
+  private final IMutableCompany m_aCompany;
   private String m_sDisplayName;
   private String m_sLongName;
   private boolean m_bIsDeletable = DEFAULT_DELETABLE;
   private boolean m_bIsVirtualSite = DEFAULT_VIRTUALSITE;
-  private IAddress m_aAddress = new Address ();
+  private IMutableAddress m_aAddress = new Address ();
   private ITelephoneNumber m_aTelNo = new TelephoneNumber ();
   private ITelephoneNumber m_aFaxNo = new TelephoneNumber ();
   private IExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
 
-  public CompanySite (@Nonnull final ICompany aCompany)
+  public CompanySite (@Nonnull final IMutableCompany aCompany)
   {
     this (GlobalIDFactory.getNewPersistentStringID (), aCompany);
   }
 
-  public CompanySite (@Nonnull @Nonempty final String sID, @Nonnull final ICompany aCompany)
+  public CompanySite (@Nonnull @Nonempty final String sID, @Nonnull final IMutableCompany aCompany)
   {
     m_sID = ValueEnforcer.notEmpty (sID, "ID");
     m_aCompany = ValueEnforcer.notNull (aCompany, "Company");
@@ -84,7 +84,7 @@ public final class CompanySite implements ICompanySite
   }
 
   @Nonnull
-  public ICompany getCompany ()
+  public IMutableCompany getCompany ()
   {
     return m_aCompany;
   }
@@ -148,13 +148,13 @@ public final class CompanySite implements ICompanySite
   }
 
   @Nonnull
-  public IAddress getAddress ()
+  public IMutableAddress getAddress ()
   {
     return m_aAddress;
   }
 
   @Nonnull
-  public EChange setAddress (@Nonnull final IAddress aAddress)
+  public EChange setAddress (@Nonnull final IMutableAddress aAddress)
   {
     ValueEnforcer.notNull (aAddress, "Address");
 

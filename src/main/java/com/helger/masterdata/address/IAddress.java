@@ -16,114 +16,83 @@
  */
 package com.helger.masterdata.address;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
-
 /**
- * The writable version of the address interface.
- *
+ * Read-only interface of an address.
+ * 
  * @author Philip Helger
  */
-public interface IAddress extends IReadonlyAddress, ICloneable <IAddress>
+public interface IAddress extends Serializable
 {
   /**
-   * @param eAddressType
-   *        The semantic type of this address.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The semantic type of this address.
    */
-  @Nonnull
-  EChange setType (@Nullable EAddressType eAddressType);
+  @Nullable
+  EAddressType getType ();
 
   /**
-   * @param aCountry
-   *        The country the address resides in.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The country the address resides in. The uppercase two-letter
+   *         ISO-3166 code as used by java.util.Locale.
    */
-  @Nonnull
-  EChange setCountry (@Nullable Locale aCountry, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getCountry ();
 
   /**
-   * @param sCountry
-   *        The country the address resides in. The uppercase two-letter
-   *        ISO-3166 code as used by java.util.Locale.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The locale representing the country. May be <code>null</code>.
    */
-  @Nonnull
-  EChange setCountry (@Nullable String sCountry, @Nonnull Locale aSortLocale);
+  @Nullable
+  Locale getCountryLocale ();
 
   /**
-   * @param sState
-   *        The optional state within the country. May be <code>null</code>.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * Get the display name of the country using the passed display locale.
+   * 
+   * @param aDisplayLocale
+   *        The locale in which the countries name should be retrieved.
+   * @return <code>null</code> if no country is set
    */
-  @Nonnull
-  EChange setState (@Nullable String sState, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getCountryDisplayName (@Nonnull Locale aDisplayLocale);
 
   /**
-   * @param sZipCode
-   *        The ZIP code representing the area within a state/country.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The optional state within the country. May be <code>null</code>.
    */
-  @Nonnull
-  EChange setPostalCode (@Nullable String sZipCode);
+  @Nullable
+  String getState ();
 
   /**
-   * @param sCity
-   *        The name of the city the address resides in.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The ZIP code representing the area within a state/country.
    */
-  @Nonnull
-  EChange setCity (@Nullable String sCity, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getPostalCode ();
 
   /**
-   * @param sStreet
-   *        The street (including the number) of the address.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The name of the city the address resides in.
    */
-  @Nonnull
-  EChange setStreet (@Nullable String sStreet, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getCity ();
 
   /**
-   * @param sBuildingNumber
-   *        The number of the building in the street (if it is not contained in
-   *        the street).
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The street (including the number) of the address.
    */
-  @Nonnull
-  EChange setBuildingNumber (@Nullable String sBuildingNumber);
+  @Nullable
+  String getStreet ();
 
   /**
-   * @param sPOBox
-   *        An optional post office box that should be used instead the street.
-   *        May be <code>null</code>.
-   * @param aSortLocale
-   *        The locale for processing. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return The number of the building in the street (if it is not contained in
+   *         the street).
    */
-  @Nonnull
-  EChange setPostOfficeBox (@Nullable String sPOBox, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getBuildingNumber ();
+
+  /**
+   * @return An optional post office box that should be used instead the street.
+   *         May be <code>null</code>.
+   */
+  @Nullable
+  String getPostOfficeBox ();
 }

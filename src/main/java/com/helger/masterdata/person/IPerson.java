@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.state.EChange;
-import com.helger.masterdata.address.IReadonlyAddress;
+import com.helger.masterdata.address.IAddress;
 import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
 
@@ -141,5 +141,5 @@ public interface IPerson extends IReadonlyPerson
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setAddress (@Nullable IReadonlyAddress aAddress, @Nonnull Locale aSortLocale);
+  EChange setAddress (@Nullable IAddress aAddress, @Nonnull Locale aSortLocale);
 }

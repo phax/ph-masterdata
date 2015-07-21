@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 import org.joda.time.LocalDate;
 
 import com.helger.commons.id.IHasID;
-import com.helger.masterdata.address.IReadonlyAddress;
+import com.helger.masterdata.address.IAddress;
 import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
 import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
 
@@ -64,5 +64,5 @@ public interface IReadonlyPerson extends IHasID <String>, Serializable
    * @return An optional real address for this person.
    */
   @Nullable
-  IReadonlyAddress getAddress ();
+  IAddress getAddress ();
 }

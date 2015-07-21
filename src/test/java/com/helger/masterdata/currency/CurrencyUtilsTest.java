@@ -26,8 +26,8 @@ public final class CurrencyUtilsTest
   @Test
   public void testGetAll ()
   {
-    assertNotNull (CurrencyUtils.getAllSupportedCurrencies ());
-    assertTrue (CurrencyUtils.isSupportedCurrencyCode ("EUR"));
-    assertTrue (CurrencyUtils.isSupportedCurrency (ECurrency.EUR));
+    assertNotNull (CurrencyHelper.getAllSupportedCurrencies ());
+    assertTrue (CurrencyHelper.isSupportedCurrencyCode ("EUR"));
+    assertTrue (CurrencyHelper.isSupportedCurrency (ECurrency.EUR));
   }
 }

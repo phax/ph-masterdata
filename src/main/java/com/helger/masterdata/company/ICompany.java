@@ -18,81 +18,81 @@ package com.helger.masterdata.company;
 
 import java.util.Collection;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.state.EChange;
+import com.helger.commons.type.ITypedObject;
 
-public interface ICompany extends IReadonlyCompany
+/**
+ * Base interface representing a read-only company.
+ * 
+ * @author Philip Helger
+ */
+public interface ICompany extends ITypedObject <String>
 {
   /**
-   * Set the name of the company and how it is known. E.g. "IBM".
+   * @return The name of the company and how it is known. E.g. "IBM".
+   */
+  @Nullable
+  String getPublicName ();
+
+  /**
+   * @return The official name of the company like
+   *         "International Business Machines Corp.".
+   */
+  @Nullable
+  String getOfficialName ();
+
+  /**
+   * @return The number of all (virtual and non-virtual) sites.
+   */
+  @Nonnegative
+  int getSiteCount ();
+
+  /**
+   * @return A collection of all sites belonging to this company. Includes both
+   *         virtual and non-virtual sites.
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  Collection <? extends ICompanySite> getAllSites ();
+
+  /**
+   * Get the site with the given ID.
    * 
-   * @param sPublicName
-   *        The new name
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setPublicName (@Nullable String sPublicName);
-
-  /**
-   * Set the official name of the company like
-   * "International Business Machines Corp.".
-   * 
-   * @param sOfficialName
-   *        The new name
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setOfficialName (@Nullable String sOfficialName);
-
-  /**
-   * {@inheritDoc}
-   */
-  @Nonnull
-  Collection <ICompanySite> getAllSites ();
-
-  @Nonnull
-  EChange addSite (@Nonnull ICompanySite aSite);
-
-  @Nonnull
-  EChange removeSite (@Nonnull ICompanySite aSite);
-
-  /**
-   * {@inheritDoc}
+   * @param sSiteID
+   *        The site ID to search. May be <code>null</code>.
+   * @return <code>null</code> if no such site exists.
    */
   @Nullable
   ICompanySite getSiteOfID (@Nullable String sSiteID);
 
   /**
-   * {@inheritDoc}
+   * @return A collection of all non-virtual sites belonging to this company.
    */
   @Nonnull
   @ReturnsMutableCopy
   Collection <? extends ICompanySite> getAllNonVirtualSites ();
 
   /**
-   * {@inheritDoc}
+   * @return A collection of all virtual sites belonging to this company.
    */
   @Nonnull
   @ReturnsMutableCopy
   Collection <? extends ICompanySite> getAllVirtualSites ();
 
   /**
-   * {@inheritDoc}
+   * @return The head quarter site of this company. May be <code>null</code> if
+   *         not a single head quarter is available.
    */
   @Nullable
   ICompanySite getHeadQuarterSite ();
 
   /**
-   * Set the head quarter site. The passed site must already be part of the
-   * overall site list.
-   * 
-   * @param aSite
-   *        The site to be marked as head quarter.
-   * @return {@link EChange}
+   * @return <code>true</code> if at least one site has the "deletable" flag set
+   *         to false
    */
-  @Nonnull
-  EChange setHeadQuarterSite (@Nonnull ICompanySite aSite);
+  boolean containsAtLeastOneNotDeletableSite ();
 }

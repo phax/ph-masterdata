@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
  * 
  * @author Philip Helger
  */
-abstract class AbstractCurrencyValue implements IReadonlyCurrencyValue
+abstract class AbstractCurrencyValue implements ICurrencyValue
 {
   protected AbstractCurrencyValue ()
   {}

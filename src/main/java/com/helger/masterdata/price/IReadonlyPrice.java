@@ -22,7 +22,7 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
 import com.helger.masterdata.currency.IHasCurrency;
-import com.helger.masterdata.currency.IReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ICurrencyValue;
 import com.helger.masterdata.vat.IHasVATItem;
 
 /**
@@ -36,19 +36,19 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    * @return The net amount of this price (without VAT).
    */
   @Nonnull
-  IReadonlyCurrencyValue getNetAmount ();
+  ICurrencyValue getNetAmount ();
 
   /**
    * @return The gross amount of this price (with VAT).
    */
   @Nonnull
-  IReadonlyCurrencyValue getGrossAmount ();
+  ICurrencyValue getGrossAmount ();
 
   /**
    * @return The tax amount of this price (=net amount * percentage / 100).
    */
   @Nonnull
-  IReadonlyCurrencyValue getTaxAmount ();
+  ICurrencyValue getTaxAmount ();
 
   /**
    * Add this price and the given value, keeping currency and VAT type.

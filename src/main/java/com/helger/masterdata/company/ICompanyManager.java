@@ -35,5 +35,5 @@ public interface ICompanyManager extends ICompanyResolver
    */
   @Nonnull
   @ReturnsMutableCopy
-  Collection <ICompany> getAllCompanies ();
+  Collection <IMutableCompany> getAllCompanies ();
 }

@@ -36,12 +36,12 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class CurrencyValue extends AbstractCurrencyValue implements ICurrencyValue
+public final class CurrencyValue extends AbstractCurrencyValue implements IMutableCurrencyValue
 {
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;
 
-  public CurrencyValue (@Nonnull final IReadonlyCurrencyValue aCurrencyValue)
+  public CurrencyValue (@Nonnull final ICurrencyValue aCurrencyValue)
   {
     this (aCurrencyValue.getCurrency (), aCurrencyValue.getValue ());
   }
@@ -109,7 +109,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getAdded (@Nonnull final BigDecimal aValue)
+  public IMutableCurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -119,7 +119,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getAdded (final long nValue)
+  public IMutableCurrencyValue getAdded (final long nValue)
   {
     if (nValue == 0)
       return this;
@@ -128,7 +128,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
+  public IMutableCurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -138,7 +138,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getSubtracted (final long nValue)
+  public IMutableCurrencyValue getSubtracted (final long nValue)
   {
     if (nValue == 0)
       return this;
@@ -147,7 +147,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
+  public IMutableCurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -157,7 +157,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getMultiplied (final long nValue)
+  public IMutableCurrencyValue getMultiplied (final long nValue)
   {
     if (nValue == 1)
       return this;
@@ -166,7 +166,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getDivided (@Nonnull final BigDecimal aValue)
+  public IMutableCurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -177,7 +177,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getDivided (final long nValue)
+  public IMutableCurrencyValue getDivided (final long nValue)
   {
     if (nValue == 1)
       return this;
@@ -214,7 +214,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   }
 
   @Nonnull
-  public static ICurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
+  public static IMutableCurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
                                                             @Nonnull final ECurrency eCurrency,
                                                             @Nonnull final BigDecimal aDefaultValue)
   {
@@ -222,7 +222,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements ICurre
   }
 
   @Nonnull
-  public static ICurrencyValue fromValueFormattedString (@Nonnull final String sText,
+  public static IMutableCurrencyValue fromValueFormattedString (@Nonnull final String sText,
                                                          @Nonnull final ECurrency eCurrency,
                                                          @Nonnull final BigDecimal aDefaultValue)
   {

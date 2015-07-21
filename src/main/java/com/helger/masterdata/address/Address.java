@@ -30,12 +30,12 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Writable implementation of the {@link IAddress} interface.
+ * Writable implementation of the {@link IMutableAddress} interface.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Address implements IAddress
+public class Address implements IMutableAddress
 {
   private EAddressType m_eType;
   private String m_sCountry;
@@ -62,7 +62,7 @@ public class Address implements IAddress
     m_sPostOfficeBox = aBase.m_sPostOfficeBox;
   }
 
-  public Address (@Nonnull final IReadonlyAddress aBase, @Nonnull final Locale aSortLocale)
+  public Address (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());
@@ -143,7 +143,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setCountry (@Nullable final String sCountry, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCountry = AddressUtils.getUnifiedCountry (sCountry, aSortLocale);
+    final String sRealCountry = AddressHelper.getUnifiedCountry (sCountry, aSortLocale);
     if (EqualsHelper.equals (m_sCountry, sRealCountry))
       return EChange.UNCHANGED;
     m_sCountry = sRealCountry == null ? null : sRealCountry.intern ();
@@ -159,7 +159,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
   {
-    final String sRealState = AddressUtils.getUnifiedState (sState, aSortLocale);
+    final String sRealState = AddressHelper.getUnifiedState (sState, aSortLocale);
     if (EqualsHelper.equals (m_sState, sRealState))
       return EChange.UNCHANGED;
     m_sState = sRealState;
@@ -191,7 +191,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setCity (@Nullable final String sCity, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCity = AddressUtils.getUnifiedCity (sCity, aSortLocale);
+    final String sRealCity = AddressHelper.getUnifiedCity (sCity, aSortLocale);
     if (EqualsHelper.equals (m_sCity, sRealCity))
       return EChange.UNCHANGED;
     m_sCity = sRealCity;
@@ -207,7 +207,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setStreet (@Nullable final String sStreet, @Nonnull final Locale aSortLocale)
   {
-    final String sRealStreet = AddressUtils.getUnifiedStreet (sStreet, aSortLocale);
+    final String sRealStreet = AddressHelper.getUnifiedStreet (sStreet, aSortLocale);
     if (EqualsHelper.equals (m_sStreet, sRealStreet))
       return EChange.UNCHANGED;
     m_sStreet = sRealStreet;
@@ -238,7 +238,7 @@ public class Address implements IAddress
   @Nonnull
   public EChange setPostOfficeBox (@Nullable final String sPostOfficeBox, @Nonnull final Locale aSortLocale)
   {
-    final String sRealPostOfficeBox = AddressUtils.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
+    final String sRealPostOfficeBox = AddressHelper.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
     if (EqualsHelper.equals (m_sPostOfficeBox, sRealPostOfficeBox))
       return EChange.UNCHANGED;
     m_sPostOfficeBox = sRealPostOfficeBox;

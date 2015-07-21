@@ -32,7 +32,7 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.IReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ICurrencyValue;
 import com.helger.masterdata.currency.ReadonlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
@@ -81,7 +81,7 @@ public class Price implements IPrice
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
    */
-  public Price (@Nonnull final IReadonlyCurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
+  public Price (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
   {
     setNetAmount (aNetAmount);
     setVATItem (aVATItem);
@@ -94,7 +94,7 @@ public class Price implements IPrice
   }
 
   @Nonnull
-  public EChange setNetAmount (@Nonnull final IReadonlyCurrencyValue aNetAmount)
+  public EChange setNetAmount (@Nonnull final ICurrencyValue aNetAmount)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 
@@ -130,7 +130,7 @@ public class Price implements IPrice
   }
 
   @Nonnull
-  public IReadonlyCurrencyValue getTaxAmount ()
+  public ICurrencyValue getTaxAmount ()
   {
     return m_aNetAmount.getMultiplied (m_aVATItem.getPercentageFactor ());
   }
@@ -153,7 +153,7 @@ public class Price implements IPrice
   }
 
   @Nonnull
-  public IReadonlyCurrencyValue getGrossAmount ()
+  public ICurrencyValue getGrossAmount ()
   {
     final BigDecimal aMultiplicationFactor = m_aVATItem.getMultiplicationFactorNetToGross ();
     return m_aNetAmount.getMultiplied (aMultiplicationFactor);
@@ -267,7 +267,7 @@ public class Price implements IPrice
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromNetAmount (@Nonnull final IReadonlyCurrencyValue aNetAmount,
+  public static Price createFromNetAmount (@Nonnull final ICurrencyValue aNetAmount,
                                            @Nonnull final IVATItem aVATItem)
   {
     return new Price (aNetAmount, aVATItem);
@@ -343,7 +343,7 @@ public class Price implements IPrice
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final IReadonlyCurrencyValue aGrossAmount,
+  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
                                              @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
@@ -368,7 +368,7 @@ public class Price implements IPrice
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final IReadonlyCurrencyValue aGrossAmount,
+  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
                                              @Nonnull final IVATItem aVATItem,
                                              @Nonnegative final int nScale,
                                              @Nonnull final RoundingMode eRoundingMode)

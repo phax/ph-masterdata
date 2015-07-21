@@ -38,7 +38,7 @@ public abstract class AbstractCurrencyMicroTypeConverter implements IMicroTypeCo
                                                     @Nullable final String sNamespaceURI,
                                                     @Nonnull final String sTagName)
   {
-    final IReadonlyCurrencyValue aPrice = (IReadonlyCurrencyValue) aObject;
+    final ICurrencyValue aPrice = (ICurrencyValue) aObject;
     final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
     ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
     ePrice.setAttributeWithConversion (ATTR_VALUE, aPrice.getValue ());

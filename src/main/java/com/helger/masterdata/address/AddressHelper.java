@@ -33,7 +33,7 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @ThreadSafe
-public final class AddressUtils
+public final class AddressHelper
 {
   private static final String [] STREET_SEARCH = new String [] { "str.", "g." };
   private static final String [] STREET_REPLACE = new String [] { "straße", "gasse" };
@@ -46,7 +46,7 @@ public final class AddressUtils
       throw new InitializationException ("Search and replace arrays for street have different length!");
   }
 
-  private AddressUtils ()
+  private AddressHelper ()
   {}
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
@@ -140,7 +140,7 @@ public final class AddressUtils
   }
 
   @Nullable
-  public static String getStreetAndBuildingNumber (@Nullable final IReadonlyAddress aAddress)
+  public static String getStreetAndBuildingNumber (@Nullable final IAddress aAddress)
   {
     if (aAddress == null)
       return null;
@@ -148,7 +148,7 @@ public final class AddressUtils
   }
 
   @Nullable
-  public static String getPostalCodeAndCity (@Nullable final IReadonlyAddress aAddress)
+  public static String getPostalCodeAndCity (@Nullable final IAddress aAddress)
   {
     if (aAddress == null)
       return null;
@@ -156,13 +156,13 @@ public final class AddressUtils
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IReadonlyAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  public static String getAddressString (@Nullable final IAddress aAddress, @Nonnull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aDisplayLocale, "\n");
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IReadonlyAddress aAddress,
+  public static String getAddressString (@Nullable final IAddress aAddress,
                                          @Nonnull final Locale aDisplayLocale,
                                          @Nonnull final String sLineSeparator)
   {

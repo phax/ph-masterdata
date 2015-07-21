@@ -26,7 +26,7 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.address.Address;
-import com.helger.masterdata.address.IReadonlyAddress;
+import com.helger.masterdata.address.IAddress;
 
 /**
  * Person specific implementation
@@ -46,7 +46,7 @@ public class PersonAddress extends Address
   }
 
   public PersonAddress (@Nonnull final Person aOwner,
-                        @Nonnull final IReadonlyAddress aBase,
+                        @Nonnull final IAddress aBase,
                         @Nonnull final Locale aSortLocale)
   {
     super (aBase, aSortLocale);

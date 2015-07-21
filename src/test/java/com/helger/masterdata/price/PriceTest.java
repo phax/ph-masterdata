@@ -31,7 +31,7 @@ import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.IReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ICurrencyValue;
 import com.helger.masterdata.currency.ReadonlyCurrencyValue;
 import com.helger.masterdata.vat.EVATType;
 import com.helger.masterdata.vat.IVATItem;
@@ -78,7 +78,7 @@ public final class PriceTest
     try
     {
       // null not allowed
-      p.setNetAmount ((IReadonlyCurrencyValue) null);
+      p.setNetAmount ((ICurrencyValue) null);
       fail ();
     }
     catch (final NullPointerException ex)

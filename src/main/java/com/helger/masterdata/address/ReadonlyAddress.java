@@ -28,12 +28,12 @@ import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Read-only implementation of the {@link IReadonlyAddress} interface.
+ * Read-only implementation of the {@link IAddress} interface.
  *
  * @author Philip Helger
  */
 @Immutable
-public final class ReadonlyAddress implements IReadonlyAddress
+public final class ReadonlyAddress implements IAddress
 {
   private final EAddressType m_eType;
   private final String m_sCountry;
@@ -44,7 +44,7 @@ public final class ReadonlyAddress implements IReadonlyAddress
   private final String m_sBuildingNumber;
   private final String m_sPostOfficeBox;
 
-  public ReadonlyAddress (@Nonnull final IReadonlyAddress aBase, @Nonnull final Locale aSortLocale)
+  public ReadonlyAddress (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
   {
     this (aBase.getType (),
           aBase.getCountry (),
@@ -68,13 +68,13 @@ public final class ReadonlyAddress implements IReadonlyAddress
                           @Nonnull final Locale aSortLocale)
   {
     m_eType = eType;
-    m_sCountry = AddressUtils.getUnifiedCountry (sCountry, aSortLocale);
-    m_sState = AddressUtils.getUnifiedState (sState, aSortLocale);
+    m_sCountry = AddressHelper.getUnifiedCountry (sCountry, aSortLocale);
+    m_sState = AddressHelper.getUnifiedState (sState, aSortLocale);
     m_sPostalCode = sPostalCode;
-    m_sCity = AddressUtils.getUnifiedCity (sCity, aSortLocale);
-    m_sStreet = AddressUtils.getUnifiedStreet (sStreet, aSortLocale);
+    m_sCity = AddressHelper.getUnifiedCity (sCity, aSortLocale);
+    m_sStreet = AddressHelper.getUnifiedStreet (sStreet, aSortLocale);
     m_sBuildingNumber = sBuildingNumber;
-    m_sPostOfficeBox = AddressUtils.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
+    m_sPostOfficeBox = AddressHelper.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
   }
 
   @Nullable

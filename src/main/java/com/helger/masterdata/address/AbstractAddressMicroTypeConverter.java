@@ -40,7 +40,7 @@ public abstract class AbstractAddressMicroTypeConverter implements IMicroTypeCon
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IReadonlyAddress aAddress = (IReadonlyAddress) aObject;
+    final IAddress aAddress = (IAddress) aObject;
     final IMicroElement eAddress = new MicroElement (sNamespaceURI, sTagName);
     if (aAddress.getType () != null)
       eAddress.setAttribute (ATTR_TYPE, aAddress.getType ().getID ());

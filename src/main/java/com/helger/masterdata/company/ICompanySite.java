@@ -19,69 +19,65 @@ package com.helger.masterdata.company;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.state.EChange;
+import com.helger.commons.name.IHasDisplayName;
+import com.helger.commons.type.ITypedObject;
 import com.helger.masterdata.address.IAddress;
-import com.helger.masterdata.email.IExtendedEmailAddress;
-import com.helger.masterdata.telephone.ITelephoneNumber;
+import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
+import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
 
 /**
  * Represents a single location of a company.
  * 
  * @author Philip Helger
  */
-public interface ICompanySite extends IReadonlyCompanySite
+public interface ICompanySite extends IHasDisplayName, ITypedObject <String>
 {
   /**
-   * {@inheritDoc}
+   * @return The company to which the site belongs
    */
   @Nonnull
   ICompany getCompany ();
 
-  @Nonnull
-  EChange setDisplayName (@Nullable String sDisplayName);
-
-  @Nonnull
-  EChange setLongName (@Nullable String sLongName);
-
-  @Nonnull
-  EChange setDeletable (boolean bIsDeletable);
-
-  @Nonnull
-  EChange setVirtualSite (boolean bIsVirtualSite);
+  /**
+   * @return The long name of the company site, e.g. containing the city or
+   *         similar stuff.
+   */
+  @Nullable
+  String getLongName ();
 
   /**
-   * {@inheritDoc}
+   * @return <code>false</code> if this site is undeletable, because it is
+   *         required by business logic!
+   */
+  boolean isDeletable ();
+
+  /**
+   * @return <code>true</code> if it is a virtual site (e.g. a WebShop) or
+   *         <code>false</code> if it is a real site.
+   */
+  boolean isVirtualSite ();
+
+  /**
+   * @return The address of this company site.
    */
   @Nonnull
   IAddress getAddress ();
 
-  @Nonnull
-  EChange setAddress (@Nonnull IAddress aAddress);
-
   /**
-   * {@inheritDoc}
+   * @return The default telephone number of the company site.
    */
   @Nonnull
-  ITelephoneNumber getDefaultTelNo ();
-
-  @Nonnull
-  EChange setDefaultTelNo (@Nonnull ITelephoneNumber aTelNo);
+  IReadonlyTelephoneNumber getDefaultTelNo ();
 
   /**
-   * {@inheritDoc}
+   * @return The default fax number of the company site.
    */
   @Nonnull
-  ITelephoneNumber getDefaultFaxNo ();
-
-  @Nonnull
-  EChange setDefaultFaxNo (@Nonnull ITelephoneNumber aFaxNo);
+  IReadonlyTelephoneNumber getDefaultFaxNo ();
 
   /**
-   * {@inheritDoc}
+   * @return The default email address of the company site.
    */
   @Nonnull
-  IExtendedEmailAddress getDefaultEmailAddress ();
-
-  @Nonnull
-  EChange setDefaultEmailAddress (@Nonnull IExtendedEmailAddress aEmailAddress);
+  IReadonlyExtendedEmailAddress getDefaultEmailAddress ();
 }
