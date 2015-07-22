@@ -26,10 +26,10 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Unit test class for class {@link EDINB}
- * 
+ *
  * @author Philip Helger
  */
-public class EDINBTest
+public final class EDINBTest
 {
   @Test
   public void testBasic ()

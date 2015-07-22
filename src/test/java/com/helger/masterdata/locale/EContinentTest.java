@@ -22,10 +22,10 @@ import org.junit.Test;
 
 /**
  * Test class for class {@link EContinent}.
- * 
+ *
  * @author Philip Helger
  */
-public class EContinentTest
+public final class EContinentTest
 {
   @Test
   public void testBasic ()

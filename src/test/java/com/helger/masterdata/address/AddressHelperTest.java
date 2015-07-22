@@ -28,7 +28,7 @@ import org.junit.Test;
  * 
  * @author Philip Helger
  */
-public final class AddressUtilsTest
+public final class AddressHelperTest
 {
   @Test
   public void testEnabled ()

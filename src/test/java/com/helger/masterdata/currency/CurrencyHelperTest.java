@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public final class CurrencyUtilsTest
+public final class CurrencyHelperTest
 {
   @Test
   public void testGetAll ()
