@@ -18,6 +18,11 @@
 
 -->
 <changelog xmlns="http://www.helger.com/xsd/changelog/1.0" version="1.0" component="ph-masterdata">
+  <entry date="2015-07-02" category="tech" action="update">
+    <change>
+      <text locale="en">Updated to ph-commons 6.0.0</text>
+    </change>
+  </entry>
   <release date="2015-05-13" version="3.8.0" />
   <entry date="2015-05-13" category="tech" action="update">
     <change>
