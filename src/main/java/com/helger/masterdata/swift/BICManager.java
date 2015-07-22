@@ -45,7 +45,7 @@ public final class BICManager
   @RegEx
   public static final String BIC_PATTERN = "(?i)^[a-z]{6}[a-z0-9]{2}([a-z0-9]{3})?$";
 
-  /** Precompiled pattern */
+  /** Pre-compiled pattern */
   private static final Pattern s_aBICPattern = RegExPool.getPattern (BIC_PATTERN);
 
   @PresentForCodeCoverage

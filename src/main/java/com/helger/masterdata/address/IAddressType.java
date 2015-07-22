@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.address;
 
+import java.io.Serializable;
+
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.text.display.IHasDisplayText;
@@ -27,7 +29,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IAddressType extends IHasID <String>, IHasDisplayText
+public interface IAddressType extends IHasID <String>, IHasDisplayText, Serializable
 {
   /* empty */
 }

@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.postal;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -29,11 +30,11 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * This class contains a single postal code format for a certain country.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
-public final class PostalCodeFormat
+public class PostalCodeFormat implements Serializable
 {
   private final String m_sISO;
   private final String m_sFormat;
@@ -42,7 +43,7 @@ public final class PostalCodeFormat
 
   /**
    * Create a new postal code format
-   * 
+   *
    * @param sISO
    *        The owning countries ISO code. May neither be <code>null</code> nor
    *        empty.
@@ -122,7 +123,7 @@ public final class PostalCodeFormat
   /**
    * Check whether the passed postal code is valid for this format using the
    * build in regular expression.
-   * 
+   *
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
    * @return <code>true</code> if the passed postal code matches this format,

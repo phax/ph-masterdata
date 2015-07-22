@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.swift;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -25,7 +26,9 @@ import javax.annotation.concurrent.Immutable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
+import com.helger.commons.string.ToStringGenerator;
 
 /**
  * This class represents a single IBAN number (SEPA). An IBAN number is a
@@ -34,7 +37,7 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @Immutable
-public class IBAN
+public class IBAN implements Serializable
 {
   private final List <IBANElementValue> m_aValues;
 
@@ -49,6 +52,29 @@ public class IBAN
   public List <IBANElementValue> getAllValues ()
   {
     return CollectionHelper.newList (m_aValues);
+  }
+
+  @Override
+  public boolean equals (final Object o)
+  {
+    if (o == this)
+      return true;
+    if (o == null || !getClass ().equals (o.getClass ()))
+      return false;
+    final IBAN rhs = (IBAN) o;
+    return m_aValues.equals (rhs.m_aValues);
+  }
+
+  @Override
+  public int hashCode ()
+  {
+    return new HashCodeGenerator (this).append (m_aValues).getHashCode ();
+  }
+
+  @Override
+  public String toString ()
+  {
+    return new ToStringGenerator (this).append ("values", m_aValues).toString ();
   }
 
   @Nonnull

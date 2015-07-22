@@ -37,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class VATCountryData implements IHasCountry
+public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;

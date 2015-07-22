@@ -42,15 +42,15 @@ public class ISO639_2Item implements Serializable
                        @Nonnull @Nonempty final String sEN,
                        @Nonnull @Nonempty final String sFR)
   {
-    if (StringHelper.getLength (sAlpha3B) != 3)
-      throw new IllegalArgumentException ("Alpha3-bibliographic code must be present and have length 3: '" +
-                                          sAlpha3B +
-                                          "' - length " +
-                                          StringHelper.getLength (sAlpha3B));
-    if (sAlpha3T != null && sAlpha3T.length () != 3)
-      throw new IllegalArgumentException ("Alpha3-terminologic code must have length 3!");
-    if (sAlpha2 != null && sAlpha2.length () != 2)
-      throw new IllegalArgumentException ("Alpha2 code must have length 2!");
+    ValueEnforcer.isTrue (StringHelper.getLength (sAlpha3B) == 3,
+                          "Alpha3-bibliographic code must be present and have length 3: '" +
+                                                                  sAlpha3B +
+                                                                  "' - length " +
+                                                                  StringHelper.getLength (sAlpha3B));
+    if (sAlpha3T != null)
+      ValueEnforcer.isTrue (sAlpha3T.length () == 3, "Alpha3-terminologic code must have length 3!");
+    if (sAlpha2 != null)
+      ValueEnforcer.isTrue (sAlpha2.length () == 2, "Alpha2 code must have length 2!");
     ValueEnforcer.notEmpty (sEN, "English name");
     ValueEnforcer.notEmpty (sFR, "French name");
     m_sAlpha3B = sAlpha3B;

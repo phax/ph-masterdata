@@ -23,8 +23,8 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.telephone.ETelephoneType;
 import com.helger.masterdata.telephone.ITelephoneNumber;
+import com.helger.masterdata.telephone.ITelephoneType;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
@@ -51,13 +51,13 @@ public class PersonTelephoneNumber extends TelephoneNumber
   }
 
   public PersonTelephoneNumber (@Nonnull final Person aOwner,
-                                @Nullable final ETelephoneType eType,
+                                @Nullable final ITelephoneType aType,
                                 @Nullable final String sCountryCode,
                                 @Nullable final String sAreaCode,
                                 @Nullable final String sLine,
                                 @Nullable final String sDirectDial)
   {
-    super (eType, sCountryCode, sAreaCode, sLine, sDirectDial);
+    super (aType, sCountryCode, sAreaCode, sLine, sDirectDial);
     setOwner (aOwner);
   }
 

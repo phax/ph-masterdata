@@ -22,30 +22,29 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
 /**
  * Contains the possible telephone number types.
- * 
+ *
  * @author Philip Helger
  */
-public enum ETelephoneType implements IHasID <String>, IHasDisplayText
+public enum ETelephoneType implements ITelephoneType
 {
-  ASSISTANT ("ass", ETelephoneText.MSG_TYPE_ASSISTANT),
-  BUSINESS ("bus", ETelephoneText.MSG_TYPE_BUSINESS),
-  BUSINESS2 ("bus2", ETelephoneText.MSG_TYPE_BUSINESS2),
-  BUSINESS_FAX ("busfax", ETelephoneText.MSG_TYPE_BUSINESS_FAX),
-  OFFICE ("off", ETelephoneText.MSG_TYPE_OFFICE),
-  OFFICE_FAX ("offfax", ETelephoneText.MSG_TYPE_OFFICE_FAX),
-  PERSONAL ("per", ETelephoneText.MSG_TYPE_PERSONAL),
-  PERSONAL2 ("per2", ETelephoneText.MSG_TYPE_PERSONAL2),
-  PERSONAL_FAX ("perfax", ETelephoneText.MSG_TYPE_PERSONAL_FAX),
-  ISDN ("isdn", ETelephoneText.MSG_TYPE_ISDN),
-  MOBILE ("mob", ETelephoneText.MSG_TYPE_MOBILE),
-  OTHER ("oth", ETelephoneText.MSG_TYPE_OTHER),
-  OTHER_FAX ("othfax", ETelephoneText.MSG_TYPE_OTHER_FAX);
+ ASSISTANT ("ass", ETelephoneText.MSG_TYPE_ASSISTANT),
+ BUSINESS ("bus", ETelephoneText.MSG_TYPE_BUSINESS),
+ BUSINESS2 ("bus2", ETelephoneText.MSG_TYPE_BUSINESS2),
+ BUSINESS_FAX ("busfax", ETelephoneText.MSG_TYPE_BUSINESS_FAX),
+ OFFICE ("off", ETelephoneText.MSG_TYPE_OFFICE),
+ OFFICE_FAX ("offfax", ETelephoneText.MSG_TYPE_OFFICE_FAX),
+ PERSONAL ("per", ETelephoneText.MSG_TYPE_PERSONAL),
+ PERSONAL2 ("per2", ETelephoneText.MSG_TYPE_PERSONAL2),
+ PERSONAL_FAX ("perfax", ETelephoneText.MSG_TYPE_PERSONAL_FAX),
+ ISDN ("isdn", ETelephoneText.MSG_TYPE_ISDN),
+ MOBILE ("mob", ETelephoneText.MSG_TYPE_MOBILE),
+ OTHER ("oth", ETelephoneText.MSG_TYPE_OTHER),
+ OTHER_FAX ("othfax", ETelephoneText.MSG_TYPE_OTHER_FAX);
 
   private final String m_sID;
   private final IHasDisplayText m_aText;

@@ -39,7 +39,7 @@ import com.helger.masterdata.MasterDataLogger;
  *
  * @author Philip Helger
  */
-public final class PostalCodeListReader
+public class PostalCodeListReader
 {
   public static final String ELEMENT_ROOT = "root";
   public static final String ELEMENT_HEADER = "header";
@@ -114,10 +114,11 @@ public final class PostalCodeListReader
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))
         {
-          MasterDataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
-                                                sCountryName +
-                                                " because they are valid from " +
-                                                aValidFrom.toString ());
+          MasterDataLogger.getInstance ()
+                          .info ("Ignoring some postal code definitions of " +
+                                 sCountryName +
+                                 " because they are valid from " +
+                                 aValidFrom.toString ());
           continue;
         }
         if (aValidTo != null && aValidTo.isBefore (aNow))

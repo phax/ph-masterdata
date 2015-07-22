@@ -89,6 +89,9 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
   @Nonnull
   public String getDisplayName ()
   {
+    if (m_sAddress == null)
+      return "";
+
     if (StringHelper.hasText (m_sPersonal))
       return m_sPersonal + " <" + m_sAddress + ">";
     return m_sAddress;

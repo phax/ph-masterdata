@@ -45,7 +45,7 @@ import com.helger.commons.string.ToStringGenerator;
  *
  * @author Philip Helger
  */
-public final class DeprecatedLocaleHandler
+public class DeprecatedLocaleHandler
 {
   private static final class SingletonHolder
   {

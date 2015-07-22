@@ -22,7 +22,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.microdom.IMicroDocument;
@@ -35,11 +35,12 @@ import com.helger.commons.string.StringHelper;
  *
  * @author Philip Helger
  */
-public final class VATINStructureManager
+public class VATINStructureManager
 {
   public static final String DEFAULT_RESOURCE = "codelists/vatin-data.xml";
 
   private static final List <VATINStructure> s_aList = new ArrayList <VATINStructure> ();
+
   static
   {
     // Read all information from a file
@@ -121,9 +122,9 @@ public final class VATINStructureManager
    * @return A list of all available VATIN structures
    */
   @Nonnull
-  @ReturnsImmutableObject
+  @ReturnsMutableCopy
   public static List <VATINStructure> getAllStructures ()
   {
-    return CollectionHelper.makeUnmodifiable (s_aList);
+    return CollectionHelper.newList (s_aList);
   }
 }

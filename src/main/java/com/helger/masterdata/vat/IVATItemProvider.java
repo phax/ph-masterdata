@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * @author Philip Helger
  */
-public interface IVATItemResolver
+public interface IVATItemProvider
 {
   /**
    * Get the VAT type with the given ID.

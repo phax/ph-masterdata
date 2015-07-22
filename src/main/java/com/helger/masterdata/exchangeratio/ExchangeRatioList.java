@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.exchangeratio;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
@@ -44,7 +45,7 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class ExchangeRatioList implements ICloneable <ExchangeRatioList>
+public final class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
 {
   private final ECurrency m_eCurrency;
   private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <ExchangeRatio> (new ComparatorExchangeRatioDate ().setSortOrder (ESortOrder.ASCENDING));

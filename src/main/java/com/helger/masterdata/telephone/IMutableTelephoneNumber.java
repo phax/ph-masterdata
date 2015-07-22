@@ -17,24 +17,25 @@
 package com.helger.masterdata.telephone;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 
 /**
  * Base interface for a telephone number.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableTelephoneNumber extends ITelephoneNumber, ICloneable <IMutableTelephoneNumber>
 {
   /**
-   * @param eType
+   * @param aType
    *        The semantic type of this telephone number.
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setType (ETelephoneType eType);
+  EChange setType (@Nullable ITelephoneType aType);
 
   /**
    * @param sCountryCode
@@ -42,7 +43,7 @@ public interface IMutableTelephoneNumber extends ITelephoneNumber, ICloneable <I
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setCountryCode (String sCountryCode);
+  EChange setCountryCode (@Nullable String sCountryCode);
 
   /**
    * @param sAreaCode
@@ -50,7 +51,7 @@ public interface IMutableTelephoneNumber extends ITelephoneNumber, ICloneable <I
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setAreaCode (String sAreaCode);
+  EChange setAreaCode (@Nullable String sAreaCode);
 
   /**
    * @param sLine
@@ -58,7 +59,7 @@ public interface IMutableTelephoneNumber extends ITelephoneNumber, ICloneable <I
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setLine (String sLine);
+  EChange setLine (@Nullable String sLine);
 
   /**
    * @param sDirectDial
@@ -67,5 +68,5 @@ public interface IMutableTelephoneNumber extends ITelephoneNumber, ICloneable <I
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setDirectDial (String sDirectDial);
+  EChange setDirectDial (@Nullable String sDirectDial);
 }

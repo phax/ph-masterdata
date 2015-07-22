@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.unit;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnegative;
@@ -30,7 +31,7 @@ import com.helger.commons.text.IMultilingualText;
 import com.helger.commons.text.display.IHasDisplayText;
 
 @Immutable
-public final class UnitSector implements IHasIntID, IHasDisplayText
+public class UnitSector implements IHasIntID, IHasDisplayText, Serializable
 {
   private final int m_nGroupNumber;
   private final IMultilingualText m_aName;

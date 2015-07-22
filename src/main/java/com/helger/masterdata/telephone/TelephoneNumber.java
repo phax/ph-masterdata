@@ -35,7 +35,7 @@ import com.helger.commons.string.ToStringGenerator;
 @NotThreadSafe
 public class TelephoneNumber implements IMutableTelephoneNumber
 {
-  private ETelephoneType m_eType;
+  private ITelephoneType m_aType;
   private String m_sCountryCode;
   private String m_sAreaCode;
   private String m_sLine;
@@ -54,18 +54,18 @@ public class TelephoneNumber implements IMutableTelephoneNumber
     setDirectDial (aBase.getDirectDial ());
   }
 
-  public TelephoneNumber (@Nullable final ETelephoneType eType)
+  public TelephoneNumber (@Nullable final ITelephoneType aType)
   {
-    setType (eType);
+    setType (aType);
   }
 
-  public TelephoneNumber (@Nullable final ETelephoneType eType,
+  public TelephoneNumber (@Nullable final ITelephoneType aType,
                           @Nullable final String sCountryCode,
                           @Nullable final String sAreaCode,
                           @Nullable final String sLine,
                           @Nullable final String sDirectDial)
   {
-    setType (eType);
+    setType (aType);
     setCountryCode (sCountryCode);
     setAreaCode (sAreaCode);
     setLine (sLine);
@@ -73,17 +73,17 @@ public class TelephoneNumber implements IMutableTelephoneNumber
   }
 
   @Nullable
-  public ETelephoneType getType ()
+  public ITelephoneType getType ()
   {
-    return m_eType;
+    return m_aType;
   }
 
   @Nonnull
-  public EChange setType (@Nullable final ETelephoneType eType)
+  public EChange setType (@Nullable final ITelephoneType aType)
   {
-    if (EqualsHelper.equals (m_eType, eType))
+    if (EqualsHelper.equals (m_aType, aType))
       return EChange.UNCHANGED;
-    m_eType = eType;
+    m_aType = aType;
     return EChange.CHANGED;
   }
 
@@ -165,7 +165,7 @@ public class TelephoneNumber implements IMutableTelephoneNumber
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final TelephoneNumber rhs = (TelephoneNumber) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aType, rhs.m_aType) &&
            EqualsHelper.equals (m_sCountryCode, rhs.m_sCountryCode) &&
            EqualsHelper.equals (m_sAreaCode, rhs.m_sAreaCode) &&
            EqualsHelper.equals (m_sLine, rhs.m_sLine) &&
@@ -175,7 +175,7 @@ public class TelephoneNumber implements IMutableTelephoneNumber
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType)
+    return new HashCodeGenerator (this).append (m_aType)
                                        .append (m_sCountryCode)
                                        .append (m_sAreaCode)
                                        .append (m_sLine)
@@ -186,7 +186,7 @@ public class TelephoneNumber implements IMutableTelephoneNumber
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("type", m_aType)
                                        .appendIfNotNull ("countryCode", m_sCountryCode)
                                        .appendIfNotNull ("areaCode", m_sAreaCode)
                                        .appendIfNotNull ("line", m_sLine)

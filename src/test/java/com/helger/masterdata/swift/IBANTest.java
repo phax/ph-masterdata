@@ -20,9 +20,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import com.helger.commons.mock.CommonsTestHelper;
+
 /**
  * Test class for class {@link IBAN}.
- * 
+ *
  * @author Philip Helger
  */
 public final class IBANTest
@@ -32,6 +34,10 @@ public final class IBANTest
   {
     // check valid IBANs
     for (final String sIBAN : IBANManagerTest.VALID_IBANS)
-      assertNotNull (IBAN.createFromString (sIBAN));
+    {
+      final IBAN aIBAN = IBAN.createFromString (sIBAN);
+      assertNotNull (sIBAN, aIBAN);
+      CommonsTestHelper.testDefaultSerialization (aIBAN);
+    }
   }
 }

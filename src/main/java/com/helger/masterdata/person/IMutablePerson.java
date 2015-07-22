@@ -28,9 +28,13 @@ import com.helger.masterdata.address.IAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
+/**
+ * Mutable person interface
+ * 
+ * @author Philip Helger
+ */
 public interface IMutablePerson extends IPerson
 {
-
   /**
    * @return The writable name of the person. May not be <code>null</code>.
    */
@@ -65,7 +69,7 @@ public interface IMutablePerson extends IPerson
 
   /**
    * Set the name of the person
-   * 
+   *
    * @param aName
    *        The new name to be set. May not be <code>null</code>.
    * @return {@link EChange}
@@ -75,7 +79,7 @@ public interface IMutablePerson extends IPerson
 
   /**
    * Set the name of the person
-   * 
+   *
    * @param aName
    *        The new name to be set. May not be <code>null</code>.
    * @param aSortLocale

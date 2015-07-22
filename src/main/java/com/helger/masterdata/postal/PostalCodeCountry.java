@@ -37,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class PostalCodeCountry implements IPostalCodeCountry
+public class PostalCodeCountry implements IPostalCodeCountry
 {
   private final String m_sISO;
   private final List <PostalCodeFormat> m_aFormats = new ArrayList <PostalCodeFormat> ();
@@ -84,10 +84,8 @@ public final class PostalCodeCountry implements IPostalCodeCountry
   void addSpecificPostalCode (@Nonnull @Nonempty final String sSpecificPostalCode)
   {
     ValueEnforcer.notEmpty (sSpecificPostalCode, "SpecificPostalCode");
-    if (!isValidPostalCode (sSpecificPostalCode))
-      throw new IllegalArgumentException ("The passed code '" +
-                                          sSpecificPostalCode +
-                                          "' is not valid according to the rules!");
+    ValueEnforcer.isTrue (isValidPostalCode (sSpecificPostalCode),
+                          "The passed code '" + sSpecificPostalCode + "' is not valid according to the rules!");
     m_aSpecificPostalCodes.add (sSpecificPostalCode);
   }
 

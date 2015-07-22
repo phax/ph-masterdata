@@ -38,26 +38,26 @@ public final class PersonNameHelper
   public static final boolean DEFAULT_FIRST_NAME_FIRST = true;
 
   private static final String [] NOBILIARY_PARTICLES = new String [] { "aw",
-                                                                      "da",
-                                                                      "dalla",
-                                                                      "de",
-                                                                      "degli",
-                                                                      "del",
-                                                                      "dem",
-                                                                      "der",
-                                                                      "di",
-                                                                      "du",
-                                                                      "of",
-                                                                      "ter",
-                                                                      "thoe",
-                                                                      "tot",
-                                                                      "und",
-                                                                      "v.",
-                                                                      "van",
-                                                                      "vom",
-                                                                      "von",
-                                                                      "zu",
-                                                                      "zum" };
+                                                                       "da",
+                                                                       "dalla",
+                                                                       "de",
+                                                                       "degli",
+                                                                       "del",
+                                                                       "dem",
+                                                                       "der",
+                                                                       "di",
+                                                                       "du",
+                                                                       "of",
+                                                                       "ter",
+                                                                       "thoe",
+                                                                       "tot",
+                                                                       "und",
+                                                                       "v.",
+                                                                       "van",
+                                                                       "vom",
+                                                                       "von",
+                                                                       "zu",
+                                                                       "zum" };
 
   private static final AtomicBoolean s_aComplexNameHandlingEnabled = new AtomicBoolean (DEFAULT_COMPLEX_NAME_HANDLING);
   private static final AtomicBoolean s_aFirstNameFirst = new AtomicBoolean (DEFAULT_FIRST_NAME_FIRST);
@@ -97,7 +97,8 @@ public final class PersonNameHelper
    * Unify a single name part. Performs the following transformations:
    * <ul>
    * <li>Remove leading and trailing whitespaces</li>
-   * <li>If the name is all uppercase, downcase all except the first character</li>
+   * <li>If the name is all upper case, down case all except the first character
+   * </li>
    * </ul>
    *
    * @param sPart
@@ -160,7 +161,7 @@ public final class PersonNameHelper
           final String sRealPart = _unifySinglePart (sPart, aSortLocale);
           if (sRealPart == null)
           {
-            // Ignore all empty parts (e.g. "Kai  Uwe" with 2 spaces between
+            // Ignore all empty parts (e.g. "Kai Uwe" with 2 spaces between
             continue;
           }
 

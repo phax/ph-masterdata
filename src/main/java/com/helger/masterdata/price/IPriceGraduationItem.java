@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.price;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnegative;
@@ -25,11 +26,11 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
  * Interface representing a single read only item of a price graduation.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IPriceGraduationItem
+public interface IPriceGraduationItem extends Serializable
 {
   /**
    * @return The minimum quantity. Should be &ge; 1.

@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.price;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
@@ -27,10 +28,10 @@ import com.helger.masterdata.vat.IHasVATItem;
 
 /**
  * Base interface for a price that has a value, a currency and a VAT type.
- * 
+ *
  * @author Philip Helger
  */
-public interface IPrice extends IHasCurrency, IHasVATItem
+public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
 {
   /**
    * @return The net amount of this price (without VAT).
@@ -52,7 +53,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to add.
    * @return The result value as a new object.
@@ -63,7 +64,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to add.
    * @return The result value as a new object.
@@ -74,7 +75,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to subtract.
    * @return The result value as a new object.
@@ -85,7 +86,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to subtract.
    * @return The result value as a new object.
@@ -96,7 +97,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to multiply with.
    * @return The result value as a new object.
@@ -107,7 +108,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to multiply with.
    * @return The result value as a new object.
@@ -118,7 +119,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to divide through.
    * @return The result value as a new object.
@@ -129,7 +130,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to divide through.
    * @return The result value as a new object.

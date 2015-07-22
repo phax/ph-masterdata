@@ -57,7 +57,7 @@ import com.helger.datetime.format.PDTFromString;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class VATManager implements IVATItemResolver
+public class VATManager implements IVATItemProvider
 {
   private static final class SingletonHolder
   {

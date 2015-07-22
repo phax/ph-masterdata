@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.swift;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
@@ -29,7 +31,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-final class IBANElementValue
+final class IBANElementValue implements Serializable
 {
   private final IBANElement m_aElement;
   private final String m_sValue;

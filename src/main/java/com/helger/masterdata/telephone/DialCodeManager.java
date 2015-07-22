@@ -21,6 +21,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.io.resource.ClassPathResource;
@@ -29,9 +30,10 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Contains a list of dial up codes.
- * 
+ *
  * @author Philip Helger
  */
+@Immutable
 public final class DialCodeManager
 {
   private static final Map <String, String> s_aCountryToDialCode = new HashMap <String, String> ();
@@ -49,7 +51,7 @@ public final class DialCodeManager
   /**
    * Get the dial code for the specified country (in the ISO-3166 two letter
    * type).
-   * 
+   *
    * @param sCountry
    *        The country code. Must be 2 characters long.
    * @return <code>null</code> if no mapping exists.

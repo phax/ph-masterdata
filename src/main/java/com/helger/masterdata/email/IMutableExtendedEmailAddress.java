@@ -17,6 +17,7 @@
 package com.helger.masterdata.email;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
@@ -34,7 +35,7 @@ public interface IMutableExtendedEmailAddress extends IExtendedEmailAddress, ICl
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setType (IEmailAddressType aAddressType);
+  EChange setType (@Nullable IEmailAddressType aAddressType);
 
   /**
    * @param sAddress
@@ -44,7 +45,7 @@ public interface IMutableExtendedEmailAddress extends IExtendedEmailAddress, ICl
    *         otherwise.
    */
   @Nonnull
-  EChange setAddress (String sAddress);
+  EChange setAddress (@Nullable String sAddress);
 
   /**
    * @param sPersonal
@@ -52,5 +53,5 @@ public interface IMutableExtendedEmailAddress extends IExtendedEmailAddress, ICl
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setPersonal (String sPersonal);
+  EChange setPersonal (@Nullable String sPersonal);
 }

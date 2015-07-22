@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.exchangeratio;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnegative;
@@ -36,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class ExchangeRatio
+public class ExchangeRatio implements Serializable
 {
   private final LocalDate m_aDate;
   private final BigDecimal m_aRatio;

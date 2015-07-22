@@ -44,7 +44,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class VATINStructure implements IHasCountry
+public class VATINStructure implements IHasCountry
 {
   private final Locale m_aCountry;
   private final String m_sPattern;

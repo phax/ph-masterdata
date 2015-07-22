@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.postal;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.Nonnegative;
@@ -25,7 +26,12 @@ import javax.annotation.Nullable;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 
-public interface IPostalCodeCountry
+/**
+ * Postal code country
+ *
+ * @author Philip Helger
+ */
+public interface IPostalCodeCountry extends Serializable
 {
   /**
    * @return The ISO code of this country. Never <code>null</code> nor empty.
@@ -49,7 +55,7 @@ public interface IPostalCodeCountry
 
   /**
    * Get the format at the specified index
-   * 
+   *
    * @param nIndex
    *        The index to use.
    * @return <code>null</code> if the index is invalid
@@ -80,7 +86,7 @@ public interface IPostalCodeCountry
    * Check if the passed postal code is valid for this country. A postal code is
    * considered valid, if it matches any of the formats defined for this
    * country.
-   * 
+   *
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
    * @return <code>true</code> if the passed postal code matches at least any

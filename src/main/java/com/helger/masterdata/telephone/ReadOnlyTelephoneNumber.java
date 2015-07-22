@@ -33,7 +33,7 @@ import com.helger.commons.string.ToStringGenerator;
 @Immutable
 public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
 {
-  private final ETelephoneType m_eType;
+  private final ITelephoneType m_aType;
   private final String m_sCountryCode;
   private final String m_sAreaCode;
   private final String m_sLine;
@@ -44,13 +44,13 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
     this (aBase.getType (), aBase.getCountryCode (), aBase.getAreaCode (), aBase.getLine (), aBase.getDirectDial ());
   }
 
-  public ReadOnlyTelephoneNumber (@Nullable final ETelephoneType eType,
+  public ReadOnlyTelephoneNumber (@Nullable final ITelephoneType aType,
                                   @Nullable final String sCountryCode,
                                   @Nullable final String sAreaCode,
                                   @Nullable final String sLine,
                                   @Nullable final String sDirectDial)
   {
-    m_eType = eType;
+    m_aType = aType;
     m_sCountryCode = sCountryCode;
     m_sAreaCode = sAreaCode;
     m_sLine = TelephoneHelper.getCleanedLine (sLine);
@@ -58,9 +58,9 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
   }
 
   @Nullable
-  public ETelephoneType getType ()
+  public ITelephoneType getType ()
   {
-    return m_eType;
+    return m_aType;
   }
 
   @Nullable
@@ -95,7 +95,7 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadOnlyTelephoneNumber rhs = (ReadOnlyTelephoneNumber) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aType, rhs.m_aType) &&
            EqualsHelper.equals (m_sCountryCode, rhs.m_sCountryCode) &&
            EqualsHelper.equals (m_sAreaCode, rhs.m_sAreaCode) &&
            EqualsHelper.equals (m_sLine, rhs.m_sLine) &&
@@ -105,7 +105,7 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType)
+    return new HashCodeGenerator (this).append (m_aType)
                                        .append (m_sCountryCode)
                                        .append (m_sAreaCode)
                                        .append (m_sLine)
@@ -116,7 +116,7 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("type", m_aType)
                                        .appendIfNotNull ("countryCode", m_sCountryCode)
                                        .appendIfNotNull ("areaCode", m_sAreaCode)
                                        .appendIfNotNull ("line", m_sLine)
@@ -130,6 +130,6 @@ public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
     if (StringHelper.hasNoText (sLine))
       return null;
 
-    return new ReadOnlyTelephoneNumber ((ETelephoneType) null, (String) null, (String) null, sLine, (String) null);
+    return new ReadOnlyTelephoneNumber ((ITelephoneType) null, (String) null, (String) null, sLine, (String) null);
   }
 }

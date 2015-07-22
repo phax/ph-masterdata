@@ -22,31 +22,34 @@ import javax.annotation.Nullable;
 
 /**
  * Read-only interface for a telephone number.
- * 
+ *
  * @author Philip Helger
  */
 public interface ITelephoneNumber extends Serializable
 {
   /**
-   * @return The semantic type of this telephone number.
+   * @return The semantic type of this telephone number. May be
+   *         <code>null</code>.
    */
   @Nullable
-  ETelephoneType getType ();
+  ITelephoneType getType ();
 
   /**
-   * @return The country where the number resides.
+   * @return The country where the number resides. May be <code>null</code>.
    */
   @Nullable
   String getCountryCode ();
 
   /**
-   * @return The area code for the phone number. This is country dependent.
+   * @return The area code for the phone number. This is country dependent. May
+   *         be <code>null</code>.
    */
   @Nullable
   String getAreaCode ();
 
   /**
-   * @return The main telephone number within an area code.
+   * @return The main telephone number within an area code. May be
+   *         <code>null</code>.
    */
   @Nullable
   String getLine ();

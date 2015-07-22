@@ -43,7 +43,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @ThreadSafe
-public final class PostalCodeManager
+public class PostalCodeManager
 {
   /** Default postal code manager */
   public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20130209.xml"));

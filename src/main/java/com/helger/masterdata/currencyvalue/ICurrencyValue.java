@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.currencyvalue;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
@@ -31,7 +32,7 @@ import com.helger.masterdata.currency.IHasCurrency;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface ICurrencyValue extends IHasCurrency
+public interface ICurrencyValue extends IHasCurrency, Serializable
 {
   /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
