@@ -24,8 +24,8 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.email.EEmailAddressType;
 import com.helger.masterdata.email.ExtendedEmailAddress;
+import com.helger.masterdata.email.IEmailAddressType;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 
 /**
@@ -53,19 +53,19 @@ public class PersonEmailAddress extends ExtendedEmailAddress
   }
 
   public PersonEmailAddress (@Nonnull final Person aOwner,
-                             @Nullable final EEmailAddressType eType,
+                             @Nullable final IEmailAddressType aAddressType,
                              @Nullable final String sAddress)
   {
-    super (eType, sAddress);
+    super (aAddressType, sAddress);
     setOwner (aOwner);
   }
 
   public PersonEmailAddress (@Nonnull final Person aOwner,
-                             @Nullable final EEmailAddressType eType,
+                             @Nullable final IEmailAddressType aAddressType,
                              @Nullable final String sAddress,
                              @Nullable final String sPersonal)
   {
-    super (eType, sAddress, sPersonal);
+    super (aAddressType, sAddress, sPersonal);
     setOwner (aOwner);
   }
 

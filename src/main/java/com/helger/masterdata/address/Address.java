@@ -37,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
 @NotThreadSafe
 public class Address implements IMutableAddress
 {
-  private EAddressType m_eType;
+  private IAddressType m_aAddressType;
   private String m_sCountry;
   private String m_sState;
   private String m_sPostalCode;
@@ -52,7 +52,7 @@ public class Address implements IMutableAddress
   public Address (@Nonnull final Address aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
-    m_eType = aBase.m_eType;
+    m_aAddressType = aBase.m_aAddressType;
     m_sCountry = aBase.m_sCountry;
     m_sState = aBase.m_sState;
     m_sPostalCode = aBase.m_sPostalCode;
@@ -75,12 +75,12 @@ public class Address implements IMutableAddress
     setPostOfficeBox (aBase.getPostOfficeBox (), aSortLocale);
   }
 
-  public Address (@Nullable final EAddressType eType)
+  public Address (@Nullable final IAddressType aType)
   {
-    setType (eType);
+    setType (aType);
   }
 
-  public Address (@Nullable final EAddressType eType,
+  public Address (@Nullable final IAddressType aType,
                   @Nullable final String sCountry,
                   @Nullable final String sState,
                   @Nullable final String sPostalCode,
@@ -90,7 +90,7 @@ public class Address implements IMutableAddress
                   @Nullable final String sPostOfficeBox,
                   @Nonnull final Locale aSortLocale)
   {
-    setType (eType);
+    setType (aType);
     setCountry (sCountry, aSortLocale);
     setState (sState, aSortLocale);
     setPostalCode (sPostalCode);
@@ -101,17 +101,17 @@ public class Address implements IMutableAddress
   }
 
   @Nullable
-  public EAddressType getType ()
+  public IAddressType getType ()
   {
-    return m_eType;
+    return m_aAddressType;
   }
 
   @Nonnull
-  public EChange setType (@Nullable final EAddressType eType)
+  public EChange setType (@Nullable final IAddressType aAddressType)
   {
-    if (EqualsHelper.equals (m_eType, eType))
+    if (EqualsHelper.equals (m_aAddressType, aAddressType))
       return EChange.UNCHANGED;
-    m_eType = eType;
+    m_aAddressType = aAddressType;
     return EChange.CHANGED;
   }
 
@@ -259,7 +259,7 @@ public class Address implements IMutableAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final Address rhs = (Address) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aAddressType, rhs.m_aAddressType) &&
            EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
            EqualsHelper.equals (m_sState, rhs.m_sState) &&
            EqualsHelper.equals (m_sPostalCode, rhs.m_sPostalCode) &&
@@ -272,7 +272,7 @@ public class Address implements IMutableAddress
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType)
+    return new HashCodeGenerator (this).append (m_aAddressType)
                                        .append (m_sCountry)
                                        .append (m_sState)
                                        .append (m_sPostalCode)
@@ -286,7 +286,7 @@ public class Address implements IMutableAddress
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("addressType", m_aAddressType)
                                        .appendIfNotNull ("country", m_sCountry)
                                        .appendIfNotNull ("state", m_sState)
                                        .appendIfNotNull ("postalCode", m_sPostalCode)

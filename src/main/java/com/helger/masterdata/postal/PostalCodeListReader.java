@@ -32,7 +32,7 @@ import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.StringHelper;
 import com.helger.datetime.PDTFactory;
-import com.helger.masterdata.MasterdataLogger;
+import com.helger.masterdata.MasterDataLogger;
 
 /**
  * Read postal code definitions from an XML resource.
@@ -114,7 +114,7 @@ public final class PostalCodeListReader
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))
         {
-          MasterdataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
+          MasterDataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
                                                 sCountryName +
                                                 " because they are valid from " +
                                                 aValidFrom.toString ());
@@ -122,7 +122,7 @@ public final class PostalCodeListReader
         }
         if (aValidTo != null && aValidTo.isBefore (aNow))
         {
-          MasterdataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
+          MasterDataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
                                                 sCountryName +
                                                 " because they are valid until " +
                                                 aValidTo.toString ());

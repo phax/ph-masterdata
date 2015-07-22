@@ -30,10 +30,10 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.currency.ReadOnlyCurrencyValue;
+import com.helger.masterdata.currencyvalue.CurrencyValue;
+import com.helger.masterdata.currencyvalue.ICurrencyValue;
+import com.helger.masterdata.currencyvalue.ReadOnlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 /**

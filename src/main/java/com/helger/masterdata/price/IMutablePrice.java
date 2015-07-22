@@ -23,8 +23,8 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.IMutableCurrencyValue;
-import com.helger.masterdata.currency.ICurrencyValue;
+import com.helger.masterdata.currencyvalue.ICurrencyValue;
+import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 public interface IMutablePrice extends IPrice

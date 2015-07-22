@@ -22,7 +22,7 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
 import com.helger.masterdata.currency.IHasCurrency;
-import com.helger.masterdata.currency.ICurrencyValue;
+import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IHasVATItem;
 
 /**

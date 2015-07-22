@@ -23,18 +23,18 @@ import com.helger.commons.state.EChange;
 
 /**
  * Extended interface for an email address with a type.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableExtendedEmailAddress extends IExtendedEmailAddress, ICloneable <IMutableExtendedEmailAddress>
 {
   /**
-   * @param eType
+   * @param aAddressType
    *        The type of the email address. May be <code>null</code>.
    * @return {@link EChange}
    */
   @Nonnull
-  EChange setType (EEmailAddressType eType);
+  EChange setType (IEmailAddressType aAddressType);
 
   /**
    * @param sAddress

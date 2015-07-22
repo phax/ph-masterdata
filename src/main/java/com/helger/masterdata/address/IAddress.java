@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 /**
  * Read-only interface of an address.
- * 
+ *
  * @author Philip Helger
  */
 public interface IAddress extends Serializable
@@ -33,7 +33,7 @@ public interface IAddress extends Serializable
    * @return The semantic type of this address.
    */
   @Nullable
-  EAddressType getType ();
+  IAddressType getType ();
 
   /**
    * @return The country the address resides in. The uppercase two-letter
@@ -50,7 +50,7 @@ public interface IAddress extends Serializable
 
   /**
    * Get the display name of the country using the passed display locale.
-   * 
+   *
    * @param aDisplayLocale
    *        The locale in which the countries name should be retrieved.
    * @return <code>null</code> if no country is set

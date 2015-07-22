@@ -14,24 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency.exchangeratio;
+package com.helger.masterdata.currencyvalue;
+
+import java.math.BigDecimal;
 
 import javax.annotation.Nonnull;
 
-import org.joda.time.LocalDate;
+import com.helger.commons.microdom.IMicroElement;
+import com.helger.masterdata.currency.ECurrency;
 
-import com.helger.commons.compare.AbstractPartComparatorComparable;
-
-/**
- * A comparator comparing {@link ExchangeRatio} objects by their date.
- *
- * @author Philip Helger
- */
-public class ComparatorExchangeRatioDate extends AbstractPartComparatorComparable <ExchangeRatio, LocalDate>
+public final class CurrencyValueMicroTypeConverter extends AbstractCurrencyValueMicroTypeConverter
 {
-  @Override
-  protected LocalDate getPart (@Nonnull final ExchangeRatio aElement)
+  @Nonnull
+  public CurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
   {
-    return aElement.getDate ();
+    final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
+    final BigDecimal aValue = ePrice.getAttributeValueWithConversion (ATTR_VALUE, BigDecimal.class);
+    return new CurrencyValue (eCurrency, aValue);
   }
 }

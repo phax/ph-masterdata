@@ -22,14 +22,14 @@ import com.helger.commons.email.IEmailAddress;
 
 /**
  * Extended interface for an email address with a type.
- * 
+ *
  * @author Philip Helger
  */
 public interface IExtendedEmailAddress extends IEmailAddress
 {
   /**
-   * @return The type of the email address.
+   * @return The type of the email address. May be <code>null</code>.
    */
   @Nullable
-  EEmailAddressType getType ();
+  IEmailAddressType getType ();
 }

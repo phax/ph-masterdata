@@ -32,13 +32,13 @@ import com.helger.commons.state.EChange;
 public interface IMutableAddress extends IAddress, ICloneable <IMutableAddress>
 {
   /**
-   * @param eAddressType
+   * @param aAddressType
    *        The semantic type of this address.
    * @return {@link EChange#CHANGED} if something changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  EChange setType (@Nullable EAddressType eAddressType);
+  EChange setType (@Nullable IAddressType aAddressType);
 
   /**
    * @param aCountry

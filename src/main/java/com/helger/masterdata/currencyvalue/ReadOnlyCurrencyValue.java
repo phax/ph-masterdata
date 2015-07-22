@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency;
+package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
@@ -27,6 +27,7 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.string.ToStringGenerator;
+import com.helger.masterdata.currency.ECurrency;
 
 /**
  * This class represents a single read only currency value as the combination of

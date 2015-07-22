@@ -14,15 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency;
+package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnull;
 
 import com.helger.commons.microdom.IMicroElement;
+import com.helger.masterdata.currency.ECurrency;
 
-public final class ReadOnlyCurrencyMicroTypeConverter extends AbstractCurrencyMicroTypeConverter
+public final class ReadOnlyCurrencyValueMicroTypeConverter extends AbstractCurrencyValueMicroTypeConverter
 {
   @Nonnull
   public ReadOnlyCurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)

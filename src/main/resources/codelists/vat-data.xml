@@ -104,7 +104,8 @@
     <item id="v23" percentage="23" type="regular" />
     <item id="v13" percentage="13" type="reduced" />
     <item id="v11" percentage="11" type="reduced" deprecated="true" />
-    <item id="v065" percentage="6.5" type="reduced" />
+    <item id="v065" percentage="6.5" type="reduced" deprecated="true" />
+    <item id="v06" percentage="6" type="reduced" />
     <item id="v05" percentage="5" type="reduced" deprecated="true" />
   </vattypes>
   <vattypes country="hr" zerovat="true" countryname="Croatia">

@@ -1,7 +1,7 @@
 com.helger.masterdata.address.AddressMicroTypeConverterRegistrar
-com.helger.masterdata.currency.CurrencyValueMicroTypeConverterRegistrar
-com.helger.masterdata.currency.exchangeratio.ExchangeRatioMicroTypeConverterRegistrar
+com.helger.masterdata.currencyvalue.CurrencyValueMicroTypeConverterRegistrar
 com.helger.masterdata.email.EmailAddressMicroTypeConverterRegistrar
+com.helger.masterdata.exchangeratio.ExchangeRatioMicroTypeConverterRegistrar
 com.helger.masterdata.person.PersonMicroTypeConverterRegistrar
 com.helger.masterdata.price.PriceMicroTypeConverterRegistrar
 com.helger.masterdata.telephone.TelephoneMicroTypeConverterRegistrar

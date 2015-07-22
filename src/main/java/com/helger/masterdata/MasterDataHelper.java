@@ -16,28 +16,31 @@
  */
 package com.helger.masterdata;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.NotThreadSafe;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.log.InMemoryLogger;
+import com.helger.commons.string.StringHelper;
 
 /**
- * A singleton instance that keeps master data relevant messages, but may bloat
- * the default logging.
+ * Utility methods applies to all packages.
  * 
  * @author Philip Helger
  */
-@NotThreadSafe
-public final class MasterdataLogger extends InMemoryLogger
+@Immutable
+public final class MasterDataHelper
 {
-  private static final MasterdataLogger s_aInstance = new MasterdataLogger ();
-
-  private MasterdataLogger ()
+  private MasterDataHelper ()
   {}
 
-  @Nonnull
-  public static MasterdataLogger getInstance ()
+  @Nullable
+  public static String getEnsuredLength (@Nullable final String s, @Nonnegative final int nMaxLen)
   {
-    return s_aInstance;
+    if (s == null)
+      return null;
+    final String ret = StringHelper.getCutAfterLength (s, nMaxLen, null);
+    if (ret.length () < s.length ())
+      MasterDataLogger.getInstance ().warn ("String value '" + s + "' was cut to length " + nMaxLen);
+    return ret;
   }
 }

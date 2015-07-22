@@ -16,14 +16,18 @@
  */
 package com.helger.masterdata.address;
 
+import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.id.IHasID;
+import com.helger.commons.text.display.IHasDisplayText;
 
 /**
  * Address base type.
- * 
+ *
  * @author boris
+ * @author Philip Helger
  */
-public interface IAddressType extends IHasID <String>
+@MustImplementEqualsAndHashcode
+public interface IAddressType extends IHasID <String>, IHasDisplayText
 {
   /* empty */
 }

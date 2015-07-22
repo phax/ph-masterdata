@@ -39,7 +39,7 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (ReadOnlyExtendedEmailAddress.class);
 
-  private final EEmailAddressType m_eType;
+  private final IEmailAddressType m_aAddressType;
   private final String m_sAddress;
   private final String m_sPersonal;
 
@@ -48,16 +48,16 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
     this (aBase.getType (), aBase.getAddress (), aBase.getPersonal ());
   }
 
-  public ReadOnlyExtendedEmailAddress (@Nullable final EEmailAddressType eType, @Nullable final String sAddress)
+  public ReadOnlyExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @Nullable final String sAddress)
   {
-    this (eType, sAddress, null);
+    this (aAddressType, sAddress, null);
   }
 
-  public ReadOnlyExtendedEmailAddress (@Nullable final EEmailAddressType eType,
+  public ReadOnlyExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType,
                                        @Nullable final String sAddress,
                                        @Nullable final String sPersonal)
   {
-    m_eType = eType;
+    m_aAddressType = aAddressType;
     String sRealAddress = EmailAddressHelper.getUnifiedEmailAddress (sAddress);
     if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
@@ -69,9 +69,9 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
   }
 
   @Nullable
-  public EEmailAddressType getType ()
+  public IEmailAddressType getType ()
   {
-    return m_eType;
+    return m_aAddressType;
   }
 
   @Nullable
@@ -102,7 +102,7 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadOnlyExtendedEmailAddress rhs = (ReadOnlyExtendedEmailAddress) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aAddressType, rhs.m_aAddressType) &&
            EqualsHelper.equals (m_sAddress, rhs.m_sAddress) &&
            EqualsHelper.equals (m_sPersonal, rhs.m_sPersonal);
   }
@@ -110,13 +110,13 @@ public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType).append (m_sAddress).append (m_sPersonal).getHashCode ();
+    return new HashCodeGenerator (this).append (m_aAddressType).append (m_sAddress).append (m_sPersonal).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("addressType", m_aAddressType)
                                        .appendIfNotNull ("address", m_sAddress)
                                        .appendIfNotNull ("personal", m_sPersonal)
                                        .toString ();

@@ -25,13 +25,13 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EAddressType implements IAddressType, IHasDisplayText
+public enum EAddressType implements IAddressType
 {
-  PERSONAL ("pers", EAddressText.MSG_TYPE_PERSONAL),
-  PERSONAL2 ("pers2", EAddressText.MSG_TYPE_PERSONAL2),
-  OFFICE ("off", EAddressText.MSG_TYPE_OFFICE),
-  OFFICE2 ("off2", EAddressText.MSG_TYPE_OFFICE2),
-  OTHER ("oth", EAddressText.MSG_TYPE_OTHER);
+ PERSONAL ("pers", EAddressText.MSG_TYPE_PERSONAL),
+ PERSONAL2 ("pers2", EAddressText.MSG_TYPE_PERSONAL2),
+ OFFICE ("off", EAddressText.MSG_TYPE_OFFICE),
+ OFFICE2 ("off2", EAddressText.MSG_TYPE_OFFICE2),
+ OTHER ("oth", EAddressText.MSG_TYPE_OTHER);
 
   private final String m_sID;
   private final IHasDisplayText m_aText;

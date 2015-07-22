@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency;
+package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
+import com.helger.masterdata.currency.ECurrency;
 
 /**
  * Writable version of a currency value. The reading methods are inherited from

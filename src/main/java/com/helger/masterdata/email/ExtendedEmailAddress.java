@@ -41,7 +41,7 @@ public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (ExtendedEmailAddress.class);
 
-  private EEmailAddressType m_eType;
+  private IEmailAddressType m_aAddressType;
   private String m_sAddress;
   private String m_sPersonal;
 
@@ -51,7 +51,7 @@ public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
   public ExtendedEmailAddress (@Nonnull final ExtendedEmailAddress aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
-    m_eType = aBase.m_eType;
+    m_aAddressType = aBase.m_aAddressType;
     m_sAddress = aBase.m_sAddress;
     m_sPersonal = aBase.m_sPersonal;
   }
@@ -64,37 +64,37 @@ public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
     setPersonal (aBase.getPersonal ());
   }
 
-  public ExtendedEmailAddress (@Nullable final EEmailAddressType eType)
+  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType)
   {
-    this (eType, null, null);
+    this (aAddressType, null, null);
   }
 
-  public ExtendedEmailAddress (@Nullable final EEmailAddressType eType, @Nullable final String sAddress)
+  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @Nullable final String sAddress)
   {
-    this (eType, sAddress, null);
+    this (aAddressType, sAddress, null);
   }
 
-  public ExtendedEmailAddress (@Nullable final EEmailAddressType eType,
+  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType,
                                @Nullable final String sAddress,
                                @Nullable final String sPersonal)
   {
-    setType (eType);
+    setType (aAddressType);
     setAddress (sAddress);
     setPersonal (sPersonal);
   }
 
   @Nullable
-  public EEmailAddressType getType ()
+  public IEmailAddressType getType ()
   {
-    return m_eType;
+    return m_aAddressType;
   }
 
   @Nonnull
-  public EChange setType (@Nullable final EEmailAddressType eType)
+  public EChange setType (@Nullable final IEmailAddressType aAddressType)
   {
-    if (EqualsHelper.equals (eType, m_eType))
+    if (EqualsHelper.equals (aAddressType, m_aAddressType))
       return EChange.UNCHANGED;
-    m_eType = eType;
+    m_aAddressType = aAddressType;
     return EChange.CHANGED;
   }
 
@@ -169,7 +169,7 @@ public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ExtendedEmailAddress rhs = (ExtendedEmailAddress) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aAddressType, rhs.m_aAddressType) &&
            EqualsHelper.equals (m_sAddress, rhs.m_sAddress) &&
            EqualsHelper.equals (m_sPersonal, rhs.m_sPersonal);
   }
@@ -177,13 +177,13 @@ public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType).append (m_sAddress).append (m_sPersonal).getHashCode ();
+    return new HashCodeGenerator (this).append (m_aAddressType).append (m_sAddress).append (m_sPersonal).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("addressType", m_aAddressType)
                                        .appendIfNotNull ("address", m_sAddress)
                                        .appendIfNotNull ("personal", m_sPersonal)
                                        .toString ();

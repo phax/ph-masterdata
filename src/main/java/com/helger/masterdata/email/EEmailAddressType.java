@@ -21,17 +21,16 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EEmailAddressType implements IHasID <String>, IHasDisplayText
+public enum EEmailAddressType implements IEmailAddressType
 {
-  PERSONAL ("pers", EEmailAddressText.MSG_TYPE_PERSONAL),
-  PERSONAL2 ("pers2", EEmailAddressText.MSG_TYPE_PERSONAL2),
-  OFFICE ("off", EEmailAddressText.MSG_TYPE_OFFICE),
-  OFFICE2 ("off2", EEmailAddressText.MSG_TYPE_OFFICE2),
-  OTHER ("oth", EEmailAddressText.MSG_TYPE_OTHER);
+ PERSONAL ("pers", EEmailAddressText.MSG_TYPE_PERSONAL),
+ PERSONAL2 ("pers2", EEmailAddressText.MSG_TYPE_PERSONAL2),
+ OFFICE ("off", EEmailAddressText.MSG_TYPE_OFFICE),
+ OFFICE2 ("off2", EEmailAddressText.MSG_TYPE_OFFICE2),
+ OTHER ("oth", EEmailAddressText.MSG_TYPE_OTHER);
 
   private final String m_sID;
   private final IHasDisplayText m_aText;

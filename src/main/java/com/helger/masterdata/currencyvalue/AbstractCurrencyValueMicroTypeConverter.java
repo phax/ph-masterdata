@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency;
+package com.helger.masterdata.currencyvalue;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +28,7 @@ import com.helger.commons.microdom.convert.IMicroTypeConverter;
  * 
  * @author Philip Helger
  */
-public abstract class AbstractCurrencyMicroTypeConverter implements IMicroTypeConverter
+public abstract class AbstractCurrencyValueMicroTypeConverter implements IMicroTypeConverter
 {
   protected static final String ATTR_CURRENCY = "currency";
   protected static final String ATTR_VALUE = "value";

@@ -35,7 +35,7 @@ import com.helger.commons.string.ToStringGenerator;
 @Immutable
 public final class ReadOnlyAddress implements IAddress
 {
-  private final EAddressType m_eType;
+  private final IAddressType m_aAddressType;
   private final String m_sCountry;
   private final String m_sState;
   private final String m_sPostalCode;
@@ -57,7 +57,7 @@ public final class ReadOnlyAddress implements IAddress
           aSortLocale);
   }
 
-  public ReadOnlyAddress (@Nullable final EAddressType eType,
+  public ReadOnlyAddress (@Nullable final IAddressType aAddressType,
                           @Nullable final String sCountry,
                           @Nullable final String sState,
                           @Nullable final String sPostalCode,
@@ -67,7 +67,7 @@ public final class ReadOnlyAddress implements IAddress
                           @Nullable final String sPostOfficeBox,
                           @Nonnull final Locale aSortLocale)
   {
-    m_eType = eType;
+    m_aAddressType = aAddressType;
     m_sCountry = AddressHelper.getUnifiedCountry (sCountry, aSortLocale);
     m_sState = AddressHelper.getUnifiedState (sState, aSortLocale);
     m_sPostalCode = sPostalCode;
@@ -78,9 +78,9 @@ public final class ReadOnlyAddress implements IAddress
   }
 
   @Nullable
-  public EAddressType getType ()
+  public IAddressType getType ()
   {
-    return m_eType;
+    return m_aAddressType;
   }
 
   @Nullable
@@ -146,7 +146,7 @@ public final class ReadOnlyAddress implements IAddress
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ReadOnlyAddress rhs = (ReadOnlyAddress) o;
-    return EqualsHelper.equals (m_eType, rhs.m_eType) &&
+    return EqualsHelper.equals (m_aAddressType, rhs.m_aAddressType) &&
            EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
            EqualsHelper.equals (m_sState, rhs.m_sState) &&
            EqualsHelper.equals (m_sPostalCode, rhs.m_sPostalCode) &&
@@ -159,7 +159,7 @@ public final class ReadOnlyAddress implements IAddress
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_eType)
+    return new HashCodeGenerator (this).append (m_aAddressType)
                                        .append (m_sCountry)
                                        .append (m_sState)
                                        .append (m_sPostalCode)
@@ -173,7 +173,7 @@ public final class ReadOnlyAddress implements IAddress
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).appendIfNotNull ("type", m_eType)
+    return new ToStringGenerator (null).appendIfNotNull ("addressType", m_aAddressType)
                                        .appendIfNotNull ("country", m_sCountry)
                                        .appendIfNotNull ("state", m_sState)
                                        .appendIfNotNull ("postalCodeCode", m_sPostalCode)

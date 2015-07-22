@@ -29,6 +29,7 @@ public class ReadOnlyAddressMicroTypeConverter extends AbstractAddressMicroTypeC
   public ReadOnlyAddress convertToNative (@Nonnull final IMicroElement eAddress)
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
+
     final EAddressType eType = EAddressType.getFromIDOrNull (eAddress.getAttributeValue (ATTR_TYPE));
     final String sCountry = eAddress.getAttributeValue (ATTR_COUNTRY);
     final String sState = eAddress.getAttributeValue (ATTR_STATE);
