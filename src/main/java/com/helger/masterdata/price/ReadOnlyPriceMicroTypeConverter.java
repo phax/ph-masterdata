@@ -25,10 +25,10 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATManager;
 
-public final class ReadonlyPriceMicroTypeConverter extends AbstractPriceMicroTypeConverter
+public final class ReadOnlyPriceMicroTypeConverter extends AbstractPriceMicroTypeConverter
 {
   @Nonnull
-  public ReadonlyPrice convertToNative (@Nonnull final IMicroElement ePrice)
+  public ReadOnlyPrice convertToNative (@Nonnull final IMicroElement ePrice)
   {
     final String sCurrency = ePrice.getAttributeValue (ATTR_CURRENCY);
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrency);
@@ -41,6 +41,6 @@ public final class ReadonlyPriceMicroTypeConverter extends AbstractPriceMicroTyp
     if (aVATItem == null)
       throw new IllegalStateException ("Failed to resolve VAT item with ID '" + sVATItemID + "'");
 
-    return new ReadonlyPrice (eCurrency, aNetAmount, aVATItem);
+    return new ReadOnlyPrice (eCurrency, aNetAmount, aVATItem);
   }
 }

@@ -29,14 +29,14 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @Immutable
-public final class TelephoneUtils
+public final class TelephoneHelper
 {
-  private TelephoneUtils ()
+  private TelephoneHelper ()
   {}
 
   @Nullable
   @CheckReturnValue
-  public static String getTelephoneString (@Nullable final IReadonlyTelephoneNumber aTelNo)
+  public static String getTelephoneString (@Nullable final ITelephoneNumber aTelNo)
   {
     if (aTelNo == null)
       return null;

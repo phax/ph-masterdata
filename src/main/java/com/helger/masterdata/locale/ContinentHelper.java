@@ -34,7 +34,7 @@ import com.helger.commons.locale.country.CountryCache;
  *
  * @author Philip Helger
  */
-public final class ContinentUtils
+public final class ContinentHelper
 {
   private static final IMultiMapSetBased <Locale, EContinent> s_aMap = new MultiHashMapTreeSetBased <Locale, EContinent> ();
 

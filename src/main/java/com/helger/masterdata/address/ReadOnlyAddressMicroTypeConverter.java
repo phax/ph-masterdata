@@ -23,10 +23,10 @@ import javax.annotation.Nonnull;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.system.SystemHelper;
 
-public class ReadonlyAddressMicroTypeConverter extends AbstractAddressMicroTypeConverter
+public class ReadOnlyAddressMicroTypeConverter extends AbstractAddressMicroTypeConverter
 {
   @Nonnull
-  public ReadonlyAddress convertToNative (@Nonnull final IMicroElement eAddress)
+  public ReadOnlyAddress convertToNative (@Nonnull final IMicroElement eAddress)
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
     final EAddressType eType = EAddressType.getFromIDOrNull (eAddress.getAttributeValue (ATTR_TYPE));
@@ -37,7 +37,7 @@ public class ReadonlyAddressMicroTypeConverter extends AbstractAddressMicroTypeC
     final String sStreet = eAddress.getAttributeValue (ATTR_STREET);
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
-    return new ReadonlyAddress (eType,
+    return new ReadOnlyAddress (eType,
                                 sCountry,
                                 sState,
                                 sPostalCode,

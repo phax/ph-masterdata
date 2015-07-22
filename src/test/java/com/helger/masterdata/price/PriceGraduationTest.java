@@ -179,7 +179,7 @@ public final class PriceGraduationTest
   public void testAddSimple ()
   {
     final IVATItem aVATItem = new VATItem ("ust20", EVATType.REGULAR, new BigDecimal ("20"), false);
-    final IPriceGraduation pg = new PriceGraduation (ECurrency.GBP);
+    final IMutablePriceGraduation pg = new PriceGraduation (ECurrency.GBP);
     assertEquals (ECurrency.GBP, pg.getCurrency ());
     assertTrue (pg.isEmpty ());
     assertTrue (pg.addItem (1, new BigDecimal ("19.9")).isChanged ());
@@ -195,8 +195,8 @@ public final class PriceGraduationTest
   @Test
   public void testStdMethods ()
   {
-    final IPriceGraduation pg1 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
-    final IPriceGraduation pg2 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
+    final IMutablePriceGraduation pg1 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
+    final IMutablePriceGraduation pg2 = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);
 
     final BigDecimal aNetAmount1 = new BigDecimal ("19.9");
@@ -216,7 +216,7 @@ public final class PriceGraduationTest
   @Test
   public void testStatic ()
   {
-    final IPriceGraduation pg = PriceGraduation.createSimple (new Price (ECurrency.AMD,
+    final IMutablePriceGraduation pg = PriceGraduation.createSimple (new Price (ECurrency.AMD,
                                                                          new BigDecimal ("4.9"),
                                                                          VATManager.VATTYPE_NONE));
     assertNotNull (pg);

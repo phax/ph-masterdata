@@ -26,12 +26,12 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default read-only implementation of {@link IReadonlyTelephoneNumber}
+ * Default read-only implementation of {@link ITelephoneNumber}
  *
  * @author Philip Helger
  */
 @Immutable
-public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
+public final class ReadOnlyTelephoneNumber implements ITelephoneNumber
 {
   private final ETelephoneType m_eType;
   private final String m_sCountryCode;
@@ -39,12 +39,12 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
   private final String m_sLine;
   private final String m_sDirectDial;
 
-  public ReadonlyTelephoneNumber (@Nonnull final IReadonlyTelephoneNumber aBase)
+  public ReadOnlyTelephoneNumber (@Nonnull final ITelephoneNumber aBase)
   {
     this (aBase.getType (), aBase.getCountryCode (), aBase.getAreaCode (), aBase.getLine (), aBase.getDirectDial ());
   }
 
-  public ReadonlyTelephoneNumber (@Nullable final ETelephoneType eType,
+  public ReadOnlyTelephoneNumber (@Nullable final ETelephoneType eType,
                                   @Nullable final String sCountryCode,
                                   @Nullable final String sAreaCode,
                                   @Nullable final String sLine,
@@ -53,7 +53,7 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
     m_eType = eType;
     m_sCountryCode = sCountryCode;
     m_sAreaCode = sAreaCode;
-    m_sLine = TelephoneUtils.getCleanedLine (sLine);
+    m_sLine = TelephoneHelper.getCleanedLine (sLine);
     m_sDirectDial = sDirectDial;
   }
 
@@ -94,7 +94,7 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final ReadonlyTelephoneNumber rhs = (ReadonlyTelephoneNumber) o;
+    final ReadOnlyTelephoneNumber rhs = (ReadOnlyTelephoneNumber) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&
            EqualsHelper.equals (m_sCountryCode, rhs.m_sCountryCode) &&
            EqualsHelper.equals (m_sAreaCode, rhs.m_sAreaCode) &&
@@ -125,11 +125,11 @@ public final class ReadonlyTelephoneNumber implements IReadonlyTelephoneNumber
   }
 
   @Nullable
-  public static ReadonlyTelephoneNumber createOnDemandLineOnly (@Nullable final String sLine)
+  public static ReadOnlyTelephoneNumber createOnDemandLineOnly (@Nullable final String sLine)
   {
     if (StringHelper.hasNoText (sLine))
       return null;
 
-    return new ReadonlyTelephoneNumber ((ETelephoneType) null, (String) null, (String) null, sLine, (String) null);
+    return new ReadOnlyTelephoneNumber ((ETelephoneType) null, (String) null, (String) null, sLine, (String) null);
   }
 }

@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.address.IMutableAddress;
-import com.helger.masterdata.email.IExtendedEmailAddress;
-import com.helger.masterdata.telephone.ITelephoneNumber;
+import com.helger.masterdata.email.IMutableExtendedEmailAddress;
+import com.helger.masterdata.telephone.IMutableTelephoneNumber;
 
 /**
  * Represents a single location of a company.
@@ -62,26 +62,26 @@ public interface IMutableCompanySite extends ICompanySite
    * {@inheritDoc}
    */
   @Nonnull
-  ITelephoneNumber getDefaultTelNo ();
+  IMutableTelephoneNumber getDefaultTelNo ();
 
   @Nonnull
-  EChange setDefaultTelNo (@Nonnull ITelephoneNumber aTelNo);
-
-  /**
-   * {@inheritDoc}
-   */
-  @Nonnull
-  ITelephoneNumber getDefaultFaxNo ();
-
-  @Nonnull
-  EChange setDefaultFaxNo (@Nonnull ITelephoneNumber aFaxNo);
+  EChange setDefaultTelNo (@Nonnull IMutableTelephoneNumber aTelNo);
 
   /**
    * {@inheritDoc}
    */
   @Nonnull
-  IExtendedEmailAddress getDefaultEmailAddress ();
+  IMutableTelephoneNumber getDefaultFaxNo ();
 
   @Nonnull
-  EChange setDefaultEmailAddress (@Nonnull IExtendedEmailAddress aEmailAddress);
+  EChange setDefaultFaxNo (@Nonnull IMutableTelephoneNumber aFaxNo);
+
+  /**
+   * {@inheritDoc}
+   */
+  @Nonnull
+  IMutableExtendedEmailAddress getDefaultEmailAddress ();
+
+  @Nonnull
+  EChange setDefaultEmailAddress (@Nonnull IMutableExtendedEmailAddress aEmailAddress);
 }

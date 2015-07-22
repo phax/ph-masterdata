@@ -24,7 +24,7 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.telephone.ETelephoneType;
-import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
+import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
@@ -44,7 +44,7 @@ public class PersonTelephoneNumber extends TelephoneNumber
     setOwner (aOwner);
   }
 
-  public PersonTelephoneNumber (@Nonnull final Person aOwner, @Nonnull final IReadonlyTelephoneNumber aBase)
+  public PersonTelephoneNumber (@Nonnull final Person aOwner, @Nonnull final ITelephoneNumber aBase)
   {
     super (aBase);
     setOwner (aOwner);

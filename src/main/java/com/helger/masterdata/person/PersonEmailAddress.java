@@ -26,7 +26,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.email.EEmailAddressType;
 import com.helger.masterdata.email.ExtendedEmailAddress;
-import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
+import com.helger.masterdata.email.IExtendedEmailAddress;
 
 /**
  * Person specific implementation
@@ -46,7 +46,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
     setOwner (aOwner);
   }
 
-  public PersonEmailAddress (@Nonnull final Person aOwner, @Nonnull final IReadonlyExtendedEmailAddress aBase)
+  public PersonEmailAddress (@Nonnull final Person aOwner, @Nonnull final IExtendedEmailAddress aBase)
   {
     super (aBase);
     setOwner (aOwner);

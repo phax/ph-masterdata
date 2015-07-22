@@ -33,7 +33,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class ReadonlyAddress implements IAddress
+public final class ReadOnlyAddress implements IAddress
 {
   private final EAddressType m_eType;
   private final String m_sCountry;
@@ -44,7 +44,7 @@ public final class ReadonlyAddress implements IAddress
   private final String m_sBuildingNumber;
   private final String m_sPostOfficeBox;
 
-  public ReadonlyAddress (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
+  public ReadOnlyAddress (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
   {
     this (aBase.getType (),
           aBase.getCountry (),
@@ -57,7 +57,7 @@ public final class ReadonlyAddress implements IAddress
           aSortLocale);
   }
 
-  public ReadonlyAddress (@Nullable final EAddressType eType,
+  public ReadOnlyAddress (@Nullable final EAddressType eType,
                           @Nullable final String sCountry,
                           @Nullable final String sState,
                           @Nullable final String sPostalCode,
@@ -145,7 +145,7 @@ public final class ReadonlyAddress implements IAddress
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final ReadonlyAddress rhs = (ReadonlyAddress) o;
+    final ReadOnlyAddress rhs = (ReadOnlyAddress) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&
            EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
            EqualsHelper.equals (m_sState, rhs.m_sState) &&

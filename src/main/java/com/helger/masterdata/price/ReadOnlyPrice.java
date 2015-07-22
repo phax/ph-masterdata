@@ -27,37 +27,37 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.currency.ReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ReadOnlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
- * Default implementation of the {@link IReadonlyPrice} interface.
+ * Default implementation of the {@link IPrice} interface.
  *
  * @author Philip Helger
  */
-public class ReadonlyPrice implements IReadonlyPrice
+public class ReadOnlyPrice implements IPrice
 {
   private final ICurrencyValue m_aNetAmount;
   private final IVATItem m_aVATItem;
 
-  public ReadonlyPrice (@Nonnull final IReadonlyPrice aOtherPrice)
+  public ReadOnlyPrice (@Nonnull final IPrice aOtherPrice)
   {
     this (aOtherPrice.getNetAmount (), aOtherPrice.getVATItem ());
   }
 
-  public ReadonlyPrice (@Nonnull final ECurrency eCurrency,
+  public ReadOnlyPrice (@Nonnull final ECurrency eCurrency,
                         @Nonnull final BigDecimal aNetAmount,
                         @Nonnull final IVATItem aVATItem)
   {
-    m_aNetAmount = new ReadonlyCurrencyValue (eCurrency, aNetAmount);
+    m_aNetAmount = new ReadOnlyCurrencyValue (eCurrency, aNetAmount);
     m_aVATItem = ValueEnforcer.notNull (aVATItem, "VATItem");
   }
 
-  public ReadonlyPrice (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
+  public ReadOnlyPrice (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
     // Make a copy of the net amount!
-    m_aNetAmount = new ReadonlyCurrencyValue (aNetAmount);
+    m_aNetAmount = new ReadOnlyCurrencyValue (aNetAmount);
     m_aVATItem = ValueEnforcer.notNull (aVATItem, "VATItem");
   }
 
@@ -101,58 +101,58 @@ public class ReadonlyPrice implements IReadonlyPrice
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getAdded (@Nonnull final BigDecimal aValue)
+  public ReadOnlyPrice getAdded (@Nonnull final BigDecimal aValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getAdded (aValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getAdded (aValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getAdded (final long nValue)
+  public ReadOnlyPrice getAdded (final long nValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getAdded (nValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getAdded (nValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getSubtracted (@Nonnull final BigDecimal aValue)
+  public ReadOnlyPrice getSubtracted (@Nonnull final BigDecimal aValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getSubtracted (aValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getSubtracted (aValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getSubtracted (final long nValue)
+  public ReadOnlyPrice getSubtracted (final long nValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getSubtracted (nValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getSubtracted (nValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getMultiplied (@Nonnull final BigDecimal aValue)
+  public ReadOnlyPrice getMultiplied (@Nonnull final BigDecimal aValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getMultiplied (aValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getMultiplied (aValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getMultiplied (final long nValue)
+  public ReadOnlyPrice getMultiplied (final long nValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getMultiplied (nValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getMultiplied (nValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getDivided (@Nonnull final BigDecimal aValue)
+  public ReadOnlyPrice getDivided (@Nonnull final BigDecimal aValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getDivided (aValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getDivided (aValue), m_aVATItem);
   }
 
   @Nonnull
   @CheckReturnValue
-  public ReadonlyPrice getDivided (final long nValue)
+  public ReadOnlyPrice getDivided (final long nValue)
   {
-    return new ReadonlyPrice (m_aNetAmount.getDivided (nValue), m_aVATItem);
+    return new ReadOnlyPrice (m_aNetAmount.getDivided (nValue), m_aVATItem);
   }
 
   @Override
@@ -162,7 +162,7 @@ public class ReadonlyPrice implements IReadonlyPrice
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final ReadonlyPrice rhs = (ReadonlyPrice) o;
+    final ReadOnlyPrice rhs = (ReadOnlyPrice) o;
     return m_aNetAmount.equals (rhs.m_aNetAmount) && m_aVATItem.equals (rhs.m_aVATItem);
   }
 

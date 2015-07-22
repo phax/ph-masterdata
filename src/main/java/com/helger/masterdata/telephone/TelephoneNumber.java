@@ -28,12 +28,12 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default writable version of {@link ITelephoneNumber}.
+ * Default writable version of {@link IMutableTelephoneNumber}.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class TelephoneNumber implements ITelephoneNumber
+public class TelephoneNumber implements IMutableTelephoneNumber
 {
   private ETelephoneType m_eType;
   private String m_sCountryCode;
@@ -44,7 +44,7 @@ public class TelephoneNumber implements ITelephoneNumber
   public TelephoneNumber ()
   {}
 
-  public TelephoneNumber (@Nonnull final IReadonlyTelephoneNumber aBase)
+  public TelephoneNumber (@Nonnull final ITelephoneNumber aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());
@@ -128,7 +128,7 @@ public class TelephoneNumber implements ITelephoneNumber
   @Nonnull
   public EChange setLine (@Nullable final String sLine)
   {
-    final String sRealLine = TelephoneUtils.getCleanedLine (sLine);
+    final String sRealLine = TelephoneHelper.getCleanedLine (sLine);
     if (EqualsHelper.equals (m_sLine, sRealLine))
       return EChange.UNCHANGED;
     m_sLine = sRealLine;

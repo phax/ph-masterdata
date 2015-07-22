@@ -30,7 +30,7 @@ import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.string.StringHelper;
 
 @Immutable
-public final class PersonNameUtils
+public final class PersonNameHelper
 {
   /** By default complex name handling is disabled */
   public static final boolean DEFAULT_COMPLEX_NAME_HANDLING = false;
@@ -62,7 +62,7 @@ public final class PersonNameUtils
   private static final AtomicBoolean s_aComplexNameHandlingEnabled = new AtomicBoolean (DEFAULT_COMPLEX_NAME_HANDLING);
   private static final AtomicBoolean s_aFirstNameFirst = new AtomicBoolean (DEFAULT_FIRST_NAME_FIRST);
 
-  private PersonNameUtils ()
+  private PersonNameHelper ()
   {}
 
   public static void setComplexNameHandlingEnabled (final boolean bEnabled)
@@ -176,14 +176,14 @@ public final class PersonNameUtils
   }
 
   @Nonnull
-  public static String getAsDisplayNameFirstNameFirst (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringHelper.getImplodedNonEmpty (' ', aName.getFirstName (), aName.getMiddleName (), aName.getLastName ());
   }
 
   @Nonnull
-  public static String getAsDisplayNameLastNameFirst (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringHelper.getImplodedNonEmpty (' ', aName.getLastName (), aName.getFirstName (), aName.getMiddleName ());
@@ -199,7 +199,7 @@ public final class PersonNameUtils
    * @return The non-<code>null</code> display name
    */
   @Nonnull
-  public static String getAsDisplayName (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsDisplayName (@Nonnull final IPersonName aName)
   {
     if (isFirstNameFirst ())
       return getAsDisplayNameFirstNameFirst (aName);
@@ -207,7 +207,7 @@ public final class PersonNameUtils
   }
 
   @Nonnull
-  public static String getAsCompleteDisplayNameFirstNameFirst (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsCompleteDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringHelper.getImplodedNonEmpty (' ',
@@ -219,7 +219,7 @@ public final class PersonNameUtils
   }
 
   @Nonnull
-  public static String getAsCompleteDisplayNameLastNameFirst (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsCompleteDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringHelper.getImplodedNonEmpty (' ',
@@ -239,7 +239,7 @@ public final class PersonNameUtils
    * @return The non-<code>null</code> display name
    */
   @Nonnull
-  public static String getAsCompleteDisplayName (@Nonnull final IReadonlyPersonName aName)
+  public static String getAsCompleteDisplayName (@Nonnull final IPersonName aName)
   {
     if (isFirstNameFirst ())
       return getAsCompleteDisplayNameFirstNameFirst (aName);

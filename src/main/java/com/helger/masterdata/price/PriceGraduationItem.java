@@ -28,12 +28,12 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default implementation class of {@link IPriceGraduationItem} and
- * {@link IReadonlyPriceGraduationItem}.
+ * Default implementation class of {@link IMutablePriceGraduationItem} and
+ * {@link IPriceGraduationItem}.
  *
  * @author Philip Helger
  */
-public class PriceGraduationItem implements IPriceGraduationItem
+public class PriceGraduationItem implements IMutablePriceGraduationItem
 {
   private int m_nMinimumQuantity;
   private BigDecimal m_aNetAmount;

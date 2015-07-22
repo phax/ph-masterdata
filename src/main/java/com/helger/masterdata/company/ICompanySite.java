@@ -22,8 +22,8 @@ import javax.annotation.Nullable;
 import com.helger.commons.name.IHasDisplayName;
 import com.helger.commons.type.ITypedObject;
 import com.helger.masterdata.address.IAddress;
-import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
-import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
+import com.helger.masterdata.email.IExtendedEmailAddress;
+import com.helger.masterdata.telephone.ITelephoneNumber;
 
 /**
  * Represents a single location of a company.
@@ -67,17 +67,17 @@ public interface ICompanySite extends IHasDisplayName, ITypedObject <String>
    * @return The default telephone number of the company site.
    */
   @Nonnull
-  IReadonlyTelephoneNumber getDefaultTelNo ();
+  ITelephoneNumber getDefaultTelNo ();
 
   /**
    * @return The default fax number of the company site.
    */
   @Nonnull
-  IReadonlyTelephoneNumber getDefaultFaxNo ();
+  ITelephoneNumber getDefaultFaxNo ();
 
   /**
    * @return The default email address of the company site.
    */
   @Nonnull
-  IReadonlyExtendedEmailAddress getDefaultEmailAddress ();
+  IExtendedEmailAddress getDefaultEmailAddress ();
 }

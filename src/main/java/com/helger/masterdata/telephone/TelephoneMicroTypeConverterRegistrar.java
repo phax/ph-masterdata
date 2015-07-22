@@ -31,7 +31,7 @@ public final class TelephoneMicroTypeConverterRegistrar implements IMicroTypeCon
   {
     aRegistry.registerMicroElementTypeConverter (TelephoneNumber.class,
                                                  new TelephoneNumberMicroTypeConverter ());
-    aRegistry.registerMicroElementTypeConverter (ReadonlyTelephoneNumber.class,
-                                                 new ReadonlyTelephoneNumberMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (ReadOnlyTelephoneNumber.class,
+                                                 new ReadOnlyTelephoneNumberMicroTypeConverter ());
   }
 }

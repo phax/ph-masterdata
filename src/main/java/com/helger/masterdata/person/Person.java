@@ -29,10 +29,10 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.address.IAddress;
-import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
-import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
+import com.helger.masterdata.email.IExtendedEmailAddress;
+import com.helger.masterdata.telephone.ITelephoneNumber;
 
-public class Person implements IPerson
+public class Person implements IMutablePerson
 {
   public static final String FIELD_ID = "id";
   public static final String FIELD_GENDER = "gender";
@@ -52,7 +52,7 @@ public class Person implements IPerson
     m_aName = new PersonName ();
   }
 
-  public Person (@Nonnull final IReadonlyPerson aBase, @Nonnull final Locale aSortLocale)
+  public Person (@Nonnull final IPerson aBase, @Nonnull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     // do not copy the ID!
@@ -65,10 +65,10 @@ public class Person implements IPerson
   }
 
   public Person (@Nullable final EGender eGender,
-                 @Nullable final IReadonlyPersonName aName,
+                 @Nullable final IPersonName aName,
                  @Nullable final LocalDate aBirthday,
-                 @Nullable final IReadonlyTelephoneNumber aTelephoneNumber,
-                 @Nullable final IReadonlyExtendedEmailAddress aEmailAddress,
+                 @Nullable final ITelephoneNumber aTelephoneNumber,
+                 @Nullable final IExtendedEmailAddress aEmailAddress,
                  @Nullable final IAddress aAddress,
                  @Nonnull final Locale aSortLocale)
   {
@@ -122,7 +122,7 @@ public class Person implements IPerson
   }
 
   @Nonnull
-  public EChange setName (@Nullable final IReadonlyPersonName aName, @Nonnull final Locale aSortLocale)
+  public EChange setName (@Nullable final IPersonName aName, @Nonnull final Locale aSortLocale)
   {
     PersonName aRealName = null;
     if (aName != null)
@@ -161,7 +161,7 @@ public class Person implements IPerson
   }
 
   @Nonnull
-  public EChange setTelephoneNumber (@Nullable final IReadonlyTelephoneNumber aTelephoneNumber)
+  public EChange setTelephoneNumber (@Nullable final ITelephoneNumber aTelephoneNumber)
   {
     PersonTelephoneNumber aPersonTelNo = null;
     if (aTelephoneNumber != null)
@@ -185,7 +185,7 @@ public class Person implements IPerson
   }
 
   @Nonnull
-  public EChange setEmailAddress (@Nullable final IReadonlyExtendedEmailAddress aEmailAddress)
+  public EChange setEmailAddress (@Nullable final IExtendedEmailAddress aEmailAddress)
   {
     PersonEmailAddress aPersonEmailAddress = null;
     if (aEmailAddress != null)

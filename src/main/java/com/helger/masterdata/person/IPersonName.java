@@ -16,79 +16,71 @@
  */
 package com.helger.masterdata.person;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.state.EChange;
+import com.helger.commons.lang.ICloneable;
 
 /**
  * The name of a person.
  * 
  * @author Philip Helger
  */
-public interface IPersonName extends IReadonlyPersonName
+public interface IPersonName extends ICloneable <IPersonName>, Serializable
 {
   /**
-   * @param eSalutation
-   *        The salutation of this person. May be <code>null</code>.
-   * @return {@link EChange}
+   * @return The salutation of this name. May be <code>null</code>.
    */
-  @Nonnull
-  EChange setSalutation (@Nullable ESalutation eSalutation);
+  @Nullable
+  ESalutation getSalutation ();
 
   /**
-   * @param sPrefixTitle
-   *        An optional title that is written before the name. E.g. "Dr." in
-   *        Germany.
-   * @return {@link EChange}
+   * @return The ID of the salutation of this name. May be <code>null</code>.
    */
-  @Nonnull
-  EChange setPrefixTitle (@Nullable String sPrefixTitle);
+  @Nullable
+  String getSalutationID ();
+
+  @Nullable
+  String getSalutationDisplayName (@Nonnull Locale aContentLocale);
+
+  @Nullable
+  String getGreeting (@Nonnull Locale aContentLocale);
+
+  @Nullable
+  String getGreetingComplete (@Nonnull Locale aContentLocale);
 
   /**
-   * @param sFirstName
-   *        The first name.
-   * @param aSortLocale
-   *        locale to use.
-   * @return {@link EChange}
+   * @return An optional title that is written before the name. E.g. "Dr." in
+   *         Germany.
    */
-  @Nonnull
-  EChange setFirstName (@Nullable String sFirstName, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getPrefixTitle ();
 
   /**
-   * @param sMiddleName
-   *        The optional middle name.
-   * @param aSortLocale
-   *        locale to use.
-   * @return {@link EChange}
+   * @return The first name.
    */
-  @Nonnull
-  EChange setMiddleName (@Nullable String sMiddleName, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getFirstName ();
 
   /**
-   * @param sLastName
-   *        The last name. May not be <code>null</code>.
-   * @param aSortLocale
-   *        locale to use.
-   * @return {@link EChange}
+   * @return The optional middle name.
    */
-  @Nonnull
-  EChange setLastName (@Nullable String sLastName, @Nonnull Locale aSortLocale);
+  @Nullable
+  String getMiddleName ();
 
   /**
-   * @param sSuffixTitle
-   *        An optional title that is written after the name. E.g. "MBA" in
-   *        Austria.
-   * @return {@link EChange}
+   * @return The last name. May not be <code>null</code>.
    */
-  @Nonnull
-  EChange setSuffixTitle (@Nullable String sSuffixTitle);
+  @Nullable
+  String getLastName ();
 
   /**
-   * {@inheritDoc}
+   * @return An optional title that is written after the name. E.g. "MBA" in
+   *         Austria.
    */
-  @Nonnull
-  IPersonName getClone ();
+  @Nullable
+  String getSuffixTitle ();
 }

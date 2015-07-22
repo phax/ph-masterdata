@@ -32,7 +32,7 @@ import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.currency.ReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ReadOnlyCurrencyValue;
 import com.helger.masterdata.vat.EVATType;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATItem;
@@ -58,7 +58,7 @@ public final class PriceTest
     assertEquals (ECurrency.AMD, p.getCurrency ());
     assertEquals (EChange.UNCHANGED, p.getNetAmount ().setCurrency (ECurrency.AMD));
     assertEquals (ECurrency.AMD, p.getCurrency ());
-    assertEquals (EChange.UNCHANGED, p.setNetAmount (new ReadonlyCurrencyValue (ECurrency.AMD, new BigDecimal ("9.9"))));
+    assertEquals (EChange.UNCHANGED, p.setNetAmount (new ReadOnlyCurrencyValue (ECurrency.AMD, new BigDecimal ("9.9"))));
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (ECurrency.DEFAULT_CURRENCY));
     assertEquals (ECurrency.DEFAULT_CURRENCY, p.getCurrency ());
 

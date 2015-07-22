@@ -32,12 +32,12 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default writable implementation of {@link IExtendedEmailAddress}.
+ * Default writable implementation of {@link IMutableExtendedEmailAddress}.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class ExtendedEmailAddress implements IExtendedEmailAddress
+public class ExtendedEmailAddress implements IMutableExtendedEmailAddress
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (ExtendedEmailAddress.class);
 
@@ -56,7 +56,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress
     m_sPersonal = aBase.m_sPersonal;
   }
 
-  public ExtendedEmailAddress (@Nonnull final IReadonlyExtendedEmailAddress aBase)
+  public ExtendedEmailAddress (@Nonnull final IExtendedEmailAddress aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());

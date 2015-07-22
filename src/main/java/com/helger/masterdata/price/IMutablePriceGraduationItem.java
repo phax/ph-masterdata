@@ -22,24 +22,35 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.state.EChange;
 
 /**
- * Interface representing a single read only item of a price graduation.
+ * The writable version of a single price graduation item.
  * 
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IPriceGraduationItem
+public interface IMutablePriceGraduationItem extends IPriceGraduationItem
 {
   /**
-   * @return The minimum quantity. Should be &ge; 1.
-   */
-  @Nonnegative
-  int getMinimumQuantity ();
-
-  /**
-   * @return The price amount that is to be charged for given quantity.
+   * Set the minimum quantity of this price graduation item.
+   * 
+   * @param nMinimumQuantity
+   *        The minimum quantity. Must be &ge; 1.
+   * @return {@link EChange#CHANGED} if the value changed,
+   *         {@link EChange#UNCHANGED} otherwise.
    */
   @Nonnull
-  BigDecimal getUnitNetAmount ();
+  EChange setMinimumQuantity (@Nonnegative int nMinimumQuantity);
+
+  /**
+   * Change the price of this graduation item.
+   * 
+   * @param aAmount
+   *        The new price amount to set. May not be <code>null</code>.
+   * @return {@link EChange#CHANGED} if the value changed,
+   *         {@link EChange#UNCHANGED} otherwise.
+   */
+  @Nonnull
+  EChange setUnitNetAmount (@Nonnull BigDecimal aAmount);
 }

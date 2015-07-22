@@ -21,34 +21,46 @@ import java.math.BigDecimal;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
-import com.helger.masterdata.currency.IHasCurrency;
+import com.helger.commons.state.EChange;
+import com.helger.masterdata.currency.ECurrency;
+import com.helger.masterdata.currency.IMutableCurrencyValue;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.vat.IHasVATItem;
+import com.helger.masterdata.vat.IVATItem;
 
-/**
- * Base interface for a price that has a value, a currency and a VAT type.
- * 
- * @author Philip Helger
- */
-public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
+public interface IMutablePrice extends IPrice
 {
-  /**
-   * @return The net amount of this price (without VAT).
-   */
   @Nonnull
-  ICurrencyValue getNetAmount ();
+  IMutableCurrencyValue getNetAmount ();
 
   /**
-   * @return The gross amount of this price (with VAT).
+   * Change the amount of this price.
+   * 
+   * @param aValue
+   *        The new value. May not be <code>null</code>.
+   * @return {@link EChange}
    */
   @Nonnull
-  ICurrencyValue getGrossAmount ();
+  EChange setNetAmount (@Nonnull ICurrencyValue aValue);
 
   /**
-   * @return The tax amount of this price (=net amount * percentage / 100).
+   * Change the VAT type of this price.
+   * 
+   * @param aVATType
+   *        The new VAT type. May not be <code>null</code>.
+   * @return {@link EChange}
    */
   @Nonnull
-  ICurrencyValue getTaxAmount ();
+  EChange setVATItem (@Nonnull IVATItem aVATType);
+
+  /**
+   * Set the currency of the price.
+   * 
+   * @param eCurrency
+   *        The new currency to use. May not be <code>null</code>.
+   * @return {@link EChange}
+   */
+  @Nonnull
+  EChange setCurrency (@Nonnull ECurrency eCurrency);
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
@@ -59,7 +71,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getAdded (@Nonnull BigDecimal aValue);
+  IMutablePrice getAdded (@Nonnull BigDecimal aValue);
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
@@ -70,7 +82,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getAdded (long nValue);
+  IMutablePrice getAdded (long nValue);
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
@@ -81,7 +93,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getSubtracted (@Nonnull BigDecimal aValue);
+  IMutablePrice getSubtracted (@Nonnull BigDecimal aValue);
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
@@ -92,7 +104,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getSubtracted (long nValue);
+  IMutablePrice getSubtracted (long nValue);
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
@@ -103,7 +115,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getMultiplied (@Nonnull BigDecimal aValue);
+  IMutablePrice getMultiplied (@Nonnull BigDecimal aValue);
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
@@ -114,7 +126,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getMultiplied (long nValue);
+  IMutablePrice getMultiplied (long nValue);
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
@@ -125,7 +137,7 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getDivided (@Nonnull BigDecimal aValue);
+  IMutablePrice getDivided (@Nonnull BigDecimal aValue);
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
@@ -136,5 +148,5 @@ public interface IReadonlyPrice extends IHasCurrency, IHasVATItem
    */
   @Nonnull
   @CheckReturnValue
-  IReadonlyPrice getDivided (long nValue);
+  IMutablePrice getDivided (long nValue);
 }

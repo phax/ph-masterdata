@@ -34,7 +34,7 @@ public abstract class AbstractExtendedEmailAddressMicroTypeConverter implements 
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IReadonlyExtendedEmailAddress aEmail = (IReadonlyExtendedEmailAddress) aObject;
+    final IExtendedEmailAddress aEmail = (IExtendedEmailAddress) aObject;
     final IMicroElement eEmail = new MicroElement (sNamespaceURI, sTagName);
     if (aEmail.getType () != null)
       eEmail.setAttribute (ATTR_TYPE, aEmail.getType ().getID ());

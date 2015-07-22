@@ -30,30 +30,30 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default read-only implementation of {@link IReadonlyExtendedEmailAddress}.
+ * Default read-only implementation of {@link IExtendedEmailAddress}.
  *
  * @author Philip Helger
  */
 @Immutable
-public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmailAddress
+public final class ReadOnlyExtendedEmailAddress implements IExtendedEmailAddress
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (ReadonlyExtendedEmailAddress.class);
+  private static final Logger s_aLogger = LoggerFactory.getLogger (ReadOnlyExtendedEmailAddress.class);
 
   private final EEmailAddressType m_eType;
   private final String m_sAddress;
   private final String m_sPersonal;
 
-  public ReadonlyExtendedEmailAddress (@Nonnull final IReadonlyExtendedEmailAddress aBase)
+  public ReadOnlyExtendedEmailAddress (@Nonnull final IExtendedEmailAddress aBase)
   {
     this (aBase.getType (), aBase.getAddress (), aBase.getPersonal ());
   }
 
-  public ReadonlyExtendedEmailAddress (@Nullable final EEmailAddressType eType, @Nullable final String sAddress)
+  public ReadOnlyExtendedEmailAddress (@Nullable final EEmailAddressType eType, @Nullable final String sAddress)
   {
     this (eType, sAddress, null);
   }
 
-  public ReadonlyExtendedEmailAddress (@Nullable final EEmailAddressType eType,
+  public ReadOnlyExtendedEmailAddress (@Nullable final EEmailAddressType eType,
                                        @Nullable final String sAddress,
                                        @Nullable final String sPersonal)
   {
@@ -101,7 +101,7 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final ReadonlyExtendedEmailAddress rhs = (ReadonlyExtendedEmailAddress) o;
+    final ReadOnlyExtendedEmailAddress rhs = (ReadOnlyExtendedEmailAddress) o;
     return EqualsHelper.equals (m_eType, rhs.m_eType) &&
            EqualsHelper.equals (m_sAddress, rhs.m_sAddress) &&
            EqualsHelper.equals (m_sPersonal, rhs.m_sPersonal);
@@ -123,11 +123,11 @@ public final class ReadonlyExtendedEmailAddress implements IReadonlyExtendedEmai
   }
 
   @Nullable
-  public static ReadonlyExtendedEmailAddress createOnDemand (@Nullable final String sAddress)
+  public static ReadOnlyExtendedEmailAddress createOnDemand (@Nullable final String sAddress)
   {
     if (StringHelper.hasNoText (sAddress))
       return null;
 
-    return new ReadonlyExtendedEmailAddress (null, sAddress, null);
+    return new ReadOnlyExtendedEmailAddress (null, sAddress, null);
   }
 }

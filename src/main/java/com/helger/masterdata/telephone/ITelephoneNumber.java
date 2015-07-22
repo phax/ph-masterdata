@@ -16,56 +16,45 @@
  */
 package com.helger.masterdata.telephone;
 
-import javax.annotation.Nonnull;
+import java.io.Serializable;
 
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
+import javax.annotation.Nullable;
 
 /**
- * Base interface for a telephone number.
+ * Read-only interface for a telephone number.
  * 
  * @author Philip Helger
  */
-public interface ITelephoneNumber extends IReadonlyTelephoneNumber, ICloneable <ITelephoneNumber>
+public interface ITelephoneNumber extends Serializable
 {
   /**
-   * @param eType
-   *        The semantic type of this telephone number.
-   * @return {@link EChange}
+   * @return The semantic type of this telephone number.
    */
-  @Nonnull
-  EChange setType (ETelephoneType eType);
+  @Nullable
+  ETelephoneType getType ();
 
   /**
-   * @param sCountryCode
-   *        The country where the number resides.
-   * @return {@link EChange}
+   * @return The country where the number resides.
    */
-  @Nonnull
-  EChange setCountryCode (String sCountryCode);
+  @Nullable
+  String getCountryCode ();
 
   /**
-   * @param sAreaCode
-   *        The area code for the phone number. This is country dependent.
-   * @return {@link EChange}
+   * @return The area code for the phone number. This is country dependent.
    */
-  @Nonnull
-  EChange setAreaCode (String sAreaCode);
+  @Nullable
+  String getAreaCode ();
 
   /**
-   * @param sLine
-   *        The main telephone number within an area code.
-   * @return {@link EChange}
+   * @return The main telephone number within an area code.
    */
-  @Nonnull
-  EChange setLine (String sLine);
+  @Nullable
+  String getLine ();
 
   /**
-   * @param sDirectDial
-   *        The direct dial for a further specification of a line. Is optional
-   *        and may be <code>null</code>.
-   * @return {@link EChange}
+   * @return The direct dial for a further specification of a line. Is optional
+   *         and may be <code>null</code>.
    */
-  @Nonnull
-  EChange setDirectDial (String sDirectDial);
+  @Nullable
+  String getDirectDial ();
 }

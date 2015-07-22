@@ -25,23 +25,23 @@ import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 
 /**
- * Test class for class {@link ReadonlyTelephoneNumber}
+ * Test class for class {@link ReadOnlyTelephoneNumber}
  *
  * @author Philip Helger
  */
-public final class ReadonlyTelephoneNumberTest extends AbstractCommonsTestCase
+public final class ReadOnlyTelephoneNumberTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
   {
-    ReadonlyTelephoneNumber a = new ReadonlyTelephoneNumber (null, null, null, null, null);
+    ReadOnlyTelephoneNumber a = new ReadOnlyTelephoneNumber (null, null, null, null, null);
     assertNull (a.getType ());
     assertNull (a.getCountryCode ());
     assertNull (a.getAreaCode ());
     assertNull (a.getLine ());
     assertNull (a.getDirectDial ());
 
-    a = new ReadonlyTelephoneNumber (ETelephoneType.OFFICE, "0043", "01", "1231234", "47");
+    a = new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE, "0043", "01", "1231234", "47");
     assertEquals (ETelephoneType.OFFICE, a.getType ());
     assertEquals ("0043", a.getCountryCode ());
     assertEquals ("01", a.getAreaCode ());
@@ -52,40 +52,40 @@ public final class ReadonlyTelephoneNumberTest extends AbstractCommonsTestCase
   @Test
   public void testDefaultImpl ()
   {
-    final ReadonlyTelephoneNumber a = new ReadonlyTelephoneNumber (ETelephoneType.OFFICE, "0043", "01", "1231234", "47");
+    final ReadOnlyTelephoneNumber a = new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE, "0043", "01", "1231234", "47");
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a,
-                                                                       new ReadonlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                       new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                     "0043",
                                                                                                     "01",
                                                                                                     "1231234",
                                                                                                     "47"));
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyTelephoneNumber (a));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyTelephoneNumber (a));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyTelephoneNumber (ETelephoneType.OFFICE_FAX,
+                                                                           new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE_FAX,
                                                                                                         "0043",
                                                                                                         "01",
                                                                                                         "1231234",
                                                                                                         "47"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                           new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                         "0049",
                                                                                                         "01",
                                                                                                         "1231234",
                                                                                                         "47"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                           new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                         "0043",
                                                                                                         "02",
                                                                                                         "1231234",
                                                                                                         "47"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                           new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                         "0043",
                                                                                                         "01",
                                                                                                         "9988776",
                                                                                                         "47"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                           new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                         "0043",
                                                                                                         "01",
                                                                                                         "1231234",

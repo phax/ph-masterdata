@@ -21,46 +21,34 @@ import java.math.BigDecimal;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.state.EChange;
-import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currency.IMutableCurrencyValue;
+import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.vat.IVATItem;
+import com.helger.masterdata.vat.IHasVATItem;
 
-public interface IPrice extends IReadonlyPrice
+/**
+ * Base interface for a price that has a value, a currency and a VAT type.
+ * 
+ * @author Philip Helger
+ */
+public interface IPrice extends IHasCurrency, IHasVATItem
 {
-  @Nonnull
-  IMutableCurrencyValue getNetAmount ();
-
   /**
-   * Change the amount of this price.
-   * 
-   * @param aValue
-   *        The new value. May not be <code>null</code>.
-   * @return {@link EChange}
+   * @return The net amount of this price (without VAT).
    */
   @Nonnull
-  EChange setNetAmount (@Nonnull ICurrencyValue aValue);
+  ICurrencyValue getNetAmount ();
 
   /**
-   * Change the VAT type of this price.
-   * 
-   * @param aVATType
-   *        The new VAT type. May not be <code>null</code>.
-   * @return {@link EChange}
+   * @return The gross amount of this price (with VAT).
    */
   @Nonnull
-  EChange setVATItem (@Nonnull IVATItem aVATType);
+  ICurrencyValue getGrossAmount ();
 
   /**
-   * Set the currency of the price.
-   * 
-   * @param eCurrency
-   *        The new currency to use. May not be <code>null</code>.
-   * @return {@link EChange}
+   * @return The tax amount of this price (=net amount * percentage / 100).
    */
   @Nonnull
-  EChange setCurrency (@Nonnull ECurrency eCurrency);
+  ICurrencyValue getTaxAmount ();
 
   /**
    * Add this price and the given value, keeping currency and VAT type.

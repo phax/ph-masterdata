@@ -27,7 +27,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
-public class PersonName implements IPersonName
+public class PersonName implements IMutablePersonName
 {
   private ESalutation m_eSalutation;
   private String m_sPrefixTitle;
@@ -50,7 +50,7 @@ public class PersonName implements IPersonName
     m_sSuffixTitle = aBase.m_sSuffixTitle;
   }
 
-  public PersonName (@Nonnull final IReadonlyPersonName aBase, @Nonnull final Locale aSortLocale)
+  public PersonName (@Nonnull final IPersonName aBase, @Nonnull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setSalutation (aBase.getSalutation ());
@@ -143,7 +143,7 @@ public class PersonName implements IPersonName
   @Nonnull
   public EChange setFirstName (@Nullable final String sFirstName, @Nonnull final Locale aSortLocale)
   {
-    final String sRealFirstName = PersonNameUtils.unifyName (sFirstName, aSortLocale);
+    final String sRealFirstName = PersonNameHelper.unifyName (sFirstName, aSortLocale);
     if (EqualsHelper.equals (m_sFirstName, sRealFirstName))
       return EChange.UNCHANGED;
     m_sFirstName = sRealFirstName;
@@ -159,7 +159,7 @@ public class PersonName implements IPersonName
   @Nonnull
   public EChange setMiddleName (@Nullable final String sMiddleName, @Nonnull final Locale aSortLocale)
   {
-    final String sRealMiddleName = PersonNameUtils.unifyName (sMiddleName, aSortLocale);
+    final String sRealMiddleName = PersonNameHelper.unifyName (sMiddleName, aSortLocale);
     if (EqualsHelper.equals (m_sMiddleName, sRealMiddleName))
       return EChange.UNCHANGED;
     m_sMiddleName = sRealMiddleName;
@@ -175,7 +175,7 @@ public class PersonName implements IPersonName
   @Nonnull
   public EChange setLastName (@Nullable final String sLastName, @Nonnull final Locale aSortLocale)
   {
-    final String sRealLastName = PersonNameUtils.unifyName (sLastName, aSortLocale);
+    final String sRealLastName = PersonNameHelper.unifyName (sLastName, aSortLocale);
     if (EqualsHelper.equals (m_sLastName, sRealLastName))
       return EChange.UNCHANGED;
     m_sLastName = sRealLastName;

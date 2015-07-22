@@ -25,21 +25,21 @@ import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 
 /**
- * Test class for class {@link ReadonlyExtendedEmailAddress}
+ * Test class for class {@link ReadOnlyExtendedEmailAddress}
  *
  * @author Philip Helger
  */
-public final class ReadonlyExtendedEmailAddressTest extends AbstractCommonsTestCase
+public final class ReadOnlyExtendedEmailAddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
   {
-    ReadonlyExtendedEmailAddress a = new ReadonlyExtendedEmailAddress (null, null, null);
+    ReadOnlyExtendedEmailAddress a = new ReadOnlyExtendedEmailAddress (null, null, null);
     assertNull (a.getType ());
     assertNull (a.getAddress ());
     assertNull (a.getPersonal ());
 
-    a = new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE, "test@example.org", "Ich");
+    a = new ReadOnlyExtendedEmailAddress (EEmailAddressType.OFFICE, "test@example.org", "Ich");
     assertEquals (EEmailAddressType.OFFICE, a.getType ());
     assertEquals ("test@example.org", a.getAddress ());
     assertEquals ("Ich", a.getPersonal ());
@@ -48,22 +48,22 @@ public final class ReadonlyExtendedEmailAddressTest extends AbstractCommonsTestC
   @Test
   public void testDefaultImpl ()
   {
-    final ReadonlyExtendedEmailAddress a = new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
+    final ReadOnlyExtendedEmailAddress a = new ReadOnlyExtendedEmailAddress (EEmailAddressType.OFFICE,
                                                                              "test@example.org",
                                                                              "Ich");
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE2,
+                                                                           new ReadOnlyExtendedEmailAddress (EEmailAddressType.OFFICE2,
                                                                                                              "test@example.org",
                                                                                                              "Ich"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
+                                                                           new ReadOnlyExtendedEmailAddress (EEmailAddressType.OFFICE,
                                                                                                              "test@example.com",
                                                                                                              "Ich"));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyExtendedEmailAddress (EEmailAddressType.OFFICE,
+                                                                           new ReadOnlyExtendedEmailAddress (EEmailAddressType.OFFICE,
                                                                                                              "test@example.org",
                                                                                                              "Du"));
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyExtendedEmailAddress (a));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyExtendedEmailAddress (a));
     CommonsTestHelper.testDefaultSerialization (a);
   }
 }

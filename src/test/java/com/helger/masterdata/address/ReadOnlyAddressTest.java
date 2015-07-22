@@ -25,16 +25,16 @@ import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 
 /**
- * Test class for class {@link ReadonlyAddress}
+ * Test class for class {@link ReadOnlyAddress}
  *
  * @author Philip Helger
  */
-public final class ReadonlyAddressTest extends AbstractCommonsTestCase
+public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
 {
   @Test
   public void testBasic ()
   {
-    ReadonlyAddress a = new ReadonlyAddress (null, null, null, null, null, null, null, null, L_DE);
+    ReadOnlyAddress a = new ReadOnlyAddress (null, null, null, null, null, null, null, null, L_DE);
     assertNull (a.getType ());
     assertNull (a.getCountry ());
     assertNull (a.getState ());
@@ -44,7 +44,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
     assertNull (a.getBuildingNumber ());
     assertNull (a.getPostOfficeBox ());
 
-    a = new ReadonlyAddress (EAddressType.OFFICE, "de", "NÖ", "1010", "Wien", "Hauptstr.", "1", "12AB", L_DE);
+    a = new ReadOnlyAddress (EAddressType.OFFICE, "de", "NÖ", "1010", "Wien", "Hauptstr.", "1", "12AB", L_DE);
     assertEquals (EAddressType.OFFICE, a.getType ());
     assertEquals ("de", a.getCountry ());
     assertEquals ("Deutschland", a.getCountryDisplayName (L_DE));
@@ -60,7 +60,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
   @Test
   public void testDefaultImpl ()
   {
-    final ReadonlyAddress a = new ReadonlyAddress (EAddressType.OFFICE,
+    final ReadOnlyAddress a = new ReadOnlyAddress (EAddressType.OFFICE,
                                                    "de",
                                                    "NÖ",
                                                    "1010",
@@ -69,7 +69,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                    "1",
                                                    "12AB",
                                                    L_DE);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                "de",
                                                                                                "NÖ",
                                                                                                "1010",
@@ -78,9 +78,9 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                "1",
                                                                                                "12AB",
                                                                                                L_DE));
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadonlyAddress (a, L_DE));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyAddress (a, L_DE));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
-                                                                           new ReadonlyAddress (EAddressType.OFFICE2,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE2,
                                                                                                 "de",
                                                                                                 "NÖ",
                                                                                                 "1010",
@@ -89,7 +89,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                 "1",
                                                                                                 "12AB",
                                                                                                 L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "at",
                                                                                                    "NÖ",
                                                                                                    "1010",
@@ -98,7 +98,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                    "1",
                                                                                                    "12AB",
                                                                                                    L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "de",
                                                                                                    "OÖ",
                                                                                                    "1010",
@@ -107,7 +107,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                    "1",
                                                                                                    "12AB",
                                                                                                    L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "de",
                                                                                                    "NÖ",
                                                                                                    "1020",
@@ -116,7 +116,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                    "1",
                                                                                                    "12AB",
                                                                                                    L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "de",
                                                                                                    "NÖ",
                                                                                                    "1010",
@@ -125,7 +125,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                    "1",
                                                                                                    "12AB",
                                                                                                    L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "de",
                                                                                                    "NÖ",
                                                                                                    "1010",
@@ -134,7 +134,7 @@ public final class ReadonlyAddressTest extends AbstractCommonsTestCase
                                                                                                    "2",
                                                                                                    "12AB",
                                                                                                    L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadonlyAddress (EAddressType.OFFICE,
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
                                                                                                    "de",
                                                                                                    "NÖ",
                                                                                                    "1010",

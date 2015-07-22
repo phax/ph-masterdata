@@ -14,21 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.currency;
-
-import java.math.BigDecimal;
+package com.helger.masterdata.telephone;
 
 import javax.annotation.Nonnull;
 
 import com.helger.commons.microdom.IMicroElement;
 
-public final class ReadonlyCurrencyMicroTypeConverter extends AbstractCurrencyMicroTypeConverter
+public final class ReadOnlyTelephoneNumberMicroTypeConverter extends AbstractTelephoneNumberMicroTypeConverter
 {
   @Nonnull
-  public ReadonlyCurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
+  public ReadOnlyTelephoneNumber convertToNative (@Nonnull final IMicroElement eTelNo)
   {
-    final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
-    final BigDecimal aValue = ePrice.getAttributeValueWithConversion (ATTR_VALUE, BigDecimal.class);
-    return new ReadonlyCurrencyValue (eCurrency, aValue);
+    final ETelephoneType eType = ETelephoneType.getFromIDOrNull (eTelNo.getAttributeValue (ATTR_TYPE));
+    final String sCountryCode = eTelNo.getAttributeValue (ATTR_COUNTRYCODE);
+    final String sAreaCode = eTelNo.getAttributeValue (ATTR_AREACODE);
+    final String sLine = eTelNo.getAttributeValue (ATTR_LINE);
+    final String sDirectDial = eTelNo.getAttributeValue (ATTR_DIRECTDIAL);
+    return new ReadOnlyTelephoneNumber (eType, sCountryCode, sAreaCode, sLine, sDirectDial);
   }
 }

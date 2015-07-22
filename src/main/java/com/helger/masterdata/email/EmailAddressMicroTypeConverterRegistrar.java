@@ -29,8 +29,8 @@ public final class EmailAddressMicroTypeConverterRegistrar implements IMicroType
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (ReadonlyExtendedEmailAddress.class,
-                                                 new ReadonlyExtendedEmailAddressMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (ReadOnlyExtendedEmailAddress.class,
+                                                 new ReadOnlyExtendedEmailAddressMicroTypeConverter ());
     aRegistry.registerMicroElementTypeConverter (ExtendedEmailAddress.class,
                                                  new ExtendedEmailAddressMicroTypeConverter ());
   }

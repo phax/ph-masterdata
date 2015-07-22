@@ -33,11 +33,11 @@ import com.helger.masterdata.vat.VATItem;
 import com.helger.masterdata.vat.VATManager;
 
 /**
- * Test class for class {@link ReadonlyPrice}.
+ * Test class for class {@link ReadOnlyPrice}.
  *
  * @author Philip Helger
  */
-public final class ReadonlyPriceTest
+public final class ReadOnlyPriceTest
 {
   @Test
   public void testCtor ()
@@ -45,7 +45,7 @@ public final class ReadonlyPriceTest
     try
     {
       // null currency value not allowed
-      new ReadonlyPrice (null, VATManager.VATTYPE_NONE);
+      new ReadOnlyPrice (null, VATManager.VATTYPE_NONE);
       fail ();
     }
     catch (final NullPointerException ex)
@@ -54,7 +54,7 @@ public final class ReadonlyPriceTest
     try
     {
       // null VAT value not allowed
-      new ReadonlyPrice (ECurrency.AMD, new BigDecimal (5), null);
+      new ReadOnlyPrice (ECurrency.AMD, new BigDecimal (5), null);
       fail ();
     }
     catch (final NullPointerException ex)
@@ -64,7 +64,7 @@ public final class ReadonlyPriceTest
   @Test
   public void testBasic ()
   {
-    final ReadonlyPrice p1 = new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
+    final ReadOnlyPrice p1 = new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY,
                                                 new BigDecimal ("9.9"),
                                                 VATManager.VATTYPE_NONE);
     assertEquals (ECurrency.DEFAULT_CURRENCY, p1.getCurrency ());
@@ -73,22 +73,22 @@ public final class ReadonlyPriceTest
     assertEquals (VATManager.VATTYPE_NONE, p1.getVATItem ());
     assertEquals (p1, p1.getMultiplied (BigDecimal.ONE));
 
-    final ReadonlyPrice p2 = new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
+    final ReadOnlyPrice p2 = new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY,
                                                 new BigDecimal ("9.9"),
                                                 VATManager.VATTYPE_NONE);
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (p1, p2);
 
     final VATItem v1 = new VATItem ("vat20", EVATType.REGULAR, new BigDecimal ("20"), false);
-    assertTrue (p2.equals (new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
+    assertTrue (p2.equals (new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY,
                                               new BigDecimal ("9.9"),
                                               VATManager.VATTYPE_NONE)));
-    assertFalse (p2.equals (new ReadonlyPrice (ECurrency.AMD, new BigDecimal ("9.9"), VATManager.VATTYPE_NONE)));
-    assertFalse (p2.equals (new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY,
+    assertFalse (p2.equals (new ReadOnlyPrice (ECurrency.AMD, new BigDecimal ("9.9"), VATManager.VATTYPE_NONE)));
+    assertFalse (p2.equals (new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY,
                                                new BigDecimal ("10.9"),
                                                VATManager.VATTYPE_NONE)));
-    assertFalse (p2.equals (new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1)));
+    assertFalse (p2.equals (new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1)));
 
-    final ReadonlyPrice p3 = new ReadonlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1);
+    final ReadOnlyPrice p3 = new ReadOnlyPrice (ECurrency.DEFAULT_CURRENCY, new BigDecimal ("9.9"), v1);
     CommonsAssert.assertEquals (9.9, p3.getNetAmount ().getValue ().doubleValue ());
     CommonsAssert.assertEquals (11.88, p3.getGrossAmount ().getValue ().doubleValue ());
   }

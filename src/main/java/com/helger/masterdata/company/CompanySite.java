@@ -32,9 +32,9 @@ import com.helger.masterdata.address.EAddressType;
 import com.helger.masterdata.address.IMutableAddress;
 import com.helger.masterdata.email.EEmailAddressType;
 import com.helger.masterdata.email.ExtendedEmailAddress;
-import com.helger.masterdata.email.IExtendedEmailAddress;
+import com.helger.masterdata.email.IMutableExtendedEmailAddress;
 import com.helger.masterdata.telephone.ETelephoneType;
-import com.helger.masterdata.telephone.ITelephoneNumber;
+import com.helger.masterdata.telephone.IMutableTelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
@@ -55,9 +55,9 @@ public final class CompanySite implements IMutableCompanySite
   private boolean m_bIsDeletable = DEFAULT_DELETABLE;
   private boolean m_bIsVirtualSite = DEFAULT_VIRTUALSITE;
   private IMutableAddress m_aAddress = new Address ();
-  private ITelephoneNumber m_aTelNo = new TelephoneNumber ();
-  private ITelephoneNumber m_aFaxNo = new TelephoneNumber ();
-  private IExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
+  private IMutableTelephoneNumber m_aTelNo = new TelephoneNumber ();
+  private IMutableTelephoneNumber m_aFaxNo = new TelephoneNumber ();
+  private IMutableExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
 
   public CompanySite (@Nonnull final IMutableCompany aCompany)
   {
@@ -168,13 +168,13 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public ITelephoneNumber getDefaultTelNo ()
+  public IMutableTelephoneNumber getDefaultTelNo ()
   {
     return m_aTelNo;
   }
 
   @Nonnull
-  public EChange setDefaultTelNo (@Nonnull final ITelephoneNumber aTelNo)
+  public EChange setDefaultTelNo (@Nonnull final IMutableTelephoneNumber aTelNo)
   {
     ValueEnforcer.notNull (aTelNo, "TelNo");
 
@@ -188,13 +188,13 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public ITelephoneNumber getDefaultFaxNo ()
+  public IMutableTelephoneNumber getDefaultFaxNo ()
   {
     return m_aFaxNo;
   }
 
   @Nonnull
-  public EChange setDefaultFaxNo (@Nonnull final ITelephoneNumber aFaxNo)
+  public EChange setDefaultFaxNo (@Nonnull final IMutableTelephoneNumber aFaxNo)
   {
     ValueEnforcer.notNull (aFaxNo, "FaxNo");
 
@@ -208,13 +208,13 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IExtendedEmailAddress getDefaultEmailAddress ()
+  public IMutableExtendedEmailAddress getDefaultEmailAddress ()
   {
     return m_aEmailAddress;
   }
 
   @Nonnull
-  public EChange setDefaultEmailAddress (@Nonnull final IExtendedEmailAddress aEmailAddress)
+  public EChange setDefaultEmailAddress (@Nonnull final IMutableExtendedEmailAddress aEmailAddress)
   {
     ValueEnforcer.notNull (aEmailAddress, "EmailAddress");
 

@@ -14,32 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.price;
+package com.helger.masterdata.currency;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.microdom.IMicroElement;
 
-/**
- * Interface representing a single read only item of a price graduation.
- * 
- * @author Philip Helger
- */
-@MustImplementEqualsAndHashcode
-public interface IReadonlyPriceGraduationItem
+public final class ReadOnlyCurrencyMicroTypeConverter extends AbstractCurrencyMicroTypeConverter
 {
-  /**
-   * @return The minimum quantity. Should be &ge; 1.
-   */
-  @Nonnegative
-  int getMinimumQuantity ();
-
-  /**
-   * @return The price amount that is to be charged for given quantity.
-   */
   @Nonnull
-  BigDecimal getUnitNetAmount ();
+  public ReadOnlyCurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
+  {
+    final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
+    final BigDecimal aValue = ePrice.getAttributeValueWithConversion (ATTR_VALUE, BigDecimal.class);
+    return new ReadOnlyCurrencyValue (eCurrency, aValue);
+  }
 }

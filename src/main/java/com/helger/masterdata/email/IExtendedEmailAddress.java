@@ -16,41 +16,20 @@
  */
 package com.helger.masterdata.email;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
+import com.helger.commons.email.IEmailAddress;
 
 /**
  * Extended interface for an email address with a type.
  * 
  * @author Philip Helger
  */
-public interface IExtendedEmailAddress extends IReadonlyExtendedEmailAddress, ICloneable <IExtendedEmailAddress>
+public interface IExtendedEmailAddress extends IEmailAddress
 {
   /**
-   * @param eType
-   *        The type of the email address. May be <code>null</code>.
-   * @return {@link EChange}
+   * @return The type of the email address.
    */
-  @Nonnull
-  EChange setType (EEmailAddressType eType);
-
-  /**
-   * @param sAddress
-   *        The main email address. May be <code>null</code>.
-   * @return <code>{@link EChange#CHANGED}</code> if the passed email address
-   *         was valid and set, <code>{@link EChange#UNCHANGED}</code>
-   *         otherwise.
-   */
-  @Nonnull
-  EChange setAddress (String sAddress);
-
-  /**
-   * @param sPersonal
-   *        The personal name. May be <code>null</code>.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setPersonal (String sPersonal);
+  @Nullable
+  EEmailAddressType getType ();
 }

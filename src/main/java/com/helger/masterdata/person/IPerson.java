@@ -16,130 +16,53 @@
  */
 package com.helger.masterdata.person;
 
-import java.util.Locale;
+import java.io.Serializable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.joda.time.LocalDate;
 
-import com.helger.commons.state.EChange;
+import com.helger.commons.id.IHasID;
 import com.helger.masterdata.address.IAddress;
-import com.helger.masterdata.email.IReadonlyExtendedEmailAddress;
-import com.helger.masterdata.telephone.IReadonlyTelephoneNumber;
+import com.helger.masterdata.email.IExtendedEmailAddress;
+import com.helger.masterdata.telephone.ITelephoneNumber;
 
-public interface IPerson extends IReadonlyPerson
+public interface IPerson extends IHasID <String>, Serializable
 {
+  /**
+   * @return The gender of the person. May be <code>null</code>.
+   */
+  @Nullable
+  EGender getGender ();
 
   /**
-   * @return The writable name of the person. May not be <code>null</code>.
+   * @return The name of the person. May not be <code>null</code>.
    */
   @Nonnull
   IPersonName getName ();
 
   /**
-   * @return The writable telephone number of the person.
+   * @return The optional birthday of the person.
    */
   @Nullable
-  PersonTelephoneNumber getTelephoneNumber ();
+  LocalDate getBirthday ();
 
   /**
-   * @return The writable email address number of the person.
+   * @return An optional telephone number.
    */
   @Nullable
-  PersonEmailAddress getEmailAddress ();
+  ITelephoneNumber getTelephoneNumber ();
 
   /**
-   * @return The writable address of the person.
+   * @return An optional email address for this person.
    */
   @Nullable
-  PersonAddress getAddress ();
+  IExtendedEmailAddress getEmailAddress ();
 
   /**
-   * @param eGender
-   *        The gender of the person. May be <code>null</code>.
-   * @return {@link EChange}
+   * @return An optional real address for this person.
    */
-  @Nonnull
-  EChange setGender (@Nullable EGender eGender);
-
-  /**
-   * Set the name of the person
-   * 
-   * @param aName
-   *        The new name to be set. May not be <code>null</code>.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setName (@Nonnull PersonName aName);
-
-  /**
-   * Set the name of the person
-   * 
-   * @param aName
-   *        The new name to be set. May not be <code>null</code>.
-   * @param aSortLocale
-   *        locale to use.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setName (@Nonnull IReadonlyPersonName aName, @Nonnull Locale aSortLocale);
-
-  /**
-   * @param aBirthday
-   *        The optional birthday of the person.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setBirthday (@Nullable LocalDate aBirthday);
-
-  /**
-   * @param aTelephoneNumber
-   *        An optional telephone number.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setTelephoneNumber (@Nullable PersonTelephoneNumber aTelephoneNumber);
-
-  /**
-   * @param aTelephoneNumber
-   *        An optional telephone number.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setTelephoneNumber (@Nullable IReadonlyTelephoneNumber aTelephoneNumber);
-
-  /**
-   * @param aEmailAddress
-   *        An optional email address for this person.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setEmailAddress (@Nullable PersonEmailAddress aEmailAddress);
-
-  /**
-   * @param aEmailAddress
-   *        An optional email address for this person.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setEmailAddress (@Nullable IReadonlyExtendedEmailAddress aEmailAddress);
-
-  /**
-   * @param aAddress
-   *        An optional real address for this person.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setAddress (@Nullable PersonAddress aAddress);
-
-  /**
-   * @param aAddress
-   *        An optional real address for this person.
-   * @param aSortLocale
-   *        locale to use.
-   * @return {@link EChange}
-   */
-  @Nonnull
-  EChange setAddress (@Nullable IAddress aAddress, @Nonnull Locale aSortLocale);
+  @Nullable
+  IAddress getAddress ();
 }

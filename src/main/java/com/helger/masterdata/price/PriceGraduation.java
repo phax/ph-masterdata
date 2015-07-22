@@ -35,17 +35,17 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
- * Default implementation of the {@link IPriceGraduation} and
- * {@link IReadonlyPriceGraduation} interfaces.
+ * Default implementation of the {@link IMutablePriceGraduation} and
+ * {@link IPriceGraduation} interfaces.
  *
  * @author Philip Helger
  */
-public class PriceGraduation implements IPriceGraduation
+public class PriceGraduation implements IMutablePriceGraduation
 {
   private final ECurrency m_eCurrency;
 
   // All items sorted ascending by the minimum quantity
-  private final List <IPriceGraduationItem> m_aItems = new ArrayList <IPriceGraduationItem> ();
+  private final List <IMutablePriceGraduationItem> m_aItems = new ArrayList <IMutablePriceGraduationItem> ();
 
   /**
    * Create a new price graduation valid only for the given currency and VAT
@@ -66,37 +66,37 @@ public class PriceGraduation implements IPriceGraduation
   }
 
   @Nullable
-  public IPriceGraduationItem getSmallestMinimumQuantityItem ()
+  public IMutablePriceGraduationItem getSmallestMinimumQuantityItem ()
   {
     return CollectionHelper.getFirstElement (m_aItems);
   }
 
   @Nullable
-  public IPriceGraduationItem getLargestMinimumQuantityItem ()
+  public IMutablePriceGraduationItem getLargestMinimumQuantityItem ()
   {
     return CollectionHelper.getLastElement (m_aItems);
   }
 
   @Nonnull
   @ReturnsImmutableObject
-  public List <? extends IPriceGraduationItem> getAllItems ()
+  public List <? extends IMutablePriceGraduationItem> getAllItems ()
   {
     return CollectionHelper.makeUnmodifiable (m_aItems);
   }
 
   @Nullable
-  public IPriceGraduationItem getItemOfIndex (@Nonnegative final int nIndex)
+  public IMutablePriceGraduationItem getItemOfIndex (@Nonnegative final int nIndex)
   {
     return CollectionHelper.getSafe (m_aItems, nIndex);
   }
 
   @Nonnull
-  private IPriceGraduationItem _getItemOfQuantity (@Nonnegative final int nQuantity)
+  private IMutablePriceGraduationItem _getItemOfQuantity (@Nonnegative final int nQuantity)
   {
     ValueEnforcer.isGT0 (nQuantity, "Quantity");
 
-    IPriceGraduationItem ret = null;
-    for (final IPriceGraduationItem aItem : m_aItems)
+    IMutablePriceGraduationItem ret = null;
+    for (final IMutablePriceGraduationItem aItem : m_aItems)
     {
       if (aItem.getMinimumQuantity () > nQuantity)
         break;
@@ -108,13 +108,13 @@ public class PriceGraduation implements IPriceGraduation
   }
 
   @Nonnull
-  private IPrice _createPrice (@Nonnull final BigDecimal aNetAmount, @Nonnull final IVATItem aVAT)
+  private IMutablePrice _createPrice (@Nonnull final BigDecimal aNetAmount, @Nonnull final IVATItem aVAT)
   {
     return new Price (m_eCurrency, aNetAmount, aVAT);
   }
 
   @Nonnull
-  public IPrice getPrice (@Nonnull final IReadonlyPriceGraduationItem aItem, @Nonnull final IVATItem aVATItem)
+  public IMutablePrice getPrice (@Nonnull final IPriceGraduationItem aItem, @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
     ValueEnforcer.notNull (aVATItem, "VATItem");
@@ -125,14 +125,14 @@ public class PriceGraduation implements IPriceGraduation
   }
 
   @Nonnull
-  public IPrice getSinglePriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVATItem)
+  public IMutablePrice getSinglePriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
     return _createPrice (_getItemOfQuantity (nQuantity).getUnitNetAmount (), aVATItem);
   }
 
   @Nonnull
-  public IPrice getTotalPriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVAT)
+  public IMutablePrice getTotalPriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVAT)
   {
     return getSinglePriceOfQuantity (nQuantity, aVAT).getMultiplied (nQuantity);
   }
@@ -144,7 +144,7 @@ public class PriceGraduation implements IPriceGraduation
   }
 
   @Nonnull
-  public EChange addItem (@Nonnull final IPriceGraduationItem aItem)
+  public EChange addItem (@Nonnull final IMutablePriceGraduationItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
 
@@ -152,7 +152,7 @@ public class PriceGraduation implements IPriceGraduation
     // contained.
     int nInsertIndex = 0;
     final int nNewItemQuantity = aItem.getMinimumQuantity ();
-    for (final IPriceGraduationItem aExistingItem : m_aItems)
+    for (final IMutablePriceGraduationItem aExistingItem : m_aItems)
     {
       final int nExistingMinQuantity = aExistingItem.getMinimumQuantity ();
       if (nExistingMinQuantity == nNewItemQuantity)
@@ -220,7 +220,7 @@ public class PriceGraduation implements IPriceGraduation
    * @return Never <code>null</code>.
    */
   @Nonnull
-  public static IPriceGraduation createSimple (@Nonnull final IPrice aPrice)
+  public static IMutablePriceGraduation createSimple (@Nonnull final IMutablePrice aPrice)
   {
     final PriceGraduation ret = new PriceGraduation (aPrice.getCurrency ());
     ret.addItem (new PriceGraduationItem (1, aPrice.getNetAmount ().getValue ()));

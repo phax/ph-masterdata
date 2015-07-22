@@ -56,7 +56,7 @@ public class FilterLocaleCountryOnAnyContinent implements IFilter <Locale>
   public boolean matchesFilter (@Nonnull final Locale aValue)
   {
     // Get all continents of the passed locale
-    final Set <EContinent> aContinents = ContinentUtils.getContinentsOfCountry (aValue);
+    final Set <EContinent> aContinents = ContinentHelper.getContinentsOfCountry (aValue);
     if (aContinents == null)
       return false;
 

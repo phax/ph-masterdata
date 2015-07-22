@@ -21,20 +21,20 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Test class for class {@link ContinentUtils}.
+ * Test class for class {@link ContinentHelper}.
  *
  * @author Philip Helger
  */
-public final class ContinentUtilsTest
+public final class ContinentHelperTest
 {
   @Test
   public void testBasic ()
   {
-    assertTrue (ContinentUtils.getContinentsOfCountry ("DE").contains (EContinent.EUROPE));
-    assertTrue (ContinentUtils.getContinentsOfCountry ("AT").contains (EContinent.EUROPE));
-    assertTrue (ContinentUtils.getContinentsOfCountry ("AO").contains (EContinent.AFRICA));
-    assertTrue (ContinentUtils.getContinentsOfCountry ("CN").contains (EContinent.ASIA));
+    assertTrue (ContinentHelper.getContinentsOfCountry ("DE").contains (EContinent.EUROPE));
+    assertTrue (ContinentHelper.getContinentsOfCountry ("AT").contains (EContinent.EUROPE));
+    assertTrue (ContinentHelper.getContinentsOfCountry ("AO").contains (EContinent.AFRICA));
+    assertTrue (ContinentHelper.getContinentsOfCountry ("CN").contains (EContinent.ASIA));
     // No continent specified
-    assertTrue (ContinentUtils.getContinentsOfCountry ("BV").contains (EContinent.UNDEFINED));
+    assertTrue (ContinentHelper.getContinentsOfCountry ("BV").contains (EContinent.UNDEFINED));
   }
 }

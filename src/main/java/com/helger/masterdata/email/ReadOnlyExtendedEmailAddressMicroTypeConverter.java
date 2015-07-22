@@ -20,14 +20,14 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.microdom.IMicroElement;
 
-public final class ReadonlyExtendedEmailAddressMicroTypeConverter extends AbstractExtendedEmailAddressMicroTypeConverter
+public final class ReadOnlyExtendedEmailAddressMicroTypeConverter extends AbstractExtendedEmailAddressMicroTypeConverter
 {
   @Nonnull
-  public ReadonlyExtendedEmailAddress convertToNative (@Nonnull final IMicroElement eEmail)
+  public ReadOnlyExtendedEmailAddress convertToNative (@Nonnull final IMicroElement eEmail)
   {
     final EEmailAddressType eType = EEmailAddressType.getFromIDOrNull (eEmail.getAttributeValue (ATTR_TYPE));
     final String sAddress = eEmail.getAttributeValue (ATTR_ADDRESS);
     final String sPersonal = eEmail.getAttributeValue (ATTR_PERSONAL);
-    return new ReadonlyExtendedEmailAddress (eType, sAddress, sPersonal);
+    return new ReadOnlyExtendedEmailAddress (eType, sAddress, sPersonal);
   }
 }

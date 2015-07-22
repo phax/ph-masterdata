@@ -36,7 +36,7 @@ public abstract class AbstractTelephoneNumberMicroTypeConverter implements IMicr
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IReadonlyTelephoneNumber aTelNo = (IReadonlyTelephoneNumber) aObject;
+    final ITelephoneNumber aTelNo = (ITelephoneNumber) aObject;
     final IMicroElement eTelNo = new MicroElement (sNamespaceURI, sTagName);
     if (aTelNo.getType () != null)
       eTelNo.setAttribute (ATTR_TYPE, aTelNo.getType ().getID ());

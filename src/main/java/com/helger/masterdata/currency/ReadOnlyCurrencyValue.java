@@ -35,17 +35,17 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
+public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 {
   private final ECurrency m_eCurrency;
   private final BigDecimal m_aValue;
 
-  public ReadonlyCurrencyValue (@Nonnull final ICurrencyValue aCurrencyValue)
+  public ReadOnlyCurrencyValue (@Nonnull final ICurrencyValue aCurrencyValue)
   {
     this (aCurrencyValue.getCurrency (), aCurrencyValue.getValue ());
   }
 
-  public ReadonlyCurrencyValue (@Nonnull final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
+  public ReadOnlyCurrencyValue (@Nonnull final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
   {
     m_eCurrency = ValueEnforcer.notNull (eCurrency, "Currency");
     m_aValue = ValueEnforcer.notNull (aValue, "Value");
@@ -80,7 +80,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
       return this;
-    return new ReadonlyCurrencyValue (getCurrency (), getValue ().add (aValue));
+    return new ReadOnlyCurrencyValue (getCurrency (), getValue ().add (aValue));
   }
 
   @Nonnull
@@ -99,7 +99,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
       return this;
-    return new ReadonlyCurrencyValue (getCurrency (), getValue ().subtract (aValue));
+    return new ReadOnlyCurrencyValue (getCurrency (), getValue ().subtract (aValue));
   }
 
   @Nonnull
@@ -118,7 +118,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
       return this;
-    return new ReadonlyCurrencyValue (getCurrency (), getValue ().multiply (aValue));
+    return new ReadOnlyCurrencyValue (getCurrency (), getValue ().multiply (aValue));
   }
 
   @Nonnull
@@ -138,7 +138,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
     if (MathHelper.isEqualToOne (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
-    return new ReadonlyCurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));
+    return new ReadOnlyCurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));
   }
 
   @Nonnull
@@ -157,7 +157,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final ReadonlyCurrencyValue rhs = (ReadonlyCurrencyValue) o;
+    final ReadOnlyCurrencyValue rhs = (ReadOnlyCurrencyValue) o;
     return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);
   }
 
@@ -178,7 +178,7 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
                                                                     @Nonnull final ECurrency eCurrency,
                                                                     @Nonnull final BigDecimal aDefaultValue)
   {
-    return new ReadonlyCurrencyValue (eCurrency, eCurrency.parseCurrencyFormat (sText, aDefaultValue));
+    return new ReadOnlyCurrencyValue (eCurrency, eCurrency.parseCurrencyFormat (sText, aDefaultValue));
   }
 
   @Nonnull
@@ -186,6 +186,6 @@ public final class ReadonlyCurrencyValue extends AbstractCurrencyValue
                                                                  @Nonnull final ECurrency eCurrency,
                                                                  @Nonnull final BigDecimal aDefaultValue)
   {
-    return new ReadonlyCurrencyValue (eCurrency, eCurrency.parseValueFormat (sText, aDefaultValue));
+    return new ReadOnlyCurrencyValue (eCurrency, eCurrency.parseValueFormat (sText, aDefaultValue));
   }
 }

@@ -33,15 +33,15 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyValue;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.ICurrencyValue;
-import com.helger.masterdata.currency.ReadonlyCurrencyValue;
+import com.helger.masterdata.currency.ReadOnlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
- * Default implementation of the {@link IPrice} interface.
+ * Default implementation of the {@link IMutablePrice} interface.
  *
  * @author Philip Helger
  */
-public class Price implements IPrice
+public class Price implements IMutablePrice
 {
   public static final String FIELD_VATITEM = "vatitem";
 
@@ -51,7 +51,7 @@ public class Price implements IPrice
   public Price ()
   {}
 
-  public Price (@Nonnull final IReadonlyPrice aPrice)
+  public Price (@Nonnull final IPrice aPrice)
   {
     this (aPrice.getNetAmount (), aPrice.getVATItem ());
   }
@@ -70,7 +70,7 @@ public class Price implements IPrice
                 @Nonnull final BigDecimal aNetAmount,
                 @Nonnull final IVATItem aVATItem)
   {
-    this (new ReadonlyCurrencyValue (eCurrency, aNetAmount), aVATItem);
+    this (new ReadOnlyCurrencyValue (eCurrency, aNetAmount), aVATItem);
   }
 
   /**
