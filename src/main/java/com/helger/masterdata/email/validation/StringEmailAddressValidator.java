@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.smtp.EmailAddressValidator;
+import com.helger.smtp.util.EmailAddressValidator;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
 import com.helger.validation.result.ValidationResultError;
