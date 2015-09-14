@@ -20,13 +20,16 @@ Java library with lots of default business objects and algorithms:
   * VAT and VATIN handling
   * Vehicle sign handling 
 
+Versions <= 3.6.3 are compatible with ph-commons < 6.0.
+Versions >= 4.0.0 are compatible with ph-commons >= 6.0.
+
 #Maven usage
 Add the following to your pom.xml to use this artifact:
 ```
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>3.6.3</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
