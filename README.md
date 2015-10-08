@@ -1,7 +1,7 @@
 #ph-masterdata
 
 Java library with lots of default business objects and algorithms:
-  * Addess data
+  * Postal address data
   * Company and site descriptors
   * Currency handling
   * DIN sizes
@@ -29,7 +29,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>4.0.0</version>
+  <version>4.0.1</version>
 </dependency>
 ```
 

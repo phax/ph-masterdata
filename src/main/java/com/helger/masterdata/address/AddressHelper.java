@@ -17,10 +17,12 @@
 package com.helger.masterdata.address;
 
 import java.util.Locale;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
@@ -35,10 +37,11 @@ import com.helger.commons.string.StringHelper;
 @ThreadSafe
 public final class AddressHelper
 {
+  public static final boolean DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED = false;
+  public static final String DEFAULT_CARE_OF_PREFIX = "c/o ";
+
   private static final String [] STREET_SEARCH = new String [] { "str.", "g." };
   private static final String [] STREET_REPLACE = new String [] { "straße", "gasse" };
-
-  private static final AtomicBoolean s_aComplexAddressHandlingEnabled = new AtomicBoolean (false);
 
   static
   {
@@ -46,17 +49,78 @@ public final class AddressHelper
       throw new InitializationException ("Search and replace arrays for street have different length!");
   }
 
+  private static final ReadWriteLock s_aRWLock = new ReentrantReadWriteLock ();
+  @GuardedBy ("s_aRWLock")
+  private static boolean s_bComplexAddressHandlingEnabled = DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED;
+  @GuardedBy ("s_aRWLock")
+  private static String s_sCareOfPrefix = DEFAULT_CARE_OF_PREFIX;
+
   private AddressHelper ()
   {}
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
   {
-    s_aComplexAddressHandlingEnabled.set (bEnabled);
+    s_aRWLock.writeLock ().lock ();
+    try
+    {
+      s_bComplexAddressHandlingEnabled = bEnabled;
+    }
+    finally
+    {
+      s_aRWLock.writeLock ().unlock ();
+    }
   }
 
   public static boolean isComplexAddressHandlingEnabled ()
   {
-    return s_aComplexAddressHandlingEnabled.get ();
+    s_aRWLock.readLock ().lock ();
+    try
+    {
+      return s_bComplexAddressHandlingEnabled;
+    }
+    finally
+    {
+      s_aRWLock.readLock ().unlock ();
+    }
+  }
+
+  /**
+   * Set the prefix to be added in front of "c/o" address line. By default it is
+   * "c/o ".
+   *
+   * @param sCareOfPrefix
+   *        The c/o prefix. May not be <code>null</code> but maybe empty.
+   */
+  public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
+  {
+    ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
+    s_aRWLock.writeLock ().lock ();
+    try
+    {
+      s_sCareOfPrefix = sCareOfPrefix;
+    }
+    finally
+    {
+      s_aRWLock.writeLock ().unlock ();
+    }
+  }
+
+  /**
+   * @return The prefix to be added in front of "c/o" lines. Never
+   *         <code>null</code>.
+   */
+  @Nonnull
+  public static String getCareOfPrefix ()
+  {
+    s_aRWLock.readLock ().lock ();
+    try
+    {
+      return s_sCareOfPrefix;
+    }
+    finally
+    {
+      s_aRWLock.readLock ().unlock ();
+    }
   }
 
   @Nullable
@@ -185,10 +249,23 @@ public final class AddressHelper
 
     final StringBuilder aSB = new StringBuilder ();
 
+    // c/o part
+    if (StringHelper.hasText (aAddress.getCareOf ()))
+    {
+      if (aSB.length () > 0)
+        aSB.append (sLineSeparator);
+      // Use customizable prefix
+      aSB.append (getCareOfPrefix ()).append (aAddress.getCareOf ());
+    }
+
     // Street + building number
     final String sStreet = getStreetAndBuildingNumber (aAddress);
     if (StringHelper.hasText (sStreet))
+    {
+      if (aSB.length () > 0)
+        aSB.append (sLineSeparator);
       aSB.append (sStreet);
+    }
 
     // Postal code + city
     final String sNextLine = getPostalCodeAndCity (aAddress);
@@ -210,7 +287,6 @@ public final class AddressHelper
     {
       if (aSB.length () > 0)
         aSB.append (sLineSeparator);
-
       aSB.append (aAddress.getCountryDisplayName (aDisplayLocale));
     }
 
