@@ -45,6 +45,7 @@ public class Address implements IMutableAddress
   private String m_sStreet;
   private String m_sBuildingNumber;
   private String m_sPostOfficeBox;
+  private String m_sCareOf;
 
   public Address ()
   {}
@@ -60,6 +61,7 @@ public class Address implements IMutableAddress
     m_sStreet = aBase.m_sStreet;
     m_sBuildingNumber = aBase.m_sBuildingNumber;
     m_sPostOfficeBox = aBase.m_sPostOfficeBox;
+    m_sCareOf = aBase.m_sCareOf;
   }
 
   public Address (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
@@ -73,6 +75,7 @@ public class Address implements IMutableAddress
     setStreet (aBase.getStreet (), aSortLocale);
     setBuildingNumber (aBase.getBuildingNumber ());
     setPostOfficeBox (aBase.getPostOfficeBox (), aSortLocale);
+    setCareOf (aBase.getCareOf (), aSortLocale);
   }
 
   public Address (@Nullable final IAddressType aType)
@@ -88,6 +91,7 @@ public class Address implements IMutableAddress
                   @Nullable final String sStreet,
                   @Nullable final String sBuildingNumber,
                   @Nullable final String sPostOfficeBox,
+                  @Nullable final String sCareOf,
                   @Nonnull final Locale aSortLocale)
   {
     setType (aType);
@@ -98,6 +102,7 @@ public class Address implements IMutableAddress
     setStreet (sStreet, aSortLocale);
     setBuildingNumber (sBuildingNumber);
     setPostOfficeBox (sPostOfficeBox, aSortLocale);
+    setCareOf (sCareOf, aSortLocale);
   }
 
   @Nullable
@@ -245,6 +250,22 @@ public class Address implements IMutableAddress
     return EChange.CHANGED;
   }
 
+  @Nullable
+  public String getCareOf ()
+  {
+    return m_sCareOf;
+  }
+
+  @Nonnull
+  public EChange setCareOf (@Nullable final String sCareOf, @Nonnull final Locale aSortLocale)
+  {
+    final String sRealCareOf = AddressHelper.getUnifiedCareOf (sCareOf, aSortLocale);
+    if (EqualsHelper.equals (m_sCareOf, sRealCareOf))
+      return EChange.UNCHANGED;
+    m_sCareOf = sRealCareOf;
+    return EChange.CHANGED;
+  }
+
   @Nonnull
   public Address getClone ()
   {
@@ -266,7 +287,8 @@ public class Address implements IMutableAddress
            EqualsHelper.equals (m_sCity, rhs.m_sCity) &&
            EqualsHelper.equals (m_sStreet, rhs.m_sStreet) &&
            EqualsHelper.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
-           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
+           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox) &&
+           EqualsHelper.equals (m_sCareOf, rhs.m_sCareOf);
   }
 
   @Override
@@ -280,6 +302,7 @@ public class Address implements IMutableAddress
                                        .append (m_sStreet)
                                        .append (m_sBuildingNumber)
                                        .append (m_sPostOfficeBox)
+                                       .append (m_sCareOf)
                                        .getHashCode ();
   }
 
@@ -294,6 +317,7 @@ public class Address implements IMutableAddress
                                        .appendIfNotNull ("street", m_sStreet)
                                        .appendIfNotNull ("buildingNumber", m_sBuildingNumber)
                                        .appendIfNotNull ("pobox", m_sPostOfficeBox)
+                                       .appendIfNotNull ("careOf", m_sCareOf)
                                        .toString ();
   }
 }

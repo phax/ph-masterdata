@@ -34,7 +34,7 @@ public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
   @Test
   public void testBasic ()
   {
-    ReadOnlyAddress a = new ReadOnlyAddress (null, null, null, null, null, null, null, null, L_DE);
+    ReadOnlyAddress a = new ReadOnlyAddress (null, null, null, null, null, null, null, null, null, L_DE);
     assertNull (a.getType ());
     assertNull (a.getCountry ());
     assertNull (a.getState ());
@@ -43,8 +43,9 @@ public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
     assertNull (a.getStreet ());
     assertNull (a.getBuildingNumber ());
     assertNull (a.getPostOfficeBox ());
+    assertNull (a.getCareOf ());
 
-    a = new ReadOnlyAddress (EAddressType.OFFICE, "de", "NÖ", "1010", "Wien", "Hauptstr.", "1", "12AB", L_DE);
+    a = new ReadOnlyAddress (EAddressType.OFFICE, "de", "NÖ", "1010", "Wien", "Hauptstr.", "1", "12AB", "co", L_DE);
     assertEquals (EAddressType.OFFICE, a.getType ());
     assertEquals ("de", a.getCountry ());
     assertEquals ("Deutschland", a.getCountryDisplayName (L_DE));
@@ -55,6 +56,7 @@ public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
     assertEquals ("Hauptstr.", a.getStreet ());
     assertEquals ("1", a.getBuildingNumber ());
     assertEquals ("12AB", a.getPostOfficeBox ());
+    assertEquals ("co", a.getCareOf ());
   }
 
   @Test
@@ -68,16 +70,19 @@ public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
                                                    "Hauptstr.",
                                                    "1",
                                                    "12AB",
+                                                   "co",
                                                    L_DE);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                               "de",
-                                                                                               "NÖ",
-                                                                                               "1010",
-                                                                                               "Wien",
-                                                                                               "Hauptstr.",
-                                                                                               "1",
-                                                                                               "12AB",
-                                                                                               L_DE));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a,
+                                                                       new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                            "de",
+                                                                                            "NÖ",
+                                                                                            "1010",
+                                                                                            "Wien",
+                                                                                            "Hauptstr.",
+                                                                                            "1",
+                                                                                            "12AB",
+                                                                                            "co",
+                                                                                            L_DE));
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ReadOnlyAddress (a, L_DE));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
                                                                            new ReadOnlyAddress (EAddressType.OFFICE2,
@@ -88,60 +93,84 @@ public final class ReadOnlyAddressTest extends AbstractCommonsTestCase
                                                                                                 "Hauptstr.",
                                                                                                 "1",
                                                                                                 "12AB",
+                                                                                                "co",
                                                                                                 L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "at",
-                                                                                                   "NÖ",
-                                                                                                   "1010",
-                                                                                                   "Wien",
-                                                                                                   "Hauptstr.",
-                                                                                                   "1",
-                                                                                                   "12AB",
-                                                                                                   L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "de",
-                                                                                                   "OÖ",
-                                                                                                   "1010",
-                                                                                                   "Wien",
-                                                                                                   "Hauptstr.",
-                                                                                                   "1",
-                                                                                                   "12AB",
-                                                                                                   L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "de",
-                                                                                                   "NÖ",
-                                                                                                   "1020",
-                                                                                                   "Wien",
-                                                                                                   "Hauptstr.",
-                                                                                                   "1",
-                                                                                                   "12AB",
-                                                                                                   L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "de",
-                                                                                                   "NÖ",
-                                                                                                   "1010",
-                                                                                                   "Graz",
-                                                                                                   "Hauptstr.",
-                                                                                                   "1",
-                                                                                                   "12AB",
-                                                                                                   L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "de",
-                                                                                                   "NÖ",
-                                                                                                   "1010",
-                                                                                                   "Wien",
-                                                                                                   "Hauptstr.",
-                                                                                                   "2",
-                                                                                                   "12AB",
-                                                                                                   L_DE));
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ReadOnlyAddress (EAddressType.OFFICE,
-                                                                                                   "de",
-                                                                                                   "NÖ",
-                                                                                                   "1010",
-                                                                                                   "Wien",
-                                                                                                   "Hauptstr.",
-                                                                                                   "1",
-                                                                                                   "13AB",
-                                                                                                   L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "at",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "OÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1020",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Graz",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "2",
+                                                                                                "12AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "13AB",
+                                                                                                "co",
+                                                                                                L_DE));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a,
+                                                                           new ReadOnlyAddress (EAddressType.OFFICE,
+                                                                                                "de",
+                                                                                                "NÖ",
+                                                                                                "1010",
+                                                                                                "Wien",
+                                                                                                "Hauptstr.",
+                                                                                                "1",
+                                                                                                "12AB",
+                                                                                                "co2",
+                                                                                                L_DE));
   }
 }

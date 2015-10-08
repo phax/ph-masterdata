@@ -126,4 +126,17 @@ public interface IMutableAddress extends IAddress, ICloneable <IMutableAddress>
    */
   @Nonnull
   EChange setPostOfficeBox (@Nullable String sPOBox, @Nonnull Locale aSortLocale);
+
+  /**
+   * @param sCareOf
+   *        An optional "care of" (c/o) that is used when you’re sending mail to
+   *        someone who does not actually live at the address in question. May
+   *        be <code>null</code>.
+   * @param aSortLocale
+   *        The locale for processing. May not be <code>null</code>.
+   * @return {@link EChange#CHANGED} if something changed,
+   *         {@link EChange#UNCHANGED} otherwise.
+   */
+  @Nonnull
+  EChange setCareOf (@Nullable String sCareOf, @Nonnull Locale aSortLocale);
 }

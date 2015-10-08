@@ -116,6 +116,18 @@ public final class AddressHelper
   }
 
   @Nullable
+  public static String getUnifiedCareOf (@Nullable final String sPOBox, @Nonnull final Locale aSortLocale)
+  {
+    if (!isComplexAddressHandlingEnabled ())
+      return sPOBox;
+
+    if (sPOBox == null)
+      return null;
+
+    return _unifyPart (sPOBox, aSortLocale);
+  }
+
+  @Nullable
   public static String getUnifiedState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())

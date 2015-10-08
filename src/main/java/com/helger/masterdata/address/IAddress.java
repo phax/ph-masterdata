@@ -95,4 +95,12 @@ public interface IAddress extends Serializable
    */
   @Nullable
   String getPostOfficeBox ();
+
+  /**
+   * @return An optional "care of" (c/o) that is used when you’re sending mail
+   *         to someone who does not actually live at the address in question.
+   *         May be <code>null</code>.
+   */
+  @Nullable
+  String getCareOf ();
 }

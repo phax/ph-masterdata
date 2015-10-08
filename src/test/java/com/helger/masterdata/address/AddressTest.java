@@ -44,6 +44,7 @@ public final class AddressTest extends AbstractCommonsTestCase
     assertNull (a.getCity ());
     assertNull (a.getStreet ());
     assertNull (a.getPostOfficeBox ());
+    assertNull (a.getCareOf ());
 
     // Type
     assertTrue (a.setType (EAddressType.OFFICE).isChanged ());
@@ -103,6 +104,14 @@ public final class AddressTest extends AbstractCommonsTestCase
     assertEquals ("12AB", a.getPostOfficeBox ());
     assertTrue (a.setPostOfficeBox ("XY11", L_EN).isChanged ());
     assertEquals ("XY11", a.getPostOfficeBox ());
+
+    // POBox
+    assertTrue (a.setCareOf ("co1", L_EN).isChanged ());
+    assertEquals ("co1", a.getCareOf ());
+    assertFalse (a.setCareOf ("co1", L_EN).isChanged ());
+    assertEquals ("co1", a.getCareOf ());
+    assertTrue (a.setCareOf ("co2", L_EN).isChanged ());
+    assertEquals ("co2", a.getCareOf ());
   }
 
   @Test
@@ -151,6 +160,12 @@ public final class AddressTest extends AbstractCommonsTestCase
 
     a = new Address ();
     a.setPostOfficeBox ("12AB", L_DE);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
+    CommonsTestHelper.testGetClone (a);
+
+    a = new Address ();
+    a.setCareOf ("co", L_DE);
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new Address ());
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new Address (a, L_DE));
     CommonsTestHelper.testGetClone (a);

@@ -37,6 +37,16 @@ public class AddressMicroTypeConverter extends AbstractAddressMicroTypeConverter
     final String sStreet = eAddress.getAttributeValue (ATTR_STREET);
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
-    return new Address (eType, sCountry, sState, sPostalCode, sCity, sStreet, sBuildingNumber, sPostOfficeBox, aLocale);
+    final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
+    return new Address (eType,
+                        sCountry,
+                        sState,
+                        sPostalCode,
+                        sCity,
+                        sStreet,
+                        sBuildingNumber,
+                        sPostOfficeBox,
+                        sCareOf,
+                        aLocale);
   }
 }

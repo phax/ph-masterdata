@@ -43,6 +43,7 @@ public final class ReadOnlyAddress implements IAddress
   private final String m_sStreet;
   private final String m_sBuildingNumber;
   private final String m_sPostOfficeBox;
+  private final String m_sCareOf;
 
   public ReadOnlyAddress (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
   {
@@ -54,6 +55,7 @@ public final class ReadOnlyAddress implements IAddress
           aBase.getStreet (),
           aBase.getBuildingNumber (),
           aBase.getPostOfficeBox (),
+          aBase.getCareOf (),
           aSortLocale);
   }
 
@@ -65,6 +67,7 @@ public final class ReadOnlyAddress implements IAddress
                           @Nullable final String sStreet,
                           @Nullable final String sBuildingNumber,
                           @Nullable final String sPostOfficeBox,
+                          @Nullable final String sCareOf,
                           @Nonnull final Locale aSortLocale)
   {
     m_aAddressType = aAddressType;
@@ -75,6 +78,7 @@ public final class ReadOnlyAddress implements IAddress
     m_sStreet = AddressHelper.getUnifiedStreet (sStreet, aSortLocale);
     m_sBuildingNumber = sBuildingNumber;
     m_sPostOfficeBox = AddressHelper.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
+    m_sCareOf = AddressHelper.getUnifiedCareOf (sCareOf, aSortLocale);
   }
 
   @Nullable
@@ -138,6 +142,12 @@ public final class ReadOnlyAddress implements IAddress
     return m_sPostOfficeBox;
   }
 
+  @Nullable
+  public String getCareOf ()
+  {
+    return m_sCareOf;
+  }
+
   @Override
   public boolean equals (final Object o)
   {
@@ -153,7 +163,8 @@ public final class ReadOnlyAddress implements IAddress
            EqualsHelper.equals (m_sCity, rhs.m_sCity) &&
            EqualsHelper.equals (m_sStreet, rhs.m_sStreet) &&
            EqualsHelper.equals (m_sBuildingNumber, rhs.m_sBuildingNumber) &&
-           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox);
+           EqualsHelper.equals (m_sPostOfficeBox, rhs.m_sPostOfficeBox) &&
+           EqualsHelper.equals (m_sCareOf, rhs.m_sCareOf);
   }
 
   @Override
@@ -167,6 +178,7 @@ public final class ReadOnlyAddress implements IAddress
                                        .append (m_sStreet)
                                        .append (m_sBuildingNumber)
                                        .append (m_sPostOfficeBox)
+                                       .append (m_sCareOf)
                                        .getHashCode ();
   }
 
@@ -181,6 +193,7 @@ public final class ReadOnlyAddress implements IAddress
                                        .appendIfNotNull ("street", m_sStreet)
                                        .appendIfNotNull ("buildingNumber", m_sBuildingNumber)
                                        .appendIfNotNull ("pobox", m_sPostOfficeBox)
+                                       .appendIfNotNull ("careOf", m_sCareOf)
                                        .toString ();
   }
 }

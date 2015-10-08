@@ -26,6 +26,7 @@ import com.helger.commons.string.StringHelper;
 
 public abstract class AbstractAddressMicroTypeConverter implements IMicroTypeConverter
 {
+  protected static final String ATTR_TYPE = "type";
   protected static final String ATTR_COUNTRY = "country";
   protected static final String ATTR_STATE = "state";
   protected static final String ATTR_POSTALCODE = "zipcode";
@@ -33,7 +34,7 @@ public abstract class AbstractAddressMicroTypeConverter implements IMicroTypeCon
   protected static final String ATTR_STREET = "street";
   protected static final String ATTR_BUILDINGNUMBER = "buildingno";
   protected static final String ATTR_POBOX = "pobox";
-  protected static final String ATTR_TYPE = "type";
+  protected static final String ATTR_CARE_OF = "careof";
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
@@ -58,6 +59,8 @@ public abstract class AbstractAddressMicroTypeConverter implements IMicroTypeCon
       eAddress.setAttribute (ATTR_BUILDINGNUMBER, aAddress.getBuildingNumber ());
     if (StringHelper.hasText (aAddress.getPostOfficeBox ()))
       eAddress.setAttribute (ATTR_POBOX, aAddress.getPostOfficeBox ());
+    if (StringHelper.hasText (aAddress.getCareOf ()))
+      eAddress.setAttribute (ATTR_CARE_OF, aAddress.getCareOf ());
     return eAddress;
   }
 }

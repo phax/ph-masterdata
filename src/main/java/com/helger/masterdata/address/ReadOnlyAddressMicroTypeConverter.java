@@ -38,6 +38,7 @@ public class ReadOnlyAddressMicroTypeConverter extends AbstractAddressMicroTypeC
     final String sStreet = eAddress.getAttributeValue (ATTR_STREET);
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
+    final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
     return new ReadOnlyAddress (eType,
                                 sCountry,
                                 sState,
@@ -46,6 +47,7 @@ public class ReadOnlyAddressMicroTypeConverter extends AbstractAddressMicroTypeC
                                 sStreet,
                                 sBuildingNumber,
                                 sPostOfficeBox,
+                                sCareOf,
                                 aLocale);
   }
 }
