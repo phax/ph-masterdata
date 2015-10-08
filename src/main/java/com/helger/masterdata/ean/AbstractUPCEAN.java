@@ -31,7 +31,7 @@ public abstract class AbstractUPCEAN
 
   /**
    * Main constructor
-   * 
+   *
    * @param sMsg
    *        The code string.
    * @param eMode
@@ -51,7 +51,7 @@ public abstract class AbstractUPCEAN
 
   /**
    * Returns the current checksum mode.
-   * 
+   *
    * @return the checksum mode
    */
   @Nonnull
@@ -62,7 +62,7 @@ public abstract class AbstractUPCEAN
 
   /**
    * Validate this code.
-   * 
+   *
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
@@ -71,7 +71,7 @@ public abstract class AbstractUPCEAN
 
   /**
    * Validates a UPC/EAN message.
-   * 
+   *
    * @param sMsg
    *        the message to validate
    * @return {@link EValidity#VALID} if the msg is valid,
@@ -87,7 +87,7 @@ public abstract class AbstractUPCEAN
 
   /**
    * Validates a UPC/EAN/GTIN/GLN message.
-   * 
+   *
    * @param aChars
    *        the chars to validate
    * @return {@link EValidity#VALID} if the msg is valid,
@@ -131,9 +131,12 @@ public abstract class AbstractUPCEAN
 
   /**
    * Calculates the check character for a given message
-   * 
+   *
    * @param sMsg
    *        the message
+   * @param nLength
+   *        The number of characters to be checked. Must be &ge; 0 and &lt;
+   *        message.length
    * @return char the check character
    */
   protected static char calcChecksumChar (@Nonnull final String sMsg, @Nonnegative final int nLength)
