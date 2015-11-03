@@ -18,6 +18,12 @@
 
 -->
 <changelog xmlns="http://www.helger.com/xsd/changelog/1.0" version="1.0" component="ph-masterdata">
+  <release date="2015-11-03" version="4.0.2" />
+  <entry date="2015-11-03" category="api" action="add">
+    <change>
+      <text locale="en">VAT rate updates</text>
+    </change>
+  </entry>
   <release date="2015-10-08" version="4.0.1" />
   <entry date="2015-10-08" category="api" action="add">
     <change>

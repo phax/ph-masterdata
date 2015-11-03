@@ -24,9 +24,11 @@
   </sources>
   <!-- EU countries -->
   <vattypes country="at" zerovat="true" countryname="Austria">
+    <comment>Austria increased VAT from 12% to 13% on 2016-01-01</comment>
     <item id="v20" percentage="20" type="regular" />
     <item id="v19" percentage="19" type="other" />
     <item id="v12" percentage="12" type="inbetween" />
+    <item id="v13" percentage="13" type="inbetween" />
     <item id="v10" percentage="10" type="reduced" />
     <item id="v08" percentage="8" type="other" />
   </vattypes>
