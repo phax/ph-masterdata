@@ -99,6 +99,11 @@
         <artifactId>ph-masterdata</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.helger</groupId>
+        <artifactId>ph-masterdata-validation</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -118,5 +123,6 @@
   <modules>
     <module>ph-validation</module>
     <module>ph-masterdata</module>
+    <module>ph-masterdata-validation</module>
   </modules>
 </project>

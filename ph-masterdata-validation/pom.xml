@@ -24,11 +24,11 @@
     <artifactId>ph-masterdata-parent-pom</artifactId>
     <version>4.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>ph-masterdata</artifactId>
+  <artifactId>ph-masterdata-validation</artifactId>
   <packaging>bundle</packaging>
-  <name>ph-masterdata</name>
-  <description>Library with support for certain re-ocurring standard business objects</description>
-  <url>https://github.com/phax/ph-masterdata/ph-masterdata</url>
+  <name>ph-masterdata-validation</name>
+  <description>Library combining masterdata and validation</description>
+  <url>https://github.com/phax/ph-masterdata/ph-masterdata-validation</url>
   <inceptionYear>2014</inceptionYear>
      
   <licenses>
@@ -62,12 +62,21 @@
       <groupId>com.helger</groupId>
       <artifactId>ph-datetime</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.helger</groupId>
+      <artifactId>ph-validation</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger</groupId>
+      <artifactId>ph-masterdata</artifactId>
+    </dependency>
     
     <dependency>
       <groupId>com.helger</groupId>
-      <artifactId>ph-poi</artifactId>
-      <scope>test</scope>
+      <artifactId>ph-smtp</artifactId>
+      <optional>true</optional>
     </dependency>
+    
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
@@ -84,7 +93,7 @@
         <configuration>
           <instructions>
             <Export-Package>
-              com.helger.masterdata.*
+              com.helger.masterdata.validation.*
             </Export-Package>
             <Import-Package>
               !javax.annotation.*,*

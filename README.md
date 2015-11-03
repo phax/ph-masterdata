@@ -23,13 +23,26 @@ Java library with lots of default business objects and algorithms:
 Versions <= 3.6.3 are compatible with ph-commons < 6.0.
 Versions >= 4.0.0 are compatible with ph-commons >= 6.0.
 
+#ph-validation
+
+Java library for validation artifacts (errors etc.)
+
+Versions <= 3.3.x are compatible with ph-commons < 6.0
+Versions >= 4.0.0 are compatible with ph-commons >= 6.0
+
 #Maven usage
 Add the following to your pom.xml to use this artifact:
 ```
 <dependency>
   <groupId>com.helger</groupId>
+  <artifactId>ph-validation</artifactId>
+  <version>4.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>4.0.1</version>
+  <version>4.0.2</version>
 </dependency>
 ```
 
