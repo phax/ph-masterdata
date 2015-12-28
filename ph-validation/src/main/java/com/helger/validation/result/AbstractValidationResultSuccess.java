@@ -28,7 +28,7 @@ import com.helger.commons.string.ToStringGenerator;
 /**
  * Abstract implementation of the {@link IValidationResult} interface for
  * success.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable

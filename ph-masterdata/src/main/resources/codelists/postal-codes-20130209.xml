@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!--
-
-    Copyright (C) 2014-2015 Philip Helger (www.helger.com)
-    philip[at]helger[dot]com
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <header>
     <source>http://en.wikipedia.org/wiki/List_of_postal_codes</source>
@@ -224,7 +206,7 @@
     <country iso="CU" name="Cuba">
       <postalcodes>
         <format>NNNNN</format>
-        <note>May only be required for bulk mail. The letters CP are frequently used before the postal code. This is not a country code, but an abbreviation for &quot;codigo postal&quot; or postal code.</note>
+        <note>May only be required for bulk mail. The letters CP are frequently used before the postal code. This is not a country code, but an abbreviation for "codigo postal" or postal code.</note>
       </postalcodes>
     </country>
     <country iso="CV" name="Cape Verde">
@@ -242,7 +224,7 @@
     <country iso="CY" name="Cyprus">
       <postalcodes validfrom="1994-10-01">
         <format>NNNN</format>
-        <note>Post code system covers whole island, but not used in Northern Cyprus where &#39;Mersin 10, Turkey&#39; is used instead.</note>
+        <note>Post code system covers whole island, but not used in Northern Cyprus where 'Mersin 10, Turkey' is used instead.</note>
       </postalcodes>
     </country>
     <country iso="CZ" name="Czech Republic">
@@ -263,7 +245,7 @@
       </postalcodes>
       <postalcodes validfrom="1993-01-01">
         <format>NNNNN</format>
-        <note>Postleitzahl (PLZ), introduced after the German reunification. Between 1989 and 1993 the old separate 4-digit postal codes of former West- and East-Germany were distinguished by preceding &quot;W-&quot; or &quot;O-&quot; (&#39;Ost&#39; for East).</note>
+        <note>Postleitzahl (PLZ), introduced after the German reunification. Between 1989 and 1993 the old separate 4-digit postal codes of former West- and East-Germany were distinguished by preceding "W-" or "O-" ('Ost' for East).</note>
       </postalcodes>
     </country>
     <country iso="DK" name="Denmark">
@@ -313,7 +295,7 @@
     <country iso="FI" name="Finland">
       <postalcodes validfrom="1971-01-01">
         <format>NNNNN</format>
-        <note>A lower first digit indicates a place in south (for example 00100 Helsinki), a higher indicates a place further to north (99800 in Ivalo). The last digit is usually 0, except for postal codes for PO Box number ranges, in which case it is 1. Country code for Finland: &quot;FI&quot;. In the Åland Islands, the postal code is prefixed with &quot;AX&quot;, not &quot;FI&quot;. Some postal codes for rural settlements may end with 5, and there are some unique postal codes for large companies and institutions, e.g. 00014 HELSINGIN YLIOPISTO (university), 00102 EDUSKUNTA (parliament), 00020 NORDEA (a major Scandinavian bank).</note>
+        <note>A lower first digit indicates a place in south (for example 00100 Helsinki), a higher indicates a place further to north (99800 in Ivalo). The last digit is usually 0, except for postal codes for PO Box number ranges, in which case it is 1. Country code for Finland: "FI". In the Åland Islands, the postal code is prefixed with "AX", not "FI". Some postal codes for rural settlements may end with 5, and there are some unique postal codes for large companies and institutions, e.g. 00014 HELSINGIN YLIOPISTO (university), 00102 EDUSKUNTA (parliament), 00020 NORDEA (a major Scandinavian bank).</note>
       </postalcodes>
     </country>
     <country iso="FK" name="Falkland Islands">
@@ -520,7 +502,7 @@
     <country iso="JM" name="Jamaica">
       <postalcodes>
         <format>CCAAANN</format>
-        <note>The first two letters are always &#39;JM&#39; (for Jamaica) while the third is for one of the four zones (A-D) into which the island is divided. The last two letters are for the parish, while the two digits are for the local post office.[3] This has since been suspended, and Jamaica currently has no post code system. However, Kingston and Lower St. Andrew are divided into postal districts numbered 1-20[4]</note>
+        <note>The first two letters are always 'JM' (for Jamaica) while the third is for one of the four zones (A-D) into which the island is divided. The last two letters are for the parish, while the two digits are for the local post office.[3] This has since been suspended, and Jamaica currently has no post code system. However, Kingston and Lower St. Andrew are divided into postal districts numbered 1-20[4]</note>
       </postalcodes>
     </country>
     <country iso="JO" name="Jordan">
@@ -587,7 +569,7 @@
     <country iso="LK" name="Sri Lanka">
       <postalcodes>
         <format>NNNNN</format>
-        <note>Reference: http://mohanjith.net/ZIPLook/ Incorporates Colombo postal districts, e.g.: Colombo 1 is &quot;00100&quot;. You can search for specific postal codes here.</note>
+        <note>Reference: http://mohanjith.net/ZIPLook/ Incorporates Colombo postal districts, e.g.: Colombo 1 is "00100". You can search for specific postal codes here.</note>
       </postalcodes>
     </country>
     <country iso="LR" name="Liberia">
@@ -631,7 +613,7 @@
     <country iso="MC" name="Monaco">
       <postalcodes validfrom="1972-01-01">
         <specific>980NN</specific>
-        <note>Uses the French Postal System, but with an &quot;MC&quot; Prefix for Monaco.</note>
+        <note>Uses the French Postal System, but with an "MC" Prefix for Monaco.</note>
       </postalcodes>
     </country>
     <country iso="MD" name="Moldova">
@@ -948,7 +930,7 @@ Last three digits: locality / delivery block[6]</note>
     <country iso="SN" name="Senegal">
       <postalcodes>
         <format>NNNNN</format>
-        <note>The letters CP or C.P. are often written in front of the postcode. This is not a country code, but simply an abbreviation for &quot;code postal&quot;.</note>
+        <note>The letters CP or C.P. are often written in front of the postcode. This is not a country code, but simply an abbreviation for "code postal".</note>
       </postalcodes>
     </country>
     <country iso="SV" name="El Salvador">
@@ -960,7 +942,7 @@ Last three digits: locality / delivery block[6]</note>
     <country iso="SZ" name="Swaziland">
       <postalcodes>
         <format>ANNN</format>
-        <note>The letter identifies one of the country&#39;s four districts.</note>
+        <note>The letter identifies one of the country's four districts.</note>
       </postalcodes>
     </country>
     <country iso="TC" name="Turks and Caicos Islands">

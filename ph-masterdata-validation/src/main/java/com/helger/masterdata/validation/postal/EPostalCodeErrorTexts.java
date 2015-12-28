@@ -29,7 +29,7 @@ import com.helger.commons.text.resolve.DefaultTextResolver;
 import com.helger.commons.text.util.TextHelper;
 
 @Translatable
-public enum EPostalCodeErrorTexts implements IHasDisplayText, IHasDisplayTextWithArgs
+public enum EPostalCodeErrorTexts implements IHasDisplayText,IHasDisplayTextWithArgs
 {
   INVALID_POSTAL_CODE ("Die eingegebene Postleitzahl ist ungültig.", "The postal code is invalid."),
   INVALID_POSTAL_CODE_WITH_EXAMPLES ("Geben Sie eine Postleitzahl in einem gültigen Format ein: {0}", "Enter a postal code in a valid format: {0}");

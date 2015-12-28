@@ -18,7 +18,7 @@ package com.helger.validation.validator;
 
 /**
  * Special instance of the {@link IBaseValidator} for {@link String} objects.
- * 
+ *
  * @author Philip Helger
  */
 public interface IStringValidator extends IBaseValidator <String>

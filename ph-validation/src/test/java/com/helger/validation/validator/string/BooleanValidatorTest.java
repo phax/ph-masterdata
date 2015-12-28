@@ -42,6 +42,7 @@ public final class BooleanValidatorTest
   @Test
   public void testStandard ()
   {
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new BooleanValidator (), new BooleanValidator ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new BooleanValidator (),
+                                                                       new BooleanValidator ());
   }
 }

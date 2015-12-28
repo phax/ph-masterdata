@@ -27,8 +27,6 @@ import org.junit.Test;
 import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.currencyvalue.CurrencyValue;
-import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;
 
 public final class CurrencyValueTest extends AbstractCommonsTestCase
 {

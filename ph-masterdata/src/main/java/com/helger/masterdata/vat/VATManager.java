@@ -18,6 +18,7 @@ package com.helger.masterdata.vat;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +31,6 @@ import javax.annotation.Nullable;
 import javax.annotation.WillClose;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import org.joda.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

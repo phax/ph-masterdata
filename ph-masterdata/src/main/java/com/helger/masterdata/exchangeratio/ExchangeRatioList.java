@@ -17,6 +17,7 @@
 package com.helger.masterdata.exchangeratio;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
@@ -24,8 +25,6 @@ import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
-
-import org.joda.time.LocalDate;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;

@@ -30,7 +30,7 @@ import com.helger.commons.filter.IFilter;
 /**
  * A locale filter that checks if a locale is on at least one of the specified
  * continents.
- * 
+ *
  * @author Philip Helger
  */
 public class FilterLocaleCountryOnAnyContinent implements IFilter <Locale>
@@ -53,7 +53,7 @@ public class FilterLocaleCountryOnAnyContinent implements IFilter <Locale>
     return EnumSet.copyOf (m_aContinents);
   }
 
-  public boolean matchesFilter (@Nonnull final Locale aValue)
+  public boolean test (@Nonnull final Locale aValue)
   {
     // Get all continents of the passed locale
     final Set <EContinent> aContinents = ContinentHelper.getContinentsOfCountry (aValue);

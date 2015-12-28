@@ -48,34 +48,37 @@ public final class MainReadLatLonCountry
     final String sRevision = "20130209";
     final String sSource = "http://dev.maxmind.com/geoip/codes/country_latlon";
 
-    final CSVReader aReader = new CSVReader (FileHelper.getReader (new File ("src/test/resources/country_latlon-" +
-                                                                             sRevision +
-                                                                             ".csv"), CCharset.CHARSET_ISO_8859_1_OBJ));
-    // Skip one row
-    aReader.readNext ();
-
-    final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
-    final IMicroElement eHeader = eRoot.appendElement ("header");
-    eHeader.appendElement ("source").appendText (sSource);
-    eHeader.appendElement ("revision").appendText (sRevision);
-
-    List <String> aLine;
-    while ((aLine = aReader.readNext ()) != null)
+    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (
+                                                                        new File ("src/test/resources/country_latlon-" +
+                                                                                  sRevision +
+                                                                                  ".csv"),
+                                                                        CCharset.CHARSET_ISO_8859_1_OBJ)))
     {
-      final String sISO = aLine.get (0);
-      final BigDecimal aLatitude = StringParser.parseBigDecimal (aLine.get (1));
-      final BigDecimal aLongitude = StringParser.parseBigDecimal (aLine.get (2));
-      eRoot.appendElement ("entry")
-           .setAttribute ("id", sISO)
-           .setAttributeWithConversion ("latitude", aLatitude)
-           .setAttributeWithConversion ("longitude", aLongitude);
+      // Skip one row
+      aReader.readNext ();
+
+      final IMicroDocument aDoc = new MicroDocument ();
+      final IMicroElement eRoot = aDoc.appendElement ("root");
+      final IMicroElement eHeader = eRoot.appendElement ("header");
+      eHeader.appendElement ("source").appendText (sSource);
+      eHeader.appendElement ("revision").appendText (sRevision);
+
+      List <String> aLine;
+      while ((aLine = aReader.readNext ()) != null)
+      {
+        final String sISO = aLine.get (0);
+        final BigDecimal aLatitude = StringParser.parseBigDecimal (aLine.get (1));
+        final BigDecimal aLongitude = StringParser.parseBigDecimal (aLine.get (2));
+        eRoot.appendElement ("entry")
+             .setAttribute ("id", sISO)
+             .setAttributeWithConversion ("latitude", aLatitude)
+             .setAttributeWithConversion ("longitude", aLongitude);
+      }
+      MicroWriter.writeToStream (aDoc,
+                                 FileHelper.getOutputStream ("src/main/resources/codelists/latitude-longitude-country-" +
+                                                             sRevision +
+                                                             ".xml"));
     }
-    aReader.close ();
-    MicroWriter.writeToStream (aDoc,
-                               FileHelper.getOutputStream ("src/main/resources/codelists/latitude-longitude-country-" +
-                                                           sRevision +
-                                                           ".xml"));
     s_aLogger.info ("Done");
   }
 }

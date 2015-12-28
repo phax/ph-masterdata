@@ -25,12 +25,12 @@ import com.helger.commons.filter.IFilter;
 /**
  * A filter on {@link Locale} that checks if the passed locale is a locale with
  * a country that is part of the EU.
- * 
+ *
  * @author Philip Helger
  */
 public class FilterLocaleCountryOnEUCountry implements IFilter <Locale>
 {
-  public boolean matchesFilter (@Nullable final Locale aValue)
+  public boolean test (@Nullable final Locale aValue)
   {
     return EEUCountry.isEUCountry (aValue);
   }

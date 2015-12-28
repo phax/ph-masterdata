@@ -17,14 +17,13 @@
 package com.helger.masterdata.vat;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Locale;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-
-import org.joda.time.LocalDate;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;
@@ -65,6 +64,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
                   @Nullable final LocalDate aValidFrom,
                   @Nullable final LocalDate aValidTo)
   {
+    super (aValidFrom, aValidTo);
     ValueEnforcer.notEmpty (sID, "ID");
     ValueEnforcer.notNull (eType, "Type");
     ValueEnforcer.notNull (aPercentage, "Percentage");
@@ -78,8 +78,6 @@ public class VATItem extends LocalDatePeriod implements IVATItem
     m_aPercentageFactor = m_aPercentage.divide (CGlobal.BIGDEC_100);
     m_aMultiplicationFactorNetToGross = BigDecimal.ONE.add (m_aPercentageFactor);
     m_bDeprecated = bDeprecated;
-    setStart (aValidFrom);
-    setEnd (aValidTo);
   }
 
   @Nonnull
@@ -166,7 +164,8 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   }
 
   @Nonnull
-  public static VATItem createNewItem (@Nonnull final EVATType eType, @Nonnull @Nonnegative final BigDecimal aPercentage)
+  public static VATItem createNewItem (@Nonnull final EVATType eType,
+                                       @Nonnull @Nonnegative final BigDecimal aPercentage)
   {
     return createNewItem (eType, aPercentage, (LocalDate) null, (LocalDate) null);
   }

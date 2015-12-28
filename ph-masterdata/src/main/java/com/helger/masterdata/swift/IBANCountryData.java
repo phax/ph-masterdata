@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.swift;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -23,8 +24,6 @@ import java.util.regex.Pattern;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.joda.time.LocalDate;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;

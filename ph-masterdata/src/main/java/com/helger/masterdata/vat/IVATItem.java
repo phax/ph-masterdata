@@ -28,7 +28,7 @@ import com.helger.datetime.period.ILocalDatePeriod;
 
 /**
  * Defines a single VAT item valid within a country.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode

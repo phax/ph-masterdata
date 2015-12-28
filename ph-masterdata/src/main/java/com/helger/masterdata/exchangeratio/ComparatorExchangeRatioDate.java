@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.exchangeratio;
 
-import javax.annotation.Nonnull;
+import java.time.LocalDate;
 
-import org.joda.time.LocalDate;
+import javax.annotation.Nonnull;
 
 import com.helger.commons.compare.AbstractPartComparatorComparable;
 

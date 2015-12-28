@@ -53,7 +53,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  * @author Philip Helger
  */
 @NotThreadSafe
-public enum ECurrency implements IHasID <String>, IHasDisplayText
+public enum ECurrency implements IHasID <String>,IHasDisplayText
 {
   AED ("AED", ECurrencyName.AED, "_AE", "ar_AE"),
   AFN ("AFN", ECurrencyName.AFN, "_AF"),
@@ -87,8 +87,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   CNY ("CNY", ECurrencyName.CNY, "_CN", "zh_CN"),
   COP ("COP", ECurrencyName.COP, "_CO", "es_CO"),
   CRC ("CRC", ECurrencyName.CRC, "_CR", "es_CR"),
-  @Deprecated
-  CSD ("CSD", true, ECurrencyName.CSD, "_CS", "sr_CS"),
+  @Deprecated CSD ("CSD", true, ECurrencyName.CSD, "_CS", "sr_CS"),
   CUC ("CUC", ECurrencyName.CUC, "_CU"),
   CUP ("CUP", ECurrencyName.CUP, "_CU"),
   CVE ("CVE", ECurrencyName.CVE, "_CV"),
@@ -98,8 +97,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   DOP ("DOP", ECurrencyName.DOP, "_DO", "es_DO"),
   DZD ("DZD", ECurrencyName.DZD, "_DZ", "ar_DZ"),
   // Estonian Kroon (until 31.12.2010)
-  @Deprecated
-  EEK ("EEK", true, ECurrencyName.EEK, "_EE", "et_EE"),
+  @Deprecated EEK ("EEK", true, ECurrencyName.EEK, "_EE", "et_EE"),
   EGP ("EGP", ECurrencyName.EGP, "_EG", "ar_EG"),
   ERN ("ERN", ECurrencyName.ERN, "_ER"),
   ETB ("ETB", ECurrencyName.ETB, "_ET"),
@@ -143,11 +141,9 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   LRD ("LRD", ECurrencyName.LRD, "_LR"),
   LSL ("LSL", ECurrencyName.LSL, "_LS"),
   // Used until 31.12.2014
-  @Deprecated
-  LTL ("LTL", true, ECurrencyName.LTL, "_LT", "lt_LT"),
+  @Deprecated LTL ("LTL", true, ECurrencyName.LTL, "_LT", "lt_LT"),
   // Used until 31.12.2013
-  @Deprecated
-  LVL ("LVL", true, ECurrencyName.LVL, "_LV", "lv_LV"),
+  @Deprecated LVL ("LVL", true, ECurrencyName.LVL, "_LV", "lv_LV"),
   LYD ("LYD", ECurrencyName.LYD, "_LY", "ar_LY"),
   MAD ("MAD", ECurrencyName.MAD, "_EH", "_MA", "ar_MA"),
   MDL ("MDL", ECurrencyName.MDL, "_MD"),
@@ -221,11 +217,9 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   XPF ("XPF", ECurrencyName.XPF, "_NC", "_PF", "_WF"),
   YER ("YER", ECurrencyName.YER, "_YE", "ar_YE"),
   ZAR ("ZAR", ECurrencyName.ZAR, "_ZA", "en_ZA"),
-  @Deprecated
-  ZMK ("ZMK", true, ECurrencyName.ZMK, "_ZM"),
+  @Deprecated ZMK ("ZMK", true, ECurrencyName.ZMK, "_ZM"),
   ZMW ("ZMW", true, ECurrencyName.ZMW, "_ZM"),
-  @Deprecated
-  ZWL ("ZWL", true, ECurrencyName.ZWL, "_ZW");
+  @Deprecated ZWL ("ZWL", true, ECurrencyName.ZWL, "_ZW");
 
   /**
    * The default rounding mode to be used for currency values. It may be
@@ -402,7 +396,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     for (final Locale aCurrencyLocale : m_aLocales)
-      if (aLocaleFilter.matchesFilter (aCurrencyLocale))
+      if (aLocaleFilter.test (aCurrencyLocale))
         return true;
     return false;
   }
@@ -419,7 +413,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     for (final Locale aCurrencyLocale : m_aLocales)
-      if (!aLocaleFilter.matchesFilter (aCurrencyLocale))
+      if (!aLocaleFilter.test (aCurrencyLocale))
         return false;
     return true;
   }
@@ -626,7 +620,8 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    *         passed default value.
    */
   @Nullable
-  public BigDecimal parseCurrencyFormatUnchanged (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
+  public BigDecimal parseCurrencyFormatUnchanged (@Nullable final String sTextValue,
+                                                  @Nullable final BigDecimal aDefault)
   {
     final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
     return CurrencyHelper.parseCurrency (sTextValue, aCurrencyFormat, aDefault, getRoundingMode ());

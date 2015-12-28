@@ -22,10 +22,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
+import java.time.Month;
 import java.util.Locale;
 import java.util.Map;
 
-import org.joda.time.DateTimeConstants;
 import org.junit.Test;
 
 import com.helger.commons.locale.country.CountryCache;
@@ -75,11 +75,11 @@ public final class VATManagerTest
     assertNotNull (aItem);
     assertEquals (BigDecimal.valueOf (25), aItem.getPercentage ());
     assertNull (aItem.getStart ());
-    assertEquals (PDTFactory.createLocalDate (2011, DateTimeConstants.DECEMBER, 31), aItem.getEnd ());
+    assertEquals (PDTFactory.createLocalDate (2011, Month.DECEMBER, 31), aItem.getEnd ());
 
     aItem = aData.get ("hu.v27");
     assertNotNull (aItem);
-    assertEquals (PDTFactory.createLocalDate (2012, DateTimeConstants.JANUARY, 1), aItem.getStart ());
+    assertEquals (PDTFactory.createLocalDate (2012, Month.JANUARY, 1), aItem.getStart ());
     assertNull (aItem.getEnd ());
   }
 }

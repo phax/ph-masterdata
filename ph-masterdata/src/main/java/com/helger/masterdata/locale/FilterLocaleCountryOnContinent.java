@@ -26,7 +26,7 @@ import com.helger.commons.filter.IFilter;
 
 /**
  * A locale filter that checks if a locale is on the specified continent or not.
- * 
+ *
  * @author Philip Helger
  */
 public class FilterLocaleCountryOnContinent implements IFilter <Locale>
@@ -44,7 +44,7 @@ public class FilterLocaleCountryOnContinent implements IFilter <Locale>
     return m_eContinent;
   }
 
-  public boolean matchesFilter (@Nonnull final Locale aValue)
+  public boolean test (@Nonnull final Locale aValue)
   {
     // Get all continents
     final Set <EContinent> aContinents = ContinentHelper.getContinentsOfCountry (aValue);

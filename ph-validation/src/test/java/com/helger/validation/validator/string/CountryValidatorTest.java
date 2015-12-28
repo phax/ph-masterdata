@@ -49,6 +49,7 @@ public final class CountryValidatorTest
   @Test
   public void testStandard ()
   {
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new CountryValidator (), new CountryValidator ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new CountryValidator (),
+                                                                       new CountryValidator ());
   }
 }

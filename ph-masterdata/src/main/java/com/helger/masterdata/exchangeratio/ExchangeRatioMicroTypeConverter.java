@@ -17,11 +17,10 @@
 package com.helger.masterdata.exchangeratio;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.joda.time.LocalDate;
 
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.MicroElement;

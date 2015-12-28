@@ -17,6 +17,11 @@
 package com.helger.masterdata.tools;
 
 import java.io.File;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -31,9 +36,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.joda.time.DateTimeConstants;
-import org.joda.time.LocalDate;
-import org.joda.time.format.ISODateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +83,7 @@ public class MainReadPostalCodeListExcel
       if (CollectionHelper.isEmpty (aFormats))
         throw new IllegalArgumentException ("formats");
       m_sCountry = sCountry;
-      m_aValidFrom = aValidFrom == null ? null : PDTFactory.createLocalDateFromMillis (aValidFrom.getTime ());
+      m_aValidFrom = aValidFrom == null ? null : PDTFactory.createLocalDate (aValidFrom);
       m_sISO = sISO;
       m_aFormats = aFormats;
       m_sNote = sNote;
@@ -180,7 +182,9 @@ public class MainReadPostalCodeListExcel
         final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
         final int nYear = aNum.intValue ();
         if (nYear > 1800 && nYear < 3000)
-          aIntroducedDate = PDTFactory.createLocalDate (nYear, DateTimeConstants.JANUARY, 1).toDate ();
+          aIntroducedDate = Date.from (Instant.from (PDTFactory.createLocalDate (nYear, Month.JANUARY, 1)
+                                                               .atStartOfDay ()
+                                                               .toInstant (ZoneOffset.UTC)));
         else
           aIntroducedDate = ExcelReadHelper.getCellValueJavaDate (aDateCell);
       }
@@ -233,10 +237,10 @@ public class MainReadPostalCodeListExcel
         final IMicroElement ePostalCodes = eCountry.appendElement (PostalCodeListReader.ELEMENT_POSTALCODES);
         if (aItem.getValidFrom () != null)
           ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
-                                     ISODateTimeFormat.date ().print (aItem.getValidFrom ()));
+                                     DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
         if (aItem.getValidTo () != null)
           ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO,
-                                     ISODateTimeFormat.date ().print (aItem.getValidTo ()));
+                                     DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
         for (final String sSingleFormat : aItem.getFormats ())
           if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
             ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)

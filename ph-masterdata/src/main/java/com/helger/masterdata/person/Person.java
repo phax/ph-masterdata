@@ -16,12 +16,11 @@
  */
 package com.helger.masterdata.person;
 
+import java.time.LocalDate;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.joda.time.LocalDate;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;

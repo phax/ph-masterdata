@@ -16,13 +16,13 @@
  */
 package com.helger.validation.validator.string;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-
-import org.joda.time.DateTime;
 
 import com.helger.datetime.format.PDTFormatPatterns;
 import com.helger.datetime.format.PDTFromString;
@@ -46,8 +46,12 @@ public abstract class AbstractStringDateTimeValidator extends AbstractStringVali
   public final IValidationResult validate (@Nullable final String sValue)
   {
     final Locale aParseLocale = getParseLocale ();
-    final DateTime aDate = PDTFromString.getDefaultDateTimeFromString (sValue, aParseLocale);
-    if (aDate != null)
+    final ZonedDateTime aZDT = PDTFromString.getDefaultDateTimeFromString (sValue, aParseLocale);
+    if (aZDT != null)
+      return ValidationResultSuccess.getInstance ();
+    // Try without zone
+    final LocalDateTime aLDT = PDTFromString.getLocalDateTimeFromString (sValue, aParseLocale);
+    if (aLDT != null)
       return ValidationResultSuccess.getInstance ();
     return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DATETIME,
                                       PDTFormatPatterns.getDefaultPatternDateTime (aParseLocale));

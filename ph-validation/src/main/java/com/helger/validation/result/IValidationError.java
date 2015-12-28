@@ -16,10 +16,9 @@
  */
 package com.helger.validation.result;
 
-
 /**
  * A single validation error.
- * 
+ *
  * @author Philip Helger
  */
 public interface IValidationError extends IValidationResult

@@ -87,8 +87,10 @@ public final class IntMinMaxValidatorTest
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new IntMinMaxValidator (0, 1),
                                                                            new IntMinMaxValidator (0, 10));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new IntMinMaxValidator (0, 1),
-                                                                           new IntMinMaxValidator (0, Integer.MAX_VALUE));
+                                                                           new IntMinMaxValidator (0,
+                                                                                                   Integer.MAX_VALUE));
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new IntMinMaxValidator (0, 1),
-                                                                           new IntMinMaxValidator (Integer.MIN_VALUE, 1));
+                                                                           new IntMinMaxValidator (Integer.MIN_VALUE,
+                                                                                                   1));
   }
 }

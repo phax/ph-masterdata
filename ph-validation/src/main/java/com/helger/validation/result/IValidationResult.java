@@ -24,7 +24,7 @@ import com.helger.commons.text.display.IHasDisplayText;
 
 /**
  * Result of a single validation.
- * 
+ *
  * @author Philip Helger
  */
 public interface IValidationResult extends IValidityIndicator, IHasErrorID, IHasDisplayText, Serializable

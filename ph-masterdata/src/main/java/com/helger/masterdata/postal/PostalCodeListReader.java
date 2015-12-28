@@ -16,13 +16,12 @@
  */
 package com.helger.masterdata.postal;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-
-import org.joda.time.LocalDate;
-import org.joda.time.format.ISODateTimeFormat;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
@@ -31,7 +30,6 @@ import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.StringHelper;
-import com.helger.datetime.PDTFactory;
 import com.helger.masterdata.MasterDataLogger;
 
 /**
@@ -95,7 +93,7 @@ public class PostalCodeListReader
     if (eBody == null)
       throw new IllegalArgumentException ("Missing body element in file " + aRes);
 
-    final LocalDate aNow = PDTFactory.getCurrentLocalDate ();
+    final LocalDate aNow = LocalDate.now ();
 
     // Read all countries
     for (final IMicroElement eCountry : eBody.getAllChildElements (ELEMENT_COUNTRY))
@@ -108,9 +106,12 @@ public class PostalCodeListReader
       for (final IMicroElement ePostalCode : eCountry.getAllChildElements (ELEMENT_POSTALCODES))
       {
         final String sValidFrom = ePostalCode.getAttributeValue (ATTR_VALIDFROM);
-        final LocalDate aValidFrom = sValidFrom == null ? null : ISODateTimeFormat.date ().parseLocalDate (sValidFrom);
+        final LocalDate aValidFrom = sValidFrom == null ? null
+                                                        : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidFrom,
+                                                                                                  LocalDate::from);
         final String sValidTo = ePostalCode.getAttributeValue (ATTR_VALIDTO);
-        final LocalDate aValidTo = sValidTo == null ? null : ISODateTimeFormat.date ().parseLocalDate (sValidTo);
+        final LocalDate aValidTo = sValidTo == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidTo,
+                                                                                                     LocalDate::from);
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))
         {

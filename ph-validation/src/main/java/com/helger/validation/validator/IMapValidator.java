@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Validator for a list type field. May check for the existence of a certain
  * amount of entries.
- * 
+ *
  * @author Boris
  * @param <KEYTYPE>
  *        The map key type

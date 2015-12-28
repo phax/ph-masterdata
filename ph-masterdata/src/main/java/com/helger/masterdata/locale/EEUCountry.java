@@ -16,51 +16,49 @@
  */
 package com.helger.masterdata.locale;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Locale;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.joda.time.DateTimeConstants;
-import org.joda.time.LocalDate;
-
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.country.CountryCache;
-import com.helger.datetime.PDTFactory;
 
 public enum EEUCountry implements IHasID <String>
 {
-  BELGIUM ("BE", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  BULGARIA ("BG", PDTFactory.createLocalDate (2007, DateTimeConstants.JANUARY, 1)),
-  DENMARK ("DK", PDTFactory.createLocalDate (1973, DateTimeConstants.JANUARY, 1)),
-  GERMANY ("DE", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  ESTONIA ("EE", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  FINLAND ("FI", PDTFactory.createLocalDate (1995, DateTimeConstants.JANUARY, 1)),
-  FRANCE ("FR", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  GREECE ("GR", PDTFactory.createLocalDate (1981, DateTimeConstants.JANUARY, 1)),
-  IRELAND ("IE", PDTFactory.createLocalDate (1973, DateTimeConstants.JANUARY, 1)),
-  ITALY ("IT", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  CROATIA ("HR", PDTFactory.createLocalDate (2013, DateTimeConstants.JANUARY, 1)),
-  LATVIA ("LV", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  LITHUANIA ("LT", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  LUXEMBOURG ("LU", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  MALTA ("MT", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  NETHERLANDS ("NL", PDTFactory.createLocalDate (1952, DateTimeConstants.JANUARY, 1)),
-  AUSTRIA ("AT", PDTFactory.createLocalDate (1995, DateTimeConstants.JANUARY, 1)),
-  POLAND ("PL", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  PORTUGAL ("PT", PDTFactory.createLocalDate (1986, DateTimeConstants.JANUARY, 1)),
-  ROMANIA ("RO", PDTFactory.createLocalDate (2007, DateTimeConstants.JANUARY, 1)),
-  SWEDEN ("SE", PDTFactory.createLocalDate (1995, DateTimeConstants.JANUARY, 1)),
-  SLOVAKIA ("SK", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  SLOVENIA ("SI", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  SPAIN ("ES", PDTFactory.createLocalDate (1986, DateTimeConstants.JANUARY, 1)),
-  CZECH_REPUBLIC ("CZ", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  HUNGARY ("HU", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1)),
-  UNITED_KINGDOM ("GB", PDTFactory.createLocalDate (1973, DateTimeConstants.JANUARY, 1)),
-  CYPRUS ("CY", PDTFactory.createLocalDate (2004, DateTimeConstants.JANUARY, 1));
+  BELGIUM ("BE", LocalDate.of (1952, Month.JANUARY, 1)),
+  BULGARIA ("BG", LocalDate.of (2007, Month.JANUARY, 1)),
+  DENMARK ("DK", LocalDate.of (1973, Month.JANUARY, 1)),
+  GERMANY ("DE", LocalDate.of (1952, Month.JANUARY, 1)),
+  ESTONIA ("EE", LocalDate.of (2004, Month.JANUARY, 1)),
+  FINLAND ("FI", LocalDate.of (1995, Month.JANUARY, 1)),
+  FRANCE ("FR", LocalDate.of (1952, Month.JANUARY, 1)),
+  GREECE ("GR", LocalDate.of (1981, Month.JANUARY, 1)),
+  IRELAND ("IE", LocalDate.of (1973, Month.JANUARY, 1)),
+  ITALY ("IT", LocalDate.of (1952, Month.JANUARY, 1)),
+  CROATIA ("HR", LocalDate.of (2013, Month.JANUARY, 1)),
+  LATVIA ("LV", LocalDate.of (2004, Month.JANUARY, 1)),
+  LITHUANIA ("LT", LocalDate.of (2004, Month.JANUARY, 1)),
+  LUXEMBOURG ("LU", LocalDate.of (1952, Month.JANUARY, 1)),
+  MALTA ("MT", LocalDate.of (2004, Month.JANUARY, 1)),
+  NETHERLANDS ("NL", LocalDate.of (1952, Month.JANUARY, 1)),
+  AUSTRIA ("AT", LocalDate.of (1995, Month.JANUARY, 1)),
+  POLAND ("PL", LocalDate.of (2004, Month.JANUARY, 1)),
+  PORTUGAL ("PT", LocalDate.of (1986, Month.JANUARY, 1)),
+  ROMANIA ("RO", LocalDate.of (2007, Month.JANUARY, 1)),
+  SWEDEN ("SE", LocalDate.of (1995, Month.JANUARY, 1)),
+  SLOVAKIA ("SK", LocalDate.of (2004, Month.JANUARY, 1)),
+  SLOVENIA ("SI", LocalDate.of (2004, Month.JANUARY, 1)),
+  SPAIN ("ES", LocalDate.of (1986, Month.JANUARY, 1)),
+  CZECH_REPUBLIC ("CZ", LocalDate.of (2004, Month.JANUARY, 1)),
+  HUNGARY ("HU", LocalDate.of (2004, Month.JANUARY, 1)),
+  UNITED_KINGDOM ("GB", LocalDate.of (1973, Month.JANUARY, 1)),
+  CYPRUS ("CY", LocalDate.of (2004, Month.JANUARY, 1));
 
   private final String m_sCountryCode;
   private final Locale m_aCountry;
