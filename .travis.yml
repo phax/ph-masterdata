@@ -12,7 +12,7 @@ wiXvs1t+Z8YuRWEwitIPQiF37mdXwh477m3VwR8pAYg8cWS5tL3dNwd1EUi8tf0j54dW6URoJhgo89bV
 owBPuMOSWle51aeWCk5vLBCALYJVryUkQhWV/xLH44RIbZxSIh0ki3rRu9wt8sCo1QyjLW26opwFyxv4OGbbJcUlfKdAjg="
 
 jdk:
-  - openjdk6
+  - oraclejdk8
   
 cache:
   directories:
