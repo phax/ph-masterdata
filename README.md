@@ -22,6 +22,7 @@ Java library with lots of default business objects and algorithms:
 
 Versions <= 3.6.3 are compatible with ph-commons < 6.0.
 Versions >= 4.0.0 are compatible with ph-commons >= 6.0.
+Version 5 requires Java 8.
 
 #ph-validation
 
