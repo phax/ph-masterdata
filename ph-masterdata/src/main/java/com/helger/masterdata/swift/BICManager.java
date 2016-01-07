@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import javax.annotation.RegEx;
 
 import com.helger.commons.annotation.PresentForCodeCoverage;
-import com.helger.commons.regex.RegExPool;
+import com.helger.commons.regex.RegExCache;
 import com.helger.commons.string.StringHelper;
 
 /**
@@ -46,7 +46,7 @@ public final class BICManager
   public static final String BIC_PATTERN = "(?i)^[a-z]{6}[a-z0-9]{2}([a-z0-9]{3})?$";
 
   /** Pre-compiled pattern */
-  private static final Pattern s_aBICPattern = RegExPool.getPattern (BIC_PATTERN);
+  private static final Pattern s_aBICPattern = RegExCache.getPattern (BIC_PATTERN);
 
   @PresentForCodeCoverage
   private static final BICManager s_aInstance = new BICManager ();

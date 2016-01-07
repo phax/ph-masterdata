@@ -34,7 +34,7 @@ import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.locale.country.IHasCountry;
-import com.helger.commons.regex.RegExPool;
+import com.helger.commons.regex.RegExCache;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -63,7 +63,7 @@ public class VATINStructure implements IHasCountry
     if (m_aCountry == null)
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;
-    m_aPattern = RegExPool.getPattern (sRegEx);
+    m_aPattern = RegExCache.getPattern (sRegEx);
     m_aExamples = CollectionHelper.newList (aExamples);
 
     if (GlobalDebug.isDebugMode ())

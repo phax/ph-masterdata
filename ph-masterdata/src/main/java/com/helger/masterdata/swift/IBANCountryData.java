@@ -30,8 +30,8 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.regex.RegExCache;
 import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.regex.RegExPool;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.string.ToStringGenerator;
@@ -278,7 +278,7 @@ public final class IBANCountryData extends LocalDatePeriod
                                           " but expected " +
                                           nExpectedLength);
 
-    return RegExPool.getPattern (aRegEx.toString ());
+    return RegExCache.getPattern (aRegEx.toString ());
   }
 
   /**

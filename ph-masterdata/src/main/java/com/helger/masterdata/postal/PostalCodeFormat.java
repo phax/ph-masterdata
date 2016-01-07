@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.regex.RegExPool;
+import com.helger.commons.regex.RegExCache;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
@@ -74,7 +74,7 @@ public class PostalCodeFormat implements Serializable
     aSBRegEx.append ("$");
 
     m_sFormat = aSBFormat.toString ();
-    m_aPattern = RegExPool.getPattern (aSBRegEx.toString ());
+    m_aPattern = RegExCache.getPattern (aSBRegEx.toString ());
     m_sExample = aSBExample.toString ();
   }
 
