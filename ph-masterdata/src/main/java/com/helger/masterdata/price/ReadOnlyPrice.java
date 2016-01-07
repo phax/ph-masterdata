@@ -17,13 +17,16 @@
 package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.annotation.CheckReturnValue;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
@@ -176,5 +179,119 @@ public class ReadOnlyPrice implements IPrice
   public String toString ()
   {
     return new ToStringGenerator (this).append ("netAmount", m_aNetAmount).append ("VATItem", m_aVATItem).toString ();
+  }
+
+  /**
+   * Create a price from a gross amount using the scale and rounding mode from
+   * the currency.
+   *
+   * @param eCurrency
+   *        Currency to use. May not be <code>null</code>.
+   * @param aGrossAmount
+   *        The gross amount to use. May not be <code>null</code>.
+   * @param aVATItem
+   *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
+   */
+  @Nonnull
+  public static ReadOnlyPrice createFromGrossAmount (@Nonnull final ECurrency eCurrency,
+                                                     @Nonnull final BigDecimal aGrossAmount,
+                                                     @Nonnull final IVATItem aVATItem)
+  {
+    return createFromGrossAmount (eCurrency,
+                                  aGrossAmount,
+                                  aVATItem,
+                                  eCurrency.getScale (),
+                                  eCurrency.getRoundingMode ());
+  }
+
+  /**
+   * Create a price from a gross amount.
+   *
+   * @param eCurrency
+   *        Currency to use. May not be <code>null</code>.
+   * @param aGrossAmount
+   *        The gross amount to use. May not be <code>null</code>.
+   * @param aVATItem
+   *        The VAT item to use. May not be <code>null</code>.
+   * @param nScale
+   *        The scaling to be used for the resulting amount, in case
+   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact
+   *        result.
+   * @param eRoundingMode
+   *        The rounding mode to be used to create a valid result.
+   * @return The created {@link Price}
+   */
+  @Nonnull
+  public static ReadOnlyPrice createFromGrossAmount (@Nonnull final ECurrency eCurrency,
+                                                     @Nonnull final BigDecimal aGrossAmount,
+                                                     @Nonnull final IVATItem aVATItem,
+                                                     @Nonnegative final int nScale,
+                                                     @Nonnull final RoundingMode eRoundingMode)
+  {
+    ValueEnforcer.notNull (aVATItem, "VATItem");
+
+    final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
+    if (MathHelper.isEqualToOne (aFactor))
+    {
+      // Shortcut for no VAT (net == gross)
+      return new ReadOnlyPrice (eCurrency, aGrossAmount, aVATItem);
+    }
+    return new ReadOnlyPrice (eCurrency, aGrossAmount.divide (aFactor, nScale, eRoundingMode), aVATItem);
+  }
+
+  /**
+   * Create a price from a gross amount using the scale and rounding mode from
+   * the currency.
+   *
+   * @param aGrossAmount
+   *        The gross amount to use. May not be <code>null</code>.
+   * @param aVATItem
+   *        The VAT item to use. May not be <code>null</code>.
+   * @return The created {@link Price}
+   */
+  @Nonnull
+  public static ReadOnlyPrice createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
+                                                     @Nonnull final IVATItem aVATItem)
+  {
+    ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
+
+    final ECurrency eCurrency = aGrossAmount.getCurrency ();
+    return createFromGrossAmount (aGrossAmount, aVATItem, eCurrency.getScale (), eCurrency.getRoundingMode ());
+  }
+
+  /**
+   * Create a price from a gross amount.
+   *
+   * @param aGrossAmount
+   *        The gross amount to use. May not be <code>null</code>.
+   * @param aVATItem
+   *        The VAT item to use. May not be <code>null</code>.
+   * @param nScale
+   *        The scaling to be used for the resulting amount, in case
+   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact
+   *        result.
+   * @param eRoundingMode
+   *        The rounding mode to be used to create a valid result.
+   * @return The created {@link Price}
+   */
+  @Nonnull
+  public static ReadOnlyPrice createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
+                                                     @Nonnull final IVATItem aVATItem,
+                                                     @Nonnegative final int nScale,
+                                                     @Nonnull final RoundingMode eRoundingMode)
+  {
+    ValueEnforcer.notNull (aVATItem, "VATItem");
+
+    final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
+    if (MathHelper.isEqualToOne (aFactor))
+    {
+      // Shortcut for no VAT (net == gross)
+      return new ReadOnlyPrice (aGrossAmount, aVATItem);
+    }
+
+    return new ReadOnlyPrice (aGrossAmount.getCurrency (),
+                              aGrossAmount.getValue ().divide (aFactor, nScale, eRoundingMode),
+                              aVATItem);
   }
 }
