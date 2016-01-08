@@ -22,7 +22,7 @@ Java library with lots of default business objects and algorithms:
 
 Versions <= 3.6.3 are compatible with ph-commons < 6.0.
 Versions >= 4.0.0 are compatible with ph-commons >= 6.0.
-Version 5 requires Java 8.
+Versions >= 5 require Java 8.
 
 #ph-validation
 
@@ -30,10 +30,11 @@ Java library for validation artifacts (errors etc.)
 
 Versions <= 3.3.x are compatible with ph-commons < 6.0
 Versions >= 4.0.0 are compatible with ph-commons >= 6.0
+Versions >= 5 require Java 8.
 
 #ph-masterdata-validation
 
-Java library that combines ph-masterdata and ph-validation
+Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
 
 #Maven usage
 Add the following to your pom.xml to use this artifact:
