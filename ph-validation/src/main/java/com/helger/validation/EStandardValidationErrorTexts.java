@@ -29,7 +29,7 @@ import com.helger.commons.text.resolve.DefaultTextResolver;
 import com.helger.commons.text.util.TextHelper;
 
 /**
- * Default error texts used in this component.
+ * Default error texts used in this project.
  *
  * @author Philip Helger
  */
