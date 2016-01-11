@@ -16,23 +16,17 @@
  */
 package com.helger.masterdata.vat;
 
-import java.math.BigDecimal;
-
-import javax.annotation.Nonnull;
-
-import com.helger.commons.compare.AbstractBigDecimalComparator;
+import com.helger.commons.compare.BigDecimalComparator;
 
 /**
  * Comparator that sorts {@link IVATItem} objects by their percentage.
  *
  * @author Philip Helger
  */
-public class ComparatorVATItemPercentage extends AbstractBigDecimalComparator <IVATItem>
+public class ComparatorVATItemPercentage extends BigDecimalComparator <IVATItem>
 {
-  @Override
-  @Nonnull
-  protected BigDecimal getAsBigDecimal (@Nonnull final IVATItem aVATItem)
+  public ComparatorVATItemPercentage ()
   {
-    return aVATItem.getPercentage ();
+    super (aObject -> aObject.getPercentage ());
   }
 }
