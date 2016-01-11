@@ -63,14 +63,16 @@ import com.helger.datetime.format.PDTFromString;
  * numbers. In particular, they might choose not to check that the IBAN is valid
  * prior to sending the payment.<br>
  * In the absence of an IBAN it remains necessary to use the current ISO 9362
- * Bank Identifier Code system (BIC or SWIFT code) in conjunction with the BBAN.<br>
+ * Bank Identifier Code system (BIC or SWIFT code) in conjunction with the BBAN.
+ * <br>
  * Banks in the United States do not provide IBAN format account numbers. Any
  * adoption of the IBAN standard by U.S. banks would likely be initiated by ANSI
  * ASC X9, the U.S. financial services standards development organization but to
  * date it has not done so. Hence payments to U.S. bank accounts from outside
  * the U.S. are prone to errors of routing.<br>
  * Banks in Australia and New Zealand have not adopted IBAN, and tend to use
- * Bank State Branch codes for domestic transfers and SWIFT for international.<br>
+ * Bank State Branch codes for domestic transfers and SWIFT for international.
+ * <br>
  * Source: http://en.wikipedia.org/wiki/International_Bank_Account_Number
  *
  * @author Philip Helger
@@ -146,13 +148,14 @@ public final class IBANManager
 
       if (s_aIBANData.containsKey (sCountryCode))
         throw new IllegalArgumentException ("Country " + sCountryCode + " is already contained!");
-      s_aIBANData.put (sCountryCode, IBANCountryData.createFromString (sCountryCode,
-                                                                       nExpectedLength,
-                                                                       sLayout,
-                                                                       sCheckDigits,
-                                                                       aValidFrom,
-                                                                       aValidTo,
-                                                                       sDesc));
+      s_aIBANData.put (sCountryCode,
+                       IBANCountryData.createFromString (sCountryCode,
+                                                         nExpectedLength,
+                                                         sLayout,
+                                                         sCheckDigits,
+                                                         aValidFrom,
+                                                         aValidTo,
+                                                         sDesc));
     }
   }
 

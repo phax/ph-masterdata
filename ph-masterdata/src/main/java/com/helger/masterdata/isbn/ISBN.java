@@ -23,7 +23,7 @@ import com.helger.commons.regex.RegExHelper;
 
 /**
  * Helper class for validating ISBN numbers.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable

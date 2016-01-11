@@ -28,7 +28,7 @@ public interface IMutableCompany extends ICompany
 {
   /**
    * Set the name of the company and how it is known. E.g. "IBM".
-   * 
+   *
    * @param sPublicName
    *        The new name
    * @return {@link EChange}
@@ -39,7 +39,7 @@ public interface IMutableCompany extends ICompany
   /**
    * Set the official name of the company like
    * "International Business Machines Corp.".
-   * 
+   *
    * @param sOfficialName
    *        The new name
    * @return {@link EChange}
@@ -88,7 +88,7 @@ public interface IMutableCompany extends ICompany
   /**
    * Set the head quarter site. The passed site must already be part of the
    * overall site list.
-   * 
+   *
    * @param aSite
    *        The site to be marked as head quarter.
    * @return {@link EChange}

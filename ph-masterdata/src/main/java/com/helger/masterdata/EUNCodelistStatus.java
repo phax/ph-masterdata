@@ -28,7 +28,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Represents the status of single elements within UN code lists.
- * 
+ *
  * @author Philip Helger
  */
 public enum EUNCodelistStatus implements IHasID <String>
@@ -60,7 +60,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   /**
    * Convert the passed status string into an array of {@link EUNCodelistStatus}
    * elements.
-   * 
+   *
    * @param sStatus
    *        The status string to be parsed. May be <code>null</code> or empty.
    * @return An array with one {@link #UNCHANGED} element if the passed input
@@ -86,7 +86,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   /**
    * Get the passed code list status array as one big string, separated by a
    * comma.
-   * 
+   *
    * @param aStatus
    *        The status array. May not be <code>null</code>.
    * @return The non-<code>null</code> String of all passed status elements.

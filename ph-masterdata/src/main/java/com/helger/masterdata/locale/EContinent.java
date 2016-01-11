@@ -26,7 +26,7 @@ import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EContinent implements IHasID <String>, IHasDisplayText
+public enum EContinent implements IHasID <String>,IHasDisplayText
 {
   AFRICA ("af", EContinentName.AFRICA),
   ANTARCTICA ("an", EContinentName.ANTARCTICA),

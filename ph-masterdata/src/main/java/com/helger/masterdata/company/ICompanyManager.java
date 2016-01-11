@@ -24,7 +24,7 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 
 /**
  * Generic company manager interface.
- * 
+ *
  * @author Philip Helger
  */
 public interface ICompanyManager extends ICompanyResolver

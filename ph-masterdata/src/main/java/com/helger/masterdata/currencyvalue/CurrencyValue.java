@@ -216,16 +216,16 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
 
   @Nonnull
   public static IMutableCurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
-                                                            @Nonnull final ECurrency eCurrency,
-                                                            @Nonnull final BigDecimal aDefaultValue)
+                                                                   @Nonnull final ECurrency eCurrency,
+                                                                   @Nonnull final BigDecimal aDefaultValue)
   {
     return new CurrencyValue (eCurrency, eCurrency.parseCurrencyFormat (sText, aDefaultValue));
   }
 
   @Nonnull
   public static IMutableCurrencyValue fromValueFormattedString (@Nonnull final String sText,
-                                                         @Nonnull final ECurrency eCurrency,
-                                                         @Nonnull final BigDecimal aDefaultValue)
+                                                                @Nonnull final ECurrency eCurrency,
+                                                                @Nonnull final BigDecimal aDefaultValue)
   {
     return new CurrencyValue (eCurrency, eCurrency.parseValueFormat (sText, aDefaultValue));
   }

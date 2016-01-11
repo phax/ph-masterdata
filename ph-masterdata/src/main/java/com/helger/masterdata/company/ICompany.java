@@ -27,7 +27,7 @@ import com.helger.commons.type.ITypedObject;
 
 /**
  * Base interface representing a read-only company.
- * 
+ *
  * @author Philip Helger
  */
 public interface ICompany extends ITypedObject <String>
@@ -61,7 +61,7 @@ public interface ICompany extends ITypedObject <String>
 
   /**
    * Get the site with the given ID.
-   * 
+   *
    * @param sSiteID
    *        The site ID to search. May be <code>null</code>.
    * @return <code>null</code> if no such site exists.

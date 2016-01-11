@@ -25,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Test class for class {@link EIncoterm}.
- * 
+ *
  * @author Philip Helger
  */
 public final class EIncotermTest

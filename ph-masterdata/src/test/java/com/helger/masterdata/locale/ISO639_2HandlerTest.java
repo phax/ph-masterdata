@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /**
  * Test class for class {@link ISO639_2Handler}.
- * 
+ *
  * @author Philip Helger
  */
 public final class ISO639_2HandlerTest

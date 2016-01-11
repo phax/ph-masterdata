@@ -167,7 +167,8 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         assertEquals (FIVE,
                       eCurrency.parseValueFormat ("5," +
                                                   StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
-                                                  "9", BigDecimal.TEN));
+                                                  "9",
+                                                  BigDecimal.TEN));
 
         // dot as decimal separator
         assertEquals (FIVE, eCurrency.parseValueFormat ("5.0", BigDecimal.TEN));
@@ -178,7 +179,8 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         assertEquals (FIVE,
                       eCurrency.parseValueFormat ("5." +
                                                   StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
-                                                  "9", BigDecimal.TEN));
+                                                  "9",
+                                                  BigDecimal.TEN));
       }
 
       // symbol

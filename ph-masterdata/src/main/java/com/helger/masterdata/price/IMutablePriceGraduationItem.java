@@ -26,7 +26,7 @@ import com.helger.commons.state.EChange;
 
 /**
  * The writable version of a single price graduation item.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
@@ -34,7 +34,7 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
 {
   /**
    * Set the minimum quantity of this price graduation item.
-   * 
+   *
    * @param nMinimumQuantity
    *        The minimum quantity. Must be &ge; 1.
    * @return {@link EChange#CHANGED} if the value changed,
@@ -45,7 +45,7 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
 
   /**
    * Change the price of this graduation item.
-   * 
+   *
    * @param aAmount
    *        The new price amount to set. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if the value changed,

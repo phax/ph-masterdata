@@ -25,7 +25,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Represents a single element within a postal code format definition
- * 
+ *
  * @author Philip Helger
  */
 enum EPostalCodeFormatElement

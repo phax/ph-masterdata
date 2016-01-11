@@ -58,7 +58,8 @@ public final class PriceTest
     assertEquals (ECurrency.AMD, p.getCurrency ());
     assertEquals (EChange.UNCHANGED, p.getNetAmount ().setCurrency (ECurrency.AMD));
     assertEquals (ECurrency.AMD, p.getCurrency ());
-    assertEquals (EChange.UNCHANGED, p.setNetAmount (new ReadOnlyCurrencyValue (ECurrency.AMD, new BigDecimal ("9.9"))));
+    assertEquals (EChange.UNCHANGED,
+                  p.setNetAmount (new ReadOnlyCurrencyValue (ECurrency.AMD, new BigDecimal ("9.9"))));
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (ECurrency.DEFAULT_CURRENCY));
     assertEquals (ECurrency.DEFAULT_CURRENCY, p.getCurrency ());
 

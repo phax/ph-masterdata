@@ -218,9 +218,9 @@ public final class VehicleSignsFuncTest
           continue;
         final Locale aSearchLocale = new Locale ("", aLocale.getCountry ());
         for (final Locale aDisplayLocale : new Locale [] { Locale.US,
-                                                          Locale.UK,
-                                                          aLocale,
-                                                          SystemHelper.getSystemLocale () })
+                                                           Locale.UK,
+                                                           aLocale,
+                                                           SystemHelper.getSystemLocale () })
         {
           final String sLocaleCountry = aSearchLocale.getDisplayCountry (aDisplayLocale);
           if (sCountry.equals (sLocaleCountry))

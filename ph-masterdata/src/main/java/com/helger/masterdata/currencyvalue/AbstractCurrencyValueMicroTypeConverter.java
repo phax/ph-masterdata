@@ -25,7 +25,7 @@ import com.helger.commons.microdom.convert.IMicroTypeConverter;
 
 /**
  * Common base class for {@link CurrencyValue} and {@link ReadOnlyCurrencyValue}
- * 
+ *
  * @author Philip Helger
  */
 public abstract class AbstractCurrencyValueMicroTypeConverter implements IMicroTypeConverter

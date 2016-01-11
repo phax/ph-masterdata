@@ -227,7 +227,8 @@ public class VATManager implements IVATItemProvider
     ValueEnforcer.notNull (aCountry, "Country");
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
+    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()
+                                                                                  .getCountry (aCountry));
     return aVATCountryData != null ? aVATCountryData.isZeroVATAllowed () : bUndefinedValue;
   }
 
@@ -250,7 +251,8 @@ public class VATManager implements IVATItemProvider
     final Map <String, IVATItem> ret = new HashMap <String, IVATItem> ();
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
+    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()
+                                                                                  .getCountry (aCountry));
     if (aVATCountryData != null)
     {
       if (aVATCountryData.isZeroVATAllowed ())

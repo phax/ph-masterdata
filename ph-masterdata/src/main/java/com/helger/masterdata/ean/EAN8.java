@@ -25,14 +25,14 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Validator and checksum creator for EAN8 code (=GTIN-8)
- * 
+ *
  * @author Philip Helger
  */
 public final class EAN8 extends AbstractUPCEAN
 {
   /**
    * Constructor
-   * 
+   *
    * @param sMsg
    *        The code string.
    */
@@ -43,7 +43,7 @@ public final class EAN8 extends AbstractUPCEAN
 
   /**
    * Constructor.
-   * 
+   *
    * @param sMsg
    *        The code string.
    * @param eMode
@@ -64,7 +64,7 @@ public final class EAN8 extends AbstractUPCEAN
   /**
    * Validates a EAN-8 message. The method throws IllegalArgumentExceptions if
    * an invalid message is passed.
-   * 
+   *
    * @param sMsg
    *        the message to validate
    * @return {@link EValidity#VALID} if the msg is valid,
@@ -87,7 +87,8 @@ public final class EAN8 extends AbstractUPCEAN
   }
 
   @Nonnull
-  public static String getWithCorrectChecksum (final String sMsg, final EEANChecksumMode eMode) throws IllegalArgumentException
+  public static String getWithCorrectChecksum (final String sMsg,
+                                               final EEANChecksumMode eMode) throws IllegalArgumentException
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

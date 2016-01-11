@@ -48,8 +48,7 @@ public enum EUnitQuantityName implements IHasDisplayText
   ANGULAR_FREQUENCY_PULSATANCE ("Kreisfrequenz, Winkelfrequenz", "angular frequency, pulsatance"),
   WAVELENGTH ("Wellenlänge", "wavelength"),
   WAVE_NUMBER_ATTENUATION_COEFFICIENT_PLUS ("Wellenzahl, Schwächungskoeffizient, Phasenwinkel, Fortpflanzungskonstante, Wellenzahl", "wave number, attenuation coefficient, phase coefficient, propagation coefficient, repetency"),
-  @Deprecated
-  LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY ("level of a field quantity, level of a power quantity", "level of a field quantity, level of a power quantity"),
+  @Deprecated LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY ("level of a field quantity, level of a power quantity", "level of a field quantity, level of a power quantity"),
   DAMPING_COEFFICIENT ("Dämpfungskoeffizient", "damping coefficient"),
   LOGARITHMIC_DECREMENT ("logarithmisches Dekrament", "logarithmic decrement"),
   MASS ("Masse", "mass"),

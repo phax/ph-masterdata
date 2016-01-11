@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 /**
  * This class represents a single read only currency value as the combination of
  * a value and a currency.
- * 
+ *
  * @author Philip Helger
  */
 abstract class AbstractCurrencyValue implements ICurrencyValue

@@ -29,7 +29,7 @@ import com.helger.masterdata.tax.ETaxCategoryUN5305;
  * Source: http://de.wikipedia.org/wiki/Umsatzsteuer<br>
  * Source:
  * http://ec.europa.eu/taxation_customs/taxation/vat/how_vat_works/rates/
- * 
+ *
  * @author Philip Helger
  */
 public enum EVATType implements IHasID <String>

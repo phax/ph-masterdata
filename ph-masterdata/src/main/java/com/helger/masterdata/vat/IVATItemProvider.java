@@ -23,14 +23,14 @@ import javax.annotation.Nullable;
 
 /**
  * Interface for objects having VAT items.
- * 
+ *
  * @author Philip Helger
  */
 public interface IVATItemProvider
 {
   /**
    * Get the VAT type with the given ID.
-   * 
+   *
    * @param sID
    *        The VAT type ID to search.
    * @return <code>null</code> if no such VAT type exists.
@@ -40,7 +40,7 @@ public interface IVATItemProvider
 
   /**
    * Get the VAT type with the given ID.
-   * 
+   *
    * @param aCountry
    *        The country for which the locale is required.
    * @param sID

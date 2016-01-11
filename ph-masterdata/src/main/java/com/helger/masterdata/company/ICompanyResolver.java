@@ -20,14 +20,14 @@ import javax.annotation.Nullable;
 
 /**
  * Generic company resolver interface.
- * 
+ *
  * @author Philip Helger
  */
 public interface ICompanyResolver
 {
   /**
    * Get the company with the specified ID.
-   * 
+   *
    * @param sID
    *        The ID to search. May be <code>null</code>.
    * @return <code>null</code> if no such company exists.

@@ -34,7 +34,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Change the amount of this price.
-   * 
+   *
    * @param aValue
    *        The new value. May not be <code>null</code>.
    * @return {@link EChange}
@@ -44,7 +44,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Change the VAT type of this price.
-   * 
+   *
    * @param aVATType
    *        The new VAT type. May not be <code>null</code>.
    * @return {@link EChange}
@@ -54,7 +54,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Set the currency of the price.
-   * 
+   *
    * @param eCurrency
    *        The new currency to use. May not be <code>null</code>.
    * @return {@link EChange}
@@ -64,7 +64,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to add.
    * @return The result value as a new object.
@@ -75,7 +75,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to add.
    * @return The result value as a new object.
@@ -86,7 +86,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to subtract.
    * @return The result value as a new object.
@@ -97,7 +97,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to subtract.
    * @return The result value as a new object.
@@ -108,7 +108,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to multiply with.
    * @return The result value as a new object.
@@ -119,7 +119,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to multiply with.
    * @return The result value as a new object.
@@ -130,7 +130,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param aValue
    *        The value to divide through.
    * @return The result value as a new object.
@@ -141,7 +141,7 @@ public interface IMutablePrice extends IPrice
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
-   * 
+   *
    * @param nValue
    *        The value to divide through.
    * @return The result value as a new object.

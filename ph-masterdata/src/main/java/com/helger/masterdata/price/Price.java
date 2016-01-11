@@ -267,8 +267,7 @@ public class Price implements IMutablePrice
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromNetAmount (@Nonnull final ICurrencyValue aNetAmount,
-                                           @Nonnull final IVATItem aVATItem)
+  public static Price createFromNetAmount (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
   {
     return new Price (aNetAmount, aVATItem);
   }

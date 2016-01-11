@@ -26,7 +26,7 @@ import com.helger.commons.lang.ICloneable;
 
 /**
  * The name of a person.
- * 
+ *
  * @author Philip Helger
  */
 public interface IPersonName extends ICloneable <IPersonName>, Serializable

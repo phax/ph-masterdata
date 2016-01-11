@@ -28,7 +28,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Test class for class {@link ETaxTypeUN5153}.
- * 
+ *
  * @author Philip Helger
  */
 public final class ETaxTypeUN5153Test

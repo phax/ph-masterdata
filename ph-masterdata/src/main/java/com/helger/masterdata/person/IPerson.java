@@ -29,7 +29,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
 
 /**
  * Read only person interface
- * 
+ *
  * @author Philip Helger
  */
 public interface IPerson extends IHasID <String>, Serializable

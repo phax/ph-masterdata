@@ -28,7 +28,7 @@ import com.helger.commons.microdom.serialize.MicroWriter;
 
 /**
  * Test class for class {@link VATINStructureManager}.
- * 
+ *
  * @author Philip Helger
  */
 public final class VATINStructureManagerTest

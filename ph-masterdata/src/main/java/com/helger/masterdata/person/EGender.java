@@ -27,10 +27,10 @@ import com.helger.commons.text.display.IHasDisplayText;
 
 /**
  * Represents the gender of a person.
- * 
+ *
  * @author Philip Helger
  */
-public enum EGender implements IHasDisplayText, IHasID <String>
+public enum EGender implements IHasDisplayText,IHasID <String>
 {
   MALE ("m", EGenderName.MALE),
   FEMALE ("f", EGenderName.FEMALE),

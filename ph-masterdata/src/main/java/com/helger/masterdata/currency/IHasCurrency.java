@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 
 /**
  * Base interface for objects having a currency.
- * 
+ *
  * @author Philip Helger
  */
 public interface IHasCurrency

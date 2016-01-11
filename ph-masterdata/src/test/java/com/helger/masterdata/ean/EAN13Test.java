@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /**
  * Test class for class {@link EAN13}.
- * 
+ *
  * @author Philip Helger
  */
 public final class EAN13Test

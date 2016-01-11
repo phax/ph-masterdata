@@ -52,7 +52,11 @@ public final class ReadOnlyTelephoneNumberTest extends AbstractCommonsTestCase
   @Test
   public void testDefaultImpl ()
   {
-    final ReadOnlyTelephoneNumber a = new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE, "0043", "01", "1231234", "47");
+    final ReadOnlyTelephoneNumber a = new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
+                                                                   "0043",
+                                                                   "01",
+                                                                   "1231234",
+                                                                   "47");
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a,
                                                                        new ReadOnlyTelephoneNumber (ETelephoneType.OFFICE,
                                                                                                     "0043",

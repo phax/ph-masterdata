@@ -69,7 +69,10 @@ public class MainReadPackageTypeCodeListExcel
         final int nFrom = StringParser.parseInt (aToParts[0].trim (), -1);
         final int nTo = StringParser.parseInt (aToParts[1].trim (), -1);
         if (nFrom == -1 || nTo == -1)
-          throw new IllegalStateException (sRealNumericCode + " ==> " + Arrays.toString (aToParts) + " ==> not numeric");
+          throw new IllegalStateException (sRealNumericCode +
+                                           " ==> " +
+                                           Arrays.toString (aToParts) +
+                                           " ==> not numeric");
         for (int i = nFrom; i <= nTo; ++i)
           ret.add (Integer.toString (i));
       }

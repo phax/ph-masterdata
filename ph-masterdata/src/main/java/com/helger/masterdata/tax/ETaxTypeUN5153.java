@@ -30,10 +30,10 @@ import com.helger.commons.text.display.IHasDisplayText;
  * Tax type.<br>
  * Based on "5153 Duty or tax or fee type name code".<br>
  * Source: http://www.unece.org/trade/untdid/d08b/tred/tred5153.htm
- * 
+ *
  * @author Philip Helger
  */
-public enum ETaxTypeUN5153 implements IHasID <String>, IHasDisplayText
+public enum ETaxTypeUN5153 implements IHasID <String>,IHasDisplayText
 {
   AAA ("AAA", ETaxTypeUN5153Name.AAA),
   AAB ("AAB", ETaxTypeUN5153Name.AAB),

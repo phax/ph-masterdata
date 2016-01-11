@@ -26,7 +26,7 @@ import com.helger.masterdata.telephone.IMutableTelephoneNumber;
 
 /**
  * Represents a single location of a company.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableCompanySite extends ICompanySite

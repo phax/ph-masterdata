@@ -37,7 +37,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the width in pixel for the specified DPI count
-   * 
+   *
    * @param nDPI
    *        Dots per inch count. Must be &gt; 0.
    * @return The pixel width.
@@ -47,7 +47,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the width in pixel for the specified DPI count
-   * 
+   *
    * @param nDPI
    *        Dots per inch count. Must be &gt; 0.
    * @return The rounded pixel width.
@@ -57,7 +57,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the required DPI count for the specified pixel count
-   * 
+   *
    * @param nPixel
    *        The available pixel size.
    * @return The necessary dots per inch for the specified pixel count
@@ -67,7 +67,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the required DPI count for the specified pixel count
-   * 
+   *
    * @param nPixel
    *        The available pixel size.
    * @return The necessary dots per inch for the specified pixel count
@@ -90,7 +90,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the height in pixel for the specified DPI count
-   * 
+   *
    * @param nDPI
    *        Dots per inch count. Must be &gt; 0.
    * @return The pixel height.
@@ -100,7 +100,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the height in pixel for the specified DPI count
-   * 
+   *
    * @param nDPI
    *        Dots per inch count. Must be &gt; 0.
    * @return The rounded pixel height.
@@ -110,7 +110,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the required DPI count for the specified pixel count
-   * 
+   *
    * @param nPixel
    *        The available pixel size.
    * @return The necessary dots per inch for the specified pixel count
@@ -120,7 +120,7 @@ public interface IDINSize extends IHasID <String>
 
   /**
    * Calculate the required DPI count for the specified pixel count
-   * 
+   *
    * @param nPixel
    *        The available pixel size.
    * @return The necessary dots per inch for the specified pixel count

@@ -27,7 +27,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
 
 /**
  * Represents a single location of a company.
- * 
+ *
  * @author Philip Helger
  */
 public interface ICompanySite extends IHasDisplayName, ITypedObject <String>

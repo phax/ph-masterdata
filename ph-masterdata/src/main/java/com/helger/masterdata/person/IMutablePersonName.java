@@ -25,7 +25,7 @@ import com.helger.commons.state.EChange;
 
 /**
  * The name of a person.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutablePersonName extends IPersonName

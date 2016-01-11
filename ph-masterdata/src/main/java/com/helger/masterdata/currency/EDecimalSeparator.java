@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Represents the different possible decimal separators.
- * 
+ *
  * @author Philip Helger
  */
 public enum EDecimalSeparator

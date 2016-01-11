@@ -30,7 +30,7 @@ import com.helger.masterdata.vat.IVATItem;
 
 /**
  * The writable interface for a single price graduation.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
@@ -53,7 +53,7 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
 
   /**
    * Add a new item based on the default currency and VAT type.
-   * 
+   *
    * @param nMinimumQuantity
    *        The minimum quantity to use. Must be &ge; 1.
    * @param aNetAmount
@@ -67,15 +67,15 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
   /**
    * Add a new item. The item should be added to the correct position, based on
    * the minimum quantity, in ascending order.
-   * 
+   *
    * @param aItem
    *        The price graduation item to use. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if the value changed,
    *         {@link EChange#UNCHANGED} otherwise.
    * @throws IllegalArgumentException
    *         If another item with the same minimum quantity is already
-   *         contained. Use the setter methods of {@link IMutablePriceGraduationItem}
-   *         instead.
+   *         contained. Use the setter methods of
+   *         {@link IMutablePriceGraduationItem} instead.
    */
   @Nonnull
   EChange addItem (@Nonnull IMutablePriceGraduationItem aItem);
@@ -83,7 +83,7 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
   /**
    * Delivers a writable price object based on the net amount of the passed item
    * and the currency and VAT set for the price graduation
-   * 
+   *
    * @param aItem
    *        the price graduation item for which to retrieve the price
    * @param aVAT

@@ -26,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Test class for class {@link EISO31}.
- * 
+ *
  * @author Philip Helger
  */
 public final class EISO31Test

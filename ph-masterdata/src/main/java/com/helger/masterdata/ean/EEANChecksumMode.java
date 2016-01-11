@@ -41,7 +41,7 @@ public enum EEANChecksumMode implements IHasID <String>
 
   /**
    * Creates a new ChecksumMode instance.
-   * 
+   *
    * @param sID
    *        the name of the ChecksumMode
    */
@@ -59,7 +59,7 @@ public enum EEANChecksumMode implements IHasID <String>
 
   /**
    * Returns a ChecksumMode instance by ID.
-   * 
+   *
    * @param sID
    *        the ID of the ChecksumMode
    * @return the requested instance

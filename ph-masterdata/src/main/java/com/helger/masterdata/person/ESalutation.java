@@ -30,7 +30,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public enum ESalutation implements IHasDisplayText, IHasID <String>
+public enum ESalutation implements IHasDisplayText,IHasID <String>
 {
   MISTER ("mr", EGender.MALE, ESalutationName.MISTER, ESalutationGreeting.MISTER, ESalutationGreetingComplete.MISTER),
   MISSES ("mrs", EGender.FEMALE, ESalutationName.MISSES, ESalutationGreeting.MISSES, ESalutationGreetingComplete.MISSES),

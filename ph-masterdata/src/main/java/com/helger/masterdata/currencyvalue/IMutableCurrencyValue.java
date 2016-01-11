@@ -28,7 +28,7 @@ import com.helger.masterdata.currency.ECurrency;
 /**
  * Writable version of a currency value. The reading methods are inherited from
  * {@link ICurrencyValue}.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMutableCurrencyValue>

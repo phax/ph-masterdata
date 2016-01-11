@@ -26,7 +26,7 @@ import com.helger.commons.id.IHasIntID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EUnitQuantity implements IHasIntID, IHasDisplayText
+public enum EUnitQuantity implements IHasIntID,IHasDisplayText
 {
   ANGLE_PLANE (1, EUnitQuantityName.ANGLE_PLANE),
   SOLID_ANGLE (2, EUnitQuantityName.SOLID_ANGLE),
@@ -46,8 +46,7 @@ public enum EUnitQuantity implements IHasIntID, IHasDisplayText
   ANGULAR_FREQUENCY_PULSATANCE (16, EUnitQuantityName.ANGULAR_FREQUENCY_PULSATANCE),
   WAVELENGTH (17, EUnitQuantityName.WAVELENGTH),
   WAVE_NUMBER_ATTENUATION_COEFFICIENT_PLUS (18, EUnitQuantityName.WAVE_NUMBER_ATTENUATION_COEFFICIENT_PLUS),
-  @Deprecated
-  LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY (19, EUnitQuantityName.LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY),
+  @Deprecated LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY (19, EUnitQuantityName.LEVEL_OF_A_FIELD_QUANTITY_LEVEL_OF_A_POWER_QUANTITY),
   DAMPING_COEFFICIENT (20, EUnitQuantityName.DAMPING_COEFFICIENT),
   LOGARITHMIC_DECREMENT (21, EUnitQuantityName.LOGARITHMIC_DECREMENT),
   MASS (22, EUnitQuantityName.MASS),

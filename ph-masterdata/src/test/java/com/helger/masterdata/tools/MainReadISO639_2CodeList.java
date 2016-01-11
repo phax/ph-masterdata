@@ -31,7 +31,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Source of the file: http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt
- * 
+ *
  * @author Philip Helger
  */
 public class MainReadISO639_2CodeList

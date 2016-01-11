@@ -29,7 +29,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
 
 /**
  * Mutable person interface
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutablePerson extends IPerson

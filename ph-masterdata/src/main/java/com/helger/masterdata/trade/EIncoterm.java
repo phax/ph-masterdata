@@ -30,10 +30,10 @@ import com.helger.commons.text.display.IHasDisplayText;
  * Possible delivery terms based on Incoterms.<br>
  * See Technical documentation 6.5<br>
  * http://de.wikipedia.org/wiki/Incoterms
- * 
+ *
  * @author Philip Helger
  */
-public enum EIncoterm implements IHasID <String>, IHasDisplayText
+public enum EIncoterm implements IHasID <String>,IHasDisplayText
 {
   // Order as in in Incoterms 2000
   EXW ("EXW", EIncotermName.EXW),

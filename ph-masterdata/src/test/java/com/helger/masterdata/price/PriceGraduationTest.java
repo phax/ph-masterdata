@@ -184,10 +184,8 @@ public final class PriceGraduationTest
     assertTrue (pg.isEmpty ());
     assertTrue (pg.addItem (1, new BigDecimal ("19.9")).isChanged ());
     assertTrue (pg.addItem (5, new BigDecimal ("14.9")).isChanged ());
-    CommonsAssert.assertEquals (19.9, pg.getSinglePriceOfQuantity (1, aVATItem)
-                                        .getNetAmount ()
-                                        .getValue ()
-                                        .doubleValue ());
+    CommonsAssert.assertEquals (19.9,
+                                pg.getSinglePriceOfQuantity (1, aVATItem).getNetAmount ().getValue ().doubleValue ());
     assertEquals (ECurrency.GBP, pg.getSinglePriceOfQuantity (1, aVATItem).getCurrency ());
     assertEquals (aVATItem, pg.getSinglePriceOfQuantity (1, aVATItem).getVATItem ());
   }
@@ -217,8 +215,8 @@ public final class PriceGraduationTest
   public void testStatic ()
   {
     final IMutablePriceGraduation pg = PriceGraduation.createSimple (new Price (ECurrency.AMD,
-                                                                         new BigDecimal ("4.9"),
-                                                                         VATManager.VATTYPE_NONE));
+                                                                                new BigDecimal ("4.9"),
+                                                                                VATManager.VATTYPE_NONE));
     assertNotNull (pg);
     assertFalse (pg.isEmpty ());
     assertEquals (1, pg.getAllItems ().size ());

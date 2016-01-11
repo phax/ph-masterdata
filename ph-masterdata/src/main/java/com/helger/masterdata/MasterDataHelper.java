@@ -24,7 +24,7 @@ import com.helger.commons.string.StringHelper;
 
 /**
  * Utility methods applies to all packages.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable

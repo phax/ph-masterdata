@@ -176,16 +176,16 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   public static ICurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
-                                                                    @Nonnull final ECurrency eCurrency,
-                                                                    @Nonnull final BigDecimal aDefaultValue)
+                                                            @Nonnull final ECurrency eCurrency,
+                                                            @Nonnull final BigDecimal aDefaultValue)
   {
     return new ReadOnlyCurrencyValue (eCurrency, eCurrency.parseCurrencyFormat (sText, aDefaultValue));
   }
 
   @Nonnull
   public static ICurrencyValue fromValueFormattedString (@Nonnull final String sText,
-                                                                 @Nonnull final ECurrency eCurrency,
-                                                                 @Nonnull final BigDecimal aDefaultValue)
+                                                         @Nonnull final ECurrency eCurrency,
+                                                         @Nonnull final BigDecimal aDefaultValue)
   {
     return new ReadOnlyCurrencyValue (eCurrency, eCurrency.parseValueFormat (sText, aDefaultValue));
   }

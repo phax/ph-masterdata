@@ -27,7 +27,7 @@ import com.helger.commons.CGlobal;
 
 /**
  * Test class for class {@link VATItem}.
- * 
+ *
  * @author Philip Helger
  */
 public final class VATItemTest
