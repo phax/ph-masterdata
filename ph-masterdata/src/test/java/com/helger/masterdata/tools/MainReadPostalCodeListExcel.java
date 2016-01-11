@@ -44,7 +44,7 @@ import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.multimap.IMultiMapListBased;
 import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
-import com.helger.commons.compare.AbstractPartComparatorComparable;
+import com.helger.commons.compare.PartComparatorComparable;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -134,12 +134,11 @@ public class MainReadPostalCodeListExcel
     }
   }
 
-  private static final class ComparatorItemValidFrom extends AbstractPartComparatorComparable <Item, LocalDate>
+  private static final class ComparatorItemValidFrom extends PartComparatorComparable <Item, LocalDate>
   {
-    @Override
-    protected LocalDate getPart (@Nonnull final Item aElement)
+    public ComparatorItemValidFrom ()
     {
-      return aElement.getValidFrom ();
+      super (aObject -> aObject.getValidFrom ());
     }
   }
 

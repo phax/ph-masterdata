@@ -18,20 +18,17 @@ package com.helger.masterdata.exchangeratio;
 
 import java.time.LocalDate;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.compare.AbstractPartComparatorComparable;
+import com.helger.commons.compare.PartComparatorComparable;
 
 /**
  * A comparator comparing {@link ExchangeRatio} objects by their date.
  *
  * @author Philip Helger
  */
-public class ComparatorExchangeRatioDate extends AbstractPartComparatorComparable <ExchangeRatio, LocalDate>
+public class ComparatorExchangeRatioDate extends PartComparatorComparable <ExchangeRatio, LocalDate>
 {
-  @Override
-  protected LocalDate getPart (@Nonnull final ExchangeRatio aElement)
+  public ComparatorExchangeRatioDate ()
   {
-    return aElement.getDate ();
+    super (aObject -> aObject.getDate ());
   }
 }

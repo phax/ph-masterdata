@@ -18,9 +18,7 @@ package com.helger.masterdata.currency;
 
 import java.util.Currency;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.compare.AbstractPartComparatorComparable;
+import com.helger.commons.compare.PartComparatorComparable;
 
 /**
  * A Comparator implementation that compares {@link Currency} objects by their
@@ -28,11 +26,10 @@ import com.helger.commons.compare.AbstractPartComparatorComparable;
  *
  * @author Philip Helger
  */
-public final class ComparatorCurrencyCode extends AbstractPartComparatorComparable <Currency, String>
+public final class ComparatorCurrencyCode extends PartComparatorComparable <Currency, String>
 {
-  @Override
-  protected String getPart (@Nonnull final Currency aCurrency)
+  public ComparatorCurrencyCode ()
   {
-    return aCurrency.getCurrencyCode ();
+    super (aObject -> aObject.getCurrencyCode ());
   }
 }
