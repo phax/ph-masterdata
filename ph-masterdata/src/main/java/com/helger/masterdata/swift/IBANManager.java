@@ -44,7 +44,6 @@ import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
-import com.helger.datetime.format.PDTFormatter;
 import com.helger.datetime.format.PDTFromString;
 
 /**
@@ -85,7 +84,6 @@ public final class IBANManager
   private static final String ATTR_LEN = "len";
   private static final String ATTR_CHECKDIGITS = "checkdigits";
   private static final String ATTR_LAYOUT = "layout";
-  private static final String DATETIME_PATTERN = "yyyy-MM-dd";
   private static final int ILLEGAL_CHECKSUM = CGlobal.ILLEGAL_UINT;
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (IBANManager.class);
@@ -112,7 +110,7 @@ public final class IBANManager
     if (aDoc.getDocumentElement () == null)
       throw new InitializationException ("Failed to read IBAN country data [2]");
 
-    final DateTimeFormatter aDTPattern = PDTFormatter.getForPattern (DATETIME_PATTERN, null);
+    final DateTimeFormatter aDTPattern = DateTimeFormatter.ISO_DATE;
 
     for (final IMicroElement eCountry : aDoc.getDocumentElement ().getAllChildElements (ELEMENT_COUNTRY))
     {

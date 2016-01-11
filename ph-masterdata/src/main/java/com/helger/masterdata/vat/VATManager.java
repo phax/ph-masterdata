@@ -19,6 +19,7 @@ package com.helger.masterdata.vat;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,16 +69,16 @@ public class VATManager implements IVATItemProvider
   public static final IVATItem VATTYPE_NONE = new VATItem ("_none_", EVATType.OTHER, BigDecimal.ZERO, false);
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (VATManager.class);
-  private static final String DATE_FORMAT = "yyyy-MM-dd";
+  private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
   private final List <String> m_aSources = new ArrayList <String> ();
 
   // Maps from locale to the available VAT data
-  private final Map <Locale, VATCountryData> m_aVATItemsPerCountry = new HashMap <Locale, VATCountryData> ();
+  private final Map <Locale, VATCountryData> m_aVATItemsPerCountry = new HashMap <> ();
 
   // Overall VAT map (ID to item)
-  private final Map <String, IVATItem> m_aAllVATItems = new HashMap <String, IVATItem> ();
+  private final Map <String, IVATItem> m_aAllVATItems = new HashMap <> ();
 
   public VATManager ()
   {}
@@ -248,7 +249,7 @@ public class VATManager implements IVATItemProvider
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
-    final Map <String, IVATItem> ret = new HashMap <String, IVATItem> ();
+    final Map <String, IVATItem> ret = new HashMap <> ();
 
     // first get locale specific VAT types
     final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()
