@@ -36,7 +36,7 @@ public interface IAddress extends Serializable
   IAddressType getType ();
 
   /**
-   * @return The country the address resides in. The uppercase two-letter
+   * @return The country the address resides in. The upper case two-letter
    *         ISO-3166 code as used by java.util.Locale.
    */
   @Nullable

@@ -24,6 +24,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.math.MathHelper;
 import com.helger.masterdata.currency.IHasCurrency;
 
 /**
@@ -35,22 +36,28 @@ import com.helger.masterdata.currency.IHasCurrency;
 public interface ICurrencyValue extends IHasCurrency, Serializable
 {
   /**
+   * @return The contained numeric currency value.
+   */
+  @Nonnull
+  BigDecimal getValue ();
+
+  /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
    *         is &ge; 0.
    */
-  boolean isLowerThanZero ();
+  default boolean isLowerThanZero ()
+  {
+    return MathHelper.isLowerThanZero (getValue ());
+  }
 
   /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
    *         is &le; 0.
    */
-  boolean isGreaterThanZero ();
-
-  /**
-   * @return The contained numeric currency value.
-   */
-  @Nonnull
-  BigDecimal getValue ();
+  default boolean isGreaterThanZero ()
+  {
+    return MathHelper.isGreaterThanZero (getValue ());
+  }
 
   /**
    * Sum up this currency value with the passed scalar value.
@@ -72,7 +79,12 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   @Nonnull
   @CheckReturnValue
-  ICurrencyValue getAdded (long nValue);
+  default ICurrencyValue getAdded (final long nValue)
+  {
+    if (nValue == 0)
+      return this;
+    return getAdded (new BigDecimal (nValue));
+  }
 
   /**
    * Subtract this currency value with the passed scalar value.
@@ -94,7 +106,12 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   @Nonnull
   @CheckReturnValue
-  ICurrencyValue getSubtracted (long nValue);
+  default ICurrencyValue getSubtracted (final long nValue)
+  {
+    if (nValue == 0)
+      return this;
+    return getSubtracted (new BigDecimal (nValue));
+  }
 
   /**
    * Multiply this currency value with the passed scalar value.
@@ -116,7 +133,12 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   @Nonnull
   @CheckReturnValue
-  ICurrencyValue getMultiplied (long nValue);
+  default ICurrencyValue getMultiplied (final long nValue)
+  {
+    if (nValue == 1)
+      return this;
+    return getMultiplied (new BigDecimal (nValue));
+  }
 
   /**
    * Divide this currency value with the passed scalar value.
@@ -138,14 +160,22 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   @Nonnull
   @CheckReturnValue
-  ICurrencyValue getDivided (long nValue);
+  default ICurrencyValue getDivided (final long nValue)
+  {
+    if (nValue == 1)
+      return this;
+    return getDivided (new BigDecimal (nValue));
+  }
 
   /**
    * @return The value as a formatted currency including the currency sign. The
    *         scale is defined by the currency.
    */
   @Nonnull
-  String getCurrencyFormatted ();
+  default String getCurrencyFormatted ()
+  {
+    return getCurrency ().getCurrencyFormatted (getValue ());
+  }
 
   /**
    * @param nFractionDigits
@@ -153,14 +183,20 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    * @return The value as a formatted currency including the currency sign.
    */
   @Nonnull
-  String getCurrencyFormatted (@Nonnegative int nFractionDigits);
+  default String getCurrencyFormatted (@Nonnegative final int nFractionDigits)
+  {
+    return getCurrency ().getCurrencyFormatted (getValue (), nFractionDigits);
+  }
 
   /**
    * @return The value as a formatted currency excluding the currency sign. The
    *         scale is defined by the currency.
    */
   @Nonnull
-  String getValueFormatted ();
+  default String getValueFormatted ()
+  {
+    return getCurrency ().getValueFormatted (getValue ());
+  }
 
   /**
    * @param nFractionDigits
@@ -168,5 +204,8 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    * @return The value as a formatted currency excluding the currency sign.
    */
   @Nonnull
-  String getValueFormatted (@Nonnegative int nFractionDigits);
+  default String getValueFormatted (@Nonnegative final int nFractionDigits)
+  {
+    return getCurrency ().getValueFormatted (getValue (), nFractionDigits);
+  }
 }

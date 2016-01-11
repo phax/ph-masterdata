@@ -17,8 +17,6 @@
 package com.helger.masterdata.address;
 
 import java.util.Locale;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,6 +24,7 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.string.StringHelper;
 
@@ -49,7 +48,7 @@ public final class AddressHelper
       throw new InitializationException ("Search and replace arrays for street have different length!");
   }
 
-  private static final ReadWriteLock s_aRWLock = new ReentrantReadWriteLock ();
+  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
   @GuardedBy ("s_aRWLock")
   private static boolean s_bComplexAddressHandlingEnabled = DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED;
   @GuardedBy ("s_aRWLock")
@@ -60,28 +59,14 @@ public final class AddressHelper
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
   {
-    s_aRWLock.writeLock ().lock ();
-    try
-    {
+    s_aRWLock.writeLocked ( () -> {
       s_bComplexAddressHandlingEnabled = bEnabled;
-    }
-    finally
-    {
-      s_aRWLock.writeLock ().unlock ();
-    }
+    });
   }
 
   public static boolean isComplexAddressHandlingEnabled ()
   {
-    s_aRWLock.readLock ().lock ();
-    try
-    {
-      return s_bComplexAddressHandlingEnabled;
-    }
-    finally
-    {
-      s_aRWLock.readLock ().unlock ();
-    }
+    return s_aRWLock.readLocked ( () -> s_bComplexAddressHandlingEnabled);
   }
 
   /**
@@ -94,15 +79,9 @@ public final class AddressHelper
   public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
-    s_aRWLock.writeLock ().lock ();
-    try
-    {
+    s_aRWLock.writeLocked ( () -> {
       s_sCareOfPrefix = sCareOfPrefix;
-    }
-    finally
-    {
-      s_aRWLock.writeLock ().unlock ();
-    }
+    });
   }
 
   /**
@@ -112,15 +91,7 @@ public final class AddressHelper
   @Nonnull
   public static String getCareOfPrefix ()
   {
-    s_aRWLock.readLock ().lock ();
-    try
-    {
-      return s_sCareOfPrefix;
-    }
-    finally
-    {
-      s_aRWLock.readLock ().unlock ();
-    }
+    return s_aRWLock.readLocked ( () -> s_sCareOfPrefix);
   }
 
   @Nullable
@@ -136,7 +107,7 @@ public final class AddressHelper
     if (nLength == 1)
       return s.toUpperCase (aSortLocale);
 
-    // uppercase first only
+    // upper case first only
     s = s.substring (0, 1).toUpperCase (aSortLocale) + s.substring (1);
 
     return s;

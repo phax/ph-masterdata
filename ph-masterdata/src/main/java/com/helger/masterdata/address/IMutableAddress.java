@@ -53,7 +53,7 @@ public interface IMutableAddress extends IAddress, ICloneable <IMutableAddress>
 
   /**
    * @param sCountry
-   *        The country the address resides in. The uppercase two-letter
+   *        The country the address resides in. The upper case two-letter
    *        ISO-3166 code as used by java.util.Locale.
    * @param aSortLocale
    *        The locale for processing. May not be <code>null</code>.

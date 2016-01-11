@@ -41,7 +41,7 @@ public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;
-  private final Map <String, IVATItem> m_aItems = new HashMap <String, IVATItem> ();
+  private final Map <String, IVATItem> m_aItems = new HashMap <> ();
   private final String m_sCountryName;
   private final String m_sInternalComment;
 

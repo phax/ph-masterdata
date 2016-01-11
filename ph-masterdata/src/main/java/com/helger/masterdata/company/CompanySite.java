@@ -44,7 +44,7 @@ import com.helger.masterdata.telephone.TelephoneNumber;
  */
 public final class CompanySite implements IMutableCompanySite
 {
-  public static final ObjectType TYPE_COMPANY_SITE = new ObjectType ("company-site");
+  public static final ObjectType OT = new ObjectType ("company-site");
   public static final boolean DEFAULT_DELETABLE = true;
   public static final boolean DEFAULT_VIRTUALSITE = false;
 
@@ -73,7 +73,7 @@ public final class CompanySite implements IMutableCompanySite
   @Nonnull
   public ObjectType getObjectType ()
   {
-    return TYPE_COMPANY_SITE;
+    return OT;
   }
 
   @Nonnull

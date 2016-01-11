@@ -79,8 +79,8 @@ public class DeprecatedLocaleHandler
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
 
-  private final Set <Locale> m_aLocales = new HashSet <Locale> ();
-  private final Set <LocaleParts> m_aLocaleParts = new HashSet <LocaleParts> ();
+  private final Set <Locale> m_aLocales = new HashSet <> ();
+  private final Set <LocaleParts> m_aLocaleParts = new HashSet <> ();
 
   public void initFromXML (@Nonnull final IMicroDocument aDoc)
   {

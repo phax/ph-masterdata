@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,6 +29,7 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.locale.country.CountryCache;
@@ -48,8 +47,8 @@ public class PostalCodeManager
   /** Default postal code manager */
   public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20130209.xml"));
 
-  private final ReadWriteLock m_aRWLock = new ReentrantReadWriteLock ();
-  private final Map <Locale, IPostalCodeCountry> m_aMap = new HashMap <Locale, IPostalCodeCountry> ();
+  private final SimpleReadWriteLock m_aRWLock = new SimpleReadWriteLock ();
+  private final Map <Locale, IPostalCodeCountry> m_aMap = new HashMap <> ();
 
   public PostalCodeManager ()
   {}
@@ -69,17 +68,11 @@ public class PostalCodeManager
     // Unify ISO code
     final Locale aCountry = CountryCache.getInstance ().getCountry (aPostalCountry.getISO ());
 
-    m_aRWLock.writeLock ().lock ();
-    try
-    {
+    m_aRWLock.writeLocked ( () -> {
       if (m_aMap.containsKey (aCountry))
         throw new IllegalArgumentException ("A country with code '" + aCountry + "' was already regsitered!");
       m_aMap.put (aCountry, aPostalCountry);
-    }
-    finally
-    {
-      m_aRWLock.writeLock ().unlock ();
-    }
+    });
   }
 
   @Nullable
@@ -92,30 +85,14 @@ public class PostalCodeManager
   public IPostalCodeCountry getPostalCountryOfCountry (@Nullable final Locale aCountry)
   {
     final Locale aRealCountry = CountryCache.getInstance ().getCountry (aCountry);
-    m_aRWLock.readLock ().lock ();
-    try
-    {
-      return m_aMap.get (aRealCountry);
-    }
-    finally
-    {
-      m_aRWLock.readLock ().unlock ();
-    }
+    return m_aRWLock.readLocked ( () -> m_aMap.get (aRealCountry));
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public Set <Locale> getAllAvailableCountries ()
   {
-    m_aRWLock.readLock ().lock ();
-    try
-    {
-      return CollectionHelper.newSet (m_aMap.keySet ());
-    }
-    finally
-    {
-      m_aRWLock.readLock ().unlock ();
-    }
+    return m_aRWLock.readLocked ( () -> CollectionHelper.newSet (m_aMap.keySet ()));
   }
 
   /**

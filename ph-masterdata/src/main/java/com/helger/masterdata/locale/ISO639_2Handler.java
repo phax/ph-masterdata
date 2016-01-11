@@ -40,9 +40,9 @@ public class ISO639_2Handler
     static final ISO639_2Handler s_aInstance = new ISO639_2Handler ().readFromResource (new ClassPathResource (DEFAULT_RESOURCE));
   }
 
-  private final Map <String, ISO639_2Item> m_aAlpha3B = new HashMap <String, ISO639_2Item> ();
-  private final Map <String, ISO639_2Item> m_aAlpha3T = new HashMap <String, ISO639_2Item> ();
-  private final Map <String, ISO639_2Item> m_aAlpha2 = new HashMap <String, ISO639_2Item> ();
+  private final Map <String, ISO639_2Item> m_aAlpha3B = new HashMap <> ();
+  private final Map <String, ISO639_2Item> m_aAlpha3T = new HashMap <> ();
+  private final Map <String, ISO639_2Item> m_aAlpha2 = new HashMap <> ();
 
   public ISO639_2Handler ()
   {}

@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
@@ -45,7 +45,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   private final ECurrency m_eCurrency;
 
   // All items sorted ascending by the minimum quantity
-  private final List <IMutablePriceGraduationItem> m_aItems = new ArrayList <IMutablePriceGraduationItem> ();
+  private final List <IMutablePriceGraduationItem> m_aItems = new ArrayList <> ();
 
   /**
    * Create a new price graduation valid only for the given currency and VAT
@@ -78,10 +78,10 @@ public class PriceGraduation implements IMutablePriceGraduation
   }
 
   @Nonnull
-  @ReturnsImmutableObject
+  @ReturnsMutableCopy
   public List <? extends IMutablePriceGraduationItem> getAllItems ()
   {
-    return CollectionHelper.makeUnmodifiable (m_aItems);
+    return CollectionHelper.newList (m_aItems);
   }
 
   @Nullable

@@ -50,7 +50,7 @@ public final class UnitManager
     static final UnitManager s_aInstance = new UnitManager (DEFAULT_UNIT_RES);
   }
 
-  private final Map <Integer, UnitSector> m_aSectors = new HashMap <Integer, UnitSector> ();
+  private final Map <Integer, UnitSector> m_aSectors = new HashMap <> ();
 
   private void _readFromFile (@Nonnull final IReadableResource aRes)
   {

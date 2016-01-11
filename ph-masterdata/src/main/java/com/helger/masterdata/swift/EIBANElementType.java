@@ -19,6 +19,8 @@ package com.helger.masterdata.swift;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.commons.lang.EnumHelper;
+
 /**
  * Possible elements of an IBAN description.
  *
@@ -55,9 +57,6 @@ public enum EIBANElementType
   @Nullable
   public static EIBANElementType getElementTypeFromChar (final char c)
   {
-    for (final EIBANElementType eIBANElement : values ())
-      if (eIBANElement.m_sField.indexOf (c) != -1)
-        return eIBANElement;
-    return null;
+    return EnumHelper.findFirst (EIBANElementType.class, e -> e.m_sField.indexOf (c) != -1);
   }
 }

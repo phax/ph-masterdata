@@ -18,6 +18,8 @@ package com.helger.masterdata.currency;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.lang.EnumHelper;
+
 /**
  * Represents the different possible decimal separators.
  *
@@ -49,9 +51,6 @@ public enum EDecimalSeparator
   @Nullable
   public static EDecimalSeparator getFromCharOrDefault (final char cSep, @Nullable final EDecimalSeparator eDefault)
   {
-    for (final EDecimalSeparator eDecSep : EDecimalSeparator.values ())
-      if (eDecSep.getChar () == cSep)
-        return eDecSep;
-    return eDefault;
+    return EnumHelper.findFirst (EDecimalSeparator.class, eSep -> eSep.getChar () == cSep, eDefault);
   }
 }

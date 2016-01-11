@@ -18,6 +18,8 @@ package com.helger.masterdata.currency;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.lang.EnumHelper;
+
 /**
  * Represents the different possible grouping separators.
  *
@@ -51,9 +53,6 @@ public enum EGroupingSeparator
   @Nullable
   public static EGroupingSeparator getFromCharOrDefault (final char cSep, @Nullable final EGroupingSeparator eDefault)
   {
-    for (final EGroupingSeparator eDecSep : EGroupingSeparator.values ())
-      if (eDecSep.getChar () == cSep)
-        return eDecSep;
-    return eDefault;
+    return EnumHelper.findFirst (EGroupingSeparator.class, eSep -> eSep.getChar () == cSep, eDefault);
   }
 }

@@ -18,6 +18,7 @@ package com.helger.masterdata.din;
 
 import javax.annotation.Nonnegative;
 
+import com.helger.commons.CGlobal;
 import com.helger.commons.id.IHasID;
 
 public interface IDINSize extends IHasID <String>
@@ -33,7 +34,10 @@ public interface IDINSize extends IHasID <String>
    *         <code>getWidthMM() / 10.0</code>
    */
   @Nonnegative
-  double getWidthCM ();
+  default double getWidthCM ()
+  {
+    return getWidthMM () / 10.0;
+  }
 
   /**
    * Calculate the width in pixel for the specified DPI count
@@ -43,7 +47,10 @@ public interface IDINSize extends IHasID <String>
    * @return The pixel width.
    */
   @Nonnegative
-  double getWidthPixel (@Nonnegative int nDPI);
+  default double getWidthPixel (@Nonnegative final int nDPI)
+  {
+    return nDPI * getWidthMM () / (double) CGlobal.MM_PER_INCH;
+  }
 
   /**
    * Calculate the width in pixel for the specified DPI count
@@ -53,7 +60,10 @@ public interface IDINSize extends IHasID <String>
    * @return The rounded pixel width.
    */
   @Nonnegative
-  long getWidthPixelLong (@Nonnegative int nDPI);
+  default long getWidthPixelLong (@Nonnegative final int nDPI)
+  {
+    return Math.round (getWidthPixel (nDPI));
+  }
 
   /**
    * Calculate the required DPI count for the specified pixel count
@@ -63,7 +73,10 @@ public interface IDINSize extends IHasID <String>
    * @return The necessary dots per inch for the specified pixel count
    */
   @Nonnegative
-  double getWidthDPI (@Nonnegative int nPixel);
+  default double getWidthDPI (@Nonnegative final int nPixel)
+  {
+    return nPixel * (double) CGlobal.MM_PER_INCH / getWidthMM ();
+  }
 
   /**
    * Calculate the required DPI count for the specified pixel count
@@ -73,7 +86,10 @@ public interface IDINSize extends IHasID <String>
    * @return The necessary dots per inch for the specified pixel count
    */
   @Nonnegative
-  long getWidthDPILong (@Nonnegative int nPixel);
+  default long getWidthDPILong (@Nonnegative final int nPixel)
+  {
+    return Math.round (getWidthDPI (nPixel));
+  }
 
   /**
    * @return The height in millimeter. Always &gt; 0.
@@ -86,7 +102,10 @@ public interface IDINSize extends IHasID <String>
    *         <code>getHeightMM() / 10.0</code>
    */
   @Nonnegative
-  double getHeightCM ();
+  default double getHeightCM ()
+  {
+    return getHeightMM () / 10.0;
+  }
 
   /**
    * Calculate the height in pixel for the specified DPI count
@@ -96,7 +115,10 @@ public interface IDINSize extends IHasID <String>
    * @return The pixel height.
    */
   @Nonnegative
-  double getHeightPixel (@Nonnegative int nDPI);
+  default double getHeightPixel (@Nonnegative final int nDPI)
+  {
+    return nDPI * getHeightMM () / (double) CGlobal.MM_PER_INCH;
+  }
 
   /**
    * Calculate the height in pixel for the specified DPI count
@@ -106,7 +128,10 @@ public interface IDINSize extends IHasID <String>
    * @return The rounded pixel height.
    */
   @Nonnegative
-  long getHeightPixelLong (@Nonnegative int nDPI);
+  default long getHeightPixelLong (@Nonnegative final int nDPI)
+  {
+    return Math.round (getHeightPixel (nDPI));
+  }
 
   /**
    * Calculate the required DPI count for the specified pixel count
@@ -116,7 +141,10 @@ public interface IDINSize extends IHasID <String>
    * @return The necessary dots per inch for the specified pixel count
    */
   @Nonnegative
-  double getHeightDPI (@Nonnegative int nPixel);
+  default double getHeightDPI (@Nonnegative final int nPixel)
+  {
+    return nPixel * (double) CGlobal.MM_PER_INCH / getHeightMM ();
+  }
 
   /**
    * Calculate the required DPI count for the specified pixel count
@@ -126,5 +154,8 @@ public interface IDINSize extends IHasID <String>
    * @return The necessary dots per inch for the specified pixel count
    */
   @Nonnegative
-  long getHeightDPILong (@Nonnegative int nPixel);
+  default long getHeightDPILong (@Nonnegative final int nPixel)
+  {
+    return Math.round (getHeightDPI (nPixel));
+  }
 }

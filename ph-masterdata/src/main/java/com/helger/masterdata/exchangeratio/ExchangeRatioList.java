@@ -44,10 +44,10 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
+public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
 {
   private final ECurrency m_eCurrency;
-  private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <ExchangeRatio> (new ComparatorExchangeRatioDate ().setSortOrder (ESortOrder.ASCENDING));
+  private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <> (new ComparatorExchangeRatioDate ().setSortOrder (ESortOrder.ASCENDING));
 
   public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
   {

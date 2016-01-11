@@ -72,7 +72,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   {
     if (StringHelper.hasText (sStatus))
     {
-      final List <EUNCodelistStatus> ret = new ArrayList <EUNCodelistStatus> ();
+      final List <EUNCodelistStatus> ret = new ArrayList <> ();
       for (final EUNCodelistStatus eStatus : values ())
         if (sStatus.indexOf (eStatus.m_cText) != -1)
           ret.add (eStatus);

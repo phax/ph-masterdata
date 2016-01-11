@@ -127,7 +127,7 @@ public class PostalCodeCountry implements IPostalCodeCountry
   @ReturnsMutableCopy
   public List <String> getAllExamples ()
   {
-    final List <String> ret = new ArrayList <String> ();
+    final List <String> ret = new ArrayList <> ();
     for (final PostalCodeFormat aFormat : m_aFormats)
       ret.add (aFormat.getExample ());
     return ret;

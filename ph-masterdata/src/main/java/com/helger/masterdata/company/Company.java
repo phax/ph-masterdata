@@ -43,7 +43,7 @@ import com.helger.commons.type.ObjectType;
  */
 public final class Company implements IMutableCompany
 {
-  public static final ObjectType TYPE_COMPANY = new ObjectType ("company");
+  public static final ObjectType OT = new ObjectType ("company");
 
   public static final String FIELD_ID = "id";
   public static final String FIELD_PUBLICNAME = "pubname";
@@ -53,7 +53,7 @@ public final class Company implements IMutableCompany
   private final String m_sID;
   private String m_sPublicName;
   private String m_sOfficialName;
-  private final Map <String, IMutableCompanySite> m_aAllSites = new HashMap <String, IMutableCompanySite> ();
+  private final Map <String, IMutableCompanySite> m_aAllSites = new HashMap <> ();
   private IMutableCompanySite m_aHeadQuarterSite;
 
   public Company (@Nonnull @Nonempty final String sID)
@@ -64,7 +64,7 @@ public final class Company implements IMutableCompany
   @Nonnull
   public ObjectType getObjectType ()
   {
-    return TYPE_COMPANY;
+    return OT;
   }
 
   @Nonnull
@@ -121,7 +121,7 @@ public final class Company implements IMutableCompany
   @ReturnsMutableCopy
   public Collection <IMutableCompanySite> getAllNonVirtualSites ()
   {
-    final List <IMutableCompanySite> ret = new ArrayList <IMutableCompanySite> ();
+    final List <IMutableCompanySite> ret = new ArrayList <> ();
     for (final IMutableCompanySite aSite : m_aAllSites.values ())
       if (!aSite.isVirtualSite ())
         ret.add (aSite);
@@ -132,7 +132,7 @@ public final class Company implements IMutableCompany
   @ReturnsMutableCopy
   public Collection <IMutableCompanySite> getAllVirtualSites ()
   {
-    final List <IMutableCompanySite> ret = new ArrayList <IMutableCompanySite> ();
+    final List <IMutableCompanySite> ret = new ArrayList <> ();
     for (final IMutableCompanySite aSite : m_aAllSites.values ())
       if (aSite.isVirtualSite ())
         ret.add (aSite);

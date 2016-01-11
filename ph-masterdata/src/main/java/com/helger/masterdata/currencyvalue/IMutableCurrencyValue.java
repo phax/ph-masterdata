@@ -42,7 +42,12 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
 
   @Nonnull
   @CheckReturnValue
-  IMutableCurrencyValue getAdded (long nValue);
+  default IMutableCurrencyValue getAdded (final long nValue)
+  {
+    if (nValue == 0)
+      return this;
+    return getAdded (new BigDecimal (nValue));
+  }
 
   @Nonnull
   @CheckReturnValue
@@ -50,7 +55,12 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
 
   @Nonnull
   @CheckReturnValue
-  IMutableCurrencyValue getSubtracted (long nValue);
+  default IMutableCurrencyValue getSubtracted (final long nValue)
+  {
+    if (nValue == 0)
+      return this;
+    return getSubtracted (new BigDecimal (nValue));
+  }
 
   @Nonnull
   @CheckReturnValue
@@ -58,7 +68,12 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
 
   @Nonnull
   @CheckReturnValue
-  IMutableCurrencyValue getMultiplied (long nValue);
+  default IMutableCurrencyValue getMultiplied (final long nValue)
+  {
+    if (nValue == 1)
+      return this;
+    return getMultiplied (new BigDecimal (nValue));
+  }
 
   @Nonnull
   @CheckReturnValue
@@ -66,7 +81,12 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
 
   @Nonnull
   @CheckReturnValue
-  IMutableCurrencyValue getDivided (long nValue);
+  default IMutableCurrencyValue getDivided (final long nValue)
+  {
+    if (nValue == 1)
+      return this;
+    return getDivided (new BigDecimal (nValue));
+  }
 
   @Nonnull
   EChange setValue (@Nonnull BigDecimal aValue);

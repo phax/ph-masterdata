@@ -37,7 +37,7 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class CurrencyValue extends AbstractCurrencyValue implements IMutableCurrencyValue
+public final class CurrencyValue implements IMutableCurrencyValue
 {
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;
@@ -75,16 +75,6 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
     return EChange.CHANGED;
   }
 
-  public boolean isLowerThanZero ()
-  {
-    return MathHelper.isLowerThanZero (m_aValue);
-  }
-
-  public boolean isGreaterThanZero ()
-  {
-    return MathHelper.isGreaterThanZero (m_aValue);
-  }
-
   @Nonnull
   public BigDecimal getValue ()
   {
@@ -110,7 +100,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
 
   @Nonnull
   @CheckReturnValue
-  public IMutableCurrencyValue getAdded (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -120,16 +110,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
 
   @Nonnull
   @CheckReturnValue
-  public IMutableCurrencyValue getAdded (final long nValue)
-  {
-    if (nValue == 0)
-      return this;
-    return getAdded (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public IMutableCurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -139,16 +120,7 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
 
   @Nonnull
   @CheckReturnValue
-  public IMutableCurrencyValue getSubtracted (final long nValue)
-  {
-    if (nValue == 0)
-      return this;
-    return getSubtracted (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public IMutableCurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -158,31 +130,13 @@ public final class CurrencyValue extends AbstractCurrencyValue implements IMutab
 
   @Nonnull
   @CheckReturnValue
-  public IMutableCurrencyValue getMultiplied (final long nValue)
-  {
-    if (nValue == 1)
-      return this;
-    return getMultiplied (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public IMutableCurrencyValue getDivided (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
     return new CurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public IMutableCurrencyValue getDivided (final long nValue)
-  {
-    if (nValue == 1)
-      return this;
-    return getDivided (new BigDecimal (nValue));
   }
 
   @Nonnull

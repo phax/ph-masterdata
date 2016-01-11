@@ -36,7 +36,7 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @Immutable
-public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
+public final class ReadOnlyCurrencyValue implements ICurrencyValue
 {
   private final ECurrency m_eCurrency;
   private final BigDecimal m_aValue;
@@ -58,16 +58,6 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
     return m_eCurrency;
   }
 
-  public boolean isLowerThanZero ()
-  {
-    return MathHelper.isLowerThanZero (m_aValue);
-  }
-
-  public boolean isGreaterThanZero ()
-  {
-    return MathHelper.isGreaterThanZero (m_aValue);
-  }
-
   @Nonnull
   public BigDecimal getValue ()
   {
@@ -76,7 +66,7 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getAdded (@Nonnull final BigDecimal aValue)
+  public ReadOnlyCurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -86,16 +76,7 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getAdded (final long nValue)
-  {
-    if (nValue == 0)
-      return this;
-    return getAdded (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public ICurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
+  public ReadOnlyCurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToZero (aValue))
@@ -105,16 +86,7 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getSubtracted (final long nValue)
-  {
-    if (nValue == 0)
-      return this;
-    return getSubtracted (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public ICurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
+  public ReadOnlyCurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
@@ -124,31 +96,13 @@ public final class ReadOnlyCurrencyValue extends AbstractCurrencyValue
 
   @Nonnull
   @CheckReturnValue
-  public ICurrencyValue getMultiplied (final long nValue)
-  {
-    if (nValue == 1)
-      return this;
-    return getMultiplied (new BigDecimal (nValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public ICurrencyValue getDivided (@Nonnull final BigDecimal aValue)
+  public ReadOnlyCurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (MathHelper.isEqualToOne (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
     return new ReadOnlyCurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));
-  }
-
-  @Nonnull
-  @CheckReturnValue
-  public ICurrencyValue getDivided (final long nValue)
-  {
-    if (nValue == 1)
-      return this;
-    return getDivided (new BigDecimal (nValue));
   }
 
   @Override

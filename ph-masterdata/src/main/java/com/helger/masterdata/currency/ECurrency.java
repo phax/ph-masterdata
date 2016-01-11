@@ -250,7 +250,7 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   @ReturnsMutableCopy
   private static List <Locale> _getAsLocales (@Nonnull final String... aCountries)
   {
-    final List <Locale> ret = new ArrayList <Locale> ();
+    final List <Locale> ret = new ArrayList <> ();
     for (final String sCountry : aCountries)
       ret.add (LocaleCache.getInstance ().getLocale (sCountry));
     return ret;

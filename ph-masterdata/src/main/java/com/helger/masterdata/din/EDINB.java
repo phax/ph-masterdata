@@ -20,7 +20,6 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.CGlobal;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.lang.EnumHelper;
 
@@ -71,69 +70,9 @@ public enum EDINB implements IDINSize
   }
 
   @Nonnegative
-  public double getWidthCM ()
-  {
-    return m_nWidthMM / 10.0;
-  }
-
-  @Nonnegative
-  public double getWidthPixel (@Nonnegative final int nDPI)
-  {
-    return nDPI * m_nWidthMM / (double) CGlobal.MM_PER_INCH;
-  }
-
-  @Nonnegative
-  public long getWidthPixelLong (@Nonnegative final int nDPI)
-  {
-    return Math.round (getWidthPixel (nDPI));
-  }
-
-  @Nonnegative
-  public double getWidthDPI (@Nonnegative final int nPixel)
-  {
-    return nPixel * (double) CGlobal.MM_PER_INCH / m_nWidthMM;
-  }
-
-  @Nonnegative
-  public long getWidthDPILong (@Nonnegative final int nPixel)
-  {
-    return Math.round (getWidthDPI (nPixel));
-  }
-
-  @Nonnegative
   public int getHeightMM ()
   {
     return m_nHeightMM;
-  }
-
-  @Nonnegative
-  public double getHeightCM ()
-  {
-    return m_nHeightMM / 10.0;
-  }
-
-  @Nonnegative
-  public double getHeightPixel (@Nonnegative final int nDPI)
-  {
-    return nDPI * m_nHeightMM / (double) CGlobal.MM_PER_INCH;
-  }
-
-  @Nonnegative
-  public long getHeightPixelLong (@Nonnegative final int nDPI)
-  {
-    return Math.round (getHeightPixel (nDPI));
-  }
-
-  @Nonnegative
-  public double getHeightDPI (@Nonnegative final int nPixel)
-  {
-    return nPixel * (double) CGlobal.MM_PER_INCH / m_nHeightMM;
-  }
-
-  @Nonnegative
-  public long getHeightDPILong (@Nonnegative final int nPixel)
-  {
-    return Math.round (getHeightDPI (nPixel));
   }
 
   @Nullable

@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.annotation.ReturnsImmutableObject;
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.lang.IHasSize;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
@@ -74,7 +74,7 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency, Serializable
    *         quantity. Never <code>null</code>.
    */
   @Nonnull
-  @ReturnsImmutableObject
+  @ReturnsMutableCopy
   List <? extends IPriceGraduationItem> getAllItems ();
 
   /**
