@@ -76,7 +76,7 @@ public class VATINStructure implements IHasCountry
   {
     if (StringHelper.hasNoText (sVATIN))
       return false;
-    final String sRealVATIN = StringHelper.replaceAll (sVATIN, " ", "").toUpperCase ();
+    final String sRealVATIN = StringHelper.removeAll (sVATIN, " ").toUpperCase (Locale.US);
     return m_aPattern.matcher (sRealVATIN).matches ();
   }
 

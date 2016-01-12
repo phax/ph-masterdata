@@ -29,6 +29,7 @@ import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.convert.MicroTypeConverter;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.regex.RegExHelper;
+import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.text.IMultilingualText;
 
@@ -83,8 +84,7 @@ public final class CreateQuantityEnumFuncTest
         sEnumName = sEnumName.substring (1);
       while (sEnumName.endsWith ("_"))
         sEnumName = sEnumName.substring (0, sEnumName.length () - 1);
-      while (sEnumName.contains ("__"))
-        sEnumName = sEnumName.replace ("__", "_");
+      sEnumName = StringHelper.replaceAllRepeatedly (sEnumName, "__", "_");
       aEnumNames.put (aEntry.getKey (), sEnumName);
     }
 
@@ -101,7 +101,7 @@ public final class CreateQuantityEnumFuncTest
           .append (sEnumName)
           .append ("),");
 
-      final String sEN = aTexts.get (aQuantity).replace ("\n", "\\n");
+      final String sEN = StringHelper.replaceAll (aTexts.get (aQuantity), "\n", "\\n");
       aSB2.append (sEnumName).append (" (\"").append (sEN).append ("\", \"").append (sEN).append ("\"),");
     }
   }

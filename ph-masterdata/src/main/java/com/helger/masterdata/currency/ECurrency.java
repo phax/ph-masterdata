@@ -322,7 +322,11 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
 
     // Extract value pattern from currency pattern (without currency symbol)
     m_sCurrencyPattern = m_aCurrencyFormat.toPattern ();
-    m_sValuePattern = m_sCurrencyPattern.replace ("\u00A4 ", "").replace (" \u00A4", "").replace ("\u00A4", "");
+    String sVP = m_sCurrencyPattern;
+    sVP = StringHelper.removeAll (sVP, "\u00A4 ");
+    sVP = StringHelper.removeAll (sVP, " \u00A4");
+    sVP = StringHelper.removeAll (sVP, "\u00A4");
+    m_sValuePattern = sVP;
 
     // Use the decimal symbols from the currency format
     m_aValueFormat = new DecimalFormat (m_sValuePattern, m_aCurrencyFormat.getDecimalFormatSymbols ());
