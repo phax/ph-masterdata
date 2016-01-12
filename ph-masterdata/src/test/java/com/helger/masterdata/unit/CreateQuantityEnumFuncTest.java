@@ -47,7 +47,7 @@ public final class CreateQuantityEnumFuncTest
     final IMicroDocument aDoc = MicroReader.readMicroXML (UnitManager.DEFAULT_UNIT_RES);
     final IMicroElement eRoot = aDoc.getDocumentElement ();
     // Read all quantities
-    final Map <Integer, String> aTexts = new LinkedHashMap <Integer, String> ();
+    final Map <Integer, String> aTexts = new LinkedHashMap <> ();
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
       final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
@@ -58,7 +58,7 @@ public final class CreateQuantityEnumFuncTest
     }
 
     // Build enum
-    final Map <Integer, String> aEnumNames = new LinkedHashMap <Integer, String> ();
+    final Map <Integer, String> aEnumNames = new LinkedHashMap <> ();
     for (final Map.Entry <Integer, String> aEntry : aTexts.entrySet ())
     {
       String sEnumName = aEntry.getValue ().toUpperCase (Locale.US);
@@ -80,10 +80,8 @@ public final class CreateQuantityEnumFuncTest
       }
 
       sEnumName = RegExHelper.getAsIdentifier (sEnumName, "_");
-      while (sEnumName.startsWith ("_"))
-        sEnumName = sEnumName.substring (1);
-      while (sEnumName.endsWith ("_"))
-        sEnumName = sEnumName.substring (0, sEnumName.length () - 1);
+      sEnumName = StringHelper.trimStartRepeatedly (sEnumName, '_');
+      sEnumName = StringHelper.trimEndRepeatedly (sEnumName, '_');
       sEnumName = StringHelper.replaceAllRepeatedly (sEnumName, "__", "_");
       aEnumNames.put (aEntry.getKey (), sEnumName);
     }
