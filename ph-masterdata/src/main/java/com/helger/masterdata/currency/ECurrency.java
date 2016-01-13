@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnegative;
@@ -39,7 +40,6 @@ import com.helger.commons.annotation.CodingStyleguideUnaware;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.LocaleCache;
@@ -396,7 +396,7 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
    * @return <code>true</code> if the filter matched at least one locale,
    *         <code>false</code> if it matched none
    */
-  public boolean isLocaleFilterMatchingAnyLocale (@Nonnull final IFilter <Locale> aLocaleFilter)
+  public boolean isLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     for (final Locale aCurrencyLocale : m_aLocales)
@@ -413,7 +413,7 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
    * @return <code>true</code> if the filter matched all locales,
    *         <code>false</code> if it didn't match at least one locale
    */
-  public boolean isLocaleFilterMatchingAllLocales (@Nonnull final IFilter <Locale> aLocaleFilter)
+  public boolean isLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     for (final Locale aCurrencyLocale : m_aLocales)
@@ -843,14 +843,14 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final IFilter <Locale> aLocaleFilter)
+  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter)
   {
     return getAllCurrenciesWithLocaleFilterMatchingAnyLocale (aLocaleFilter, false);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final IFilter <Locale> aLocaleFilter,
+  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter,
                                                                                     final boolean bIncludeDeprecated)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
@@ -865,14 +865,14 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final IFilter <Locale> aLocaleFilter)
+  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter)
   {
     return getAllCurrenciesWithLocaleFilterMatchingAllLocales (aLocaleFilter, false);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final IFilter <Locale> aLocaleFilter,
+  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter,
                                                                                      final boolean bIncludeDeprecated)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
