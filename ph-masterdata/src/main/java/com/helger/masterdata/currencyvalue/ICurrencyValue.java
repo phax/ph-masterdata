@@ -83,7 +83,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   {
     if (nValue == 0)
       return this;
-    return getAdded (new BigDecimal (nValue));
+    return getAdded (MathHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -110,7 +110,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   {
     if (nValue == 0)
       return this;
-    return getSubtracted (new BigDecimal (nValue));
+    return getSubtracted (MathHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -137,7 +137,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   {
     if (nValue == 1)
       return this;
-    return getMultiplied (new BigDecimal (nValue));
+    return getMultiplied (MathHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -164,7 +164,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   {
     if (nValue == 1)
       return this;
-    return getDivided (new BigDecimal (nValue));
+    return getDivided (MathHelper.toBigDecimal (nValue));
   }
 
   /**

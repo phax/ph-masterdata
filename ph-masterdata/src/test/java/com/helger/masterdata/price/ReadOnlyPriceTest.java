@@ -25,6 +25,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
@@ -54,7 +55,7 @@ public final class ReadOnlyPriceTest
     try
     {
       // null VAT value not allowed
-      new ReadOnlyPrice (ECurrency.AMD, new BigDecimal (5), null);
+      new ReadOnlyPrice (ECurrency.AMD, MathHelper.toBigDecimal (5), null);
       fail ();
     }
     catch (final NullPointerException ex)

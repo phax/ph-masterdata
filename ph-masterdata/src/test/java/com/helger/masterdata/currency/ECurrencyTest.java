@@ -40,6 +40,7 @@ import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.ComparatorLocale;
 import com.helger.commons.locale.country.CountryCache;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
@@ -269,8 +270,8 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
   @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED")
   public void testGetDivided ()
   {
-    final BigDecimal aBD3 = new BigDecimal (3);
-    final BigDecimal aBD = new BigDecimal (2);
+    final BigDecimal aBD3 = MathHelper.toBigDecimal (3);
+    final BigDecimal aBD = MathHelper.toBigDecimal (2);
     try
     {
       // 2/3 == 0.666666666....

@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
@@ -33,7 +34,7 @@ public final class CurrencyValueTest extends AbstractCommonsTestCase
   @Test
   public void testGetFormatted ()
   {
-    IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal (5));
+    IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, MathHelper.toBigDecimal (5));
     assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));
     assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());

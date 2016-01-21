@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
@@ -204,7 +205,7 @@ public final class PriceGraduationTest
 
     for (int i = 2; i <= 100; ++i)
     {
-      final BigDecimal aNetAmount = new BigDecimal ("19.9").add (new BigDecimal (i));
+      final BigDecimal aNetAmount = new BigDecimal ("19.9").add (MathHelper.toBigDecimal (i));
       pg1.addItem (new PriceGraduationItem (i, aNetAmount));
       pg2.addItem (new PriceGraduationItem (i, aNetAmount));
       CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);

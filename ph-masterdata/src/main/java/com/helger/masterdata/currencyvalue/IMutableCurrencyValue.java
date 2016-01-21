@@ -22,6 +22,7 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.lang.ICloneable;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
 
@@ -46,7 +47,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   {
     if (nValue == 0)
       return this;
-    return getAdded (new BigDecimal (nValue));
+    return getAdded (MathHelper.toBigDecimal (nValue));
   }
 
   @Nonnull
@@ -59,7 +60,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   {
     if (nValue == 0)
       return this;
-    return getSubtracted (new BigDecimal (nValue));
+    return getSubtracted (MathHelper.toBigDecimal (nValue));
   }
 
   @Nonnull
@@ -72,7 +73,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   {
     if (nValue == 1)
       return this;
-    return getMultiplied (new BigDecimal (nValue));
+    return getMultiplied (MathHelper.toBigDecimal (nValue));
   }
 
   @Nonnull
@@ -85,7 +86,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   {
     if (nValue == 1)
       return this;
-    return getDivided (new BigDecimal (nValue));
+    return getDivided (MathHelper.toBigDecimal (nValue));
   }
 
   @Nonnull
