@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.datetime.format.PDTFormatPatterns;
+import com.helger.datetime.format.PDTFormatter;
 import com.helger.datetime.format.PDTFromString;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
@@ -46,7 +47,8 @@ public abstract class AbstractStringDateTimeValidator extends AbstractStringVali
   public final IValidationResult validate (@Nullable final String sValue)
   {
     final Locale aParseLocale = getParseLocale ();
-    final ZonedDateTime aZDT = PDTFromString.getDefaultDateTimeFromString (sValue, aParseLocale);
+    final ZonedDateTime aZDT = PDTFromString.getZonedDateTimeFromString (sValue,
+                                                                    PDTFormatter.getDefaultFormatterDateTime (aParseLocale));
     if (aZDT != null)
       return ValidationResultSuccess.getInstance ();
     // Try without zone
