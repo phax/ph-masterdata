@@ -94,9 +94,6 @@ public enum EUNCodelistStatus implements IHasID <String>
   @Nonnull
   public static String getAsString (@Nonnull final EUNCodelistStatus [] aStatus)
   {
-    final List <String> ret = new ArrayList <String> ();
-    for (final EUNCodelistStatus eStatus : aStatus)
-      ret.add (eStatus.getID ());
-    return StringHelper.getImploded (",", ret);
+    return StringHelper.getImploded (",", aStatus, eStatus -> eStatus.getID ());
   }
 }
