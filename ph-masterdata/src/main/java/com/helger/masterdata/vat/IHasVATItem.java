@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.vat;
 
+import java.math.BigDecimal;
+
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Nonempty;
@@ -32,6 +34,15 @@ public interface IHasVATItem
    */
   @Nonnull
   IVATItem getVATItem ();
+
+  /**
+   * @return The VAT percentage of this object. May not be <code>null</code>.
+   */
+  @Nonnull
+  default BigDecimal getVATPercentage ()
+  {
+    return getVATItem ().getPercentage ();
+  }
 
   /**
    * @return The IDof the VAT item of this object. May not be <code>null</code>.
