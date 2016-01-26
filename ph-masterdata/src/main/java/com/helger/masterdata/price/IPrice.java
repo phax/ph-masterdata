@@ -39,17 +39,35 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
   @Nonnull
   ICurrencyValue getNetAmount ();
 
+  @Nonnull
+  default BigDecimal getNetValue ()
+  {
+    return getNetAmount ().getValue ();
+  }
+
   /**
    * @return The gross amount of this price (with VAT).
    */
   @Nonnull
   ICurrencyValue getGrossAmount ();
 
+  @Nonnull
+  default BigDecimal getGrossValue ()
+  {
+    return getGrossAmount ().getValue ();
+  }
+
   /**
    * @return The tax amount of this price (=net amount * percentage / 100).
    */
   @Nonnull
   ICurrencyValue getTaxAmount ();
+
+  @Nonnull
+  default BigDecimal getTaxValue ()
+  {
+    return getTaxAmount ().getValue ();
+  }
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
