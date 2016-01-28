@@ -18,6 +18,7 @@ package com.helger.masterdata.exchangeratio;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
@@ -30,7 +31,6 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.compare.ESortOrder;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -47,7 +47,7 @@ import com.helger.masterdata.currency.ECurrency;
 public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
 {
   private final ECurrency m_eCurrency;
-  private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <> (new ComparatorExchangeRatioDate ().setSortOrder (ESortOrder.ASCENDING));
+  private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
 
   public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
   {

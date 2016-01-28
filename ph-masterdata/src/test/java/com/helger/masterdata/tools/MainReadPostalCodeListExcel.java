@@ -23,6 +23,7 @@ import java.time.Month;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -44,7 +45,6 @@ import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.multimap.IMultiMapListBased;
 import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
-import com.helger.commons.compare.PartComparatorComparable;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -134,14 +134,6 @@ public class MainReadPostalCodeListExcel
     }
   }
 
-  private static final class ComparatorItemValidFrom extends PartComparatorComparable <Item, LocalDate>
-  {
-    public ComparatorItemValidFrom ()
-    {
-      super (aObject -> aObject.getValidFrom ());
-    }
-  }
-
   public static void main (final String [] args) throws Exception
   {
     final String sSource = "http://en.wikipedia.org/wiki/List_of_postal_codes";
@@ -209,7 +201,7 @@ public class MainReadPostalCodeListExcel
     // Sort all sub-lists by introduction date
     for (final List <Item> aSubList : aMap.values ())
     {
-      CollectionHelper.getSortedInline (aSubList, new ComparatorItemValidFrom ());
+      CollectionHelper.getSortedInline (aSubList, Comparator.comparing (Item::getValidFrom));
       for (int i = 1; i < aSubList.size (); ++i)
       {
         final Item aPrevItem = aSubList.get (i - 1);

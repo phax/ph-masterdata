@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
@@ -38,7 +39,6 @@ import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.multimap.IMultiMapSetBased;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.locale.ComparatorLocale;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.AbstractCommonsTestCase;
@@ -399,11 +399,11 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
       }
     }
     for (final Map.Entry <Currency, Set <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
-                                                                                       new ComparatorCurrencyCode ())
+                                                                                       Comparator.comparing (Currency::getCurrencyCode))
                                                                       .entrySet ())
     {
       String sLocale = "";
-      for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), new ComparatorLocale ()))
+      for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), Comparator.comparing (Locale::toString)))
       {
         if (sLocale.length () > 0)
           sLocale += ',';

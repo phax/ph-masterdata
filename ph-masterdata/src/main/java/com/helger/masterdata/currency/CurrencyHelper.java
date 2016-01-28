@@ -19,6 +19,7 @@ package com.helger.masterdata.currency;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Comparator;
 import java.util.Currency;
 import java.util.HashMap;
 import java.util.Locale;
@@ -45,8 +46,8 @@ import com.helger.commons.locale.LocaleParser;
 public final class CurrencyHelper
 {
   // Sorted set of all available currencies
-  private static SortedSet <Currency> s_aAllCurrencies = new TreeSet <Currency> (new ComparatorCurrencyCode ());
-  private static Map <Locale, Currency> s_aLocaleToCurrency = new HashMap <Locale, Currency> ();
+  private static SortedSet <Currency> s_aAllCurrencies = new TreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
+  private static Map <Locale, Currency> s_aLocaleToCurrency = new HashMap <> ();
 
   static
   {
