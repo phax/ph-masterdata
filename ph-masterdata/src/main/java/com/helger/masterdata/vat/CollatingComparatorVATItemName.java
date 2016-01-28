@@ -28,9 +28,9 @@ import com.helger.commons.text.display.CollatingComparatorHasDisplayText;
  *
  * @author Philip Helger
  */
-public class ComparatorVATItemName extends CollatingComparatorHasDisplayText <IVATItem>
+public class CollatingComparatorVATItemName extends CollatingComparatorHasDisplayText <IVATItem>
 {
-  public ComparatorVATItemName (@Nullable final Locale aSortLocale, @Nonnull final Locale aContentLocale)
+  public CollatingComparatorVATItemName (@Nullable final Locale aSortLocale, @Nonnull final Locale aContentLocale)
   {
     super (aSortLocale, aContentLocale);
   }
