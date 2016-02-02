@@ -44,8 +44,6 @@ import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
-import com.helger.masterdata.locale.FilterLocaleCountryOnAnyContinent;
-import com.helger.masterdata.locale.FilterLocaleCountryOnContinent;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
@@ -328,6 +326,8 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
   {
     assertTrue (ECurrency.EEK.isDeprecated ());
     assertFalse (ECurrency.EUR.isDeprecated ());
+    assertTrue (ECurrency.getAllCurrencies (ECurrency.filterDeprecated ()).contains (ECurrency.EEK));
+    assertFalse (ECurrency.getAllCurrencies ().contains (ECurrency.EEK));
   }
 
   @Test
@@ -340,27 +340,27 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
       if (!e.isDeprecated ())
         for (final Locale aLocale : e.getAllMatchingLocales ())
           if (!EqualsHelper.equals (aLocale, aLocCuba))
-            assertSame (e, ECurrency.getFromLocaleOrNull (aLocale, false));
+            assertSame (e, ECurrency.getFromLocaleOrNull (aLocale));
   }
 
   @Test
   public void testGetAllCurrenciesWithLocaleFilter ()
   {
-    List <ECurrency> aSelected = ECurrency.getAllCurrenciesWithLocaleFilterMatchingAnyLocale (new FilterLocaleCountryOnContinent (EContinent.EUROPE));
+    List <ECurrency> aSelected = ECurrency.getAllCurrencies (ECurrency.filterLocaleAny (EContinent.filterLocaleCountryOnContinent (EContinent.EUROPE)));
     assertNotNull (aSelected);
     assertTrue (aSelected.contains (ECurrency.EUR));
     assertTrue (aSelected.contains (ECurrency.CHF));
     assertFalse (aSelected.contains (ECurrency.USD));
     assertFalse (aSelected.contains (ECurrency.CNY));
 
-    aSelected = ECurrency.getAllCurrenciesWithLocaleFilterMatchingAnyLocale (new FilterLocaleCountryOnAnyContinent (EContinent.EUROPE));
+    aSelected = ECurrency.getAllCurrencies (ECurrency.filterLocaleAny (EContinent.filterLocaleCountryOnContinent (EContinent.EUROPE)));
     assertNotNull (aSelected);
     assertTrue (aSelected.contains (ECurrency.EUR));
     assertTrue (aSelected.contains (ECurrency.CHF));
     assertFalse (aSelected.contains (ECurrency.USD));
     assertFalse (aSelected.contains (ECurrency.CNY));
 
-    aSelected = ECurrency.getAllCurrenciesWithLocaleFilterMatchingAnyLocale (new FilterLocaleCountryOnAnyContinent (EContinent.NORTH_AMERICA));
+    aSelected = ECurrency.getAllCurrencies (ECurrency.filterLocaleAny (EContinent.filterLocaleCountryOnContinent (EContinent.NORTH_AMERICA)));
     assertNotNull (aSelected);
     // Used in french over sea areas :)
     assertTrue (aSelected.contains (ECurrency.EUR));
@@ -368,16 +368,16 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
     assertTrue (aSelected.contains (ECurrency.USD));
     assertFalse (aSelected.contains (ECurrency.CNY));
 
-    aSelected = ECurrency.getAllCurrenciesWithLocaleFilterMatchingAnyLocale (new FilterLocaleCountryOnAnyContinent (EContinent.EUROPE,
-                                                                                                                    EContinent.NORTH_AMERICA));
+    aSelected = ECurrency.getAllCurrencies (ECurrency.filterLocaleAny (EContinent.filterLocaleCountryOnAnyContinent (EContinent.EUROPE,
+                                                                                                                     EContinent.NORTH_AMERICA)));
     assertNotNull (aSelected);
     assertTrue (aSelected.contains (ECurrency.EUR));
     assertTrue (aSelected.contains (ECurrency.USD));
     assertFalse (aSelected.contains (ECurrency.CNY));
 
-    aSelected = ECurrency.getAllCurrenciesWithLocaleFilterMatchingAnyLocale (new FilterLocaleCountryOnAnyContinent (EContinent.EUROPE,
-                                                                                                                    EContinent.ASIA,
-                                                                                                                    EContinent.NORTH_AMERICA));
+    aSelected = ECurrency.getAllCurrencies (ECurrency.filterLocaleAny (EContinent.filterLocaleCountryOnAnyContinent (EContinent.EUROPE,
+                                                                                                                     EContinent.ASIA,
+                                                                                                                     EContinent.NORTH_AMERICA)));
     assertNotNull (aSelected);
     assertTrue (aSelected.contains (ECurrency.EUR));
     assertTrue (aSelected.contains (ECurrency.USD));
@@ -393,7 +393,7 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
     final IMultiMapSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <Currency, Locale> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())
     {
-      if (ECurrency.getFromLocaleOrNull (aEntry.getKey (), true) == null)
+      if (ECurrency.findFirst (ECurrency.filterContainsLocale (aEntry.getKey ())) == null)
       {
         aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
       }

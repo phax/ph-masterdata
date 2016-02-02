@@ -25,6 +25,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.country.CountryCache;
@@ -126,5 +127,11 @@ public enum EEUCountry implements IHasID <String>
   public static boolean isEUCountry (@Nullable final Locale aLocale)
   {
     return getFromLocaleOrNull (aLocale) != null;
+  }
+
+  @Nonnull
+  public static IFilter <Locale> filterLocaleCountryIsEUCountry ()
+  {
+    return aLocale -> EEUCountry.isEUCountry (aLocale);
   }
 }

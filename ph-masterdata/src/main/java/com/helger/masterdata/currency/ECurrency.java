@@ -39,7 +39,9 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.CodingStyleguideUnaware;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ArrayHelper;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.LocaleCache;
@@ -386,40 +388,6 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   public List <Locale> getAllMatchingLocales ()
   {
     return CollectionHelper.newList (m_aLocales);
-  }
-
-  /**
-   * Check if the passed locale filter matches any locale of this currency.
-   *
-   * @param aLocaleFilter
-   *        The locale filter to be used. May not be <code>null</code>.
-   * @return <code>true</code> if the filter matched at least one locale,
-   *         <code>false</code> if it matched none
-   */
-  public boolean isLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter)
-  {
-    ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-    for (final Locale aCurrencyLocale : m_aLocales)
-      if (aLocaleFilter.test (aCurrencyLocale))
-        return true;
-    return false;
-  }
-
-  /**
-   * Check if the passed locale filter matches all locales of this currency.
-   *
-   * @param aLocaleFilter
-   *        The locale filter to be used. May not be <code>null</code>.
-   * @return <code>true</code> if the filter matched all locales,
-   *         <code>false</code> if it didn't match at least one locale
-   */
-  public boolean isLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter)
-  {
-    ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-    for (final Locale aCurrencyLocale : m_aLocales)
-      if (!aLocaleFilter.test (aCurrencyLocale))
-        return false;
-    return true;
   }
 
   /**
@@ -793,6 +761,26 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
     m_eRoundingMode = ValueEnforcer.notNull (eRoundingMode, "RoundingMode");
   }
 
+  @Nonnull
+  @ReturnsMutableCopy
+  public static List <ECurrency> getAllCurrencies ()
+  {
+    return getAllCurrencies (filterNotDeprecated ());
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static List <ECurrency> getAllCurrencies (@Nullable final Predicate <ECurrency> aFilter)
+  {
+    return ArrayHelper.getAll (values (), aFilter);
+  }
+
+  @Nullable
+  public static ECurrency findFirst (@Nullable final Predicate <ECurrency> aFilter)
+  {
+    return ArrayHelper.findFirst (values (), aFilter);
+  }
+
   @Nullable
   public static ECurrency getFromIDOrNull (@Nullable final String sCurrencyCode)
   {
@@ -808,80 +796,46 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   @Nullable
   public static ECurrency getFromLocaleOrNull (@Nullable final Locale aLocale)
   {
-    return getFromLocaleOrNull (aLocale, false);
-  }
-
-  @Nullable
-  public static ECurrency getFromLocaleOrNull (@Nullable final Locale aLocale, final boolean bIncludeDeprecated)
-  {
-    if (aLocale != null)
-      for (final ECurrency eCurrency : values ())
-        if (!eCurrency.isDeprecated () || bIncludeDeprecated)
-          for (final Locale aCurrencyLocale : eCurrency.m_aLocales)
-            if (aLocale.equals (aCurrencyLocale))
-              return eCurrency;
-    return null;
+    if (aLocale == null)
+      return null;
+    return findFirst (filterNotDeprecated ().and (filterContainsLocale (aLocale)));
   }
 
   @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrencies ()
+  public static IFilter <ECurrency> filterDeprecated ()
   {
-    return getAllCurrencies (false);
+    return eCurrency -> eCurrency.isDeprecated ();
   }
 
   @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrencies (final boolean bIncludeDeprecated)
+  public static IFilter <ECurrency> filterNotDeprecated ()
   {
-    final List <ECurrency> ret = new ArrayList <ECurrency> ();
-    for (final ECurrency eCurrency : values ())
-      if (!eCurrency.isDeprecated () || bIncludeDeprecated)
-        ret.add (eCurrency);
-    return ret;
+    return eCurrency -> !eCurrency.isDeprecated ();
   }
 
   @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter)
+  public static IFilter <ECurrency> filterContainsLocale (@Nonnull final Locale aLocale)
   {
-    return getAllCurrenciesWithLocaleFilterMatchingAnyLocale (aLocaleFilter, false);
+    ValueEnforcer.notNull (aLocale, "Locale");
+    return eCurrency -> eCurrency.m_aLocales.contains (aLocale);
   }
 
   @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAnyLocale (@Nonnull final Predicate <Locale> aLocaleFilter,
-                                                                                    final boolean bIncludeDeprecated)
+  public static IFilter <ECurrency> filterLocaleAny (@Nonnull final IFilter <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-
-    final List <ECurrency> ret = new ArrayList <ECurrency> ();
-    for (final ECurrency eCurrency : values ())
-      if (!eCurrency.isDeprecated () || bIncludeDeprecated)
-        if (eCurrency.isLocaleFilterMatchingAnyLocale (aLocaleFilter))
-          ret.add (eCurrency);
-    return ret;
+    return eCurrency -> CollectionHelper.containsAny (eCurrency.m_aLocales, aLocaleFilter);
   }
 
   @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter)
-  {
-    return getAllCurrenciesWithLocaleFilterMatchingAllLocales (aLocaleFilter, false);
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrenciesWithLocaleFilterMatchingAllLocales (@Nonnull final Predicate <Locale> aLocaleFilter,
-                                                                                     final boolean bIncludeDeprecated)
+  public static IFilter <ECurrency> filterLocaleAll (@Nonnull final IFilter <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-
-    final List <ECurrency> ret = new ArrayList <ECurrency> ();
-    for (final ECurrency eCurrency : values ())
-      if (!eCurrency.isDeprecated () || bIncludeDeprecated)
-        if (eCurrency.isLocaleFilterMatchingAllLocales (aLocaleFilter))
-          ret.add (eCurrency);
-    return ret;
+    return eCurrency -> {
+      for (final Locale aCurrencyLocale : eCurrency.m_aLocales)
+        if (!aLocaleFilter.test (aCurrencyLocale))
+          return false;
+      return true;
+    };
   }
 }

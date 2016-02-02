@@ -17,11 +17,15 @@
 package com.helger.masterdata.locale;
 
 import java.util.Locale;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
@@ -63,5 +67,30 @@ public enum EContinent implements IHasID <String>,IHasDisplayText
   public static EContinent getFromIDOrNull (@Nullable final String sID)
   {
     return EnumHelper.getFromIDOrNull (EContinent.class, sID);
+  }
+
+  @Nonnull
+  public static IFilter <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
+  {
+    ValueEnforcer.notNull (eContinent, "Continent");
+    return aLocale -> CollectionHelper.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
+  }
+
+  @Nonnull
+  public static IFilter <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
+  {
+    ValueEnforcer.notEmptyNoNullValue (aContinents, "Continents");
+    return aLocale -> {
+      // Get all continents of the passed locale
+      final Set <EContinent> aContinentsOfLocale = ContinentHelper.getContinentsOfCountry (aLocale);
+      if (aContinentsOfLocale == null)
+        return false;
+
+      // Retain only the specified ones
+      aContinentsOfLocale.retainAll (CollectionHelper.newList (aContinents));
+
+      // If at least one locale is left, we have a match
+      return !aContinentsOfLocale.isEmpty ();
+    };
   }
 }
