@@ -27,7 +27,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import com.helger.commons.compare.ISerializableComparator;
+import com.helger.commons.compare.IComparator;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.locale.country.CountryCache;
@@ -102,7 +102,7 @@ public class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final Map <Locale, EContinent> aMap = new TreeMap <> (ISerializableComparator.getComparatorCollating (Locale::getCountry,
+    final Map <Locale, EContinent> aMap = new TreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
                                                                                                           LOC));
     while (true)
     {
