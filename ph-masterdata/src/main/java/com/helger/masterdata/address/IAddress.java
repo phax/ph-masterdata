@@ -22,6 +22,8 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
+
 /**
  * Read-only interface of an address.
  *
@@ -34,6 +36,11 @@ public interface IAddress extends Serializable
    */
   @Nullable
   IAddressType getType ();
+
+  default boolean hasType ()
+  {
+    return getType () != null;
+  }
 
   /**
    * @return The country the address resides in. The upper case two-letter
@@ -58,11 +65,21 @@ public interface IAddress extends Serializable
   @Nullable
   String getCountryDisplayName (@Nonnull Locale aDisplayLocale);
 
+  default boolean hasCountry ()
+  {
+    return getCountry () != null;
+  }
+
   /**
    * @return The optional state within the country. May be <code>null</code>.
    */
   @Nullable
   String getState ();
+
+  default boolean hasState ()
+  {
+    return StringHelper.hasText (getState ());
+  }
 
   /**
    * @return The ZIP code representing the area within a state/country.
@@ -70,17 +87,32 @@ public interface IAddress extends Serializable
   @Nullable
   String getPostalCode ();
 
+  default boolean hasPostalCode ()
+  {
+    return StringHelper.hasText (getPostalCode ());
+  }
+
   /**
    * @return The name of the city the address resides in.
    */
   @Nullable
   String getCity ();
 
+  default boolean hasCity ()
+  {
+    return StringHelper.hasText (getCity ());
+  }
+
   /**
    * @return The street (including the number) of the address.
    */
   @Nullable
   String getStreet ();
+
+  default boolean hasStreet ()
+  {
+    return StringHelper.hasText (getStreet ());
+  }
 
   /**
    * @return The number of the building in the street (if it is not contained in
@@ -89,12 +121,22 @@ public interface IAddress extends Serializable
   @Nullable
   String getBuildingNumber ();
 
+  default boolean hasBuildingNumber ()
+  {
+    return StringHelper.hasText (getBuildingNumber ());
+  }
+
   /**
    * @return An optional post office box that should be used instead the street.
    *         May be <code>null</code>.
    */
   @Nullable
   String getPostOfficeBox ();
+
+  default boolean hasPostOfficeBox ()
+  {
+    return StringHelper.hasText (getPostOfficeBox ());
+  }
 
   /**
    * @return An optional "care of" (c/o) that is used when you’re sending mail
@@ -103,4 +145,9 @@ public interface IAddress extends Serializable
    */
   @Nullable
   String getCareOf ();
+
+  default boolean hasCareOf ()
+  {
+    return StringHelper.hasText (getCareOf ());
+  }
 }
