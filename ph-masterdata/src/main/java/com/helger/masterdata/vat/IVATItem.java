@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.id.IHasID;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 import com.helger.datetime.period.ILocalDatePeriod;
 
@@ -48,8 +49,25 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
   BigDecimal getPercentage ();
 
   /**
+   * @return <code>true</code> if the percentage is 0.
+   */
+  default boolean isZeroPercentage ()
+  {
+    return MathHelper.isEqualToZero (getPercentage ());
+  }
+
+  /**
+   * @return <code>true</code> if the percentage is &gt; 0.
+   */
+  default boolean isNonZeroPercentage ()
+  {
+    return MathHelper.isGreaterThanZero (getPercentage ());
+  }
+
+  /**
    * @return The factor (e.g. 0.2 for 20% or 0.5 for 50%). Always &ge; 0 (for 0%
-   *         VAT) and &le; 1 (for 100% VAT).
+   *         VAT) and &le; 1 (for 100% VAT) (equals
+   *         <code>getPercentage() / 100</code>)
    */
   @Nonnull
   @Nonnegative
@@ -59,7 +77,9 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
    * @return The multiplication factor (e.g. 1.2 for 20% or 1.5 for 50%). Always
    *         &ge; 1 (for 0% VAT) and &le; 2 (for 100% VAT). It can also be used
    *         to calculate the net from the gross price by calling
-   *         <code>gross.divide (<i>factor</i>)</code>
+   *         <code>gross.divide (<i>factor</i>)</code>. The result equals
+   *         <code>1 + getPercentageFactor()</code> which in turn is
+   *         <code>1 + getPercentage() / 100</code>.
    */
   @Nonnull
   @Nonnegative
