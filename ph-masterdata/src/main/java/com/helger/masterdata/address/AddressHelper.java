@@ -16,7 +16,11 @@
  */
 package com.helger.masterdata.address;
 
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,6 +42,7 @@ public final class AddressHelper
 {
   public static final boolean DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED = false;
   public static final String DEFAULT_CARE_OF_PREFIX = "c/o ";
+  public static final String DEFAULT_LINE_SEPARATOR = "\n";
 
   private static final String [] STREET_SEARCH = new String [] { "str.", "g." };
   private static final String [] STREET_REPLACE = new String [] { "straße", "gasse" };
@@ -59,9 +64,7 @@ public final class AddressHelper
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
   {
-    s_aRWLock.writeLocked ( () -> {
-      s_bComplexAddressHandlingEnabled = bEnabled;
-    });
+    s_aRWLock.writeLocked ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
   }
 
   public static boolean isComplexAddressHandlingEnabled ()
@@ -79,9 +82,7 @@ public final class AddressHelper
   public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
-    s_aRWLock.writeLocked ( () -> {
-      s_sCareOfPrefix = sCareOfPrefix;
-    });
+    s_aRWLock.writeLocked ( () -> s_sCareOfPrefix = sCareOfPrefix);
   }
 
   /**
@@ -205,11 +206,35 @@ public final class AddressHelper
   @Nullable
   public static String getAddressString (@Nullable final IAddress aAddress, @Nonnull final Locale aDisplayLocale)
   {
-    return getAddressString (aAddress, aDisplayLocale, "\n");
+    return getAddressString (aAddress, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
   }
 
   @Nullable
   public static String getAddressString (@Nullable final IAddress aAddress,
+                                         @Nonnull final Locale aDisplayLocale,
+                                         @Nonnull final String sLineSeparator)
+  {
+    return getAddressString (aAddress,
+                             EnumSet.of (EAddressField.CARE_OF,
+                                         EAddressField.STREET_AND_BUILDING_NUMBER,
+                                         EAddressField.POSTAL_CODE_AND_CITY,
+                                         EAddressField.POST_OFFICE_BOX,
+                                         EAddressField.COUNTRY),
+                             aDisplayLocale,
+                             sLineSeparator);
+  }
+
+  @Nullable
+  public static String getAddressString (@Nullable final IAddress aAddress,
+                                         @Nonnull final Set <EAddressField> aFields,
+                                         @Nonnull final Locale aDisplayLocale)
+  {
+    return getAddressString (aAddress, aFields, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
+  }
+
+  @Nullable
+  public static String getAddressString (@Nullable final IAddress aAddress,
+                                         @Nonnull final Set <EAddressField> aFields,
                                          @Nonnull final Locale aDisplayLocale,
                                          @Nonnull final String sLineSeparator)
   {
@@ -218,49 +243,9 @@ public final class AddressHelper
     if (aAddress == null)
       return null;
 
-    final StringBuilder aSB = new StringBuilder ();
-
-    // c/o part
-    if (StringHelper.hasText (aAddress.getCareOf ()))
-    {
-      if (aSB.length () > 0)
-        aSB.append (sLineSeparator);
-      // Use customizable prefix
-      aSB.append (getCareOfPrefix ()).append (aAddress.getCareOf ());
-    }
-
-    // Street + building number
-    final String sStreet = getStreetAndBuildingNumber (aAddress);
-    if (StringHelper.hasText (sStreet))
-    {
-      if (aSB.length () > 0)
-        aSB.append (sLineSeparator);
-      aSB.append (sStreet);
-    }
-
-    // Postal code + city
-    final String sNextLine = getPostalCodeAndCity (aAddress);
-    if (StringHelper.hasText (sNextLine))
-    {
-      if (aSB.length () > 0)
-        aSB.append (sLineSeparator);
-      aSB.append (sNextLine);
-    }
-
-    if (StringHelper.hasText (aAddress.getPostOfficeBox ()))
-    {
-      if (aSB.length () > 0)
-        aSB.append (sLineSeparator);
-      aSB.append (aAddress.getPostOfficeBox ());
-    }
-
-    if (StringHelper.hasText (aAddress.getCountry ()))
-    {
-      if (aSB.length () > 0)
-        aSB.append (sLineSeparator);
-      aSB.append (aAddress.getCountryDisplayName (aDisplayLocale));
-    }
-
-    return aSB.toString ();
+    final List <String> aValues = new ArrayList <> (aFields.size ());
+    for (final EAddressField eField : aFields)
+      aValues.add (eField.get (aAddress, aDisplayLocale));
+    return StringHelper.getImplodedNonEmpty (sLineSeparator, aValues);
   }
 }
