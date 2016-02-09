@@ -70,6 +70,16 @@ public interface IAddress extends Serializable
     return getCountry () != null;
   }
 
+  default boolean hasCountry (@Nonnull final String sCountryCode)
+  {
+    return sCountryCode.equals (getCountry ());
+  }
+
+  default boolean hasCountry (@Nonnull final Locale aLocale)
+  {
+    return aLocale.equals (getCountryLocale ());
+  }
+
   /**
    * @return The optional state within the country. May be <code>null</code>.
    */
