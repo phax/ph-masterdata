@@ -6,6 +6,11 @@ import java.util.function.BiFunction;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+/**
+ * Enum to easily access parts of an address
+ * 
+ * @author Philip Helger
+ */
 public enum EAddressField
 {
   CARE_OF ( (a, dl) -> a.hasCareOf () ? AddressHelper.getCareOfPrefix () + a.getCareOf () : null),
@@ -19,7 +24,7 @@ public enum EAddressField
   STATE ( (a, dl) -> a.hasState () ? a.getState () : null),
   COUNTRY ( (a, dl) -> a.hasCountry () ? a.getCountryDisplayName (dl) : null);
 
-  private BiFunction <IAddress, Locale, String> m_aGetter;
+  private final BiFunction <IAddress, Locale, String> m_aGetter;
 
   private EAddressField (@Nonnull final BiFunction <IAddress, Locale, String> aGetter)
   {
