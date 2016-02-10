@@ -83,12 +83,6 @@ public class PersonName implements IMutablePersonName
     return m_eSalutation;
   }
 
-  @Nullable
-  public String getSalutationID ()
-  {
-    return m_eSalutation == null ? null : m_eSalutation.getID ();
-  }
-
   @Nonnull
   public EChange setSalutation (@Nullable final ESalutation eSalutation)
   {
@@ -96,26 +90,6 @@ public class PersonName implements IMutablePersonName
       return EChange.UNCHANGED;
     m_eSalutation = eSalutation;
     return EChange.CHANGED;
-  }
-
-  @Nullable
-  public String getSalutationDisplayName (@Nonnull final Locale aContentLocale)
-  {
-    return m_eSalutation == null ? "" : m_eSalutation.getDisplayText (aContentLocale);
-  }
-
-  @Nullable
-  public String getGreeting (@Nonnull final Locale aContentLocale)
-  {
-    return m_eSalutation == null ? "" : m_eSalutation.getGreeting (aContentLocale);
-  }
-
-  @Nullable
-  public String getGreetingComplete (@Nonnull final Locale aContentLocale)
-  {
-    if (m_eSalutation == null)
-      return "";
-    return m_eSalutation.getGreetingComplete (aContentLocale);
   }
 
   @Nullable

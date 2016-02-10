@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.lang.ICloneable;
+import com.helger.commons.string.StringHelper;
 
 /**
  * The name of a person.
@@ -41,16 +42,32 @@ public interface IPersonName extends ICloneable <IPersonName>, Serializable
    * @return The ID of the salutation of this name. May be <code>null</code>.
    */
   @Nullable
-  String getSalutationID ();
+  default String getSalutationID ()
+  {
+    final ESalutation e = getSalutation ();
+    return e == null ? null : e.getID ();
+  }
 
   @Nullable
-  String getSalutationDisplayName (@Nonnull Locale aContentLocale);
+  default String getSalutationDisplayName (@Nonnull final Locale aContentLocale)
+  {
+    final ESalutation e = getSalutation ();
+    return e == null ? null : e.getDisplayText (aContentLocale);
+  }
 
   @Nullable
-  String getGreeting (@Nonnull Locale aContentLocale);
+  default String getGreeting (@Nonnull final Locale aContentLocale)
+  {
+    final ESalutation e = getSalutation ();
+    return e == null ? null : e.getGreeting (aContentLocale);
+  }
 
   @Nullable
-  String getGreetingComplete (@Nonnull Locale aContentLocale);
+  default String getGreetingComplete (@Nonnull final Locale aContentLocale)
+  {
+    final ESalutation e = getSalutation ();
+    return e == null ? null : e.getGreetingComplete (aContentLocale);
+  }
 
   /**
    * @return An optional title that is written before the name. E.g. "Dr." in
@@ -59,11 +76,21 @@ public interface IPersonName extends ICloneable <IPersonName>, Serializable
   @Nullable
   String getPrefixTitle ();
 
+  default boolean hasPrefixTitle ()
+  {
+    return StringHelper.hasText (getPrefixTitle ());
+  }
+
   /**
    * @return The first name.
    */
   @Nullable
   String getFirstName ();
+
+  default boolean hasFirstName ()
+  {
+    return StringHelper.hasText (getFirstName ());
+  }
 
   /**
    * @return The optional middle name.
@@ -71,11 +98,21 @@ public interface IPersonName extends ICloneable <IPersonName>, Serializable
   @Nullable
   String getMiddleName ();
 
+  default boolean hasMiddleName ()
+  {
+    return StringHelper.hasText (getMiddleName ());
+  }
+
   /**
    * @return The last name. May not be <code>null</code>.
    */
   @Nullable
   String getLastName ();
+
+  default boolean hasLastName ()
+  {
+    return StringHelper.hasText (getLastName ());
+  }
 
   /**
    * @return An optional title that is written after the name. E.g. "MBA" in
@@ -83,4 +120,9 @@ public interface IPersonName extends ICloneable <IPersonName>, Serializable
    */
   @Nullable
   String getSuffixTitle ();
+
+  default boolean hasSuffixTitle ()
+  {
+    return StringHelper.hasText (getSuffixTitle ());
+  }
 }
