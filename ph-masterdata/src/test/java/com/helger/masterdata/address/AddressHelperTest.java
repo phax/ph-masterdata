@@ -20,10 +20,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
-import java.util.EnumSet;
 import java.util.Locale;
 
 import org.junit.Test;
+
+import com.helger.commons.collection.CollectionHelper;
 
 /**
  * Test class for class {@link AddressHelper}.
@@ -134,8 +135,18 @@ public final class AddressHelperTest
                   "\n" +
                   "Austria",
                   AddressHelper.getAddressString (a,
-                                                  EnumSet.of (EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                              EAddressField.COUNTRY),
+                                                  CollectionHelper.newList (EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                            EAddressField.COUNTRY),
+                                                  Locale.UK));
+    assertEquals ("Main road 7" +
+                  "\n" +
+                  "Main road 7" +
+                  "\n" +
+                  "Austria",
+                  AddressHelper.getAddressString (a,
+                                                  CollectionHelper.newList (EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                            EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                            EAddressField.COUNTRY),
                                                   Locale.UK));
   }
 }
