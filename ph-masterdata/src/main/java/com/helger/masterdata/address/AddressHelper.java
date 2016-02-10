@@ -17,10 +17,8 @@
 package com.helger.masterdata.address;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,6 +26,7 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.string.StringHelper;
@@ -215,18 +214,18 @@ public final class AddressHelper
                                          @Nonnull final String sLineSeparator)
   {
     return getAddressString (aAddress,
-                             EnumSet.of (EAddressField.CARE_OF,
-                                         EAddressField.STREET_AND_BUILDING_NUMBER,
-                                         EAddressField.POSTAL_CODE_AND_CITY,
-                                         EAddressField.POST_OFFICE_BOX,
-                                         EAddressField.COUNTRY),
+                             CollectionHelper.newList (EAddressField.CARE_OF,
+                                                       EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                       EAddressField.POSTAL_CODE_AND_CITY,
+                                                       EAddressField.POST_OFFICE_BOX,
+                                                       EAddressField.COUNTRY),
                              aDisplayLocale,
                              sLineSeparator);
   }
 
   @Nullable
   public static String getAddressString (@Nullable final IAddress aAddress,
-                                         @Nonnull final Set <EAddressField> aFields,
+                                         @Nonnull final List <EAddressField> aFields,
                                          @Nonnull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aFields, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
@@ -234,10 +233,11 @@ public final class AddressHelper
 
   @Nullable
   public static String getAddressString (@Nullable final IAddress aAddress,
-                                         @Nonnull final Set <EAddressField> aFields,
+                                         @Nonnull final List <EAddressField> aFields,
                                          @Nonnull final Locale aDisplayLocale,
                                          @Nonnull final String sLineSeparator)
   {
+    ValueEnforcer.notNull (aFields, "Fields");
     ValueEnforcer.notNull (aDisplayLocale, "DisplayLocale");
     ValueEnforcer.notNull (sLineSeparator, "LineSeparator");
     if (aAddress == null)
