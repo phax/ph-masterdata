@@ -72,12 +72,12 @@ public interface IAddress extends Serializable
 
   default boolean hasCountry (@Nonnull final String sCountryCode)
   {
-    return sCountryCode.equals (getCountry ());
+    return StringHelper.hasNoText (sCountryCode) ? false : sCountryCode.equals (getCountry ());
   }
 
-  default boolean hasCountry (@Nonnull final Locale aLocale)
+  default boolean hasCountry (@Nullable final Locale aLocale)
   {
-    return aLocale.equals (getCountryLocale ());
+    return aLocale == null ? false : aLocale.equals (getCountryLocale ());
   }
 
   /**
