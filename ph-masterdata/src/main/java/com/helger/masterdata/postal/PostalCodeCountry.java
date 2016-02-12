@@ -78,7 +78,7 @@ public class PostalCodeCountry implements IPostalCodeCountry
   @Nullable
   public PostalCodeFormat getFormatOfIndex (final int nIndex)
   {
-    return CollectionHelper.getSafe (m_aFormats, nIndex);
+    return CollectionHelper.getAtIndex (m_aFormats, nIndex);
   }
 
   void addSpecificPostalCode (@Nonnull @Nonempty final String sSpecificPostalCode)

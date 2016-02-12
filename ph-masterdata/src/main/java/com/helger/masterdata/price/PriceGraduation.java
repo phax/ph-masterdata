@@ -87,7 +87,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   @Nullable
   public IMutablePriceGraduationItem getItemOfIndex (@Nonnegative final int nIndex)
   {
-    return CollectionHelper.getSafe (m_aItems, nIndex);
+    return CollectionHelper.getAtIndex (m_aItems, nIndex);
   }
 
   @Nonnull
