@@ -212,7 +212,7 @@ public class MainReadPostalCodeListExcel
     }
 
     // Print sorted by ISO code
-    for (final Map.Entry <String, List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
+    for (final Map.Entry <String, ? extends List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
     {
       IMicroElement eCountry = null;
       for (final Item aItem : aEntry.getValue ())
