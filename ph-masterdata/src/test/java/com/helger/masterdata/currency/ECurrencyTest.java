@@ -30,12 +30,12 @@ import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.multimap.IMultiMapSetBased;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsHelper;
@@ -398,9 +398,9 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
       }
     }
-    for (final Map.Entry <Currency, Set <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
-                                                                                       Comparator.comparing (Currency::getCurrencyCode))
-                                                                      .entrySet ())
+    for (final Map.Entry <Currency, ICommonsSet <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
+                                                                                               Comparator.comparing (Currency::getCurrencyCode))
+                                                                              .entrySet ())
     {
       String sLocale = "";
       for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), Comparator.comparing (Locale::toString)))
