@@ -16,12 +16,6 @@
  */
 package com.helger.masterdata.company;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,6 +24,9 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
@@ -53,7 +50,7 @@ public final class Company implements IMutableCompany
   private final String m_sID;
   private String m_sPublicName;
   private String m_sOfficialName;
-  private final Map <String, IMutableCompanySite> m_aAllSites = new HashMap <> ();
+  private final ICommonsMap <String, IMutableCompanySite> m_aAllSites = new CommonsHashMap <> ();
   private IMutableCompanySite m_aHeadQuarterSite;
 
   public Company (@Nonnull @Nonempty final String sID)
@@ -112,31 +109,23 @@ public final class Company implements IMutableCompany
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <IMutableCompanySite> getAllSites ()
+  public ICommonsList <IMutableCompanySite> getAllSites ()
   {
-    return CollectionHelper.newList (m_aAllSites.values ());
+    return m_aAllSites.copyOfValues ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <IMutableCompanySite> getAllNonVirtualSites ()
+  public ICommonsList <IMutableCompanySite> getAllNonVirtualSites ()
   {
-    final List <IMutableCompanySite> ret = new ArrayList <> ();
-    for (final IMutableCompanySite aSite : m_aAllSites.values ())
-      if (!aSite.isVirtualSite ())
-        ret.add (aSite);
-    return ret;
+    return m_aAllSites.copyOfValues (aSite -> !aSite.isVirtualSite ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <IMutableCompanySite> getAllVirtualSites ()
+  public ICommonsList <IMutableCompanySite> getAllVirtualSites ()
   {
-    final List <IMutableCompanySite> ret = new ArrayList <> ();
-    for (final IMutableCompanySite aSite : m_aAllSites.values ())
-      if (aSite.isVirtualSite ())
-        ret.add (aSite);
-    return ret;
+    return m_aAllSites.copyOfValues (aSite -> aSite.isVirtualSite ());
   }
 
   @Nonnull
@@ -194,10 +183,7 @@ public final class Company implements IMutableCompany
 
   public boolean containsAtLeastOneNotDeletableSite ()
   {
-    for (final ICompanySite aSite : m_aAllSites.values ())
-      if (!aSite.isDeletable ())
-        return true;
-    return false;
+    return CollectionHelper.containsAny (m_aAllSites.values (), aSite -> !aSite.isDeletable ());
   }
 
   @Override

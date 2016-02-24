@@ -21,19 +21,17 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.Currency;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.CommonsTreeSet;
+import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.ext.ICommonsSortedSet;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleParser;
 
@@ -46,8 +44,8 @@ import com.helger.commons.locale.LocaleParser;
 public final class CurrencyHelper
 {
   // Sorted set of all available currencies
-  private static SortedSet <Currency> s_aAllCurrencies = new TreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
-  private static Map <Locale, Currency> s_aLocaleToCurrency = new HashMap <> ();
+  private static ICommonsSortedSet <Currency> s_aAllCurrencies = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
+  private static ICommonsMap <Locale, Currency> s_aLocaleToCurrency = new CommonsHashMap <> ();
 
   static
   {
@@ -75,9 +73,9 @@ public final class CurrencyHelper
 
   @Nonnull
   @ReturnsMutableCopy
-  public static Set <Currency> getAllSupportedCurrencies ()
+  public static ICommonsSortedSet <Currency> getAllSupportedCurrencies ()
   {
-    return new TreeSet <Currency> (s_aAllCurrencies);
+    return s_aAllCurrencies.getClone ();
   }
 
   public static boolean isSupportedCurrency (@Nullable final Currency aCurrency)
@@ -131,9 +129,9 @@ public final class CurrencyHelper
    */
   @Nonnull
   @ReturnsMutableCopy
-  public static Map <Locale, Currency> getLocaleToCurrencyMap ()
+  public static ICommonsMap <Locale, Currency> getLocaleToCurrencyMap ()
   {
-    return CollectionHelper.newMap (s_aLocaleToCurrency);
+    return s_aLocaleToCurrency.getClone ();
   }
 
   /**

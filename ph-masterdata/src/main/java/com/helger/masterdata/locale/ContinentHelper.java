@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.multimap.IMultiMapSetBased;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.locale.country.CountryCache;
 
@@ -36,7 +36,7 @@ import com.helger.commons.locale.country.CountryCache;
  */
 public final class ContinentHelper
 {
-  private static final IMultiMapSetBased <Locale, EContinent> s_aMap = new MultiHashMapTreeSetBased <Locale, EContinent> ();
+  private static final MultiHashMapTreeSetBased <Locale, EContinent> s_aMap = new MultiHashMapTreeSetBased <> ();
 
   static
   {
@@ -329,7 +329,7 @@ public final class ContinentHelper
     final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
     if (aCountry != null)
     {
-      final Set <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
         return CollectionHelper.newSortedSet (ret);
     }
@@ -352,7 +352,7 @@ public final class ContinentHelper
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryID);
     if (aCountry != null)
     {
-      final Set <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
         return CollectionHelper.newSortedSet (ret);
     }

@@ -19,9 +19,6 @@ package com.helger.masterdata.exchangeratio;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.List;
-import java.util.NavigableSet;
-import java.util.TreeSet;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,7 +27,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsTreeSet;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsNavigableSet;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -47,7 +46,7 @@ import com.helger.masterdata.currency.ECurrency;
 public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
 {
   private final ECurrency m_eCurrency;
-  private final NavigableSet <ExchangeRatio> m_aList = new TreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
+  private final ICommonsNavigableSet <ExchangeRatio> m_aList = new CommonsTreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
 
   public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
   {
@@ -110,9 +109,9 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serial
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <ExchangeRatio> getAllExchangeRatios ()
+  public ICommonsList <ExchangeRatio> getAllExchangeRatios ()
   {
-    return CollectionHelper.newList (m_aList);
+    return m_aList.getCopyAsList ();
   }
 
   @Nonnull

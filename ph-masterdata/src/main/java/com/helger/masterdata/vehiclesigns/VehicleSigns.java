@@ -16,9 +16,7 @@
  */
 package com.helger.masterdata.vehiclesigns;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
@@ -27,7 +25,8 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.multimap.IMultiMapSetBased;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.locale.country.CountryCache;
@@ -40,8 +39,8 @@ import com.helger.commons.locale.country.CountryCache;
 @Immutable
 public final class VehicleSigns
 {
-  private static Map <Locale, String> s_aCountryToSign = new HashMap <Locale, String> ();
-  private static IMultiMapSetBased <String, Locale> s_aSignToCountry = new MultiHashMapHashSetBased <String, Locale> ();
+  private static ICommonsMap <Locale, String> s_aCountryToSign = new CommonsHashMap <> ();
+  private static MultiHashMapHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapHashSetBased <> ();
 
   static
   {

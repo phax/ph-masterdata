@@ -20,7 +20,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
 import java.util.List;
@@ -41,6 +40,8 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ArrayHelper;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
@@ -240,7 +241,7 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   private final int m_nScale;
   private final boolean m_bIsDeprecated;
   private final IHasDisplayText m_aName;
-  private final List <Locale> m_aLocales = new ArrayList <Locale> ();
+  private final ICommonsList <Locale> m_aLocales = new CommonsArrayList <> ();
   private final DecimalFormat m_aCurrencyFormat;
   private final String m_sCurrencyPattern;
   private final String m_sValuePattern;
@@ -250,12 +251,9 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
 
   @Nonnull
   @ReturnsMutableCopy
-  private static List <Locale> _getAsLocales (@Nonnull final String... aCountries)
+  private static ICommonsList <Locale> _getAsLocales (@Nonnull final String... aCountries)
   {
-    final List <Locale> ret = new ArrayList <> ();
-    for (final String sCountry : aCountries)
-      ret.add (LocaleCache.getInstance ().getLocale (sCountry));
-    return ret;
+    return CollectionHelper.newListMapped (aCountries, sCountry -> LocaleCache.getInstance ().getLocale (sCountry));
   }
 
   private ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
@@ -296,7 +294,7 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
-      aRelevantLocale = CollectionHelper.getFirstElement (m_aLocales);
+      aRelevantLocale = m_aLocales.getFirst ();
     }
 
     m_sID = sCurrencyCode;
@@ -385,9 +383,9 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   @Nonnull
   @Nonempty
   @ReturnsMutableCopy
-  public List <Locale> getAllMatchingLocales ()
+  public ICommonsList <Locale> getAllMatchingLocales ()
   {
-    return CollectionHelper.newList (m_aLocales);
+    return m_aLocales.getClone ();
   }
 
   /**
@@ -824,18 +822,13 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
   public static IFilter <ECurrency> filterLocaleAny (@Nonnull final IFilter <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-    return eCurrency -> CollectionHelper.containsAny (eCurrency.m_aLocales, aLocaleFilter);
+    return eCurrency -> eCurrency.m_aLocales.containsAny (aLocaleFilter);
   }
 
   @Nonnull
   public static IFilter <ECurrency> filterLocaleAll (@Nonnull final IFilter <Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
-    return eCurrency -> {
-      for (final Locale aCurrencyLocale : eCurrency.m_aLocales)
-        if (!aLocaleFilter.test (aCurrencyLocale))
-          return false;
-      return true;
-    };
+    return eCurrency -> eCurrency.m_aLocales.containsOnly (aLocaleFilter);
   }
 }

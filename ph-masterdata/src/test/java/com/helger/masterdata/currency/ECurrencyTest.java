@@ -36,7 +36,6 @@ import org.junit.Test;
 
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.ext.ICommonsSet;
-import com.helger.commons.collection.multimap.IMultiMapSetBased;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
@@ -390,7 +389,7 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
   {
     final Map <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
 
-    final IMultiMapSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <Currency, Locale> ();
+    final MultiHashMapHashSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <Currency, Locale> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())
     {
       if (ECurrency.findFirst (ECurrency.filterContainsLocale (aEntry.getKey ())) == null)

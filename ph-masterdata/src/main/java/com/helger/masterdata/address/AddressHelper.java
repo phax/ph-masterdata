@@ -26,7 +26,7 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.string.StringHelper;
@@ -214,11 +214,11 @@ public final class AddressHelper
                                          @Nonnull final String sLineSeparator)
   {
     return getAddressString (aAddress,
-                             CollectionHelper.newList (EAddressField.CARE_OF,
-                                                       EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                       EAddressField.POSTAL_CODE_AND_CITY,
-                                                       EAddressField.POST_OFFICE_BOX,
-                                                       EAddressField.COUNTRY),
+                             new CommonsArrayList <> (EAddressField.CARE_OF,
+                                                      EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                      EAddressField.POSTAL_CODE_AND_CITY,
+                                                      EAddressField.POST_OFFICE_BOX,
+                                                      EAddressField.COUNTRY),
                              aDisplayLocale,
                              sLineSeparator);
   }

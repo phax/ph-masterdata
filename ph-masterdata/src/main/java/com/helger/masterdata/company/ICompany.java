@@ -16,13 +16,12 @@
  */
 package com.helger.masterdata.company;
 
-import java.util.Collection;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsCollection;
 import com.helger.commons.type.ITypedObject;
 
 /**
@@ -57,7 +56,7 @@ public interface ICompany extends ITypedObject <String>
    */
   @Nonnull
   @ReturnsMutableCopy
-  Collection <? extends ICompanySite> getAllSites ();
+  ICommonsCollection <? extends ICompanySite> getAllSites ();
 
   /**
    * Get the site with the given ID.
@@ -74,14 +73,14 @@ public interface ICompany extends ITypedObject <String>
    */
   @Nonnull
   @ReturnsMutableCopy
-  Collection <? extends ICompanySite> getAllNonVirtualSites ();
+  ICommonsCollection <? extends ICompanySite> getAllNonVirtualSites ();
 
   /**
    * @return A collection of all virtual sites belonging to this company.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Collection <? extends ICompanySite> getAllVirtualSites ();
+  ICommonsCollection <? extends ICompanySite> getAllVirtualSites ();
 
   /**
    * @return The head quarter site of this company. May be <code>null</code> if
