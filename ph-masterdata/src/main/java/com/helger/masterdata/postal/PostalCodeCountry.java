@@ -16,9 +16,6 @@
  */
 package com.helger.masterdata.postal;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,7 +24,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -40,8 +38,8 @@ import com.helger.commons.string.ToStringGenerator;
 public class PostalCodeCountry implements IPostalCodeCountry
 {
   private final String m_sISO;
-  private final List <PostalCodeFormat> m_aFormats = new ArrayList <PostalCodeFormat> ();
-  private final List <String> m_aSpecificPostalCodes = new ArrayList <String> ();
+  private final ICommonsList <PostalCodeFormat> m_aFormats = new CommonsArrayList <> ();
+  private final ICommonsList <String> m_aSpecificPostalCodes = new CommonsArrayList <> ();
   private String m_sNote;
 
   public PostalCodeCountry (@Nonnull @Nonempty final String sISO)
@@ -70,15 +68,15 @@ public class PostalCodeCountry implements IPostalCodeCountry
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <PostalCodeFormat> getAllFormats ()
+  public ICommonsList <PostalCodeFormat> getAllFormats ()
   {
-    return CollectionHelper.newList (m_aFormats);
+    return m_aFormats.getClone ();
   }
 
   @Nullable
   public PostalCodeFormat getFormatOfIndex (final int nIndex)
   {
-    return CollectionHelper.getAtIndex (m_aFormats, nIndex);
+    return m_aFormats.getAtIndex (nIndex);
   }
 
   void addSpecificPostalCode (@Nonnull @Nonempty final String sSpecificPostalCode)
@@ -91,9 +89,9 @@ public class PostalCodeCountry implements IPostalCodeCountry
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <String> getAllSpecificPostalCodes ()
+  public ICommonsList <String> getAllSpecificPostalCodes ()
   {
-    return CollectionHelper.newList (m_aSpecificPostalCodes);
+    return m_aSpecificPostalCodes.getClone ();
   }
 
   @Nonnegative
@@ -125,12 +123,9 @@ public class PostalCodeCountry implements IPostalCodeCountry
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <String> getAllExamples ()
+  public ICommonsList <String> getAllExamples ()
   {
-    final List <String> ret = new ArrayList <> ();
-    for (final PostalCodeFormat aFormat : m_aFormats)
-      ret.add (aFormat.getExample ());
-    return ret;
+    return m_aFormats.getAllMapped (PostalCodeFormat::getExample);
   }
 
   @Override

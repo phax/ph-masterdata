@@ -17,9 +17,7 @@
 package com.helger.masterdata.locale;
 
 import java.io.InputStream;
-import java.util.HashSet;
 import java.util.Locale;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,7 +29,8 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleCache;
@@ -79,8 +78,8 @@ public class DeprecatedLocaleHandler
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
 
-  private final Set <Locale> m_aLocales = new HashSet <> ();
-  private final Set <LocaleParts> m_aLocaleParts = new HashSet <> ();
+  private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet <> ();
+  private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet <> ();
 
   public void initFromXML (@Nonnull final IMicroDocument aDoc)
   {
@@ -111,9 +110,9 @@ public class DeprecatedLocaleHandler
    */
   @Nonnull
   @ReturnsMutableCopy
-  public Set <Locale> getAllDeprecatedLocales ()
+  public ICommonsSet <Locale> getAllDeprecatedLocales ()
   {
-    return CollectionHelper.newSet (m_aLocales);
+    return m_aLocales.getClone ();
   }
 
   /**

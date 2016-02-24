@@ -25,7 +25,8 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
@@ -39,19 +40,19 @@ import com.helger.commons.string.ToStringGenerator;
 @Immutable
 public class IBAN implements Serializable
 {
-  private final List <IBANElementValue> m_aValues;
+  private final ICommonsList <IBANElementValue> m_aValues;
 
   public IBAN (@Nonnull final List <IBANElementValue> aValues)
   {
     ValueEnforcer.notNull (aValues, "Values");
-    m_aValues = CollectionHelper.newList (aValues);
+    m_aValues = new CommonsArrayList <> (aValues);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IBANElementValue> getAllValues ()
+  public ICommonsList <IBANElementValue> getAllValues ()
   {
-    return CollectionHelper.newList (m_aValues);
+    return m_aValues.getClone ();
   }
 
   @Override

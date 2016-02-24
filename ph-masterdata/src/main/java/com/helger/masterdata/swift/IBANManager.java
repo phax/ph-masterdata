@@ -18,10 +18,7 @@ package com.helger.masterdata.swift;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -34,7 +31,9 @@ import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.country.CountryCache;
@@ -89,7 +88,7 @@ public final class IBANManager
   private static final Logger s_aLogger = LoggerFactory.getLogger (IBANManager.class);
 
   /** Maps country code to IBAn country data */
-  private static final Map <String, IBANCountryData> s_aIBANData = new HashMap <String, IBANCountryData> ();
+  private static final ICommonsMap <String, IBANCountryData> s_aIBANData = new CommonsHashMap <> ();
 
   static
   {
@@ -179,9 +178,9 @@ public final class IBANManager
    */
   @Nonnull
   @ReturnsMutableCopy
-  public static Set <String> getAllSupportedCountries ()
+  public static ICommonsSet <String> getAllSupportedCountries ()
   {
-    return CollectionHelper.newSet (s_aIBANData.keySet ());
+    return s_aIBANData.copyOfKeySet ();
   }
 
   private static int _calculateChecksum (@Nonnull final String sIBAN)

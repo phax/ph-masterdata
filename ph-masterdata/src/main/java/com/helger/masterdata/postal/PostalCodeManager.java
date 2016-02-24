@@ -16,11 +16,8 @@
  */
 package com.helger.masterdata.postal;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +25,9 @@ import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
@@ -48,7 +47,7 @@ public class PostalCodeManager
   public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20130209.xml"));
 
   private final SimpleReadWriteLock m_aRWLock = new SimpleReadWriteLock ();
-  private final Map <Locale, IPostalCodeCountry> m_aMap = new HashMap <> ();
+  private final ICommonsMap <Locale, IPostalCodeCountry> m_aMap = new CommonsHashMap <> ();
 
   public PostalCodeManager ()
   {}
@@ -90,9 +89,9 @@ public class PostalCodeManager
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <Locale> getAllAvailableCountries ()
+  public ICommonsSet <Locale> getAllAvailableCountries ()
   {
-    return m_aRWLock.readLocked ( () -> CollectionHelper.newSet (m_aMap.keySet ()));
+    return m_aRWLock.readLocked ( () -> m_aMap.copyOfKeySet ());
   }
 
   /**

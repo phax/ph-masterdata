@@ -17,8 +17,6 @@
 package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -26,7 +24,8 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
@@ -45,7 +44,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   private final ECurrency m_eCurrency;
 
   // All items sorted ascending by the minimum quantity
-  private final List <IMutablePriceGraduationItem> m_aItems = new ArrayList <> ();
+  private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList <> ();
 
   /**
    * Create a new price graduation valid only for the given currency and VAT
@@ -68,26 +67,26 @@ public class PriceGraduation implements IMutablePriceGraduation
   @Nullable
   public IMutablePriceGraduationItem getSmallestMinimumQuantityItem ()
   {
-    return CollectionHelper.getFirstElement (m_aItems);
+    return m_aItems.getFirst ();
   }
 
   @Nullable
   public IMutablePriceGraduationItem getLargestMinimumQuantityItem ()
   {
-    return CollectionHelper.getLastElement (m_aItems);
+    return m_aItems.getLast ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <? extends IMutablePriceGraduationItem> getAllItems ()
+  public ICommonsList <? extends IMutablePriceGraduationItem> getAllItems ()
   {
-    return CollectionHelper.newList (m_aItems);
+    return m_aItems.getClone ();
   }
 
   @Nullable
   public IMutablePriceGraduationItem getItemOfIndex (@Nonnegative final int nIndex)
   {
-    return CollectionHelper.getAtIndex (m_aItems, nIndex);
+    return m_aItems.getAtIndex (nIndex);
   }
 
   @Nonnull

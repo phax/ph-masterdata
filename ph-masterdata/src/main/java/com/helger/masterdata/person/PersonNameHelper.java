@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.person;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -26,7 +25,8 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ArrayHelper;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.string.StringHelper;
 
 @Immutable
@@ -249,8 +249,8 @@ public final class PersonNameHelper
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <String> getAllNobiliaryParticles ()
+  public static ICommonsList <String> getAllNobiliaryParticles ()
   {
-    return CollectionHelper.newList (NOBILIARY_PARTICLES);
+    return new CommonsArrayList <> (NOBILIARY_PARTICLES);
   }
 }

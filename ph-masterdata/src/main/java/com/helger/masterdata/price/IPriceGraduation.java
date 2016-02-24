@@ -17,7 +17,6 @@
 package com.helger.masterdata.price;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -25,6 +24,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.lang.IHasSize;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
@@ -75,7 +75,7 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency, Serializable
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <? extends IPriceGraduationItem> getAllItems ();
+  ICommonsList <? extends IPriceGraduationItem> getAllItems ();
 
   /**
    * @param nIndex

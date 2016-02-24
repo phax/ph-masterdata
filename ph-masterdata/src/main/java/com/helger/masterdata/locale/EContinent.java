@@ -17,7 +17,6 @@
 package com.helger.masterdata.locale;
 
 import java.util.Locale;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,6 +24,8 @@ import javax.annotation.Nullable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsNavigableSet;
 import com.helger.commons.filter.IFilter;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
@@ -82,12 +83,12 @@ public enum EContinent implements IHasID <String>,IHasDisplayText
     ValueEnforcer.notEmptyNoNullValue (aContinents, "Continents");
     return aLocale -> {
       // Get all continents of the passed locale
-      final Set <EContinent> aContinentsOfLocale = ContinentHelper.getContinentsOfCountry (aLocale);
+      final ICommonsNavigableSet <EContinent> aContinentsOfLocale = ContinentHelper.getContinentsOfCountry (aLocale);
       if (aContinentsOfLocale == null)
         return false;
 
       // Retain only the specified ones
-      aContinentsOfLocale.retainAll (CollectionHelper.newList (aContinents));
+      aContinentsOfLocale.retainAll (new CommonsArrayList <> (aContinents));
 
       // If at least one locale is left, we have a match
       return !aContinentsOfLocale.isEmpty ();

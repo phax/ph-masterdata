@@ -17,7 +17,6 @@
 package com.helger.masterdata.postal;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -25,6 +24,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsList;
 
 /**
  * Postal code country
@@ -51,7 +51,7 @@ public interface IPostalCodeCountry extends Serializable
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <PostalCodeFormat> getAllFormats ();
+  ICommonsList <PostalCodeFormat> getAllFormats ();
 
   /**
    * Get the format at the specified index
@@ -74,7 +74,7 @@ public interface IPostalCodeCountry extends Serializable
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <String> getAllSpecificPostalCodes ();
+  ICommonsList <String> getAllSpecificPostalCodes ();
 
   /**
    * @return An optional note for this country.
@@ -100,5 +100,5 @@ public interface IPostalCodeCountry extends Serializable
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <String> getAllExamples ();
+  ICommonsList <String> getAllExamples ();
 }

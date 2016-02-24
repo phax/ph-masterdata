@@ -17,7 +17,6 @@
 package com.helger.masterdata.swift;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -29,7 +28,8 @@ import com.helger.commons.CGlobal;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.regex.RegExCache;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
@@ -47,7 +47,7 @@ public final class IBANCountryData extends LocalDatePeriod
 {
   private final int m_nExpectedLength;
   private final Pattern m_aPattern;
-  private final List <IBANElement> m_aElements;
+  private final ICommonsList <IBANElement> m_aElements;
   private final String m_sFixedCheckDigits;
 
   /**
@@ -83,7 +83,7 @@ public final class IBANCountryData extends LocalDatePeriod
 
     m_nExpectedLength = nExpectedLength;
     m_aPattern = aPattern;
-    m_aElements = CollectionHelper.newList (aElements);
+    m_aElements = new CommonsArrayList <> (aElements);
     m_sFixedCheckDigits = sFixedCheckDigits;
 
     int nCalcedLength = 0;
@@ -126,9 +126,9 @@ public final class IBANCountryData extends LocalDatePeriod
    */
   @Nonnull
   @ReturnsMutableCopy
-  public List <IBANElement> getAllElements ()
+  public ICommonsList <IBANElement> getAllElements ()
   {
-    return CollectionHelper.newList (m_aElements);
+    return m_aElements.getClone ();
   }
 
   public boolean hasFixedCheckDigits ()
@@ -152,7 +152,7 @@ public final class IBANCountryData extends LocalDatePeriod
    */
   @Nonnull
   @ReturnsMutableCopy
-  public List <IBANElementValue> parseToElementValues (@Nonnull final String sIBAN)
+  public ICommonsList <IBANElementValue> parseToElementValues (@Nonnull final String sIBAN)
   {
     ValueEnforcer.notNull (sIBAN, "IBANString");
 
@@ -163,7 +163,7 @@ public final class IBANCountryData extends LocalDatePeriod
                                           " but found " +
                                           sRealIBAN.length ());
 
-    final List <IBANElementValue> ret = new ArrayList <IBANElementValue> ();
+    final ICommonsList <IBANElementValue> ret = new CommonsArrayList <> (m_aElements.size ());
     int nIndex = 0;
     for (final IBANElement aElement : m_aElements)
     {
@@ -184,9 +184,9 @@ public final class IBANCountryData extends LocalDatePeriod
 
   @Nonnull
   @ReturnsMutableCopy
-  private static List <IBANElement> _parseElements (@Nonnull final String sDesc)
+  private static ICommonsList <IBANElement> _parseElements (@Nonnull final String sDesc)
   {
-    final List <IBANElement> aList = new ArrayList <IBANElement> ();
+    final ICommonsList <IBANElement> aList = new CommonsArrayList <> ();
     // Always starts with the country code
     aList.add (new IBANElement (EIBANElementType.COUNTRY_CODE, 2));
 
@@ -315,7 +315,7 @@ public final class IBANCountryData extends LocalDatePeriod
     if (sDesc.length () < 4)
       throw new IllegalArgumentException ("Cannot converted passed string because it is too short!");
 
-    final List <IBANElement> aList = _parseElements (sDesc);
+    final ICommonsList <IBANElement> aList = _parseElements (sDesc);
 
     final Pattern aPattern = _parseLayout (sCountryCode, nExpectedLength, sFixedCheckDigits, sLayout);
 

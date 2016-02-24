@@ -17,15 +17,13 @@
 package com.helger.masterdata.locale;
 
 import java.util.Locale;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.ext.ICommonsSet;
+import com.helger.commons.collection.ext.ICommonsNavigableSet;
 import com.helger.commons.collection.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.locale.country.CountryCache;
 
@@ -324,14 +322,14 @@ public final class ContinentHelper
    */
   @Nullable
   @ReturnsMutableCopy
-  public static Set <EContinent> getContinentsOfCountry (@Nullable final Locale aLocale)
+  public static ICommonsNavigableSet <EContinent> getContinentsOfCountry (@Nullable final Locale aLocale)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
     if (aCountry != null)
     {
-      final ICommonsSet <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsNavigableSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
-        return CollectionHelper.newSortedSet (ret);
+        return ret.getClone ();
     }
     return null;
   }
@@ -347,14 +345,14 @@ public final class ContinentHelper
    */
   @Nullable
   @ReturnsMutableCopy
-  public static Set <EContinent> getContinentsOfCountry (@Nullable final String sCountryID)
+  public static ICommonsNavigableSet <EContinent> getContinentsOfCountry (@Nullable final String sCountryID)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryID);
     if (aCountry != null)
     {
-      final ICommonsSet <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsNavigableSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
-        return CollectionHelper.newSortedSet (ret);
+        return ret.getClone ();
     }
     return null;
   }
