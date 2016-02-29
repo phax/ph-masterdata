@@ -16,14 +16,13 @@
  */
 package com.helger.validation.validator.string;
 
-import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.validation.result.IValidationResult;
@@ -40,12 +39,12 @@ import com.helger.validation.validator.IStringValidator;
  */
 public class StringValidatorChainAND extends AbstractStringValidator
 {
-  private final List <IStringValidator> m_aValidators;
+  private final ICommonsList <IStringValidator> m_aValidators;
 
   public StringValidatorChainAND (@Nonnull @Nonempty final IStringValidator... aValidators)
   {
     ValueEnforcer.notEmptyNoNullValue (aValidators, "Validators");
-    m_aValidators = CollectionHelper.newList (aValidators);
+    m_aValidators = new CommonsArrayList <> (aValidators);
   }
 
   @Nonnull
