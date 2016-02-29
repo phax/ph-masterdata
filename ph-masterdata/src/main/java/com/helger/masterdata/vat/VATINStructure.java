@@ -17,7 +17,6 @@
 package com.helger.masterdata.vat;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -29,7 +28,8 @@ import javax.annotation.concurrent.Immutable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.locale.country.CountryCache;
@@ -49,7 +49,7 @@ public class VATINStructure implements IHasCountry
   private final Locale m_aCountry;
   private final String m_sPattern;
   private final Pattern m_aPattern;
-  private final List <String> m_aExamples;
+  private final ICommonsList <String> m_aExamples;
 
   public VATINStructure (@Nonnull final String sCountry,
                          @Nonnull @RegEx final String sRegEx,
@@ -64,7 +64,7 @@ public class VATINStructure implements IHasCountry
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;
     m_aPattern = RegExCache.getPattern (sRegEx);
-    m_aExamples = CollectionHelper.newList (aExamples);
+    m_aExamples = new CommonsArrayList <> (aExamples);
 
     if (GlobalDebug.isDebugMode ())
       for (final String s : m_aExamples)
@@ -105,9 +105,9 @@ public class VATINStructure implements IHasCountry
   @Nonnull
   @Nonempty
   @ReturnsMutableCopy
-  public List <String> getExamples ()
+  public ICommonsList <String> getExamples ()
   {
-    return CollectionHelper.newList (m_aExamples);
+    return m_aExamples.getClone ();
   }
 
   @Override

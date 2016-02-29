@@ -40,6 +40,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
@@ -76,12 +77,9 @@ public class MainReadPostalCodeListExcel
                  @Nonnull @Nonempty final List <String> aFormats,
                  @Nullable final String sNote)
     {
-      if (StringHelper.hasNoText (sCountry))
-        throw new IllegalArgumentException ("country");
-      if (StringHelper.hasNoText (sISO))
-        throw new IllegalArgumentException ("ISO");
-      if (CollectionHelper.isEmpty (aFormats))
-        throw new IllegalArgumentException ("formats");
+      ValueEnforcer.notEmpty (sCountry, "country");
+      ValueEnforcer.notEmpty (sISO, "ISO");
+      ValueEnforcer.notEmpty (aFormats, "formats");
       m_sCountry = sCountry;
       m_aValidFrom = aValidFrom == null ? null : PDTFactory.createLocalDate (aValidFrom);
       m_sISO = sISO;
@@ -194,14 +192,14 @@ public class MainReadPostalCodeListExcel
     }
 
     // Convert to map, where the key is the ISO
-    final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased <String, Item> ();
+    final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased <> ();
     for (final Item aItem : aItems)
       aMap.putSingle (aItem.getISO (), aItem);
 
     // Sort all sub-lists by introduction date
     for (final List <Item> aSubList : aMap.values ())
     {
-      CollectionHelper.getSortedInline (aSubList, Comparator.comparing (Item::getValidFrom));
+      aSubList.sort (Comparator.comparing (Item::getValidFrom));
       for (int i = 1; i < aSubList.size (); ++i)
       {
         final Item aPrevItem = aSubList.get (i - 1);

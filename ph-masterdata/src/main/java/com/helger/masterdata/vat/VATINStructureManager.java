@@ -23,7 +23,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -39,7 +40,7 @@ public class VATINStructureManager
 {
   public static final String DEFAULT_RESOURCE = "codelists/vatin-data.xml";
 
-  private static final List <VATINStructure> s_aList = new ArrayList <VATINStructure> ();
+  private static final ICommonsList <VATINStructure> s_aList = new CommonsArrayList <> ();
 
   static
   {
@@ -123,8 +124,8 @@ public class VATINStructureManager
    */
   @Nonnull
   @ReturnsMutableCopy
-  public static List <VATINStructure> getAllStructures ()
+  public static ICommonsList <VATINStructure> getAllStructures ()
   {
-    return CollectionHelper.newList (s_aList);
+    return s_aList.getClone ();
   }
 }

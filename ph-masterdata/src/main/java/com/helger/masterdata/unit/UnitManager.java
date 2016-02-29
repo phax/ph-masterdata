@@ -16,16 +16,14 @@
  */
 package com.helger.masterdata.unit;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Nonnull;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.annotation.WorkInProgress;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsCollection;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.microdom.IMicroDocument;
@@ -50,7 +48,7 @@ public final class UnitManager
     static final UnitManager s_aInstance = new UnitManager (DEFAULT_UNIT_RES);
   }
 
-  private final Map <Integer, UnitSector> m_aSectors = new HashMap <> ();
+  private final ICommonsMap <Integer, UnitSector> m_aSectors = new CommonsHashMap <> ();
 
   private void _readFromFile (@Nonnull final IReadableResource aRes)
   {
@@ -95,8 +93,8 @@ public final class UnitManager
 
   @Nonnull
   @ReturnsMutableCopy
-  public Collection <UnitSector> getAllSectors ()
+  public ICommonsCollection <UnitSector> getAllSectors ()
   {
-    return CollectionHelper.newList (m_aSectors.values ());
+    return m_aSectors.copyOfValues ();
   }
 }

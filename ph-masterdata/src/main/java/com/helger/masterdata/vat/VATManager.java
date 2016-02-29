@@ -20,12 +20,9 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -37,7 +34,11 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
@@ -72,13 +73,13 @@ public class VATManager implements IVATItemProvider
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
-  private final List <String> m_aSources = new ArrayList <String> ();
+  private final ICommonsList <String> m_aSources = new CommonsArrayList <> ();
 
   // Maps from locale to the available VAT data
-  private final Map <Locale, VATCountryData> m_aVATItemsPerCountry = new HashMap <> ();
+  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap <> ();
 
   // Overall VAT map (ID to item)
-  private final Map <String, IVATItem> m_aAllVATItems = new HashMap <> ();
+  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap <> ();
 
   public VATManager ()
   {}
@@ -198,9 +199,9 @@ public class VATManager implements IVATItemProvider
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <String> getSources ()
+  public ICommonsList <String> getSources ()
   {
-    return CollectionHelper.newList (m_aSources);
+    return m_aSources.getClone ();
   }
 
   /**
@@ -208,9 +209,9 @@ public class VATManager implements IVATItemProvider
    */
   @Nonnull
   @ReturnsMutableCopy
-  public Set <Locale> getAllAvailableCountries ()
+  public ICommonsSet <Locale> getAllAvailableCountries ()
   {
-    return CollectionHelper.newSet (m_aVATItemsPerCountry.keySet ());
+    return m_aVATItemsPerCountry.copyOfKeySet ();
   }
 
   /**

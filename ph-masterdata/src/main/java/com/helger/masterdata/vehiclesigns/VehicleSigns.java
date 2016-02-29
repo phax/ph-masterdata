@@ -17,7 +17,6 @@
 package com.helger.masterdata.vehiclesigns;
 
 import java.util.Locale;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,6 +26,7 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.locale.country.CountryCache;
@@ -222,7 +222,7 @@ public final class VehicleSigns
   @Nullable
   public static Locale getCountryFromVehicleSign (@Nullable final String sSign)
   {
-    final Set <Locale> aCountries = s_aSignToCountry.get (sSign);
-    return CollectionHelper.isEmpty (aCountries) ? null : aCountries.iterator ().next ();
+    final ICommonsSet <Locale> aCountries = s_aSignToCountry.get (sSign);
+    return CollectionHelper.getFirstElement (aCountries);
   }
 }

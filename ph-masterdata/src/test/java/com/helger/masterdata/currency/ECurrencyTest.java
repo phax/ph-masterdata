@@ -34,7 +34,6 @@ import java.util.Map;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
 import com.helger.commons.equals.EqualsHelper;
@@ -397,12 +396,11 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
       }
     }
-    for (final Map.Entry <Currency, ICommonsSet <Locale>> a : CollectionHelper.getSortedByKey (aAllOfCurrency,
-                                                                                               Comparator.comparing (Currency::getCurrencyCode))
-                                                                              .entrySet ())
+    for (final Map.Entry <Currency, ICommonsSet <Locale>> a : aAllOfCurrency.getSortedByKey (Comparator.comparing (Currency::getCurrencyCode))
+                                                                            .entrySet ())
     {
       String sLocale = "";
-      for (final Locale aLoc : CollectionHelper.getSorted (a.getValue (), Comparator.comparing (Locale::toString)))
+      for (final Locale aLoc : a.getValue ().getSorted (Comparator.comparing (Locale::toString)))
       {
         if (sLocale.length () > 0)
           sLocale += ',';

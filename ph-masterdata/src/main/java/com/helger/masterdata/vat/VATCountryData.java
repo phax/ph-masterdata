@@ -16,9 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,7 +24,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.locale.country.IHasCountry;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
@@ -41,7 +40,7 @@ public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;
-  private final Map <String, IVATItem> m_aItems = new HashMap <> ();
+  private final ICommonsMap <String, IVATItem> m_aItems = new CommonsHashMap <> ();
   private final String m_sCountryName;
   private final String m_sInternalComment;
 
@@ -98,9 +97,9 @@ public class VATCountryData implements IHasCountry
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, IVATItem> getAllItems ()
+  public ICommonsMap <String, IVATItem> getAllItems ()
   {
-    return CollectionHelper.newMap (m_aItems);
+    return m_aItems.getClone ();
   }
 
   @Override

@@ -24,7 +24,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
 
 /**
  * Test class for class {@link AddressHelper}.
@@ -135,8 +135,8 @@ public final class AddressHelperTest
                   "\n" +
                   "Austria",
                   AddressHelper.getAddressString (a,
-                                                  CollectionHelper.newList (EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                            EAddressField.COUNTRY),
+                                                  new CommonsArrayList <> (EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EAddressField.COUNTRY),
                                                   Locale.UK));
     assertEquals ("Main road 7" +
                   "\n" +
@@ -144,9 +144,9 @@ public final class AddressHelperTest
                   "\n" +
                   "Austria",
                   AddressHelper.getAddressString (a,
-                                                  CollectionHelper.newList (EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                            EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                            EAddressField.COUNTRY),
+                                                  new CommonsArrayList <> (EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EAddressField.COUNTRY),
                                                   Locale.UK));
   }
 }
