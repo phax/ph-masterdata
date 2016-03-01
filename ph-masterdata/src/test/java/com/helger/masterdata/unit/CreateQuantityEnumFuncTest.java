@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.unit;
 
-import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -24,6 +23,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.helger.commons.CGlobal;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.convert.MicroTypeConverter;
@@ -47,7 +48,7 @@ public final class CreateQuantityEnumFuncTest
     final IMicroDocument aDoc = MicroReader.readMicroXML (UnitManager.DEFAULT_UNIT_RES);
     final IMicroElement eRoot = aDoc.getDocumentElement ();
     // Read all quantities
-    final Map <Integer, String> aTexts = new LinkedHashMap <> ();
+    final ICommonsOrderedMap <Integer, String> aTexts = new CommonsLinkedHashMap <> ();
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
       final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
@@ -58,7 +59,7 @@ public final class CreateQuantityEnumFuncTest
     }
 
     // Build enum
-    final Map <Integer, String> aEnumNames = new LinkedHashMap <> ();
+    final ICommonsOrderedMap <Integer, String> aEnumNames = new CommonsLinkedHashMap <> ();
     for (final Map.Entry <Integer, String> aEntry : aTexts.entrySet ())
     {
       String sEnumName = aEntry.getValue ().toUpperCase (Locale.US);

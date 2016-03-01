@@ -16,17 +16,17 @@
  */
 package com.helger.masterdata.vehiclesigns;
 
-import java.util.LinkedHashMap;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsTreeSet;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.system.SystemHelper;
 
@@ -47,7 +47,7 @@ public final class VehicleSignsFuncTest
       for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
         if (aLocale.getDisplayCountry (Locale.UK).contains ("zi"))
           s_aLogger.info (aLocale + " -- " + aLocale.getDisplayCountry (Locale.UK));
-    final Map <String, String> map = new LinkedHashMap <String, String> ();
+    final ICommonsOrderedMap <String, String> map = new CommonsLinkedHashMap <> ();
     map.put ("Albania", "AL");
     if (false)
       map.put ("Alderney", "GBA");
@@ -246,7 +246,7 @@ public final class VehicleSignsFuncTest
   @Test
   public void testGetAllCountries ()
   {
-    final Set <String> aSet = new TreeSet <String> ();
+    final ICommonsSet <String> aSet = new CommonsTreeSet <> ();
     for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
       for (final Locale aLocale2 : LocaleCache.getInstance ().getAllLocales ())
         aSet.add (aLocale.getDisplayCountry (aLocale2));
