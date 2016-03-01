@@ -18,7 +18,6 @@ package com.helger.masterdata.tools;
 
 import java.util.Locale;
 import java.util.Map;
-import java.util.TreeMap;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,6 +26,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+import com.helger.commons.collection.ext.CommonsTreeMap;
+import com.helger.commons.collection.ext.ICommonsNavigableMap;
 import com.helger.commons.compare.IComparator;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
@@ -102,8 +103,8 @@ public class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final Map <Locale, EContinent> aMap = new TreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
-                                                                                                          LOC));
+    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
+                                                                                                                      LOC));
     while (true)
     {
       final Row aRow = aSheet.getRow (nRow);
