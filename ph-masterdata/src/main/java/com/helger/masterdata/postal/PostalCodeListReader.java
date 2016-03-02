@@ -18,13 +18,14 @@ package com.helger.masterdata.postal;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -63,9 +64,9 @@ public class PostalCodeListReader
 
   @Nonnull
   @ReturnsMutableCopy
-  private static List <EPostalCodeFormatElement> _parseFormat (final String sFormat)
+  private static ICommonsList <EPostalCodeFormatElement> _parseFormat (final String sFormat)
   {
-    final List <EPostalCodeFormatElement> ret = new ArrayList <EPostalCodeFormatElement> ();
+    final ICommonsList <EPostalCodeFormatElement> ret = new CommonsArrayList <> ();
     int nIndex = 0;
     EPostalCodeFormatElement eElement;
     while (nIndex < sFormat.length ())

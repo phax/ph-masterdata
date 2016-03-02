@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.address;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,6 +26,7 @@ import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.string.StringHelper;
@@ -243,7 +243,7 @@ public final class AddressHelper
     if (aAddress == null)
       return null;
 
-    final List <String> aValues = new ArrayList <> (aFields.size ());
+    final ICommonsList <String> aValues = new CommonsArrayList <> (aFields.size ());
     for (final EAddressField eField : aFields)
       aValues.add (eField.get (aAddress, aDisplayLocale));
     return StringHelper.getImplodedNonEmpty (sLineSeparator, aValues);

@@ -16,9 +16,6 @@
  */
 package com.helger.masterdata.vat;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -54,7 +51,7 @@ public class VATINStructureManager
       final String sPattern = eVatin.getAttributeValue ("pattern");
 
       // Read all examples
-      final List <String> aExamples = new ArrayList <String> ();
+      final ICommonsList <String> aExamples = new CommonsArrayList <> ();
       for (final IMicroElement eExample : eVatin.getAllChildElements ("example"))
         aExamples.add (eExample.getTextContent ());
 

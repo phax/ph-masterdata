@@ -16,13 +16,12 @@
  */
 package com.helger.masterdata;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.string.StringHelper;
 
@@ -72,7 +71,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   {
     if (StringHelper.hasText (sStatus))
     {
-      final List <EUNCodelistStatus> ret = new ArrayList <> ();
+      final ICommonsList <EUNCodelistStatus> ret = new CommonsArrayList <> ();
       for (final EUNCodelistStatus eStatus : values ())
         if (sStatus.indexOf (eStatus.m_cText) != -1)
           ret.add (eStatus);
