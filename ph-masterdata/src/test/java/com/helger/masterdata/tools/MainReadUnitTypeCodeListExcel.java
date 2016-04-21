@@ -17,7 +17,6 @@
 package com.helger.masterdata.tools;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -29,6 +28,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -71,8 +72,8 @@ public final class MainReadUnitTypeCodeListExcel
     eHeader.appendElement ("revision").appendText (sRevision);
 
     final IMicroElement eBody = eRoot.appendElement ("body");
-    final Map <String, String> aSectors = new HashMap <String, String> ();
-    final Map <String, Integer> aQuantities = new HashMap <String, Integer> ();
+    final ICommonsMap <String, String> aSectors = new CommonsHashMap<> ();
+    final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap<> ();
     while (it.hasNext ())
     {
       final Row aRow = it.next ();

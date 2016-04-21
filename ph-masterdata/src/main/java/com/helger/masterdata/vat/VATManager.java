@@ -20,9 +20,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -73,13 +71,13 @@ public class VATManager implements IVATItemProvider
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
-  private final ICommonsList <String> m_aSources = new CommonsArrayList <> ();
+  private final ICommonsList <String> m_aSources = new CommonsArrayList<> ();
 
   // Maps from locale to the available VAT data
-  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap <> ();
+  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap<> ();
 
   // Overall VAT map (ID to item)
-  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap <> ();
+  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap<> ();
 
   public VATManager ()
   {}
@@ -246,11 +244,11 @@ public class VATManager implements IVATItemProvider
    *         used if zero VAT is allowed
    */
   @Nonnull
-  public Map <String, IVATItem> getAllVATItemsForCountry (@Nonnull final Locale aCountry)
+  public ICommonsMap <String, IVATItem> getAllVATItemsForCountry (@Nonnull final Locale aCountry)
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
-    final Map <String, IVATItem> ret = new HashMap <> ();
+    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap<> ();
 
     // first get locale specific VAT types
     final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()

@@ -16,14 +16,14 @@
  */
 package com.helger.masterdata.locale;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.microdom.IMicroDocument;
@@ -40,9 +40,9 @@ public class ISO639_2Handler
     static final ISO639_2Handler s_aInstance = new ISO639_2Handler ().readFromResource (new ClassPathResource (DEFAULT_RESOURCE));
   }
 
-  private final Map <String, ISO639_2Item> m_aAlpha3B = new HashMap <> ();
-  private final Map <String, ISO639_2Item> m_aAlpha3T = new HashMap <> ();
-  private final Map <String, ISO639_2Item> m_aAlpha2 = new HashMap <> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3B = new CommonsHashMap<> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3T = new CommonsHashMap<> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha2 = new CommonsHashMap<> ();
 
   public ISO639_2Handler ()
   {}

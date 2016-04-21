@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.telephone;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
+import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.microdom.util.XMLMapHandler;
@@ -36,7 +36,7 @@ import com.helger.commons.string.StringHelper;
 @Immutable
 public final class DialCodeManager
 {
-  private static final Map <String, String> s_aCountryToDialCode = new HashMap <String, String> ();
+  private static final ICommonsMap <String, String> s_aCountryToDialCode = new CommonsHashMap<> ();
 
   static
   {
