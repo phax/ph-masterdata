@@ -32,6 +32,7 @@ import com.helger.commons.microdom.convert.MicroTypeConverter;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.text.IMultilingualText;
+import com.helger.commons.text.ReadOnlyMultilingualText;
 
 /**
  * FIXME THIS CLASS IS NOT YET FINISHED!
@@ -62,7 +63,7 @@ public final class UnitManager
     {
       final int nGroupNum = StringParser.parseInt (eSector.getAttributeValue ("groupnum"), CGlobal.ILLEGAL_UINT);
       final IMultilingualText aName = MicroTypeConverter.convertToNative (eSector.getFirstChildElement ("name"),
-                                                                          IMultilingualText.class);
+                                                                          ReadOnlyMultilingualText.class);
       final UnitSector aSector = new UnitSector (nGroupNum, aName);
       final Integer aKey = aSector.getIDObj ();
       if (m_aSectors.containsKey (aKey))
