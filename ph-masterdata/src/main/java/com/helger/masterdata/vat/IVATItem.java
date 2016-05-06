@@ -20,8 +20,10 @@ import java.math.BigDecimal;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.text.display.IHasDisplayText;
@@ -47,6 +49,19 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
   @Nonnull
   @Nonnegative
   BigDecimal getPercentage ();
+
+  /**
+   * Check if this VAT item has the passed percentage.
+   * 
+   * @param aPercentage
+   *        The percentage to be checked. May be <code>null</code>.
+   * @return <code>true</code> if the passed percentage equals the contained
+   *         percentage.
+   */
+  default boolean hasPercentage (@Nullable final BigDecimal aPercentage)
+  {
+    return EqualsHelper.equals (getPercentage (), aPercentage);
+  }
 
   /**
    * @return <code>true</code> if the percentage is 0.

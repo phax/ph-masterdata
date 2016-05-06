@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -102,14 +103,24 @@ public class VATCountryData implements IHasCountry
     return m_aItems.getClone ();
   }
 
+  @Nullable
+  public IVATItem getItemOfPercentage (@Nullable final BigDecimal aPercentage)
+  {
+    if (aPercentage != null)
+      for (final IVATItem aItem : m_aItems.values ())
+        if (aItem.hasPercentage (aPercentage))
+          return aItem;
+    return null;
+  }
+
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("country", m_aCountry)
-                                       .append ("zeroVATAllowed", m_bZeroVATAllowed)
-                                       .append ("items", m_aItems)
-                                       .appendIfNotNull ("countryname", m_sCountryName)
-                                       .appendIfNotNull ("internalComment", m_sInternalComment)
+    return new ToStringGenerator (this).append ("Country", m_aCountry)
+                                       .append ("ZeroVATAllowed", m_bZeroVATAllowed)
+                                       .append ("Items", m_aItems)
+                                       .appendIfNotNull ("CountryName", m_sCountryName)
+                                       .appendIfNotNull ("InternalComment", m_sInternalComment)
                                        .toString ();
   }
 }

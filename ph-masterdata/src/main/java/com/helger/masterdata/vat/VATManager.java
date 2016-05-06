@@ -71,13 +71,13 @@ public class VATManager implements IVATItemProvider
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
-  private final ICommonsList <String> m_aSources = new CommonsArrayList<> ();
+  private final ICommonsList <String> m_aSources = new CommonsArrayList <> ();
 
   // Maps from locale to the available VAT data
-  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap<> ();
+  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap <> ();
 
   // Overall VAT map (ID to item)
-  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap<> ();
+  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap <> ();
 
   public VATManager ()
   {}
@@ -195,6 +195,10 @@ public class VATManager implements IVATItemProvider
     }
   }
 
+  /**
+   * @return A list with all URLs where the data was gathered from. Purely
+   *         descriptive. Has no impact on the logic. Never <code>null</code>.
+   */
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsList <String> getSources ()
@@ -227,9 +231,22 @@ public class VATManager implements IVATItemProvider
     ValueEnforcer.notNull (aCountry, "Country");
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()
-                                                                                  .getCountry (aCountry));
+    final VATCountryData aVATCountryData = getVATCountryData (aCountry);
     return aVATCountryData != null ? aVATCountryData.isZeroVATAllowed () : bUndefinedValue;
+  }
+
+  /**
+   * Get the VAT data of the passed country.
+   *
+   * @param aCountry
+   *        The locale to use. May not be <code>null</code>.
+   * @return <code>null</code> if no such country data is present.
+   */
+  @Nullable
+  public VATCountryData getVATCountryData (@Nonnull final Locale aCountry)
+  {
+    ValueEnforcer.notNull (aCountry, "Country");
+    return m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
   }
 
   /**
@@ -248,11 +265,10 @@ public class VATManager implements IVATItemProvider
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
-    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap<> ();
+    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap <> ();
 
     // first get locale specific VAT types
-    final VATCountryData aVATCountryData = m_aVATItemsPerCountry.get (CountryCache.getInstance ()
-                                                                                  .getCountry (aCountry));
+    final VATCountryData aVATCountryData = getVATCountryData (aCountry);
     if (aVATCountryData != null)
     {
       if (aVATCountryData.isZeroVATAllowed ())
