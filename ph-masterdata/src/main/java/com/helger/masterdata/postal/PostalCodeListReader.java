@@ -31,6 +31,7 @@ import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
 import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.StringHelper;
+import com.helger.datetime.PDTFactory;
 import com.helger.masterdata.MasterDataLogger;
 
 /**
@@ -94,7 +95,7 @@ public class PostalCodeListReader
     if (eBody == null)
       throw new IllegalArgumentException ("Missing body element in file " + aRes);
 
-    final LocalDate aNow = LocalDate.now ();
+    final LocalDate aNow = PDTFactory.getCurrentLocalDate ();
 
     // Read all countries
     for (final IMicroElement eCountry : eBody.getAllChildElements (ELEMENT_COUNTRY))
