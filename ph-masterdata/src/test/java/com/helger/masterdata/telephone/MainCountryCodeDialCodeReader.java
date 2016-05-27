@@ -17,10 +17,13 @@
 package com.helger.masterdata.telephone;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.helger.commons.charset.CCharset;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.stream.StreamHelper;
@@ -28,9 +31,11 @@ import com.helger.commons.locale.LocaleCache;
 
 public final class MainCountryCodeDialCodeReader
 {
+  private static final Logger s_aLogger = LoggerFactory.getLogger (MainCountryCodeDialCodeReader.class);
+
   public static void main (final String [] args) throws IOException
   {
-    final CSVReader aReader = new CSVReader (new InputStreamReader (ClassPathResource.getInputStream ("countrycode.org.csv"))).setSeparatorChar (';');
+    final CSVReader aReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ)).setSeparatorChar (';');
     try
     {
       for (int i = 0; i < 4; ++i)
@@ -57,11 +62,11 @@ public final class MainCountryCodeDialCodeReader
         if (aCountry == null)
         {
           if (false)
-            System.err.println ("Unknown locale: " + sISO);
+            s_aLogger.error ("Unknown locale: " + sISO);
           continue;
         }
 
-        System.out.println ("<map key=\"" + sISO2 + "\" value=\"" + sCountryCode + "\" />");
+        s_aLogger.info ("<map key=\"" + sISO2 + "\" value=\"" + sCountryCode + "\" />");
       }
     }
     finally

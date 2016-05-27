@@ -33,6 +33,8 @@ import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
@@ -47,6 +49,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public final class ECurrencyTest extends AbstractCommonsTestCase
 {
+  private static final Logger s_aLogger = LoggerFactory.getLogger (ECurrencyTest.class);
+
   @Test
   public void testGetFromIDOrNull ()
   {
@@ -396,6 +400,7 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
       }
     }
+    final StringBuilder aSB = new StringBuilder ();
     for (final Map.Entry <Currency, ICommonsSet <Locale>> a : aAllOfCurrency.getSortedByKey (Comparator.comparing (Currency::getCurrencyCode))
                                                                             .entrySet ())
     {
@@ -407,14 +412,8 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
         sLocale += '"' + aLoc.toString () + '"';
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      System.out.println (sID +
-                          " (Currency.getInstance (\"" +
-                          sID +
-                          "\"), ECurrencyName." +
-                          sID +
-                          ", " +
-                          sLocale +
-                          "),");
+      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + sLocale + "),");
     }
+    s_aLogger.info (aSB.toString ());
   }
 }

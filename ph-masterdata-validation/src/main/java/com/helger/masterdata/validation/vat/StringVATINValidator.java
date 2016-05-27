@@ -51,8 +51,8 @@ public class StringVATINValidator extends AbstractStringValidator
     if (aStructure != null)
     {
       final Locale aDisplayLocale = getDisplayLocale ();
-      final String sCountry = aDisplayLocale == null ? aStructure.getCountry ().getDisplayCountry ()
-                                                     : aStructure.getCountry ().getDisplayCountry (aDisplayLocale);
+      final String sCountry = aStructure.getCountry ().getDisplayCountry (aDisplayLocale == null ? Locale.getDefault ()
+                                                                                                 : aDisplayLocale);
       final String sExamples = StringHelper.getImploded (", ", aStructure.getExamples ());
       final Object [] aArgs = { sCountry, sExamples };
       return new ValidationResultError (EVATErrorTexts.INVALID_VATIN_WITH_EXAMPLES, aArgs);

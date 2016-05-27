@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.helger.commons.collection.ext.CommonsTreeMap;
 import com.helger.commons.collection.ext.ICommonsNavigableMap;
@@ -36,9 +38,10 @@ import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
 import com.helger.poi.excel.ExcelReadHelper;
 
-public class MainReadCountry2Continent
+public final class MainReadCountry2Continent
 {
   private static final Locale LOC = Locale.US;
+  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadCountry2Continent.class);
 
   @Nonnull
   private static EContinent _findContinent (final String s)
@@ -103,8 +106,8 @@ public class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
-                                                                                                                      LOC));
+    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap<> (IComparator.getComparatorCollating (Locale::getCountry,
+                                                                                                                     LOC));
     while (true)
     {
       final Row aRow = aSheet.getRow (nRow);
@@ -118,32 +121,32 @@ public class MainReadCountry2Continent
       final Locale aCountry = _findCountryComplex (sCountryName);
       if (aCountry == null)
       {
-        System.out.println ("No such country: '" + sCountryName + "'");
+        s_aLogger.info ("No such country: '" + sCountryName + "'");
         ++nNotFound;
       }
       else
       {
         final EContinent eOld = aMap.put (aCountry, eContinent);
         if (eOld != null)
-          System.out.println ("Country " +
-                              aCountry.getDisplayCountry () +
-                              " is assigned to " +
-                              eContinent.getDisplayText (LOC) +
-                              " and " +
-                              eOld.getDisplayText (LOC));
+          s_aLogger.info ("Country " +
+                          aCountry.getDisplayCountry (LOC) +
+                          " is assigned to " +
+                          eContinent.getDisplayText (LOC) +
+                          " and " +
+                          eOld.getDisplayText (LOC));
       }
 
       ++nRow;
     }
-    System.out.println ("Countries not found: " + nNotFound);
+    s_aLogger.info ("Countries not found: " + nNotFound);
 
     for (final Map.Entry <Locale, EContinent> e : aMap.entrySet ())
     {
-      System.out.println ("s_aMap.put (CountryCache.getCountry (\"" +
-                          e.getKey ().getCountry () +
-                          "\"), EContinent." +
-                          e.getValue ().name () +
-                          "),");
+      s_aLogger.info ("s_aMap.put (CountryCache.getCountry (\"" +
+                      e.getKey ().getCountry () +
+                      "\"), EContinent." +
+                      e.getValue ().name () +
+                      "),");
     }
   }
 }

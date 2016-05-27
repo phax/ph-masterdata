@@ -116,7 +116,7 @@ public final class IBANManagerTest
     for (final String sCountry : IBANManager.getAllSupportedCountries ())
     {
       final Locale aLocale = new Locale ("", sCountry);
-      assertNotNull (aLocale.getDisplayCountry ());
+      assertNotNull (aLocale.getDisplayCountry (Locale.getDefault ()));
       assertNotNull (IBANManager.getCountryData (sCountry));
     }
   }
