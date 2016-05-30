@@ -22,7 +22,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
@@ -44,6 +43,8 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.collection.multimap.IMultiMapListBased;
 import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
 import com.helger.commons.io.file.FileHelper;
@@ -152,7 +153,7 @@ public class MainReadPostalCodeListExcel
     eHeader.appendElement (PostalCodeListReader.ELEMENT_REVISION).appendText (sRevision);
 
     final IMicroElement eBody = eRoot.appendElement (PostalCodeListReader.ELEMENT_BODY);
-    final List <Item> aItems = new ArrayList <Item> ();
+    final ICommonsList <Item> aItems = new CommonsArrayList <> ();
     int nRow = 0;
     while (it.hasNext ())
     {

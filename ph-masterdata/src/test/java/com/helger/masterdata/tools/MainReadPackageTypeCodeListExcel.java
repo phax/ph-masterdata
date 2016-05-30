@@ -17,10 +17,8 @@
 package com.helger.masterdata.tools;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -29,6 +27,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.microdom.IMicroDocument;
 import com.helger.commons.microdom.IMicroElement;
@@ -51,7 +51,7 @@ public class MainReadPackageTypeCodeListExcel
 
     final String sRealNumericCode = sNumericCode.replace ('\n', ' ');
     // E.g. "22 to 25", "44 or 45", "21 to 23 or 31 to 33"
-    final List <String> ret = new ArrayList <String> ();
+    final ICommonsList <String> ret = new CommonsArrayList <> ();
 
     // First split by "or"
     final String [] aOrParts = RegExHelper.getSplitToArray (sRealNumericCode, " or ");

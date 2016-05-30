@@ -392,7 +392,7 @@ public final class ECurrencyTest extends AbstractCommonsTestCase
   {
     final Map <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
 
-    final MultiHashMapHashSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <Currency, Locale> ();
+    final MultiHashMapHashSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())
     {
       if (ECurrency.findFirst (ECurrency.filterContainsLocale (aEntry.getKey ())) == null)
