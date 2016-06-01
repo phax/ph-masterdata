@@ -28,8 +28,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.locale.country.CountryCache;
-import com.helger.datetime.PDTFactory;
 
 /**
  * Test class for class {@link VATManager}.
