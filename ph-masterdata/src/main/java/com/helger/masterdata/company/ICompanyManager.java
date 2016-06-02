@@ -16,11 +16,10 @@
  */
 package com.helger.masterdata.company;
 
-import java.util.Collection;
-
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsCollection;
 
 /**
  * Generic company manager interface.
@@ -35,5 +34,5 @@ public interface ICompanyManager extends ICompanyResolver
    */
   @Nonnull
   @ReturnsMutableCopy
-  Collection <IMutableCompany> getAllCompanies ();
+  ICommonsCollection <IMutableCompany> getAllCompanies ();
 }

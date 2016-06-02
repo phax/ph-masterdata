@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.postal;
 
-import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -26,6 +25,7 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
@@ -162,7 +162,7 @@ public class PostalCodeManager
    */
   @Nullable
   @ReturnsMutableCopy
-  public List <String> getPostalCodeExamples (@Nullable final Locale aCountry)
+  public ICommonsList <String> getPostalCodeExamples (@Nullable final Locale aCountry)
   {
     final IPostalCodeCountry aPostalCountry = getPostalCountryOfCountry (aCountry);
     return aPostalCountry == null ? null : aPostalCountry.getAllExamples ();

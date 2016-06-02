@@ -22,7 +22,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Currency;
-import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
 
@@ -761,14 +760,14 @@ public enum ECurrency implements IHasID <String>,IHasDisplayText
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrencies ()
+  public static ICommonsList <ECurrency> getAllCurrencies ()
   {
     return getAllCurrencies (filterNotDeprecated ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public static List <ECurrency> getAllCurrencies (@Nullable final Predicate <ECurrency> aFilter)
+  public static ICommonsList <ECurrency> getAllCurrencies (@Nullable final Predicate <ECurrency> aFilter)
   {
     return ArrayHelper.getAll (values (), aFilter);
   }
