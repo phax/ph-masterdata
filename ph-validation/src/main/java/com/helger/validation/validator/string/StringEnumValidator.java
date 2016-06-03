@@ -115,13 +115,13 @@ public class StringEnumValidator <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <Str
   @Nonnull
   public static <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <String>> StringEnumValidator <ENUMTYPE> create (@Nonnull final Class <ENUMTYPE> aClass)
   {
-    return new StringEnumValidator <ENUMTYPE> (aClass);
+    return new StringEnumValidator <> (aClass);
   }
 
   @Nonnull
   public static <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <String>> StringEnumValidator <ENUMTYPE> create (@Nonnull final Class <ENUMTYPE> aClass,
                                                                                                             @Nullable final IHasDisplayText aErrorText)
   {
-    return new StringEnumValidator <ENUMTYPE> (aClass, aErrorText);
+    return new StringEnumValidator <> (aClass, aErrorText);
   }
 }
