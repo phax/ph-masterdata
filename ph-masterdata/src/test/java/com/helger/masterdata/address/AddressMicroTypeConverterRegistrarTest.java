@@ -25,9 +25,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.convert.MicroTypeConverter;
-import com.helger.commons.microdom.serialize.MicroWriter;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.convert.MicroTypeConverter;
+import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
  * Test class for class {@link AddressMicroTypeConverterRegistrar}.

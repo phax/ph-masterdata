@@ -34,10 +34,10 @@ import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.microdom.IMicroDocument;
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.serialize.MicroReader;
 import com.helger.commons.string.ToStringGenerator;
+import com.helger.xml.microdom.IMicroDocument;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.serialize.MicroReader;
 
 /**
  * This class manages the deprecated locales.

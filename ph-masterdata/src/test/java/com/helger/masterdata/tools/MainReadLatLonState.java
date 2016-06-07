@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import com.helger.commons.charset.CCharset;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.microdom.IMicroDocument;
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.MicroDocument;
-import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringParser;
+import com.helger.xml.microdom.IMicroDocument;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroDocument;
+import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
  * Read average county longitude and latitude from CSV. The CSV can be

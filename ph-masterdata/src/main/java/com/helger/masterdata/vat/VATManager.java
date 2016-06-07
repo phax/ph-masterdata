@@ -42,14 +42,14 @@ import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleHelper;
 import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.microdom.IMicroDocument;
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.serialize.MicroReader;
-import com.helger.commons.microdom.util.MicroHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.format.PDTFromString;
+import com.helger.xml.microdom.IMicroDocument;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.serialize.MicroReader;
+import com.helger.xml.microdom.util.MicroHelper;
 
 /**
  * Manages the available VAT types.

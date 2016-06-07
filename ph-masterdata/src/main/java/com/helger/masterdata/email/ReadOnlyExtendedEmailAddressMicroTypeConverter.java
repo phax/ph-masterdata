@@ -18,7 +18,7 @@ package com.helger.masterdata.email;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroElement;
 
 public final class ReadOnlyExtendedEmailAddressMicroTypeConverter extends AbstractExtendedEmailAddressMicroTypeConverter
 {

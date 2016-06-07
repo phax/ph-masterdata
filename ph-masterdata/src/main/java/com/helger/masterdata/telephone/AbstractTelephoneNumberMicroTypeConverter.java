@@ -19,9 +19,9 @@ package com.helger.masterdata.telephone;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.MicroElement;
-import com.helger.commons.microdom.convert.IMicroTypeConverter;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public abstract class AbstractTelephoneNumberMicroTypeConverter implements IMicroTypeConverter
 {

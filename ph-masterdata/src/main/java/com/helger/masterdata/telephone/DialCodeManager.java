@@ -25,8 +25,8 @@ import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.microdom.util.XMLMapHandler;
 import com.helger.commons.string.StringHelper;
+import com.helger.xml.microdom.util.XMLMapHandler;
 
 /**
  * Contains a list of dial up codes.

@@ -23,11 +23,11 @@ import java.util.Locale;
 
 import com.helger.commons.charset.CCharset;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.microdom.IMicroDocument;
-import com.helger.commons.microdom.IMicroElement;
-import com.helger.commons.microdom.MicroDocument;
-import com.helger.commons.microdom.serialize.MicroWriter;
 import com.helger.commons.string.StringHelper;
+import com.helger.xml.microdom.IMicroDocument;
+import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroDocument;
+import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
  * Source of the file: http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt
