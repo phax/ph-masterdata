@@ -28,6 +28,7 @@ import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.stream.StreamHelper;
 import com.helger.commons.locale.LocaleCache;
+import com.helger.commons.string.StringHelper;
 
 public final class MainCountryCodeDialCodeReader
 {
@@ -45,8 +46,8 @@ public final class MainCountryCodeDialCodeReader
       while ((aLine = aReader.readNext ()) != null)
       {
         // Country;ISO;Country;IDD;NDD
-        final String sISO = aLine.get (1).replace ((char) 65533, ' ').trim ();
-        final String sCountryCode = aLine.get (2).replace ((char) 65533, ' ').trim ();
+        final String sISO = StringHelper.replaceAll (aLine.get (1), (char) 65533, ' ').trim ();
+        final String sCountryCode = StringHelper.replaceAll (aLine.get (2), (char) 65533, ' ').trim ();
         if (sISO.length () < 2 || sCountryCode.length () == 0)
           continue;
 

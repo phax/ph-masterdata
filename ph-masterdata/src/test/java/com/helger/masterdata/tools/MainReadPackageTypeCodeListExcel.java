@@ -49,7 +49,7 @@ public class MainReadPackageTypeCodeListExcel
     if (StringHelper.hasNoText (sNumericCode))
       return null;
 
-    final String sRealNumericCode = sNumericCode.replace ('\n', ' ');
+    final String sRealNumericCode = StringHelper.replaceAll (sNumericCode, '\n', ' ');
     // E.g. "22 to 25", "44 or 45", "21 to 23 or 31 to 33"
     final ICommonsList <String> ret = new CommonsArrayList <> ();
 
