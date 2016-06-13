@@ -71,13 +71,13 @@ public class VATManager implements IVATItemProvider
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
-  private final ICommonsList <String> m_aSources = new CommonsArrayList <> ();
+  private final ICommonsList <String> m_aSources = new CommonsArrayList<> ();
 
   // Maps from locale to the available VAT data
-  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap <> ();
+  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap<> ();
 
   // Overall VAT map (ID to item)
-  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap <> ();
+  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap<> ();
 
   public VATManager ()
   {}
@@ -105,12 +105,11 @@ public class VATManager implements IVATItemProvider
 
     final IMicroElement eSources = aDoc.getDocumentElement ().getFirstChildElement ("sources");
     if (eSources != null)
-      for (final IMicroElement eSource : eSources.getAllChildElements ("source"))
-      {
+      eSources.forAllChildElements (IMicroElement.filterNamespaceURIAndName (null, "source"), eSource -> {
         final String sSource = eSource.getTextContent ();
         if (StringHelper.hasText (sSource))
           m_aSources.add (sSource);
-      }
+      });
 
     for (final IMicroElement eVATTypes : aDoc.getDocumentElement ().getAllChildElements ("vattypes"))
     {
@@ -265,7 +264,7 @@ public class VATManager implements IVATItemProvider
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
-    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap <> ();
+    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap<> ();
 
     // first get locale specific VAT types
     final VATCountryData aVATCountryData = getVATCountryData (aCountry);
