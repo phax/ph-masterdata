@@ -17,11 +17,36 @@
 package com.helger.masterdata.telephone;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class TelephoneNumberMicroTypeConverter extends AbstractTelephoneNumberMicroTypeConverter
+public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConverter
 {
+  private static final String ATTR_TYPE = "type";
+  private static final String ATTR_COUNTRYCODE = "countrycode";
+  private static final String ATTR_AREACODE = "areacode";
+  private static final String ATTR_LINE = "line";
+  private static final String ATTR_DIRECTDIAL = "directdial";
+
+  @Nonnull
+  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+                                              @Nullable final String sNamespaceURI,
+                                              @Nonnull final String sTagName)
+  {
+    final ITelephoneNumber aTelNo = (ITelephoneNumber) aObject;
+    final IMicroElement eTelNo = new MicroElement (sNamespaceURI, sTagName);
+    if (aTelNo.getType () != null)
+      eTelNo.setAttribute (ATTR_TYPE, aTelNo.getType ().getID ());
+    eTelNo.setAttribute (ATTR_COUNTRYCODE, aTelNo.getCountryCode ());
+    eTelNo.setAttribute (ATTR_AREACODE, aTelNo.getAreaCode ());
+    eTelNo.setAttribute (ATTR_LINE, aTelNo.getLine ());
+    eTelNo.setAttribute (ATTR_DIRECTDIAL, aTelNo.getDirectDial ());
+    return eTelNo;
+  }
+
   @Nonnull
   public TelephoneNumber convertToNative (@Nonnull final IMicroElement eTelNo)
   {

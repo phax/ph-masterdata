@@ -29,7 +29,6 @@ public final class PriceMicroTypeConverterRegistrar implements IMicroTypeConvert
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (ReadOnlyPrice.class, new ReadOnlyPriceMicroTypeConverter ());
     aRegistry.registerMicroElementTypeConverter (Price.class, new PriceMicroTypeConverter ());
   }
 }

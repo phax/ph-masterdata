@@ -19,14 +19,37 @@ package com.helger.masterdata.price;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATManager;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class PriceMicroTypeConverter extends AbstractPriceMicroTypeConverter
+public final class PriceMicroTypeConverter implements IMicroTypeConverter
 {
+  private static final String ATTR_CURRENCY = "currency";
+  private static final String ATTR_NETAMOUNT = "netamount";
+  private static final String ATTR_GROSSAMOUNT = "grossamount";
+  private static final String ATTR_VATITEM = "vatitem";
+
+  @Override
+  @Nonnull
+  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+                                              @Nullable final String sNamespaceURI,
+                                              @Nonnull final String sTagName)
+  {
+    final IPrice aPrice = (IPrice) aObject;
+    final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
+    ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
+    ePrice.setAttributeWithConversion (ATTR_NETAMOUNT, aPrice.getNetAmount ().getValue ());
+    ePrice.setAttributeWithConversion (ATTR_GROSSAMOUNT, aPrice.getGrossAmount ().getValue ());
+    ePrice.setAttribute (ATTR_VATITEM, aPrice.getVATItemID ());
+    return ePrice;
+  }
+
   @Nonnull
   public Price convertToNative (@Nonnull final IMicroElement ePrice)
   {

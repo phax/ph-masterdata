@@ -33,7 +33,6 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
-import com.helger.masterdata.currencyvalue.ReadOnlyCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
@@ -70,7 +69,7 @@ public class Price implements IMutablePrice
                 @Nonnull final BigDecimal aNetAmount,
                 @Nonnull final IVATItem aVATItem)
   {
-    this (new ReadOnlyCurrencyValue (eCurrency, aNetAmount), aVATItem);
+    this (new CurrencyValue (eCurrency, aNetAmount), aVATItem);
   }
 
   /**

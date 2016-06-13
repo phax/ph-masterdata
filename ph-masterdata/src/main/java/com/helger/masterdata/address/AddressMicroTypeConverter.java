@@ -19,12 +19,54 @@ package com.helger.masterdata.address;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
 import com.helger.commons.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public class AddressMicroTypeConverter extends AbstractAddressMicroTypeConverter
+public final class AddressMicroTypeConverter implements IMicroTypeConverter
 {
+  private static final String ATTR_TYPE = "type";
+  private static final String ATTR_COUNTRY = "country";
+  private static final String ATTR_STATE = "state";
+  private static final String ATTR_POSTALCODE = "zipcode";
+  private static final String ATTR_CITY = "city";
+  private static final String ATTR_STREET = "street";
+  private static final String ATTR_BUILDINGNUMBER = "buildingno";
+  private static final String ATTR_POBOX = "pobox";
+  private static final String ATTR_CARE_OF = "careof";
+
+  @Nonnull
+  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+                                              @Nullable final String sNamespaceURI,
+                                              @Nonnull final String sTagName)
+  {
+    final IAddress aAddress = (IAddress) aObject;
+    final IMicroElement eAddress = new MicroElement (sNamespaceURI, sTagName);
+    if (aAddress.getType () != null)
+      eAddress.setAttribute (ATTR_TYPE, aAddress.getType ().getID ());
+    if (StringHelper.hasText (aAddress.getCountry ()))
+      eAddress.setAttribute (ATTR_COUNTRY, aAddress.getCountry ());
+    if (StringHelper.hasText (aAddress.getState ()))
+      eAddress.setAttribute (ATTR_STATE, aAddress.getState ());
+    if (StringHelper.hasText (aAddress.getPostalCode ()))
+      eAddress.setAttribute (ATTR_POSTALCODE, aAddress.getPostalCode ());
+    if (StringHelper.hasText (aAddress.getCity ()))
+      eAddress.setAttribute (ATTR_CITY, aAddress.getCity ());
+    if (StringHelper.hasText (aAddress.getStreet ()))
+      eAddress.setAttribute (ATTR_STREET, aAddress.getStreet ());
+    if (StringHelper.hasText (aAddress.getBuildingNumber ()))
+      eAddress.setAttribute (ATTR_BUILDINGNUMBER, aAddress.getBuildingNumber ());
+    if (StringHelper.hasText (aAddress.getPostOfficeBox ()))
+      eAddress.setAttribute (ATTR_POBOX, aAddress.getPostOfficeBox ());
+    if (StringHelper.hasText (aAddress.getCareOf ()))
+      eAddress.setAttribute (ATTR_CARE_OF, aAddress.getCareOf ());
+    return eAddress;
+  }
+
   @Nonnull
   public Address convertToNative (@Nonnull final IMicroElement eAddress)
   {

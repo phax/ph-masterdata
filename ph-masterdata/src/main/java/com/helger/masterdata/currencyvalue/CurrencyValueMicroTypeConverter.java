@@ -19,12 +19,30 @@ package com.helger.masterdata.currencyvalue;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class CurrencyValueMicroTypeConverter extends AbstractCurrencyValueMicroTypeConverter
+public final class CurrencyValueMicroTypeConverter implements IMicroTypeConverter
 {
+  private static final String ATTR_CURRENCY = "currency";
+  private static final String ATTR_VALUE = "value";
+
+  @Nonnull
+  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+                                              @Nullable final String sNamespaceURI,
+                                              @Nonnull final String sTagName)
+  {
+    final ICurrencyValue aPrice = (ICurrencyValue) aObject;
+    final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
+    ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
+    ePrice.setAttributeWithConversion (ATTR_VALUE, aPrice.getValue ());
+    return ePrice;
+  }
+
   @Nonnull
   public CurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
   {

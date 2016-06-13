@@ -29,8 +29,6 @@ public final class CurrencyValueMicroTypeConverterRegistrar implements IMicroTyp
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (ReadOnlyCurrencyValue.class,
-                                                 new ReadOnlyCurrencyValueMicroTypeConverter ());
     aRegistry.registerMicroElementTypeConverter (CurrencyValue.class, new CurrencyValueMicroTypeConverter ());
   }
 }

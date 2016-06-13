@@ -17,11 +17,32 @@
 package com.helger.masterdata.email;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class ExtendedEmailAddressMicroTypeConverter extends AbstractExtendedEmailAddressMicroTypeConverter
+public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeConverter
 {
+  private static final String ATTR_TYPE = "type";
+  private static final String ATTR_ADDRESS = "address";
+  private static final String ATTR_PERSONAL = "personal";
+
+  @Nonnull
+  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+                                              @Nullable final String sNamespaceURI,
+                                              @Nonnull final String sTagName)
+  {
+    final IExtendedEmailAddress aEmail = (IExtendedEmailAddress) aObject;
+    final IMicroElement eEmail = new MicroElement (sNamespaceURI, sTagName);
+    if (aEmail.getType () != null)
+      eEmail.setAttribute (ATTR_TYPE, aEmail.getType ().getID ());
+    eEmail.setAttribute (ATTR_ADDRESS, aEmail.getAddress ());
+    eEmail.setAttribute (ATTR_PERSONAL, aEmail.getPersonal ());
+    return eEmail;
+  }
+
   @Nonnull
   public ExtendedEmailAddress convertToNative (@Nonnull final IMicroElement eEmail)
   {
