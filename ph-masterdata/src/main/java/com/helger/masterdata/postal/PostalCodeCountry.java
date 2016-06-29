@@ -83,7 +83,7 @@ public class PostalCodeCountry implements IPostalCodeCountry
   {
     ValueEnforcer.notEmpty (sSpecificPostalCode, "SpecificPostalCode");
     ValueEnforcer.isTrue (isValidPostalCode (sSpecificPostalCode),
-                          "The passed code '" + sSpecificPostalCode + "' is not valid according to the rules!");
+                          () -> "The passed code '" + sSpecificPostalCode + "' is not valid according to the rules!");
     m_aSpecificPostalCodes.add (sSpecificPostalCode);
   }
 
@@ -115,7 +115,10 @@ public class PostalCodeCountry implements IPostalCodeCountry
   public boolean isValidPostalCode (@Nullable final String sPostalCode)
   {
     if (StringHelper.hasText (sPostalCode))
-      return m_aFormats.containsAny (x -> x.isValidPostalCode (sPostalCode));
+      for (final PostalCodeFormat aFormat : m_aFormats)
+        if (aFormat.isValidPostalCode (sPostalCode))
+          return true;
+    // No format - all are valid
     return m_aFormats.isEmpty ();
   }
 
