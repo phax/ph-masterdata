@@ -139,116 +139,118 @@ public class MainReadPostalCodeListExcel
     final String sRevision = "20130209";
 
     final File f = new File ("src/test/resources/" + sRevision + "PostalCodes.xls");
-    final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f));
-    final Sheet aSheet = aWB.getSheetAt (0);
-    final Iterator <Row> it = aSheet.rowIterator ();
-
-    // Skip 1 row
-    it.next ();
-
-    final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement (PostalCodeListReader.ELEMENT_ROOT);
-    final IMicroElement eHeader = eRoot.appendElement (PostalCodeListReader.ELEMENT_HEADER);
-    eHeader.appendElement (PostalCodeListReader.ELEMENT_SOURCE).appendText (sSource);
-    eHeader.appendElement (PostalCodeListReader.ELEMENT_REVISION).appendText (sRevision);
-
-    final IMicroElement eBody = eRoot.appendElement (PostalCodeListReader.ELEMENT_BODY);
-    final ICommonsList <Item> aItems = new CommonsArrayList <> ();
-    int nRow = 0;
-    while (it.hasNext ())
+    try (final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f)))
     {
-      final Row aRow = it.next ();
-      ++nRow;
-      final String sCountry = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-      if (StringHelper.hasNoText (sCountry))
-      {
-        s_aLogger.warn ("Line " + nRow + ": No country name present");
-        continue;
-      }
-      final Cell aDateCell = aRow.getCell (1);
-      Date aIntroducedDate = null;
-      if (aDateCell != null && aDateCell.getCellType () != Cell.CELL_TYPE_BLANK)
-      {
-        final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
-        final int nYear = aNum.intValue ();
-        if (nYear > 1800 && nYear < 3000)
-          aIntroducedDate = Date.from (Instant.from (PDTFactory.createLocalDate (nYear, Month.JANUARY, 1)
-                                                               .atStartOfDay ()
-                                                               .toInstant (ZoneOffset.UTC)));
-        else
-          aIntroducedDate = ExcelReadHelper.getCellValueJavaDate (aDateCell);
-      }
-      final String sISO = ExcelReadHelper.getCellValueString (aRow.getCell (2));
-      if (StringHelper.hasNoText (sISO))
-      {
-        s_aLogger.warn ("Line " + nRow + ": No ISO code for " + sCountry);
-        continue;
-      }
-      final String sFormat = ExcelReadHelper.getCellValueString (aRow.getCell (3));
-      if (NO_CODES.equals (sFormat) || StringHelper.hasNoText (sFormat))
-        continue;
-      final List <String> aFormats = StringHelper.getExploded ("\n", sFormat);
-      final String sNote = ExcelReadHelper.getCellValueString (aRow.getCell (4));
-      aItems.add (new Item (sCountry, aIntroducedDate, sISO, aFormats, sNote));
-    }
+      final Sheet aSheet = aWB.getSheetAt (0);
+      final Iterator <Row> it = aSheet.rowIterator ();
 
-    // Convert to map, where the key is the ISO
-    final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased <> ();
-    for (final Item aItem : aItems)
-      aMap.putSingle (aItem.getISO (), aItem);
+      // Skip 1 row
+      it.next ();
 
-    // Sort all sub-lists by introduction date
-    for (final List <Item> aSubList : aMap.values ())
-    {
-      aSubList.sort (Comparator.comparing (Item::getValidFrom));
-      for (int i = 1; i < aSubList.size (); ++i)
-      {
-        final Item aPrevItem = aSubList.get (i - 1);
-        final Item aThisItem = aSubList.get (i);
-        if (aThisItem.getValidFrom () != null)
-          aPrevItem.setValidTo (aThisItem.getValidFrom ().minusDays (1));
-      }
-    }
+      final IMicroDocument aDoc = new MicroDocument ();
+      final IMicroElement eRoot = aDoc.appendElement (PostalCodeListReader.ELEMENT_ROOT);
+      final IMicroElement eHeader = eRoot.appendElement (PostalCodeListReader.ELEMENT_HEADER);
+      eHeader.appendElement (PostalCodeListReader.ELEMENT_SOURCE).appendText (sSource);
+      eHeader.appendElement (PostalCodeListReader.ELEMENT_REVISION).appendText (sRevision);
 
-    // Print sorted by ISO code
-    for (final Map.Entry <String, ? extends List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
-    {
-      IMicroElement eCountry = null;
-      for (final Item aItem : aEntry.getValue ())
+      final IMicroElement eBody = eRoot.appendElement (PostalCodeListReader.ELEMENT_BODY);
+      final ICommonsList <Item> aItems = new CommonsArrayList<> ();
+      int nRow = 0;
+      while (it.hasNext ())
       {
-        if (eCountry == null)
+        final Row aRow = it.next ();
+        ++nRow;
+        final String sCountry = ExcelReadHelper.getCellValueString (aRow.getCell (0));
+        if (StringHelper.hasNoText (sCountry))
         {
-          // First item - ISO and name only once
-          eCountry = eBody.appendElement (PostalCodeListReader.ELEMENT_COUNTRY);
-          eCountry.setAttribute (PostalCodeListReader.ATTR_ISO, aItem.getISO ());
-          eCountry.setAttribute (PostalCodeListReader.ATTR_NAME, aItem.getCountry ());
+          s_aLogger.warn ("Line " + nRow + ": No country name present");
+          continue;
         }
-
-        final IMicroElement ePostalCodes = eCountry.appendElement (PostalCodeListReader.ELEMENT_POSTALCODES);
-        if (aItem.getValidFrom () != null)
-          ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
-                                     DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
-        if (aItem.getValidTo () != null)
-          ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO,
-                                     DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
-        for (final String sSingleFormat : aItem.getFormats ())
-          if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
-            ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)
-                        .appendText (sSingleFormat.substring (PREFIX_ONE_CODE.length ()));
+        final Cell aDateCell = aRow.getCell (1);
+        Date aIntroducedDate = null;
+        if (aDateCell != null && aDateCell.getCellType () != Cell.CELL_TYPE_BLANK)
+        {
+          final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
+          final int nYear = aNum.intValue ();
+          if (nYear > 1800 && nYear < 3000)
+            aIntroducedDate = Date.from (Instant.from (PDTFactory.createLocalDate (nYear, Month.JANUARY, 1)
+                                                                 .atStartOfDay ()
+                                                                 .toInstant (ZoneOffset.UTC)));
           else
-          {
-
-            ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_FORMAT).appendText (sSingleFormat);
-          }
-        if (StringHelper.hasText (aItem.getNote ()))
-          ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_NOTE).appendText (aItem.getNote ());
+            aIntroducedDate = ExcelReadHelper.getCellValueJavaDate (aDateCell);
+        }
+        final String sISO = ExcelReadHelper.getCellValueString (aRow.getCell (2));
+        if (StringHelper.hasNoText (sISO))
+        {
+          s_aLogger.warn ("Line " + nRow + ": No ISO code for " + sCountry);
+          continue;
+        }
+        final String sFormat = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+        if (NO_CODES.equals (sFormat) || StringHelper.hasNoText (sFormat))
+          continue;
+        final List <String> aFormats = StringHelper.getExploded ("\n", sFormat);
+        final String sNote = ExcelReadHelper.getCellValueString (aRow.getCell (4));
+        aItems.add (new Item (sCountry, aIntroducedDate, sISO, aFormats, sNote));
       }
-    }
 
-    MicroWriter.writeToStream (aDoc,
-                               FileHelper.getOutputStream ("src/main/resources/codelists/postal-codes-" +
-                                                           sRevision +
-                                                           ".xml"));
-    s_aLogger.info ("Done");
+      // Convert to map, where the key is the ISO
+      final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased<> ();
+      for (final Item aItem : aItems)
+        aMap.putSingle (aItem.getISO (), aItem);
+
+      // Sort all sub-lists by introduction date
+      for (final List <Item> aSubList : aMap.values ())
+      {
+        aSubList.sort (Comparator.comparing (Item::getValidFrom));
+        for (int i = 1; i < aSubList.size (); ++i)
+        {
+          final Item aPrevItem = aSubList.get (i - 1);
+          final Item aThisItem = aSubList.get (i);
+          if (aThisItem.getValidFrom () != null)
+            aPrevItem.setValidTo (aThisItem.getValidFrom ().minusDays (1));
+        }
+      }
+
+      // Print sorted by ISO code
+      for (final Map.Entry <String, ? extends List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
+      {
+        IMicroElement eCountry = null;
+        for (final Item aItem : aEntry.getValue ())
+        {
+          if (eCountry == null)
+          {
+            // First item - ISO and name only once
+            eCountry = eBody.appendElement (PostalCodeListReader.ELEMENT_COUNTRY);
+            eCountry.setAttribute (PostalCodeListReader.ATTR_ISO, aItem.getISO ());
+            eCountry.setAttribute (PostalCodeListReader.ATTR_NAME, aItem.getCountry ());
+          }
+
+          final IMicroElement ePostalCodes = eCountry.appendElement (PostalCodeListReader.ELEMENT_POSTALCODES);
+          if (aItem.getValidFrom () != null)
+            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
+                                       DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
+          if (aItem.getValidTo () != null)
+            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO,
+                                       DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
+          for (final String sSingleFormat : aItem.getFormats ())
+            if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
+              ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)
+                          .appendText (sSingleFormat.substring (PREFIX_ONE_CODE.length ()));
+            else
+            {
+
+              ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_FORMAT).appendText (sSingleFormat);
+            }
+          if (StringHelper.hasText (aItem.getNote ()))
+            ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_NOTE).appendText (aItem.getNote ());
+        }
+      }
+
+      MicroWriter.writeToStream (aDoc,
+                                 FileHelper.getOutputStream ("src/main/resources/codelists/postal-codes-" +
+                                                             sRevision +
+                                                             ".xml"));
+      s_aLogger.info ("Done");
+    }
   }
 }

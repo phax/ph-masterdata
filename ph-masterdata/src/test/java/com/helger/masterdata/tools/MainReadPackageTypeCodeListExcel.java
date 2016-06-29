@@ -51,7 +51,7 @@ public class MainReadPackageTypeCodeListExcel
 
     final String sRealNumericCode = StringHelper.replaceAll (sNumericCode, '\n', ' ');
     // E.g. "22 to 25", "44 or 45", "21 to 23 or 31 to 33"
-    final ICommonsList <String> ret = new CommonsArrayList <> ();
+    final ICommonsList <String> ret = new CommonsArrayList<> ();
 
     // First split by "or"
     final String [] aOrParts = RegExHelper.getSplitToArray (sRealNumericCode, " or ");
@@ -97,48 +97,51 @@ public class MainReadPackageTypeCodeListExcel
 
     // Ideally don't change anything from here on
     final File f = new File ("src/test/resources/" + sBaseName + ".xls");
-    final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f));
-    final Sheet aSheet = aWB.getSheetAt (0);
-    final Iterator <Row> it = aSheet.rowIterator ();
-
-    // Skip 3 rows
-    for (int i = 0; i < 3; ++i)
-      it.next ();
-
-    final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
-    final IMicroElement eHeader = eRoot.appendElement ("header");
-    eHeader.appendElement ("source").appendText (sSource);
-    eHeader.appendElement ("revision").appendText (sRevision);
-
-    final IMicroElement eBody = eRoot.appendElement ("body");
-    while (it.hasNext ())
+    try (final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f)))
     {
-      final Row aRow = it.next ();
-      final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-      final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
-      final String sCode = ExcelReadHelper.getCellValueString (aRow.getCell (1));
-      final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (2));
-      final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (3));
-      final String sNumericCode = _convertNumericCodes (ExcelReadHelper.getCellValueString (aRow.getCell (4)));
+      final Sheet aSheet = aWB.getSheetAt (0);
+      final Iterator <Row> it = aSheet.rowIterator ();
 
-      // Avoid reading empty lines
-      if (StringHelper.hasText (sCode))
+      // Skip 3 rows
+      for (int i = 0; i < 3; ++i)
+        it.next ();
+
+      final IMicroDocument aDoc = new MicroDocument ();
+      final IMicroElement eRoot = aDoc.appendElement ("root");
+      final IMicroElement eHeader = eRoot.appendElement ("header");
+      eHeader.appendElement ("source").appendText (sSource);
+      eHeader.appendElement ("revision").appendText (sRevision);
+
+      final IMicroElement eBody = eRoot.appendElement ("body");
+      while (it.hasNext ())
       {
-        final IMicroElement eItem = eBody.appendElement ("item");
-        eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
-        eItem.setAttribute ("code", sCode);
-        eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
-        if (StringHelper.hasText (sDescription))
-          eItem.appendElement ("description")
-               .appendElement ("text")
-               .setAttribute ("locale", "en")
-               .appendText (sDescription);
-        eItem.setAttribute ("numericcodes", sNumericCode);
-      }
-    }
+        final Row aRow = it.next ();
+        final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (0));
+        final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
+        final String sCode = ExcelReadHelper.getCellValueString (aRow.getCell (1));
+        final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (2));
+        final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+        final String sNumericCode = _convertNumericCodes (ExcelReadHelper.getCellValueString (aRow.getCell (4)));
 
-    MicroWriter.writeToStream (aDoc, FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
-    s_aLogger.info ("Done");
+        // Avoid reading empty lines
+        if (StringHelper.hasText (sCode))
+        {
+          final IMicroElement eItem = eBody.appendElement ("item");
+          eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
+          eItem.setAttribute ("code", sCode);
+          eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
+          if (StringHelper.hasText (sDescription))
+            eItem.appendElement ("description")
+                 .appendElement ("text")
+                 .setAttribute ("locale", "en")
+                 .appendText (sDescription);
+          eItem.setAttribute ("numericcodes", sNumericCode);
+        }
+      }
+
+      MicroWriter.writeToStream (aDoc,
+                                 FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
+      s_aLogger.info ("Done");
+    }
   }
 }

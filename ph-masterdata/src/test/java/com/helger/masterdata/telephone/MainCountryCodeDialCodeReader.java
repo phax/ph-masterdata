@@ -17,6 +17,7 @@
 package com.helger.masterdata.telephone;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.List;
 import java.util.Locale;
 
@@ -26,7 +27,6 @@ import org.slf4j.LoggerFactory;
 import com.helger.commons.charset.CCharset;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.stream.StreamHelper;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.string.StringHelper;
 
@@ -36,14 +36,14 @@ public final class MainCountryCodeDialCodeReader
 
   public static void main (final String [] args) throws IOException
   {
-    final CSVReader aReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ)).setSeparatorChar (';');
-    try
+    try (final Reader aReader = new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ);
+         final CSVReader aCSVReader = new CSVReader (aReader).setSeparatorChar (';'))
     {
       for (int i = 0; i < 4; ++i)
-        aReader.readNext ();
+        aCSVReader.readNext ();
 
       List <String> aLine;
-      while ((aLine = aReader.readNext ()) != null)
+      while ((aLine = aCSVReader.readNext ()) != null)
       {
         // Country;ISO;Country;IDD;NDD
         final String sISO = StringHelper.replaceAll (aLine.get (1), (char) 65533, ' ').trim ();
@@ -69,10 +69,6 @@ public final class MainCountryCodeDialCodeReader
 
         s_aLogger.info ("<map key=\"" + sISO2 + "\" value=\"" + sCountryCode + "\" />");
       }
-    }
-    finally
-    {
-      StreamHelper.close (aReader);
     }
   }
 }

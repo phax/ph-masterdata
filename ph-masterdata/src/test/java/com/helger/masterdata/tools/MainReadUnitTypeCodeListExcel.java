@@ -58,94 +58,100 @@ public final class MainReadUnitTypeCodeListExcel
 
     // Ideally don't change anything from here on
     final File f = new File ("src/test/resources/" + sBaseName + ".xls");
-    final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f));
-    final Sheet aSheet = aWB.getSheetAt (1);
-    final Iterator <Row> it = aSheet.rowIterator ();
-
-    // Skip 1 row
-    it.next ();
-
-    final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
-    final IMicroElement eHeader = eRoot.appendElement ("header");
-    eHeader.appendElement ("source").appendText (sSource);
-    eHeader.appendElement ("revision").appendText (sRevision);
-
-    final IMicroElement eBody = eRoot.appendElement ("body");
-    final ICommonsMap <String, String> aSectors = new CommonsHashMap<> ();
-    final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap<> ();
-    while (it.hasNext ())
+    try (final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f)))
     {
-      final Row aRow = it.next ();
-      final String sGroupNumber = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-      final String sSector = ExcelReadHelper.getCellValueString (aRow.getCell (1));
-      final String sGroupID = ExcelReadHelper.getCellValueString (aRow.getCell (2));
-      final String sQuantity = ExcelReadHelper.getCellValueString (aRow.getCell (3));
-      final String sLevel = ExcelReadHelper.getCellValueString (aRow.getCell (4));
-      final int nLevel = StringParser.parseInt (sLevel.substring (0, 1), -1);
-      final String sLevelSuffix = sLevel.length () != 2 ? null : sLevel.substring (1, 2);
-      final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (5));
-      final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
-      final String sCommonCode = ExcelReadHelper.getCellValueString (aRow.getCell (6));
-      final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (7));
-      final String sConversionFactor = ExcelReadHelper.getCellValueString (aRow.getCell (8));
-      final String sSymbol = ExcelReadHelper.getCellValueString (aRow.getCell (9));
-      final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (10));
+      final Sheet aSheet = aWB.getSheetAt (1);
+      final Iterator <Row> it = aSheet.rowIterator ();
 
-      // Avoid reading empty lines
-      if (StringHelper.hasText (sCommonCode))
+      // Skip 1 row
+      it.next ();
+
+      final IMicroDocument aDoc = new MicroDocument ();
+      final IMicroElement eRoot = aDoc.appendElement ("root");
+      final IMicroElement eHeader = eRoot.appendElement ("header");
+      eHeader.appendElement ("source").appendText (sSource);
+      eHeader.appendElement ("revision").appendText (sRevision);
+
+      final IMicroElement eBody = eRoot.appendElement ("body");
+      final ICommonsMap <String, String> aSectors = new CommonsHashMap<> ();
+      final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap<> ();
+      while (it.hasNext ())
       {
-        aSectors.put (sGroupNumber, sSector);
+        final Row aRow = it.next ();
+        final String sGroupNumber = ExcelReadHelper.getCellValueString (aRow.getCell (0));
+        final String sSector = ExcelReadHelper.getCellValueString (aRow.getCell (1));
+        final String sGroupID = ExcelReadHelper.getCellValueString (aRow.getCell (2));
+        final String sQuantity = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+        final String sLevel = ExcelReadHelper.getCellValueString (aRow.getCell (4));
+        final int nLevel = StringParser.parseInt (sLevel.substring (0, 1), -1);
+        final String sLevelSuffix = sLevel.length () != 2 ? null : sLevel.substring (1, 2);
+        final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (5));
+        final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
+        final String sCommonCode = ExcelReadHelper.getCellValueString (aRow.getCell (6));
+        final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (7));
+        final String sConversionFactor = ExcelReadHelper.getCellValueString (aRow.getCell (8));
+        final String sSymbol = ExcelReadHelper.getCellValueString (aRow.getCell (9));
+        final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (10));
 
-        Integer aQuantityID = aQuantities.get (sQuantity);
-        if (aQuantityID == null)
+        // Avoid reading empty lines
+        if (StringHelper.hasText (sCommonCode))
         {
-          aQuantityID = Integer.valueOf (aQuantities.size () + 1);
-          aQuantities.put (sQuantity, aQuantityID);
-        }
+          aSectors.put (sGroupNumber, sSector);
 
-        final IMicroElement eItem = eBody.appendElement ("item");
-        eItem.setAttribute ("groupnum", sGroupNumber);
-        eItem.setAttribute ("groupid", sGroupID);
-        eItem.setAttribute ("quantityid", aQuantityID.intValue ());
-        eItem.setAttribute ("level", nLevel);
-        if (StringHelper.hasText (sLevelSuffix))
-          eItem.setAttribute ("levelsuffix", sLevelSuffix);
-        eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
-        eItem.setAttribute ("commoncode", sCommonCode);
-        eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
-        eItem.setAttribute ("conversion", sConversionFactor);
-        eItem.setAttribute ("symbol", sSymbol);
-        if (StringHelper.hasText (sDescription))
-          eItem.appendElement ("description")
+          Integer aQuantityID = aQuantities.get (sQuantity);
+          if (aQuantityID == null)
+          {
+            aQuantityID = Integer.valueOf (aQuantities.size () + 1);
+            aQuantities.put (sQuantity, aQuantityID);
+          }
+
+          final IMicroElement eItem = eBody.appendElement ("item");
+          eItem.setAttribute ("groupnum", sGroupNumber);
+          eItem.setAttribute ("groupid", sGroupID);
+          eItem.setAttribute ("quantityid", aQuantityID.intValue ());
+          eItem.setAttribute ("level", nLevel);
+          if (StringHelper.hasText (sLevelSuffix))
+            eItem.setAttribute ("levelsuffix", sLevelSuffix);
+          eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
+          eItem.setAttribute ("commoncode", sCommonCode);
+          eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
+          eItem.setAttribute ("conversion", sConversionFactor);
+          eItem.setAttribute ("symbol", sSymbol);
+          if (StringHelper.hasText (sDescription))
+            eItem.appendElement ("description")
+                 .appendElement ("text")
+                 .setAttribute ("locale", "en")
+                 .appendText (sDescription);
+        }
+      }
+
+      // sectors
+      final IMicroElement eSectors = eRoot.appendElement ("sectors");
+      for (final Map.Entry <String, String> aEntry : CollectionHelper.getSortedByKey (aSectors).entrySet ())
+      {
+        final IMicroElement eSector = eSectors.appendElement ("sector");
+        eSector.setAttribute ("groupnum", aEntry.getKey ());
+        eSector.appendElement ("name")
                .appendElement ("text")
                .setAttribute ("locale", "en")
-               .appendText (sDescription);
+               .appendText (aEntry.getValue ());
       }
-    }
 
-    // sectors
-    final IMicroElement eSectors = eRoot.appendElement ("sectors");
-    for (final Map.Entry <String, String> aEntry : CollectionHelper.getSortedByKey (aSectors).entrySet ())
-    {
-      final IMicroElement eSector = eSectors.appendElement ("sector");
-      eSector.setAttribute ("groupnum", aEntry.getKey ());
-      eSector.appendElement ("name")
-             .appendElement ("text")
-             .setAttribute ("locale", "en")
-             .appendText (aEntry.getValue ());
-    }
+      // quantities
+      final IMicroElement eQuantities = eRoot.appendElement ("quantities");
+      for (final Map.Entry <String, Integer> aEntry : CollectionHelper.getSortedByValue (aQuantities).entrySet ())
+      {
+        final IMicroElement eSector = eQuantities.appendElement ("quantity");
+        eSector.setAttribute ("id", aEntry.getValue ().intValue ());
+        eSector.appendElement ("name")
+               .appendElement ("text")
+               .setAttribute ("locale", "en")
+               .appendText (aEntry.getKey ());
+      }
 
-    // quantities
-    final IMicroElement eQuantities = eRoot.appendElement ("quantities");
-    for (final Map.Entry <String, Integer> aEntry : CollectionHelper.getSortedByValue (aQuantities).entrySet ())
-    {
-      final IMicroElement eSector = eQuantities.appendElement ("quantity");
-      eSector.setAttribute ("id", aEntry.getValue ().intValue ());
-      eSector.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (aEntry.getKey ());
+      MicroWriter.writeToStream (aDoc,
+                                 FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
+      s_aLogger.info ("Done");
     }
-
-    MicroWriter.writeToStream (aDoc, FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
-    s_aLogger.info ("Done");
   }
 }

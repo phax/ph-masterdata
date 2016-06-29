@@ -36,6 +36,7 @@ import com.helger.commons.state.EChange;
  */
 public final class PriceGraduationItemTest
 {
+  @SuppressWarnings ("unused")
   @Test
   public void testFunctionality ()
   {
