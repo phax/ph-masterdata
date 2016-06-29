@@ -31,7 +31,7 @@ public enum EGenderName implements IHasDisplayText
 {
   MALE ("Herr", "Mr."),
   FEMALE ("Frau", "Mrs."),
-  OTHER ("Anders", "Different");
+  OTHER ("Sonstige", "Different");
 
   private final IMultilingualText m_aTP;
 

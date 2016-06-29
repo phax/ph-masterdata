@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsTreeSet;
 import com.helger.commons.collection.ext.ICommonsList;
@@ -35,6 +34,7 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.util.PDTHelper;
 import com.helger.masterdata.currency.ECurrency;
+import com.helger.masterdata.currency.IHasCurrency;
 
 /**
  * This class maintains an ordered list of {@link ExchangeRatio}, sorted
@@ -43,10 +43,10 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable
+public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable, IHasCurrency
 {
   private final ECurrency m_eCurrency;
-  private final ICommonsNavigableSet <ExchangeRatio> m_aList = new CommonsTreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
+  private final ICommonsNavigableSet <ExchangeRatio> m_aList = new CommonsTreeSet<> (Comparator.comparing (ExchangeRatio::getDate));
 
   public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
   {
@@ -64,13 +64,6 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serial
   public ECurrency getCurrency ()
   {
     return m_eCurrency;
-  }
-
-  @Nonnull
-  @Nonempty
-  public String getCurrencyID ()
-  {
-    return m_eCurrency.getID ();
   }
 
   @Nonnull

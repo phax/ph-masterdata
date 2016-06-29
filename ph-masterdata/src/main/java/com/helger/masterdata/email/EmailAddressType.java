@@ -21,25 +21,28 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.lang.EnumHelper;
+import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EEmailAddressType implements IEmailAddressType
+/**
+ * Default implementation of {@link EmailAddressType}.
+ *
+ * @author Philip Helger
+ */
+public class EmailAddressType implements IEmailAddressType
 {
-  PERSONAL ("pers", EEmailAddressText.MSG_TYPE_PERSONAL),
-  PERSONAL2 ("pers2", EEmailAddressText.MSG_TYPE_PERSONAL2),
-  OFFICE ("off", EEmailAddressText.MSG_TYPE_OFFICE),
-  OFFICE2 ("off2", EEmailAddressText.MSG_TYPE_OFFICE2),
-  OTHER ("oth", EEmailAddressText.MSG_TYPE_OTHER);
-
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  private EEmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EEmailAddressText eText)
+  public EmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final IHasDisplayText aText)
   {
+    ValueEnforcer.notEmpty (sID, "ID");
+    ValueEnforcer.notNull (aText, "Text");
     m_sID = sID;
-    m_aText = eText;
+    m_aText = aText;
   }
 
   @Nonnull
@@ -54,16 +57,26 @@ public enum EEmailAddressType implements IEmailAddressType
     return m_aText.getDisplayText (aContentLocale);
   }
 
-  @Nullable
-  public static EEmailAddressType getFromIDOrNull (@Nullable final String sID)
+  @Override
+  public boolean equals (final Object o)
   {
-    return EnumHelper.getFromIDOrNull (EEmailAddressType.class, sID);
+    if (o == this)
+      return true;
+    if (o == null || !getClass ().equals (o.getClass ()))
+      return false;
+    final EmailAddressType rhs = (EmailAddressType) o;
+    return m_sID.equals (rhs.m_sID);
   }
 
-  @Nullable
-  public static EEmailAddressType getFromIDOrDefault (@Nullable final String sID,
-                                                      @Nullable final EEmailAddressType eDefault)
+  @Override
+  public int hashCode ()
   {
-    return EnumHelper.getFromIDOrDefault (EEmailAddressType.class, sID, eDefault);
+    return new HashCodeGenerator (this).append (m_sID).getHashCode ();
+  }
+
+  @Override
+  public String toString ()
+  {
+    return new ToStringGenerator (this).append ("ID", m_sID).append ("Text", m_aText).toString ();
   }
 }

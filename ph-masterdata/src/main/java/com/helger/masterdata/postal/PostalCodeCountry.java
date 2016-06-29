@@ -38,8 +38,8 @@ import com.helger.commons.string.ToStringGenerator;
 public class PostalCodeCountry implements IPostalCodeCountry
 {
   private final String m_sISO;
-  private final ICommonsList <PostalCodeFormat> m_aFormats = new CommonsArrayList <> ();
-  private final ICommonsList <String> m_aSpecificPostalCodes = new CommonsArrayList <> ();
+  private final ICommonsList <PostalCodeFormat> m_aFormats = new CommonsArrayList<> ();
+  private final ICommonsList <String> m_aSpecificPostalCodes = new CommonsArrayList<> ();
   private String m_sNote;
 
   public PostalCodeCountry (@Nonnull @Nonempty final String sISO)
@@ -115,9 +115,7 @@ public class PostalCodeCountry implements IPostalCodeCountry
   public boolean isValidPostalCode (@Nullable final String sPostalCode)
   {
     if (StringHelper.hasText (sPostalCode))
-      for (final PostalCodeFormat aFormat : m_aFormats)
-        if (aFormat.isValidPostalCode (sPostalCode))
-          return true;
+      return m_aFormats.containsAny (x -> x.isValidPostalCode (sPostalCode));
     return m_aFormats.isEmpty ();
   }
 

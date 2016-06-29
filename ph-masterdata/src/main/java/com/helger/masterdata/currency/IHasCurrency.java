@@ -18,6 +18,8 @@ package com.helger.masterdata.currency;
 
 import javax.annotation.Nonnull;
 
+import com.helger.commons.annotation.Nonempty;
+
 /**
  * Base interface for objects having a currency.
  *
@@ -31,4 +33,11 @@ public interface IHasCurrency
    */
   @Nonnull
   ECurrency getCurrency ();
+
+  @Nonnull
+  @Nonempty
+  default String getCurrencyID ()
+  {
+    return getCurrency ().getID ();
+  }
 }

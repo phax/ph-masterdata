@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -32,6 +33,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.ext.CommonsArrayList;
 import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsList;
@@ -200,7 +202,7 @@ public class VATManager implements IVATItemProvider
    */
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <String> getSources ()
+  public ICommonsList <String> getAllSources ()
   {
     return m_aSources.getClone ();
   }
@@ -314,11 +316,22 @@ public class VATManager implements IVATItemProvider
   @Nullable
   public IVATItem findVATItem (@Nullable final EVATType eType, @Nullable final BigDecimal aPercentage)
   {
-    if (eType != null && aPercentage != null)
-      for (final IVATItem aVATItem : m_aAllVATItems.values ())
-        if (aVATItem.getType ().equals (eType) && EqualsHelper.equals (aVATItem.getPercentage (), aPercentage))
-          return aVATItem;
-    return null;
+    if (eType == null || aPercentage == null)
+      return null;
+    return findFirst (x -> x.getType ().equals (eType) && EqualsHelper.equals (x.getPercentage (), aPercentage));
+  }
+
+  /**
+   * Find the first matching VAT item.
+   *
+   * @param aFilter
+   *        The filter to be used. May not be <code>null</code>.
+   * @return <code>null</code> if no matching item could be found,
+   */
+  @Nullable
+  public IVATItem findFirst (@Nonnull final Predicate <? super IVATItem> aFilter)
+  {
+    return CollectionHelper.findFirst (m_aAllVATItems.values (), aFilter);
   }
 
   @Override

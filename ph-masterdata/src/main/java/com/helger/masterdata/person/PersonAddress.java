@@ -57,16 +57,16 @@ public class PersonAddress extends Address
     return m_aOwner;
   }
 
-  public void setOwner (@Nonnull final Person aOwner)
-  {
-    ValueEnforcer.notNull (aOwner, "Owner");
-    m_aOwner = aOwner;
-  }
-
   @Nullable
   public String getOwnerID ()
   {
     return m_aOwner == null ? null : m_aOwner.getID ();
+  }
+
+  public void setOwner (@Nonnull final Person aOwner)
+  {
+    ValueEnforcer.notNull (aOwner, "Owner");
+    m_aOwner = aOwner;
   }
 
   @Override

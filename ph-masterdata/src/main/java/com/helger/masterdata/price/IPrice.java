@@ -49,7 +49,10 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
    * @return The gross amount of this price (with VAT).
    */
   @Nonnull
-  ICurrencyValue getGrossAmount ();
+  default ICurrencyValue getGrossAmount ()
+  {
+    return getNetAmount ().getMultiplied (getVATItem ().getMultiplicationFactorNetToGross ());
+  }
 
   @Nonnull
   default BigDecimal getGrossValue ()
@@ -61,7 +64,10 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
    * @return The tax amount of this price (=net amount * percentage / 100).
    */
   @Nonnull
-  ICurrencyValue getTaxAmount ();
+  default ICurrencyValue getTaxAmount ()
+  {
+    return getNetAmount ().getMultiplied (getVATItem ().getPercentageFactor ());
+  }
 
   @Nonnull
   default BigDecimal getTaxValue ()

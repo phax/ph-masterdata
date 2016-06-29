@@ -36,6 +36,16 @@ public interface IHasVATItem
   IVATItem getVATItem ();
 
   /**
+   * @return The IDof the VAT item of this object. May not be <code>null</code>.
+   */
+  @Nonnull
+  @Nonempty
+  default String getVATItemID ()
+  {
+    return getVATItem ().getID ();
+  }
+
+  /**
    * @return The VAT percentage of this object. May not be <code>null</code>.
    */
   @Nonnull
@@ -43,11 +53,4 @@ public interface IHasVATItem
   {
     return getVATItem ().getPercentage ();
   }
-
-  /**
-   * @return The IDof the VAT item of this object. May not be <code>null</code>.
-   */
-  @Nonnull
-  @Nonempty
-  String getVATItemID ();
 }

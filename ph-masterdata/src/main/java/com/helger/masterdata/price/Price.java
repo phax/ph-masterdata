@@ -24,7 +24,6 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
@@ -111,13 +110,6 @@ public class Price implements IMutablePrice
   }
 
   @Nonnull
-  @Nonempty
-  public String getVATItemID ()
-  {
-    return m_aVATItem.getID ();
-  }
-
-  @Nonnull
   public EChange setVATItem (@Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
@@ -129,17 +121,6 @@ public class Price implements IMutablePrice
   }
 
   @Nonnull
-  public ICurrencyValue getTaxAmount ()
-  {
-    return m_aNetAmount.getMultiplied (m_aVATItem.getPercentageFactor ());
-  }
-
-  /*
-   * Helper method to access the currency of the included "currencyValue".
-   * Marked as @Transient to avoid EclipseLink automatically using it a s column
-   * (because the corresponding setter method is also present!)
-   */
-  @Nonnull
   public ECurrency getCurrency ()
   {
     return m_aNetAmount.getCurrency ();
@@ -149,13 +130,6 @@ public class Price implements IMutablePrice
   public EChange setCurrency (@Nonnull final ECurrency eCurrency)
   {
     return m_aNetAmount.setCurrency (eCurrency);
-  }
-
-  @Nonnull
-  public ICurrencyValue getGrossAmount ()
-  {
-    final BigDecimal aMultiplicationFactor = m_aVATItem.getMultiplicationFactorNetToGross ();
-    return m_aNetAmount.getMultiplied (aMultiplicationFactor);
   }
 
   @Nonnull
