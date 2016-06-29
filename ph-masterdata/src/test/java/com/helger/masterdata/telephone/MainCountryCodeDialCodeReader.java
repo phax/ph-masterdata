@@ -17,7 +17,6 @@
 package com.helger.masterdata.telephone;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,9 +35,9 @@ public final class MainCountryCodeDialCodeReader
 
   public static void main (final String [] args) throws IOException
   {
-    try (final Reader aReader = new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ);
-         final CSVReader aCSVReader = new CSVReader (aReader).setSeparatorChar (';'))
+    try (final CSVReader aCSVReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ)))
     {
+      aCSVReader.setSeparatorChar (';');
       for (int i = 0; i < 4; ++i)
         aCSVReader.readNext ();
 
