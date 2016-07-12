@@ -28,6 +28,7 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.locale.country.IHasCountry;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
@@ -41,7 +42,7 @@ public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;
-  private final ICommonsMap <String, IVATItem> m_aItems = new CommonsHashMap <> ();
+  private final ICommonsMap <String, IVATItem> m_aItems = new CommonsHashMap<> ();
   private final String m_sCountryName;
   private final String m_sInternalComment;
 
@@ -107,9 +108,14 @@ public class VATCountryData implements IHasCountry
   public IVATItem getItemOfPercentage (@Nullable final BigDecimal aPercentage)
   {
     if (aPercentage != null)
+    {
       for (final IVATItem aItem : m_aItems.values ())
         if (aItem.hasPercentage (aPercentage))
           return aItem;
+      // Special handling for 0%
+      if (isZeroVATAllowed () && MathHelper.isEqualToZero (aPercentage))
+        return VATManager.VATTYPE_NONE;
+    }
     return null;
   }
 
