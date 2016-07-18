@@ -30,7 +30,6 @@
   <description>Library with support for certain re-ocurring standard business objects</description>
   <url>https://github.com/phax/ph-masterdata/ph-masterdata</url>
   <inceptionYear>2014</inceptionYear>
-     
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -38,12 +37,10 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  
   <organization>
     <name>Philip Helger</name>
     <url>http://www.helger.com</url>
   </organization>
-
   <developers>
     <developer>
       <id>philip</id>
@@ -52,7 +49,6 @@
       <url>http://www.helger.com</url>
     </developer>
   </developers>
-
   <dependencies>
     <dependency>
       <groupId>com.helger</groupId>
@@ -66,7 +62,6 @@
       <groupId>com.helger</groupId>
       <artifactId>ph-datetime</artifactId>
     </dependency>
-    
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-poi</artifactId>
@@ -78,7 +73,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
   <build>
     <plugins>
       <plugin>
@@ -87,15 +81,19 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Export-Package>
-              com.helger.masterdata.*
-            </Export-Package>
-            <Import-Package>
-              !javax.annotation.*,*
-            </Import-Package>
+            <Export-Package>com.helger.masterdata.*</Export-Package>
+            <Import-Package>!javax.annotation.*,*</Import-Package>
+            <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
+            <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.address.AddressMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.currencyvalue.CurrencyValueMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.email.EmailAddressMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.exchangeratio.ExchangeRatioMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.person.PersonMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.price.PriceMicroTypeConverterRegistrar,
+osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.telephone.TelephoneMicroTypeConverterRegistrar</Provide-Capability>
           </instructions>
         </configuration>
       </plugin>
-    </plugins>   
+    </plugins>
   </build>
 </project>
