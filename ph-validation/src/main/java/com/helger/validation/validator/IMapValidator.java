@@ -28,7 +28,9 @@ import java.util.Map;
  * @param <VALUETYPE>
  *        The map value type
  */
-public interface IMapValidator <KEYTYPE, VALUETYPE> extends IBaseValidator <Map <? extends KEYTYPE, ? extends VALUETYPE>>
+@FunctionalInterface
+public interface IMapValidator <KEYTYPE, VALUETYPE>
+                               extends IBaseValidator <Map <? extends KEYTYPE, ? extends VALUETYPE>>
 {
   /* empty */
 }

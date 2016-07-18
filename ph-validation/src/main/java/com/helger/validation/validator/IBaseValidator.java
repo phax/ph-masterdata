@@ -28,6 +28,7 @@ import com.helger.validation.result.IValidationResult;
  * @param <T>
  *        The data type to be validated
  */
+@FunctionalInterface
 public interface IBaseValidator <T>
 {
   /**

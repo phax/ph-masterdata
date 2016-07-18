@@ -21,6 +21,7 @@ package com.helger.validation.validator;
  *
  * @author Philip Helger
  */
+@FunctionalInterface
 public interface IStringValidator extends IBaseValidator <String>
 {
   /* empty */
