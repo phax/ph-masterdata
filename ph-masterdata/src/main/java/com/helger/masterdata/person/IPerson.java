@@ -40,6 +40,11 @@ public interface IPerson extends IHasID <String>, Serializable
   @Nullable
   EGender getGender ();
 
+  default boolean hasGender ()
+  {
+    return getGender () != null;
+  }
+
   /**
    * @return The name of the person. May not be <code>null</code>.
    */
@@ -52,11 +57,21 @@ public interface IPerson extends IHasID <String>, Serializable
   @Nullable
   LocalDate getBirthday ();
 
+  default boolean hasBirthday ()
+  {
+    return getBirthday () != null;
+  }
+
   /**
    * @return An optional telephone number.
    */
   @Nullable
   ITelephoneNumber getTelephoneNumber ();
+
+  default boolean hasTelephoneNumber ()
+  {
+    return getTelephoneNumber () != null;
+  }
 
   /**
    * @return An optional email address for this person.
@@ -64,9 +79,19 @@ public interface IPerson extends IHasID <String>, Serializable
   @Nullable
   IExtendedEmailAddress getEmailAddress ();
 
+  default boolean hasEmailAddress ()
+  {
+    return getEmailAddress () != null;
+  }
+
   /**
    * @return An optional real address for this person.
    */
   @Nullable
   IAddress getAddress ();
+
+  default boolean hasAddress ()
+  {
+    return getAddress () != null;
+  }
 }

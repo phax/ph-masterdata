@@ -38,6 +38,11 @@ public interface IPersonName extends ICloneable <IPersonName>, Serializable
   @Nullable
   ESalutation getSalutation ();
 
+  default boolean hasSaluation ()
+  {
+    return getSalutation () != null;
+  }
+
   /**
    * @return The ID of the salutation of this name. May be <code>null</code>.
    */
