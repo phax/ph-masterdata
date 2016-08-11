@@ -52,7 +52,7 @@ public final class AddressMicroTypeConverterRegistrarTest
     assertNotNull (aElement);
     s_aLogger.info (MicroWriter.getXMLString (aElement));
 
-    final IMutableAddress aAddress2 = MicroTypeConverter.convertToNative (aElement, Address.class);
+    final Address aAddress2 = MicroTypeConverter.convertToNative (aElement, Address.class);
     assertEquals (aAddress, aAddress2);
   }
 }

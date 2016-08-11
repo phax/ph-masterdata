@@ -34,11 +34,11 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
 
 /**
- * The default implementation of the {@link IMutableCompany} interface.
+ * The default implementation of the {@link ICompany} interface.
  *
  * @author Philip Helger
  */
-public final class Company implements IMutableCompany
+public final class Company implements ICompany
 {
   public static final ObjectType OT = new ObjectType ("company");
 
@@ -50,8 +50,8 @@ public final class Company implements IMutableCompany
   private final String m_sID;
   private String m_sPublicName;
   private String m_sOfficialName;
-  private final ICommonsMap <String, IMutableCompanySite> m_aAllSites = new CommonsHashMap <> ();
-  private IMutableCompanySite m_aHeadQuarterSite;
+  private final ICommonsMap <String, CompanySite> m_aAllSites = new CommonsHashMap<> ();
+  private CompanySite m_aHeadQuarterSite;
 
   public Company (@Nonnull @Nonempty final String sID)
   {
@@ -109,27 +109,27 @@ public final class Company implements IMutableCompany
 
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <IMutableCompanySite> getAllSites ()
+  public ICommonsList <? extends ICompanySite> getAllSites ()
   {
     return m_aAllSites.copyOfValues ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <IMutableCompanySite> getAllNonVirtualSites ()
+  public ICommonsList <? extends ICompanySite> getAllNonVirtualSites ()
   {
     return m_aAllSites.copyOfValues (aSite -> !aSite.isVirtualSite ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <IMutableCompanySite> getAllVirtualSites ()
+  public ICommonsList <? extends ICompanySite> getAllVirtualSites ()
   {
     return m_aAllSites.copyOfValues (aSite -> aSite.isVirtualSite ());
   }
 
   @Nonnull
-  public EChange addSite (@Nonnull final IMutableCompanySite aSite)
+  public EChange addSite (@Nonnull final CompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
@@ -141,33 +141,31 @@ public final class Company implements IMutableCompany
   }
 
   @Nonnull
-  public EChange removeSite (@Nonnull final IMutableCompanySite aSite)
+  public EChange removeSite (@Nonnull final ICompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
     if (m_aHeadQuarterSite != null && aSite.equals (m_aHeadQuarterSite))
       m_aHeadQuarterSite = null;
-    return EChange.valueOf (m_aAllSites.remove (aSite.getID ()) != null);
+    return m_aAllSites.removeObject (aSite.getID ());
   }
 
   @Nullable
-  public IMutableCompanySite getSiteOfID (@Nullable final String sSiteID)
+  public ICompanySite getSiteOfID (@Nullable final String sSiteID)
   {
     return m_aAllSites.get (sSiteID);
   }
 
   @Nullable
-  public IMutableCompanySite getHeadQuarterSite ()
+  public ICompanySite getHeadQuarterSite ()
   {
     if (m_aHeadQuarterSite != null)
       return m_aHeadQuarterSite;
-    if (m_aAllSites.size () == 1)
-      return CollectionHelper.getFirstElement (m_aAllSites.values ());
-    return null;
+    return m_aAllSites.getFirstValue ();
   }
 
   @Nonnull
-  public EChange setHeadQuarterSite (@Nonnull final IMutableCompanySite aHeadQuarterSite)
+  public EChange setHeadQuarterSite (@Nonnull final CompanySite aHeadQuarterSite)
   {
     ValueEnforcer.notNull (aHeadQuarterSite, "HeadQuarterSite");
 

@@ -21,19 +21,21 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Default writable version of {@link IMutableTelephoneNumber}.
+ * Default writable version of {@link ITelephoneNumber}.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class TelephoneNumber implements IMutableTelephoneNumber
+public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneNumber>
 {
   private ITelephoneType m_aType;
   private String m_sCountryCode;
@@ -152,6 +154,7 @@ public class TelephoneNumber implements IMutableTelephoneNumber
   }
 
   @Nonnull
+  @ReturnsMutableCopy
   public TelephoneNumber getClone ()
   {
     return new TelephoneNumber (this);

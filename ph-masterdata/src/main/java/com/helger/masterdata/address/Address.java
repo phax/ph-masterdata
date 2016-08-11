@@ -25,17 +25,18 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.lang.ICloneable;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Writable implementation of the {@link IMutableAddress} interface.
+ * Writable implementation of the {@link IAddress} interface.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Address implements IMutableAddress
+public class Address implements IAddress, ICloneable <Address>
 {
   private IAddressType m_aAddressType;
   private String m_sCountry;

@@ -27,7 +27,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
-public class PersonName implements IMutablePersonName
+public class PersonName implements IPersonName
 {
   private ESalutation m_eSalutation;
   private String m_sPrefixTitle;

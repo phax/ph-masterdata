@@ -28,43 +28,40 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
 import com.helger.masterdata.address.Address;
-import com.helger.masterdata.address.EAddressType;
-import com.helger.masterdata.address.IMutableAddress;
-import com.helger.masterdata.email.EEmailAddressType;
+import com.helger.masterdata.address.IAddress;
 import com.helger.masterdata.email.ExtendedEmailAddress;
-import com.helger.masterdata.email.IMutableExtendedEmailAddress;
-import com.helger.masterdata.telephone.ETelephoneType;
-import com.helger.masterdata.telephone.IMutableTelephoneNumber;
+import com.helger.masterdata.email.IExtendedEmailAddress;
+import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
 
 /**
- * The default implementation of the {@link IMutableCompanySite} interface.
+ * The default implementation of the {@link ICompanySite} interface.
  *
  * @author Philip Helger
  */
-public final class CompanySite implements IMutableCompanySite
+public final class CompanySite implements ICompanySite
 {
   public static final ObjectType OT = new ObjectType ("company-site");
   public static final boolean DEFAULT_DELETABLE = true;
   public static final boolean DEFAULT_VIRTUALSITE = false;
 
   private final String m_sID;
-  private final IMutableCompany m_aCompany;
+  private final ICompany m_aCompany;
   private String m_sDisplayName;
   private String m_sLongName;
   private boolean m_bIsDeletable = DEFAULT_DELETABLE;
   private boolean m_bIsVirtualSite = DEFAULT_VIRTUALSITE;
-  private IMutableAddress m_aAddress = new Address ();
-  private IMutableTelephoneNumber m_aTelNo = new TelephoneNumber ();
-  private IMutableTelephoneNumber m_aFaxNo = new TelephoneNumber ();
-  private IMutableExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
+  private IAddress m_aAddress = new Address ();
+  private ITelephoneNumber m_aTelNo = new TelephoneNumber ();
+  private ITelephoneNumber m_aFaxNo = new TelephoneNumber ();
+  private IExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
 
-  public CompanySite (@Nonnull final IMutableCompany aCompany)
+  public CompanySite (@Nonnull final ICompany aCompany)
   {
     this (GlobalIDFactory.getNewPersistentStringID (), aCompany);
   }
 
-  public CompanySite (@Nonnull @Nonempty final String sID, @Nonnull final IMutableCompany aCompany)
+  public CompanySite (@Nonnull @Nonempty final String sID, @Nonnull final ICompany aCompany)
   {
     m_sID = ValueEnforcer.notEmpty (sID, "ID");
     m_aCompany = ValueEnforcer.notNull (aCompany, "Company");
@@ -84,7 +81,7 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IMutableCompany getCompany ()
+  public ICompany getCompany ()
   {
     return m_aCompany;
   }
@@ -148,18 +145,15 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IMutableAddress getAddress ()
+  public IAddress getAddress ()
   {
     return m_aAddress;
   }
 
   @Nonnull
-  public EChange setAddress (@Nonnull final IMutableAddress aAddress)
+  public EChange setAddress (@Nonnull final IAddress aAddress)
   {
     ValueEnforcer.notNull (aAddress, "Address");
-
-    if (aAddress.getType () == null)
-      aAddress.setType (EAddressType.OFFICE);
 
     if (m_aAddress.equals (aAddress))
       return EChange.UNCHANGED;
@@ -168,18 +162,15 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IMutableTelephoneNumber getDefaultTelNo ()
+  public ITelephoneNumber getDefaultTelNo ()
   {
     return m_aTelNo;
   }
 
   @Nonnull
-  public EChange setDefaultTelNo (@Nonnull final IMutableTelephoneNumber aTelNo)
+  public EChange setDefaultTelNo (@Nonnull final ITelephoneNumber aTelNo)
   {
     ValueEnforcer.notNull (aTelNo, "TelNo");
-
-    if (aTelNo.getType () == null)
-      aTelNo.setType (ETelephoneType.OFFICE);
 
     if (m_aTelNo.equals (aTelNo))
       return EChange.UNCHANGED;
@@ -188,18 +179,15 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IMutableTelephoneNumber getDefaultFaxNo ()
+  public ITelephoneNumber getDefaultFaxNo ()
   {
     return m_aFaxNo;
   }
 
   @Nonnull
-  public EChange setDefaultFaxNo (@Nonnull final IMutableTelephoneNumber aFaxNo)
+  public EChange setDefaultFaxNo (@Nonnull final ITelephoneNumber aFaxNo)
   {
     ValueEnforcer.notNull (aFaxNo, "FaxNo");
-
-    if (aFaxNo.getType () == null)
-      aFaxNo.setType (ETelephoneType.OFFICE_FAX);
 
     if (m_aFaxNo.equals (aFaxNo))
       return EChange.UNCHANGED;
@@ -208,18 +196,15 @@ public final class CompanySite implements IMutableCompanySite
   }
 
   @Nonnull
-  public IMutableExtendedEmailAddress getDefaultEmailAddress ()
+  public IExtendedEmailAddress getDefaultEmailAddress ()
   {
     return m_aEmailAddress;
   }
 
   @Nonnull
-  public EChange setDefaultEmailAddress (@Nonnull final IMutableExtendedEmailAddress aEmailAddress)
+  public EChange setDefaultEmailAddress (@Nonnull final IExtendedEmailAddress aEmailAddress)
   {
     ValueEnforcer.notNull (aEmailAddress, "EmailAddress");
-
-    if (aEmailAddress.getType () == null)
-      aEmailAddress.setType (EEmailAddressType.OFFICE);
 
     if (m_aEmailAddress.equals (aEmailAddress))
       return EChange.UNCHANGED;

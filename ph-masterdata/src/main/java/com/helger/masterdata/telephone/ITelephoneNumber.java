@@ -34,11 +34,21 @@ public interface ITelephoneNumber extends Serializable
   @Nullable
   ITelephoneType getType ();
 
+  default boolean hasType ()
+  {
+    return getType () != null;
+  }
+
   /**
    * @return The country where the number resides. May be <code>null</code>.
    */
   @Nullable
   String getCountryCode ();
+
+  default boolean hasCountryCode ()
+  {
+    return getCountryCode () != null;
+  }
 
   /**
    * @return The area code for the phone number. This is country dependent. May
@@ -47,6 +57,11 @@ public interface ITelephoneNumber extends Serializable
   @Nullable
   String getAreaCode ();
 
+  default boolean hasAreaCode ()
+  {
+    return getAreaCode () != null;
+  }
+
   /**
    * @return The main telephone number within an area code. May be
    *         <code>null</code>.
@@ -54,10 +69,20 @@ public interface ITelephoneNumber extends Serializable
   @Nullable
   String getLine ();
 
+  default boolean hasLine ()
+  {
+    return getLine () != null;
+  }
+
   /**
    * @return The direct dial for a further specification of a line. Is optional
    *         and may be <code>null</code>.
    */
   @Nullable
   String getDirectDial ();
+
+  default boolean hasDirectDial ()
+  {
+    return getDirectDial () != null;
+  }
 }

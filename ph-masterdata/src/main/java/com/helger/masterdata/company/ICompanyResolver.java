@@ -34,5 +34,5 @@ public interface ICompanyResolver
    * @return <code>null</code> if no such company exists.
    */
   @Nullable
-  IMutableCompany getCompanyOfID (@Nullable String sID);
+  ICompany getCompanyOfID (@Nullable String sID);
 }

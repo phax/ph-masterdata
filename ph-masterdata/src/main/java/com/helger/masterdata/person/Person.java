@@ -31,7 +31,7 @@ import com.helger.masterdata.address.IAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
-public class Person implements IMutablePerson
+public class Person implements IPerson
 {
   public static final String FIELD_ID = "id";
   public static final String FIELD_GENDER = "gender";
