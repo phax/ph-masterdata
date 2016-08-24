@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
@@ -45,14 +44,14 @@ public abstract class AbstractValidationResultSuccess implements IValidationResu
   }
 
   @Nullable
-  public String getErrorID ()
+  public final String getErrorID ()
   {
     return null;
   }
 
-  public boolean hasErrorID ()
+  public final boolean hasErrorID ()
   {
-    return StringHelper.hasText (getErrorID ());
+    return false;
   }
 
   @Nullable

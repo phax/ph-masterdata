@@ -49,6 +49,6 @@ public abstract class AbstractStringTimeValidator extends AbstractStringValidato
     if (aDate != null)
       return ValidationResultSuccess.getInstance ();
     final Object [] aArgs = { PDTFormatPatterns.getDefaultPatternTime (aParseLocale) };
-    return new ValidationResultError (EStandardValidationErrorTexts.INVALID_TIME, aArgs);
+    return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_TIME, aArgs);
   }
 }

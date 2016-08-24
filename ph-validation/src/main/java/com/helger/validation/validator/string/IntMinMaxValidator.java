@@ -66,15 +66,15 @@ public class IntMinMaxValidator extends AbstractStringValidator
     final int nValue = aValue.intValue ();
     if (m_nMinInclusive != Integer.MIN_VALUE && nValue < m_nMinInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_INT_RANGE,
-                                        Integer.toString (m_nMinInclusive),
-                                        Integer.toString (m_nMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_INT_RANGE,
+                                           Integer.toString (m_nMinInclusive),
+                                           Integer.toString (m_nMaxInclusive));
     }
     if (m_nMaxInclusive != Integer.MAX_VALUE && nValue > m_nMaxInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_INT_RANGE,
-                                        Integer.toString (m_nMinInclusive),
-                                        Integer.toString (m_nMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_INT_RANGE,
+                                           Integer.toString (m_nMinInclusive),
+                                           Integer.toString (m_nMaxInclusive));
     }
     return ValidationResultSuccess.getInstance ();
   }

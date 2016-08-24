@@ -48,7 +48,7 @@ public abstract class AbstractStringDateValidator extends AbstractStringValidato
     final LocalDate aDate = PDTFromString.getLocalDateFromString (sValue, aParseLocale);
     if (aDate != null)
       return ValidationResultSuccess.getInstance ();
-    return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DATE,
-                                      PDTFormatPatterns.getDefaultPatternDate (aParseLocale));
+    return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DATE,
+                                         PDTFormatPatterns.getDefaultPatternDate (aParseLocale));
   }
 }

@@ -80,8 +80,9 @@ public class StringRegExValidator extends AbstractStringValidator
   {
     if (StringHelper.hasText (sValue) && RegExHelper.stringMatchesPattern (m_sRegEx, sValue))
       return ValidationResultSuccess.getInstance ();
-    return m_aErrorText != null ? new ValidationResultError (m_aErrorText, m_sRegEx)
-                                : new ValidationResultError (EStandardValidationErrorTexts.INVALID_REGEX, m_sRegEx);
+    return ValidationResultError.create (m_aErrorText != null ? m_aErrorText
+                                                              : EStandardValidationErrorTexts.INVALID_REGEX,
+                                         m_sRegEx);
   }
 
   @Override

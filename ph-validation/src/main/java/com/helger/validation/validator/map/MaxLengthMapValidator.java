@@ -58,8 +58,8 @@ public class MaxLengthMapValidator extends AbstractMapValidator <Object, Object>
   {
     if (aRequestValues == null || aRequestValues.size () > m_nMaxLength)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_MAX_LENGTH,
-                                        Integer.toString (m_nMaxLength));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_MAX_LENGTH,
+                                           Integer.toString (m_nMaxLength));
     }
     return ValidationResultSuccess.getInstance ();
   }

@@ -58,10 +58,10 @@ public class BigDecimalMinMaxValidator extends AbstractStringValidator
     m_aMaxInclusive = aMaxInclusive;
   }
 
-  private static String _toString (@Nullable final BigDecimal aValue, final boolean bMin)
+  private static String _toString (@Nullable final BigDecimal aValue, final boolean bIsMin)
   {
     return aValue != null ? aValue.toString ()
-                          : Double.toString (bMin ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY);
+                          : Double.toString (bIsMin ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY);
   }
 
   @Nonnull
@@ -73,15 +73,15 @@ public class BigDecimalMinMaxValidator extends AbstractStringValidator
 
     if (m_aMinInclusive != null && aValue.compareTo (m_aMinInclusive) < 0)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
-                                        _toString (m_aMinInclusive, true),
-                                        _toString (m_aMaxInclusive, false));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
+                                           _toString (m_aMinInclusive, true),
+                                           _toString (m_aMaxInclusive, false));
     }
     if (m_aMaxInclusive != null && aValue.compareTo (m_aMaxInclusive) > 0)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
-                                        _toString (m_aMinInclusive, true),
-                                        _toString (m_aMaxInclusive, false));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
+                                           _toString (m_aMinInclusive, true),
+                                           _toString (m_aMaxInclusive, false));
     }
     return ValidationResultSuccess.getInstance ();
   }

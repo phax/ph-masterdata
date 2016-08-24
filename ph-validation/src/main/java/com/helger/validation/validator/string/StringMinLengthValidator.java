@@ -68,9 +68,9 @@ public class StringMinLengthValidator extends AbstractStringValidator
   {
     if (StringHelper.getLength (sValue) >= m_nMinLength)
       return ValidationResultSuccess.getInstance ();
-    return m_aErrorText != null ? new ValidationResultError (m_aErrorText)
-                                : new ValidationResultError (EStandardValidationErrorTexts.INVALID_MINLENGTH,
-                                                             Integer.toString (m_nMinLength));
+    return ValidationResultError.create (m_aErrorText != null ? m_aErrorText
+                                                              : EStandardValidationErrorTexts.INVALID_MINLENGTH,
+                                         Integer.toString (m_nMinLength));
   }
 
   @Override

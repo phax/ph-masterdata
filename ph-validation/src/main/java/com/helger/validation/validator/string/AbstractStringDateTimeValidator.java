@@ -48,14 +48,14 @@ public abstract class AbstractStringDateTimeValidator extends AbstractStringVali
   {
     final Locale aParseLocale = getParseLocale ();
     final ZonedDateTime aZDT = PDTFromString.getZonedDateTimeFromString (sValue,
-                                                                    PDTFormatter.getDefaultFormatterDateTime (aParseLocale));
+                                                                         PDTFormatter.getDefaultFormatterDateTime (aParseLocale));
     if (aZDT != null)
       return ValidationResultSuccess.getInstance ();
     // Try without zone
     final LocalDateTime aLDT = PDTFromString.getLocalDateTimeFromString (sValue, aParseLocale);
     if (aLDT != null)
       return ValidationResultSuccess.getInstance ();
-    return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DATETIME,
-                                      PDTFormatPatterns.getDefaultPatternDateTime (aParseLocale));
+    return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DATETIME,
+                                         PDTFormatPatterns.getDefaultPatternDateTime (aParseLocale));
   }
 }

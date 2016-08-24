@@ -59,8 +59,8 @@ public class MinLengthMapValidator extends AbstractMapValidator <Object, Object>
     if ((aRequestValues == null && m_nMinLength > 0) ||
         (aRequestValues != null && aRequestValues.size () < m_nMinLength))
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_MIN_LENGTH,
-                                        Integer.toString (m_nMinLength));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_MIN_LENGTH,
+                                           Integer.toString (m_nMinLength));
     }
     return ValidationResultSuccess.getInstance ();
   }

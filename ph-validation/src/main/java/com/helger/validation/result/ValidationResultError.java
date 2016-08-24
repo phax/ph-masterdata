@@ -40,18 +40,19 @@ public class ValidationResultError extends AbstractValidationResultError
 
   public ValidationResultError (@Nonnull final IHasDisplayText aErrorText)
   {
-    this (aErrorText, (Object []) null);
+    m_aErrorText = ValueEnforcer.notNull (aErrorText, "ErrorText");
   }
 
+  @Deprecated
   public ValidationResultError (@Nonnull final IHasDisplayText aErrorText, @Nullable final Object aArg)
   {
     this (aErrorText, aArg == null ? (Object []) null : new Object [] { aArg });
   }
 
+  @Deprecated
   public ValidationResultError (@Nonnull final IHasDisplayText aErrorText, @Nullable final Object... aArgs)
   {
-    ValueEnforcer.notNull (aErrorText, "ErrorText");
-    m_aErrorText = ArrayHelper.isEmpty (aArgs) ? aErrorText : new HasDisplayTextWithArgs (aErrorText, aArgs);
+    this (ArrayHelper.isEmpty (aArgs) ? aErrorText : new HasDisplayTextWithArgs (aErrorText, aArgs));
   }
 
   @Nullable
@@ -64,5 +65,20 @@ public class ValidationResultError extends AbstractValidationResultError
   public String toString ()
   {
     return new ToStringGenerator (this).append ("errorText", m_aErrorText).toString ();
+  }
+
+  @Nonnull
+  public static ValidationResultError create (@Nonnull final IHasDisplayText aErrorText, @Nullable final Object aArg)
+  {
+    return create (aErrorText, aArg == null ? (Object []) null : new Object [] { aArg });
+  }
+
+  @Nonnull
+  public static ValidationResultError create (@Nonnull final IHasDisplayText aErrorText,
+                                              @Nullable final Object... aArgs)
+  {
+    ValueEnforcer.notNull (aErrorText, "ErrorText");
+    return new ValidationResultError (ArrayHelper.isEmpty (aArgs) ? aErrorText
+                                                                  : new HasDisplayTextWithArgs (aErrorText, aArgs));
   }
 }

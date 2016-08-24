@@ -67,15 +67,15 @@ public class DoubleMinMaxValidator extends AbstractStringValidator
     final double dValue = aValue.doubleValue ();
     if (!Double.isInfinite (m_dMinInclusive) && dValue < m_dMinInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
-                                        Double.toString (m_dMinInclusive),
-                                        Double.toString (m_dMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
+                                           Double.toString (m_dMinInclusive),
+                                           Double.toString (m_dMaxInclusive));
     }
     if (!Double.isInfinite (m_dMaxInclusive) && dValue > m_dMaxInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
-                                        Double.toString (m_dMinInclusive),
-                                        Double.toString (m_dMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_DOUBLE_RANGE,
+                                           Double.toString (m_dMinInclusive),
+                                           Double.toString (m_dMaxInclusive));
     }
     return ValidationResultSuccess.getInstance ();
   }

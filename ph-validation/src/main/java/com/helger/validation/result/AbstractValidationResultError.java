@@ -19,7 +19,6 @@ package com.helger.validation.result;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
@@ -45,11 +44,6 @@ public abstract class AbstractValidationResultError implements IValidationError
   public String getErrorID ()
   {
     return null;
-  }
-
-  public boolean hasErrorID ()
-  {
-    return StringHelper.hasText (getErrorID ());
   }
 
   @Override

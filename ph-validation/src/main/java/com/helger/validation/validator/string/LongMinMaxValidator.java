@@ -66,15 +66,15 @@ public class LongMinMaxValidator extends AbstractStringValidator
     final long nValue = aValue.longValue ();
     if (m_nMinInclusive != Long.MIN_VALUE && nValue < m_nMinInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_INT_RANGE,
-                                        Long.toString (m_nMinInclusive),
-                                        Long.toString (m_nMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_INT_RANGE,
+                                           Long.toString (m_nMinInclusive),
+                                           Long.toString (m_nMaxInclusive));
     }
     if (m_nMaxInclusive != Long.MAX_VALUE && nValue > m_nMaxInclusive)
     {
-      return new ValidationResultError (EStandardValidationErrorTexts.INVALID_INT_RANGE,
-                                        Long.toString (m_nMinInclusive),
-                                        Long.toString (m_nMaxInclusive));
+      return ValidationResultError.create (EStandardValidationErrorTexts.INVALID_INT_RANGE,
+                                           Long.toString (m_nMinInclusive),
+                                           Long.toString (m_nMaxInclusive));
     }
     return ValidationResultSuccess.getInstance ();
   }
