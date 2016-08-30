@@ -76,8 +76,7 @@ public class StringPostalCodeValidator extends AbstractStringValidator
     final String sValidExamples = StringHelper.getImploded (", ", m_aPostalCountry.getAllExamples ());
     if (StringHelper.hasText (sValidExamples))
     {
-      final Object [] aArgs = { sValidExamples };
-      return new ValidationResultError (EPostalCodeErrorTexts.INVALID_POSTAL_CODE_WITH_EXAMPLES, aArgs);
+      return ValidationResultError.create (EPostalCodeErrorTexts.INVALID_POSTAL_CODE_WITH_EXAMPLES, sValidExamples);
     }
     return new ValidationResultError (EPostalCodeErrorTexts.INVALID_POSTAL_CODE);
   }
