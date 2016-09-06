@@ -16,9 +16,7 @@
  */
 package com.helger.validation.result;
 
-import java.io.Serializable;
-
-import com.helger.commons.error.IHasErrorID;
+import com.helger.commons.error.id.IHasErrorID;
 import com.helger.commons.state.IValidityIndicator;
 import com.helger.commons.text.display.IHasDisplayText;
 
@@ -27,7 +25,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public interface IValidationResult extends IValidityIndicator, IHasErrorID, IHasDisplayText, Serializable
+public interface IValidationResult extends IValidityIndicator, IHasErrorID, IHasDisplayText
 {
   /* empty */
 }

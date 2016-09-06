@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.error.EErrorLevel;
+import com.helger.commons.error.level.EErrorLevel;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.state.ETriState;
 import com.helger.commons.text.display.ConstantHasDisplayText;

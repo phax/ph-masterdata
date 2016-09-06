@@ -16,6 +16,13 @@
  */
 package com.helger.validation.result;
 
+import java.util.Locale;
+
+import javax.annotation.Nonnull;
+
+import com.helger.commons.error.IError;
+import com.helger.commons.error.SingleError;
+
 /**
  * A single validation error.
  *
@@ -23,5 +30,13 @@ package com.helger.validation.result;
  */
 public interface IValidationError extends IValidationResult
 {
-  /* empty */
+  @Nonnull
+  default IError getAsError (@Nonnull final String sFieldName, @Nonnull final Locale aContentLocale)
+  {
+    return SingleError.builderError ()
+                      .setErrorID (getErrorID ())
+                      .setErrorFieldName (sFieldName)
+                      .setErrorText (getDisplayText (aContentLocale))
+                      .build ();
+  }
 }
