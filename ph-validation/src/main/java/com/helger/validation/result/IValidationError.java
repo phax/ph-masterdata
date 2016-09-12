@@ -30,6 +30,16 @@ import com.helger.commons.error.SingleError;
  */
 public interface IValidationError extends IValidationResult
 {
+  /**
+   * Get this validation error as an {@link IError}.
+   *
+   * @param sFieldName
+   *        The current field name.
+   * @param aContentLocale
+   *        The local used to retrieve the texts.
+   * @return Never <code>null</code>.
+   * @since 5.0.2
+   */
   @Nonnull
   default IError getAsError (@Nonnull final String sFieldName, @Nonnull final Locale aContentLocale)
   {
