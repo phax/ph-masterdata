@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -133,6 +134,7 @@ public class MainReadPostalCodeListExcel
     }
   }
 
+  @SuppressWarnings ("deprecation")
   public static void main (final String [] args) throws Exception
   {
     final String sSource = "http://en.wikipedia.org/wiki/List_of_postal_codes";
@@ -168,7 +170,7 @@ public class MainReadPostalCodeListExcel
         }
         final Cell aDateCell = aRow.getCell (1);
         Date aIntroducedDate = null;
-        if (aDateCell != null && aDateCell.getCellType () != Cell.CELL_TYPE_BLANK)
+        if (aDateCell != null && aDateCell.getCellTypeEnum () != CellType.BLANK)
         {
           final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
           final int nYear = aNum.intValue ();
