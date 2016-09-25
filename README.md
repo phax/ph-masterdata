@@ -30,6 +30,8 @@ Java library that combines ph-masterdata and ph-validation. The same version req
 
 # News and noteworthy
 
+  * v5.0.3
+    * Requires at least ph-common 8.5.2
   * v5.0.2 -2016-09-12
     * Binds to ph-commons 8.5.x
   * v5.0.0
