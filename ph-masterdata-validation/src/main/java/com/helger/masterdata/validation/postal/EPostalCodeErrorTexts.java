@@ -23,16 +23,16 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Translatable;
 import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayText;
 import com.helger.commons.text.display.IHasDisplayTextWithArgs;
 import com.helger.commons.text.resolve.DefaultTextResolver;
 import com.helger.commons.text.util.TextHelper;
 
 @Translatable
-public enum EPostalCodeErrorTexts implements IHasDisplayText,IHasDisplayTextWithArgs
+public enum EPostalCodeErrorTexts implements IHasDisplayTextWithArgs
 {
   INVALID_POSTAL_CODE ("Die eingegebene Postleitzahl ist ungültig.", "The postal code is invalid."),
-  INVALID_POSTAL_CODE_WITH_EXAMPLES ("Geben Sie eine Postleitzahl in einem gültigen Format ein: {0}", "Enter a postal code in a valid format: {0}");
+  INVALID_POSTAL_CODE_WITH_EXAMPLES ("Geben Sie eine Postleitzahl in einem gültigen Format ein: {0}",
+                                     "Enter a postal code in a valid format: {0}");
 
   private final IMultilingualText m_aTP;
 
@@ -45,11 +45,5 @@ public enum EPostalCodeErrorTexts implements IHasDisplayText,IHasDisplayTextWith
   public String getDisplayText (@Nonnull final Locale aContentLocale)
   {
     return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
-  }
-
-  @Nullable
-  public String getDisplayTextWithArgs (@Nonnull final Locale aContentLocale, @Nullable final Object... aArgs)
-  {
-    return DefaultTextResolver.getTextWithArgsStatic (this, m_aTP, aContentLocale, aArgs);
   }
 }
