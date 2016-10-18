@@ -47,6 +47,8 @@ public class Address implements IAddress, ICloneable <Address>
   private String m_sBuildingNumber;
   private String m_sPostOfficeBox;
   private String m_sCareOf;
+  // Status vars
+  private Locale m_aCountry;
 
   public Address ()
   {}
@@ -137,7 +139,12 @@ public class Address implements IAddress, ICloneable <Address>
   @Nullable
   public Locale getCountryLocale ()
   {
-    return CountryCache.getInstance ().getCountry (m_sCountry);
+    Locale ret = m_aCountry;
+    if (ret == null && m_sCountry != null)
+    {
+      m_aCountry = ret = CountryCache.getInstance ().getCountry (m_sCountry);
+    }
+    return ret;
   }
 
   @Nonnull
@@ -153,6 +160,7 @@ public class Address implements IAddress, ICloneable <Address>
     if (EqualsHelper.equals (m_sCountry, sRealCountry))
       return EChange.UNCHANGED;
     m_sCountry = sRealCountry == null ? null : sRealCountry.intern ();
+    m_aCountry = null;
     return EChange.CHANGED;
   }
 
