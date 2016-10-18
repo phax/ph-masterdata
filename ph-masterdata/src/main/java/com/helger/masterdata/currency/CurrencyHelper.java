@@ -34,6 +34,7 @@ import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.collection.ext.ICommonsSortedSet;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleParser;
+import com.helger.commons.string.StringHelper;
 
 /**
  * Some currency helper methods.
@@ -177,6 +178,10 @@ public final class CurrencyHelper
                                           @Nullable final BigDecimal aDefault,
                                           @Nonnull final RoundingMode eRoundingMode)
   {
+    // Shortcut
+    if (StringHelper.hasNoText (sStr))
+      return aDefault;
+
     // So that the call to "parse" returns a BigDecimal
     aFormat.setParseBigDecimal (true);
     aFormat.setRoundingMode (eRoundingMode);
