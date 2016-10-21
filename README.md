@@ -30,9 +30,10 @@ Java library that combines ph-masterdata and ph-validation. The same version req
 
 # News and noteworthy
 
-  * v5.0.3
+  * v5.0.3 - 2016-10-21
+    * Small performance tweaks
     * Requires at least ph-common 8.5.2
-  * v5.0.2 -2016-09-12
+  * v5.0.2 - 2016-09-12
     * Binds to ph-commons 8.5.x
   * v5.0.0
     * Binds to ph-commons 8.x
@@ -46,19 +47,19 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-validation</artifactId>
-  <version>5.0.2</version>
+  <version>5.0.3</version>
 </dependency>
 
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>5.0.2</version>
+  <version>5.0.3</version>
 </dependency>
 
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata-validation</artifactId>
-  <version>5.0.2</version>
+  <version>5.0.3</version>
 </dependency>
 ```
 
