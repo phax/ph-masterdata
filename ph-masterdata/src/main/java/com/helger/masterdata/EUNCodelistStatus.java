@@ -71,7 +71,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   {
     if (StringHelper.hasText (sStatus))
     {
-      final ICommonsList <EUNCodelistStatus> ret = new CommonsArrayList <> ();
+      final ICommonsList <EUNCodelistStatus> ret = new CommonsArrayList<> ();
       for (final EUNCodelistStatus eStatus : values ())
         if (sStatus.indexOf (eStatus.m_cText) != -1)
           ret.add (eStatus);
@@ -93,6 +93,6 @@ public enum EUNCodelistStatus implements IHasID <String>
   @Nonnull
   public static String getAsString (@Nonnull final EUNCodelistStatus [] aStatus)
   {
-    return StringHelper.getImploded (",", aStatus, eStatus -> eStatus.getID ());
+    return StringHelper.getImplodedMapped (",", aStatus, EUNCodelistStatus::getID);
   }
 }

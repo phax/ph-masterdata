@@ -18,6 +18,7 @@ package com.helger.validation.validator.string;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.time.format.FormatStyle;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -26,6 +27,7 @@ import javax.annotation.concurrent.Immutable;
 
 import com.helger.datetime.format.PDTFormatPatterns;
 import com.helger.datetime.format.PDTFormatter;
+import com.helger.datetime.format.PDTFormatter.EFormatterMode;
 import com.helger.datetime.format.PDTFromString;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
@@ -48,7 +50,9 @@ public abstract class AbstractStringDateTimeValidator extends AbstractStringVali
   {
     final Locale aParseLocale = getParseLocale ();
     final ZonedDateTime aZDT = PDTFromString.getZonedDateTimeFromString (sValue,
-                                                                         PDTFormatter.getDefaultFormatterDateTime (aParseLocale));
+                                                                         PDTFormatter.getFormatterDateTime (FormatStyle.MEDIUM,
+                                                                                                            aParseLocale,
+                                                                                                            EFormatterMode.PARSE));
     if (aZDT != null)
       return ValidationResultSuccess.getInstance ();
     // Try without zone
