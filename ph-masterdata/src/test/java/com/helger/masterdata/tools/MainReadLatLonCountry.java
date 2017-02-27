@@ -19,12 +19,12 @@ package com.helger.masterdata.tools;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.charset.CCharset;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.string.StringParser;
@@ -48,11 +48,10 @@ public final class MainReadLatLonCountry
     final String sRevision = "20130209";
     final String sSource = "http://dev.maxmind.com/geoip/codes/country_latlon";
 
-    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (
-                                                                        new File ("src/test/resources/country_latlon-" +
+    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (new File ("src/test/resources/country_latlon-" +
                                                                                   sRevision +
                                                                                   ".csv"),
-                                                                        CCharset.CHARSET_ISO_8859_1_OBJ)))
+                                                                        StandardCharsets.ISO_8859_1)))
     {
       // Skip one row
       aReader.readNext ();

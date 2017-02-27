@@ -113,6 +113,6 @@ public class BigDecimalMinMaxValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("minIncl", m_aMinInclusive)
                             .append ("maxIncl", m_aMaxInclusive)
-                            .toString ();
+                            .getToString ();
   }
 }

@@ -160,7 +160,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
                             .append ("percentageFactor", m_aPercentageFactor)
                             .append ("multiplicationFactorNetToGross", m_aMultiplicationFactorNetToGross)
                             .append ("deprecated", m_bDeprecated)
-                            .toString ();
+                            .getToString ();
   }
 
   @Nonnull

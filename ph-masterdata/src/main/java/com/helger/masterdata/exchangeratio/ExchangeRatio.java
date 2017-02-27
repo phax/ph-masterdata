@@ -80,6 +80,6 @@ public class ExchangeRatio implements Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("date", m_aDate).append ("ratio", m_aRatio).toString ();
+    return new ToStringGenerator (this).append ("date", m_aDate).append ("ratio", m_aRatio).getToString ();
   }
 }

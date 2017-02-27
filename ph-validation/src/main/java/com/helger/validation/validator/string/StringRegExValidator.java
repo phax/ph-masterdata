@@ -108,6 +108,6 @@ public class StringRegExValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("regEx", m_sRegEx)
                             .appendIfNotNull ("errorText", m_aErrorText)
-                            .toString ();
+                            .getToString ();
   }
 }

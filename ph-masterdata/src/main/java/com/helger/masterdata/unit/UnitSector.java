@@ -81,6 +81,6 @@ public class UnitSector implements IHasIntID, IHasDisplayText
     return new ToStringGenerator (this).append ("groupNumber", m_nGroupNumber)
                                        .append ("name", m_aName)
                                        .append ("iso31", m_eISO31)
-                                       .toString ();
+                                       .getToString ();
   }
 }

@@ -340,7 +340,7 @@ public class VATManager implements IVATItemProvider
     return new ToStringGenerator (this).append ("sources", m_aSources)
                                        .append ("VATItemsPerCountry", m_aVATItemsPerCountry)
                                        .append ("allVATItems", m_aAllVATItems)
-                                       .toString ();
+                                       .getToString ();
   }
 
   @Nonnull

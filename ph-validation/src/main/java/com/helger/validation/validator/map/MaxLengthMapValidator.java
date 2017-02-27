@@ -84,6 +84,6 @@ public class MaxLengthMapValidator extends AbstractMapValidator <Object, Object>
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("maxLength", m_nMaxLength).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("maxLength", m_nMaxLength).getToString ();
   }
 }

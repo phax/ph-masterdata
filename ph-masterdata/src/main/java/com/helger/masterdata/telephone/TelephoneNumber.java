@@ -194,7 +194,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
                                        .appendIfNotNull ("areaCode", m_sAreaCode)
                                        .appendIfNotNull ("line", m_sLine)
                                        .appendIfNotNull ("directDial", m_sDirectDial)
-                                       .toString ();
+                                       .getToString ();
   }
 
   @Nullable

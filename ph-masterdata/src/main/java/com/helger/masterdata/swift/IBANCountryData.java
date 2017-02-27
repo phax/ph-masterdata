@@ -83,7 +83,7 @@ public final class IBANCountryData extends LocalDatePeriod
 
     m_nExpectedLength = nExpectedLength;
     m_aPattern = aPattern;
-    m_aElements = new CommonsArrayList <> (aElements);
+    m_aElements = new CommonsArrayList<> (aElements);
     m_sFixedCheckDigits = sFixedCheckDigits;
 
     int nCalcedLength = 0;
@@ -163,7 +163,7 @@ public final class IBANCountryData extends LocalDatePeriod
                                           " but found " +
                                           sRealIBAN.length ());
 
-    final ICommonsList <IBANElementValue> ret = new CommonsArrayList <> (m_aElements.size ());
+    final ICommonsList <IBANElementValue> ret = new CommonsArrayList<> (m_aElements.size ());
     int nIndex = 0;
     for (final IBANElement aElement : m_aElements)
     {
@@ -179,14 +179,14 @@ public final class IBANCountryData extends LocalDatePeriod
   {
     return new ToStringGenerator (this).append ("elements", m_aElements)
                                        .append ("expectedLength", m_nExpectedLength)
-                                       .toString ();
+                                       .getToString ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
   private static ICommonsList <IBANElement> _parseElements (@Nonnull final String sDesc)
   {
-    final ICommonsList <IBANElement> aList = new CommonsArrayList <> ();
+    final ICommonsList <IBANElement> aList = new CommonsArrayList<> ();
     // Always starts with the country code
     aList.add (new IBANElement (EIBANElementType.COUNTRY_CODE, 2));
 

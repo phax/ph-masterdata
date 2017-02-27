@@ -136,6 +136,6 @@ public class PostalCodeCountry implements IPostalCodeCountry
                                        .append ("formats", m_aFormats)
                                        .append ("specificPostalCodes", m_aSpecificPostalCodes)
                                        .appendIfNotNull ("note", m_sNote)
-                                       .toString ();
+                                       .getToString ();
   }
 }

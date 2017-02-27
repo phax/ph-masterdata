@@ -78,8 +78,8 @@ public class DeprecatedLocaleHandler
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
 
-  private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet <> ();
-  private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet <> ();
+  private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet<> ();
+  private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet<> ();
 
   public void initFromXML (@Nonnull final IMicroDocument aDoc)
   {
@@ -152,7 +152,7 @@ public class DeprecatedLocaleHandler
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("locales", m_aLocales).toString ();
+    return new ToStringGenerator (this).append ("locales", m_aLocales).getToString ();
   }
 
   @Nonnull

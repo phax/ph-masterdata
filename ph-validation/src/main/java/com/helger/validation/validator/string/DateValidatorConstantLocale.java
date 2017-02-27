@@ -67,6 +67,6 @@ public class DateValidatorConstantLocale extends AbstractStringDateValidator
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("parseLocale", m_aParseLocale).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("parseLocale", m_aParseLocale).getToString ();
   }
 }

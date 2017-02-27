@@ -107,6 +107,6 @@ public class PersonEmailAddress extends ExtendedEmailAddress
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).getToString ();
   }
 }

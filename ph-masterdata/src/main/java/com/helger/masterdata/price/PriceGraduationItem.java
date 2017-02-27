@@ -100,6 +100,6 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem
   {
     return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity)
                                        .append ("priceamount", m_aNetAmount)
-                                       .toString ();
+                                       .getToString ();
   }
 }

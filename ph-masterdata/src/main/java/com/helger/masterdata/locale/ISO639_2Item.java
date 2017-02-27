@@ -145,6 +145,6 @@ public class ISO639_2Item implements Serializable
                                        .append ("alpha2", m_sAlpha2)
                                        .append ("English", m_sEN)
                                        .append ("French", m_sFR)
-                                       .toString ();
+                                       .getToString ();
   }
 }

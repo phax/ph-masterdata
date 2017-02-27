@@ -86,6 +86,6 @@ public class StringNotEmptyValidator extends AbstractStringValidator
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).appendIfNotNull ("errorText", m_aErrorText).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).appendIfNotNull ("errorText", m_aErrorText).getToString ();
   }
 }

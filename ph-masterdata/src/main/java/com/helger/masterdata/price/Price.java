@@ -208,7 +208,9 @@ public class Price implements IMutablePrice
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("netAmount", m_aNetAmount).append ("VATtype", m_aVATItem).toString ();
+    return new ToStringGenerator (this).append ("netAmount", m_aNetAmount)
+                                       .append ("VATtype", m_aVATItem)
+                                       .getToString ();
   }
 
   /**

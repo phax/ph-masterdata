@@ -45,7 +45,7 @@ public class StringValidatorChainOR extends AbstractStringValidator
   public StringValidatorChainOR (@Nonnull @Nonempty final IStringValidator... aValidators)
   {
     ValueEnforcer.notEmptyNoNullValue (aValidators, "Validators");
-    m_aValidators = new CommonsArrayList <> (aValidators);
+    m_aValidators = new CommonsArrayList<> (aValidators);
   }
 
   @Nonnull
@@ -81,6 +81,6 @@ public class StringValidatorChainOR extends AbstractStringValidator
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("validators", m_aValidators).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("validators", m_aValidators).getToString ();
   }
 }

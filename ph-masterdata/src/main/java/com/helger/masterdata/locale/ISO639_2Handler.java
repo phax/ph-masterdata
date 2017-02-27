@@ -121,6 +121,6 @@ public class ISO639_2Handler
     return new ToStringGenerator (this).append ("alpha3Bibliographic", m_aAlpha3B)
                                        .append ("alpha3Terminologic", m_aAlpha3T)
                                        .append ("alpha2", m_aAlpha2)
-                                       .toString ();
+                                       .getToString ();
   }
 }

@@ -47,7 +47,7 @@ public class PostalCodeManager
   public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20130209.xml"));
 
   private final SimpleReadWriteLock m_aRWLock = new SimpleReadWriteLock ();
-  private final ICommonsMap <Locale, IPostalCodeCountry> m_aMap = new CommonsHashMap <> ();
+  private final ICommonsMap <Locale, IPostalCodeCountry> m_aMap = new CommonsHashMap<> ();
 
   public PostalCodeManager ()
   {}
@@ -171,6 +171,6 @@ public class PostalCodeManager
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("map", m_aMap).toString ();
+    return new ToStringGenerator (this).append ("map", m_aMap).getToString ();
   }
 }

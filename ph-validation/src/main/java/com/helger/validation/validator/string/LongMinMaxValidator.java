@@ -105,6 +105,6 @@ public class LongMinMaxValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("minIncl", m_nMinInclusive)
                             .append ("maxIncl", m_nMaxInclusive)
-                            .toString ();
+                            .getToString ();
   }
 }

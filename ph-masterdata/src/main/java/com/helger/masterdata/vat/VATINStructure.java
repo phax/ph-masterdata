@@ -64,7 +64,7 @@ public class VATINStructure implements IHasCountry
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;
     m_aPattern = RegExCache.getPattern (sRegEx);
-    m_aExamples = new CommonsArrayList <> (aExamples);
+    m_aExamples = new CommonsArrayList<> (aExamples);
 
     if (GlobalDebug.isDebugMode ())
       for (final String s : m_aExamples)
@@ -135,6 +135,6 @@ public class VATINStructure implements IHasCountry
     return new ToStringGenerator (this).append ("country", m_aCountry)
                                        .append ("pattern", m_sPattern)
                                        .append ("examples", m_aExamples)
-                                       .toString ();
+                                       .getToString ();
   }
 }

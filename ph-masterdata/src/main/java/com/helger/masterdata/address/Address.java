@@ -327,6 +327,6 @@ public class Address implements IAddress, ICloneable <Address>
                                        .appendIfNotNull ("buildingNumber", m_sBuildingNumber)
                                        .appendIfNotNull ("pobox", m_sPostOfficeBox)
                                        .appendIfNotNull ("careOf", m_sCareOf)
-                                       .toString ();
+                                       .getToString ();
   }
 }

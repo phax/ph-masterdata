@@ -89,6 +89,6 @@ public class PersonAddress extends Address
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).getToString ();
   }
 }

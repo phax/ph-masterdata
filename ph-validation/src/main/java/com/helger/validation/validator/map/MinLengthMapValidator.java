@@ -85,6 +85,6 @@ public class MinLengthMapValidator extends AbstractMapValidator <Object, Object>
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("minLength", m_nMinLength).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("minLength", m_nMinLength).getToString ();
   }
 }

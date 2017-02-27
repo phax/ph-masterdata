@@ -256,6 +256,6 @@ public class Person implements IPerson
                                        .appendIfNotNull ("telephone", m_aTelephoneNumber)
                                        .appendIfNotNull ("email", m_aEmailAddress)
                                        .appendIfNotNull ("address", m_aAddress)
-                                       .toString ();
+                                       .getToString ();
   }
 }

@@ -96,6 +96,6 @@ public class StringMaxLengthValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("maxLength", m_nMaxLength)
                             .appendIfNotNull ("errorText", m_aErrorText)
-                            .toString ();
+                            .getToString ();
   }
 }

@@ -127,6 +127,6 @@ public class VATCountryData implements IHasCountry
                                        .append ("Items", m_aItems)
                                        .appendIfNotNull ("CountryName", m_sCountryName)
                                        .appendIfNotNull ("InternalComment", m_sInternalComment)
-                                       .toString ();
+                                       .getToString ();
   }
 }

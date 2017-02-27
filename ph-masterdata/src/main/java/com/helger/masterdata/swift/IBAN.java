@@ -45,7 +45,7 @@ public class IBAN implements Serializable
   public IBAN (@Nonnull final List <IBANElementValue> aValues)
   {
     ValueEnforcer.notNull (aValues, "Values");
-    m_aValues = new CommonsArrayList <> (aValues);
+    m_aValues = new CommonsArrayList<> (aValues);
   }
 
   @Nonnull
@@ -75,7 +75,7 @@ public class IBAN implements Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("values", m_aValues).toString ();
+    return new ToStringGenerator (this).append ("values", m_aValues).getToString ();
   }
 
   @Nonnull

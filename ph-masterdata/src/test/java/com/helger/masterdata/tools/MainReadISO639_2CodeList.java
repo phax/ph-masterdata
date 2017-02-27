@@ -19,9 +19,9 @@ package com.helger.masterdata.tools;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
-import com.helger.commons.charset.CCharset;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.string.StringHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -39,7 +39,7 @@ public class MainReadISO639_2CodeList
   public static void main (final String [] args) throws IOException
   {
     final String sRevision = "20130111";
-    final BufferedReader aReader = new BufferedReader (new ClassPathResource ("ISO-639-2_utf-8.txt").getReader (CCharset.CHARSET_UTF_8_OBJ));
+    final BufferedReader aReader = new BufferedReader (new ClassPathResource ("ISO-639-2_utf-8.txt").getReader (StandardCharsets.UTF_8));
     final IMicroDocument aDoc = new MicroDocument ();
     final IMicroElement eRoot = aDoc.appendElement ("iso639-2");
     String sLine;

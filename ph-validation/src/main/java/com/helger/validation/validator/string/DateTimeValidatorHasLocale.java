@@ -68,6 +68,6 @@ public class DateTimeValidatorHasLocale extends AbstractStringDateTimeValidator
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("localeProvider", m_aLocaleProvider).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("localeProvider", m_aLocaleProvider).getToString ();
   }
 }

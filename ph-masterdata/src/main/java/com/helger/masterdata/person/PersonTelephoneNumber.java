@@ -99,6 +99,6 @@ public class PersonTelephoneNumber extends TelephoneNumber
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).getToString ();
   }
 }

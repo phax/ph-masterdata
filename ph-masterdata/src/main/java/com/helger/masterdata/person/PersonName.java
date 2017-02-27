@@ -215,6 +215,6 @@ public class PersonName implements IPersonName
                                        .appendIfNotNull ("middleName", m_sMiddleName)
                                        .appendIfNotNull ("lastName", m_sLastName)
                                        .appendIfNotNull ("suffixTitle", m_sSuffixTitle)
-                                       .toString ();
+                                       .getToString ();
   }
 }

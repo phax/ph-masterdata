@@ -116,6 +116,6 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serial
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("list", m_aList).toString ();
+    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("list", m_aList).getToString ();
   }
 }

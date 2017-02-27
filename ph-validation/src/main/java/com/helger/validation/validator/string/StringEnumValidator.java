@@ -109,19 +109,19 @@ public class StringEnumValidator <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <Str
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("class", m_aEnumClass)
                             .appendIfNotNull ("errorText", m_aErrorText)
-                            .toString ();
+                            .getToString ();
   }
 
   @Nonnull
   public static <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <String>> StringEnumValidator <ENUMTYPE> create (@Nonnull final Class <ENUMTYPE> aClass)
   {
-    return new StringEnumValidator <> (aClass);
+    return new StringEnumValidator<> (aClass);
   }
 
   @Nonnull
   public static <ENUMTYPE extends Enum <ENUMTYPE> & IHasID <String>> StringEnumValidator <ENUMTYPE> create (@Nonnull final Class <ENUMTYPE> aClass,
                                                                                                             @Nullable final IHasDisplayText aErrorText)
   {
-    return new StringEnumValidator <> (aClass, aErrorText);
+    return new StringEnumValidator<> (aClass, aErrorText);
   }
 }

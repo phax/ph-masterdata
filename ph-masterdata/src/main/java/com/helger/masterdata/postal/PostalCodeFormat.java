@@ -141,6 +141,6 @@ public class PostalCodeFormat implements Serializable
                                        .append ("format", m_sFormat)
                                        .append ("pattern", m_aPattern)
                                        .append ("example", m_sExample)
-                                       .toString ();
+                                       .getToString ();
   }
 }

@@ -81,6 +81,6 @@ final class IBANElementValue implements Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).append ("element", m_aElement).append ("value", m_sValue).toString ();
+    return new ToStringGenerator (null).append ("element", m_aElement).append ("value", m_sValue).getToString ();
   }
 }

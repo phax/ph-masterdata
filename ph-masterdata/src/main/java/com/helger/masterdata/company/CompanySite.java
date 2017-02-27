@@ -241,6 +241,6 @@ public final class CompanySite implements ICompanySite
                                        .appendIfNotNull ("telNo", m_aTelNo)
                                        .appendIfNotNull ("faxNo", m_aFaxNo)
                                        .appendIfNotNull ("email", m_aEmailAddress)
-                                       .toString ();
+                                       .getToString ();
   }
 }

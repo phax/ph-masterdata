@@ -192,7 +192,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return new ToStringGenerator (null).appendIfNotNull ("addressType", m_aAddressType)
                                        .appendIfNotNull ("address", m_sAddress)
                                        .appendIfNotNull ("personal", m_sPersonal)
-                                       .toString ();
+                                       .getToString ();
   }
 
   @Nullable

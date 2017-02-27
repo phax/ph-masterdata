@@ -107,6 +107,6 @@ public class DoubleMinMaxValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("minIncl", m_dMinInclusive)
                             .append ("maxIncl", m_dMaxInclusive)
-                            .toString ();
+                            .getToString ();
   }
 }

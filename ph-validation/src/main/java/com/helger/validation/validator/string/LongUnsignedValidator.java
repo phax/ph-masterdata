@@ -78,6 +78,6 @@ public class LongUnsignedValidator extends AbstractStringValidator
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("zeroIsAllowed", m_bZeroIsAllowed).toString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("zeroIsAllowed", m_bZeroIsAllowed).getToString ();
   }
 }

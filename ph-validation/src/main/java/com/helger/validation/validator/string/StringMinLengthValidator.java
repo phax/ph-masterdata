@@ -96,6 +96,6 @@ public class StringMinLengthValidator extends AbstractStringValidator
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("minLength", m_nMinLength)
                             .appendIfNotNull ("errorText", m_aErrorText)
-                            .toString ();
+                            .getToString ();
   }
 }

@@ -53,6 +53,6 @@ public abstract class AbstractMapValidator <KEYTYPE, VALUETYPE> implements IMapV
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).toString ();
+    return new ToStringGenerator (this).getToString ();
   }
 }

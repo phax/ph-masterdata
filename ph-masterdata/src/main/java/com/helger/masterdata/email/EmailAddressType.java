@@ -77,6 +77,6 @@ public class EmailAddressType implements IEmailAddressType
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("ID", m_sID).append ("Text", m_aText).toString ();
+    return new ToStringGenerator (this).append ("ID", m_sID).append ("Text", m_aText).getToString ();
   }
 }

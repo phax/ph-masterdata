@@ -44,7 +44,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   private final ECurrency m_eCurrency;
 
   // All items sorted ascending by the minimum quantity
-  private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList <> ();
+  private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList<> ();
 
   /**
    * Create a new price graduation valid only for the given currency and VAT
@@ -207,7 +207,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("items", m_aItems).toString ();
+    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("items", m_aItems).getToString ();
   }
 
   /**

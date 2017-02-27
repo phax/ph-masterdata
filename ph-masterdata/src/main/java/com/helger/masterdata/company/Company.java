@@ -209,6 +209,6 @@ public final class Company implements ICompany
                                        .appendIfNotNull ("officialName", m_sOfficialName)
                                        .append ("allSites", m_aAllSites)
                                        .appendIfNotNull ("headquarter", m_aHeadQuarterSite)
-                                       .toString ();
+                                       .getToString ();
   }
 }

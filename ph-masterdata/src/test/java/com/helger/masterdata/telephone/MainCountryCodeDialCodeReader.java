@@ -17,13 +17,13 @@
 package com.helger.masterdata.telephone;
 
 import java.io.IOException;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.charset.CCharset;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleCache;
@@ -35,13 +35,13 @@ public final class MainCountryCodeDialCodeReader
 
   public static void main (final String [] args) throws IOException
   {
-    try (final CSVReader aCSVReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (CCharset.CHARSET_ISO_8859_1_OBJ)))
+    try (final CSVReader aCSVReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (StandardCharsets.ISO_8859_1)))
     {
       aCSVReader.setSeparatorChar (';');
       for (int i = 0; i < 4; ++i)
         aCSVReader.readNext ();
 
-      List <String> aLine;
+      ICommonsList <String> aLine;
       while ((aLine = aCSVReader.readNext ()) != null)
       {
         // Country;ISO;Country;IDD;NDD

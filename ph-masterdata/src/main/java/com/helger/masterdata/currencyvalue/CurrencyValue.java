@@ -165,7 +165,7 @@ public final class CurrencyValue implements IMutableCurrencyValue
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("value", m_aValue).toString ();
+    return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("value", m_aValue).getToString ();
   }
 
   @Nonnull

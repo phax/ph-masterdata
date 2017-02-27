@@ -64,7 +64,7 @@ public class ValidationResultError extends AbstractValidationResultError
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("errorText", m_aErrorText).toString ();
+    return new ToStringGenerator (this).append ("errorText", m_aErrorText).getToString ();
   }
 
   @Nonnull
