@@ -128,6 +128,10 @@ public class VATINSyntaxChecker
       return isValidVATIN_FR (sVATIN.substring (2));
     if (sVATIN.startsWith ("GB"))
       return isValidVATIN_GB (sVATIN.substring (2));
+    if (sVATIN.startsWith ("IE"))
+      return isValidVATIN_IE (sVATIN.substring (2));
+    if (sVATIN.startsWith ("IT"))
+      return isValidVATIN_IT (sVATIN.substring (2));
 
     System.out.println ("Unsupported country " + sVATIN);
     return true;
@@ -353,5 +357,142 @@ public class VATINSyntaxChecker
     final int r1 = tmp % 97;
     final int r2 = (tmp + 55) % 97;
     return r1 == 0 || r2 == 0;
+  }
+
+  private static boolean _ie_is2 (final char c)
+  {
+    return (c >= 'A' && c <= 'Z') || c == '+' || c == '*';
+  }
+
+  private static boolean _ie_is8 (final char c)
+  {
+    return (c >= 'A' && c <= 'W');
+  }
+
+  private static boolean _ie_is9 (final char c)
+  {
+    return (c >= 'A' && c <= 'I');
+  }
+
+  private static char _ie_checkChar (final int r)
+  {
+    return r == 0 ? 'W' : (char) ('A' + r - 1);
+  }
+
+  private static int _ie_toNum (final char c)
+  {
+    return c - 'A' + 1;
+  }
+
+  private static boolean _ie_isV1 (@Nonnull final char [] c)
+  {
+    if (c.length != 8)
+      return false;
+    if (!_isNum (c[0]))
+      return false;
+    if (!_ie_is2 (c[1]))
+      return false;
+    for (int i = 2; i <= 6; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (!_ie_is8 (c[7]))
+      return false;
+    final int r = (0 * 8 +
+                   _toInt (c[2]) * 7 +
+                   _toInt (c[3]) * 6 +
+                   _toInt (c[4]) * 5 +
+                   _toInt (c[5]) * 4 +
+                   _toInt (c[6]) * 3 +
+                   _toInt (c[0]) * 2) %
+                  23;
+
+    final char cCheck = _ie_checkChar (r);
+    return c[7] == cCheck;
+  }
+
+  private static boolean _ie_isV2 (@Nonnull final char [] c)
+  {
+    if (c.length != 8)
+      return false;
+    for (int i = 0; i <= 6; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (!_ie_is8 (c[7]))
+      return false;
+    final int r = (_toInt (c[0]) * 8 +
+                   _toInt (c[1]) * 7 +
+                   _toInt (c[2]) * 6 +
+                   _toInt (c[3]) * 5 +
+                   _toInt (c[4]) * 4 +
+                   _toInt (c[5]) * 3 +
+                   _toInt (c[6]) * 2) %
+                  23;
+
+    final char cCheck = _ie_checkChar (r);
+    return c[7] == cCheck;
+  }
+
+  public static boolean isValidVATIN_IE (@Nonnull final String sVATIN)
+  {
+    ValueEnforcer.notNull (sVATIN, "VATIN");
+    final char [] c = sVATIN.toCharArray ();
+
+    // Version 1 (old Style)
+    if (_ie_isV1 (c))
+      return true;
+
+    // Version 2 (new Style 8 characters)
+    if (_ie_isV2 (c))
+      return true;
+
+    // Version 3 (new Style 9 characters)
+    if (c.length != 9)
+      return false;
+    for (int i = 0; i <= 6; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (!_ie_is8 (c[7]))
+      return false;
+    if (!_ie_is9 (c[8]))
+      return false;
+    final int r = (_toInt (c[0]) * 8 +
+                   _toInt (c[1]) * 7 +
+                   _toInt (c[2]) * 6 +
+                   _toInt (c[3]) * 5 +
+                   _toInt (c[4]) * 4 +
+                   _toInt (c[5]) * 3 +
+                   _toInt (c[6]) * 2 +
+                   _ie_toNum (c[8]) * 9) %
+                  23;
+
+    final char cCheck = _ie_checkChar (r);
+    return c[7] == cCheck;
+  }
+
+  private static int _it_d (final char c)
+  {
+    final int n = _toInt (c);
+    return n / 5 + (2 * n) % 10;
+  }
+
+  public static boolean isValidVATIN_IT (@Nonnull final String sVATIN)
+  {
+    ValueEnforcer.notNull (sVATIN, "VATIN");
+    final char [] c = sVATIN.toCharArray ();
+
+    if (c.length != 11)
+      return false;
+    for (int i = 0; i <= 10; ++i)
+      if (!_isNum (c[i]))
+        return false;
+
+    final int v = _toInt (c[7], c[8], c[9]);
+    if (!((v > 0 && v < 101) || v == 120 || v == 121 || v == 999 || v == 888))
+      return false;
+
+    final int s1 = _toInt (c[0]) + _toInt (c[2]) + _toInt (c[4]) + _toInt (c[6]) + _toInt (c[8]);
+    final int s2 = _it_d (c[1]) + _it_d (c[3]) + _it_d (c[5]) + _it_d (c[7]) + _it_d (c[9]);
+    final int nExpected = (10 - (s1 + s2) % 10) % 10;
+    return _toInt (c[10]) == nExpected;
   }
 }

@@ -34,6 +34,10 @@ public final class VATINSyntaxCheckerTest
     assertTrue (VATINSyntaxChecker.isValidVATIN ("GBGD123"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("GBHA500"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("GB434031494"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("IE8Z49289F"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("IE3628739L"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("IE3628739UA"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("IT00000010215"));
   }
 
   public static void main (final String [] args)
