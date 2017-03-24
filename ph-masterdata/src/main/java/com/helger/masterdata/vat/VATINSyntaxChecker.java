@@ -337,7 +337,6 @@ public class VATINSyntaxChecker
     return (r % 11) == 0;
   }
 
-  // TODO EL
   public static boolean isValidVATIN_EL (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -348,7 +347,18 @@ public class VATINSyntaxChecker
       if (!_isNum (c[i]))
         return false;
 
-    return true;
+    final int a1 = 256 * _toInt (c[0]) +
+                   128 * _toInt (c[1]) +
+                   64 * _toInt (c[2]) +
+                   32 * _toInt (c[3]) +
+                   16 * _toInt (c[4]) +
+                   8 * _toInt (c[5]) +
+                   4 * _toInt (c[6]) +
+                   2 * _toInt (c[7]);
+    final int a2 = a1 % 11;
+    final int nChecksum = a2 % 10;
+    final int nExpected = _toInt (c[8]);
+    return nChecksum == nExpected;
   }
 
   // TODO ES
