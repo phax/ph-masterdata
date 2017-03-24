@@ -131,11 +131,16 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("LT29006137131"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("LT290061371315"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("LV99999999999"));
-    assertFalse (VATINSyntaxChecker.isValidVATIN ("LV9999999999"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("LV40003009497"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("LV4000300949"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("LV40003009498"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("LV07091910933"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("LV0709191093"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("LV07191910933"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("MT99999999"));
-    assertFalse (VATINSyntaxChecker.isValidVATIN ("MT9999999"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("MT15121333"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("MT1512133"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("MT15121334"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("PL5260001246"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("PL526000124"));
@@ -163,15 +168,12 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("BG000010015"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("BG0000100154"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO9999999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO999999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO99999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO9999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO99999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO9999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO99"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO11198699"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO011198699"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO0011198699"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("RO11198690"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("RO99908"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("RO99909"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("RO9"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("RO99999999999"));
 

@@ -11,6 +11,7 @@ import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.function.IToBooleanFunction;
+import com.helger.commons.string.StringHelper;
 
 /**
  * Check the syntax of VATINs based on the published rules.
@@ -1227,21 +1228,62 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  // TODO LV
-  public static boolean isValidVATIN_LV (@Nonnull final String sVATIN)
+  private static boolean _is_lvV1 (@Nonnull final char [] c)
   {
-    ValueEnforcer.notNull (sVATIN, "VATIN");
-    final char [] c = sVATIN.toCharArray ();
     if (c.length != 11)
       return false;
     for (int i = 0; i <= 10; ++i)
       if (!_isNum (c[i]))
         return false;
+    if (_toInt (c[0]) <= 3)
+      return false;
 
+    final int a1 = 9 * _toInt (c[0]) +
+                   1 * _toInt (c[1]) +
+                   4 * _toInt (c[2]) +
+                   8 * _toInt (c[3]) +
+                   3 * _toInt (c[4]) +
+                   10 * _toInt (c[5]) +
+                   2 * _toInt (c[6]) +
+                   5 * _toInt (c[7]) +
+                   7 * _toInt (c[8]) +
+                   6 * _toInt (c[9]);
+    final int r = 3 - (a1 % 11);
+    if (r == -1)
+      return false;
+    final int nChecksum = r < -1 ? r + 11 : r;
+    final int nExpected = _toInt (c[10]);
+    return nChecksum == nExpected;
+  }
+
+  public static boolean isValidVATIN_LV (@Nonnull final String sVATIN)
+  {
+    ValueEnforcer.notNull (sVATIN, "VATIN");
+    final char [] c = sVATIN.toCharArray ();
+
+    // Format 1: Legal persons
+    if (_is_lvV1 (c))
+      return true;
+
+    // Format 2: Natural persons
+    if (c.length != 11)
+      return false;
+    for (int i = 0; i <= 10; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (_toInt (c[0]) > 3)
+      return false;
+
+    final int d = _toInt (c[0], c[1]);
+    final int m = _toInt (c[2], c[3]);
+    if (m < 1 || m > 12)
+      return false;
+    // final int y = _toInt (c[4], c[5]);
+    if (!_isValidMonthDay (m, d))
+      return false;
     return true;
   }
 
-  // TODO MT
   public static boolean isValidVATIN_MT (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -1252,7 +1294,20 @@ public class VATINSyntaxChecker
       if (!_isNum (c[i]))
         return false;
 
-    return true;
+    final int v = _toInt (c[0], c[1], c[2], c[3], c[4], c[5]);
+    if (v <= 100_000)
+      return false;
+
+    final int a1 = 3 * _toInt (c[0]) +
+                   4 * _toInt (c[1]) +
+                   6 * _toInt (c[2]) +
+                   7 * _toInt (c[3]) +
+                   8 * _toInt (c[4]) +
+                   9 * _toInt (c[5]);
+    final int r = 37 - (a1 % 37);
+    final int nChecksum = r == 0 ? 37 : r;
+    final int nExpected = _toInt (c[6], c[7]);
+    return nChecksum == nExpected;
   }
 
   public static boolean isValidVATIN_PL (@Nonnull final String sVATIN)
@@ -1464,18 +1519,36 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  // TODO RO
   public static boolean isValidVATIN_RO (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
-    final char [] c = sVATIN.toCharArray ();
+    char [] c = sVATIN.toCharArray ();
     if (c.length < 2 || c.length > 10)
       return false;
     for (int i = 0; i < c.length; ++i)
       if (!_isNum (c[i]))
         return false;
 
-    return true;
+    if (c.length < 10)
+    {
+      // Ensure length of 10, prefixed with leading zeroes
+      c = StringHelper.getLeadingZero (sVATIN, 10).toCharArray ();
+    }
+
+    final int a1 = 7 * _toInt (c[0]) +
+                   5 * _toInt (c[1]) +
+                   3 * _toInt (c[2]) +
+                   2 * _toInt (c[3]) +
+                   1 * _toInt (c[4]) +
+                   7 * _toInt (c[5]) +
+                   5 * _toInt (c[6]) +
+                   3 * _toInt (c[7]) +
+                   2 * _toInt (c[8]);
+    final int a2 = a1 * 10;
+    final int r1 = a2 % 11;
+    final int nChecksum = r1 == 10 ? 0 : r1;
+    final int nExpected = _toInt (c[9]);
+    return nChecksum == nExpected;
   }
 
   // TODO HR
