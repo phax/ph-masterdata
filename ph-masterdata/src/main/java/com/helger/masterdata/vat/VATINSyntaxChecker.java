@@ -5,8 +5,10 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.VisibleForTesting;
 import com.helger.commons.collection.ext.CommonsHashMap;
 import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.function.IToBooleanFunction;
 
 /**
@@ -95,6 +97,15 @@ public class VATINSyntaxChecker
 
     final String sCountryCode = sVATIN.substring (0, 2).toUpperCase (Locale.US);
     return s_aMap.containsKey (sCountryCode);
+  }
+
+  @VisibleForTesting
+  static int ceilTo (final int nFrom, final int nSignificance)
+  {
+    final int nMod = nFrom % nSignificance;
+    // The second "% nSignificance" is needed for negative from values as the
+    // nMod will be negative
+    return nFrom + (nMod == 0 ? 0 : (nSignificance - nMod) % nSignificance);
   }
 
   private static boolean _isNum (final char c)
@@ -220,6 +231,20 @@ public class VATINSyntaxChecker
            _toInt (c7) * 100L +
            _toInt (c8) * 10L +
            _toInt (c9);
+  }
+
+  private static boolean _isValidMonthDay (final int m, final int d)
+  {
+    if (m == 2)
+      return d >= 1 && d <= 29;
+
+    if (m == 4 || m == 6 || m == 9 || m == 11)
+      return d >= 1 && d <= 30;
+
+    if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
+      return d >= 1 && d <= 31;
+
+    return false;
   }
 
   private static int _at_s (final char c)
@@ -735,16 +760,124 @@ public class VATINSyntaxChecker
     return cChecksum == c[8];
   }
 
-  // TODO CZ
+  private static boolean _cz_isV1 (@Nonnull final char [] c)
+  {
+    if (c.length != 8)
+      return false;
+    for (int i = 0; i <= 7; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (c[0] == '9')
+      return false;
+
+    final int a1 = 8 * _toInt (c[0]) +
+                   7 * _toInt (c[1]) +
+                   6 * _toInt (c[2]) +
+                   5 * _toInt (c[3]) +
+                   4 * _toInt (c[4]) +
+                   3 * _toInt (c[5]) +
+                   2 * _toInt (c[6]);
+
+    final int a2 = (a1 % 11) == 0 ? a1 + 11 : ceilTo (a1, 11);
+    final int nChecksum = (a2 - a1) % 10;
+    final int nExpected = _toInt (c[7]);
+    return nChecksum == nExpected;
+  }
+
+  private static boolean _cz_isV2 (@Nonnull final char [] c)
+  {
+    if (c.length != 9)
+      return false;
+    for (int i = 0; i <= 8; ++i)
+      if (!_isNum (c[i]))
+        return false;
+
+    final int y = _toInt (c[0], c[1]);
+    if (y < 0 || y > 53)
+      return false;
+    final int m = _toInt (c[2], c[3]);
+    if ((m < 1 || m > 12) && (m < 51 || m > 62))
+      return false;
+    final int nEffectiveMonth = m >= 51 ? m - 50 : m;
+
+    final int d = _toInt (c[4], c[5]);
+    if (!_isValidMonthDay (nEffectiveMonth, d))
+      return false;
+
+    return true;
+  }
+
+  private static final int [] cz_v3 = new int [] { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
+
+  private static boolean _cz_isV3 (@Nonnull final char [] c)
+  {
+    if (c.length != 9)
+      return false;
+    for (int i = 0; i <= 8; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (c[0] != '6')
+      return false;
+
+    final int a1 = 8 * _toInt (c[1]) +
+                   7 * _toInt (c[2]) +
+                   6 * _toInt (c[3]) +
+                   5 * _toInt (c[4]) +
+                   4 * _toInt (c[5]) +
+                   3 * _toInt (c[6]) +
+                   2 * _toInt (c[7]);
+
+    final int a2 = (a1 % 11) == 0 ? a1 + 11 : ceilTo (a1, 11);
+    final int nChecksum = cz_v3[a2 - a1 - 1];
+    final int nExpected = _toInt (c[8]);
+    return nChecksum == nExpected;
+  }
+
+  private static final int cz_year_max = PDTFactory.getCurrentYear () % 100;
+
   public static boolean isValidVATIN_CZ (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
-    if (c.length < 8 || c.length > 10)
+
+    // Format 1: 8 digits numbers – Legal Entities
+    if (_cz_isV1 (c))
+      return true;
+
+    // Format 2: 9 digits numbers – Individuals
+    if (_cz_isV2 (c))
+      return true;
+
+    // Format 3: 9 digits numbers – Individuals (Special cases)
+    if (_cz_isV3 (c))
+      return true;
+
+    // Format 4: 10 digits numbers – Individuals
+    if (c.length != 10)
       return false;
-    for (int i = 0; i < c.length; ++i)
+    for (int i = 0; i <= 9; ++i)
       if (!_isNum (c[i]))
         return false;
+
+    final long v = _toLong (c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9]);
+    if ((v % 11) != 0)
+      return false;
+
+    final int y = _toInt (c[0], c[1]);
+    if ((y < 0 || y > cz_year_max) && (y < 54))
+      return false;
+    final int m = _toInt (c[2], c[3]);
+    if ((m < 1 || m > 12) && (m < 21 || m > 32) && (m < 51 || m > 62) && (m < 71 || m > 82))
+      return false;
+
+    final int nEffectiveMonth = m >= 71 ? m - 70 : m >= 51 ? m - 50 : m >= 21 ? m - 20 : m;
+    final int d = _toInt (c[4], c[5]);
+    if (!_isValidMonthDay (nEffectiveMonth, d))
+      return false;
+
+    final int a1 = y + m + d + _toInt (c[6], c[7]) + _toInt (c[8], c[9]);
+    if ((a1 % 11) != 0)
+      return false;
 
     return true;
   }
@@ -768,7 +901,7 @@ public class VATINSyntaxChecker
                    3 * _toInt (c[6]) +
                    7 * _toInt (c[7]);
     // Round to ceiling multiple of 10
-    final int a2 = (int) Math.ceil (a1 / 10.0) * 10;
+    final int a2 = ceilTo (a1, 10);
     final int nChecksum = a2 - a1;
     final int nExpected = _toInt (c[8]);
     return nChecksum == nExpected;
@@ -1048,23 +1181,8 @@ public class VATINSyntaxChecker
 
     final int m = _toInt (c[2], c[3]) % 20;
     final int d = _toInt (c[4], c[5]);
-    if (m == 2)
-    {
-      if (d < 1 || d > 29)
-        return false;
-    }
-    else
-      if (m == 4 || m == 6 || m == 9 || m == 11)
-      {
-        if (d < 1 || d > 30)
-          return false;
-      }
-      else
-        if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
-        {
-          if (d < 1 || d > 31)
-            return false;
-        }
+    if (!_isValidMonthDay (m, d))
+      return false;
 
     final int a1 = 2 * _toInt (c[0]) +
                    4 * _toInt (c[1]) +

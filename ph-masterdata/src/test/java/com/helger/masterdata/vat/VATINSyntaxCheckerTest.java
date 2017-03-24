@@ -1,5 +1,6 @@
 package com.helger.masterdata.vat;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -97,10 +98,16 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("CY00532445"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("CY00532445P"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ99999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ999999999"));
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ9999999999"));
-    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ9999999"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ46505334"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ4650533"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ46505335"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ395601439"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ995601439"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ640903926"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ64090392"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ640903927"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("CZ7103192745"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("CZ7103192746"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("EE100207415"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("EE10020741"));
@@ -6818,4 +6825,26 @@ public final class VATINSyntaxCheckerTest
     assertTrue (VATINSyntaxChecker.isValidVATIN ("SK2120056334"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("SK2120066993"));
   }
+
+  @Test
+  public void testCeilTo ()
+  {
+    assertEquals (-11, VATINSyntaxChecker.ceilTo (-11, 11));
+    assertEquals (0, VATINSyntaxChecker.ceilTo (-10, 11));
+    assertEquals (0, VATINSyntaxChecker.ceilTo (-1, 11));
+    assertEquals (0, VATINSyntaxChecker.ceilTo (0, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (1, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (2, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (3, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (4, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (5, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (6, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (7, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (8, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (9, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (10, 11));
+    assertEquals (11, VATINSyntaxChecker.ceilTo (11, 11));
+    assertEquals (22, VATINSyntaxChecker.ceilTo (12, 11));
+  }
+
 }
