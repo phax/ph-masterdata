@@ -39,15 +39,16 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("GR04012779"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("GR040127798"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("ESX99999990"));
-    assertFalse (VATINSyntaxChecker.isValidVATIN ("ESX9999999"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("ESA0011012B"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("ESA0011012"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("FI09853608"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("FI0985360"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("FI09853609"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("FRXX999999999"));
-    assertFalse (VATINSyntaxChecker.isValidVATIN ("FRXX99999999"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("FR00300076965"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("FR0030007696"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("FR01300076965"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("GBGD123"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("GBGD12"));

@@ -2,6 +2,7 @@ package com.helger.masterdata.vat;
 
 import java.util.Locale;
 
+import javax.annotation.CheckForSigned;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
@@ -120,7 +121,7 @@ public class VATINSyntaxChecker
 
   private static boolean _isLetter (final char c)
   {
-    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+    return (c >= 'A' && c <= 'Z');
   }
 
   private static boolean _isLetterOrNum (final char c)
@@ -231,6 +232,31 @@ public class VATINSyntaxChecker
            _toInt (c7) * 100L +
            _toInt (c8) * 10L +
            _toInt (c9);
+  }
+
+  private static long _toLong (final char c0,
+                               final char c1,
+                               final char c2,
+                               final char c3,
+                               final char c4,
+                               final char c5,
+                               final char c6,
+                               final char c7,
+                               final char c8,
+                               final char c9,
+                               final char c10)
+  {
+    return _toInt (c0) * 10_000_000_000L +
+           _toInt (c1) * 1_000_000_000L +
+           _toInt (c2) * 100_000_000L +
+           _toInt (c3) * 10_000_000L +
+           _toInt (c4) * 1_000_000L +
+           _toInt (c5) * 100_000L +
+           _toInt (c6) * 10_000L +
+           _toInt (c7) * 1_000L +
+           _toInt (c8) * 100L +
+           _toInt (c9) * 10L +
+           _toInt (c10);
   }
 
   private static boolean _isValidMonthDay (final int m, final int d)
@@ -361,7 +387,103 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  // TODO ES
+  private static boolean _es_c1valid_c9alpha (final char c)
+  {
+    return c == 'A' ||
+           c == 'B' ||
+           c == 'C' ||
+           c == 'D' ||
+           c == 'E' ||
+           c == 'F' ||
+           c == 'G' ||
+           c == 'H' ||
+           c == 'K' ||
+           c == 'L' ||
+           c == 'M' ||
+           c == 'N' ||
+           c == 'P' ||
+           c == 'Q' ||
+           c == 'R' ||
+           c == 'S' ||
+           c == 'W' ||
+           c == 'X' ||
+           c == 'Y' ||
+           c == 'Z' ||
+           _isNum (c);
+  }
+
+  private static boolean _es_c1valid_c9num (final char c)
+  {
+    return c == 'A' ||
+           c == 'B' ||
+           c == 'C' ||
+           c == 'D' ||
+           c == 'E' ||
+           c == 'F' ||
+           c == 'G' ||
+           c == 'H' ||
+           c == 'J' ||
+           c == 'U' ||
+           c == 'V';
+  }
+
+  private static boolean _es_isV1 (final char c)
+  {
+    return c == 'A' ||
+           c == 'B' ||
+           c == 'C' ||
+           c == 'D' ||
+           c == 'E' ||
+           c == 'F' ||
+           c == 'G' ||
+           c == 'H' ||
+           c == 'N' ||
+           c == 'P' ||
+           c == 'Q' ||
+           c == 'R' ||
+           c == 'S' ||
+           c == 'W';
+  }
+
+  private static boolean _es_isV2 (final char c)
+  {
+    return c == 'K' || c == 'L' || c == 'M' || c == 'X' || c == 'Y' || c == 'Z' || _isNum (c);
+  }
+
+  private static int _es_d (final char c)
+  {
+    final int n = _toInt (c);
+    return n / 5 + (2 * n) % 10;
+  }
+
+  private static char [] es_v2 = new char [] { 'T',
+                                               'R',
+                                               'W',
+                                               'A',
+                                               'G',
+                                               'M',
+                                               'Y',
+                                               'F',
+                                               'P',
+                                               'D',
+                                               'X',
+                                               'B',
+                                               'N',
+                                               'J',
+                                               'Z',
+                                               'S',
+                                               'Q',
+                                               'V',
+                                               'H',
+                                               'L',
+                                               'C',
+                                               'K',
+                                               'E' };
+  static
+  {
+    assert es_v2.length == 23;
+  }
+
   public static boolean isValidVATIN_ES (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -375,11 +497,49 @@ public class VATINSyntaxChecker
         return false;
     if (!_isLetterOrNum (c[8]))
       return false;
-    // Only one can be a letter
-    if (_isLetter (c[0]) && _isLetter (c[8]))
-      return false;
 
-    return true;
+    final boolean bAlphabetic9 = _isLetter (c[8]);
+    if (bAlphabetic9)
+    {
+      if (!_es_c1valid_c9alpha (c[0]))
+        return false;
+
+      // Juridical entities other than national ones
+      if (_es_isV1 (c[0]))
+      {
+        final int s1 = _toInt (c[2]) + _toInt (c[4]) + _toInt (c[6]);
+        final int s2 = _es_d (c[1]) + _es_d (c[3]) + _es_d (c[5]) + _es_d (c[7]);
+        final int r = 10 - (s1 + s2) % 10;
+        return c[8] == 'A' + r - 1;
+      }
+
+      // Physical persons:
+      if (_es_isV2 (c[0]))
+      {
+        final char c0 = c[0] == 'Y' ? '1' : c[0] == 'Z' ? '2' : c[0];
+        int r;
+        if (_isNum (c0))
+          r = _toInt (c0, c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
+        else
+          r = _toInt (c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
+        return c[8] == es_v2[r - 1];
+      }
+    }
+    else
+    {
+      if (!_es_c1valid_c9num (c[0]))
+        return false;
+
+      // National juridical entities:
+      final int s1 = _toInt (c[2]) + _toInt (c[4]) + _toInt (c[6]);
+      final int s2 = _es_d (c[1]) + _es_d (c[3]) + _es_d (c[5]) + _es_d (c[7]);
+      final int r = 10 - (s1 + s2) % 10;
+      final int nChecksum = r % 10;
+      final int nExpected = _toInt (c[8]);
+      return nChecksum == nExpected;
+    }
+
+    return false;
   }
 
   public static boolean isValidVATIN_FI (@Nonnull final String sVATIN)
@@ -408,7 +568,17 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  // TODO FR
+  @CheckForSigned
+  private static int _fr_check (final char c)
+  {
+    if (_isNum (c))
+      return _toInt (c);
+    final int idx = "ABCDEFGHJKLMNPQRSTUVWXYZ".indexOf (c);
+    if (idx < 0)
+      return -1;
+    return 10 + idx;
+  }
+
   public static boolean isValidVATIN_FR (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -423,7 +593,28 @@ public class VATINSyntaxChecker
       if (!_isNum (c[i]))
         return false;
 
-    return true;
+    final boolean bNum1 = _isNum (c[0]);
+    final boolean bNum2 = _isNum (c[1]);
+    if (bNum1 && bNum2)
+    {
+      // Case 1: Old Style
+      final int nChecksum = (int) (_toLong (c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], '1', '2') % 97);
+      final int nExpected = _toInt (c[0], c[1]);
+      return nChecksum == nExpected;
+    }
+
+    // Case 2 : New Style
+    final int s1 = _fr_check (c[0]);
+    if (s1 < 0)
+      return false;
+    final int s2 = _fr_check (c[1]);
+    if (s2 < 0)
+      return false;
+    final int s = bNum1 ? (s1 * 24) + (s2 - 10) : (s1 * 34) + (s2 - 100);
+    final int p = (s / 11) + 1;
+    final int r1 = s % 11;
+    final int r2 = (_toInt (c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10]) + p) % 11;
+    return r1 == r2;
   }
 
   public static boolean isValidVATIN_GB (@Nonnull final String sVATIN)
