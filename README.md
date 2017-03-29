@@ -1,4 +1,4 @@
-#ph-masterdata
+# ph-masterdata
 
 Java library with lots of default business objects and algorithms:
   * Postal address data
@@ -20,11 +20,11 @@ Java library with lots of default business objects and algorithms:
   * VAT and VATIN handling
   * Vehicle sign handling 
 
-#ph-validation
+# ph-validation
 
 Java library for validation artifacts (errors etc.)
 
-#ph-masterdata-validation
+# ph-masterdata-validation
 
 Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
 
@@ -43,9 +43,9 @@ Java library that combines ph-masterdata and ph-validation. The same version req
   * v4.0.0
     * Binds to ph-commons 6.x        
 
-#Maven usage
+# Maven usage
 Add the following to your pom.xml to use this artifact:
-```
+```xml
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-validation</artifactId>
