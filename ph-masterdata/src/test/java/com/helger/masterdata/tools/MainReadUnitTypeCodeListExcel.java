@@ -73,8 +73,8 @@ public final class MainReadUnitTypeCodeListExcel
       eHeader.appendElement ("revision").appendText (sRevision);
 
       final IMicroElement eBody = eRoot.appendElement ("body");
-      final ICommonsMap <String, String> aSectors = new CommonsHashMap<> ();
-      final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap<> ();
+      final ICommonsMap <String, String> aSectors = new CommonsHashMap <> ();
+      final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap <> ();
       while (it.hasNext ())
       {
         final Row aRow = it.next ();
@@ -149,8 +149,7 @@ public final class MainReadUnitTypeCodeListExcel
                .appendText (aEntry.getKey ());
       }
 
-      MicroWriter.writeToStream (aDoc,
-                                 FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
+      MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));
       s_aLogger.info ("Done");
     }
   }

@@ -54,7 +54,7 @@ public final class VATINStructureManagerTest
       for (final String sExample : aStructure.getExamples ())
         eVatin.appendElement ("example").appendText (sExample);
     }
-    final String sXML = MicroWriter.getXMLString (aDoc);
+    final String sXML = MicroWriter.getNodeAsString (aDoc);
     assertNotNull (sXML);
   }
 }

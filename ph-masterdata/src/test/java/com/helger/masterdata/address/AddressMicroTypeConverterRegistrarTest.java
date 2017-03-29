@@ -50,7 +50,7 @@ public final class AddressMicroTypeConverterRegistrarTest
     aAddress.setCountry ("AT", aLocale);
     final IMicroElement aElement = MicroTypeConverter.convertToMicroElement (aAddress, "addr");
     assertNotNull (aElement);
-    s_aLogger.info (MicroWriter.getXMLString (aElement));
+    s_aLogger.info (MicroWriter.getNodeAsString (aElement));
 
     final Address aAddress2 = MicroTypeConverter.convertToNative (aElement, Address.class);
     assertEquals (aAddress, aAddress2);

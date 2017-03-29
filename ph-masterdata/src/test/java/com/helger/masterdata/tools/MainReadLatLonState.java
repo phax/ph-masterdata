@@ -73,10 +73,8 @@ public final class MainReadLatLonState
              .setAttributeWithConversion ("latitude", aLatitude)
              .setAttributeWithConversion ("longitude", aLongitude);
       }
-      MicroWriter.writeToStream (aDoc,
-                                 FileHelper.getOutputStream ("src/main/resources/codelists/latitude-longitude-us-" +
-                                                             sRevision +
-                                                             ".xml"));
+      MicroWriter.writeToFile (aDoc,
+                               new File ("src/main/resources/codelists/latitude-longitude-us-" + sRevision + ".xml"));
     }
     s_aLogger.info ("Done");
   }

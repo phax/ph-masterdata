@@ -73,10 +73,10 @@ public final class MainReadLatLonCountry
              .setAttributeWithConversion ("latitude", aLatitude)
              .setAttributeWithConversion ("longitude", aLongitude);
       }
-      MicroWriter.writeToStream (aDoc,
-                                 FileHelper.getOutputStream ("src/main/resources/codelists/latitude-longitude-country-" +
-                                                             sRevision +
-                                                             ".xml"));
+      MicroWriter.writeToFile (aDoc,
+                               new File ("src/main/resources/codelists/latitude-longitude-country-" +
+                                         sRevision +
+                                         ".xml"));
     }
     s_aLogger.info ("Done");
   }

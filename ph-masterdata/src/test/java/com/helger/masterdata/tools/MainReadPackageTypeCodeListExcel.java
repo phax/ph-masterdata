@@ -51,7 +51,7 @@ public class MainReadPackageTypeCodeListExcel
 
     final String sRealNumericCode = StringHelper.replaceAll (sNumericCode, '\n', ' ');
     // E.g. "22 to 25", "44 or 45", "21 to 23 or 31 to 33"
-    final ICommonsList <String> ret = new CommonsArrayList<> ();
+    final ICommonsList <String> ret = new CommonsArrayList <> ();
 
     // First split by "or"
     final String [] aOrParts = RegExHelper.getSplitToArray (sRealNumericCode, " or ");
@@ -139,8 +139,7 @@ public class MainReadPackageTypeCodeListExcel
         }
       }
 
-      MicroWriter.writeToStream (aDoc,
-                                 FileHelper.getOutputStream ("src/main/resources/codelists/" + sBaseName + ".xml"));
+      MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));
       s_aLogger.info ("Done");
     }
   }
