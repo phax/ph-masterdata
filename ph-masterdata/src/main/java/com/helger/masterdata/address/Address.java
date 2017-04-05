@@ -132,7 +132,7 @@ public class Address implements IAddress, ICloneable <Address>
   @Nullable
   public String getCountryDisplayName (@Nonnull final Locale aDisplayLocale)
   {
-    final Locale aCountry = CountryCache.getInstance ().getCountry (m_sCountry);
+    final Locale aCountry = getCountryLocale ();
     return aCountry == null ? null : aCountry.getDisplayCountry (aDisplayLocale);
   }
 
