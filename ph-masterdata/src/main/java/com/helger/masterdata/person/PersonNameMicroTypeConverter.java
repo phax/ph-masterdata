@@ -24,17 +24,19 @@ import javax.annotation.Nullable;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class PersonNameMicroTypeConverter implements IMicroTypeConverter
 {
-  protected static final String ATTR_SALUTATION = "salutation";
-  protected static final String ATTR_PREFIXTITLE = "prefixtitle";
-  protected static final String ATTR_FIRSTNAME = "firstname";
-  protected static final String ATTR_MIDDLENAME = "middlename";
-  protected static final String ATTR_LASTNAME = "lastname";
-  protected static final String ATTR_SUFFIXTITLE = "suffixtitle";
+  protected static final IMicroQName ATTR_SALUTATION = new MicroQName ("salutation");
+  protected static final IMicroQName ATTR_PREFIXTITLE = new MicroQName ("prefixtitle");
+  protected static final IMicroQName ATTR_FIRSTNAME = new MicroQName ("firstname");
+  protected static final IMicroQName ATTR_MIDDLENAME = new MicroQName ("middlename");
+  protected static final IMicroQName ATTR_LASTNAME = new MicroQName ("lastname");
+  protected static final IMicroQName ATTR_SUFFIXTITLE = new MicroQName ("suffixtitle");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

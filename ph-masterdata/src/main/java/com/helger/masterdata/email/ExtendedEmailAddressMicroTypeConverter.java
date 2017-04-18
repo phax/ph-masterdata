@@ -20,14 +20,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_TYPE = "type";
-  private static final String ATTR_ADDRESS = "address";
-  private static final String ATTR_PERSONAL = "personal";
+  private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
+  private static final IMicroQName ATTR_ADDRESS = new MicroQName ("address");
+  private static final IMicroQName ATTR_PERSONAL = new MicroQName ("personal");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

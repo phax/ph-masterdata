@@ -23,13 +23,15 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_DATE = "date";
-  private static final String ATTR_RATIO = "ratio";
+  private static final IMicroQName ATTR_DATE = new MicroQName ("date");
+  private static final IMicroQName ATTR_RATIO = new MicroQName ("ratio");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

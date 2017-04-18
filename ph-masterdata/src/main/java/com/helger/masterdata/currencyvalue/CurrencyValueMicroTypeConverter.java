@@ -23,13 +23,15 @@ import javax.annotation.Nullable;
 
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class CurrencyValueMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_CURRENCY = "currency";
-  private static final String ATTR_VALUE = "value";
+  private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
+  private static final IMicroQName ATTR_VALUE = new MicroQName ("value");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

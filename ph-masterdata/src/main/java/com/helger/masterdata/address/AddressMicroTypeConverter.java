@@ -24,20 +24,22 @@ import javax.annotation.Nullable;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class AddressMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_TYPE = "type";
-  private static final String ATTR_COUNTRY = "country";
-  private static final String ATTR_STATE = "state";
-  private static final String ATTR_POSTALCODE = "zipcode";
-  private static final String ATTR_CITY = "city";
-  private static final String ATTR_STREET = "street";
-  private static final String ATTR_BUILDINGNUMBER = "buildingno";
-  private static final String ATTR_POBOX = "pobox";
-  private static final String ATTR_CARE_OF = "careof";
+  private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
+  private static final IMicroQName ATTR_COUNTRY = new MicroQName ("country");
+  private static final IMicroQName ATTR_STATE = new MicroQName ("state");
+  private static final IMicroQName ATTR_POSTALCODE = new MicroQName ("zipcode");
+  private static final IMicroQName ATTR_CITY = new MicroQName ("city");
+  private static final IMicroQName ATTR_STREET = new MicroQName ("street");
+  private static final IMicroQName ATTR_BUILDINGNUMBER = new MicroQName ("buildingno");
+  private static final IMicroQName ATTR_POBOX = new MicroQName ("pobox");
+  private static final IMicroQName ATTR_CARE_OF = new MicroQName ("careof");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

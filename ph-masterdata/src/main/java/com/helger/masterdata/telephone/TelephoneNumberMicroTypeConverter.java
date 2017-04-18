@@ -20,16 +20,18 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_TYPE = "type";
-  private static final String ATTR_COUNTRYCODE = "countrycode";
-  private static final String ATTR_AREACODE = "areacode";
-  private static final String ATTR_LINE = "line";
-  private static final String ATTR_DIRECTDIAL = "directdial";
+  private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
+  private static final IMicroQName ATTR_COUNTRYCODE = new MicroQName ("countrycode");
+  private static final IMicroQName ATTR_AREACODE = new MicroQName ("areacode");
+  private static final IMicroQName ATTR_LINE = new MicroQName ("line");
+  private static final IMicroQName ATTR_DIRECTDIAL = new MicroQName ("directdial");
 
   @Nonnull
   public IMicroElement convertToMicroElement (@Nonnull final Object aObject,

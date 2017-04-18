@@ -25,15 +25,17 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATManager;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
+import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 public final class PriceMicroTypeConverter implements IMicroTypeConverter
 {
-  private static final String ATTR_CURRENCY = "currency";
-  private static final String ATTR_NETAMOUNT = "netamount";
-  private static final String ATTR_GROSSAMOUNT = "grossamount";
-  private static final String ATTR_VATITEM = "vatitem";
+  private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
+  private static final IMicroQName ATTR_NETAMOUNT = new MicroQName ("netamount");
+  private static final IMicroQName ATTR_GROSSAMOUNT = new MicroQName ("grossamount");
+  private static final IMicroQName ATTR_VATITEM = new MicroQName ("vatitem");
 
   @Override
   @Nonnull
