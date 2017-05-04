@@ -25,12 +25,14 @@
   <!-- EU countries -->
   <vattypes country="at" zerovat="true" countryname="Austria">
     <comment>Austria increased VAT from 12% to 13% on 2016-01-01</comment>
+    <comment>7% and 19% are for Jungholz and Mittelberg</comment>
     <item id="v20" percentage="20" type="regular" />
     <item id="v19" percentage="19" type="other" />
-    <item id="v12" percentage="12" type="inbetween" />
     <item id="v13" percentage="13" type="inbetween" />
+    <item id="v12" percentage="12" type="inbetween" deprecated="true" />
     <item id="v10" percentage="10" type="reduced" />
-    <item id="v08" percentage="8" type="other" />
+    <item id="v08" percentage="8" type="other" deprecated="true" />
+    <item id="v07" percentage="7" type="other" />
   </vattypes>
   <vattypes country="be" zerovat="true" countryname="Belgium">
     <item id="v21" percentage="21" type="regular" />
