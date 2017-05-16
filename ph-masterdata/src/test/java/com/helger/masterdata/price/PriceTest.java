@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -118,10 +119,9 @@ public final class PriceTest
   @Test
   public void testFactoriesArbitrary ()
   {
+    final Locale aAT = CountryCache.getInstance ().getCountry ("AT");
     for (final String sNumber : new String [] { "1", "10", "12", "3.66666", "0.000555" })
-      for (final IVATItem aVATItem : VATManager.getDefaultInstance ()
-                                               .getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("AT"))
-                                               .values ())
+      for (final IVATItem aVATItem : VATManager.getDefaultInstance ().getAllVATItemsForCountry (aAT).values ())
       {
         Price p = Price.createFromNetAmount (ECurrency.EUR, new BigDecimal (sNumber), aVATItem);
         assertNotNull (p);

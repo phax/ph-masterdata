@@ -17,12 +17,14 @@
 package com.helger.masterdata.vat;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.math.MathHelper;
@@ -37,6 +39,102 @@ import com.helger.datetime.period.ILocalDatePeriod;
 @MustImplementEqualsAndHashcode
 public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePeriod
 {
+  // FIXME start remove with ph-commons 8.6.5
+
+  /**
+   * @return <code>true</code> if a start is present, <code>false</code> if not.
+   * @since 8.6.5
+   */
+  default boolean hasStart ()
+  {
+    return getStart () != null;
+  }
+
+  /**
+   * @return <code>true</code> if an end is present, <code>false</code> if not.
+   * @since 8.6.5
+   */
+  default boolean hasEnd ()
+  {
+    return getEnd () != null;
+  }
+
+  /**
+   * Check if the provided date is inside this period, assuming that start and
+   * end are included in/part of the range.
+   *
+   * @param aDate
+   *        Date to check. May not be <code>null</code>.
+   * @return <code>true</code> if it is contained, <code>false</code> otherwise.
+   * @see #isNowInPeriodIncl()
+   * @since 8.6.5
+   */
+  default boolean isInPeriodIncl (@Nonnull final LocalDate aDate)
+  {
+    final LocalDate aStart = getStart ();
+    if (aStart != null && aDate.compareTo (aStart) < 0)
+      return false;
+
+    final LocalDate aEnd = getEnd ();
+    if (aEnd != null && aDate.compareTo (aEnd) > 0)
+      return false;
+
+    return true;
+  }
+
+  /**
+   * Check if the current date is inside this period, assuming that start and
+   * end are included in/part of the range.
+   *
+   * @return <code>true</code> if the current date is contained,
+   *         <code>false</code> otherwise.
+   * @see #isInPeriodIncl(LocalDate)
+   * @since 8.6.5
+   */
+  default boolean isNowInPeriodIncl ()
+  {
+    return isInPeriodIncl (PDTFactory.getCurrentLocalDate ());
+  }
+
+  /**
+   * Check if the provided date is inside this period, assuming that start and
+   * end are excluded from/not part of the range.
+   *
+   * @param aDate
+   *        Date to check. May not be <code>null</code>.
+   * @return <code>true</code> if it is contained, <code>false</code> otherwise.
+   * @see #isNowInPeriodExcl()
+   * @since 8.6.5
+   */
+  default boolean isInPeriodExcl (@Nonnull final LocalDate aDate)
+  {
+    final LocalDate aStart = getStart ();
+    if (aStart != null && aDate.compareTo (aStart) <= 0)
+      return false;
+
+    final LocalDate aEnd = getEnd ();
+    if (aEnd != null && aDate.compareTo (aEnd) >= 0)
+      return false;
+
+    return true;
+  }
+
+  /**
+   * Check if the current date is inside this period, assuming that start and
+   * end are excluded from/not part of the range.
+   *
+   * @return <code>true</code> if the current date is contained,
+   *         <code>false</code> otherwise.
+   * @see #isInPeriodExcl(LocalDate)
+   * @since 8.6.5
+   */
+  default boolean isNowInPeriodExcl ()
+  {
+    return isInPeriodExcl (PDTFactory.getCurrentLocalDate ());
+  }
+
+  // FIXME end remove with ph-commons 8.6.5
+
   /**
    * @return The non-<code>null</code> type of this item.
    */
@@ -52,7 +150,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
 
   /**
    * Check if this VAT item has the passed percentage.
-   * 
+   *
    * @param aPercentage
    *        The percentage to be checked. May be <code>null</code>.
    * @return <code>true</code> if the passed percentage equals the contained

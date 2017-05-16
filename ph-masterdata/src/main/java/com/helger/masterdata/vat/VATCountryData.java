@@ -18,6 +18,7 @@ package com.helger.masterdata.vat;
 
 import java.math.BigDecimal;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,6 +27,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.collection.ext.ICommonsMap;
 import com.helger.commons.locale.country.IHasCountry;
 import com.helger.commons.math.MathHelper;
@@ -42,7 +44,7 @@ public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;
-  private final ICommonsMap <String, IVATItem> m_aItems = new CommonsHashMap<> ();
+  private final ICommonsMap <String, IVATItem> m_aItems = new CommonsHashMap <> ();
   private final String m_sCountryName;
   private final String m_sInternalComment;
 
@@ -104,6 +106,13 @@ public class VATCountryData implements IHasCountry
     return m_aItems.getClone ();
   }
 
+  @Nonnull
+  @ReturnsMutableCopy
+  public ICommonsList <IVATItem> getItems (@Nonnull final Predicate <? super IVATItem> aFilter)
+  {
+    return m_aItems.copyOfValues (aFilter);
+  }
+
   @Nullable
   public IVATItem getItemOfPercentage (@Nullable final BigDecimal aPercentage)
   {
@@ -112,6 +121,7 @@ public class VATCountryData implements IHasCountry
       for (final IVATItem aItem : m_aItems.values ())
         if (aItem.hasPercentage (aPercentage))
           return aItem;
+
       // Special handling for 0%
       if (isZeroVATAllowed () && MathHelper.isEqualToZero (aPercentage))
         return VATManager.VATTYPE_NONE;

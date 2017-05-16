@@ -37,7 +37,7 @@ import com.helger.commons.string.StringHelper;
  */
 public class VATINSyntaxChecker
 {
-  private static final ICommonsMap <String, IToBooleanFunction <String>> s_aMap = new CommonsHashMap<> ();
+  private static final ICommonsMap <String, IToBooleanFunction <String>> s_aMap = new CommonsHashMap <> ();
 
   static
   {
@@ -1567,7 +1567,6 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  // TODO HR
   public static boolean isValidVATIN_HR (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -1578,6 +1577,7 @@ public class VATINSyntaxChecker
       if (!_isNum (c[i]))
         return false;
 
+    // TODO HR vatin rule details
     return true;
   }
 }
