@@ -473,32 +473,32 @@ public class VATINSyntaxChecker
     return n / 5 + (2 * n) % 10;
   }
 
-  private static char [] es_v2 = new char [] { 'T',
-                                               'R',
-                                               'W',
-                                               'A',
-                                               'G',
-                                               'M',
-                                               'Y',
-                                               'F',
-                                               'P',
-                                               'D',
-                                               'X',
-                                               'B',
-                                               'N',
-                                               'J',
-                                               'Z',
-                                               'S',
-                                               'Q',
-                                               'V',
-                                               'H',
-                                               'L',
-                                               'C',
-                                               'K',
-                                               'E' };
+  private static final char [] ES_V2 = new char [] { 'T',
+                                                     'R',
+                                                     'W',
+                                                     'A',
+                                                     'G',
+                                                     'M',
+                                                     'Y',
+                                                     'F',
+                                                     'P',
+                                                     'D',
+                                                     'X',
+                                                     'B',
+                                                     'N',
+                                                     'J',
+                                                     'Z',
+                                                     'S',
+                                                     'Q',
+                                                     'V',
+                                                     'H',
+                                                     'L',
+                                                     'C',
+                                                     'K',
+                                                     'E' };
   static
   {
-    assert es_v2.length == 23;
+    assert ES_V2.length == 23;
   }
 
   public static boolean isValidVATIN_ES (@Nonnull final String sVATIN)
@@ -539,7 +539,7 @@ public class VATINSyntaxChecker
           r = _toInt (c0, c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
         else
           r = _toInt (c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
-        return c[8] == es_v2[r - 1];
+        return c[8] == ES_V2[r - 1];
       }
     }
     else
@@ -941,11 +941,11 @@ public class VATINSyntaxChecker
     return c == '0' || c == '1' || c == '3' || c == '4' || c == '5' || c == '9';
   }
 
-  private static final int [] cy_odd = new int [] { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21 };
+  private static final int [] CY_ODD = new int [] { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21 };
 
   private static int _cy_odd (final char c)
   {
-    return cy_odd[c - '0'];
+    return CY_ODD[c - '0'];
   }
 
   public static boolean isValidVATIN_CY (@Nonnull final String sVATIN)
@@ -1025,7 +1025,7 @@ public class VATINSyntaxChecker
     return true;
   }
 
-  private static final int [] cz_v3 = new int [] { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
+  private static final int [] CZ_V3 = new int [] { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
 
   private static boolean _cz_isV3 (@Nonnull final char [] c)
   {
@@ -1046,12 +1046,12 @@ public class VATINSyntaxChecker
                    2 * _toInt (c[7]);
 
     final int a2 = (a1 % 11) == 0 ? a1 + 11 : ceilTo (a1, 11);
-    final int nChecksum = cz_v3[a2 - a1 - 1];
+    final int nChecksum = CZ_V3[a2 - a1 - 1];
     final int nExpected = _toInt (c[8]);
     return nChecksum == nExpected;
   }
 
-  private static final int cz_year_max = PDTFactory.getCurrentYear () % 100;
+  private static final int CZ_YEAR_MAX = PDTFactory.getCurrentYear () % 100;
 
   public static boolean isValidVATIN_CZ (@Nonnull final String sVATIN)
   {
@@ -1082,7 +1082,7 @@ public class VATINSyntaxChecker
       return false;
 
     final int y = _toInt (c[0], c[1]);
-    if ((y < 0 || y > cz_year_max) && (y < 54))
+    if ((y < 0 || y > CZ_YEAR_MAX) && (y < 54))
       return false;
     final int m = _toInt (c[2], c[3]);
     if ((m < 1 || m > 12) && (m < 21 || m > 32) && (m < 51 || m > 62) && (m < 71 || m > 82))
