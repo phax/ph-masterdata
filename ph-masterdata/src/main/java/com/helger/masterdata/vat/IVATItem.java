@@ -166,7 +166,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
    */
   default boolean isZeroPercentage ()
   {
-    return MathHelper.isEqualToZero (getPercentage ());
+    return MathHelper.isEQ0 (getPercentage ());
   }
 
   /**
@@ -174,7 +174,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
    */
   default boolean isNonZeroPercentage ()
   {
-    return MathHelper.isGreaterThanZero (getPercentage ());
+    return MathHelper.isNE0 (getPercentage ());
   }
 
   /**

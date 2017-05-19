@@ -47,7 +47,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   default boolean isLowerThanZero ()
   {
-    return MathHelper.isLowerThanZero (getValue ());
+    return MathHelper.isLT0 (getValue ());
   }
 
   /**
@@ -56,7 +56,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
    */
   default boolean isGreaterThanZero ()
   {
-    return MathHelper.isGreaterThanZero (getValue ());
+    return MathHelper.isGT0 (getValue ());
   }
 
   /**

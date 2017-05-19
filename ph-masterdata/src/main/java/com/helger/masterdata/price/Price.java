@@ -298,7 +298,7 @@ public class Price implements IMutablePrice
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
     final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
-    if (MathHelper.isEqualToOne (aFactor))
+    if (MathHelper.isEQ1 (aFactor))
     {
       // Shortcut for no VAT (net == gross)
       return new Price (eCurrency, aGrossAmount, aVATItem);
@@ -350,7 +350,7 @@ public class Price implements IMutablePrice
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
     final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
-    if (MathHelper.isEqualToOne (aFactor))
+    if (MathHelper.isEQ1 (aFactor))
     {
       // Shortcut for no VAT (net == gross)
       return new Price (aGrossAmount, aVATItem);

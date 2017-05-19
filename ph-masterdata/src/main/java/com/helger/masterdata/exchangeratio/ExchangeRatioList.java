@@ -32,7 +32,6 @@ import com.helger.commons.collection.ext.ICommonsNavigableSet;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.datetime.util.PDTHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
 
@@ -46,7 +45,7 @@ import com.helger.masterdata.currency.IHasCurrency;
 public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable, IHasCurrency
 {
   private final ECurrency m_eCurrency;
-  private final ICommonsNavigableSet <ExchangeRatio> m_aList = new CommonsTreeSet<> (Comparator.comparing (ExchangeRatio::getDate));
+  private final ICommonsNavigableSet <ExchangeRatio> m_aList = new CommonsTreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
 
   public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
   {
@@ -94,7 +93,7 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serial
     {
       // As the exchange ratios are sorted from oldest to newest, we use the
       // first entry where the date is >= the expected date
-      if (PDTHelper.isGreaterOrEqual (aExchangeRatio.getDate (), aDate))
+      if (aExchangeRatio.getDate ().compareTo (aDate) >= 0)
         return aExchangeRatio;
     }
     return null;

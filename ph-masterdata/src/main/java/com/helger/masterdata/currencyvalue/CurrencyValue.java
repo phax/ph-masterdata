@@ -103,7 +103,7 @@ public final class CurrencyValue implements IMutableCurrencyValue
   public CurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEqualToZero (aValue))
+    if (MathHelper.isEQ0 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().add (aValue));
   }
@@ -113,7 +113,7 @@ public final class CurrencyValue implements IMutableCurrencyValue
   public CurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEqualToZero (aValue))
+    if (MathHelper.isEQ0 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().subtract (aValue));
   }
@@ -123,7 +123,7 @@ public final class CurrencyValue implements IMutableCurrencyValue
   public CurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEqualToOne (aValue))
+    if (MathHelper.isEQ1 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().multiply (aValue));
   }
@@ -133,7 +133,7 @@ public final class CurrencyValue implements IMutableCurrencyValue
   public CurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEqualToOne (aValue))
+    if (MathHelper.isEQ1 (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
     return new CurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));

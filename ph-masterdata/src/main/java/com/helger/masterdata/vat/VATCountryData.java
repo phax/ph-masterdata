@@ -123,7 +123,7 @@ public class VATCountryData implements IHasCountry
           return aItem;
 
       // Special handling for 0%
-      if (isZeroVATAllowed () && MathHelper.isEqualToZero (aPercentage))
+      if (isZeroVATAllowed () && MathHelper.isEQ0 (aPercentage))
         return VATManager.VATTYPE_NONE;
     }
     return null;

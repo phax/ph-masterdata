@@ -30,6 +30,9 @@ Java library that combines ph-masterdata and ph-validation. The same version req
 
 # News and noteworthy
 
+  * v5.0.5 - work in progress
+    * Requires at least ph-common 8.6.5
+    * API extensions
   * v5.0.4 - 2017-04-20
     * Added VATIN checksum routines to validate the checksum character(s) in VATINs without a service call
     * Requires at least ph-common 8.6.x
