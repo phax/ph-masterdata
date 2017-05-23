@@ -37,6 +37,8 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("ATU10223007"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("ATU13585627"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("ATU12345675"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("ATU63030017"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("ATU63030067"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("BE0776091951"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("BE077609195"));
