@@ -154,12 +154,12 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   public String toString ()
   {
     return ToStringGenerator.getDerived (super.toString ())
-                            .append ("id", m_sID)
-                            .append ("type", m_eType)
-                            .append ("percentage", m_aPercentage)
-                            .append ("percentageFactor", m_aPercentageFactor)
-                            .append ("multiplicationFactorNetToGross", m_aMultiplicationFactorNetToGross)
-                            .append ("deprecated", m_bDeprecated)
+                            .append ("ID", m_sID)
+                            .append ("Type", m_eType)
+                            .append ("Percentage", m_aPercentage)
+                            .append ("PercentageFactor", m_aPercentageFactor)
+                            .append ("MultiplicationFactorNetToGross", m_aMultiplicationFactorNetToGross)
+                            .append ("Deprecated", m_bDeprecated)
                             .getToString ();
   }
 
