@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -44,7 +45,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public class VATINStructure implements IHasCountry
+public class VATINStructure implements IHasCountry, Serializable
 {
   private final Locale m_aCountry;
   private final String m_sPattern;
@@ -64,7 +65,7 @@ public class VATINStructure implements IHasCountry
       throw new IllegalArgumentException ("country");
     m_sPattern = sRegEx;
     m_aPattern = RegExCache.getPattern (sRegEx);
-    m_aExamples = new CommonsArrayList<> (aExamples);
+    m_aExamples = new CommonsArrayList <> (aExamples);
 
     if (GlobalDebug.isDebugMode ())
       for (final String s : m_aExamples)
