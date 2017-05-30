@@ -73,13 +73,13 @@ public class VATManager implements IVATItemProvider
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
-  private final ICommonsList <String> m_aSources = new CommonsArrayList<> ();
+  private final ICommonsList <String> m_aSources = new CommonsArrayList <> ();
 
   // Maps from locale to the available VAT data
-  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap<> ();
+  private final ICommonsMap <Locale, VATCountryData> m_aVATItemsPerCountry = new CommonsHashMap <> ();
 
   // Overall VAT map (ID to item)
-  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap<> ();
+  private final ICommonsMap <String, IVATItem> m_aAllVATItems = new CommonsHashMap <> ();
 
   public VATManager ()
   {}
@@ -208,13 +208,26 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * @return All countries for which VAT type definitions are present.
+   * @return All countries for which VAT type definitions are present. Never
+   *         <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsSet <Locale> getAllAvailableCountries ()
   {
     return m_aVATItemsPerCountry.copyOfKeySet ();
+  }
+
+  /**
+   * @return The complete map from locale to VAT country data. Never
+   *         <code>null</code>.
+   * @since 5.0.5
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  public ICommonsMap <Locale, VATCountryData> getAllCountryData ()
+  {
+    return m_aVATItemsPerCountry.getClone ();
   }
 
   /**
@@ -239,15 +252,29 @@ public class VATManager implements IVATItemProvider
   /**
    * Get the VAT data of the passed country.
    *
-   * @param aCountry
+   * @param aLocale
    *        The locale to use. May not be <code>null</code>.
    * @return <code>null</code> if no such country data is present.
    */
   @Nullable
-  public VATCountryData getVATCountryData (@Nonnull final Locale aCountry)
+  public VATCountryData getVATCountryData (@Nonnull final Locale aLocale)
   {
-    ValueEnforcer.notNull (aCountry, "Country");
-    return m_aVATItemsPerCountry.get (CountryCache.getInstance ().getCountry (aCountry));
+    ValueEnforcer.notNull (aLocale, "Locale");
+    final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
+    return m_aVATItemsPerCountry.get (aCountry);
+  }
+
+  /**
+   * Check if VAT data is available for the provided country.
+   *
+   * @param aLocale
+   *        The locale to check. May be <code>null</code>.
+   * @return <code>true</code> if VAT country data is available.
+   * @since 5.0.5
+   */
+  public boolean isVATCountryDataAvailable (@Nullable final Locale aLocale)
+  {
+    return aLocale != null && getVATCountryData (aLocale) != null;
   }
 
   /**
@@ -261,12 +288,13 @@ public class VATManager implements IVATItemProvider
    *         the deprecated VAT items are returned! VATTYPE_NONE.getID () is
    *         used if zero VAT is allowed
    */
+  @ReturnsMutableCopy
   @Nonnull
   public ICommonsMap <String, IVATItem> getAllVATItemsForCountry (@Nonnull final Locale aCountry)
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
-    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap<> ();
+    final ICommonsMap <String, IVATItem> ret = new CommonsHashMap <> ();
 
     // first get locale specific VAT types
     final VATCountryData aVATCountryData = getVATCountryData (aCountry);
@@ -279,13 +307,6 @@ public class VATManager implements IVATItemProvider
     return ret;
   }
 
-  /**
-   * Get the VAT type with the given ID.
-   *
-   * @param sID
-   *        The VAT type ID to search.
-   * @return <code>null</code> if no such VAT type exists.
-   */
   @Nullable
   public IVATItem getVATItemOfID (@Nullable final String sID)
   {
@@ -332,6 +353,24 @@ public class VATManager implements IVATItemProvider
   public IVATItem findFirst (@Nonnull final Predicate <? super IVATItem> aFilter)
   {
     return CollectionHelper.findFirst (m_aAllVATItems.values (), aFilter);
+  }
+
+  /**
+   * Find all matching VAT items.
+   *
+   * @param aFilter
+   *        The filter to be used. May not be <code>null</code>.
+   * @return A non-<code>null</code> but maybe empty list with all matching
+   *         {@link IVATItem} objects.
+   * @since 5.0.5
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  public ICommonsList <IVATItem> findAll (@Nonnull final Predicate <? super IVATItem> aFilter)
+  {
+    final ICommonsList <IVATItem> ret = new CommonsArrayList <> ();
+    CollectionHelper.findAll (m_aAllVATItems.values (), aFilter, ret::add);
+    return ret;
   }
 
   @Override
