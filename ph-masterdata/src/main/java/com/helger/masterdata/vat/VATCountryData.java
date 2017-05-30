@@ -100,6 +100,10 @@ public class VATCountryData implements IHasCountry, Serializable
     return m_aItems.isEmpty ();
   }
 
+  /**
+   * @return A non-<code>null</code> but may be empty map from VATItem ID to VAT
+   *         item.
+   */
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsMap <String, IVATItem> getAllItems ()
