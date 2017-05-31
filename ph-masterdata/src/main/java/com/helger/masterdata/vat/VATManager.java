@@ -66,7 +66,10 @@ public class VATManager implements IVATItemProvider
     static final VATManager s_aInstance = readFromXML (new ClassPathResource ("codelists/vat-data.xml"));
   }
 
-  /** Special VAT item with 0% */
+  /**
+   * Special VAT item with 0% - this is the only VAT item that has NO country
+   * locale
+   */
   public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
                                                            (Locale) null,
                                                            EVATType.OTHER,

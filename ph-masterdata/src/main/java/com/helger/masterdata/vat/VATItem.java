@@ -31,6 +31,7 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.id.factory.GlobalIDFactory;
+import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.period.LocalDatePeriod;
@@ -70,7 +71,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
       throw new IllegalArgumentException ("ValidFrom date must be <= validTo date");
 
     m_sID = sID;
-    m_aCountry = aCountry;
+    m_aCountry = CountryCache.getInstance ().getCountry (aCountry);
     m_eType = eType;
     m_aPercentage = aPercentage;
     m_aPercentageFactor = m_aPercentage.divide (CGlobal.BIGDEC_100);

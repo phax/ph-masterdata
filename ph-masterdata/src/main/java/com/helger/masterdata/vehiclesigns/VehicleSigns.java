@@ -22,16 +22,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.ext.CommonsHashMap;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
 import com.helger.commons.collection.ext.ICommonsMap;
-import com.helger.commons.collection.ext.ICommonsSet;
-import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
+import com.helger.commons.collection.multimap.MultiHashMapLinkedHashSetBased;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.locale.country.CountryCache;
 
 /**
+ * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old
  * Source: http://www.unece.org/trans/main/wp1/wp1fdoc/disting-signs-5-2001.pdf
  *
  * @author Philip Helger
@@ -39,8 +39,8 @@ import com.helger.commons.locale.country.CountryCache;
 @Immutable
 public final class VehicleSigns
 {
-  private static ICommonsMap <Locale, String> s_aCountryToSign = new CommonsHashMap <> ();
-  private static MultiHashMapHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapHashSetBased <> ();
+  private static MultiHashMapLinkedHashSetBased <Locale, String> s_aCountryToSign = new MultiHashMapLinkedHashSetBased <> ();
+  private static MultiHashMapLinkedHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapLinkedHashSetBased <> ();
 
   static
   {
@@ -48,55 +48,68 @@ public final class VehicleSigns
     _add ("DZ", "DZ");
     _add ("AD", "AND");
     _add ("AR", "RA");
+    _add ("AM", "AM");
     _add ("AU", "AUS");
     _add ("AT", "A");
+    _add ("AZ", "AZ");
+
     _add ("BS", "BS");
     _add ("BH", "BRN");
     _add ("BD", "BD");
     _add ("BB", "BDS");
-    _add ("BY", "SU");
+    // old: _add ("BY", "SU");
+    _add ("BY", "BY");
     _add ("BE", "B");
     _add ("BZ", "BH");
     _add ("BJ", "DY");
     _add ("BA", "BIH");
-    _add ("BW", "RB");
+    // old: _add ("BW", "RB");
+    _add ("BW", "BW");
     _add ("BR", "BR");
     _add ("BN", "BRU");
     _add ("BG", "BG");
-    _add ("KH", "K");
+
+    // old: _add ("KH", "K");
+    _add ("KH", "KH");
     _add ("CA", "CDN");
     _add ("CF", "RCA");
     _add ("CL", "RCH");
     _add ("CN", "RC");
     _add ("CG", "RCB");
     _add ("CR", "CR");
+    _add ("CI", "CI");
     _add ("HR", "HR");
     _add ("CU", "CU");
     _add ("CY", "CY");
     _add ("CZ", "CZ");
-    _add ("CI", "CI");
+
     _add ("CD", "ZRE");
     _add ("DK", "DK");
+    _add ("FO", "FO");
     _add ("DO", "DOM");
+
     _add ("EC", "EC");
     _add ("EG", "ET");
     _add ("EE", "EST");
-    _add ("FO", "FO");
+
     _add ("FJ", "FJI");
     _add ("FI", "FIN");
     _add ("FR", "F");
+
     _add ("GM", "WAG");
     _add ("GE", "GE");
     _add ("DE", "D");
     _add ("GH", "GH");
-    _add ("GI", "GBZ");
+    // deleted: _add ("GI", "GBZ");
     _add ("GR", "GR");
     _add ("GD", "WG");
     _add ("GT", "GCA");
     _add ("GY", "GUY");
+
     _add ("HT", "RH");
     _add ("VA", "V");
     _add ("HU", "H");
+
     _add ("IS", "IS");
     _add ("IN", "IND");
     _add ("ID", "RI");
@@ -104,20 +117,24 @@ public final class VehicleSigns
     _add ("IE", "IRL");
     _add ("IL", "IL");
     _add ("IT", "I");
+
     _add ("JM", "JA");
     _add ("JP", "J");
     _add ("JO", "HKJ");
+
     _add ("KZ", "KZ");
     _add ("KE", "EAK");
+    _add ("KE", "E.A.K.");
     _add ("KW", "KWT");
     _add ("KG", "KS");
+
     _add ("LA", "LAO");
     _add ("LV", "LV");
     _add ("LB", "RL");
     _add ("LS", "LS");
     _add ("LT", "LT");
     _add ("LU", "L");
-    _add ("MK", "MK");
+
     _add ("MG", "RM");
     _add ("MW", "MW");
     _add ("MY", "MAL");
@@ -125,18 +142,22 @@ public final class VehicleSigns
     _add ("MT", "M");
     _add ("MU", "MS");
     _add ("MX", "MEX");
+    _add ("MD", "MD");
     _add ("MC", "MC");
     _add ("MN", "MGL");
+    _add ("ME", "MNE");
     _add ("MA", "MA");
     _add ("MM", "BUR");
+
     _add ("NA", "NAM");
-    _add ("AN", "NA");
     _add ("NL", "NL");
+    _add ("AN", "NA");
     _add ("NZ", "NZ");
     _add ("NI", "NIC");
     _add ("NE", "RN");
     _add ("NG", "WAN");
     _add ("NO", "N");
+
     _add ("PK", "PK");
     _add ("PG", "PNG");
     _add ("PY", "PY");
@@ -144,15 +165,18 @@ public final class VehicleSigns
     _add ("PH", "RP");
     _add ("PL", "PL");
     _add ("PT", "P");
+
     _add ("KP", "ROK");
     _add ("KR", "ROK");
-    _add ("MD", "MD");
-    _add ("RO", "RO");
     _add ("RU", "RUS");
     _add ("RW", "RWA");
+
+    _add ("LC", "WL");
+    _add ("VC", "WV");
     _add ("WS", "WS");
     _add ("SM", "RSM");
     _add ("SN", "SN");
+    _add ("RS", "SRB");
     _add ("SC", "SY");
     _add ("SL", "WAL");
     _add ("SG", "SGP");
@@ -161,28 +185,41 @@ public final class VehicleSigns
     _add ("ZA", "ZA");
     _add ("ES", "E");
     _add ("LK", "CL");
-    _add ("LC", "WL");
-    _add ("VC", "WV");
     _add ("SR", "SME");
     _add ("SZ", "SD");
     _add ("SE", "S");
     _add ("CH", "CH");
     _add ("SY", "SYR");
+
     _add ("TJ", "TJ");
     _add ("TH", "T");
+    _add ("MK", "MK");
     _add ("TG", "TG");
     _add ("TT", "TT");
     _add ("TN", "TN");
     _add ("TR", "TR");
     _add ("TM", "TM");
+
     _add ("UG", "EAU");
     _add ("UA", "UA");
     _add ("GB", "GB");
+    // Alderney
+    _add ("GB", "GBA");
+    _add ("GG", "GBG");
+    _add ("IM", "GBM");
+    _add ("JE", "GBJ");
+    // Tanganyika
+    _add ("TZ", "EAT");
+    // Zanzibar
+    _add ("TZ", "EAZ");
     _add ("US", "USA");
     _add ("UY", "ROU");
     _add ("UZ", "UZ");
+
     _add ("VE", "YV");
-    _add ("YE", "AND");
+
+    // deleted: _add ("YE", "YAR");
+
     _add ("ZM", "RNR");
     _add ("ZW", "ZW");
   }
@@ -190,39 +227,98 @@ public final class VehicleSigns
   private static void _add (@Nonnull final String sCountryCode, @Nonnull final String sSign)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
-    if (s_aCountryToSign.containsKey (aCountry))
-      throw new InitializationException ("Locale " + aCountry + " is already contained!");
-    s_aCountryToSign.put (aCountry, sSign);
-    s_aSignToCountry.putSingle (sSign, aCountry);
+    if (s_aCountryToSign.putSingle (aCountry, sSign).isUnchanged ())
+      throw new InitializationException ("Locale " + aCountry + " already contains sign '" + sSign + "'");
+    if (s_aSignToCountry.putSingle (sSign, aCountry).isUnchanged ())
+      throw new InitializationException ("Sign '" + sSign + "' already contains country " + aCountry);
   }
 
   private VehicleSigns ()
   {}
 
-  @Nullable
-  public static String getVehicleSign (@Nonnull final Locale aCountry)
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsOrderedSet <String> getAllVehicleSigns (@Nullable final String sCountry)
   {
-    ValueEnforcer.notNull (aCountry, "Country");
-    return getVehicleSign (aCountry.getCountry ());
+    final Locale aRealCountry = CountryCache.getInstance ().getCountry (sCountry);
+    final ICommonsOrderedSet <String> aSigns = s_aCountryToSign.get (aRealCountry);
+    return new CommonsLinkedHashSet <> (aSigns);
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsOrderedSet <String> getAllVehicleSigns (@Nullable final Locale aCountry)
+  {
+    return getAllVehicleSigns (aCountry == null ? null : aCountry.getCountry ());
   }
 
   @Nullable
-  public static String getVehicleSignOrNull (@Nullable final String sCountry)
+  public static String getSingleVehicleSign (@Nullable final String sCountry)
   {
-    return s_aCountryToSign.get (CountryCache.getInstance ().getCountry (sCountry));
+    final Locale aRealCountry = CountryCache.getInstance ().getCountry (sCountry);
+    final ICommonsOrderedSet <String> aSigns = s_aCountryToSign.get (aRealCountry);
+    if (aSigns != null)
+    {
+      if (aSigns.size () == 1)
+        return aSigns.getFirst ();
+      throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" +
+                                          sCountry +
+                                          "': " +
+                                          aSigns);
+    }
+    return null;
   }
 
   @Nullable
-  public static String getVehicleSign (@Nullable final String sCountry)
+  public static String getSingleVehicleSign (@Nullable final Locale aCountry)
   {
-    final String ret = getVehicleSignOrNull (sCountry);
-    return ret == null ? sCountry : ret;
+    return getSingleVehicleSign (aCountry == null ? null : aCountry.getCountry ());
+  }
+
+  /**
+   * @return The complete map from country locale to all vehicle signs. Never
+   *         <code>null</code> nor empty.
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsMap <Locale, ICommonsOrderedSet <String>> getCountryToVehicleSignMap ()
+  {
+    return s_aCountryToSign.getClone ();
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsOrderedSet <Locale> getAllCountriesFromVehicleSign (@Nullable final String sSign)
+  {
+    final ICommonsOrderedSet <Locale> aCountries = s_aSignToCountry.get (sSign);
+    return new CommonsLinkedHashSet <> (aCountries);
   }
 
   @Nullable
-  public static Locale getCountryFromVehicleSign (@Nullable final String sSign)
+  public static Locale getSingleCountryFromVehicleSign (@Nullable final String sSign)
   {
-    final ICommonsSet <Locale> aCountries = s_aSignToCountry.get (sSign);
-    return CollectionHelper.getFirstElement (aCountries);
+    final ICommonsOrderedSet <Locale> aCountries = s_aSignToCountry.get (sSign);
+    if (aCountries != null)
+    {
+      if (aCountries.size () == 1)
+        return aCountries.getFirst ();
+      throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" +
+                                          sSign +
+                                          "': " +
+                                          aCountries);
+    }
+    return null;
+  }
+
+  /**
+   * @return A copy of the full map from vehicle sign to country locales. Never
+   *         <code>null</code>.
+   * @since 5.0.6
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsMap <String, ICommonsOrderedSet <Locale>> getVehicleSignToCountryMap ()
+  {
+    return s_aSignToCountry.getClone ();
   }
 }

@@ -18,18 +18,77 @@ package com.helger.masterdata.vehiclesigns;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.locale.country.CountryCache;
+
+/**
+ * Test class for class {@link VehicleSigns}.
+ *
+ * @author Philip Helger
+ */
 public final class VehicleSignsTest
 {
   @Test
-  public void testValid ()
+  public void testGetSingleVehicleSign ()
   {
-    assertEquals ("A", VehicleSigns.getVehicleSign ("AT"));
-    assertEquals ("A", VehicleSigns.getVehicleSign ("aT"));
-    assertEquals ("D", VehicleSigns.getVehicleSign ("DE"));
-    assertEquals ("XYZ", VehicleSigns.getVehicleSign ("XYZ"));
-    assertNull (VehicleSigns.getVehicleSignOrNull ("XYZ"));
+    assertEquals ("A", VehicleSigns.getSingleVehicleSign ("AT"));
+    assertEquals ("A", VehicleSigns.getSingleVehicleSign ("aT"));
+    assertEquals ("D", VehicleSigns.getSingleVehicleSign ("DE"));
+    assertNull (VehicleSigns.getSingleVehicleSign ("ZZ"));
+    try
+    {
+      // Has 2 signs
+      VehicleSigns.getSingleVehicleSign ("TZ");
+      fail ();
+    }
+    catch (final IllegalArgumentException ex)
+    {
+      // expected
+    }
+  }
+
+  @Test
+  public void testGetAllVehicleSigns ()
+  {
+    assertEquals (new CommonsLinkedHashSet <> ("A"), VehicleSigns.getAllVehicleSigns ("AT"));
+    assertEquals (new CommonsLinkedHashSet <> ("A"), VehicleSigns.getAllVehicleSigns ("aT"));
+    assertEquals (new CommonsLinkedHashSet <> ("D"), VehicleSigns.getAllVehicleSigns ("DE"));
+    assertEquals (new CommonsLinkedHashSet <> (), VehicleSigns.getAllVehicleSigns ("ZZ"));
+    // Has 2 signs
+    assertEquals (new CommonsLinkedHashSet <> ("EAT", "EAZ"), VehicleSigns.getAllVehicleSigns ("TZ"));
+  }
+
+  @Test
+  public void testGetSingleCountryFromVehicleSign ()
+  {
+    final CountryCache aCC = CountryCache.getInstance ();
+    assertEquals (aCC.getCountry ("AT"), VehicleSigns.getSingleCountryFromVehicleSign ("A"));
+    assertNull (VehicleSigns.getSingleCountryFromVehicleSign ("XYZ"));
+    try
+    {
+      // Has 2 countries
+      VehicleSigns.getSingleCountryFromVehicleSign ("ROK");
+      fail ();
+    }
+    catch (final IllegalArgumentException ex)
+    {
+      // expected
+    }
+  }
+
+  @Test
+  public void testGetAllCountriesFromVehicleSign ()
+  {
+    final CountryCache aCC = CountryCache.getInstance ();
+    assertEquals (new CommonsLinkedHashSet <> (aCC.getCountry ("AT")),
+                  VehicleSigns.getAllCountriesFromVehicleSign ("A"));
+    assertEquals (new CommonsLinkedHashSet <> (), VehicleSigns.getAllCountriesFromVehicleSign ("XYZ"));
+    // Has 2 countries
+    assertEquals (new CommonsLinkedHashSet <> (aCC.getCountry ("KP"), aCC.getCountry ("KR")),
+                  VehicleSigns.getAllCountriesFromVehicleSign ("ROK"));
   }
 }
