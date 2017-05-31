@@ -31,6 +31,7 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.id.factory.GlobalIDFactory;
+import com.helger.commons.math.MathHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.period.LocalDatePeriod;
 
@@ -43,6 +44,7 @@ import com.helger.datetime.period.LocalDatePeriod;
 public class VATItem extends LocalDatePeriod implements IVATItem
 {
   private final String m_sID;
+  private final Locale m_aCountry;
   private final EVATType m_eType;
   private final BigDecimal m_aPercentage;
   private final BigDecimal m_aPercentageFactor;
@@ -50,14 +52,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   private final boolean m_bDeprecated;
 
   public VATItem (@Nonnull @Nonempty final String sID,
-                  @Nonnull final EVATType eType,
-                  @Nonnull @Nonnegative final BigDecimal aPercentage,
-                  final boolean bDeprecated)
-  {
-    this (sID, eType, aPercentage, bDeprecated, null, null);
-  }
-
-  public VATItem (@Nonnull @Nonempty final String sID,
+                  @Nullable final Locale aCountry,
                   @Nonnull final EVATType eType,
                   @Nonnull @Nonnegative final BigDecimal aPercentage,
                   final boolean bDeprecated,
@@ -69,10 +64,13 @@ public class VATItem extends LocalDatePeriod implements IVATItem
     ValueEnforcer.notNull (eType, "Type");
     ValueEnforcer.notNull (aPercentage, "Percentage");
     ValueEnforcer.isBetweenInclusive (aPercentage, "Percentage", BigDecimal.ZERO, CGlobal.BIGDEC_100);
+    if (MathHelper.isNE0 (aPercentage))
+      ValueEnforcer.notNull (aCountry, "If a percentage is present a country must be present!");
     if (aValidFrom != null && aValidTo != null && aValidTo.isBefore (aValidFrom))
       throw new IllegalArgumentException ("ValidFrom date must be <= validTo date");
 
     m_sID = sID;
+    m_aCountry = aCountry;
     m_eType = eType;
     m_aPercentage = aPercentage;
     m_aPercentageFactor = m_aPercentage.divide (CGlobal.BIGDEC_100);
@@ -85,6 +83,12 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   public String getID ()
   {
     return m_sID;
+  }
+
+  @Nullable
+  public Locale getCountry ()
+  {
+    return m_aCountry;
   }
 
   @Nonnull
@@ -134,6 +138,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
       return false;
     final VATItem rhs = (VATItem) o;
     return m_sID.equals (rhs.m_sID) &&
+           EqualsHelper.equals (m_aCountry, rhs.m_aCountry) &&
            m_eType.equals (rhs.m_eType) &&
            EqualsHelper.equals (m_aPercentage, rhs.m_aPercentage) &&
            m_bDeprecated == rhs.m_bDeprecated;
@@ -144,6 +149,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   {
     return HashCodeGenerator.getDerived (super.hashCode ())
                             .append (m_sID)
+                            .append (m_aCountry)
                             .append (m_eType)
                             .append (m_aPercentage)
                             .append (m_bDeprecated)
@@ -155,6 +161,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   {
     return ToStringGenerator.getDerived (super.toString ())
                             .append ("ID", m_sID)
+                            .append ("Country", m_aCountry)
                             .append ("Type", m_eType)
                             .append ("Percentage", m_aPercentage)
                             .append ("PercentageFactor", m_aPercentageFactor)
@@ -164,18 +171,15 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   }
 
   @Nonnull
-  public static VATItem createNewItem (@Nonnull final EVATType eType,
-                                       @Nonnull @Nonnegative final BigDecimal aPercentage)
+  public static VATItem createTestItem (@Nullable final Locale aCountry,
+                                        @Nonnull final EVATType eType,
+                                        @Nonnull @Nonnegative final BigDecimal aPercentage)
   {
-    return createNewItem (eType, aPercentage, (LocalDate) null, (LocalDate) null);
-  }
-
-  @Nonnull
-  public static VATItem createNewItem (@Nonnull final EVATType eType,
-                                       @Nonnull @Nonnegative final BigDecimal aPercentage,
-                                       @Nullable final LocalDate aValidFrom,
-                                       @Nullable final LocalDate aValidTo)
-  {
-    return new VATItem (GlobalIDFactory.getNewPersistentStringID (), eType, aPercentage, false, aValidFrom, aValidTo);
+    final String sID = (aCountry != null ? aCountry.getCountry ().toLowerCase (Locale.US) : "zero") +
+                       "." +
+                       aPercentage.intValue () +
+                       "/" +
+                       GlobalIDFactory.getNewStringID ();
+    return new VATItem (sID, aCountry, eType, aPercentage, false, null, null);
   }
 }

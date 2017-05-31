@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -35,7 +36,7 @@ public final class VATItemTest
   @Test
   public void testFactors ()
   {
-    final VATItem v = new VATItem ("id", EVATType.REDUCED, new BigDecimal ("20"), false);
+    final VATItem v = VATItem.createTestItem (Locale.US, EVATType.REDUCED, new BigDecimal ("20"));
     assertEquals (new BigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
     assertEquals (new BigDecimal ("120.0"), CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
     assertNull (v.getStart ());

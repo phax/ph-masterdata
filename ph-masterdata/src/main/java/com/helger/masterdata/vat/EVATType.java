@@ -61,6 +61,10 @@ public enum EVATType implements IHasID <String>
     return m_sID;
   }
 
+  /**
+   * @return Tax category code. <code>null</code> only for
+   *         {@link EVATType#OTHER}
+   */
   @Nullable
   public ETaxCategoryUN5305 getTaxCategory ()
   {

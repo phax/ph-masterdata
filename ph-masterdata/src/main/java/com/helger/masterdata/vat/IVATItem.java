@@ -17,6 +17,7 @@
 package com.helger.masterdata.vat;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -42,6 +43,24 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
    */
   @Nonnull
   EVATType getType ();
+
+  /**
+   * @return The country for which this VAT item is applicable. May be
+   *         <code>null</code> for 0% items only!
+   * @since 5.0.6
+   */
+  @Nullable
+  Locale getCountry ();
+
+  /**
+   * @return <code>true</code> if a country is present, <code>false</code>
+   *         otherwise.
+   * @since 5.0.6
+   */
+  default boolean hasCountry ()
+  {
+    return getCountry () != null;
+  }
 
   /**
    * @return The percentage of this VAT type. Must be between 0 and 100.

@@ -62,7 +62,7 @@ public final class PriceTest
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (ECurrency.DEFAULT_CURRENCY));
     assertEquals (ECurrency.DEFAULT_CURRENCY, p.getCurrency ());
 
-    final IVATItem aVATItem = new VATItem ("vat50", EVATType.REGULAR, new BigDecimal ("50"), false);
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("50"));
     assertEquals (EChange.CHANGED, p.setVATItem (aVATItem));
     assertEquals (aVATItem, p.getVATItem ());
     assertEquals (EChange.UNCHANGED, p.setVATItem (aVATItem));

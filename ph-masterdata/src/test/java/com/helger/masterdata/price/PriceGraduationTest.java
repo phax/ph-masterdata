@@ -23,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -91,7 +92,7 @@ public final class PriceGraduationTest
   @Test
   public void testAdd ()
   {
-    final IVATItem aVATItem = new VATItem ("ust20", EVATType.REGULAR, new BigDecimal ("20"), false);
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("20"));
     final PriceGraduation pg = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
     assertTrue (pg.isEmpty ());
 
@@ -179,7 +180,7 @@ public final class PriceGraduationTest
   @Test
   public void testAddSimple ()
   {
-    final IVATItem aVATItem = new VATItem ("ust20", EVATType.REGULAR, new BigDecimal ("20"), false);
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("20"));
     final IMutablePriceGraduation pg = new PriceGraduation (ECurrency.GBP);
     assertEquals (ECurrency.GBP, pg.getCurrency ());
     assertTrue (pg.isEmpty ());

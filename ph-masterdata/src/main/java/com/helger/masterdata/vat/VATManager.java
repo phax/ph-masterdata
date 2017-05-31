@@ -67,7 +67,13 @@ public class VATManager implements IVATItemProvider
   }
 
   /** Special VAT item with 0% */
-  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_", EVATType.OTHER, BigDecimal.ZERO, false);
+  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
+                                                           (Locale) null,
+                                                           EVATType.OTHER,
+                                                           BigDecimal.ZERO,
+                                                           false,
+                                                           null,
+                                                           null);
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (VATManager.class);
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
@@ -183,7 +189,7 @@ public class VATManager implements IVATItemProvider
         final LocalDate aValidTo = PDTFromString.getLocalDateFromString (sValidTo, DATE_FORMAT);
 
         // build and add item
-        final VATItem aVATItem = new VATItem (sRealID, eType, aPercentage, bDeprecated, aValidFrom, aValidTo);
+        final VATItem aVATItem = new VATItem (sRealID, aCountry, eType, aPercentage, bDeprecated, aValidFrom, aValidTo);
         if (aVATCountryData.addItem (aVATItem).isUnchanged ())
           s_aLogger.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
         if (m_aAllVATItems.put (sRealID, aVATItem) != null)

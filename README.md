@@ -30,6 +30,8 @@ Java library that combines ph-masterdata and ph-validation. The same version req
 
 # News and noteworthy
 
+  * v5.0.6 - work in progress
+    * Added country Locale to VAT item
   * v5.0.5 - 2017-05-30
     * Requires at least ph-common 8.6.5
     * API extensions
