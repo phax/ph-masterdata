@@ -29,7 +29,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class PersonNameMicroTypeConverter implements IMicroTypeConverter
+public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <PersonName>
 {
   protected static final IMicroQName ATTR_SALUTATION = new MicroQName ("salutation");
   protected static final IMicroQName ATTR_PREFIXTITLE = new MicroQName ("prefixtitle");
@@ -39,24 +39,23 @@ public final class PersonNameMicroTypeConverter implements IMicroTypeConverter
   protected static final IMicroQName ATTR_SUFFIXTITLE = new MicroQName ("suffixtitle");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final PersonName aValue,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final PersonName aAddress = (PersonName) aObject;
     final IMicroElement eName = new MicroElement (sNamespaceURI, sTagName);
-    if (aAddress.getSalutation () != null)
-      eName.setAttribute (ATTR_SALUTATION, aAddress.getSalutationID ());
-    if (StringHelper.hasText (aAddress.getPrefixTitle ()))
-      eName.setAttribute (ATTR_PREFIXTITLE, aAddress.getPrefixTitle ());
-    if (StringHelper.hasText (aAddress.getFirstName ()))
-      eName.setAttribute (ATTR_FIRSTNAME, aAddress.getFirstName ());
-    if (StringHelper.hasText (aAddress.getMiddleName ()))
-      eName.setAttribute (ATTR_MIDDLENAME, aAddress.getMiddleName ());
-    if (StringHelper.hasText (aAddress.getLastName ()))
-      eName.setAttribute (ATTR_LASTNAME, aAddress.getLastName ());
-    if (StringHelper.hasText (aAddress.getSuffixTitle ()))
-      eName.setAttribute (ATTR_SUFFIXTITLE, aAddress.getSuffixTitle ());
+    if (aValue.getSalutation () != null)
+      eName.setAttribute (ATTR_SALUTATION, aValue.getSalutationID ());
+    if (StringHelper.hasText (aValue.getPrefixTitle ()))
+      eName.setAttribute (ATTR_PREFIXTITLE, aValue.getPrefixTitle ());
+    if (StringHelper.hasText (aValue.getFirstName ()))
+      eName.setAttribute (ATTR_FIRSTNAME, aValue.getFirstName ());
+    if (StringHelper.hasText (aValue.getMiddleName ()))
+      eName.setAttribute (ATTR_MIDDLENAME, aValue.getMiddleName ());
+    if (StringHelper.hasText (aValue.getLastName ()))
+      eName.setAttribute (ATTR_LASTNAME, aValue.getLastName ());
+    if (StringHelper.hasText (aValue.getSuffixTitle ()))
+      eName.setAttribute (ATTR_SUFFIXTITLE, aValue.getSuffixTitle ());
     return eName;
   }
 

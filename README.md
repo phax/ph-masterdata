@@ -29,10 +29,10 @@ Java library for validation artifacts (errors etc.)
 Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
 
 # News and noteworthy
-
-  * v5.0.6 - work in progress
+  * v6.0.0 - work in progress
     * Added country Locale to VAT item
     * Updated vehicle sign list and API
+    * Updated to ph-commons 9.0.0
   * v5.0.5 - 2017-05-30
     * Requires at least ph-common 8.6.5
     * API extensions

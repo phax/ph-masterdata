@@ -23,10 +23,10 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.VisibleForTesting;
-import com.helger.commons.collection.ext.CommonsHashMap;
-import com.helger.commons.collection.ext.ICommonsMap;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.function.IToBooleanFunction;
+import com.helger.commons.functional.IToBooleanFunction;
 import com.helger.commons.string.StringHelper;
 
 /**

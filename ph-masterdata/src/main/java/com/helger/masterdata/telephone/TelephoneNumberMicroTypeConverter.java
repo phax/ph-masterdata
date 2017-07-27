@@ -25,7 +25,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConverter
+public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConverter <TelephoneNumber>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
   private static final IMicroQName ATTR_COUNTRYCODE = new MicroQName ("countrycode");
@@ -34,11 +34,10 @@ public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConver
   private static final IMicroQName ATTR_DIRECTDIAL = new MicroQName ("directdial");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final TelephoneNumber aTelNo,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final ITelephoneNumber aTelNo = (ITelephoneNumber) aObject;
     final IMicroElement eTelNo = new MicroElement (sNamespaceURI, sTagName);
     if (aTelNo.getType () != null)
       eTelNo.setAttribute (ATTR_TYPE, aTelNo.getType ().getID ());

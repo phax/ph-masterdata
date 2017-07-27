@@ -21,10 +21,10 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.helger.collection.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.ICommonsNavigableSet;
-import com.helger.commons.collection.multimap.MultiHashMapTreeSetBased;
+import com.helger.commons.collection.impl.ICommonsNavigableSet;
 import com.helger.commons.locale.country.CountryCache;
 
 /**

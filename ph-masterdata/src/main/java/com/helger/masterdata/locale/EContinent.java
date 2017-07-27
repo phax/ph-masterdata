@@ -24,14 +24,14 @@ import javax.annotation.Nullable;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.ext.CommonsArrayList;
-import com.helger.commons.collection.ext.ICommonsNavigableSet;
-import com.helger.commons.filter.IFilter;
+import com.helger.commons.collection.impl.CommonsArrayList;
+import com.helger.commons.collection.impl.ICommonsNavigableSet;
+import com.helger.commons.functional.IPredicate;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EContinent implements IHasID <String>,IHasDisplayText
+public enum EContinent implements IHasID <String>, IHasDisplayText
 {
   AFRICA ("af", EContinentName.AFRICA),
   ANTARCTICA ("an", EContinentName.ANTARCTICA),
@@ -71,14 +71,14 @@ public enum EContinent implements IHasID <String>,IHasDisplayText
   }
 
   @Nonnull
-  public static IFilter <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
+  public static IPredicate <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
   {
     ValueEnforcer.notNull (eContinent, "Continent");
     return aLocale -> CollectionHelper.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
   }
 
   @Nonnull
-  public static IFilter <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
+  public static IPredicate <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
   {
     ValueEnforcer.notEmptyNoNullValue (aContinents, "Continents");
     return aLocale -> {

@@ -26,9 +26,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.CommonsTreeSet;
-import com.helger.commons.collection.ext.ICommonsList;
-import com.helger.commons.collection.ext.ICommonsNavigableSet;
+import com.helger.commons.collection.impl.CommonsTreeSet;
+import com.helger.commons.collection.impl.ICommonsList;
+import com.helger.commons.collection.impl.ICommonsNavigableSet;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;

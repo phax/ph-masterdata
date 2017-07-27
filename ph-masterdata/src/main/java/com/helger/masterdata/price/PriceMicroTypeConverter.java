@@ -30,7 +30,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class PriceMicroTypeConverter implements IMicroTypeConverter
+public final class PriceMicroTypeConverter implements IMicroTypeConverter <Price>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final IMicroQName ATTR_NETAMOUNT = new MicroQName ("netamount");
@@ -39,11 +39,10 @@ public final class PriceMicroTypeConverter implements IMicroTypeConverter
 
   @Override
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final Price aPrice,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IPrice aPrice = (IPrice) aObject;
     final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
     ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
     ePrice.setAttributeWithConversion (ATTR_NETAMOUNT, aPrice.getNetAmount ().getValue ());

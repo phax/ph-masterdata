@@ -27,17 +27,16 @@ import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
 
-public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConverter
+public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConverter <ExchangeRatioList>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final String ELEMENT_EXCHANGE_RATIO = "exchangeratio";
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final ExchangeRatioList aValue,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final ExchangeRatioList aValue = (ExchangeRatioList) aObject;
     final IMicroElement aElement = new MicroElement (sNamespaceURI, sTagName);
     aElement.setAttribute (ATTR_CURRENCY, aValue.getCurrencyID ());
     for (final ExchangeRatio aExchangeRatio : aValue.getAllExchangeRatios ())

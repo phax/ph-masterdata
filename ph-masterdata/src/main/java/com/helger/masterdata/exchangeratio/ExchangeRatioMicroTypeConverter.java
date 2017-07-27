@@ -28,17 +28,16 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverter
+public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverter <ExchangeRatio>
 {
   private static final IMicroQName ATTR_DATE = new MicroQName ("date");
   private static final IMicroQName ATTR_RATIO = new MicroQName ("ratio");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final ExchangeRatio aValue,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final ExchangeRatio aValue = (ExchangeRatio) aObject;
     final IMicroElement aElement = new MicroElement (sNamespaceURI, sTagName);
     aElement.setAttributeWithConversion (ATTR_DATE, aValue.getDate ());
     aElement.setAttributeWithConversion (ATTR_RATIO, aValue.getRatio ());

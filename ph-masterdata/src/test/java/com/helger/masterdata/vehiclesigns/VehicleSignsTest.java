@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.impl.CommonsLinkedHashSet;
 import com.helger.commons.locale.country.CountryCache;
 
 /**

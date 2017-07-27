@@ -24,8 +24,8 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.CommonsArrayList;
-import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.impl.CommonsArrayList;
+import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
@@ -44,7 +44,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   private final ECurrency m_eCurrency;
 
   // All items sorted ascending by the minimum quantity
-  private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList<> ();
+  private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList <> ();
 
   /**
    * Create a new price graduation valid only for the given currency and VAT
@@ -168,12 +168,9 @@ public class PriceGraduation implements IMutablePriceGraduation
   }
 
   @Nonnull
-  public EChange clear ()
+  public EChange removeAll ()
   {
-    if (m_aItems.isEmpty ())
-      return EChange.UNCHANGED;
-    m_aItems.clear ();
-    return EChange.CHANGED;
+    return m_aItems.removeAll ();
   }
 
   public boolean isEmpty ()

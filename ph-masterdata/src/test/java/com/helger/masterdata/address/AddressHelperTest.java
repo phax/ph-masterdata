@@ -24,7 +24,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.impl.CommonsArrayList;
 
 /**
  * Test class for class {@link AddressHelper}.

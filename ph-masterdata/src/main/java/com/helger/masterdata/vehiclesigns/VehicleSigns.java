@@ -22,11 +22,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
+import com.helger.collection.multimap.MultiHashMapLinkedHashSetBased;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.CommonsLinkedHashSet;
-import com.helger.commons.collection.ext.ICommonsMap;
-import com.helger.commons.collection.ext.ICommonsOrderedSet;
-import com.helger.commons.collection.multimap.MultiHashMapLinkedHashSetBased;
+import com.helger.commons.collection.impl.CommonsLinkedHashSet;
+import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.commons.collection.impl.ICommonsOrderedSet;
 import com.helger.commons.exception.InitializationException;
 import com.helger.commons.locale.country.CountryCache;
 

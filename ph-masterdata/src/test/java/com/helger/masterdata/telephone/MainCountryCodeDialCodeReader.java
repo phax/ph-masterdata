@@ -23,7 +23,7 @@ import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.csv.CSVReader;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleCache;

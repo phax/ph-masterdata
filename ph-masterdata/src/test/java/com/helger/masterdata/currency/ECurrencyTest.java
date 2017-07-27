@@ -36,8 +36,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.ext.ICommonsSet;
-import com.helger.commons.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;

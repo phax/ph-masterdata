@@ -28,10 +28,10 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.CommonsHashMap;
-import com.helger.commons.collection.ext.CommonsTreeSet;
-import com.helger.commons.collection.ext.ICommonsMap;
-import com.helger.commons.collection.ext.ICommonsSortedSet;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.CommonsTreeSet;
+import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.commons.collection.impl.ICommonsSortedSet;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleParser;
 import com.helger.commons.string.StringHelper;

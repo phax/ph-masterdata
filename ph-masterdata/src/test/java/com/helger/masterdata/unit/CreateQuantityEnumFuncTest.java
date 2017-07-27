@@ -23,8 +23,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.helger.commons.CGlobal;
-import com.helger.commons.collection.ext.CommonsLinkedHashMap;
-import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.impl.CommonsLinkedHashMap;
+import com.helger.commons.collection.impl.ICommonsOrderedMap;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;

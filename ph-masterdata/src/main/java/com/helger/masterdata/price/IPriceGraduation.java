@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.lang.IHasSize;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;

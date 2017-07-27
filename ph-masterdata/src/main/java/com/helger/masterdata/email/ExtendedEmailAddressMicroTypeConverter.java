@@ -25,18 +25,17 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeConverter
+public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeConverter <ExtendedEmailAddress>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
   private static final IMicroQName ATTR_ADDRESS = new MicroQName ("address");
   private static final IMicroQName ATTR_PERSONAL = new MicroQName ("personal");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final ExtendedEmailAddress aEmail,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IExtendedEmailAddress aEmail = (IExtendedEmailAddress) aObject;
     final IMicroElement eEmail = new MicroElement (sNamespaceURI, sTagName);
     if (aEmail.getType () != null)
       eEmail.setAttribute (ATTR_TYPE, aEmail.getType ().getID ());

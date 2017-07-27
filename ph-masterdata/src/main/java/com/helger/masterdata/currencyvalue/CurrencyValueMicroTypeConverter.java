@@ -28,20 +28,19 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class CurrencyValueMicroTypeConverter implements IMicroTypeConverter
+public final class CurrencyValueMicroTypeConverter implements IMicroTypeConverter <CurrencyValue>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final IMicroQName ATTR_VALUE = new MicroQName ("value");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final CurrencyValue aValue,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final ICurrencyValue aPrice = (ICurrencyValue) aObject;
     final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
-    ePrice.setAttribute (ATTR_CURRENCY, aPrice.getCurrency ().getID ());
-    ePrice.setAttributeWithConversion (ATTR_VALUE, aPrice.getValue ());
+    ePrice.setAttribute (ATTR_CURRENCY, aValue.getCurrency ().getID ());
+    ePrice.setAttributeWithConversion (ATTR_VALUE, aValue.getValue ());
     return ePrice;
   }
 

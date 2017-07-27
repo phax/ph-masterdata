@@ -29,7 +29,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class AddressMicroTypeConverter implements IMicroTypeConverter
+public final class AddressMicroTypeConverter implements IMicroTypeConverter <Address>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
   private static final IMicroQName ATTR_COUNTRY = new MicroQName ("country");
@@ -42,11 +42,10 @@ public final class AddressMicroTypeConverter implements IMicroTypeConverter
   private static final IMicroQName ATTR_CARE_OF = new MicroQName ("careof");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Object aObject,
+  public IMicroElement convertToMicroElement (@Nonnull final Address aAddress,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
-    final IAddress aAddress = (IAddress) aObject;
     final IMicroElement eAddress = new MicroElement (sNamespaceURI, sTagName);
     if (aAddress.getType () != null)
       eAddress.setAttribute (ATTR_TYPE, aAddress.getType ().getID ());

@@ -16,7 +16,7 @@
  */
 package com.helger.validation.result;
 
-import com.helger.commons.error.id.IHasErrorID;
+import com.helger.commons.error.IHasErrorID;
 import com.helger.commons.state.IValidityIndicator;
 import com.helger.commons.text.display.IHasDisplayText;
 

@@ -28,8 +28,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.ext.CommonsTreeMap;
-import com.helger.commons.collection.ext.ICommonsNavigableMap;
+import com.helger.commons.collection.impl.CommonsTreeMap;
+import com.helger.commons.collection.impl.ICommonsNavigableMap;
 import com.helger.commons.compare.IComparator;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;

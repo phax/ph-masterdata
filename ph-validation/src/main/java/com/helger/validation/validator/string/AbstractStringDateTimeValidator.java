@@ -25,10 +25,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.datetime.format.PDTFormatPatterns;
-import com.helger.datetime.format.PDTFormatter;
-import com.helger.datetime.format.PDTFormatter.EFormatterMode;
-import com.helger.datetime.format.PDTFromString;
+import com.helger.commons.datetime.EDTFormatterMode;
+import com.helger.commons.datetime.PDTFormatPatterns;
+import com.helger.commons.datetime.PDTFormatter;
+import com.helger.commons.datetime.PDTFromString;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
 import com.helger.validation.result.ValidationResultError;
@@ -52,7 +52,7 @@ public abstract class AbstractStringDateTimeValidator extends AbstractStringVali
     final ZonedDateTime aZDT = PDTFromString.getZonedDateTimeFromString (sValue,
                                                                          PDTFormatter.getFormatterDateTime (FormatStyle.MEDIUM,
                                                                                                             aParseLocale,
-                                                                                                            EFormatterMode.PARSE));
+                                                                                                            EDTFormatterMode.PARSE));
     if (aZDT != null)
       return ValidationResultSuccess.getInstance ();
     // Try without zone

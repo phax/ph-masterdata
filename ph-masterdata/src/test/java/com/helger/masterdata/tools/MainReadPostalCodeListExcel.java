@@ -40,14 +40,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.collection.multimap.IMultiMapListBased;
+import com.helger.collection.multimap.MultiHashMapArrayListBased;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.ext.CommonsArrayList;
-import com.helger.commons.collection.ext.ICommonsList;
-import com.helger.commons.collection.multimap.IMultiMapListBased;
-import com.helger.commons.collection.multimap.MultiHashMapArrayListBased;
+import com.helger.commons.collection.impl.CommonsArrayList;
+import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.string.StringHelper;
@@ -134,7 +134,6 @@ public class MainReadPostalCodeListExcel
     }
   }
 
-  @SuppressWarnings ("deprecation")
   public static void main (final String [] args) throws Exception
   {
     final String sSource = "http://en.wikipedia.org/wiki/List_of_postal_codes";
@@ -156,7 +155,7 @@ public class MainReadPostalCodeListExcel
       eHeader.appendElement (PostalCodeListReader.ELEMENT_REVISION).appendText (sRevision);
 
       final IMicroElement eBody = eRoot.appendElement (PostalCodeListReader.ELEMENT_BODY);
-      final ICommonsList <Item> aItems = new CommonsArrayList<> ();
+      final ICommonsList <Item> aItems = new CommonsArrayList <> ();
       int nRow = 0;
       while (it.hasNext ())
       {
@@ -196,7 +195,7 @@ public class MainReadPostalCodeListExcel
       }
 
       // Convert to map, where the key is the ISO
-      final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased<> ();
+      final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased <> ();
       for (final Item aItem : aItems)
         aMap.putSingle (aItem.getISO (), aItem);
 
@@ -249,9 +248,9 @@ public class MainReadPostalCodeListExcel
       }
 
       MicroWriter.writeToStream (aDoc,
-                                 FileHelper.getOutputStream ("src/main/resources/codelists/postal-codes-" +
-                                                             sRevision +
-                                                             ".xml"));
+                                 FileHelper.getBufferedOutputStream (new File ("src/main/resources/codelists/postal-codes-" +
+                                                                               sRevision +
+                                                                               ".xml")));
       s_aLogger.info ("Done");
     }
   }

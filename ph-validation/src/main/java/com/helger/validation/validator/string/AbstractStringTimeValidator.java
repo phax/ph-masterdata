@@ -23,8 +23,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.datetime.format.PDTFormatPatterns;
-import com.helger.datetime.format.PDTFromString;
+import com.helger.commons.datetime.PDTFormatPatterns;
+import com.helger.commons.datetime.PDTFromString;
 import com.helger.validation.EStandardValidationErrorTexts;
 import com.helger.validation.result.IValidationResult;
 import com.helger.validation.result.ValidationResultError;
