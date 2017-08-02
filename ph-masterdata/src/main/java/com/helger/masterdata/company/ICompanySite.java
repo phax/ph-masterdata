@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.name.IHasDisplayName;
 import com.helger.commons.type.ITypedObject;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
@@ -61,7 +61,7 @@ public interface ICompanySite extends IHasDisplayName, ITypedObject <String>
    * @return The address of this company site.
    */
   @Nonnull
-  IAddress getAddress ();
+  IPostalAddress getAddress ();
 
   /**
    * @return The default telephone number of the company site.

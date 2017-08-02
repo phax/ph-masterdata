@@ -29,6 +29,6 @@ public final class AddressMicroTypeConverterRegistrar implements IMicroTypeConve
 {
   public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
   {
-    aRegistry.registerMicroElementTypeConverter (Address.class, new AddressMicroTypeConverter ());
+    aRegistry.registerMicroElementTypeConverter (PostalAddress.class, new PostalAddressMicroTypeConverter ());
   }
 }

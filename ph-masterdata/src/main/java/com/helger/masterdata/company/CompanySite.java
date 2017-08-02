@@ -27,8 +27,8 @@ import com.helger.commons.id.factory.GlobalIDFactory;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
-import com.helger.masterdata.address.Address;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.PostalAddress;
+import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
@@ -51,7 +51,7 @@ public final class CompanySite implements ICompanySite
   private String m_sLongName;
   private boolean m_bIsDeletable = DEFAULT_DELETABLE;
   private boolean m_bIsVirtualSite = DEFAULT_VIRTUALSITE;
-  private IAddress m_aAddress = new Address ();
+  private IPostalAddress m_aAddress = new PostalAddress ();
   private ITelephoneNumber m_aTelNo = new TelephoneNumber ();
   private ITelephoneNumber m_aFaxNo = new TelephoneNumber ();
   private IExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
@@ -145,13 +145,13 @@ public final class CompanySite implements ICompanySite
   }
 
   @Nonnull
-  public IAddress getAddress ()
+  public IPostalAddress getAddress ()
   {
     return m_aAddress;
   }
 
   @Nonnull
-  public EChange setAddress (@Nonnull final IAddress aAddress)
+  public EChange setAddress (@Nonnull final IPostalAddress aAddress)
   {
     ValueEnforcer.notNull (aAddress, "Address");
 

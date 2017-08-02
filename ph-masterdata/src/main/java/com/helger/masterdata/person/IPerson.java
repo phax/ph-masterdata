@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.id.IHasID;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
@@ -88,7 +88,7 @@ public interface IPerson extends IHasID <String>, Serializable
    * @return An optional real address for this person.
    */
   @Nullable
-  IAddress getAddress ();
+  IPostalAddress getAddress ();
 
   default boolean hasAddress ()
   {

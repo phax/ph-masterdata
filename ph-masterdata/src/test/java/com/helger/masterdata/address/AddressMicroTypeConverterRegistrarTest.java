@@ -42,7 +42,7 @@ public final class AddressMicroTypeConverterRegistrarTest
   public void testMarshal ()
   {
     final Locale aLocale = Locale.GERMAN;
-    final Address aAddress = new Address ();
+    final PostalAddress aAddress = new PostalAddress ();
     aAddress.setStreet ("Cumberlandstraße", aLocale);
     aAddress.setPostalCode ("1140");
     aAddress.setCity ("Vienna", aLocale);
@@ -52,7 +52,7 @@ public final class AddressMicroTypeConverterRegistrarTest
     assertNotNull (aElement);
     s_aLogger.info (MicroWriter.getNodeAsString (aElement));
 
-    final Address aAddress2 = MicroTypeConverter.convertToNative (aElement, Address.class);
+    final PostalAddress aAddress2 = MicroTypeConverter.convertToNative (aElement, PostalAddress.class);
     assertEquals (aAddress, aAddress2);
   }
 }

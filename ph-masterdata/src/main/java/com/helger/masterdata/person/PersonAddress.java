@@ -25,15 +25,15 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.address.Address;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.PostalAddress;
+import com.helger.masterdata.address.IPostalAddress;
 
 /**
  * Person specific implementation
  *
  * @author Philip Helger
  */
-public class PersonAddress extends Address
+public class PersonAddress extends PostalAddress
 {
   private Person m_aOwner;
 
@@ -45,7 +45,7 @@ public class PersonAddress extends Address
     setOwner (aOwner);
   }
 
-  public PersonAddress (@Nonnull final Person aOwner, @Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
+  public PersonAddress (@Nonnull final Person aOwner, @Nonnull final IPostalAddress aBase, @Nonnull final Locale aSortLocale)
   {
     super (aBase, aSortLocale);
     setOwner (aOwner);

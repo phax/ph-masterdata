@@ -29,13 +29,13 @@ import com.helger.commons.string.StringHelper;
  *
  * @author Philip Helger
  */
-public interface IAddress extends Serializable
+public interface IPostalAddress extends Serializable
 {
   /**
    * @return The semantic type of this address.
    */
   @Nullable
-  IAddressType getType ();
+  IPostalAddressType getType ();
 
   default boolean hasType ()
   {

@@ -27,7 +27,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IAddressType extends IHasID <String>, IHasDisplayText
+public interface IPostalAddressType extends IHasID <String>, IHasDisplayText
 {
   /* empty */
 }

@@ -21,6 +21,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import com.helger.masterdata.unit.impl.UnitManager;
+
 /**
  * Test class for class {@link UnitManager}.
  *

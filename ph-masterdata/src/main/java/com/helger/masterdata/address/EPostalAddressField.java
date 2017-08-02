@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * 
  * @author Philip Helger
  */
-public enum EAddressField
+public enum EPostalAddressField
 {
   CARE_OF ( (a, dl) -> a.hasCareOf () ? AddressHelper.getCareOfPrefix () + a.getCareOf () : null),
   STREET ( (a, dl) -> a.hasStreet () ? a.getStreet () : null),
@@ -40,15 +40,15 @@ public enum EAddressField
   STATE ( (a, dl) -> a.hasState () ? a.getState () : null),
   COUNTRY ( (a, dl) -> a.hasCountry () ? a.getCountryDisplayName (dl) : null);
 
-  private final BiFunction <IAddress, Locale, String> m_aGetter;
+  private final BiFunction <IPostalAddress, Locale, String> m_aGetter;
 
-  private EAddressField (@Nonnull final BiFunction <IAddress, Locale, String> aGetter)
+  private EPostalAddressField (@Nonnull final BiFunction <IPostalAddress, Locale, String> aGetter)
   {
     m_aGetter = aGetter;
   }
 
   @Nullable
-  public String get (@Nonnull final IAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  public String get (@Nonnull final IPostalAddress aAddress, @Nonnull final Locale aDisplayLocale)
   {
     return m_aGetter.apply (aAddress, aDisplayLocale);
   }

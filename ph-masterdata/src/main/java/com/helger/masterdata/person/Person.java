@@ -27,7 +27,7 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.address.IAddress;
+import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
@@ -68,7 +68,7 @@ public class Person implements IPerson
                  @Nullable final LocalDate aBirthday,
                  @Nullable final ITelephoneNumber aTelephoneNumber,
                  @Nullable final IExtendedEmailAddress aEmailAddress,
-                 @Nullable final IAddress aAddress,
+                 @Nullable final IPostalAddress aAddress,
                  @Nonnull final Locale aSortLocale)
   {
     setGender (eGender);
@@ -208,7 +208,7 @@ public class Person implements IPerson
   }
 
   @Nonnull
-  public EChange setAddress (@Nullable final IAddress aAddress, @Nonnull final Locale aSortLocale)
+  public EChange setAddress (@Nullable final IPostalAddress aAddress, @Nonnull final Locale aSortLocale)
   {
     PersonAddress aPersonAddress = null;
     if (aAddress != null)

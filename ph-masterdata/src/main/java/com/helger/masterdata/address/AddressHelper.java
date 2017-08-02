@@ -187,7 +187,7 @@ public final class AddressHelper
   }
 
   @Nullable
-  public static String getStreetAndBuildingNumber (@Nullable final IAddress aAddress)
+  public static String getStreetAndBuildingNumber (@Nullable final IPostalAddress aAddress)
   {
     if (aAddress == null)
       return null;
@@ -195,7 +195,7 @@ public final class AddressHelper
   }
 
   @Nullable
-  public static String getPostalCodeAndCity (@Nullable final IAddress aAddress)
+  public static String getPostalCodeAndCity (@Nullable final IPostalAddress aAddress)
   {
     if (aAddress == null)
       return null;
@@ -203,37 +203,37 @@ public final class AddressHelper
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  public static String getAddressString (@Nullable final IPostalAddress aAddress, @Nonnull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IAddress aAddress,
+  public static String getAddressString (@Nullable final IPostalAddress aAddress,
                                          @Nonnull final Locale aDisplayLocale,
                                          @Nonnull final String sLineSeparator)
   {
     return getAddressString (aAddress,
-                             new CommonsArrayList <> (EAddressField.CARE_OF,
-                                                      EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                      EAddressField.POSTAL_CODE_AND_CITY,
-                                                      EAddressField.POST_OFFICE_BOX,
-                                                      EAddressField.COUNTRY),
+                             new CommonsArrayList <> (EPostalAddressField.CARE_OF,
+                                                      EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                      EPostalAddressField.POSTAL_CODE_AND_CITY,
+                                                      EPostalAddressField.POST_OFFICE_BOX,
+                                                      EPostalAddressField.COUNTRY),
                              aDisplayLocale,
                              sLineSeparator);
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IAddress aAddress,
-                                         @Nonnull final List <EAddressField> aFields,
+  public static String getAddressString (@Nullable final IPostalAddress aAddress,
+                                         @Nonnull final List <EPostalAddressField> aFields,
                                          @Nonnull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aFields, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IAddress aAddress,
-                                         @Nonnull final List <EAddressField> aFields,
+  public static String getAddressString (@Nullable final IPostalAddress aAddress,
+                                         @Nonnull final List <EPostalAddressField> aFields,
                                          @Nonnull final Locale aDisplayLocale,
                                          @Nonnull final String sLineSeparator)
   {
@@ -244,7 +244,7 @@ public final class AddressHelper
       return null;
 
     final ICommonsList <String> aValues = new CommonsArrayList <> (aFields.size ());
-    for (final EAddressField eField : aFields)
+    for (final EPostalAddressField eField : aFields)
       aValues.add (eField.get (aAddress, aDisplayLocale));
     return StringHelper.getImplodedNonEmpty (sLineSeparator, aValues);
   }

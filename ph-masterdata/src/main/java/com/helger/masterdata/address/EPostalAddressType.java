@@ -25,7 +25,7 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
-public enum EAddressType implements IAddressType
+public enum EPostalAddressType implements IPostalAddressType
 {
   PERSONAL ("pers", EAddressText.MSG_TYPE_PERSONAL),
   PERSONAL2 ("pers2", EAddressText.MSG_TYPE_PERSONAL2),
@@ -36,7 +36,7 @@ public enum EAddressType implements IAddressType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  private EAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EAddressText eText)
+  private EPostalAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EAddressText eText)
   {
     m_sID = sID;
     m_aText = eText;
@@ -56,14 +56,14 @@ public enum EAddressType implements IAddressType
   }
 
   @Nullable
-  public static EAddressType getFromIDOrNull (@Nullable final String sID)
+  public static EPostalAddressType getFromIDOrNull (@Nullable final String sID)
   {
-    return EnumHelper.getFromIDOrNull (EAddressType.class, sID);
+    return EnumHelper.getFromIDOrNull (EPostalAddressType.class, sID);
   }
 
   @Nullable
-  public static EAddressType getFromIDOrDefault (@Nullable final String sID, @Nullable final EAddressType eDefault)
+  public static EPostalAddressType getFromIDOrDefault (@Nullable final String sID, @Nullable final EPostalAddressType eDefault)
   {
-    return EnumHelper.getFromIDOrDefault (EAddressType.class, sID, eDefault);
+    return EnumHelper.getFromIDOrDefault (EPostalAddressType.class, sID, eDefault);
   }
 }

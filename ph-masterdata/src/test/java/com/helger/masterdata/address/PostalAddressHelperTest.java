@@ -31,7 +31,7 @@ import com.helger.commons.collection.impl.CommonsArrayList;
  *
  * @author Philip Helger
  */
-public final class AddressHelperTest
+public final class PostalAddressHelperTest
 {
   @Test
   public void testGetUnifiedStreetEnabled ()
@@ -71,7 +71,7 @@ public final class AddressHelperTest
   public void testCareOfPrefix ()
   {
     final Locale aLocale = Locale.GERMAN;
-    final Address a = new Address ();
+    final PostalAddress a = new PostalAddress ();
     a.setCareOf ("any", aLocale);
     assertEquals ("c/o any", AddressHelper.getAddressString (a, aLocale));
     AddressHelper.setCareOfPrefix ("bla-");
@@ -84,7 +84,7 @@ public final class AddressHelperTest
   public void testGetAddressString ()
   {
     final Locale aLocale = Locale.GERMAN;
-    final Address a = new Address ();
+    final PostalAddress a = new PostalAddress ();
     assertEquals ("", AddressHelper.getAddressString (a, aLocale));
     a.setCareOf ("any", aLocale);
     assertEquals ("c/o any", AddressHelper.getAddressString (a, aLocale));
@@ -135,8 +135,8 @@ public final class AddressHelperTest
                   "\n" +
                   "Austria",
                   AddressHelper.getAddressString (a,
-                                                  new CommonsArrayList <> (EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EAddressField.COUNTRY),
+                                                  new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EPostalAddressField.COUNTRY),
                                                   Locale.UK));
     assertEquals ("Main road 7" +
                   "\n" +
@@ -144,9 +144,9 @@ public final class AddressHelperTest
                   "\n" +
                   "Austria",
                   AddressHelper.getAddressString (a,
-                                                  new CommonsArrayList <> (EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EAddressField.COUNTRY),
+                                                  new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                           EPostalAddressField.COUNTRY),
                                                   Locale.UK));
   }
 }

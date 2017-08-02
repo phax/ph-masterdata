@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.unit;
+package com.helger.masterdata.unit.impl;
 
 import javax.annotation.Nonnull;
 
@@ -29,6 +29,7 @@ import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.text.IMultilingualText;
 import com.helger.commons.text.ReadOnlyMultilingualText;
+import com.helger.masterdata.unit.UnitSector;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.convert.MicroTypeConverter;

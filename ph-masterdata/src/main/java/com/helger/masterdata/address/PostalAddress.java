@@ -31,14 +31,14 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Writable implementation of the {@link IAddress} interface.
+ * Writable implementation of the {@link IPostalAddress} interface.
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Address implements IAddress, ICloneable <Address>
+public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
 {
-  private IAddressType m_aAddressType;
+  private IPostalAddressType m_aAddressType;
   private String m_sCountry;
   private String m_sState;
   private String m_sPostalCode;
@@ -50,10 +50,10 @@ public class Address implements IAddress, ICloneable <Address>
   // Status vars
   private Locale m_aCountry;
 
-  public Address ()
+  public PostalAddress ()
   {}
 
-  public Address (@Nonnull final Address aBase)
+  public PostalAddress (@Nonnull final PostalAddress aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     m_aAddressType = aBase.m_aAddressType;
@@ -67,7 +67,7 @@ public class Address implements IAddress, ICloneable <Address>
     m_sCareOf = aBase.m_sCareOf;
   }
 
-  public Address (@Nonnull final IAddress aBase, @Nonnull final Locale aSortLocale)
+  public PostalAddress (@Nonnull final IPostalAddress aBase, @Nonnull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());
@@ -81,12 +81,12 @@ public class Address implements IAddress, ICloneable <Address>
     setCareOf (aBase.getCareOf (), aSortLocale);
   }
 
-  public Address (@Nullable final IAddressType aType)
+  public PostalAddress (@Nullable final IPostalAddressType aType)
   {
     setType (aType);
   }
 
-  public Address (@Nullable final IAddressType aType,
+  public PostalAddress (@Nullable final IPostalAddressType aType,
                   @Nullable final String sCountry,
                   @Nullable final String sState,
                   @Nullable final String sPostalCode,
@@ -109,13 +109,13 @@ public class Address implements IAddress, ICloneable <Address>
   }
 
   @Nullable
-  public IAddressType getType ()
+  public IPostalAddressType getType ()
   {
     return m_aAddressType;
   }
 
   @Nonnull
-  public EChange setType (@Nullable final IAddressType aAddressType)
+  public EChange setType (@Nullable final IPostalAddressType aAddressType)
   {
     if (EqualsHelper.equals (m_aAddressType, aAddressType))
       return EChange.UNCHANGED;
@@ -276,9 +276,9 @@ public class Address implements IAddress, ICloneable <Address>
   }
 
   @Nonnull
-  public Address getClone ()
+  public PostalAddress getClone ()
   {
-    return new Address (this);
+    return new PostalAddress (this);
   }
 
   @Override
@@ -288,7 +288,7 @@ public class Address implements IAddress, ICloneable <Address>
       return true;
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    final Address rhs = (Address) o;
+    final PostalAddress rhs = (PostalAddress) o;
     return EqualsHelper.equals (m_aAddressType, rhs.m_aAddressType) &&
            EqualsHelper.equals (m_sCountry, rhs.m_sCountry) &&
            EqualsHelper.equals (m_sState, rhs.m_sState) &&

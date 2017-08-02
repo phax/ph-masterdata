@@ -29,7 +29,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class AddressMicroTypeConverter implements IMicroTypeConverter <Address>
+public final class PostalAddressMicroTypeConverter implements IMicroTypeConverter <PostalAddress>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
   private static final IMicroQName ATTR_COUNTRY = new MicroQName ("country");
@@ -42,7 +42,7 @@ public final class AddressMicroTypeConverter implements IMicroTypeConverter <Add
   private static final IMicroQName ATTR_CARE_OF = new MicroQName ("careof");
 
   @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final Address aAddress,
+  public IMicroElement convertToMicroElement (@Nonnull final PostalAddress aAddress,
                                               @Nullable final String sNamespaceURI,
                                               @Nonnull final String sTagName)
   {
@@ -69,10 +69,10 @@ public final class AddressMicroTypeConverter implements IMicroTypeConverter <Add
   }
 
   @Nonnull
-  public Address convertToNative (@Nonnull final IMicroElement eAddress)
+  public PostalAddress convertToNative (@Nonnull final IMicroElement eAddress)
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
-    final EAddressType eType = EAddressType.getFromIDOrNull (eAddress.getAttributeValue (ATTR_TYPE));
+    final EPostalAddressType eType = EPostalAddressType.getFromIDOrNull (eAddress.getAttributeValue (ATTR_TYPE));
     final String sCountry = eAddress.getAttributeValue (ATTR_COUNTRY);
     final String sState = eAddress.getAttributeValue (ATTR_STATE);
     final String sPostalCode = eAddress.getAttributeValue (ATTR_POSTALCODE);
@@ -81,7 +81,7 @@ public final class AddressMicroTypeConverter implements IMicroTypeConverter <Add
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
     final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
-    return new Address (eType,
+    return new PostalAddress (eType,
                         sCountry,
                         sState,
                         sPostalCode,
