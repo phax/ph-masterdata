@@ -20,19 +20,12 @@ Java library with lots of default business objects and algorithms:
   * VAT and VATIN handling
   * Vehicle sign handling 
 
-# ph-validation
-
-Java library for validation artifacts (errors etc.)
-
-# ph-masterdata-validation
-
-Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
-
 # News and noteworthy
   * v6.0.0 - work in progress
     * Added country Locale to VAT item
     * Updated vehicle sign list and API
     * Updated to ph-commons 9.0.0
+    * Removed ph-validation and ph-masterdata-validation as they were badly designed
   * v5.0.5 - 2017-05-30
     * Requires at least ph-common 8.6.5
     * API extensions
@@ -58,13 +51,25 @@ Add the following to your pom.xml to use this artifact:
   <artifactId>ph-masterdata</artifactId>
   <version>5.0.5</version>
 </dependency>
+```
 
+# Legacy artefacts
+## ph-validation
+
+Java library for validation artifacts (errors etc.)
+Last version:
+```xml
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-validation</artifactId>
   <version>5.0.5</version>
 </dependency>
+```
 
+## ph-masterdata-validation
+
+Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
+```xml
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata-validation</artifactId>
