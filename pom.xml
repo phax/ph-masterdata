@@ -72,30 +72,13 @@
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
-        <artifactId>ph-web-parent-pom</artifactId>
-        <version>9.0.0-SNAPSHOT</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
         <artifactId>ph-poi</artifactId>
         <version>5.0.0-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.helger</groupId>
-        <artifactId>ph-validation</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
         <artifactId>ph-masterdata</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
-        <artifactId>ph-masterdata-validation</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
@@ -120,8 +103,6 @@
   </dependencies>
   
   <modules>
-    <module>ph-validation</module>
     <module>ph-masterdata</module>
-    <module>ph-masterdata-validation</module>
   </modules>
 </project>
