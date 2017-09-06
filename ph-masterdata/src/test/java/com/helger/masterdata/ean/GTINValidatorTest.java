@@ -56,6 +56,17 @@ public final class GTINValidatorTest
   public void testIsValidGTIN13 ()
   {
     assertTrue (GTINValidator.isValidGTIN13 ("6291041500213"));
+    assertTrue (GTINValidator.isValidGTIN13 ("0000000000000"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000001"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000002"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000003"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000004"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000005"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000006"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000007"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000008"));
+    assertFalse (GTINValidator.isValidGTIN13 ("0000000000009"));
+    assertFalse (GTINValidator.isValidGTIN13 ("000000000000X"));
     assertFalse (GTINValidator.isValidGTIN13 ("6291041500212"));
     assertFalse (GTINValidator.isValidGTIN13 ("6291041500214"));
     assertFalse (GTINValidator.isValidGTIN13 ("629104150021"));
