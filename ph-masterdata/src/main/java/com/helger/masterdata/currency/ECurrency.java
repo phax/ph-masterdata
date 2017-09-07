@@ -38,7 +38,6 @@ import com.helger.commons.annotation.CodingStyleguideUnaware;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ArrayHelper;
-import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.functional.IPredicate;
@@ -339,7 +338,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   @ReturnsMutableCopy
   private static ICommonsList <Locale> _getAsLocales (@Nonnull final String... aCountries)
   {
-    return CollectionHelper.newListMapped (aCountries, sCountry -> LocaleCache.getInstance ().getLocale (sCountry));
+    return new CommonsArrayList <> (aCountries, sCountry -> LocaleCache.getInstance ().getLocale (sCountry));
   }
 
   private ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
