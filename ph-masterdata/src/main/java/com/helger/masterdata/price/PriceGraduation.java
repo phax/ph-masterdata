@@ -179,7 +179,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   }
 
   @Nonnegative
-  public int getSize ()
+  public int size ()
   {
     return m_aItems.size ();
   }

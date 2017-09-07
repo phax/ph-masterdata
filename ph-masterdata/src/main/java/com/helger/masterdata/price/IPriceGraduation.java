@@ -123,16 +123,4 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency, Serializable
    */
   @Nonnull
   IPrice getPrice (@Nonnull IPriceGraduationItem aItem, @Nonnull IVATItem aVAT);
-
-  /**
-   * @return <code>true</code> if no item is contained, <code>false</code> if at
-   *         least one item is present.
-   */
-  boolean isEmpty ();
-
-  /**
-   * @return The number of quantity-price pairs in this object. Always &ge; 0.
-   */
-  @Nonnegative
-  int getSize ();
 }
