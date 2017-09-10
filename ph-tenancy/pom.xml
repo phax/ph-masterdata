@@ -60,7 +60,7 @@
     </dependency>
     <dependency>
       <groupId>com.helger</groupId>
-      <artifactId>ph-datetime</artifactId>
+      <artifactId>ph-masterdata</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
