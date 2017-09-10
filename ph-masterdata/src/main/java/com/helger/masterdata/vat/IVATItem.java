@@ -36,7 +36,7 @@ import com.helger.datetime.period.ILocalDatePeriod;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePeriod
+public interface IVATItem extends IHasDisplayText, IHasID <String>
 {
   /**
    * @return The non-<code>null</code> type of this item.
@@ -124,4 +124,10 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>, ILocalDatePe
    *         applies now.
    */
   boolean isDeprecated ();
+
+  /**
+   * @return The validity period of this item. May not be <code>null</code>.
+   */
+  @Nonnull
+  ILocalDatePeriod getPeriod ();
 }

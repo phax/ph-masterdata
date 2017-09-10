@@ -74,12 +74,12 @@ public final class VATManagerTest
     IVATItem aItem = aData.get ("hu.v25");
     assertNotNull (aItem);
     assertEquals (BigDecimal.valueOf (25), aItem.getPercentage ());
-    assertNull (aItem.getStart ());
-    assertEquals (PDTFactory.createLocalDate (2011, Month.DECEMBER, 31), aItem.getEnd ());
+    assertNull (aItem.getPeriod ().getStart ());
+    assertEquals (PDTFactory.createLocalDate (2011, Month.DECEMBER, 31), aItem.getPeriod ().getEnd ());
 
     aItem = aData.get ("hu.v27");
     assertNotNull (aItem);
-    assertEquals (PDTFactory.createLocalDate (2012, Month.JANUARY, 1), aItem.getStart ());
-    assertNull (aItem.getEnd ());
+    assertEquals (PDTFactory.createLocalDate (2012, Month.JANUARY, 1), aItem.getPeriod ().getStart ());
+    assertNull (aItem.getPeriod ().getEnd ());
   }
 }

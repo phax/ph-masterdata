@@ -39,7 +39,7 @@ public final class VATItemTest
     final VATItem v = VATItem.createTestItem (Locale.US, EVATType.REDUCED, new BigDecimal ("20"));
     assertEquals (new BigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
     assertEquals (new BigDecimal ("120.0"), CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
-    assertNull (v.getStart ());
-    assertNull (v.getEnd ());
+    assertNull (v.getPeriod ().getStart ());
+    assertNull (v.getPeriod ().getEnd ());
   }
 }

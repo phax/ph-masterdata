@@ -42,7 +42,7 @@ import com.helger.datetime.period.LocalDatePeriod;
  * @author Philip Helger
  */
 @Immutable
-public class VATItem extends LocalDatePeriod implements IVATItem
+public class VATItem implements IVATItem
 {
   private final String m_sID;
   private final Locale m_aCountry;
@@ -51,6 +51,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
   private final BigDecimal m_aPercentageFactor;
   private final BigDecimal m_aMultiplicationFactorNetToGross;
   private final boolean m_bDeprecated;
+  private final LocalDatePeriod m_aPeriod;
 
   public VATItem (@Nonnull @Nonempty final String sID,
                   @Nullable final Locale aCountry,
@@ -60,7 +61,6 @@ public class VATItem extends LocalDatePeriod implements IVATItem
                   @Nullable final LocalDate aValidFrom,
                   @Nullable final LocalDate aValidTo)
   {
-    super (aValidFrom, aValidTo);
     ValueEnforcer.notEmpty (sID, "ID");
     ValueEnforcer.notNull (eType, "Type");
     ValueEnforcer.notNull (aPercentage, "Percentage");
@@ -77,6 +77,7 @@ public class VATItem extends LocalDatePeriod implements IVATItem
     m_aPercentageFactor = m_aPercentage.divide (CGlobal.BIGDEC_100);
     m_aMultiplicationFactorNetToGross = BigDecimal.ONE.add (m_aPercentageFactor);
     m_bDeprecated = bDeprecated;
+    m_aPeriod = new LocalDatePeriod (aValidFrom, aValidTo);
   }
 
   @Nonnull
@@ -130,45 +131,52 @@ public class VATItem extends LocalDatePeriod implements IVATItem
     return m_bDeprecated;
   }
 
+  @Nonnull
+  public LocalDatePeriod getPeriod ()
+  {
+    return m_aPeriod;
+  }
+
   @Override
   public boolean equals (final Object o)
   {
     if (o == this)
       return true;
-    if (!super.equals (o))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final VATItem rhs = (VATItem) o;
     return m_sID.equals (rhs.m_sID) &&
            EqualsHelper.equals (m_aCountry, rhs.m_aCountry) &&
            m_eType.equals (rhs.m_eType) &&
            EqualsHelper.equals (m_aPercentage, rhs.m_aPercentage) &&
-           m_bDeprecated == rhs.m_bDeprecated;
+           m_bDeprecated == rhs.m_bDeprecated &&
+           m_aPeriod.equals (rhs.m_aPeriod);
   }
 
   @Override
   public int hashCode ()
   {
-    return HashCodeGenerator.getDerived (super.hashCode ())
-                            .append (m_sID)
-                            .append (m_aCountry)
-                            .append (m_eType)
-                            .append (m_aPercentage)
-                            .append (m_bDeprecated)
-                            .getHashCode ();
+    return new HashCodeGenerator (this).append (m_sID)
+                                       .append (m_aCountry)
+                                       .append (m_eType)
+                                       .append (m_aPercentage)
+                                       .append (m_bDeprecated)
+                                       .append (m_aPeriod)
+                                       .getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ())
-                            .append ("ID", m_sID)
-                            .append ("Country", m_aCountry)
-                            .append ("Type", m_eType)
-                            .append ("Percentage", m_aPercentage)
-                            .append ("PercentageFactor", m_aPercentageFactor)
-                            .append ("MultiplicationFactorNetToGross", m_aMultiplicationFactorNetToGross)
-                            .append ("Deprecated", m_bDeprecated)
-                            .getToString ();
+    return new ToStringGenerator (this).append ("ID", m_sID)
+                                       .append ("Country", m_aCountry)
+                                       .append ("Type", m_eType)
+                                       .append ("Percentage", m_aPercentage)
+                                       .append ("PercentageFactor", m_aPercentageFactor)
+                                       .append ("MultiplicationFactorNetToGross", m_aMultiplicationFactorNetToGross)
+                                       .append ("Deprecated", m_bDeprecated)
+                                       .append ("Period", m_aPeriod)
+                                       .getToString ();
   }
 
   @Nonnull
