@@ -84,5 +84,5 @@ public interface IBusinessObject extends
    */
   @Nonnull
   @ReturnsMutableObject
-  IStringMap customAttrs ();
+  IStringMap attrs ();
 }

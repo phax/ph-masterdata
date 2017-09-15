@@ -61,7 +61,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
           aObject.getLastModificationUserID (),
           aObject.getDeletionDateTime (),
           aObject.getDeletionUserID (),
-          aObject.customAttrs ());
+          aObject.attrs ());
   }
 
   public AbstractBusinessObject (@Nonnull @Nonempty final String sID,
@@ -180,7 +180,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
 
   @Nonnull
   @ReturnsMutableObject
-  public final StringMap customAttrs ()
+  public final StringMap attrs ()
   {
     return m_aCustomAttrs;
   }
