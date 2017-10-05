@@ -41,15 +41,16 @@ import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;
-import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.string.StringHelper;
 import com.helger.masterdata.locale.EContinent;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-public final class ECurrencyTest extends AbstractCommonsTestCase
+public final class ECurrencyTest
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (ECurrencyTest.class);
+  private static final Locale L_DE = new Locale ("de");
+  private static final Locale L_EN = new Locale ("en");
 
   @Test
   public void testGetFromIDOrNull ()

@@ -18,12 +18,14 @@ package com.helger.masterdata.person;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Locale;
+
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractCommonsTestCase;
-
-public final class ESalutationTest extends AbstractCommonsTestCase
+public final class ESalutationTest
 {
+  private static final Locale L_DE = new Locale ("de");
+
   @Test
   public void testGetText ()
   {

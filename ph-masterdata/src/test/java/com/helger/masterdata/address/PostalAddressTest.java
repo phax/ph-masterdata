@@ -21,9 +21,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Locale;
+
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 
 /**
@@ -31,8 +32,11 @@ import com.helger.commons.mock.CommonsTestHelper;
  *
  * @author Philip Helger
  */
-public final class PostalAddressTest extends AbstractCommonsTestCase
+public final class PostalAddressTest
 {
+  private static final Locale L_DE = new Locale ("de");
+  private static final Locale L_EN = new Locale ("en");
+
   @Test
   public void testBasic ()
   {

@@ -23,7 +23,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 
 /**
@@ -31,7 +30,7 @@ import com.helger.commons.mock.CommonsTestHelper;
  *
  * @author Philip Helger
  */
-public final class TelephoneNumberTest extends AbstractCommonsTestCase
+public final class TelephoneNumberTest
 {
   @Test
   public void testBasic ()

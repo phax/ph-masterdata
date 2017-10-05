@@ -23,14 +23,17 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.helger.commons.math.MathHelper;
-import com.helger.commons.mock.AbstractCommonsTestCase;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
 
-public final class CurrencyValueTest extends AbstractCommonsTestCase
+public final class CurrencyValueTest
 {
+  private static final Logger s_aLogger = LoggerFactory.getLogger (CurrencyValueTest.class);
+
   @Test
   public void testGetFormatted ()
   {
@@ -53,7 +56,7 @@ public final class CurrencyValueTest extends AbstractCommonsTestCase
 
       // There seems to be a bug in the optimizer of 1.6.0_45 so that the output
       // values are sometimes reordered - dunno why :(
-      m_aLogger.info ("[" + sCurrencyFormatted + "][" + sValueFormatted + "]");
+      s_aLogger.info ("[" + sCurrencyFormatted + "][" + sValueFormatted + "]");
     }
   }
 }
