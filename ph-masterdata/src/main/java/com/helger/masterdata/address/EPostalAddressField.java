@@ -29,13 +29,13 @@ import javax.annotation.Nullable;
  */
 public enum EPostalAddressField
 {
-  CARE_OF ( (a, dl) -> a.hasCareOf () ? AddressHelper.getCareOfPrefix () + a.getCareOf () : null),
+  CARE_OF ( (a, dl) -> a.hasCareOf () ? PostalAddressHelper.getCareOfPrefix () + a.getCareOf () : null),
   STREET ( (a, dl) -> a.hasStreet () ? a.getStreet () : null),
   BUILDING_NUMBER ( (a, dl) -> a.hasBuildingNumber () ? a.getBuildingNumber () : null),
-  STREET_AND_BUILDING_NUMBER ( (a, dl) -> AddressHelper.getStreetAndBuildingNumber (a)),
+  STREET_AND_BUILDING_NUMBER ( (a, dl) -> PostalAddressHelper.getStreetAndBuildingNumber (a)),
   POSTAL_CODE ( (a, dl) -> a.hasPostalCode () ? a.getPostalCode () : null),
   CITY ( (a, dl) -> a.hasCity () ? a.getCity () : null),
-  POSTAL_CODE_AND_CITY ( (a, dl) -> AddressHelper.getPostalCodeAndCity (a)),
+  POSTAL_CODE_AND_CITY ( (a, dl) -> PostalAddressHelper.getPostalCodeAndCity (a)),
   POST_OFFICE_BOX ( (a, dl) -> a.hasPostOfficeBox () ? a.getPostOfficeBox () : null),
   STATE ( (a, dl) -> a.hasState () ? a.getState () : null),
   COUNTRY ( (a, dl) -> a.hasCountry () ? a.getCountryDisplayName (dl) : null);

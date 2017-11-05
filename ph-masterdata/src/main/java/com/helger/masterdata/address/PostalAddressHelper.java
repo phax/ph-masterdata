@@ -37,7 +37,7 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @ThreadSafe
-public final class AddressHelper
+public final class PostalAddressHelper
 {
   public static final boolean DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED = false;
   public static final String DEFAULT_CARE_OF_PREFIX = "c/o ";
@@ -58,7 +58,7 @@ public final class AddressHelper
   @GuardedBy ("s_aRWLock")
   private static String s_sCareOfPrefix = DEFAULT_CARE_OF_PREFIX;
 
-  private AddressHelper ()
+  private PostalAddressHelper ()
   {}
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)

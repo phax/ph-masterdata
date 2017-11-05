@@ -27,7 +27,7 @@ import org.junit.Test;
 import com.helger.commons.collection.impl.CommonsArrayList;
 
 /**
- * Test class for class {@link AddressHelper}.
+ * Test class for class {@link PostalAddressHelper}.
  *
  * @author Philip Helger
  */
@@ -36,35 +36,35 @@ public final class PostalAddressHelperTest
   @Test
   public void testGetUnifiedStreetEnabled ()
   {
-    AddressHelper.setComplexAddressHandlingEnabled (true);
+    PostalAddressHelper.setComplexAddressHandlingEnabled (true);
     try
     {
       final Locale aLocale = Locale.GERMAN;
-      assertNull (AddressHelper.getUnifiedStreet (null, aLocale));
-      assertEquals ("Abc", AddressHelper.getUnifiedStreet ("abc", aLocale));
-      assertEquals ("Straße", AddressHelper.getUnifiedStreet ("str.", aLocale));
-      assertEquals ("Gasse", AddressHelper.getUnifiedStreet ("g.", aLocale));
-      assertEquals ("Hauptstraße 1", AddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
-      assertEquals ("Sandgasse 1", AddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
+      assertNull (PostalAddressHelper.getUnifiedStreet (null, aLocale));
+      assertEquals ("Abc", PostalAddressHelper.getUnifiedStreet ("abc", aLocale));
+      assertEquals ("Straße", PostalAddressHelper.getUnifiedStreet ("str.", aLocale));
+      assertEquals ("Gasse", PostalAddressHelper.getUnifiedStreet ("g.", aLocale));
+      assertEquals ("Hauptstraße 1", PostalAddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
+      assertEquals ("Sandgasse 1", PostalAddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
     }
     finally
     {
-      AddressHelper.setComplexAddressHandlingEnabled (false);
+      PostalAddressHelper.setComplexAddressHandlingEnabled (false);
     }
   }
 
   @Test
   public void testGetUnifiedStreetDisabled ()
   {
-    assertFalse (AddressHelper.isComplexAddressHandlingEnabled ());
+    assertFalse (PostalAddressHelper.isComplexAddressHandlingEnabled ());
 
     final Locale aLocale = Locale.GERMAN;
-    assertNull (AddressHelper.getUnifiedStreet (null, aLocale));
-    assertEquals ("abc", AddressHelper.getUnifiedStreet ("abc", aLocale));
-    assertEquals ("str.", AddressHelper.getUnifiedStreet ("str.", aLocale));
-    assertEquals ("g.", AddressHelper.getUnifiedStreet ("g.", aLocale));
-    assertEquals ("Hauptstr. 1", AddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
-    assertEquals ("Sandg. 1", AddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
+    assertNull (PostalAddressHelper.getUnifiedStreet (null, aLocale));
+    assertEquals ("abc", PostalAddressHelper.getUnifiedStreet ("abc", aLocale));
+    assertEquals ("str.", PostalAddressHelper.getUnifiedStreet ("str.", aLocale));
+    assertEquals ("g.", PostalAddressHelper.getUnifiedStreet ("g.", aLocale));
+    assertEquals ("Hauptstr. 1", PostalAddressHelper.getUnifiedStreet ("Hauptstr. 1", aLocale));
+    assertEquals ("Sandg. 1", PostalAddressHelper.getUnifiedStreet ("Sandg. 1", aLocale));
   }
 
   @Test
@@ -73,11 +73,11 @@ public final class PostalAddressHelperTest
     final Locale aLocale = Locale.GERMAN;
     final PostalAddress a = new PostalAddress ();
     a.setCareOf ("any", aLocale);
-    assertEquals ("c/o any", AddressHelper.getAddressString (a, aLocale));
-    AddressHelper.setCareOfPrefix ("bla-");
-    assertEquals ("bla-any", AddressHelper.getAddressString (a, aLocale));
-    AddressHelper.setCareOfPrefix (AddressHelper.DEFAULT_CARE_OF_PREFIX);
-    assertEquals ("c/o any", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any", PostalAddressHelper.getAddressString (a, aLocale));
+    PostalAddressHelper.setCareOfPrefix ("bla-");
+    assertEquals ("bla-any", PostalAddressHelper.getAddressString (a, aLocale));
+    PostalAddressHelper.setCareOfPrefix (PostalAddressHelper.DEFAULT_CARE_OF_PREFIX);
+    assertEquals ("c/o any", PostalAddressHelper.getAddressString (a, aLocale));
   }
 
   @Test
@@ -85,22 +85,22 @@ public final class PostalAddressHelperTest
   {
     final Locale aLocale = Locale.GERMAN;
     final PostalAddress a = new PostalAddress ();
-    assertEquals ("", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("", PostalAddressHelper.getAddressString (a, aLocale));
     a.setCareOf ("any", aLocale);
-    assertEquals ("c/o any", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any", PostalAddressHelper.getAddressString (a, aLocale));
     a.setStreet ("Main road", aLocale);
-    assertEquals ("c/o any" + "\n" + "Main road", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any" + "\n" + "Main road", PostalAddressHelper.getAddressString (a, aLocale));
     a.setBuildingNumber ("7");
-    assertEquals ("c/o any" + "\n" + "Main road 7", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any" + "\n" + "Main road 7", PostalAddressHelper.getAddressString (a, aLocale));
     a.setPostalCode ("12345");
-    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345", AddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345", PostalAddressHelper.getAddressString (a, aLocale));
     a.setCity ("Eindhoven", aLocale);
     assertEquals ("c/o any" +
                   "\n" +
                   "Main road 7" +
                   "\n" +
                   "12345 Eindhoven",
-                  AddressHelper.getAddressString (a, aLocale));
+                  PostalAddressHelper.getAddressString (a, aLocale));
     a.setPostOfficeBox ("PO12", aLocale);
     assertEquals ("c/o any" +
                   "\n" +
@@ -109,7 +109,7 @@ public final class PostalAddressHelperTest
                   "12345 Eindhoven" +
                   "\n" +
                   "PO12",
-                  AddressHelper.getAddressString (a, aLocale));
+                  PostalAddressHelper.getAddressString (a, aLocale));
     a.setCountry ("AT", aLocale);
     assertEquals ("c/o any" +
                   "\n" +
@@ -120,7 +120,7 @@ public final class PostalAddressHelperTest
                   "PO12" +
                   "\n" +
                   "Österreich",
-                  AddressHelper.getAddressString (a, aLocale));
+                  PostalAddressHelper.getAddressString (a, aLocale));
     assertEquals ("c/o any" +
                   "\n" +
                   "Main road 7" +
@@ -130,11 +130,11 @@ public final class PostalAddressHelperTest
                   "PO12" +
                   "\n" +
                   "Austria",
-                  AddressHelper.getAddressString (a, Locale.UK));
+                  PostalAddressHelper.getAddressString (a, Locale.UK));
     assertEquals ("Main road 7" +
                   "\n" +
                   "Austria",
-                  AddressHelper.getAddressString (a,
+                  PostalAddressHelper.getAddressString (a,
                                                   new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
                                                                            EPostalAddressField.COUNTRY),
                                                   Locale.UK));
@@ -143,7 +143,7 @@ public final class PostalAddressHelperTest
                   "Main road 7" +
                   "\n" +
                   "Austria",
-                  AddressHelper.getAddressString (a,
+                  PostalAddressHelper.getAddressString (a,
                                                   new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
                                                                            EPostalAddressField.STREET_AND_BUILDING_NUMBER,
                                                                            EPostalAddressField.COUNTRY),

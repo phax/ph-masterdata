@@ -27,7 +27,7 @@ import com.helger.commons.text.resolve.DefaultTextResolver;
 import com.helger.commons.text.util.TextHelper;
 
 @Translatable
-public enum EAddressText implements IHasDisplayText
+public enum EPostalAddressText implements IHasDisplayText
 {
   MSG_ADDRESS ("Adresse", "Address"),
   MSG_ADDRESS_COUNTRY ("Land", "Country"),
@@ -44,7 +44,7 @@ public enum EAddressText implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private EAddressText (@Nonnull final String sDE, @Nonnull final String sEN)
+  private EPostalAddressText (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

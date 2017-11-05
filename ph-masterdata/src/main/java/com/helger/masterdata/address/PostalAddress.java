@@ -156,7 +156,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setCountry (@Nullable final String sCountry, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCountry = AddressHelper.getUnifiedCountry (sCountry, aSortLocale);
+    final String sRealCountry = PostalAddressHelper.getUnifiedCountry (sCountry, aSortLocale);
     if (EqualsHelper.equals (m_sCountry, sRealCountry))
       return EChange.UNCHANGED;
     m_sCountry = sRealCountry == null ? null : sRealCountry.intern ();
@@ -173,7 +173,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
   {
-    final String sRealState = AddressHelper.getUnifiedState (sState, aSortLocale);
+    final String sRealState = PostalAddressHelper.getUnifiedState (sState, aSortLocale);
     if (EqualsHelper.equals (m_sState, sRealState))
       return EChange.UNCHANGED;
     m_sState = sRealState;
@@ -205,7 +205,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setCity (@Nullable final String sCity, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCity = AddressHelper.getUnifiedCity (sCity, aSortLocale);
+    final String sRealCity = PostalAddressHelper.getUnifiedCity (sCity, aSortLocale);
     if (EqualsHelper.equals (m_sCity, sRealCity))
       return EChange.UNCHANGED;
     m_sCity = sRealCity;
@@ -221,7 +221,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setStreet (@Nullable final String sStreet, @Nonnull final Locale aSortLocale)
   {
-    final String sRealStreet = AddressHelper.getUnifiedStreet (sStreet, aSortLocale);
+    final String sRealStreet = PostalAddressHelper.getUnifiedStreet (sStreet, aSortLocale);
     if (EqualsHelper.equals (m_sStreet, sRealStreet))
       return EChange.UNCHANGED;
     m_sStreet = sRealStreet;
@@ -252,7 +252,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setPostOfficeBox (@Nullable final String sPostOfficeBox, @Nonnull final Locale aSortLocale)
   {
-    final String sRealPostOfficeBox = AddressHelper.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
+    final String sRealPostOfficeBox = PostalAddressHelper.getUnifiedPOBox (sPostOfficeBox, aSortLocale);
     if (EqualsHelper.equals (m_sPostOfficeBox, sRealPostOfficeBox))
       return EChange.UNCHANGED;
     m_sPostOfficeBox = sRealPostOfficeBox;
@@ -268,7 +268,7 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   @Nonnull
   public EChange setCareOf (@Nullable final String sCareOf, @Nonnull final Locale aSortLocale)
   {
-    final String sRealCareOf = AddressHelper.getUnifiedCareOf (sCareOf, aSortLocale);
+    final String sRealCareOf = PostalAddressHelper.getUnifiedCareOf (sCareOf, aSortLocale);
     if (EqualsHelper.equals (m_sCareOf, sRealCareOf))
       return EChange.UNCHANGED;
     m_sCareOf = sRealCareOf;
