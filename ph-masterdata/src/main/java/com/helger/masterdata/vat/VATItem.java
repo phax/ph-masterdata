@@ -65,8 +65,10 @@ public class VATItem implements IVATItem
     ValueEnforcer.notNull (eType, "Type");
     ValueEnforcer.notNull (aPercentage, "Percentage");
     ValueEnforcer.isBetweenInclusive (aPercentage, "Percentage", BigDecimal.ZERO, CGlobal.BIGDEC_100);
-    if (MathHelper.isNE0 (aPercentage))
-      ValueEnforcer.notNull (aCountry, "If a percentage is present a country must be present!");
+    // Simply not true
+    if (false)
+      if (MathHelper.isNE0 (aPercentage))
+        ValueEnforcer.notNull (aCountry, "If a percentage is present a country must be present!");
     if (aValidFrom != null && aValidTo != null && aValidTo.isBefore (aValidFrom))
       throw new IllegalArgumentException ("ValidFrom date must be <= validTo date");
 
