@@ -48,7 +48,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
   private String m_sLastModificationUserID;
   private LocalDateTime m_aDeletionDT;
   private String m_sDeletionUserID;
-  private final StringMap m_aCustomAttrs = new StringMap ();
+  private final StringMap m_aAttrs = new StringMap ();
   // Status vars
   private transient int m_nHashCode = IHashCodeGenerator.ILLEGAL_HASHCODE;
 
@@ -71,7 +71,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
                                  @Nullable final String sLastModificationUserID,
                                  @Nullable final LocalDateTime aDeletionDT,
                                  @Nullable final String sDeletionUserID,
-                                 @Nullable final Map <String, String> aCustomAttrs)
+                                 @Nullable final Map <String, String> aAttrs)
   {
     m_sID = ValueEnforcer.notEmpty (sID, "ID");
     m_aCreationDT = aCreationDT;
@@ -80,7 +80,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
     m_sLastModificationUserID = sLastModificationUserID;
     m_aDeletionDT = aDeletionDT;
     m_sDeletionUserID = sDeletionUserID;
-    m_aCustomAttrs.addAll (aCustomAttrs);
+    m_aAttrs.addAll (aAttrs);
   }
 
   @Nonnull
@@ -182,7 +182,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
   @ReturnsMutableObject
   public final StringMap attrs ()
   {
-    return m_aCustomAttrs;
+    return m_aAttrs;
   }
 
   @Override
@@ -215,7 +215,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
                                        .appendIfNotNull ("LastModificationUserID", m_sLastModificationUserID)
                                        .appendIfNotNull ("DeletionDT", m_aDeletionDT)
                                        .appendIfNotNull ("DeletionUserID", m_sDeletionUserID)
-                                       .append ("CustomAttrs", m_aCustomAttrs)
+                                       .append ("Attrs", m_aAttrs)
                                        .getToString ();
   }
 }

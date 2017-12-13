@@ -20,11 +20,13 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.attr.IStringMap;
 import com.helger.commons.type.ITypedObject;
+import com.helger.datetime.util.PDTHelper;
 import com.helger.tenancy.datetime.IHasCreationInfo;
 import com.helger.tenancy.datetime.IHasDeletionInfo;
 import com.helger.tenancy.datetime.IHasLastModificationInfo;
@@ -41,16 +43,52 @@ public interface IBusinessObject extends
                                  IHasDeletionInfo,
                                  Serializable
 {
-  default boolean isLastChangeAfter (@Nonnull final LocalDateTime aDT)
+  /**
+   * @return The latest date time that something changed. This is the latest
+   *         date time from {@link #getCreationDateTime()},
+   *         {@link #getLastModificationDateTime()} and
+   *         {@link #getDeletionDateTime()}. It may be <code>null</code> if no
+   *         time is defined at all.
+   */
+  @Nullable
+  default LocalDateTime getLastChangeDateTime ()
   {
     final LocalDateTime aCreationDT = getCreationDateTime ();
-    if (aCreationDT != null && aCreationDT.isAfter (aDT))
-      return true;
+    LocalDateTime ret = aCreationDT;
+
     final LocalDateTime aLastModDT = getLastModificationDateTime ();
-    if (aLastModDT != null && aLastModDT.isAfter (aDT))
-      return true;
+    if (aLastModDT != null)
+    {
+      if (ret != null)
+        ret = PDTHelper.getMax (ret, aLastModDT);
+      else
+        ret = aLastModDT;
+    }
+
     final LocalDateTime aDeletionDT = getDeletionDateTime ();
-    if (aDeletionDT != null && aDeletionDT.isAfter (aDT))
+    if (aDeletionDT != null)
+    {
+      if (ret != null)
+        ret = PDTHelper.getMax (ret, aDeletionDT);
+      else
+        ret = aDeletionDT;
+    }
+    return ret;
+  }
+
+  /**
+   * Check if the last change date is after the provider date time.
+   * 
+   * @param aDT
+   *        The date time to check against. May not be <code>null</code>.
+   * @return <code>true</code> if a last change date time is present and is
+   *         after the provided date time.
+   * @see #getLastChangeDateTime()
+   */
+  default boolean isLastChangeAfter (@Nonnull final LocalDateTime aDT)
+  {
+    final LocalDateTime aLastChangeDT = getLastChangeDateTime ();
+    if (aLastChangeDT != null && aLastChangeDT.isAfter (aDT))
       return true;
     return false;
   }
@@ -80,7 +118,7 @@ public interface IBusinessObject extends
   }
 
   /**
-   * @return Custom attributes.
+   * @return Custom attributes. Never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableObject
