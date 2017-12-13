@@ -37,7 +37,7 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class CurrencyValue implements IMutableCurrencyValue
+public class CurrencyValue implements IMutableCurrencyValue
 {
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;

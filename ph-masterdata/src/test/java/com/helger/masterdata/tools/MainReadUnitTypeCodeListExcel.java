@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.string.StringHelper;
@@ -86,7 +87,7 @@ public final class MainReadUnitTypeCodeListExcel
         final int nLevel = StringParser.parseInt (sLevel.substring (0, 1), -1);
         final String sLevelSuffix = sLevel.length () != 2 ? null : sLevel.substring (1, 2);
         final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (5));
-        final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
+        final ICommonsList <EUNCodelistStatus> aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
         final String sCommonCode = ExcelReadHelper.getCellValueString (aRow.getCell (6));
         final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (7));
         final String sConversionFactor = ExcelReadHelper.getCellValueString (aRow.getCell (8));

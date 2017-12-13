@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -26,7 +27,7 @@ import javax.annotation.Nullable;
  *
  * @author Philip Helger
  */
-public interface IVATItemProvider
+public interface IVATItemProvider extends Serializable
 {
   /**
    * Get the VAT type with the given ID.

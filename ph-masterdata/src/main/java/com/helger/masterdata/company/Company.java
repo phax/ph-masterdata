@@ -38,7 +38,7 @@ import com.helger.commons.type.ObjectType;
  *
  * @author Philip Helger
  */
-public final class Company implements ICompany
+public class Company implements ICompany
 {
   public static final ObjectType OT = new ObjectType ("company");
 
@@ -50,7 +50,7 @@ public final class Company implements ICompany
   private final String m_sID;
   private String m_sPublicName;
   private String m_sOfficialName;
-  private final ICommonsMap <String, CompanySite> m_aAllSites = new CommonsHashMap<> ();
+  private final ICommonsMap <String, CompanySite> m_aAllSites = new CommonsHashMap <> ();
   private CompanySite m_aHeadQuarterSite;
 
   public Company (@Nonnull @Nonempty final String sID)

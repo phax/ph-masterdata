@@ -29,7 +29,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class PostalAddressMicroTypeConverter implements IMicroTypeConverter <PostalAddress>
+public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <PostalAddress>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");
   private static final IMicroQName ATTR_COUNTRY = new MicroQName ("country");
@@ -82,14 +82,14 @@ public final class PostalAddressMicroTypeConverter implements IMicroTypeConverte
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
     final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
     return new PostalAddress (eType,
-                        sCountry,
-                        sState,
-                        sPostalCode,
-                        sCity,
-                        sStreet,
-                        sBuildingNumber,
-                        sPostOfficeBox,
-                        sCareOf,
-                        aLocale);
+                              sCountry,
+                              sState,
+                              sPostalCode,
+                              sCity,
+                              sStreet,
+                              sBuildingNumber,
+                              sPostOfficeBox,
+                              sCareOf,
+                              aLocale);
   }
 }

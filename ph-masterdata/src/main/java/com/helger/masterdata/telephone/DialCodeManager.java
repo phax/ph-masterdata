@@ -18,9 +18,11 @@ package com.helger.masterdata.telephone;
 
 import java.util.Locale;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.exception.InitializationException;
@@ -36,7 +38,7 @@ import com.helger.xml.microdom.util.XMLMapHandler;
 @Immutable
 public final class DialCodeManager
 {
-  private static final ICommonsMap <String, String> s_aCountryToDialCode = new CommonsHashMap<> ();
+  private static final ICommonsMap <String, String> s_aCountryToDialCode = new CommonsHashMap <> ();
 
   static
   {
@@ -62,5 +64,12 @@ public final class DialCodeManager
     if (StringHelper.hasNoText (sCountry))
       return null;
     return s_aCountryToDialCode.get (sCountry.toUpperCase (Locale.US));
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsMap <String, String> getAllDialCodes ()
+  {
+    return s_aCountryToDialCode.getClone ();
   }
 }

@@ -117,7 +117,7 @@ public class MainReadPackageTypeCodeListExcel
       {
         final Row aRow = it.next ();
         final String sStatus = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-        final EUNCodelistStatus [] aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
+        final ICommonsList <EUNCodelistStatus> aStatus = EUNCodelistStatus.getFromTextOrUnchanged (sStatus);
         final String sCode = ExcelReadHelper.getCellValueString (aRow.getCell (1));
         final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (2));
         final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (3));

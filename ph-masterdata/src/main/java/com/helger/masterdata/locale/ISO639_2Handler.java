@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.locale;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -31,7 +32,7 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 
-public class ISO639_2Handler
+public class ISO639_2Handler implements Serializable
 {
   public static final String DEFAULT_RESOURCE = "codelists/iso639-2-data-20130111.xml";
 
@@ -40,9 +41,9 @@ public class ISO639_2Handler
     static final ISO639_2Handler s_aInstance = new ISO639_2Handler ().readFromResource (new ClassPathResource (DEFAULT_RESOURCE));
   }
 
-  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3B = new CommonsHashMap<> ();
-  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3T = new CommonsHashMap<> ();
-  private final ICommonsMap <String, ISO639_2Item> m_aAlpha2 = new CommonsHashMap<> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3B = new CommonsHashMap <> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha3T = new CommonsHashMap <> ();
+  private final ICommonsMap <String, ISO639_2Item> m_aAlpha2 = new CommonsHashMap <> ();
 
   public ISO639_2Handler ()
   {}

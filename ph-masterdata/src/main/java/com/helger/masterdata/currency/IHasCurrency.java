@@ -29,11 +29,14 @@ import com.helger.commons.annotation.Nonempty;
 public interface IHasCurrency
 {
   /**
-   * @return The underlying currency.
+   * @return The underlying currency. May not be <code>null</code>.
    */
   @Nonnull
   ECurrency getCurrency ();
 
+  /**
+   * @return The ID of the underlying currency. May not be <code>null</code>.
+   */
   @Nonnull
   @Nonempty
   default String getCurrencyID ()

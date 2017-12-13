@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.company;
 
+import java.io.Serializable;
+
 import javax.annotation.Nullable;
 
 /**
@@ -24,7 +26,7 @@ import javax.annotation.Nullable;
  * @author Philip Helger
  */
 @FunctionalInterface
-public interface ICompanyResolver
+public interface ICompanyResolver extends Serializable
 {
   /**
    * Get the company with the specified ID.

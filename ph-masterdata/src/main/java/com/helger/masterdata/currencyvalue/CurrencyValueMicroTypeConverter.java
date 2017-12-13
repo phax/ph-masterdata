@@ -28,7 +28,7 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-public final class CurrencyValueMicroTypeConverter implements IMicroTypeConverter <CurrencyValue>
+public class CurrencyValueMicroTypeConverter implements IMicroTypeConverter <CurrencyValue>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final IMicroQName ATTR_VALUE = new MicroQName ("value");

@@ -32,7 +32,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-final class IBANElement implements Serializable
+public final class IBANElement implements Serializable
 {
   private final EIBANElementType m_eElementType;
   private final int m_nLength;

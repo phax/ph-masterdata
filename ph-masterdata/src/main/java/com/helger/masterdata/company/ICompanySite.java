@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.company;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -30,7 +32,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
  *
  * @author Philip Helger
  */
-public interface ICompanySite extends IHasDisplayName, ITypedObject <String>
+public interface ICompanySite extends IHasDisplayName, ITypedObject <String>, Serializable
 {
   /**
    * @return The company to which the site belongs

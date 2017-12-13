@@ -27,8 +27,8 @@ import com.helger.commons.id.factory.GlobalIDFactory;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.commons.type.ObjectType;
-import com.helger.masterdata.address.PostalAddress;
 import com.helger.masterdata.address.IPostalAddress;
+import com.helger.masterdata.address.PostalAddress;
 import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
@@ -39,7 +39,7 @@ import com.helger.masterdata.telephone.TelephoneNumber;
  *
  * @author Philip Helger
  */
-public final class CompanySite implements ICompanySite
+public class CompanySite implements ICompanySite
 {
   public static final ObjectType OT = new ObjectType ("company-site");
   public static final boolean DEFAULT_DELETABLE = true;

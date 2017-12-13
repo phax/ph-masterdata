@@ -17,6 +17,7 @@
 package com.helger.masterdata.locale;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -44,7 +45,7 @@ import com.helger.xml.microdom.serialize.MicroReader;
  *
  * @author Philip Helger
  */
-public class DeprecatedLocaleHandler
+public class DeprecatedLocaleHandler implements Serializable
 {
   private static final class SingletonHolder
   {
@@ -52,7 +53,7 @@ public class DeprecatedLocaleHandler
   }
 
   @Immutable
-  private static final class LocaleParts
+  private static final class LocaleParts implements Serializable
   {
     private final String m_sLanguage;
     private final String m_sCountry;
@@ -78,8 +79,11 @@ public class DeprecatedLocaleHandler
 
   private static final Logger s_aLogger = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
 
-  private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet<> ();
-  private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet<> ();
+  private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet <> ();
+  private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet <> ();
+
+  public DeprecatedLocaleHandler ()
+  {}
 
   public void initFromXML (@Nonnull final IMicroDocument aDoc)
   {
