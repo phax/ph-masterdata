@@ -21,27 +21,28 @@ Java library with lots of default business objects and algorithms:
   * Vehicle sign handling 
 
 # News and noteworthy
-  * v6.0.0 - work in progress
-    * Added country Locale to VAT item
-    * Updated vehicle sign list and API
-    * Updated to ph-commons 9.0.0
-    * Removed ph-validation and ph-masterdata-validation as they were badly designed
-  * v5.0.5 - 2017-05-30
-    * Requires at least ph-common 8.6.5
-    * API extensions
-  * v5.0.4 - 2017-04-20
-    * Added VATIN checksum routines to validate the checksum character(s) in VATINs without a service call
-    * Requires at least ph-common 8.6.x
-  * v5.0.3 - 2016-10-21
-    * Small performance tweaks
-    * Requires at least ph-common 8.5.2
-  * v5.0.2 - 2016-09-12
-    * Binds to ph-commons 8.5.x
-  * v5.0.0
-    * Binds to ph-commons 8.x
-    * Requires JDK 8
-  * v4.0.0
-    * Binds to ph-commons 6.x        
+* v6.0.0 - 2017-12-14
+  * Added country Locale to VAT item
+  * Updated vehicle sign list and API
+  * Updated to ph-commons 9.0.0
+  * Removed ph-validation and ph-masterdata-validation as they were badly designed
+  * Added new subproject ph-tenancy
+* v5.0.5 - 2017-05-30
+  * Requires at least ph-common 8.6.5
+  * API extensions
+* v5.0.4 - 2017-04-20
+  * Added VATIN checksum routines to validate the checksum character(s) in VATINs without a service call
+  * Requires at least ph-common 8.6.x
+* v5.0.3 - 2016-10-21
+  * Small performance tweaks
+  * Requires at least ph-common 8.5.2
+* v5.0.2 - 2016-09-12
+  * Binds to ph-commons 8.5.x
+* v5.0.0
+  * Binds to ph-commons 8.x
+  * Requires JDK 8
+* v4.0.0
+  * Binds to ph-commons 6.x        
 
 # Maven usage
 Add the following to your pom.xml to use this artifact:
@@ -49,15 +50,24 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>5.0.5</version>
+  <version>6.0.0</version>
 </dependency>
 ```
+
+```xml
+<dependency>
+  <groupId>com.helger</groupId>
+  <artifactId>ph-tenancy</artifactId>
+  <version>6.0.0</version>
+</dependency>
+```
+
 
 # Legacy artefacts
 ## ph-validation
 
 Java library for validation artifacts (errors etc.)
-Last version:
+Last version is 5.0.5.
 ```xml
 <dependency>
   <groupId>com.helger</groupId>
@@ -69,6 +79,7 @@ Last version:
 ## ph-masterdata-validation
 
 Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
+Last version is 5.0.5.
 ```xml
 <dependency>
   <groupId>com.helger</groupId>
