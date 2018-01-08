@@ -39,11 +39,11 @@ public final class IBusinessObjectTest
   {
     private static final ObjectType OT = new ObjectType ("mock-bo");
     private final String m_sID;
-    String m_sCreationUserID;
+    String m_sCreationUserID = null;
     LocalDateTime m_aCreationDT;
-    String m_sLastModUserID;
+    String m_sLastModUserID = null;
     LocalDateTime m_aLastModDT;
-    String m_sDeletionUserID;
+    String m_sDeletionUserID = null;
     LocalDateTime m_aDeletionDT;
 
     public MockBO ()
