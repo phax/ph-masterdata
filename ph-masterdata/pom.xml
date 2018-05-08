@@ -85,13 +85,7 @@
             <Export-Package>com.helger.masterdata.*</Export-Package>
             <Import-Package>!javax.annotation.*,*</Import-Package>
             <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
-            <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.address.AddressMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.currencyvalue.CurrencyValueMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.email.EmailAddressMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.exchangeratio.ExchangeRatioMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.person.PersonMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.price.PriceMicroTypeConverterRegistrar,
-osgi.serviceloader; osgi.serviceloader=com.helger.masterdata.telephone.TelephoneMicroTypeConverterRegistrar</Provide-Capability>
+            <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.xml.microdom.convert.IMicroTypeConverterRegistrarSPI</Provide-Capability>
           </instructions>
         </configuration>
       </plugin>
