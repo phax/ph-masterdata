@@ -86,6 +86,24 @@ public class VATINSyntaxChecker
    */
   public static boolean isValidVATIN (@Nonnull final String sVATIN)
   {
+    // For backwards compatibility
+    return isValidVATIN (sVATIN, true);
+  }
+
+  /**
+   * Check if the provided VATIN is valid. This method handles VATINs for all
+   * countries. This check uses only the checksum algorithm and does not call
+   * any webservice etc.
+   *
+   * @param sVATIN
+   *        VATIN to check. May not be <code>null</code>.
+   * @param bIfNoValidator
+   *        What to return if no validator was found?
+   * @return <code>true</code> if the VATIN is valid (or unknown).
+   * @since 6.0.1
+   */
+  public static boolean isValidVATIN (@Nonnull final String sVATIN, final boolean bIfNoValidator)
+  {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     if (sVATIN.length () > 2)
     {
@@ -96,7 +114,7 @@ public class VATINSyntaxChecker
     }
 
     // No validator
-    return true;
+    return bIfNoValidator;
   }
 
   /**
