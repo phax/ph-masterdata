@@ -60,7 +60,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
 
 public class MainReadPostalCodeListExcel
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadPostalCodeListExcel.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadPostalCodeListExcel.class);
   private static final String PREFIX_ONE_CODE = "one code: ";
   private static final String NO_CODES = "- no codes -";
 
@@ -164,7 +164,7 @@ public class MainReadPostalCodeListExcel
         final String sCountry = ExcelReadHelper.getCellValueString (aRow.getCell (0));
         if (StringHelper.hasNoText (sCountry))
         {
-          s_aLogger.warn ("Line " + nRow + ": No country name present");
+          LOGGER.warn ("Line " + nRow + ": No country name present");
           continue;
         }
         final Cell aDateCell = aRow.getCell (1);
@@ -183,7 +183,7 @@ public class MainReadPostalCodeListExcel
         final String sISO = ExcelReadHelper.getCellValueString (aRow.getCell (2));
         if (StringHelper.hasNoText (sISO))
         {
-          s_aLogger.warn ("Line " + nRow + ": No ISO code for " + sCountry);
+          LOGGER.warn ("Line " + nRow + ": No ISO code for " + sCountry);
           continue;
         }
         final String sFormat = ExcelReadHelper.getCellValueString (aRow.getCell (3));
@@ -251,7 +251,7 @@ public class MainReadPostalCodeListExcel
                                  FileHelper.getBufferedOutputStream (new File ("src/main/resources/codelists/postal-codes-" +
                                                                                sRevision +
                                                                                ".xml")));
-      s_aLogger.info ("Done");
+      LOGGER.info ("Done");
     }
   }
 }

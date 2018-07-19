@@ -36,7 +36,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
  */
 public final class AddressMicroTypeConverterRegistrarTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (AddressMicroTypeConverterRegistrarTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (AddressMicroTypeConverterRegistrarTest.class);
 
   @Test
   public void testMarshal ()
@@ -50,7 +50,7 @@ public final class AddressMicroTypeConverterRegistrarTest
     aAddress.setCountry ("AT", aLocale);
     final IMicroElement aElement = MicroTypeConverter.convertToMicroElement (aAddress, "addr");
     assertNotNull (aElement);
-    s_aLogger.info (MicroWriter.getNodeAsString (aElement));
+    LOGGER.info (MicroWriter.getNodeAsString (aElement));
 
     final PostalAddress aAddress2 = MicroTypeConverter.convertToNative (aElement, PostalAddress.class);
     assertEquals (aAddress, aAddress2);

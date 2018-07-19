@@ -42,7 +42,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
 
 public class MainReadPackageTypeCodeListExcel
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadPackageTypeCodeListExcel.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadPackageTypeCodeListExcel.class);
 
   private static String _convertNumericCodes (final String sNumericCode)
   {
@@ -140,7 +140,7 @@ public class MainReadPackageTypeCodeListExcel
       }
 
       MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));
-      s_aLogger.info ("Done");
+      LOGGER.info ("Done");
     }
   }
 }

@@ -41,7 +41,7 @@ import com.helger.poi.excel.ExcelReadHelper;
 public final class MainReadCountry2Continent
 {
   private static final Locale LOC = Locale.US;
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadCountry2Continent.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadCountry2Continent.class);
 
   @Nonnull
   private static EContinent _findContinent (final String s)
@@ -121,14 +121,14 @@ public final class MainReadCountry2Continent
       final Locale aCountry = _findCountryComplex (sCountryName);
       if (aCountry == null)
       {
-        s_aLogger.info ("No such country: '" + sCountryName + "'");
+        LOGGER.info ("No such country: '" + sCountryName + "'");
         ++nNotFound;
       }
       else
       {
         final EContinent eOld = aMap.put (aCountry, eContinent);
         if (eOld != null)
-          s_aLogger.info ("Country " +
+          LOGGER.info ("Country " +
                           aCountry.getDisplayCountry (LOC) +
                           " is assigned to " +
                           eContinent.getDisplayText (LOC) +
@@ -138,11 +138,11 @@ public final class MainReadCountry2Continent
 
       ++nRow;
     }
-    s_aLogger.info ("Countries not found: " + nNotFound);
+    LOGGER.info ("Countries not found: " + nNotFound);
 
     for (final Map.Entry <Locale, EContinent> e : aMap.entrySet ())
     {
-      s_aLogger.info ("s_aMap.put (CountryCache.getCountry (\"" +
+      LOGGER.info ("s_aMap.put (CountryCache.getCountry (\"" +
                       e.getKey ().getCountry () +
                       "\"), EContinent." +
                       e.getValue ().name () +

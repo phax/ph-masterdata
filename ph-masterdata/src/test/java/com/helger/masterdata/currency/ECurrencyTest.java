@@ -48,7 +48,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public final class ECurrencyTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (ECurrencyTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (ECurrencyTest.class);
   private static final Locale L_DE = new Locale ("de");
   private static final Locale L_EN = new Locale ("en");
 
@@ -415,6 +415,6 @@ public final class ECurrencyTest
       final String sID = a.getKey ().getCurrencyCode ();
       aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + sLocale + "),");
     }
-    s_aLogger.info (aSB.toString ());
+    LOGGER.info (aSB.toString ());
   }
 }

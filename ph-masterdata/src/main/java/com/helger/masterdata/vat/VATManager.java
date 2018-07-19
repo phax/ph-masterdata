@@ -78,7 +78,7 @@ public class VATManager implements IVATItemProvider
                                                            null,
                                                            null);
 
-  private static final Logger s_aLogger = LoggerFactory.getLogger (VATManager.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (VATManager.class);
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
 
   // The sources the data comes from
@@ -129,7 +129,7 @@ public class VATManager implements IVATItemProvider
       final Locale aCountry = CountryCache.getInstance ().getCountry (sCountry);
       if (m_aVATItemsPerCountry.containsKey (aCountry))
       {
-        s_aLogger.warn ("VAT types for country " + aCountry + " have already been defined!");
+        LOGGER.warn ("VAT types for country " + aCountry + " have already been defined!");
         continue;
       }
       final String sCountryName = eVATTypes.getAttributeValue ("countryname");
@@ -152,7 +152,7 @@ public class VATManager implements IVATItemProvider
         final String sID = eVATItem.getAttributeValue ("id");
         if (StringHelper.hasNoText (sID))
         {
-          s_aLogger.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
+          LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
           continue;
         }
         final String sRealID = _getCountryString (aCountry) + "." + sID;
@@ -162,7 +162,7 @@ public class VATManager implements IVATItemProvider
         final EVATType eType = EVATType.getFromIDOrNull (sType);
         if (eType == null)
         {
-          s_aLogger.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
+          LOGGER.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
           continue;
         }
 
@@ -171,7 +171,7 @@ public class VATManager implements IVATItemProvider
         final BigDecimal aPercentage = StringParser.parseBigDecimal (sPercentage, null);
         if (aPercentage == null)
         {
-          s_aLogger.warn ("Percentage value '" +
+          LOGGER.warn ("Percentage value '" +
                           sPercentage +
                           "' for VAT item " +
                           sRealID +
@@ -194,13 +194,13 @@ public class VATManager implements IVATItemProvider
         // build and add item
         final VATItem aVATItem = new VATItem (sRealID, aCountry, eType, aPercentage, bDeprecated, aValidFrom, aValidTo);
         if (aVATCountryData.addItem (aVATItem).isUnchanged ())
-          s_aLogger.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
+          LOGGER.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
         if (m_aAllVATItems.put (sRealID, aVATItem) != null)
-          s_aLogger.warn ("Found overall duplicate VAT item " + aVATItem);
+          LOGGER.warn ("Found overall duplicate VAT item " + aVATItem);
       }
 
       if (aVATCountryData.isEmpty ())
-        s_aLogger.warn ("No VAT types for country " + aCountry + " defined!");
+        LOGGER.warn ("No VAT types for country " + aCountry + " defined!");
       m_aVATItemsPerCountry.put (aCountry, aVATCountryData);
     }
   }

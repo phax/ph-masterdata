@@ -40,7 +40,7 @@ import com.helger.commons.string.ToStringGenerator;
 @NotThreadSafe
 public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <ExtendedEmailAddress>
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (ExtendedEmailAddress.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (ExtendedEmailAddress.class);
 
   private IEmailAddressType m_aAddressType;
   private String m_sAddress;
@@ -127,7 +127,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     // bottleneck when having multiple customers
     if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
-      s_aLogger.error ("Found an illegal email address: '" + sRealAddress + "'");
+      LOGGER.error ("Found an illegal email address: '" + sRealAddress + "'");
       return EChange.UNCHANGED;
     }
     m_sAddress = sRealAddress;

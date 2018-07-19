@@ -41,7 +41,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
  */
 public final class MainReadLatLonState
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadLatLonState.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadLatLonState.class);
 
   public static void main (final String [] args) throws IOException
   {
@@ -76,6 +76,6 @@ public final class MainReadLatLonState
       MicroWriter.writeToFile (aDoc,
                                new File ("src/main/resources/codelists/latitude-longitude-us-" + sRevision + ".xml"));
     }
-    s_aLogger.info ("Done");
+    LOGGER.info ("Done");
   }
 }

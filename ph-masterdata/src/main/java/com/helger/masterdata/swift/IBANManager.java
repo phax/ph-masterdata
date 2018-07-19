@@ -85,7 +85,7 @@ public final class IBANManager
   private static final String ATTR_LAYOUT = "layout";
   private static final int ILLEGAL_CHECKSUM = CGlobal.ILLEGAL_UINT;
 
-  private static final Logger s_aLogger = LoggerFactory.getLogger (IBANManager.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (IBANManager.class);
 
   /** Maps country code to IBAn country data */
   private static final ICommonsMap <String, IBANCountryData> s_aIBANData = new CommonsHashMap <> ();
@@ -117,7 +117,7 @@ public final class IBANManager
       final String sDesc = eCountry.getTextContent ();
       final String sCountryCode = sDesc.substring (0, 2);
       if (CountryCache.getInstance ().getCountry (sCountryCode) == null)
-        s_aLogger.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
+        LOGGER.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
 
       LocalDate aValidFrom = null;
       if (eCountry.hasAttribute (ATTR_VALIDFROM))

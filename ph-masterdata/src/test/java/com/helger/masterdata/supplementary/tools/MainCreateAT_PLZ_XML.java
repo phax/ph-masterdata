@@ -39,7 +39,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
 
 public class MainCreateAT_PLZ_XML
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainCreateAT_PLZ_XML.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainCreateAT_PLZ_XML.class);
 
   public static void main (final String [] args) throws Exception
   {
@@ -127,6 +127,6 @@ public class MainCreateAT_PLZ_XML
       ePLZ.setAttribute ("postfach", bPostfach);
     }
     MicroWriter.writeToFile (aDoc, new File ("src/main/resources/at/plz.xml"));
-    s_aLogger.info ("Found " + nRowIndex + " rows");
+    LOGGER.info ("Found " + nRowIndex + " rows");
   }
 }

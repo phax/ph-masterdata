@@ -77,7 +77,7 @@ public class DeprecatedLocaleHandler implements Serializable
     }
   }
 
-  private static final Logger s_aLogger = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (DeprecatedLocaleHandler.class);
 
   private final ICommonsSet <Locale> m_aLocales = new CommonsHashSet <> ();
   private final ICommonsSet <LocaleParts> m_aLocaleParts = new CommonsHashSet <> ();
@@ -100,7 +100,7 @@ public class DeprecatedLocaleHandler implements Serializable
 
       final Locale aLocale = LocaleCache.getInstance ().getLocale (sLanguage, sCountry, sVariant);
       if (aLocale == null)
-        s_aLogger.warn ("Deprecated locale could not be resolved!");
+        LOGGER.warn ("Deprecated locale could not be resolved!");
       else
       {
         m_aLocales.add (aLocale);

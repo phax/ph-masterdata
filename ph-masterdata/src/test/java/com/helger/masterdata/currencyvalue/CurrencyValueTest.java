@@ -32,7 +32,7 @@ import com.helger.masterdata.currency.ECurrency;
 
 public final class CurrencyValueTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (CurrencyValueTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (CurrencyValueTest.class);
 
   @Test
   public void testGetFormatted ()
@@ -56,7 +56,7 @@ public final class CurrencyValueTest
 
       // There seems to be a bug in the optimizer of 1.6.0_45 so that the output
       // values are sometimes reordered - dunno why :(
-      s_aLogger.info ("[" + sCurrencyFormatted + "][" + sValueFormatted + "]");
+      LOGGER.info ("[" + sCurrencyFormatted + "][" + sValueFormatted + "]");
     }
   }
 }

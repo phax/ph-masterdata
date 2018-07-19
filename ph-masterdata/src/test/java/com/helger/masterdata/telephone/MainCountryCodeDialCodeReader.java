@@ -31,7 +31,7 @@ import com.helger.commons.string.StringHelper;
 
 public final class MainCountryCodeDialCodeReader
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainCountryCodeDialCodeReader.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainCountryCodeDialCodeReader.class);
 
   public static void main (final String [] args) throws IOException
   {
@@ -62,11 +62,11 @@ public final class MainCountryCodeDialCodeReader
         if (aCountry == null)
         {
           if (false)
-            s_aLogger.error ("Unknown locale: " + sISO);
+            LOGGER.error ("Unknown locale: " + sISO);
           continue;
         }
 
-        s_aLogger.info ("<map key=\"" + sISO2 + "\" value=\"" + sCountryCode + "\" />");
+        LOGGER.info ("<map key=\"" + sISO2 + "\" value=\"" + sCountryCode + "\" />");
       }
     }
   }

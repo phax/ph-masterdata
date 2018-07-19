@@ -49,7 +49,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
  */
 public final class MainReadUnitTypeCodeListExcel
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadUnitTypeCodeListExcel.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadUnitTypeCodeListExcel.class);
 
   public static void main (final String [] args) throws Exception
   {
@@ -151,7 +151,7 @@ public final class MainReadUnitTypeCodeListExcel
       }
 
       MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));
-      s_aLogger.info ("Done");
+      LOGGER.info ("Done");
     }
   }
 }

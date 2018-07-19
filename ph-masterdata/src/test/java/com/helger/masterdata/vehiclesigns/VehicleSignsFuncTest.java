@@ -37,7 +37,7 @@ import com.helger.commons.system.SystemHelper;
  */
 public final class VehicleSignsFuncTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (VehicleSignsFuncTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (VehicleSignsFuncTest.class);
 
   @Ignore
   @Test
@@ -46,7 +46,7 @@ public final class VehicleSignsFuncTest
     if (false)
       for (final Locale aLocale : LocaleCache.getInstance ().getAllLocales ())
         if (aLocale.getDisplayCountry (Locale.UK).contains ("zi"))
-          s_aLogger.info (aLocale + " -- " + aLocale.getDisplayCountry (Locale.UK));
+          LOGGER.info (aLocale + " -- " + aLocale.getDisplayCountry (Locale.UK));
     final ICommonsOrderedMap <String, String> map = new CommonsLinkedHashMap <> ();
     map.put ("Albania", "AL");
     if (false)
@@ -234,7 +234,7 @@ public final class VehicleSignsFuncTest
       if (aFound == null)
         throw new IllegalStateException ("Failed to resolve country " + sCountry);
       if (false)
-        s_aLogger.info ("map.put (LocaleCache.get (\"\",\"" +
+        LOGGER.info ("map.put (LocaleCache.get (\"\",\"" +
                         aFound.getCountry () +
                         "\"), \"" +
                         map.get (sCountry) +
@@ -251,6 +251,6 @@ public final class VehicleSignsFuncTest
       for (final Locale aLocale2 : LocaleCache.getInstance ().getAllLocales ())
         aSet.add (aLocale.getDisplayCountry (aLocale2));
     for (final String sUnique : aSet)
-      s_aLogger.info (sUnique);
+      LOGGER.info (sUnique);
   }
 }

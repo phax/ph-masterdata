@@ -41,7 +41,7 @@ import com.helger.xml.microdom.serialize.MicroWriter;
  */
 public final class MainReadLatLonCountry
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (MainReadLatLonCountry.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (MainReadLatLonCountry.class);
 
   public static void main (final String [] args) throws IOException
   {
@@ -78,6 +78,6 @@ public final class MainReadLatLonCountry
                                          sRevision +
                                          ".xml"));
     }
-    s_aLogger.info ("Done");
+    LOGGER.info ("Done");
   }
 }
