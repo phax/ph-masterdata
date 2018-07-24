@@ -53,7 +53,7 @@ public class Person implements IPerson
   {
     ValueEnforcer.notNull (aBase, "Base");
     setGender (aBase.getGender ());
-    setName (aBase.getName (), aSortLocale);
+    setName (new PersonName (aBase.getName (), aSortLocale));
     setBirthday (aBase.getBirthday ());
     setTelephoneNumber (aBase.getTelephoneNumber ());
     setEmailAddress (aBase.getEmailAddress ());
@@ -61,7 +61,7 @@ public class Person implements IPerson
   }
 
   public Person (@Nullable final EGender eGender,
-                 @Nullable final IPersonName aName,
+                 @Nonnull final IPersonName aName,
                  @Nullable final LocalDate aBirthday,
                  @Nullable final ITelephoneNumber aTelephoneNumber,
                  @Nullable final IExtendedEmailAddress aEmailAddress,
@@ -69,7 +69,7 @@ public class Person implements IPerson
                  @Nonnull final Locale aSortLocale)
   {
     setGender (eGender);
-    setName (aName, aSortLocale);
+    setName (new PersonName (aName, aSortLocale));
     setBirthday (aBirthday);
     setTelephoneNumber (aTelephoneNumber);
     setEmailAddress (aEmailAddress);
@@ -91,28 +91,20 @@ public class Person implements IPerson
     return EChange.CHANGED;
   }
 
-  @Nullable
+  @Nonnull
   public PersonName getName ()
   {
     return m_aName;
   }
 
   @Nonnull
-  public EChange setName (@Nullable final PersonName aName)
+  public EChange setName (@Nonnull final PersonName aName)
   {
-    if (EqualsHelper.equals (aName, m_aName))
+    ValueEnforcer.notNull (aName, "Name");
+    if (aName.equals (m_aName))
       return EChange.UNCHANGED;
     m_aName = aName;
     return EChange.CHANGED;
-  }
-
-  @Nonnull
-  public EChange setName (@Nullable final IPersonName aName, @Nonnull final Locale aSortLocale)
-  {
-    PersonName aRealName = null;
-    if (aName != null)
-      aRealName = new PersonName (aName, aSortLocale);
-    return setName (aRealName);
   }
 
   @Nullable

@@ -65,18 +65,13 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     setPersonal (aBase.getPersonal ());
   }
 
-  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType)
-  {
-    this (aAddressType, null, null);
-  }
-
-  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @Nullable final String sAddress)
+  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @Nonnull final String sAddress)
   {
     this (aAddressType, sAddress, null);
   }
 
   public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType,
-                               @Nullable final String sAddress,
+                               @Nonnull final String sAddress,
                                @Nullable final String sPersonal)
   {
     setType (aAddressType);
@@ -99,7 +94,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return EChange.CHANGED;
   }
 
-  @Nullable
+  @Nonnull
   public String getAddress ()
   {
     return m_sAddress;
@@ -110,15 +105,17 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
    * email address.
    *
    * @param sAddress
-   *        The address part to be set.
+   *        The address part to be set. May not be <code>null</code>.
    * @return {@link EChange#CHANGED} if the address was valid and different from
    *         the existing one. Returns {@link EChange#UNCHANGED} if the email
    *         address was the same as before, or the email address itself was
    *         invalid.
    */
   @Nonnull
-  public final EChange setAddress (@Nullable final String sAddress)
+  public final EChange setAddress (@Nonnull final String sAddress)
   {
+    ValueEnforcer.notNull (sAddress, "Address");
+
     final String sRealAddress = EmailAddressHelper.getUnifiedEmailAddress (sAddress);
     if (EqualsHelper.equals (sRealAddress, m_sAddress))
       return EChange.UNCHANGED;
@@ -127,7 +124,8 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     // bottleneck when having multiple customers
     if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
-      LOGGER.error ("Found an illegal email address: '" + sRealAddress + "'");
+      if (LOGGER.isErrorEnabled ())
+        LOGGER.error ("Found an illegal email address: '" + sRealAddress + "'");
       return EChange.UNCHANGED;
     }
     m_sAddress = sRealAddress;

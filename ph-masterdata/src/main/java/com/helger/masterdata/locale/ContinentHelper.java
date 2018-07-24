@@ -293,6 +293,9 @@ public final class ContinentHelper
     _register ("ZW", EContinent.AFRICA);
   }
 
+  private ContinentHelper ()
+  {}
+
   /**
    * Register assignment
    *
