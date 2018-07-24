@@ -54,12 +54,12 @@ public class CurrencyManager
   /** The default scale to be used if no JDK Currency is available */
   public static final int DEFAULT_SCALE = 2;
 
-  private static final ICommonsMap <ECurrency, PerCurrencySettings> s_aMap = new CommonsEnumMap <> (ECurrency.class);
+  private static final ICommonsMap <ECurrency, PerCurrencySettings> s_aSettingsMap = new CommonsEnumMap <> (ECurrency.class);
 
   static
   {
     for (final ECurrency e : ECurrency.values ())
-      s_aMap.put (e, new PerCurrencySettings (e));
+      s_aSettingsMap.put (e, new PerCurrencySettings (e));
   }
 
   private CurrencyManager ()
@@ -72,15 +72,15 @@ public class CurrencyManager
    * @return Never <code>null</code>.
    */
   @Nonnull
-  public static PerCurrencySettings get (@Nullable final ECurrency eCurrency)
+  public static PerCurrencySettings getSettings (@Nullable final ECurrency eCurrency)
   {
-    return s_aMap.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
+    return s_aSettingsMap.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
   }
 
   @Nonnull
   public static String getCurrencySymbol (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getCurrencySymbol ();
+    return getSettings (eCurrency).getCurrencySymbol ();
   }
 
   /**
@@ -94,7 +94,7 @@ public class CurrencyManager
   @Nonempty
   public static String getCurrencyPattern (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getCurrencyPattern ();
+    return getSettings (eCurrency).getCurrencyPattern ();
   }
 
   /**
@@ -108,7 +108,7 @@ public class CurrencyManager
   @Nonempty
   public static String getValuePattern (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getValuePattern ();
+    return getSettings (eCurrency).getValuePattern ();
   }
 
   /**
@@ -122,13 +122,13 @@ public class CurrencyManager
   @Nonnull
   public static DecimalFormat getCurrencyFormat (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getCurrencyFormat ();
+    return getSettings (eCurrency).getCurrencyFormat ();
   }
 
   @Nonnull
   public static String getCurrencyFormatted (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
   {
-    return get (eCurrency).getCurrencyFormatted (aValue);
+    return getSettings (eCurrency).getCurrencyFormatted (aValue);
   }
 
   @Nonnull
@@ -136,7 +136,7 @@ public class CurrencyManager
                                              @Nonnull final BigDecimal aValue,
                                              @Nonnegative final int nFractionDigits)
   {
-    return get (eCurrency).getCurrencyFormatted (aValue, nFractionDigits);
+    return getSettings (eCurrency).getCurrencyFormatted (aValue, nFractionDigits);
   }
 
   /**
@@ -151,13 +151,13 @@ public class CurrencyManager
   @Nonnull
   public static DecimalFormat getValueFormat (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getValueFormat ();
+    return getSettings (eCurrency).getValueFormat ();
   }
 
   @Nonnull
   public static String getValueFormatted (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
   {
-    return get (eCurrency).getValueFormatted (aValue);
+    return getSettings (eCurrency).getValueFormatted (aValue);
   }
 
   @Nonnull
@@ -165,7 +165,7 @@ public class CurrencyManager
                                           @Nonnull final BigDecimal aValue,
                                           @Nonnegative final int nFractionDigits)
   {
-    return get (eCurrency).getValueFormatted (aValue, nFractionDigits);
+    return getSettings (eCurrency).getValueFormatted (aValue, nFractionDigits);
   }
 
   /**
@@ -192,19 +192,19 @@ public class CurrencyManager
    */
   public static void setMinimumFractionDigits (@Nullable final ECurrency eCurrency, @Nonnegative final int nDecimals)
   {
-    get (eCurrency).setMinimumFractionDigits (nDecimals);
+    getSettings (eCurrency).setMinimumFractionDigits (nDecimals);
   }
 
   @Nullable
   public static EDecimalSeparator getDecimalSeparator (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getDecimalSeparator ();
+    return getSettings (eCurrency).getDecimalSeparator ();
   }
 
   @Nullable
   public static EGroupingSeparator getGroupingSeparator (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getGroupingSeparator ();
+    return getSettings (eCurrency).getGroupingSeparator ();
   }
 
   /**
@@ -283,7 +283,7 @@ public class CurrencyManager
                                                 @Nullable final String sTextValue,
                                                 @Nullable final BigDecimal aDefault)
   {
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     final DecimalFormat aCurrencyFormat = aPCS.getCurrencyFormat ();
 
     // Adopt the decimal separator
@@ -314,7 +314,7 @@ public class CurrencyManager
                                                          @Nullable final String sTextValue,
                                                          @Nullable final BigDecimal aDefault)
   {
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     final DecimalFormat aCurrencyFormat = aPCS.getCurrencyFormat ();
     return CurrencyHelper.parseCurrency (sTextValue, aCurrencyFormat, aDefault, aPCS.getRoundingMode ());
   }
@@ -340,7 +340,7 @@ public class CurrencyManager
                                              @Nullable final String sTextValue,
                                              @Nullable final BigDecimal aDefault)
   {
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     final DecimalFormat aValueFormat = aPCS.getValueFormat ();
 
     // Adopt the decimal separator
@@ -370,7 +370,7 @@ public class CurrencyManager
                                                       @Nullable final String sTextValue,
                                                       @Nullable final BigDecimal aDefault)
   {
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     final DecimalFormat aValueFormat = aPCS.getValueFormat ();
 
     return CurrencyHelper.parseCurrency (sTextValue, aValueFormat, aDefault, aPCS.getRoundingMode ());
@@ -387,7 +387,7 @@ public class CurrencyManager
   @Nonnegative
   public static int getScale (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getScale ();
+    return getSettings (eCurrency).getScale ();
   }
 
   /**
@@ -414,7 +414,7 @@ public class CurrencyManager
   {
     ValueEnforcer.notNull (aDividend, "Dividend");
     ValueEnforcer.notNull (aDivisor, "Divisor");
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     return aDividend.divide (aDivisor, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
@@ -447,7 +447,7 @@ public class CurrencyManager
   {
     ValueEnforcer.notNull (aDividend, "Dividend");
     ValueEnforcer.notNull (aDivisor, "Divisor");
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     return aDividend.divide (aDivisor, nFractionDigits, aPCS.getRoundingMode ());
   }
 
@@ -467,7 +467,7 @@ public class CurrencyManager
   public static BigDecimal getRounded (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     return aValue.setScale (aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
@@ -493,7 +493,7 @@ public class CurrencyManager
                                        @Nonnegative final int nFractionDigits)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    final PerCurrencySettings aPCS = get (eCurrency);
+    final PerCurrencySettings aPCS = getSettings (eCurrency);
     return aValue.setScale (nFractionDigits, aPCS.getRoundingMode ());
   }
 
@@ -508,7 +508,7 @@ public class CurrencyManager
   @Nonnull
   public static RoundingMode getRoundingMode (@Nullable final ECurrency eCurrency)
   {
-    return get (eCurrency).getRoundingMode ();
+    return getSettings (eCurrency).getRoundingMode ();
   }
 
   /**
@@ -522,6 +522,6 @@ public class CurrencyManager
    */
   public static void setRoundingMode (@Nullable final ECurrency eCurrency, @Nullable final RoundingMode eRoundingMode)
   {
-    get (eCurrency).setRoundingMode (eRoundingMode);
+    getSettings (eCurrency).setRoundingMode (eRoundingMode);
   }
 }

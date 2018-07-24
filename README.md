@@ -28,7 +28,7 @@ Java library with lots of default business objects and algorithms:
   * Renamed `EVATType` to `EVATItemType` (incompatible change)
   * Removed ID from class `Person`
   * Fixed code consistency issues
-  * Extracted mutable parts of `ECurrency` into class `CurrencyManager` (incompatible change)
+  * Extracted mutable parts of `ECurrency` into class `CurrencyHelper` (incompatible change)
 * v6.0.0 - 2017-12-14
   * Added country Locale to VAT item
   * Updated vehicle sign list and API

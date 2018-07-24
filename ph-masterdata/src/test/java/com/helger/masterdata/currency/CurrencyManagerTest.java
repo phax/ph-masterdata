@@ -99,7 +99,7 @@ public final class CurrencyManagerTest
     final BigDecimal aBD = new BigDecimal ("1234.56");
     for (final ECurrency e : ECurrency.values ())
     {
-      final PerCurrencySettings aPCS = CurrencyManager.get (e);
+      final PerCurrencySettings aPCS = CurrencyManager.getSettings (e);
       final int nDefaultFractionDigits = aPCS.getScale ();
       if (false)
         if (LOGGER.isInfoEnabled ())
@@ -118,7 +118,9 @@ public final class CurrencyManagerTest
                                                                         aPCS.getCurrencyFormatted (aBD),
                                                                         BigDecimal.TEN);
         // Set the correct scale!
-        assertEquals ("Difference for " + aPCS + " (based on: " + aPCS.getCurrencyFormatted (aBD) + ")", aExpected, aParsed);
+        assertEquals ("Difference for " + aPCS + " (based on: " + aPCS.getCurrencyFormatted (aBD) + ")",
+                      aExpected,
+                      aParsed);
       }
       {
         final BigDecimal aParsed = CurrencyManager.parseCurrencyFormatUnchanged (e,
@@ -143,9 +145,7 @@ public final class CurrencyManagerTest
         assertEquals (aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ()), aParsed2);
       }
       {
-        final BigDecimal aParsed2 = CurrencyManager.parseValueFormat (e,
-                                                                      aPCS.getValueFormatted (aBD),
-                                                                      BigDecimal.TEN);
+        final BigDecimal aParsed2 = CurrencyManager.parseValueFormat (e, aPCS.getValueFormatted (aBD), BigDecimal.TEN);
         // Set the correct scale!
         assertEquals (aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ()), aParsed2);
       }
@@ -174,10 +174,8 @@ public final class CurrencyManagerTest
         assertEquals (FIVE,
                       CurrencyManager.parseValueFormat (e,
                                                         "5," +
-                                                                   StringHelper.getRepeated ('0',
-                                                                                             nDefaultFractionDigits +
-                                                                                                  1) +
-                                                                   "9",
+                                                           StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                           "9",
                                                         BigDecimal.TEN));
 
         // dot as decimal separator
@@ -189,10 +187,8 @@ public final class CurrencyManagerTest
         assertEquals (FIVE,
                       CurrencyManager.parseValueFormat (e,
                                                         "5." +
-                                                                   StringHelper.getRepeated ('0',
-                                                                                             nDefaultFractionDigits +
-                                                                                                  1) +
-                                                                   "9",
+                                                           StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                           "9",
                                                         BigDecimal.TEN));
       }
 

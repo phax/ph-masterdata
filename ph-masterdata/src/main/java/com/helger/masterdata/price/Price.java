@@ -266,7 +266,7 @@ public class Price implements IMutablePrice
                                              @Nonnull final BigDecimal aGrossAmount,
                                              @Nonnull final IVATItem aVATItem)
   {
-    final PerCurrencySettings aPCS = CurrencyManager.get (eCurrency);
+    final PerCurrencySettings aPCS = CurrencyManager.getSettings (eCurrency);
     return createFromGrossAmount (eCurrency, aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
@@ -322,7 +322,7 @@ public class Price implements IMutablePrice
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
     final ECurrency eCurrency = aGrossAmount.getCurrency ();
-    final PerCurrencySettings aPCS = CurrencyManager.get (eCurrency);
+    final PerCurrencySettings aPCS = CurrencyManager.getSettings (eCurrency);
     return createFromGrossAmount (aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
