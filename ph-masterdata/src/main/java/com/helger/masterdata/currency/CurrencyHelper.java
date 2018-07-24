@@ -102,7 +102,13 @@ public final class CurrencyHelper
     s_aRWLock.writeLocked ( () -> {
       s_aSettingsMap.clear ();
       for (final ECurrency e : ECurrency.values ())
+      {
         s_aSettingsMap.put (e, new PerCurrencySettings (e));
+
+        for (final Locale aLocale : e.matchingLocales ())
+          if (!localeSupportsCurrencyRetrieval (aLocale))
+            throw new IllegalArgumentException ("Passed locale " + aLocale + " does not support currency retrieval!");
+      }
     });
   }
 

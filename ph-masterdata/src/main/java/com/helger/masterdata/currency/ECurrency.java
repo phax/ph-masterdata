@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.DevelopersNote;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.annotation.ReturnsMutableObject;
@@ -304,12 +305,15 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   @Deprecated
   ZWL ("ZWL", true, ECurrencyName.ZWL, "_ZW");
 
+  @DevelopersNote ("Use the one from CurrencyHelper")
   @Deprecated
-  public static final RoundingMode DEFAULT_ROUNDING_MODE = CurrencyHelper.DEFAULT_ROUNDING_MODE;
+  public static final RoundingMode DEFAULT_ROUNDING_MODE = RoundingMode.HALF_EVEN;
+  @DevelopersNote ("Use the one from CurrencyHelper")
   @Deprecated
   public static final ECurrency DEFAULT_CURRENCY = ECurrency.EUR;
+  @DevelopersNote ("Use the one from CurrencyHelper")
   @Deprecated
-  public static final int DEFAULT_SCALE = CurrencyHelper.DEFAULT_SCALE;
+  public static final int DEFAULT_SCALE = 2;
 
   private final String m_sID;
   private final Currency m_aCurrency;
@@ -345,8 +349,6 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     {
       if (aLocale == null)
         throw new IllegalArgumentException ("Passed locale is null!");
-      if (!CurrencyHelper.localeSupportsCurrencyRetrieval (aLocale))
-        throw new IllegalArgumentException ("Passed locale " + aLocale + " does not support currency retrieval!");
       if (!m_aLocales.add (aLocale))
         throw new IllegalArgumentException ("The locale " + aLocale + " is contained more than once.");
       if (aRelevantLocale == null && aLocale.getLanguage ().length () > 0)
