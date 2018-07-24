@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.math.MathHelper;
-import com.helger.masterdata.currency.CurrencyManager;
+import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.IHasCurrency;
 
 /**
@@ -175,7 +175,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   @Nonnull
   default String getCurrencyFormatted ()
   {
-    return CurrencyManager.getCurrencyFormatted (getCurrency (), getValue ());
+    return CurrencyHelper.getCurrencyFormatted (getCurrency (), getValue ());
   }
 
   /**
@@ -186,7 +186,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   @Nonnull
   default String getCurrencyFormatted (@Nonnegative final int nFractionDigits)
   {
-    return CurrencyManager.getCurrencyFormatted (getCurrency (), getValue (), nFractionDigits);
+    return CurrencyHelper.getCurrencyFormatted (getCurrency (), getValue (), nFractionDigits);
   }
 
   /**
@@ -196,7 +196,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   @Nonnull
   default String getValueFormatted ()
   {
-    return CurrencyManager.getValueFormatted (getCurrency (), getValue ());
+    return CurrencyHelper.getValueFormatted (getCurrency (), getValue ());
   }
 
   /**
@@ -207,6 +207,6 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   @Nonnull
   default String getValueFormatted (@Nonnegative final int nFractionDigits)
   {
-    return CurrencyManager.getValueFormatted (getCurrency (), getValue (), nFractionDigits);
+    return CurrencyHelper.getValueFormatted (getCurrency (), getValue (), nFractionDigits);
   }
 }

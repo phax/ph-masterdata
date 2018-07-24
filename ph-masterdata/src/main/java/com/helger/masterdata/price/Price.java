@@ -29,7 +29,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.currency.CurrencyManager;
+import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.PerCurrencySettings;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
@@ -266,7 +266,7 @@ public class Price implements IMutablePrice
                                              @Nonnull final BigDecimal aGrossAmount,
                                              @Nonnull final IVATItem aVATItem)
   {
-    final PerCurrencySettings aPCS = CurrencyManager.getSettings (eCurrency);
+    final PerCurrencySettings aPCS = CurrencyHelper.getSettings (eCurrency);
     return createFromGrossAmount (eCurrency, aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
@@ -322,7 +322,7 @@ public class Price implements IMutablePrice
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
     final ECurrency eCurrency = aGrossAmount.getCurrency ();
-    final PerCurrencySettings aPCS = CurrencyManager.getSettings (eCurrency);
+    final PerCurrencySettings aPCS = CurrencyHelper.getSettings (eCurrency);
     return createFromGrossAmount (aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 

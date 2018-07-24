@@ -16,18 +16,258 @@
  */
 package com.helger.masterdata.currency;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.math.BigDecimal;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.helger.commons.math.MathHelper;
+import com.helger.commons.string.StringHelper;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+/**
+ * Test class for class {@link CurrencyHelper}.
+ * 
+ * @author Philip Helger
+ */
 public final class CurrencyHelperTest
 {
+  private static final Logger LOGGER = LoggerFactory.getLogger (CurrencyHelperTest.class);
+
   @Test
   public void testGetAll ()
   {
     assertNotNull (CurrencyHelper.getAllSupportedCurrencies ());
     assertTrue (CurrencyHelper.isSupportedCurrencyCode ("EUR"));
     assertTrue (CurrencyHelper.isSupportedCurrency (ECurrency.EUR));
+  }
+
+  @Test
+  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED")
+  public void testGetDivided ()
+  {
+    final BigDecimal aBD3 = MathHelper.toBigDecimal (3);
+    final BigDecimal aBD = MathHelper.toBigDecimal (2);
+    try
+    {
+      // 2/3 == 0.666666666....
+      aBD.divide (aBD3);
+      fail ();
+    }
+    catch (final ArithmeticException ex)
+    {}
+    // -> uses the correct rounding mode
+    assertEquals (new BigDecimal ("0.67"), CurrencyHelper.getDivided (ECurrency.EUR, aBD, aBD3));
+  }
+
+  @Test
+  public void testGetRounded ()
+  {
+    final BigDecimal aBD = new BigDecimal ("1.2355352343");
+    assertEquals (new BigDecimal ("1.24"), CurrencyHelper.getRounded (ECurrency.EUR, aBD));
+    assertEquals (new BigDecimal ("1.24"), CurrencyHelper.getRounded (ECurrency.PLN, aBD));
+
+    assertEquals (new BigDecimal ("1.2"), CurrencyHelper.getRounded (ECurrency.EUR, aBD, 1));
+    assertEquals (new BigDecimal ("1.2"), CurrencyHelper.getRounded (ECurrency.PLN, aBD, 1));
+  }
+
+  @Test
+  public void testGetScale ()
+  {
+    for (final ECurrency e : ECurrency.values ())
+    {
+      final int nScale = CurrencyHelper.getScale (e);
+      assertTrue (e.name () + " has invalid scale: " + nScale, nScale >= 0);
+    }
+  }
+
+  @Test
+  public void testGetPatterns ()
+  {
+    for (final ECurrency e : ECurrency.values ())
+    {
+      assertTrue (StringHelper.hasText (CurrencyHelper.getCurrencyPattern (e)));
+      assertTrue (StringHelper.hasText (CurrencyHelper.getValuePattern (e)));
+      assertNotNull (CurrencyHelper.getCurrencyFormat (e));
+      assertNotNull (CurrencyHelper.getValueFormat (e));
+    }
+  }
+
+  @Test
+  public void testFormatting ()
+  {
+    final BigDecimal aBD = new BigDecimal ("1234.56");
+    for (final ECurrency e : ECurrency.values ())
+    {
+      final PerCurrencySettings aPCS = CurrencyHelper.getSettings (e);
+      final int nDefaultFractionDigits = aPCS.getScale ();
+      if (false)
+        if (LOGGER.isInfoEnabled ())
+          LOGGER.info (e.getID () + " - " + nDefaultFractionDigits);
+
+      // currency format
+      assertNotNull (aPCS.getCurrencyFormat ());
+      assertNotNull (aPCS.getCurrencyFormatted (BigDecimal.TEN));
+      assertNotNull (aPCS.getCurrencyFormatted (BigDecimal.TEN, 3));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseCurrencyFormat (e, null, BigDecimal.TEN));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseCurrencyFormat (e, "", BigDecimal.TEN));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseCurrencyFormat (e, "    ", BigDecimal.TEN));
+      {
+        final BigDecimal aExpected = aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ());
+        final BigDecimal aParsed = CurrencyHelper.parseCurrencyFormat (e,
+                                                                       aPCS.getCurrencyFormatted (aBD),
+                                                                       BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals ("Difference for " + aPCS + " (based on: " + aPCS.getCurrencyFormatted (aBD) + ")",
+                      aExpected,
+                      aParsed);
+      }
+      {
+        final BigDecimal aParsed = CurrencyHelper.parseCurrencyFormatUnchanged (e,
+                                                                                aPCS.getCurrencyFormatted (aBD),
+                                                                                BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals (aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ()), aParsed);
+      }
+
+      // value format
+      assertNotNull (aPCS.getValueFormat ());
+      assertNotNull (aPCS.getValueFormatted (BigDecimal.TEN));
+      assertNotNull (aPCS.getValueFormatted (BigDecimal.TEN, 3));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseValueFormat (e, null, BigDecimal.TEN));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseValueFormat (e, "", BigDecimal.TEN));
+      assertEquals (BigDecimal.TEN, CurrencyHelper.parseValueFormat (e, "    ", BigDecimal.TEN));
+      {
+        final BigDecimal aParsed2 = CurrencyHelper.parseValueFormatUnchanged (e,
+                                                                              aPCS.getValueFormatted (aBD),
+                                                                              BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals (aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ()), aParsed2);
+      }
+      {
+        final BigDecimal aParsed2 = CurrencyHelper.parseValueFormat (e, aPCS.getValueFormatted (aBD), BigDecimal.TEN);
+        // Set the correct scale!
+        assertEquals (aBD.setScale (nDefaultFractionDigits, aPCS.getRoundingMode ()), aParsed2);
+      }
+
+      // No decimal separator
+      final BigDecimal FIVE = new BigDecimal ("5").setScale (nDefaultFractionDigits);
+      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5", BigDecimal.TEN));
+      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5", BigDecimal.TEN));
+      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5 ", BigDecimal.TEN));
+      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5 ", BigDecimal.TEN));
+      if (false)
+      {
+        final BigDecimal MFIVE = new BigDecimal ("-5").setScale (nDefaultFractionDigits);
+        assertEquals (FIVE, CurrencyHelper.parseValueFormatUnchanged (e, "+5", BigDecimal.TEN));
+        assertEquals (MFIVE, CurrencyHelper.parseValueFormatUnchanged (e, "-5", BigDecimal.TEN));
+      }
+
+      if (false)
+      {
+        // comma as decimal separator
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5,0", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5,0", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5,0 ", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5,0 ", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5,0000", BigDecimal.TEN));
+        assertEquals (FIVE,
+                      CurrencyHelper.parseValueFormat (e,
+                                                       "5," +
+                                                          StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                          "9",
+                                                       BigDecimal.TEN));
+
+        // dot as decimal separator
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5.0", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5.0", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5.0 ", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5.0 ", BigDecimal.TEN));
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5.0000", BigDecimal.TEN));
+        assertEquals (FIVE,
+                      CurrencyHelper.parseValueFormat (e,
+                                                       "5." +
+                                                          StringHelper.getRepeated ('0', nDefaultFractionDigits + 1) +
+                                                          "9",
+                                                       BigDecimal.TEN));
+      }
+
+      // symbol
+      assertTrue (aPCS.getValueFormat ().format (5).contains ("5"));
+      assertFalse (aPCS.getValueFormat ().format (5).contains (aPCS.getCurrencySymbol ()));
+      assertTrue (aPCS.getCurrencyFormat ().format (5).contains ("5"));
+      assertTrue (aPCS.getCurrencyFormat ().format (5).contains (aPCS.getCurrencySymbol ()));
+    }
+  }
+
+  @Test
+  public void testGetCurrencySymbol ()
+  {
+    for (final ECurrency e : ECurrency.values ())
+      assertNotNull (CurrencyHelper.getCurrencySymbol (e));
+
+    assertEquals ("€", CurrencyHelper.getCurrencySymbol (ECurrency.EUR));
+  }
+
+  @Test
+  @SuppressFBWarnings ("TQ_NEVER_VALUE_USED_WHERE_ALWAYS_REQUIRED")
+  public void testPLN ()
+  {
+    final ECurrency e = ECurrency.PLN;
+    assertEquals ("PLN", e.getID ());
+    assertEquals ("zł", CurrencyHelper.getCurrencySymbol (e));
+    assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
+    assertEquals ("5 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+    assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+    assertEquals ("5,1 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+    assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
+    assertEquals ("5,12 zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
+
+    assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
+    CurrencyHelper.setMinimumFractionDigits (e, 2);
+    assertEquals (2, CurrencyHelper.getMinimumFractionDigits (e));
+
+    assertEquals ("5,00 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+    assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
+    assertEquals ("5,10 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+    assertEquals ("5,10", CurrencyHelper.getValueFormat (e).format (5.1));
+    assertEquals ("5,12 zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
+
+    CurrencyHelper.setMinimumFractionDigits (e, 0);
+    assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
+
+    try
+    {
+      CurrencyHelper.setMinimumFractionDigits (e, -1);
+      fail ();
+    }
+    catch (final IllegalArgumentException ex)
+    {}
+    assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
+  }
+
+  @Test
+  public void testForint ()
+  {
+    final ECurrency e = ECurrency.HUF;
+    assertEquals ("HUF", e.getID ());
+    assertEquals ("Ft", CurrencyHelper.getCurrencySymbol (e));
+    assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
+    assertEquals ("5 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
+    assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+    assertEquals ("5,1 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+    assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
+    assertEquals ("5,12 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
   }
 }

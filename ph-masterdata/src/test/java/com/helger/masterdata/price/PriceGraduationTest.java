@@ -30,7 +30,7 @@ import org.junit.Test;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.mock.CommonsTestHelper;
-import com.helger.masterdata.currency.CurrencyManager;
+import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.EVATItemType;
 import com.helger.masterdata.vat.IVATItem;
@@ -49,8 +49,8 @@ public final class PriceGraduationTest
   {
     // ECurrency eCurrency = , aNetAmount, VATManager.VATTYPE_NONE
 
-    final PriceGraduation pg = new PriceGraduation (CurrencyManager.DEFAULT_CURRENCY);
-    assertEquals (CurrencyManager.DEFAULT_CURRENCY, pg.getCurrency ());
+    final PriceGraduation pg = new PriceGraduation (CurrencyHelper.DEFAULT_CURRENCY);
+    assertEquals (CurrencyHelper.DEFAULT_CURRENCY, pg.getCurrency ());
     assertNotNull (pg.getAllItems ());
     assertTrue (pg.getAllItems ().isEmpty ());
     try
@@ -96,12 +96,12 @@ public final class PriceGraduationTest
     final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY,
                                                       EVATItemType.REGULAR,
                                                       MathHelper.toBigDecimal ("20"));
-    final PriceGraduation pg = new PriceGraduation (CurrencyManager.DEFAULT_CURRENCY);
+    final PriceGraduation pg = new PriceGraduation (CurrencyHelper.DEFAULT_CURRENCY);
     assertTrue (pg.isEmpty ());
 
     // add first item
     final BigDecimal aNetAmount1 = MathHelper.toBigDecimal ("19.9");
-    final Price p1 = new Price (CurrencyManager.DEFAULT_CURRENCY, aNetAmount1, aVATItem);
+    final Price p1 = new Price (CurrencyHelper.DEFAULT_CURRENCY, aNetAmount1, aVATItem);
     pg.addItem (new PriceGraduationItem (1, aNetAmount1));
     assertEquals (1, pg.getAllItems ().size ());
     assertEquals (1, pg.getSmallestMinimumQuantityItem ().getMinimumQuantity ());
@@ -115,7 +115,7 @@ public final class PriceGraduationTest
 
     // add second item
     final BigDecimal aNetAmount5 = MathHelper.toBigDecimal ("18.9");
-    final Price p5 = new Price (CurrencyManager.DEFAULT_CURRENCY, aNetAmount5, aVATItem);
+    final Price p5 = new Price (CurrencyHelper.DEFAULT_CURRENCY, aNetAmount5, aVATItem);
     pg.addItem (new PriceGraduationItem (5, aNetAmount5));
     assertEquals (2, pg.getAllItems ().size ());
     assertEquals (1, pg.getSmallestMinimumQuantityItem ().getMinimumQuantity ());
@@ -133,7 +133,7 @@ public final class PriceGraduationTest
 
     // add third item
     final BigDecimal aNetAmount3 = MathHelper.toBigDecimal ("19.4");
-    final Price p3 = new Price (CurrencyManager.DEFAULT_CURRENCY, aNetAmount3, aVATItem);
+    final Price p3 = new Price (CurrencyHelper.DEFAULT_CURRENCY, aNetAmount3, aVATItem);
     pg.addItem (new PriceGraduationItem (3, aNetAmount3));
     assertEquals (3, pg.getAllItems ().size ());
     assertEquals (1, pg.getSmallestMinimumQuantityItem ().getMinimumQuantity ());
@@ -200,8 +200,8 @@ public final class PriceGraduationTest
   @Test
   public void testStdMethods ()
   {
-    final IMutablePriceGraduation pg1 = new PriceGraduation (CurrencyManager.DEFAULT_CURRENCY);
-    final IMutablePriceGraduation pg2 = new PriceGraduation (CurrencyManager.DEFAULT_CURRENCY);
+    final IMutablePriceGraduation pg1 = new PriceGraduation (CurrencyHelper.DEFAULT_CURRENCY);
+    final IMutablePriceGraduation pg2 = new PriceGraduation (CurrencyHelper.DEFAULT_CURRENCY);
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (pg1, pg2);
 
     final BigDecimal aNetAmount1 = MathHelper.toBigDecimal ("19.9");

@@ -305,11 +305,11 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   ZWL ("ZWL", true, ECurrencyName.ZWL, "_ZW");
 
   @Deprecated
-  public static final RoundingMode DEFAULT_ROUNDING_MODE = CurrencyManager.DEFAULT_ROUNDING_MODE;
+  public static final RoundingMode DEFAULT_ROUNDING_MODE = CurrencyHelper.DEFAULT_ROUNDING_MODE;
   @Deprecated
   public static final ECurrency DEFAULT_CURRENCY = ECurrency.EUR;
   @Deprecated
-  public static final int DEFAULT_SCALE = CurrencyManager.DEFAULT_SCALE;
+  public static final int DEFAULT_SCALE = CurrencyHelper.DEFAULT_SCALE;
 
   private final String m_sID;
   private final Currency m_aCurrency;

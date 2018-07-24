@@ -46,7 +46,7 @@ public final class PerCurrencySettings
     }
 
     final Currency aCurrency = eCurrency.getAsCurrency ();
-    m_nScale = aCurrency == null ? CurrencyManager.DEFAULT_SCALE : aCurrency.getDefaultFractionDigits ();
+    m_nScale = aCurrency == null ? CurrencyHelper.DEFAULT_SCALE : aCurrency.getDefaultFractionDigits ();
 
     // Note: Locale fr_FR formats locale with a trailing € whereas the locale
     // de_DE formats the € at front!
@@ -75,7 +75,7 @@ public final class PerCurrencySettings
   /**
    * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If
    *         no underlying JDK currency is present,
-   *         {@value CurrencyManager#DEFAULT_SCALE} is returned.
+   *         {@value CurrencyHelper#DEFAULT_SCALE} is returned.
    */
   @Nonnegative
   public int getScale ()
@@ -180,13 +180,13 @@ public final class PerCurrencySettings
 
   /**
    * @return The rounding mode of this currency. If non is specified,
-   *         {@link CurrencyManager#DEFAULT_ROUNDING_MODE} is returned instead.
+   *         {@link CurrencyHelper#DEFAULT_ROUNDING_MODE} is returned instead.
    *         May not be <code>null</code>.
    */
   @Nonnull
   public RoundingMode getRoundingMode ()
   {
-    return m_eRoundingMode != null ? m_eRoundingMode : CurrencyManager.DEFAULT_ROUNDING_MODE;
+    return m_eRoundingMode != null ? m_eRoundingMode : CurrencyHelper.DEFAULT_ROUNDING_MODE;
   }
 
   /**
