@@ -29,11 +29,11 @@ import com.helger.commons.text.display.IHasDisplayText;
 /**
  * Tax category.<br>
  * Based on "5305 Duty or tax or fee category code".<br>
- * Source: http://www.unece.org/trade/untdid/d08b/tred/tred5305.htm
+ * Source: https://www.unece.org/trade/untdid/d16b/tred/tred5305.htm
  *
  * @author Philip Helger
  */
-public enum ETaxCategoryUN5305 implements IHasID <String>,IHasDisplayText
+public enum ETaxCategoryUN5305 implements IHasID <String>, IHasDisplayText
 {
   A ("A", ETaxCategoryUN5305Name.A),
   AA ("AA", ETaxCategoryUN5305Name.AA),
@@ -43,9 +43,15 @@ public enum ETaxCategoryUN5305 implements IHasID <String>,IHasDisplayText
   AE ("AE", ETaxCategoryUN5305Name.AE),
   B ("B", ETaxCategoryUN5305Name.B),
   C ("C", ETaxCategoryUN5305Name.C),
+  D ("D", ETaxCategoryUN5305Name.D),
   E ("E", ETaxCategoryUN5305Name.E),
   G ("G", ETaxCategoryUN5305Name.G),
   H ("H", ETaxCategoryUN5305Name.H),
+  I ("I", ETaxCategoryUN5305Name.I),
+  J ("J", ETaxCategoryUN5305Name.J),
+  K ("K", ETaxCategoryUN5305Name.K),
+  L ("L", ETaxCategoryUN5305Name.L),
+  M ("M", ETaxCategoryUN5305Name.M),
   O ("O", ETaxCategoryUN5305Name.O),
   S ("S", ETaxCategoryUN5305Name.S),
   Z ("Z", ETaxCategoryUN5305Name.Z);

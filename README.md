@@ -24,6 +24,7 @@ Java library with lots of default business objects and algorithms:
 
 * v6.0.1 - work in progress
   * Fixed OSGI ServiceProvider configuration
+  * Updated 5305 code list to version D16B
 * v6.0.0 - 2017-12-14
   * Added country Locale to VAT item
   * Updated vehicle sign list and API
