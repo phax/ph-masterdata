@@ -32,7 +32,7 @@ import com.helger.masterdata.tax.ETaxCategoryUN5305;
  *
  * @author Philip Helger
  */
-public enum EVATType implements IHasID <String>
+public enum EVATItemType implements IHasID <String>
 {
   /* EC: Standard rate */
   REGULAR ("regular", ETaxCategoryUN5305.S),
@@ -48,7 +48,7 @@ public enum EVATType implements IHasID <String>
   private final String m_sID;
   private final ETaxCategoryUN5305 m_eTaxCategory;
 
-  private EVATType (@Nonnull @Nonempty final String sID, @Nullable final ETaxCategoryUN5305 eTaxCategory)
+  private EVATItemType (@Nonnull @Nonempty final String sID, @Nullable final ETaxCategoryUN5305 eTaxCategory)
   {
     m_sID = sID;
     m_eTaxCategory = eTaxCategory;
@@ -63,7 +63,7 @@ public enum EVATType implements IHasID <String>
 
   /**
    * @return Tax category code. <code>null</code> only for
-   *         {@link EVATType#OTHER}
+   *         {@link EVATItemType#OTHER}
    */
   @Nullable
   public ETaxCategoryUN5305 getTaxCategory ()
@@ -72,8 +72,8 @@ public enum EVATType implements IHasID <String>
   }
 
   @Nullable
-  public static EVATType getFromIDOrNull (@Nullable final String sID)
+  public static EVATItemType getFromIDOrNull (@Nullable final String sID)
   {
-    return EnumHelper.getFromIDOrNull (EVATType.class, sID);
+    return EnumHelper.getFromIDOrNull (EVATItemType.class, sID);
   }
 }

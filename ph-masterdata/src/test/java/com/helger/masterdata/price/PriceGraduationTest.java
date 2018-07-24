@@ -31,7 +31,7 @@ import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.masterdata.currency.ECurrency;
-import com.helger.masterdata.vat.EVATType;
+import com.helger.masterdata.vat.EVATItemType;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATItem;
 import com.helger.masterdata.vat.VATManager;
@@ -92,7 +92,7 @@ public final class PriceGraduationTest
   @Test
   public void testAdd ()
   {
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("20"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, new BigDecimal ("20"));
     final PriceGraduation pg = new PriceGraduation (ECurrency.DEFAULT_CURRENCY);
     assertTrue (pg.isEmpty ());
 
@@ -180,7 +180,7 @@ public final class PriceGraduationTest
   @Test
   public void testAddSimple ()
   {
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("20"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, new BigDecimal ("20"));
     final IMutablePriceGraduation pg = new PriceGraduation (ECurrency.GBP);
     assertEquals (ECurrency.GBP, pg.getCurrency ());
     assertTrue (pg.isEmpty ());

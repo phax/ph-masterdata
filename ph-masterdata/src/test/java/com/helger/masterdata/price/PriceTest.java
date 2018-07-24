@@ -33,7 +33,7 @@ import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
-import com.helger.masterdata.vat.EVATType;
+import com.helger.masterdata.vat.EVATItemType;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATItem;
 import com.helger.masterdata.vat.VATManager;
@@ -62,7 +62,7 @@ public final class PriceTest
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (ECurrency.DEFAULT_CURRENCY));
     assertEquals (ECurrency.DEFAULT_CURRENCY, p.getCurrency ());
 
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATType.REGULAR, new BigDecimal ("50"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, new BigDecimal ("50"));
     assertEquals (EChange.CHANGED, p.setVATItem (aVATItem));
     assertEquals (aVATItem, p.getVATItem ());
     assertEquals (EChange.UNCHANGED, p.setVATItem (aVATItem));

@@ -19,12 +19,12 @@ package com.helger.masterdata.vat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.math.BigDecimal;
 import java.util.Locale;
 
 import org.junit.Test;
 
 import com.helger.commons.CGlobal;
+import com.helger.commons.math.MathHelper;
 
 /**
  * Test class for class {@link VATItem}.
@@ -36,9 +36,10 @@ public final class VATItemTest
   @Test
   public void testFactors ()
   {
-    final VATItem v = VATItem.createTestItem (Locale.US, EVATType.REDUCED, new BigDecimal ("20"));
-    assertEquals (new BigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
-    assertEquals (new BigDecimal ("120.0"), CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
+    final VATItem v = VATItem.createTestItem (Locale.US, EVATItemType.REDUCED, MathHelper.toBigDecimal ("20"));
+    assertEquals (MathHelper.toBigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
+    assertEquals (MathHelper.toBigDecimal ("120.0"),
+                  CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
     assertNull (v.getPeriod ().getStart ());
     assertNull (v.getPeriod ().getEnd ());
   }

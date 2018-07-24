@@ -40,7 +40,6 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.datetime.PDTFromString;
-import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.io.IHasInputStream;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.locale.LocaleHelper;
@@ -72,7 +71,7 @@ public class VATManager implements IVATItemProvider
    */
   public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
                                                            (Locale) null,
-                                                           EVATType.OTHER,
+                                                           EVATItemType.OTHER,
                                                            BigDecimal.ZERO,
                                                            false,
                                                            null,
@@ -152,17 +151,19 @@ public class VATManager implements IVATItemProvider
         final String sID = eVATItem.getAttributeValue ("id");
         if (StringHelper.hasNoText (sID))
         {
-          LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
+          if (LOGGER.isWarnEnabled ())
+            LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
           continue;
         }
         final String sRealID = _getCountryString (aCountry) + "." + sID;
 
         // item type
         final String sType = eVATItem.getAttributeValue ("type");
-        final EVATType eType = EVATType.getFromIDOrNull (sType);
+        final EVATItemType eType = EVATItemType.getFromIDOrNull (sType);
         if (eType == null)
         {
-          LOGGER.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
+          if (LOGGER.isWarnEnabled ())
+            LOGGER.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
           continue;
         }
 
@@ -172,10 +173,10 @@ public class VATManager implements IVATItemProvider
         if (aPercentage == null)
         {
           LOGGER.warn ("Percentage value '" +
-                          sPercentage +
-                          "' for VAT item " +
-                          sRealID +
-                          " is illegal. Skipping VAT item.");
+                       sPercentage +
+                       "' for VAT item " +
+                       sRealID +
+                       " is illegal. Skipping VAT item.");
           continue;
         }
 
@@ -344,11 +345,11 @@ public class VATManager implements IVATItemProvider
    * @return <code>null</code> if no matching item could be found,
    */
   @Nullable
-  public IVATItem findVATItem (@Nullable final EVATType eType, @Nullable final BigDecimal aPercentage)
+  public IVATItem findVATItem (@Nullable final EVATItemType eType, @Nullable final BigDecimal aPercentage)
   {
     if (eType == null || aPercentage == null)
       return null;
-    return findFirst (x -> x.getType ().equals (eType) && EqualsHelper.equals (x.getPercentage (), aPercentage));
+    return findFirst (x -> x.getType ().equals (eType) && x.hasPercentage (aPercentage));
   }
 
   /**

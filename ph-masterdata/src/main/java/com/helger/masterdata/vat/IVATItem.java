@@ -42,7 +42,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
    * @return The non-<code>null</code> type of this item.
    */
   @Nonnull
-  EVATType getType ();
+  EVATItemType getType ();
 
   /**
    * @return The country for which this VAT item is applicable. May be

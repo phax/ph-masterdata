@@ -46,7 +46,7 @@ public class VATItem implements IVATItem
 {
   private final String m_sID;
   private final Locale m_aCountry;
-  private final EVATType m_eType;
+  private final EVATItemType m_eType;
   private final BigDecimal m_aPercentage;
   private final BigDecimal m_aPercentageFactor;
   private final BigDecimal m_aMultiplicationFactorNetToGross;
@@ -55,7 +55,7 @@ public class VATItem implements IVATItem
 
   public VATItem (@Nonnull @Nonempty final String sID,
                   @Nullable final Locale aCountry,
-                  @Nonnull final EVATType eType,
+                  @Nonnull final EVATItemType eType,
                   @Nonnull @Nonnegative final BigDecimal aPercentage,
                   final boolean bDeprecated,
                   @Nullable final LocalDate aValidFrom,
@@ -96,7 +96,7 @@ public class VATItem implements IVATItem
   }
 
   @Nonnull
-  public EVATType getType ()
+  public EVATItemType getType ()
   {
     return m_eType;
   }
@@ -183,7 +183,7 @@ public class VATItem implements IVATItem
 
   @Nonnull
   public static VATItem createTestItem (@Nullable final Locale aCountry,
-                                        @Nonnull final EVATType eType,
+                                        @Nonnull final EVATItemType eType,
                                         @Nonnull @Nonnegative final BigDecimal aPercentage)
   {
     final String sID = (aCountry != null ? aCountry.getCountry ().toLowerCase (Locale.US) : "zero") +
