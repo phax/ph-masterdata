@@ -33,7 +33,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public enum EIncoterm implements IHasID <String>,IHasDisplayText
+public enum EIncoterm implements IHasID <String>, IHasDisplayText
 {
   // Order as in in Incoterms 2000
   EXW ("EXW", EIncotermName.EXW),

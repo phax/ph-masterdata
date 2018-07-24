@@ -33,7 +33,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public enum ETaxTypeUN5153 implements IHasID <String>,IHasDisplayText
+public enum ETaxTypeUN5153 implements IHasID <String>, IHasDisplayText
 {
   AAA ("AAA", ETaxTypeUN5153Name.AAA),
   AAB ("AAB", ETaxTypeUN5153Name.AAB),

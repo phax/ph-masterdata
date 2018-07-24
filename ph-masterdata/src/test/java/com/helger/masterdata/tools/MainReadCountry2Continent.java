@@ -106,8 +106,8 @@ public final class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap<> (IComparator.getComparatorCollating (Locale::getCountry,
-                                                                                                                     LOC));
+    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
+                                                                                                                      LOC));
     while (true)
     {
       final Row aRow = aSheet.getRow (nRow);
@@ -129,11 +129,11 @@ public final class MainReadCountry2Continent
         final EContinent eOld = aMap.put (aCountry, eContinent);
         if (eOld != null)
           LOGGER.info ("Country " +
-                          aCountry.getDisplayCountry (LOC) +
-                          " is assigned to " +
-                          eContinent.getDisplayText (LOC) +
-                          " and " +
-                          eOld.getDisplayText (LOC));
+                       aCountry.getDisplayCountry (LOC) +
+                       " is assigned to " +
+                       eContinent.getDisplayText (LOC) +
+                       " and " +
+                       eOld.getDisplayText (LOC));
       }
 
       ++nRow;
@@ -143,10 +143,10 @@ public final class MainReadCountry2Continent
     for (final Map.Entry <Locale, EContinent> e : aMap.entrySet ())
     {
       LOGGER.info ("s_aMap.put (CountryCache.getCountry (\"" +
-                      e.getKey ().getCountry () +
-                      "\"), EContinent." +
-                      e.getValue ().name () +
-                      "),");
+                   e.getKey ().getCountry () +
+                   "\"), EContinent." +
+                   e.getValue ().name () +
+                   "),");
     }
   }
 }

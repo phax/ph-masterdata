@@ -42,7 +42,8 @@ public class MainReadISO639_2CodeList
 
     final IMicroDocument aDoc = new MicroDocument ();
     final IMicroElement eRoot = aDoc.appendElement ("iso639-2");
-    try (final NonBlockingBufferedReader aReader = new NonBlockingBufferedReader (new ClassPathResource ("ISO-639-2_utf-8.txt").getReader (StandardCharsets.UTF_8)))
+    try (
+        final NonBlockingBufferedReader aReader = new NonBlockingBufferedReader (new ClassPathResource ("ISO-639-2_utf-8.txt").getReader (StandardCharsets.UTF_8)))
     {
       String sLine;
       // Skip the BOM!

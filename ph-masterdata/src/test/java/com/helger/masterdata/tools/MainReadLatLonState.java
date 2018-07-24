@@ -48,7 +48,8 @@ public final class MainReadLatLonState
     final String sRevision = "20130209";
     final String sSource = "http://dev.maxmind.com/geoip/codes/state_latlon";
 
-    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (new File ("src/test/resources/state_latlon-" +
+    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (
+                                                                        new File ("src/test/resources/state_latlon-" +
                                                                                   sRevision +
                                                                                   ".csv"),
                                                                         StandardCharsets.ISO_8859_1)))

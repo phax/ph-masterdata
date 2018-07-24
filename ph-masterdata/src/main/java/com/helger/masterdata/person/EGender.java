@@ -30,7 +30,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public enum EGender implements IHasDisplayText,IHasID <String>
+public enum EGender implements IHasDisplayText, IHasID <String>
 {
   MALE ("m", EGenderName.MALE),
   FEMALE ("f", EGenderName.FEMALE),

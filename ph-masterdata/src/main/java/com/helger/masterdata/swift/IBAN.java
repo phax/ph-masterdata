@@ -45,7 +45,7 @@ public class IBAN implements Serializable
   public IBAN (@Nonnull final List <IBANElementValue> aValues)
   {
     ValueEnforcer.notNull (aValues, "Values");
-    m_aValues = new CommonsArrayList<> (aValues);
+    m_aValues = new CommonsArrayList <> (aValues);
   }
 
   @Nonnull

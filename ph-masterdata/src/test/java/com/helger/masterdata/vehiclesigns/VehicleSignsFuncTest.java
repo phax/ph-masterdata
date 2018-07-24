@@ -235,10 +235,10 @@ public final class VehicleSignsFuncTest
         throw new IllegalStateException ("Failed to resolve country " + sCountry);
       if (false)
         LOGGER.info ("map.put (LocaleCache.get (\"\",\"" +
-                        aFound.getCountry () +
-                        "\"), \"" +
-                        map.get (sCountry) +
-                        "\");");
+                     aFound.getCountry () +
+                     "\"), \"" +
+                     map.get (sCountry) +
+                     "\");");
     }
   }
 

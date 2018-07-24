@@ -87,15 +87,15 @@ public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
   }
 
   public PostalAddress (@Nullable final IPostalAddressType aType,
-                  @Nullable final String sCountry,
-                  @Nullable final String sState,
-                  @Nullable final String sPostalCode,
-                  @Nullable final String sCity,
-                  @Nullable final String sStreet,
-                  @Nullable final String sBuildingNumber,
-                  @Nullable final String sPostOfficeBox,
-                  @Nullable final String sCareOf,
-                  @Nonnull final Locale aSortLocale)
+                        @Nullable final String sCountry,
+                        @Nullable final String sState,
+                        @Nullable final String sPostalCode,
+                        @Nullable final String sCity,
+                        @Nullable final String sStreet,
+                        @Nullable final String sBuildingNumber,
+                        @Nullable final String sPostOfficeBox,
+                        @Nullable final String sCareOf,
+                        @Nonnull final Locale aSortLocale)
   {
     setType (aType);
     setCountry (sCountry, aSortLocale);

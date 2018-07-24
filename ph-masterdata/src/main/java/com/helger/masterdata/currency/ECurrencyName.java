@@ -68,7 +68,8 @@ public enum ECurrencyName implements IHasDisplayText
   CNY ("Remnibi Yuan", "Chinese Yuan Renminbi"),
   COP ("Kolumbianischer Peso", "Colombian Peso"),
   CRC ("Costa-Rica Colón", "Costa Rican Colón"),
-  @Deprecated CSD ("Serbischer Dinar", "Serbian Dinar"),
+  @Deprecated
+  CSD ("Serbischer Dinar", "Serbian Dinar"),
   CUC ("Peso concertible", "Cuban Convertible Peso"),
   CUP ("Kubanischer Peso", "Cuban Peso"),
   CVE ("Kap-Verde-Escudo", "Cape Verdean Escudo"),
@@ -77,7 +78,9 @@ public enum ECurrencyName implements IHasDisplayText
   DKK ("Dänische Kronen", "Danish Krone"),
   DOP ("Dominikanischer Peso", "Dominican Peso"),
   DZD ("Algerischer Dinar", "Algerian Dinar"),
-  @Deprecated @DevelopersNote ("Was replaced with Euro per 1.1.2011") EEK("Estnische Krone", "Estonian Kroon"),
+  @Deprecated
+  @DevelopersNote ("Was replaced with Euro per 1.1.2011")
+  EEK("Estnische Krone", "Estonian Kroon"),
   EGP ("Ägyptisches Pfund", "Egyptian Pound"),
   ERN ("Nakfa", "Eritrean Nakfa"),
   ETB ("Birr", "Ethiopian Birr"),
@@ -195,10 +198,12 @@ public enum ECurrencyName implements IHasDisplayText
   XPF ("CFP-Franc", "CFP Franc"),
   YER ("Jemen-Rial", "Yemeni Rial"),
   ZAR ("Rand", "South African Rand"),
-  @Deprecated ZMK ("Kwacha", "Zambian Kwacha"),
+  @Deprecated
+  ZMK ("Kwacha", "Zambian Kwacha"),
   ZMW ("Neuer Kwacha", "New Zambian Kwacha"),
   ZWD ("Simbabwe-Dollar", "Zimbabwean Dollar"),
-  @Deprecated ZWL ("Simbabwe-Dollar", "Zimbabwean Dollar");
+  @Deprecated
+  ZWL ("Simbabwe-Dollar", "Zimbabwean Dollar");
 
   private final IMultilingualText m_aTP;
 

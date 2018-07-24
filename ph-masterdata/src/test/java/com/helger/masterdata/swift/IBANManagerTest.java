@@ -153,8 +153,7 @@ public final class IBANManagerTest
 
     // check if checksum creation works
     for (final String sIBAN : VALID_IBANS)
-      assertEquals (sIBAN +
-                    " has other checksum than expected;",
+      assertEquals (sIBAN + " has other checksum than expected;",
                     StringParser.parseInt (sIBAN.substring (2, 4), -1),
                     IBANManager.createChecksumOfNewIBAN (sIBAN.substring (0, 2), sIBAN.substring (4)));
   }

@@ -25,15 +25,22 @@ import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * Represents salutations for persons.
  *
  * @author Philip Helger
  */
-public enum ESalutation implements IHasDisplayText,IHasID <String>
+@SuppressFBWarnings ("NP_NONNULL_PARAM_VIOLATION")
+public enum ESalutation implements IHasDisplayText, IHasID <String>
 {
   MISTER ("mr", EGender.MALE, ESalutationName.MISTER, ESalutationGreeting.MISTER, ESalutationGreetingComplete.MISTER),
-  MISSES ("mrs", EGender.FEMALE, ESalutationName.MISSES, ESalutationGreeting.MISSES, ESalutationGreetingComplete.MISSES),
+  MISSES ("mrs",
+          EGender.FEMALE,
+          ESalutationName.MISSES,
+          ESalutationGreeting.MISSES,
+          ESalutationGreetingComplete.MISSES),
   FAMILY ("fam", null, ESalutationName.FAMILY, ESalutationGreeting.FAMILY, ESalutationGreetingComplete.FAMILY),
   COMPANY ("com", null, ESalutationName.COMPANY, ESalutationGreeting.COMPANY, ESalutationGreetingComplete.COMPANY),
   CLUB ("cl", null, ESalutationName.CLUB, ESalutationGreeting.CLUB, ESalutationGreetingComplete.CLUB);
@@ -71,6 +78,11 @@ public enum ESalutation implements IHasDisplayText,IHasID <String>
   public EGender getGender ()
   {
     return m_eGender;
+  }
+
+  public boolean hasGender ()
+  {
+    return m_eGender != null;
   }
 
   @Nonnull

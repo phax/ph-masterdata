@@ -95,58 +95,26 @@ public final class PostalAddressHelperTest
     a.setPostalCode ("12345");
     assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345", PostalAddressHelper.getAddressString (a, aLocale));
     a.setCity ("Eindhoven", aLocale);
-    assertEquals ("c/o any" +
-                  "\n" +
-                  "Main road 7" +
-                  "\n" +
-                  "12345 Eindhoven",
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven",
                   PostalAddressHelper.getAddressString (a, aLocale));
     a.setPostOfficeBox ("PO12", aLocale);
-    assertEquals ("c/o any" +
-                  "\n" +
-                  "Main road 7" +
-                  "\n" +
-                  "12345 Eindhoven" +
-                  "\n" +
-                  "PO12",
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven" + "\n" + "PO12",
                   PostalAddressHelper.getAddressString (a, aLocale));
     a.setCountry ("AT", aLocale);
-    assertEquals ("c/o any" +
-                  "\n" +
-                  "Main road 7" +
-                  "\n" +
-                  "12345 Eindhoven" +
-                  "\n" +
-                  "PO12" +
-                  "\n" +
-                  "Österreich",
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven" + "\n" + "PO12" + "\n" + "Österreich",
                   PostalAddressHelper.getAddressString (a, aLocale));
-    assertEquals ("c/o any" +
-                  "\n" +
-                  "Main road 7" +
-                  "\n" +
-                  "12345 Eindhoven" +
-                  "\n" +
-                  "PO12" +
-                  "\n" +
-                  "Austria",
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven" + "\n" + "PO12" + "\n" + "Austria",
                   PostalAddressHelper.getAddressString (a, Locale.UK));
-    assertEquals ("Main road 7" +
-                  "\n" +
-                  "Austria",
+    assertEquals ("Main road 7" + "\n" + "Austria",
                   PostalAddressHelper.getAddressString (a,
-                                                  new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EPostalAddressField.COUNTRY),
-                                                  Locale.UK));
-    assertEquals ("Main road 7" +
-                  "\n" +
-                  "Main road 7" +
-                  "\n" +
-                  "Austria",
+                                                        new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                                 EPostalAddressField.COUNTRY),
+                                                        Locale.UK));
+    assertEquals ("Main road 7" + "\n" + "Main road 7" + "\n" + "Austria",
                   PostalAddressHelper.getAddressString (a,
-                                                  new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EPostalAddressField.STREET_AND_BUILDING_NUMBER,
-                                                                           EPostalAddressField.COUNTRY),
-                                                  Locale.UK));
+                                                        new CommonsArrayList <> (EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                                 EPostalAddressField.STREET_AND_BUILDING_NUMBER,
+                                                                                 EPostalAddressField.COUNTRY),
+                                                        Locale.UK));
   }
 }

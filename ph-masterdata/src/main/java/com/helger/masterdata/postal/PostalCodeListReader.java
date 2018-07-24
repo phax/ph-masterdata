@@ -126,10 +126,11 @@ public class PostalCodeListReader
         }
         if (aValidTo != null && aValidTo.isBefore (aNow))
         {
-          MasterDataLogger.getInstance ().info ("Ignoring some postal code definitions of " +
-                                                sCountryName +
-                                                " because they are valid until " +
-                                                aValidTo.toString ());
+          MasterDataLogger.getInstance ()
+                          .info ("Ignoring some postal code definitions of " +
+                                 sCountryName +
+                                 " because they are valid until " +
+                                 aValidTo.toString ());
           continue;
         }
 

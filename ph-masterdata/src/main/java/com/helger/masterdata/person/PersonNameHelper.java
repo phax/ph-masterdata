@@ -84,9 +84,9 @@ public final class PersonNameHelper
    * Determine the order how the customer display name is assembled. This was
    * introduced for starkl.hu as they want the lastname before the firstname
    *
-   * @return <code>true</code> if the customer display name is
-   *         "firstname lastname". <code>false</code> if the customer display
-   *         name is "lastname firstname"
+   * @return <code>true</code> if the customer display name is "firstname
+   *         lastname". <code>false</code> if the customer display name is
+   *         "lastname firstname"
    */
   public static boolean isFirstNameFirst ()
   {
