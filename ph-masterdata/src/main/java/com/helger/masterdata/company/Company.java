@@ -116,16 +116,16 @@ public class Company implements ICompany
 
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <? extends ICompanySite> getAllNonVirtualSites ()
+  public ICommonsList <? extends ICompanySite> getAllPhysicalSites ()
   {
-    return m_aAllSites.copyOfValues (aSite -> !aSite.isVirtualSite ());
+    return m_aAllSites.copyOfValues (ICompanySite::isPhysicalSite);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsList <? extends ICompanySite> getAllVirtualSites ()
   {
-    return m_aAllSites.copyOfValues (aSite -> aSite.isVirtualSite ());
+    return m_aAllSites.copyOfValues (ICompanySite::isVirtualSite);
   }
 
   @Nonnull

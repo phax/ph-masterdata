@@ -42,6 +42,7 @@ public interface ITenantObject extends IBusinessObject, IHasTenant
    */
   @Nonnull
   @Nonempty
+  @Override
   default String getTenantID ()
   {
     return getTenant ().getID ();

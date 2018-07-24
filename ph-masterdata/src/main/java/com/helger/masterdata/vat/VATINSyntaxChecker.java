@@ -675,8 +675,8 @@ public class VATINSyntaxChecker
     // This format applies to all others
     if (c.length != 9 && c.length != 12)
       return false;
-    for (int i = 0; i < c.length; ++i)
-      if (!_isNum (c[i]))
+    for (final char aElement : c)
+      if (!_isNum (aElement))
         return false;
 
     final int v1 = _toInt (c[0], c[1], c[2], c[3], c[4], c[5], c[6]);
@@ -1381,7 +1381,7 @@ public class VATINSyntaxChecker
         return false;
 
     final int v = _toInt (c[0], c[1], c[2], c[3], c[4], c[5], c[6]);
-    if (v < 1_000_000 | v > 9_999_999)
+    if (v < 1_000_000 || v > 9_999_999)
       return false;
 
     final int a1 = 8 * _toInt (c[0]) +
@@ -1559,8 +1559,8 @@ public class VATINSyntaxChecker
     char [] c = sVATIN.toCharArray ();
     if (c.length < 2 || c.length > 10)
       return false;
-    for (int i = 0; i < c.length; ++i)
-      if (!_isNum (c[i]))
+    for (final char aElement : c)
+      if (!_isNum (aElement))
         return false;
 
     if (c.length < 10)

@@ -19,9 +19,6 @@ package com.helger.masterdata.unit;
 import java.util.Locale;
 import java.util.Map;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
 import com.helger.commons.CGlobal;
 import com.helger.commons.collection.impl.CommonsLinkedHashMap;
 import com.helger.commons.collection.impl.ICommonsOrderedMap;
@@ -36,15 +33,13 @@ import com.helger.xml.microdom.convert.MicroTypeConverter;
 import com.helger.xml.microdom.serialize.MicroReader;
 
 /**
- * Test class for class {@link UnitManager}.
+ * Code creator
  *
  * @author Philip Helger
  */
-public final class CreateQuantityEnumFuncTest
+public final class MainCreateQuantityEnum
 {
-  @Ignore
-  @Test
-  public void createCodeList ()
+  public static void main (final String [] args)
   {
     final IMicroDocument aDoc = MicroReader.readMicroXML (UnitManager.DEFAULT_UNIT_RES);
     final IMicroElement eRoot = aDoc.getDocumentElement ();

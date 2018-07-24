@@ -128,7 +128,8 @@ public class VATManager implements IVATItemProvider
       final Locale aCountry = CountryCache.getInstance ().getCountry (sCountry);
       if (m_aVATItemsPerCountry.containsKey (aCountry))
       {
-        LOGGER.warn ("VAT types for country " + aCountry + " have already been defined!");
+        if (LOGGER.isWarnEnabled ())
+          LOGGER.warn ("VAT types for country " + aCountry + " have already been defined!");
         continue;
       }
       final String sCountryName = eVATTypes.getAttributeValue ("countryname");
@@ -172,11 +173,12 @@ public class VATManager implements IVATItemProvider
         final BigDecimal aPercentage = StringParser.parseBigDecimal (sPercentage, null);
         if (aPercentage == null)
         {
-          LOGGER.warn ("Percentage value '" +
-                       sPercentage +
-                       "' for VAT item " +
-                       sRealID +
-                       " is illegal. Skipping VAT item.");
+          if (LOGGER.isWarnEnabled ())
+            LOGGER.warn ("Percentage value '" +
+                         sPercentage +
+                         "' for VAT item " +
+                         sRealID +
+                         " is illegal. Skipping VAT item.");
           continue;
         }
 
@@ -195,13 +197,16 @@ public class VATManager implements IVATItemProvider
         // build and add item
         final VATItem aVATItem = new VATItem (sRealID, aCountry, eType, aPercentage, bDeprecated, aValidFrom, aValidTo);
         if (aVATCountryData.addItem (aVATItem).isUnchanged ())
-          LOGGER.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
+          if (LOGGER.isWarnEnabled ())
+            LOGGER.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
         if (m_aAllVATItems.put (sRealID, aVATItem) != null)
-          LOGGER.warn ("Found overall duplicate VAT item " + aVATItem);
+          if (LOGGER.isWarnEnabled ())
+            LOGGER.warn ("Found overall duplicate VAT item " + aVATItem);
       }
 
       if (aVATCountryData.isEmpty ())
-        LOGGER.warn ("No VAT types for country " + aCountry + " defined!");
+        if (LOGGER.isWarnEnabled ())
+          LOGGER.warn ("No VAT types for country " + aCountry + " defined!");
       m_aVATItemsPerCountry.put (aCountry, aVATCountryData);
     }
   }

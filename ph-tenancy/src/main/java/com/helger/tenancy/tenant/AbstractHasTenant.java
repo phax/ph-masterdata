@@ -36,16 +36,17 @@ public abstract class AbstractHasTenant implements IHasTenant
   }
 
   @Nonnull
-  @Nonempty
-  public final String getTenantID ()
-  {
-    return m_aTenant.getID ();
-  }
-
-  @Nonnull
   public final ITenant getTenant ()
   {
     return m_aTenant;
+  }
+
+  @Nonnull
+  @Nonempty
+  @Override
+  public final String getTenantID ()
+  {
+    return m_aTenant.getID ();
   }
 
   @Override

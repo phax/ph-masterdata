@@ -91,8 +91,7 @@ public final class UPCA extends AbstractUPCEAN
    * @exception IllegalArgumentException
    *            In case of an internal inconsistency
    */
-  public static String handleChecksum (@Nonnull final String sMsg,
-                                       @Nonnull final EEANChecksumMode eMode) throws IllegalArgumentException
+  public static String handleChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

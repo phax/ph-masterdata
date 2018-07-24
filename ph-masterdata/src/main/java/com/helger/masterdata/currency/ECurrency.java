@@ -405,6 +405,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     // Note: Locale fr_FR formats locale with a trailing € whereas the locale
     // de_DE formats the € at front!
     m_aCurrencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance (aRelevantLocale);
+    m_aCurrencyFormat.setMaximumFractionDigits (m_nScale);
 
     // Extract value pattern from currency pattern (without currency symbol)
     m_sCurrencyPattern = m_aCurrencyFormat.toPattern ();
@@ -888,7 +889,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   @Nonnull
   public static IPredicate <ECurrency> filterDeprecated ()
   {
-    return eCurrency -> eCurrency.isDeprecated ();
+    return ECurrency::isDeprecated;
   }
 
   @Nonnull

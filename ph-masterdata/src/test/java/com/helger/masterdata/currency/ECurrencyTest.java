@@ -105,7 +105,8 @@ public final class ECurrencyTest
     {
       final int nDefaultFractionDigits = eCurrency.getScale ();
       if (false)
-        System.out.println (eCurrency.getID () + " - " + nDefaultFractionDigits);
+        if (LOGGER.isInfoEnabled ())
+          LOGGER.info (eCurrency.getID () + " - " + nDefaultFractionDigits);
 
       // currency format
       assertNotNull (eCurrency.getCurrencyFormat ());
@@ -115,9 +116,12 @@ public final class ECurrencyTest
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("", BigDecimal.TEN));
       assertEquals (BigDecimal.TEN, eCurrency.parseCurrencyFormat ("    ", BigDecimal.TEN));
       {
+        final BigDecimal aExpected = aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ());
         final BigDecimal aParsed = eCurrency.parseCurrencyFormat (eCurrency.getCurrencyFormatted (aBD), BigDecimal.TEN);
         // Set the correct scale!
-        assertEquals (aBD.setScale (nDefaultFractionDigits, eCurrency.getRoundingMode ()), aParsed);
+        assertEquals ("Difference for " + eCurrency + " (based on: " + eCurrency.getCurrencyFormatted (aBD) + ")",
+                      aExpected,
+                      aParsed);
       }
       {
         final BigDecimal aParsed = eCurrency.parseCurrencyFormatUnchanged (eCurrency.getCurrencyFormatted (aBD),

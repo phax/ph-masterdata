@@ -151,15 +151,15 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedCareOf (@Nullable final String sPOBox, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedCareOf (@Nullable final String sCareOf, @Nonnull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
-      return sPOBox;
+      return sCareOf;
 
-    if (sPOBox == null)
+    if (sCareOf == null)
       return null;
 
-    return _unifyPart (sPOBox, aSortLocale);
+    return _unifyPart (sCareOf, aSortLocale);
   }
 
   @Nullable

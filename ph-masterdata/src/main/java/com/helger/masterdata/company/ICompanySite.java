@@ -21,7 +21,6 @@ import java.io.Serializable;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.name.IHasDisplayName;
 import com.helger.commons.type.ITypedObject;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
@@ -32,13 +31,19 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
  *
  * @author Philip Helger
  */
-public interface ICompanySite extends IHasDisplayName, ITypedObject <String>, Serializable
+public interface ICompanySite extends ITypedObject <String>, Serializable
 {
   /**
    * @return The company to which the site belongs
    */
   @Nonnull
   ICompany getCompany ();
+
+  /**
+   * @return The short name of the company site.
+   */
+  @Nullable
+  String getDisplayName ();
 
   /**
    * @return The long name of the company site, e.g. containing the city or
@@ -58,6 +63,15 @@ public interface ICompanySite extends IHasDisplayName, ITypedObject <String>, Se
    *         <code>false</code> if it is a real site.
    */
   boolean isVirtualSite ();
+
+  /**
+   * @return <code>true</code> if it is a physical site (the opposite of virtual
+   *         site).
+   */
+  default boolean isPhysicalSite ()
+  {
+    return !isVirtualSite ();
+  }
 
   /**
    * @return The address of this company site.

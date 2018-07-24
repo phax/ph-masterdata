@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.company;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,7 +31,7 @@ import com.helger.commons.type.ITypedObject;
  *
  * @author Philip Helger
  */
-public interface ICompany extends ITypedObject <String>
+public interface ICompany extends ITypedObject <String>, Serializable
 {
   /**
    * @return The name of the company and how it is known. E.g. "IBM".
@@ -38,8 +40,8 @@ public interface ICompany extends ITypedObject <String>
   String getPublicName ();
 
   /**
-   * @return The official name of the company like
-   *         "International Business Machines Corp.".
+   * @return The official name of the company like "International Business
+   *         Machines Corp.".
    */
   @Nullable
   String getOfficialName ();
@@ -73,7 +75,7 @@ public interface ICompany extends ITypedObject <String>
    */
   @Nonnull
   @ReturnsMutableCopy
-  ICommonsCollection <? extends ICompanySite> getAllNonVirtualSites ();
+  ICommonsCollection <? extends ICompanySite> getAllPhysicalSites ();
 
   /**
    * @return A collection of all virtual sites belonging to this company.

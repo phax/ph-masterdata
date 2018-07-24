@@ -87,8 +87,7 @@ public final class EAN13 extends AbstractUPCEAN
   }
 
   @Nonnull
-  public static String getWithCorrectChecksum (@Nonnull final String sMsg,
-                                               @Nonnull final EEANChecksumMode eMode) throws IllegalArgumentException
+  public static String getWithCorrectChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

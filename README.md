@@ -22,10 +22,12 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
-* v6.0.1 - work in progress
+* v6.1.0 - work in progress
   * Fixed OSGI ServiceProvider configuration
   * Updated 5305 code list to version D16B
   * Renamed `EVATType` to `EVATItemType` (incompatible change)
+  * Removed ID from class `Person`
+  * Fixed code consistency issues
 * v6.0.0 - 2017-12-14
   * Added country Locale to VAT item
   * Updated vehicle sign list and API

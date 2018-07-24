@@ -59,16 +59,17 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
   }
 
   @Nonnull
-  @Nonempty
-  public final String getAccountingAreaID ()
-  {
-    return m_aAccountingArea.getID ();
-  }
-
-  @Nonnull
   public final IAccountingArea getAccountingArea ()
   {
     return m_aAccountingArea;
+  }
+
+  @Nonnull
+  @Nonempty
+  @Override
+  public final String getAccountingAreaID ()
+  {
+    return m_aAccountingArea.getID ();
   }
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingArea aAccountingArea)

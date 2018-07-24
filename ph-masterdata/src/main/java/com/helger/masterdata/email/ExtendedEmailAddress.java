@@ -91,7 +91,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
   }
 
   @Nonnull
-  public EChange setType (@Nullable final IEmailAddressType aAddressType)
+  public final EChange setType (@Nullable final IEmailAddressType aAddressType)
   {
     if (EqualsHelper.equals (aAddressType, m_aAddressType))
       return EChange.UNCHANGED;
@@ -117,7 +117,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
    *         invalid.
    */
   @Nonnull
-  public EChange setAddress (@Nullable final String sAddress)
+  public final EChange setAddress (@Nullable final String sAddress)
   {
     final String sRealAddress = EmailAddressHelper.getUnifiedEmailAddress (sAddress);
     if (EqualsHelper.equals (sRealAddress, m_sAddress))
@@ -141,7 +141,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
   }
 
   @Nonnull
-  public EChange setPersonal (@Nullable final String sPersonal)
+  public final EChange setPersonal (@Nullable final String sPersonal)
   {
     final String sRealPersonal = sPersonal;
     if (EqualsHelper.equals (sRealPersonal, m_sPersonal))

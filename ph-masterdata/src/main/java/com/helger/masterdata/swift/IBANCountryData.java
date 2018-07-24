@@ -35,6 +35,7 @@ import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
 import com.helger.commons.string.ToStringGenerator;
+import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.datetime.period.LocalDatePeriod;
 
 /**
@@ -43,12 +44,13 @@ import com.helger.datetime.period.LocalDatePeriod;
  *
  * @author Philip Helger
  */
-public class IBANCountryData extends LocalDatePeriod
+public class IBANCountryData implements ILocalDatePeriod
 {
   private final int m_nExpectedLength;
   private final Pattern m_aPattern;
   private final ICommonsList <IBANElement> m_aElements;
   private final String m_sFixedCheckDigits;
+  private final LocalDatePeriod m_aValidity;
 
   /**
    * @param nExpectedLength
@@ -73,7 +75,6 @@ public class IBANCountryData extends LocalDatePeriod
                           @Nullable final LocalDate aValidTo,
                           @Nonnull final List <IBANElement> aElements)
   {
-    super (aValidFrom, aValidTo);
     ValueEnforcer.notNull (aElements, "Elements");
     if (sFixedCheckDigits != null)
     {
@@ -85,6 +86,7 @@ public class IBANCountryData extends LocalDatePeriod
     m_aPattern = aPattern;
     m_aElements = new CommonsArrayList <> (aElements);
     m_sFixedCheckDigits = sFixedCheckDigits;
+    m_aValidity = new LocalDatePeriod (aValidFrom, aValidTo);
 
     int nCalcedLength = 0;
     for (final IBANElement aChar : aElements)
@@ -140,6 +142,18 @@ public class IBANCountryData extends LocalDatePeriod
   public String getFixedCheckDigits ()
   {
     return m_sFixedCheckDigits;
+  }
+
+  @Nullable
+  public LocalDate getStart ()
+  {
+    return m_aValidity.getStart ();
+  }
+
+  @Nullable
+  public LocalDate getEnd ()
+  {
+    return m_aValidity.getEnd ();
   }
 
   /**

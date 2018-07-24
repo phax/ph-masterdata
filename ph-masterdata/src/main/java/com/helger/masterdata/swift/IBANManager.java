@@ -117,7 +117,8 @@ public final class IBANManager
       final String sDesc = eCountry.getTextContent ();
       final String sCountryCode = sDesc.substring (0, 2);
       if (CountryCache.getInstance ().getCountry (sCountryCode) == null)
-        LOGGER.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
+        if (LOGGER.isWarnEnabled ())
+          LOGGER.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
 
       LocalDate aValidFrom = null;
       if (eCountry.hasAttribute (ATTR_VALIDFROM))

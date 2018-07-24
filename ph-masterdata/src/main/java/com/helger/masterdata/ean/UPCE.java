@@ -146,7 +146,8 @@ public final class UPCE extends AbstractUPCEAN
    *        an UPC-E message (7 or 8 characters)
    * @return String the expanded UPC-A message (with checksum, 12 characters)
    */
-  public static String getExpandedMessage (final String sMsg)
+  @Nonnull
+  public static String getExpandedMessage (@Nonnull final String sMsg)
   {
     final char cCheck = sMsg.length () == 8 ? sMsg.charAt (7) : '\u0000';
     final String sUpce = sMsg.substring (0, 0 + 7);
@@ -226,8 +227,7 @@ public final class UPCE extends AbstractUPCEAN
     return EValidity.INVALID;
   }
 
-  public static String handleChecksum (@Nonnull final String sMsg,
-                                       @Nonnull final EEANChecksumMode eMode) throws IllegalArgumentException
+  public static String handleChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

@@ -25,8 +25,8 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.masterdata.address.PostalAddress;
 import com.helger.masterdata.address.IPostalAddress;
+import com.helger.masterdata.address.PostalAddress;
 
 /**
  * Person specific implementation
@@ -45,7 +45,9 @@ public class PersonAddress extends PostalAddress
     setOwner (aOwner);
   }
 
-  public PersonAddress (@Nonnull final Person aOwner, @Nonnull final IPostalAddress aBase, @Nonnull final Locale aSortLocale)
+  public PersonAddress (@Nonnull final Person aOwner,
+                        @Nonnull final IPostalAddress aBase,
+                        @Nonnull final Locale aSortLocale)
   {
     super (aBase, aSortLocale);
     setOwner (aOwner);
@@ -57,13 +59,7 @@ public class PersonAddress extends PostalAddress
     return m_aOwner;
   }
 
-  @Nullable
-  public String getOwnerID ()
-  {
-    return m_aOwner == null ? null : m_aOwner.getID ();
-  }
-
-  public void setOwner (@Nonnull final Person aOwner)
+  public final void setOwner (@Nonnull final Person aOwner)
   {
     ValueEnforcer.notNull (aOwner, "Owner");
     m_aOwner = aOwner;
@@ -77,18 +73,18 @@ public class PersonAddress extends PostalAddress
     if (!super.equals (o))
       return false;
     final PersonAddress rhs = (PersonAddress) o;
-    return EqualsHelper.equals (getOwnerID (), rhs.getOwnerID ());
+    return EqualsHelper.equals (m_aOwner, rhs.m_aOwner);
   }
 
   @Override
   public int hashCode ()
   {
-    return HashCodeGenerator.getDerived (super.hashCode ()).append (getOwnerID ()).getHashCode ();
+    return HashCodeGenerator.getDerived (super.hashCode ()).append (m_aOwner).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("ownerID", getOwnerID ()).getToString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("owner", m_aOwner).getToString ();
   }
 }

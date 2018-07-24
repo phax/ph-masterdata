@@ -42,6 +42,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   IMutableCurrencyValue getAdded (@Nonnull BigDecimal aValue);
 
   @Nonnull
+  @Override
   @CheckReturnValue
   default IMutableCurrencyValue getAdded (final long nValue)
   {
@@ -55,6 +56,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   IMutableCurrencyValue getSubtracted (@Nonnull BigDecimal aValue);
 
   @Nonnull
+  @Override
   @CheckReturnValue
   default IMutableCurrencyValue getSubtracted (final long nValue)
   {
@@ -68,6 +70,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   IMutableCurrencyValue getMultiplied (@Nonnull BigDecimal aValue);
 
   @Nonnull
+  @Override
   @CheckReturnValue
   default IMutableCurrencyValue getMultiplied (final long nValue)
   {
@@ -81,6 +84,7 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
   IMutableCurrencyValue getDivided (@Nonnull BigDecimal aValue);
 
   @Nonnull
+  @Override
   @CheckReturnValue
   default IMutableCurrencyValue getDivided (final long nValue)
   {

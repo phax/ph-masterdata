@@ -33,12 +33,10 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
 
 public class Person implements IPerson
 {
-  public static final String FIELD_ID = "id";
   public static final String FIELD_GENDER = "gender";
   public static final int LENGTH_GENDER = 2;
   public static final String FIELD_BIRTHDAY = "birthday";
 
-  private String m_sID;
   private EGender m_eGender;
   private PersonName m_aName;
   private LocalDate m_aBirthday;
@@ -54,7 +52,6 @@ public class Person implements IPerson
   public Person (@Nonnull final IPerson aBase, @Nonnull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
-    // do not copy the ID!
     setGender (aBase.getGender ());
     setName (aBase.getName (), aSortLocale);
     setBirthday (aBase.getBirthday ());
@@ -77,17 +74,6 @@ public class Person implements IPerson
     setTelephoneNumber (aTelephoneNumber);
     setEmailAddress (aEmailAddress);
     setAddress (aAddress, aSortLocale);
-  }
-
-  @Nullable
-  public String getID ()
-  {
-    return m_sID;
-  }
-
-  public void setID (@Nullable final String sID)
-  {
-    m_sID = sID;
   }
 
   @Nullable
@@ -224,8 +210,7 @@ public class Person implements IPerson
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final Person rhs = (Person) o;
-    return EqualsHelper.equals (m_sID, rhs.m_sID) &&
-           EqualsHelper.equals (m_eGender, rhs.m_eGender) &&
+    return EqualsHelper.equals (m_eGender, rhs.m_eGender) &&
            EqualsHelper.equals (m_aName, rhs.m_aName) &&
            EqualsHelper.equals (m_aBirthday, rhs.m_aBirthday) &&
            EqualsHelper.equals (m_aTelephoneNumber, rhs.m_aTelephoneNumber) &&
@@ -236,8 +221,7 @@ public class Person implements IPerson
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_sID)
-                                       .append (m_eGender)
+    return new HashCodeGenerator (this).append (m_eGender)
                                        .append (m_aName)
                                        .append (m_aBirthday)
                                        .append (m_aTelephoneNumber)
@@ -249,8 +233,7 @@ public class Person implements IPerson
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).appendIfNotNull ("id", m_sID)
-                                       .appendIfNotNull ("gender", m_eGender)
+    return new ToStringGenerator (this).appendIfNotNull ("gender", m_eGender)
                                        .appendIfNotNull ("name", m_aName)
                                        .appendIfNotNull ("birthday", m_aBirthday)
                                        .appendIfNotNull ("telephone", m_aTelephoneNumber)

@@ -22,7 +22,6 @@ import java.time.LocalDate;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasID;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
@@ -32,7 +31,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
  *
  * @author Philip Helger
  */
-public interface IPerson extends IHasID <String>, Serializable
+public interface IPerson extends Serializable
 {
   /**
    * @return The gender of the person. May be <code>null</code>.

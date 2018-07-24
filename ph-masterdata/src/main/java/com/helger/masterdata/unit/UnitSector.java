@@ -52,12 +52,6 @@ public class UnitSector implements IHasIntID, IHasDisplayText
   }
 
   @Nonnull
-  public Integer getIDObj ()
-  {
-    return Integer.valueOf (m_nGroupNumber);
-  }
-
-  @Nonnull
   public IMultilingualText getName ()
   {
     return m_aName;

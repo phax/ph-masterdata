@@ -254,12 +254,6 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_eDefaultCurrency;
   }
 
-  @Nullable
-  public String getDefaultCurrencyID ()
-  {
-    return m_eDefaultCurrency == null ? null : m_eDefaultCurrency.getID ();
-  }
-
   @Nonnull
   public EChange setDefaultCurrency (@Nullable final ECurrency eDefaultCurrency)
   {
