@@ -28,6 +28,7 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
@@ -38,6 +39,7 @@ import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.collection.impl.CommonsTreeSet;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsSortedSet;
+import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleParser;
 import com.helger.commons.string.StringHelper;
@@ -65,6 +67,8 @@ public final class CurrencyHelper
   // Sorted set of all available currencies
   private static ICommonsSortedSet <Currency> s_aAllCurrencies = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
   private static ICommonsMap <Locale, Currency> s_aLocaleToCurrency = new CommonsHashMap <> ();
+  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
+  @GuardedBy ("s_aRWLock")
   private static final ICommonsMap <ECurrency, PerCurrencySettings> s_aSettingsMap = new CommonsEnumMap <> (ECurrency.class);
 
   static
@@ -87,8 +91,19 @@ public final class CurrencyHelper
       }
     }
 
-    for (final ECurrency e : ECurrency.values ())
-      s_aSettingsMap.put (e, new PerCurrencySettings (e));
+    reinitializeCurrencySettings ();
+  }
+
+  /**
+   * Reinitialize all the {@link PerCurrencySettings} to the original state.
+   */
+  public static void reinitializeCurrencySettings ()
+  {
+    s_aRWLock.writeLocked ( () -> {
+      s_aSettingsMap.clear ();
+      for (final ECurrency e : ECurrency.values ())
+        s_aSettingsMap.put (e, new PerCurrencySettings (e));
+    });
   }
 
   private CurrencyHelper ()
@@ -227,7 +242,15 @@ public final class CurrencyHelper
   @Nonnull
   public static PerCurrencySettings getSettings (@Nullable final ECurrency eCurrency)
   {
-    return s_aSettingsMap.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
+    s_aRWLock.readLock ().lock ();
+    try
+    {
+      return s_aSettingsMap.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
+    }
+    finally
+    {
+      s_aRWLock.readLock ().unlock ();
+    }
   }
 
   @Nonnull
