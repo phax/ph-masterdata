@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsTestHelper;
+import com.helger.masterdata.currency.CurrencyManager;
 import com.helger.masterdata.currency.ECurrency;
 
 public final class CurrencyValueTest
@@ -51,7 +52,7 @@ public final class CurrencyValueTest
       assertNotNull (sCurrencyFormatted);
       final String sValueFormatted = aCV.getValueFormatted ();
       assertNotNull (sValueFormatted);
-      assertTrue (sValueFormatted, sValueFormatted.indexOf (eCurrency.getCurrencySymbol ()) < 0);
+      assertTrue (sValueFormatted, sValueFormatted.indexOf (CurrencyManager.getCurrencySymbol (eCurrency)) < 0);
       CommonsTestHelper.testGetClone (aCV);
 
       // There seems to be a bug in the optimizer of 1.6.0_45 so that the output

@@ -155,7 +155,7 @@ public final class CurrencyHelper
                                           @Nonnull final DecimalFormat aFormat,
                                           @Nullable final BigDecimal aDefault)
   {
-    return parseCurrency (sStr, aFormat, aDefault, ECurrency.DEFAULT_ROUNDING_MODE);
+    return parseCurrency (sStr, aFormat, aDefault, CurrencyManager.DEFAULT_ROUNDING_MODE);
   }
 
   /**

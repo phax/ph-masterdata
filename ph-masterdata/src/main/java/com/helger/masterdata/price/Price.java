@@ -29,7 +29,9 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
+import com.helger.masterdata.currency.CurrencyManager;
 import com.helger.masterdata.currency.ECurrency;
+import com.helger.masterdata.currency.PerCurrencySettings;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
@@ -264,11 +266,8 @@ public class Price implements IMutablePrice
                                              @Nonnull final BigDecimal aGrossAmount,
                                              @Nonnull final IVATItem aVATItem)
   {
-    return createFromGrossAmount (eCurrency,
-                                  aGrossAmount,
-                                  aVATItem,
-                                  eCurrency.getScale (),
-                                  eCurrency.getRoundingMode ());
+    final PerCurrencySettings aPCS = CurrencyManager.get (eCurrency);
+    return createFromGrossAmount (eCurrency, aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
   /**
@@ -323,7 +322,8 @@ public class Price implements IMutablePrice
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
     final ECurrency eCurrency = aGrossAmount.getCurrency ();
-    return createFromGrossAmount (aGrossAmount, aVATItem, eCurrency.getScale (), eCurrency.getRoundingMode ());
+    final PerCurrencySettings aPCS = CurrencyManager.get (eCurrency);
+    return createFromGrossAmount (aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
   }
 
   /**

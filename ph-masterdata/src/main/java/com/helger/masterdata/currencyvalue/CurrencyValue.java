@@ -28,6 +28,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
+import com.helger.masterdata.currency.CurrencyManager;
 import com.helger.masterdata.currency.ECurrency;
 
 /**
@@ -136,7 +137,7 @@ public class CurrencyValue implements IMutableCurrencyValue
     if (MathHelper.isEQ1 (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
-    return new CurrencyValue (eCurrency, eCurrency.getDivided (getValue (), aValue));
+    return new CurrencyValue (eCurrency, CurrencyManager.getDivided (eCurrency, getValue (), aValue));
   }
 
   @Nonnull
@@ -173,7 +174,7 @@ public class CurrencyValue implements IMutableCurrencyValue
                                                                    @Nonnull final ECurrency eCurrency,
                                                                    @Nonnull final BigDecimal aDefaultValue)
   {
-    return new CurrencyValue (eCurrency, eCurrency.parseCurrencyFormat (sText, aDefaultValue));
+    return new CurrencyValue (eCurrency, CurrencyManager.parseCurrencyFormat (eCurrency, sText, aDefaultValue));
   }
 
   @Nonnull
@@ -181,6 +182,6 @@ public class CurrencyValue implements IMutableCurrencyValue
                                                                 @Nonnull final ECurrency eCurrency,
                                                                 @Nonnull final BigDecimal aDefaultValue)
   {
-    return new CurrencyValue (eCurrency, eCurrency.parseValueFormat (sText, aDefaultValue));
+    return new CurrencyValue (eCurrency, CurrencyManager.parseValueFormat (eCurrency, sText, aDefaultValue));
   }
 }

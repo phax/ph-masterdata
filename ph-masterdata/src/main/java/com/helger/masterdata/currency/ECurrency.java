@@ -16,27 +16,23 @@
  */
 package com.helger.masterdata.currency;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.function.Predicate;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.CodingStyleguideUnaware;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.ArrayHelper;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
@@ -44,7 +40,6 @@ import com.helger.commons.functional.IPredicate;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
 /**
@@ -305,40 +300,28 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   ZAR ("ZAR", ECurrencyName.ZAR, "_ZA", "en_ZA"),
   @Deprecated
   ZMK ("ZMK", true, ECurrencyName.ZMK, "_ZM"),
-  ZMW ("ZMW", true, ECurrencyName.ZMW, "_ZM"),
+  ZMW ("ZMW", ECurrencyName.ZMW, "_ZM"),
   @Deprecated
   ZWL ("ZWL", true, ECurrencyName.ZWL, "_ZW");
 
-  /**
-   * The default rounding mode to be used for currency values. It may be
-   * overridden for each currency individually.
-   */
-  public static final RoundingMode DEFAULT_ROUNDING_MODE = RoundingMode.HALF_EVEN;
-
-  /** The default currency */
-  public static final ECurrency DEFAULT_CURRENCY = EUR;
-
-  /** The default scale to be used if no JDK Currency is available */
-  public static final int DEFAULT_SCALE = 2;
+  @Deprecated
+  public static final RoundingMode DEFAULT_ROUNDING_MODE = CurrencyManager.DEFAULT_ROUNDING_MODE;
+  @Deprecated
+  public static final ECurrency DEFAULT_CURRENCY = ECurrency.EUR;
+  @Deprecated
+  public static final int DEFAULT_SCALE = CurrencyManager.DEFAULT_SCALE;
 
   private final String m_sID;
   private final Currency m_aCurrency;
-  private final int m_nScale;
   private final boolean m_bIsDeprecated;
   private final IHasDisplayText m_aName;
   private final ICommonsList <Locale> m_aLocales = new CommonsArrayList <> ();
-  private final DecimalFormat m_aCurrencyFormat;
-  private final String m_sCurrencyPattern;
-  private final String m_sValuePattern;
-  private final DecimalFormat m_aValueFormat;
-  @CodingStyleguideUnaware
-  private RoundingMode m_eRoundingMode;
 
   @Nonnull
   @ReturnsMutableCopy
   private static ICommonsList <Locale> _getAsLocales (@Nonnull final String... aCountries)
   {
-    return new CommonsArrayList <> (aCountries, sCountry -> LocaleCache.getInstance ().getLocale (sCountry));
+    return new CommonsArrayList <> (aCountries, LocaleCache.getInstance ()::getLocale);
   }
 
   private ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
@@ -391,35 +374,16 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     catch (final IllegalArgumentException ex)
     {
       // Happens when an unsupported currency code is provided
-      LoggerFactory.getLogger (ECurrency.class)
-                   .error ("Failed to resolve currency with currency code '" +
-                           sCurrencyCode +
-                           "' - " +
-                           aName.getDisplayText (Locale.US));
+      final Logger aLogger = LoggerFactory.getLogger (ECurrency.class);
+      if (aLogger.isErrorEnabled ())
+        aLogger.error ("Failed to resolve currency with currency code '" +
+                       sCurrencyCode +
+                       "' - " +
+                       aName.getDisplayText (Locale.US));
     }
     m_aCurrency = aCurrency;
-    m_nScale = aCurrency == null ? DEFAULT_SCALE : aCurrency.getDefaultFractionDigits ();
     m_bIsDeprecated = bIsDeprecated;
     m_aName = aName;
-
-    // Note: Locale fr_FR formats locale with a trailing € whereas the locale
-    // de_DE formats the € at front!
-    m_aCurrencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance (aRelevantLocale);
-    m_aCurrencyFormat.setMaximumFractionDigits (m_nScale);
-
-    // Extract value pattern from currency pattern (without currency symbol)
-    m_sCurrencyPattern = m_aCurrencyFormat.toPattern ();
-    String sVP = m_sCurrencyPattern;
-    sVP = StringHelper.removeAll (sVP, "\u00A4 ");
-    sVP = StringHelper.removeAll (sVP, " \u00A4");
-    sVP = StringHelper.removeAll (sVP, "\u00A4");
-    m_sValuePattern = sVP;
-
-    // Use the decimal symbols from the currency format
-    m_aValueFormat = new DecimalFormat (m_sValuePattern, m_aCurrencyFormat.getDecimalFormatSymbols ());
-
-    // By default the default rounding mode should be used
-    m_eRoundingMode = null;
   }
 
   /**
@@ -448,10 +412,9 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return m_aCurrency;
   }
 
-  @Nonnull
-  public String getCurrencySymbol ()
+  public boolean hasJavaCurrency ()
   {
-    return m_aCurrencyFormat.getDecimalFormatSymbols ().getCurrencySymbol ();
+    return m_aCurrency != null;
   }
 
   /**
@@ -469,381 +432,22 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    */
   @Nonnull
   @Nonempty
+  @ReturnsMutableObject
+  public ICommonsList <Locale> matchingLocales ()
+  {
+    return m_aLocales;
+  }
+
+  /**
+   * @return A list of all locales (as {@link Locale} objects) to which this
+   *         currency applies.
+   */
+  @Nonnull
+  @Nonempty
   @ReturnsMutableCopy
   public ICommonsList <Locale> getAllMatchingLocales ()
   {
     return m_aLocales.getClone ();
-  }
-
-  /**
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern includes the currency string.
-   */
-  @Nonnull
-  @Nonempty
-  public String getCurrencyPattern ()
-  {
-    return m_sCurrencyPattern;
-  }
-
-  /**
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern does NOT includes the currency string.
-   */
-  @Nonnull
-  @Nonempty
-  public String getValuePattern ()
-  {
-    return m_sValuePattern;
-  }
-
-  /**
-   * @return The {@link DecimalFormat} used to format this currency. Always
-   *         returns a copy of the contained formatter for thread-safety and
-   *         modification.
-   */
-  @Nonnull
-  public DecimalFormat getCurrencyFormat ()
-  {
-    // DecimalFormat is not thread safe - clone!
-    return (DecimalFormat) m_aCurrencyFormat.clone ();
-  }
-
-  @Nonnull
-  public String getCurrencyFormatted (@Nonnull final BigDecimal aValue)
-  {
-    return getCurrencyFormat ().format (aValue);
-  }
-
-  @Nonnull
-  public String getCurrencyFormatted (@Nonnull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
-  {
-    final DecimalFormat aFormat = getCurrencyFormat ();
-    aFormat.setMaximumFractionDigits (nFractionDigits);
-    return aFormat.format (aValue);
-  }
-
-  /**
-   * @return The {@link DecimalFormat} object that formats an object like the
-   *         {@link #getCurrencyFormat()} but without the currency sign. Always
-   *         returns a copy of the contained formatter for thread-safety and
-   *         modification.
-   */
-  @Nonnull
-  public DecimalFormat getValueFormat ()
-  {
-    // DecimalFormat is not thread safe - clone!
-    return (DecimalFormat) m_aValueFormat.clone ();
-  }
-
-  @Nonnull
-  public String getValueFormatted (@Nonnull final BigDecimal aValue)
-  {
-    return getValueFormat ().format (aValue);
-  }
-
-  @Nonnull
-  public String getValueFormatted (@Nonnull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
-  {
-    final DecimalFormat aFormat = getValueFormat ();
-    aFormat.setMaximumFractionDigits (nFractionDigits);
-    return aFormat.format (aValue);
-  }
-
-  /**
-   * @return The minimum fraction digits to be used for formatting.
-   */
-  @Nonnegative
-  public int getMinimumFractionDigits ()
-  {
-    return m_aCurrencyFormat.getMinimumFractionDigits ();
-  }
-
-  /**
-   * Set the minimum fraction digits to be used for formatting. Applies to the
-   * currency-formatting and the value-formatting.
-   *
-   * @param nDecimals
-   *        The new minimum fraction digits. May not be negative.
-   */
-  public void setMinimumFractionDigits (@Nonnegative final int nDecimals)
-  {
-    ValueEnforcer.isGE0 (nDecimals, "Decimals");
-    m_aCurrencyFormat.setMinimumFractionDigits (nDecimals);
-    m_aValueFormat.setMinimumFractionDigits (nDecimals);
-  }
-
-  @Nullable
-  public EDecimalSeparator getDecimalSeparator ()
-  {
-    return EDecimalSeparator.getFromCharOrNull (m_aCurrencyFormat.getDecimalFormatSymbols ().getDecimalSeparator ());
-  }
-
-  @Nullable
-  public EGroupingSeparator getGroupingSeparator ()
-  {
-    return EGroupingSeparator.getFromCharOrNull (m_aCurrencyFormat.getDecimalFormatSymbols ().getGroupingSeparator ());
-  }
-
-  /**
-   * Adopt the passed text value according to the requested decimal separator.
-   *
-   * @param sTextValue
-   *        The text to be manipulated. May be <code>null</code>.
-   * @param eDecimalSep
-   *        The decimal separator that is required. May not be <code>null</code>
-   *        .
-   * @param eGroupingSep
-   *        The grouping separator that is required. May not be
-   *        <code>null</code> .
-   * @return The manipulated text so that it matches the required decimal
-   *         separator or the original text
-   */
-  @Nullable
-  private static String _getTextValueForDecimalSeparator (@Nullable final String sTextValue,
-                                                          @Nonnull final EDecimalSeparator eDecimalSep,
-                                                          @Nonnull final EGroupingSeparator eGroupingSep)
-  {
-    ValueEnforcer.notNull (eDecimalSep, "DecimalSeparator");
-    ValueEnforcer.notNull (eGroupingSep, "GroupingSeparator");
-
-    final String ret = StringHelper.trim (sTextValue);
-
-    // Replace only, if the desired decimal separator is not present
-    if (ret != null && ret.indexOf (eDecimalSep.getChar ()) < 0)
-      switch (eDecimalSep)
-      {
-        case COMMA:
-        {
-          // Decimal separator is a ","
-          if (ret.indexOf ('.') > -1 && eGroupingSep.getChar () != '.')
-          {
-            // Currency expects "," but user passed "."
-            return StringHelper.replaceAll (ret, '.', eDecimalSep.getChar ());
-          }
-          break;
-        }
-        case POINT:
-        {
-          // Decimal separator is a "."
-          if (ret.indexOf (',') > -1 && eGroupingSep.getChar () != ',')
-          {
-            // Pattern contains no "," but value contains ","
-            return StringHelper.replaceAll (ret, ',', eDecimalSep.getChar ());
-          }
-          break;
-        }
-        default:
-          throw new IllegalStateException ("Unexpected decimal separator [" + eDecimalSep + "]");
-      }
-    return ret;
-  }
-
-  /**
-   * Try to parse a string value formatted by the {@link NumberFormat} object
-   * returned from {@link #getCurrencyFormat()}. E.g. <code>&euro; 5,00</code>
-   *
-   * @param sTextValue
-   *        The string value. It will be trimmed, and the decimal separator will
-   *        be adopted.
-   * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
-   */
-  @Nullable
-  public BigDecimal parseCurrencyFormat (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
-  {
-    final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
-
-    // Adopt the decimal separator
-    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
-                                                                    getDecimalSeparator (),
-                                                                    getGroupingSeparator ());
-    return CurrencyHelper.parseCurrency (sRealTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
-  }
-
-  /**
-   * Try to parse a string value formatted by the {@link NumberFormat} object
-   * returned from {@link #getCurrencyFormat()}. E.g. <code>&euro; 5,00</code>
-   *
-   * @param sTextValue
-   *        The string value. It will be parsed unmodified!
-   * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
-   */
-  @Nullable
-  public BigDecimal parseCurrencyFormatUnchanged (@Nullable final String sTextValue,
-                                                  @Nullable final BigDecimal aDefault)
-  {
-    final DecimalFormat aCurrencyFormat = getCurrencyFormat ();
-    return CurrencyHelper.parseCurrency (sTextValue, aCurrencyFormat, aDefault, getRoundingMode ());
-  }
-
-  /**
-   * Try to parse a string value formatted by the {@link DecimalFormat} object
-   * returned from {@link #getValueFormat()}
-   *
-   * @param sTextValue
-   *        The string value. It will be trimmed, and the decimal separator will
-   *        be adopted.
-   * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
-   */
-  @Nullable
-  public BigDecimal parseValueFormat (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
-  {
-    final DecimalFormat aValueFormat = getValueFormat ();
-
-    // Adopt the decimal separator
-    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
-                                                                    getDecimalSeparator (),
-                                                                    getGroupingSeparator ());
-    return CurrencyHelper.parseCurrency (sRealTextValue, aValueFormat, aDefault, getRoundingMode ());
-  }
-
-  /**
-   * Try to parse a string value formatted by the {@link DecimalFormat} object
-   * returned from {@link #getValueFormat()}
-   *
-   * @param sTextValue
-   *        The string value. It will be parsed unmodified!
-   * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
-   */
-  @Nullable
-  public BigDecimal parseValueFormatUnchanged (@Nullable final String sTextValue, @Nullable final BigDecimal aDefault)
-  {
-    final DecimalFormat aValueFormat = getValueFormat ();
-
-    return CurrencyHelper.parseCurrency (sTextValue, aValueFormat, aDefault, getRoundingMode ());
-  }
-
-  /**
-   * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If
-   *         no underlying JDK currency is present, {@value #DEFAULT_SCALE} is
-   *         returned.
-   */
-  @Nonnegative
-  public int getScale ()
-  {
-    return m_nScale;
-  }
-
-  /**
-   * Special currency division method. This method solves the problem of
-   * dividing "1/3" as it would result in a never ending series of
-   * "0.33333333..." which results in an {@link ArithmeticException} thrown by
-   * the divide method!<br>
-   * The default scaling of this currency is used.
-   *
-   * @param aDividend
-   *        Dividend
-   * @param aDivisor
-   *        Divisor
-   * @return The divided value with the correct scaling
-   */
-  @Nonnull
-  @CheckReturnValue
-  public BigDecimal getDivided (@Nonnull final BigDecimal aDividend, @Nonnull final BigDecimal aDivisor)
-  {
-    return getDivided (aDividend, aDivisor, getScale ());
-  }
-
-  /**
-   * Special currency division method. This method solves the problem of
-   * dividing "1/3" as it would result in a never ending series of
-   * "0.33333333..." which results in an {@link ArithmeticException} thrown by
-   * the divide method!<br>
-   * This method takes a custom scaling. If the default scaling of this currency
-   * should be used, than {@link #getDivided(BigDecimal, BigDecimal)} should be
-   * used instead.
-   *
-   * @param aDividend
-   *        Dividend
-   * @param aDivisor
-   *        Divisor
-   * @param nFractionDigits
-   *        A custom scaling to be used.
-   * @return The divided value with the provided scaling
-   */
-  @Nonnull
-  @CheckReturnValue
-  public BigDecimal getDivided (@Nonnull final BigDecimal aDividend,
-                                @Nonnull final BigDecimal aDivisor,
-                                @Nonnegative final int nFractionDigits)
-  {
-    ValueEnforcer.notNull (aDividend, "Dividend");
-    ValueEnforcer.notNull (aDivisor, "Divisor");
-    return aDividend.divide (aDivisor, nFractionDigits, getRoundingMode ());
-  }
-
-  /**
-   * Get the passed value rounded to the appropriate number of fraction digits,
-   * based on this currencies default fraction digits.<br>
-   * The default scaling of this currency is used.
-   *
-   * @param aValue
-   *        The value to be rounded. May not be <code>null</code>.
-   * @return The rounded value. Never <code>null</code>.
-   */
-  @Nonnull
-  public BigDecimal getRounded (@Nonnull final BigDecimal aValue)
-  {
-    ValueEnforcer.notNull (aValue, "Value");
-    return aValue.setScale (getScale (), getRoundingMode ());
-  }
-
-  /**
-   * Get the passed value rounded to the appropriate number of fraction digits,
-   * based on this currencies default fraction digits.<br>
-   * This method takes a custom scaling. If the default scaling of this currency
-   * should be used, than {@link #getRounded(BigDecimal)} should be used
-   * instead.
-   *
-   * @param aValue
-   *        The value to be rounded. May not be <code>null</code>.
-   * @param nFractionDigits
-   *        A custom scaling to be used.
-   * @return The rounded value. Never <code>null</code>.
-   */
-  @Nonnull
-  public BigDecimal getRounded (@Nonnull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
-  {
-    ValueEnforcer.notNull (aValue, "Value");
-    return aValue.setScale (nFractionDigits, getRoundingMode ());
-  }
-
-  /**
-   * @return The rounding mode of this currency. If non is specified,
-   *         {@link #DEFAULT_ROUNDING_MODE} is returned instead. May not be
-   *         <code>null</code>.
-   */
-  @Nonnull
-  public RoundingMode getRoundingMode ()
-  {
-    return m_eRoundingMode != null ? m_eRoundingMode : DEFAULT_ROUNDING_MODE;
-  }
-
-  /**
-   * Change the rounding mode of this currency.
-   *
-   * @param eRoundingMode
-   *        The rounding mode to be used. May not be <code>null</code>.
-   */
-  public void setRoundingMode (@Nonnull final RoundingMode eRoundingMode)
-  {
-    m_eRoundingMode = ValueEnforcer.notNull (eRoundingMode, "RoundingMode");
   }
 
   @Nonnull
