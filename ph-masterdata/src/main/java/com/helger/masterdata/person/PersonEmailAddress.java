@@ -54,7 +54,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
 
   public PersonEmailAddress (@Nonnull final Person aOwner,
                              @Nullable final IEmailAddressType aAddressType,
-                             @Nullable final String sAddress)
+                             @Nonnull final String sAddress)
   {
     super (aAddressType, sAddress);
     setOwner (aOwner);
@@ -62,7 +62,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
 
   public PersonEmailAddress (@Nonnull final Person aOwner,
                              @Nullable final IEmailAddressType aAddressType,
-                             @Nullable final String sAddress,
+                             @Nonnull final String sAddress,
                              @Nullable final String sPersonal)
   {
     super (aAddressType, sAddress, sPersonal);
@@ -70,7 +70,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
   }
 
   @Nullable
-  public Person getOwner ()
+  public final Person getOwner ()
   {
     return m_aOwner;
   }
