@@ -78,7 +78,7 @@ public interface IBusinessObject extends
 
   /**
    * Check if the last change date is after the provider date time.
-   * 
+   *
    * @param aDT
    *        The date time to check against. May not be <code>null</code>.
    * @return <code>true</code> if a last change date time is present and is
@@ -88,18 +88,28 @@ public interface IBusinessObject extends
   default boolean isLastChangeAfter (@Nonnull final LocalDateTime aDT)
   {
     final LocalDateTime aLastChangeDT = getLastChangeDateTime ();
-    if (aLastChangeDT != null && aLastChangeDT.isAfter (aDT))
-      return true;
-    return false;
+    return aLastChangeDT != null && aLastChangeDT.isAfter (aDT);
   }
 
   /**
    * @return <code>true</code> if this object is deleted, <code>false</code> if
    *         not.
+   * @see #isNotDeleted()
    */
   default boolean isDeleted ()
   {
     return hasDeletionDateTime ();
+  }
+
+  /**
+   * @return <code>true</code> if this object is not deleted, <code>false</code>
+   *         if it is deleted.
+   * @see #isDeleted()
+   * @since 6.1.21
+   */
+  default boolean isNotDeleted ()
+  {
+    return !hasDeletionDateTime ();
   }
 
   /**

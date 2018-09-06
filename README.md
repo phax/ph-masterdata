@@ -22,35 +22,37 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
+* v6.1.1 - work in progress
+    * Added `IBusinessObject.isNotDeleted`
 * v6.1.0 - 2018-07-24
-  * Fixed OSGI ServiceProvider configuration
-  * Updated 5305 code list to version D16B
-  * Renamed `EVATType` to `EVATItemType` (incompatible change)
-  * Removed ID from class `Person`
-  * Fixed code consistency issues
-  * Extracted mutable parts of `ECurrency` into class `CurrencyHelper` (incompatible change)
+    * Fixed OSGI ServiceProvider configuration
+    * Updated 5305 code list to version D16B
+    * Renamed `EVATType` to `EVATItemType` (incompatible change)
+    * Removed ID from class `Person`
+    * Fixed code consistency issues
+    * Extracted mutable parts of `ECurrency` into class `CurrencyHelper` (incompatible change)
 * v6.0.0 - 2017-12-14
-  * Added country Locale to VAT item
-  * Updated vehicle sign list and API
-  * Updated to ph-commons 9.0.0
-  * Removed ph-validation and ph-masterdata-validation as they were badly designed
-  * Added new subproject ph-tenancy
+    * Added country Locale to VAT item
+    * Updated vehicle sign list and API
+    * Updated to ph-commons 9.0.0
+    * Removed ph-validation and ph-masterdata-validation as they were badly designed
+    * Added new subproject ph-tenancy
 * v5.0.5 - 2017-05-30
-  * Requires at least ph-common 8.6.5
-  * API extensions
+    * Requires at least ph-common 8.6.5
+    * API extensions
 * v5.0.4 - 2017-04-20
-  * Added VATIN checksum routines to validate the checksum character(s) in VATINs without a service call
-  * Requires at least ph-common 8.6.x
+    * Added VATIN checksum routines to validate the checksum character(s) in VATINs without a service call
+    * Requires at least ph-common 8.6.x
 * v5.0.3 - 2016-10-21
-  * Small performance tweaks
-  * Requires at least ph-common 8.5.2
+    * Small performance tweaks
+    * Requires at least ph-common 8.5.2
 * v5.0.2 - 2016-09-12
-  * Binds to ph-commons 8.5.x
+    * Binds to ph-commons 8.5.x
 * v5.0.0
-  * Binds to ph-commons 8.x
-  * Requires JDK 8
+    * Binds to ph-commons 8.x
+    * Requires JDK 8
 * v4.0.0
-  * Binds to ph-commons 6.x        
+    * Binds to ph-commons 6.x        
 
 # Maven usage
 Add the following to your pom.xml to use this artifact:
