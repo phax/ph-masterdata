@@ -132,6 +132,6 @@ public enum EEUCountry implements IHasID <String>
   @Nonnull
   public static IPredicate <Locale> filterLocaleCountryIsEUCountry ()
   {
-    return aLocale -> EEUCountry.isEUCountry (aLocale);
+    return EEUCountry::isEUCountry;
   }
 }
