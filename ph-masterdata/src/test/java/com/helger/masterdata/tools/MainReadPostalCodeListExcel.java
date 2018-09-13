@@ -169,7 +169,7 @@ public class MainReadPostalCodeListExcel
         }
         final Cell aDateCell = aRow.getCell (1);
         Date aIntroducedDate = null;
-        if (aDateCell != null && aDateCell.getCellTypeEnum () != CellType.BLANK)
+        if (aDateCell != null && aDateCell.getCellType () != CellType.BLANK)
         {
           final Number aNum = ExcelReadHelper.getCellValueNumber (aDateCell);
           final int nYear = aNum.intValue ();
