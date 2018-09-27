@@ -59,7 +59,7 @@ public class PriceGraduation implements IMutablePriceGraduation
   }
 
   @Nonnull
-  public ECurrency getCurrency ()
+  public final ECurrency getCurrency ()
   {
     return m_eCurrency;
   }

@@ -29,6 +29,11 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
+/**
+ * MicroType converter for {@link PostalAddress}.
+ * 
+ * @author Philip Helger
+ */
 public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <PostalAddress>
 {
   private static final IMicroQName ATTR_TYPE = new MicroQName ("type");

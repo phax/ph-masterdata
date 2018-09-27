@@ -23,6 +23,11 @@ import com.helger.commons.annotation.IsSPIImplementation;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistrarSPI;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistry;
 
+/**
+ * Registrar for micro type converter.
+ *
+ * @author Philip Helger
+ */
 @Immutable
 @IsSPIImplementation
 public final class PriceMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI

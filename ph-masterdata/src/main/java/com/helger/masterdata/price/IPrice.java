@@ -27,18 +27,23 @@ import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IHasVATItem;
 
 /**
- * Base interface for a price that has a value, a currency and a VAT type.
+ * Base interface for a price that has a value, a currency and a VAT type. This
+ * is a read-only interface. The mutable version is {@link IMutablePrice}.
  *
  * @author Philip Helger
  */
 public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
 {
   /**
-   * @return The net amount of this price (without VAT).
+   * @return The net amount value and currency of this price (value without
+   *         VAT).
    */
   @Nonnull
   ICurrencyValue getNetAmount ();
 
+  /**
+   * @return The net amount value of this price (value without VAT).
+   */
   @Nonnull
   default BigDecimal getNetValue ()
   {
@@ -46,7 +51,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
   }
 
   /**
-   * @return The gross amount of this price (with VAT).
+   * @return The gross amount value and currency of this price (value with VAT).
    */
   @Nonnull
   default ICurrencyValue getGrossAmount ()
@@ -54,6 +59,9 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
     return getNetAmount ().getMultiplied (getVATItem ().getMultiplicationFactorNetToGross ());
   }
 
+  /**
+   * @return The gross amount value of this price (value with VAT).
+   */
   @Nonnull
   default BigDecimal getGrossValue ()
   {
@@ -61,7 +69,8 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
   }
 
   /**
-   * @return The tax amount of this price (=net amount * percentage / 100).
+   * @return The tax amount value and currency of this price (=net amount *
+   *         percentage / 100).
    */
   @Nonnull
   default ICurrencyValue getTaxAmount ()
@@ -69,6 +78,10 @@ public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
     return getNetAmount ().getMultiplied (getVATItem ().getPercentageFactor ());
   }
 
+  /**
+   * @return The tax amount value of this price (=net amount * percentage /
+   *         100).
+   */
   @Nonnull
   default BigDecimal getTaxValue ()
   {

@@ -45,19 +45,59 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
    *         is &ge; 0.
+   * @deprecated Use {@link #isLT0()}
    */
+  @Deprecated
   default boolean isLowerThanZero ()
+  {
+    return isLT0 ();
+  }
+
+  /**
+   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
+   *         is &ge; 0.
+   */
+  default boolean isLT0 ()
   {
     return MathHelper.isLT0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
-   *         is &le; 0.
+   * @return <code>true</code> if the value is &le; 0, <code>false</code> if it
+   *         is &gt; 0.
    */
+  default boolean isLE0 ()
+  {
+    return MathHelper.isLE0 (getValue ());
+  }
+
+  /**
+   * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it
+   *         is &le; 0.
+   * @deprecated Use {@link #isGT0()}
+   */
+  @Deprecated
   default boolean isGreaterThanZero ()
   {
+    return isGT0 ();
+  }
+
+  /**
+   * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it
+   *         is &le; 0.
+   */
+  default boolean isGT0 ()
+  {
     return MathHelper.isGT0 (getValue ());
+  }
+
+  /**
+   * @return <code>true</code> if the value is &ge; 0, <code>false</code> if it
+   *         is &lt; 0.
+   */
+  default boolean isGE0 ()
+  {
+    return MathHelper.isGE0 (getValue ());
   }
 
   /**

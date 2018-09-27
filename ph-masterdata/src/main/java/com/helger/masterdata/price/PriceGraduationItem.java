@@ -45,13 +45,13 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem
   }
 
   @Nonnegative
-  public int getMinimumQuantity ()
+  public final int getMinimumQuantity ()
   {
     return m_nMinimumQuantity;
   }
 
   @Nonnull
-  public EChange setMinimumQuantity (@Nonnegative final int nMinimumQuantity)
+  public final EChange setMinimumQuantity (@Nonnegative final int nMinimumQuantity)
   {
     ValueEnforcer.isGT0 (nMinimumQuantity, "MinimumQuantity");
 
@@ -62,13 +62,13 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem
   }
 
   @Nonnull
-  public BigDecimal getUnitNetAmount ()
+  public final BigDecimal getUnitNetAmount ()
   {
     return m_aNetAmount;
   }
 
   @Nonnull
-  public EChange setUnitNetAmount (@Nonnull final BigDecimal aNetAmount)
+  public final EChange setUnitNetAmount (@Nonnull final BigDecimal aNetAmount)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 

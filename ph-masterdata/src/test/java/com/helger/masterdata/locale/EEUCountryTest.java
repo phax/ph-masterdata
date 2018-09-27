@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.locale;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
 import org.junit.Test;
@@ -30,6 +31,7 @@ public final class EEUCountryTest
   @Test
   public void testBasic ()
   {
+    assertEquals (28, EEUCountry.values ().length);
     for (final EEUCountry e : EEUCountry.values ())
       assertSame (e, EEUCountry.getFromIDOrNull (e.getID ()));
   }

@@ -30,6 +30,11 @@ import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
+/**
+ * MicroType converter for {@link Price}.
+ * 
+ * @author Philip Helger
+ */
 public final class PriceMicroTypeConverter implements IMicroTypeConverter <Price>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");

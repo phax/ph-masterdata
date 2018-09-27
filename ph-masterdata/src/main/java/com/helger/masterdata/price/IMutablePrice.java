@@ -27,6 +27,11 @@ import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
+/**
+ * Mutable base interface of a price.
+ * 
+ * @author Philip Helger
+ */
 public interface IMutablePrice extends IPrice
 {
   @Nonnull

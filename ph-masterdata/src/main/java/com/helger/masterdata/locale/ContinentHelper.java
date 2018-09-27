@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
 import com.helger.collection.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsNavigableSet;
 import com.helger.commons.locale.country.CountryCache;
 
@@ -358,5 +359,16 @@ public final class ContinentHelper
         return ret.getClone ();
     }
     return null;
+  }
+
+  /**
+   * @return A copy of the map from country locale to all matching contintents.
+   *         Never <code>null</code>.
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  public static final ICommonsMap <Locale, ICommonsNavigableSet <EContinent>> getAll ()
+  {
+    return s_aMap.getClone ();
   }
 }

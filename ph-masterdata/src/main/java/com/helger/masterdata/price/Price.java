@@ -88,13 +88,13 @@ public class Price implements IMutablePrice
   }
 
   @Nonnull
-  public CurrencyValue getNetAmount ()
+  public final CurrencyValue getNetAmount ()
   {
     return m_aNetAmount;
   }
 
   @Nonnull
-  public EChange setNetAmount (@Nonnull final ICurrencyValue aNetAmount)
+  public final EChange setNetAmount (@Nonnull final ICurrencyValue aNetAmount)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 
@@ -106,13 +106,13 @@ public class Price implements IMutablePrice
   }
 
   @Nonnull
-  public IVATItem getVATItem ()
+  public final IVATItem getVATItem ()
   {
     return m_aVATItem;
   }
 
   @Nonnull
-  public EChange setVATItem (@Nonnull final IVATItem aVATItem)
+  public final EChange setVATItem (@Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
@@ -123,13 +123,13 @@ public class Price implements IMutablePrice
   }
 
   @Nonnull
-  public ECurrency getCurrency ()
+  public final ECurrency getCurrency ()
   {
     return m_aNetAmount.getCurrency ();
   }
 
   @Nonnull
-  public EChange setCurrency (@Nonnull final ECurrency eCurrency)
+  public final EChange setCurrency (@Nonnull final ECurrency eCurrency)
   {
     return m_aNetAmount.setCurrency (eCurrency);
   }
@@ -210,8 +210,8 @@ public class Price implements IMutablePrice
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("netAmount", m_aNetAmount)
-                                       .append ("VATtype", m_aVATItem)
+    return new ToStringGenerator (this).append ("NetAmount", m_aNetAmount)
+                                       .append ("VATItem", m_aVATItem)
                                        .getToString ();
   }
 
