@@ -18,6 +18,7 @@ package com.helger.tenancy.datetime;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
 import com.helger.datetime.domain.IHasDeletionDateTime;
 
 /**
@@ -33,4 +34,14 @@ public interface IHasDeletionInfo extends IHasDeletionDateTime
    */
   @Nullable
   String getDeletionUserID ();
+
+  /**
+   * @return <code>true</code> if a deletion user is present, <code>false</code>
+   *         if not.
+   * @since 6.1.1
+   */
+  default boolean hasDeletionUserID ()
+  {
+    return StringHelper.hasText (getDeletionUserID ());
+  }
 }

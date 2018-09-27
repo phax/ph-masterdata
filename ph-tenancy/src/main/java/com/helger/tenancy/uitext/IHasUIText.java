@@ -45,6 +45,6 @@ public interface IHasUIText
   static Comparator <IHasUIText> getComparatorCollating (@Nonnull final Locale aContentLocale,
                                                          @Nullable final Locale aSortLocale)
   {
-    return IComparator.getComparatorCollating (aObject -> aObject.getAsUIText (aContentLocale), aSortLocale);
+    return IComparator.getComparatorCollating (x -> x.getAsUIText (aContentLocale), aSortLocale);
   }
 }

@@ -32,7 +32,8 @@ import com.helger.tenancy.datetime.IHasDeletionInfo;
 import com.helger.tenancy.datetime.IHasLastModificationInfo;
 
 /**
- * Base interface for all objects
+ * Base interface for all business objects. Has a creation, last modification
+ * and deletion user ID and date time.
  *
  * @author Philip Helger
  */

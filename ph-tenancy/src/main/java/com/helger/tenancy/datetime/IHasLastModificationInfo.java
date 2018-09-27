@@ -18,6 +18,7 @@ package com.helger.tenancy.datetime;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
 import com.helger.datetime.domain.IHasLastModificationDateTime;
 
 /**
@@ -33,4 +34,14 @@ public interface IHasLastModificationInfo extends IHasLastModificationDateTime
    */
   @Nullable
   String getLastModificationUserID ();
+
+  /**
+   * @return <code>true</code> if a last modification user is present,
+   *         <code>false</code> if not.
+   * @since 6.1.1
+   */
+  default boolean hasLastModificationUserID ()
+  {
+    return StringHelper.hasText (getLastModificationUserID ());
+  }
 }

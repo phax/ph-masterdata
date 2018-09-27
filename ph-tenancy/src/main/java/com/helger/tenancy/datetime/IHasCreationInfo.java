@@ -18,6 +18,7 @@ package com.helger.tenancy.datetime;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
 import com.helger.datetime.domain.IHasCreationDateTime;
 
 /**
@@ -32,4 +33,14 @@ public interface IHasCreationInfo extends IHasCreationDateTime
    */
   @Nullable
   String getCreationUserID ();
+
+  /**
+   * @return <code>true</code> if a creation user is present, <code>false</code>
+   *         if not.
+   * @since 6.1.1
+   */
+  default boolean hasCreationUserID ()
+  {
+    return StringHelper.hasText (getCreationUserID ());
+  }
 }
