@@ -20,6 +20,8 @@ import java.io.Serializable;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.string.StringHelper;
+
 /**
  * Read-only interface for a telephone number.
  *
@@ -47,7 +49,7 @@ public interface ITelephoneNumber extends Serializable
 
   default boolean hasCountryCode ()
   {
-    return getCountryCode () != null;
+    return StringHelper.hasText (getCountryCode ());
   }
 
   /**
@@ -59,7 +61,7 @@ public interface ITelephoneNumber extends Serializable
 
   default boolean hasAreaCode ()
   {
-    return getAreaCode () != null;
+    return StringHelper.hasText (getAreaCode ());
   }
 
   /**
@@ -71,7 +73,7 @@ public interface ITelephoneNumber extends Serializable
 
   default boolean hasLine ()
   {
-    return getLine () != null;
+    return StringHelper.hasText (getLine ());
   }
 
   /**
@@ -83,6 +85,6 @@ public interface ITelephoneNumber extends Serializable
 
   default boolean hasDirectDial ()
   {
-    return getDirectDial () != null;
+    return StringHelper.hasText (getDirectDial ());
   }
 }

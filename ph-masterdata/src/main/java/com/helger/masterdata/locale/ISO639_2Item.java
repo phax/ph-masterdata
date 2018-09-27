@@ -48,9 +48,9 @@ public class ISO639_2Item implements Serializable
                                                                   "' - length " +
                                                                   StringHelper.getLength (sAlpha3B));
     if (sAlpha3T != null)
-      ValueEnforcer.isTrue (sAlpha3T.length () == 3, "Alpha3-terminologic code must have length 3!");
+      ValueEnforcer.isEqual (sAlpha3T.length (), 3, "Alpha3-terminologic code length");
     if (sAlpha2 != null)
-      ValueEnforcer.isTrue (sAlpha2.length () == 2, "Alpha2 code must have length 2!");
+      ValueEnforcer.isEqual (sAlpha2.length (), 2, "Alpha2 code length");
     ValueEnforcer.notEmpty (sEN, "English name");
     ValueEnforcer.notEmpty (sFR, "French name");
     m_sAlpha3B = sAlpha3B;

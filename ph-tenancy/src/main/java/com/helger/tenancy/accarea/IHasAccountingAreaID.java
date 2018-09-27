@@ -18,6 +18,9 @@ package com.helger.tenancy.accarea;
 
 import javax.annotation.Nullable;
 
+import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.string.StringHelper;
+
 /**
  * Base interface for objects that have an accounting area ID.
  *
@@ -30,4 +33,28 @@ public interface IHasAccountingAreaID
    */
   @Nullable
   String getAccountingAreaID ();
+
+  /**
+   * @return <code>true</code> if an accounting area ID is present,
+   *         <code>false</code> if not.
+   * @since 6.1.1
+   */
+  default boolean hasAccountingAreaID ()
+  {
+    return StringHelper.hasText (getAccountingAreaID ());
+  }
+
+  /**
+   * Check if the passed accounting area ID has the same ID as this object
+   *
+   * @param sAccountingAreaID
+   *        The accounting area ID to check. May be <code>null</code>.
+   * @return <code>true</code> if this object and the passed object have the
+   *         same accounting area ID
+   * @since 6.1.1
+   */
+  default boolean hasSameAccountingAreaID (@Nullable final String sAccountingAreaID)
+  {
+    return EqualsHelper.equals (getAccountingAreaID (), sAccountingAreaID);
+  }
 }

@@ -24,6 +24,11 @@ import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 
+/**
+ * Abstract base implementation for {@link IHasTenant}.
+ * 
+ * @author Philip Helger
+ */
 @Immutable
 public abstract class AbstractHasTenant implements IHasTenant
 {

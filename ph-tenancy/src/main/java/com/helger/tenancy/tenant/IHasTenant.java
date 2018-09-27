@@ -33,11 +33,25 @@ public interface IHasTenant extends IHasTenantID
   @Nullable
   ITenant getTenant ();
 
+  /**
+   * @return The tenant or <code>null</code>.
+   * @since 6.1.1
+   */
+  default boolean hasTenant ()
+  {
+    return getTenant () != null;
+  }
+
   @Nullable
   default String getTenantID ()
   {
     final ITenant aTenant = getTenant ();
     return aTenant == null ? null : aTenant.getID ();
+  }
+
+  default boolean hasTenantID ()
+  {
+    return getTenant () != null;
   }
 
   /**

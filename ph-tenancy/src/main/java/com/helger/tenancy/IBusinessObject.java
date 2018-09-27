@@ -105,7 +105,7 @@ public interface IBusinessObject extends
    * @return <code>true</code> if this object is not deleted, <code>false</code>
    *         if it is deleted.
    * @see #isDeleted()
-   * @since 6.1.21
+   * @since 6.1.1
    */
   default boolean isNotDeleted ()
   {
@@ -114,13 +114,15 @@ public interface IBusinessObject extends
 
   /**
    * Check if the object was deleted at the specified local date time. This is
-   * true, if the deletion time is &le; than the specified local date time.
+   * <code>true</code>, if the deletion time is &le; than the specified local
+   * date time.
    *
    * @param aDT
    *        The time to check for deletion. May not be <code>null</code>.
    * @return <code>true</code> if this object was deleted, <code>false</code> if
    *         not.
    */
+  // TODO remove for ph-commons 9.1.6
   default boolean isDeletedAt (@Nonnull final LocalDateTime aDT)
   {
     ValueEnforcer.notNull (aDT, "LocalDateTime");

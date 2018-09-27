@@ -19,6 +19,7 @@ package com.helger.tenancy.tenant;
 import javax.annotation.Nullable;
 
 import com.helger.commons.equals.EqualsHelper;
+import com.helger.commons.string.StringHelper;
 
 /**
  * Base interface for objects that have a tenant ID.
@@ -32,6 +33,16 @@ public interface IHasTenantID
    */
   @Nullable
   String getTenantID ();
+
+  /**
+   * @return <code>true</code> if a tenant ID is present, <code>false</code> if
+   *         not.
+   * @since 6.1.1
+   */
+  default boolean hasTenantID ()
+  {
+    return StringHelper.hasText (getTenantID ());
+  }
 
   /**
    * Check if the passed tenant ID has the same ID as this object

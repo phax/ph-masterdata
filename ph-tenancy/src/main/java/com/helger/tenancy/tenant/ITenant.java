@@ -28,7 +28,8 @@ import com.helger.tenancy.uitext.IHasUIText;
 public interface ITenant extends IBusinessObject, IHasDisplayName, IHasUIText
 {
   /**
-   * @return <code>true</code> if this is the system global tenant
+   * @return <code>true</code> if this is the system global tenant,
+   *         <code>false</code> otherwise
    */
   default boolean isGlobalTenant ()
   {

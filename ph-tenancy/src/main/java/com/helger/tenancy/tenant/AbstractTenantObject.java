@@ -31,6 +31,11 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.tenancy.AbstractBusinessObject;
 import com.helger.tenancy.IBusinessObject;
 
+/**
+ * Abstract base implementation of {@link ITenantObject}.
+ * 
+ * @author Philip Helger
+ */
 @Immutable
 public abstract class AbstractTenantObject extends AbstractBusinessObject implements ITenantObject
 {

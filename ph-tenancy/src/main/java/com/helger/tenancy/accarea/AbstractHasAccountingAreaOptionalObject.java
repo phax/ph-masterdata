@@ -27,6 +27,12 @@ import com.helger.commons.string.ToStringGenerator;
 import com.helger.tenancy.tenant.AbstractHasTenant;
 import com.helger.tenancy.tenant.ITenant;
 
+/**
+ * Abstract implementation of {@link IHasAccountingArea} based on
+ * {@link AbstractHasTenant} with an optional accounting area.
+ *
+ * @author Philip Helger
+ */
 @Immutable
 public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHasTenant implements IHasAccountingArea
 {
@@ -60,30 +66,29 @@ public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHa
   }
 
   @Nullable
-  public final String getAccountingAreaID ()
-  {
-    return m_aAccountingArea == null ? null : m_aAccountingArea.getID ();
-  }
-
-  @Nullable
   public final IAccountingArea getAccountingArea ()
   {
     return m_aAccountingArea;
+  }
+
+  @Nullable
+  public final String getAccountingAreaID ()
+  {
+    return m_aAccountingArea == null ? null : m_aAccountingArea.getID ();
   }
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingArea aAccountingArea)
   {
     return aAccountingArea != null &&
            hasSameTenantID (aAccountingArea) &&
-           (m_aAccountingArea == null || m_aAccountingArea.getID ().equals (aAccountingArea.getID ()));
+           (m_aAccountingArea == null || hasSameAccountingAreaID (aAccountingArea.getID ()));
   }
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingAreaObject aAccountingAreaObject)
   {
     return aAccountingAreaObject != null &&
            hasSameTenantID (aAccountingAreaObject) &&
-           (m_aAccountingArea == null ||
-            m_aAccountingArea.getID ().equals (aAccountingAreaObject.getAccountingAreaID ()));
+           (m_aAccountingArea == null || hasSameAccountingAreaID (aAccountingAreaObject.getAccountingAreaID ()));
   }
 
   @Override
