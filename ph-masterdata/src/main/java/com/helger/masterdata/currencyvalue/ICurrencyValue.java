@@ -56,6 +56,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
    *         is &ge; 0.
+   * @since 6.1.1
    */
   default boolean isLT0 ()
   {
@@ -65,10 +66,31 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   /**
    * @return <code>true</code> if the value is &le; 0, <code>false</code> if it
    *         is &gt; 0.
+   * @since 6.1.1
    */
   default boolean isLE0 ()
   {
     return MathHelper.isLE0 (getValue ());
+  }
+
+  /**
+   * @return <code>true</code> if the value is 0, <code>false</code> if it is
+   *         not 0.
+   * @since 6.1.1
+   */
+  default boolean isEQ0 ()
+  {
+    return MathHelper.isEQ0 (getValue ());
+  }
+
+  /**
+   * @return <code>true</code> if the value is not 0, <code>false</code> if it
+   *         is 0.
+   * @since 6.1.1
+   */
+  default boolean isNE0 ()
+  {
+    return MathHelper.isNE0 (getValue ());
   }
 
   /**
@@ -85,6 +107,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   /**
    * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it
    *         is &le; 0.
+   * @since 6.1.1
    */
   default boolean isGT0 ()
   {
@@ -94,6 +117,7 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   /**
    * @return <code>true</code> if the value is &ge; 0, <code>false</code> if it
    *         is &lt; 0.
+   * @since 6.1.1
    */
   default boolean isGE0 ()
   {
