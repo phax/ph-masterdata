@@ -22,7 +22,7 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
-* v6.1.1 - work in progress
+* v6.1.1 - 2018-10-01
     * Added `IBusinessObject.isNotDeleted`
     * Added some APIs in Tenant and AccountingArea areas
 * v6.1.0 - 2018-07-24
@@ -56,12 +56,14 @@ Java library with lots of default business objects and algorithms:
     * Binds to ph-commons 6.x        
 
 # Maven usage
+
 Add the following to your pom.xml to use this artifact:
+
 ```xml
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>6.1.0</version>
+  <version>6.1.1</version>
 </dependency>
 ```
 
@@ -69,7 +71,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-tenancy</artifactId>
-  <version>6.1.0</version>
+  <version>6.1.1</version>
 </dependency>
 ```
 
