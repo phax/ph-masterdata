@@ -37,6 +37,11 @@ public final class EAN13Test
     assertEquals (EEANChecksumMode.AUTO, e.getChecksumMode ());
     assertTrue (e.validate ().isValid ());
 
+    e = new EAN13 ("7300010000001");
+    assertEquals ("7300010000001", e.getMessage ());
+    assertEquals (EEANChecksumMode.AUTO, e.getChecksumMode ());
+    assertTrue (e.validate ().isValid ());
+
     // Too short
     e = new EAN13 ("12345678901", EEANChecksumMode.CHECK);
     assertEquals ("12345678901", e.getMessage ());
