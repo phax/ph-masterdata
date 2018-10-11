@@ -24,7 +24,7 @@ Java library with lots of default business objects and algorithms:
 
 * v6.1.1 - 2018-10-01
     * Added `IBusinessObject.isNotDeleted`
-    * Added some APIs in Tenant and AccountingArea areas
+    * Added some APIs in `Tenant` and `AccountingArea` areas
 * v6.1.0 - 2018-07-24
     * Fixed OSGI ServiceProvider configuration
     * Updated 5305 code list to version D16B
