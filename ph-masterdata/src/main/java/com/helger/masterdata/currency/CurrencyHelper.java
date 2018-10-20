@@ -44,12 +44,15 @@ import com.helger.commons.locale.LocaleCache;
 import com.helger.commons.locale.LocaleParser;
 import com.helger.commons.string.StringHelper;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * Currency helper methods. Heavily extended in 6.1.0.
  *
  * @author Philip Helger
  */
 @Immutable
+@SuppressFBWarnings ("JCIP_FIELD_ISNT_FINAL_IN_IMMUTABLE_CLASS")
 public final class CurrencyHelper
 {
   /**
@@ -65,8 +68,8 @@ public final class CurrencyHelper
   public static final int DEFAULT_SCALE = 2;
 
   // Sorted set of all available currencies
-  private static ICommonsSortedSet <Currency> s_aAllCurrencies = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
-  private static ICommonsMap <Locale, Currency> s_aLocaleToCurrency = new CommonsHashMap <> ();
+  private static final ICommonsSortedSet <Currency> s_aAllCurrencies = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
+  private static final ICommonsMap <Locale, Currency> s_aLocaleToCurrency = new CommonsHashMap <> ();
   private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
   @GuardedBy ("s_aRWLock")
   private static final ICommonsMap <ECurrency, PerCurrencySettings> s_aSettingsMap = new CommonsEnumMap <> (ECurrency.class);

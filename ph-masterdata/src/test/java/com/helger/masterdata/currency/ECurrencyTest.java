@@ -35,6 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
@@ -172,7 +173,7 @@ public final class ECurrencyTest
   @Ignore
   public void testGetMissingCurrencies ()
   {
-    final Map <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
+    final ICommonsMap <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
 
     final MultiHashMapHashSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())
@@ -186,15 +187,22 @@ public final class ECurrencyTest
     for (final Map.Entry <Currency, ICommonsSet <Locale>> a : aAllOfCurrency.getSortedByKey (Comparator.comparing (Currency::getCurrencyCode))
                                                                             .entrySet ())
     {
-      String sLocale = "";
+      final StringBuilder aLocale = new StringBuilder ();
       for (final Locale aLoc : a.getValue ().getSorted (Comparator.comparing (Locale::toString)))
       {
-        if (sLocale.length () > 0)
-          sLocale += ',';
-        sLocale += '"' + aLoc.toString () + '"';
+        if (aLocale.length () > 0)
+          aLocale.append (',');
+        aLocale.append ('"').append (aLoc.toString ()).append ('"');
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + sLocale + "),");
+      aSB.append (sID +
+                  " (Currency.getInstance (\"" +
+                  sID +
+                  "\"), ECurrencyName." +
+                  sID +
+                  ", " +
+                  aLocale.toString () +
+                  "),");
     }
     LOGGER.info (aSB.toString ());
   }

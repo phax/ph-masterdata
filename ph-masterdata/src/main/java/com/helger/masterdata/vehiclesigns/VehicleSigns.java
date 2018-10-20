@@ -39,8 +39,8 @@ import com.helger.commons.locale.country.CountryCache;
 @Immutable
 public final class VehicleSigns
 {
-  private static MultiHashMapLinkedHashSetBased <Locale, String> s_aCountryToSign = new MultiHashMapLinkedHashSetBased <> ();
-  private static MultiHashMapLinkedHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapLinkedHashSetBased <> ();
+  private static final MultiHashMapLinkedHashSetBased <Locale, String> s_aCountryToSign = new MultiHashMapLinkedHashSetBased <> ();
+  private static final MultiHashMapLinkedHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapLinkedHashSetBased <> ();
 
   static
   {
