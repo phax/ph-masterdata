@@ -25,6 +25,8 @@ tR3hSVhqGgKKSJYlFQlfpN2Hz7Ikqf9oOJKHeBfuszKn/O8GTgv+E0u3ZqPUWGclfD/z4FNr0m+eup61
 
 jdk:
   - oraclejdk8
+  - oraclejdk11
+  - openjdk11
   
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -U -P jdeps
