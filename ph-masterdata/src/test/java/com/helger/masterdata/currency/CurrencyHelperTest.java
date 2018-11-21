@@ -211,10 +211,12 @@ public final class CurrencyHelperTest
       }
 
       // symbol
-      assertTrue (aPCS.getValueFormat ().format (5).contains ("5"));
-      assertFalse (aPCS.getValueFormat ().format (5).contains (aPCS.getCurrencySymbol ()));
-      assertTrue (aPCS.getCurrencyFormat ().format (5).contains ("5"));
-      assertTrue (aPCS.getCurrencyFormat ().format (5).contains (aPCS.getCurrencySymbol ()));
+      final String sVF = aPCS.getValueFormat ().format (5);
+      assertTrue ("Searching in " + sVF, sVF.contains ("5"));
+      assertFalse ("Searching in " + sVF, sVF.contains (aPCS.getCurrencySymbol ()));
+      final String sCF = aPCS.getCurrencyFormat ().format (5);
+      assertTrue ("Searching in " + sCF, sCF.contains ("5"));
+      assertTrue ("Searching in " + sCF, sCF.contains (aPCS.getCurrencySymbol ()));
     }
   }
 
