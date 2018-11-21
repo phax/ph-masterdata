@@ -169,7 +169,8 @@ public final class CurrencyHelperTest
       // No decimal separator
       final BigDecimal FIVE = new BigDecimal ("5").setScale (nDefaultFractionDigits);
       assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5", BigDecimal.TEN));
-      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5", BigDecimal.TEN));
+      if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5", BigDecimal.TEN));
       assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5 ", BigDecimal.TEN));
       assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5 ", BigDecimal.TEN));
       if (false)
@@ -235,6 +236,7 @@ public final class CurrencyHelperTest
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
     {
+      assertEquals (2, CurrencyHelper.getMinimumFractionDigits (e));
       assertEquals ("5,00" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
       assertEquals ("5,10" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
@@ -242,6 +244,7 @@ public final class CurrencyHelperTest
     }
     else
     {
+      assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
       assertEquals ("5" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
       assertEquals ("5,1" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
@@ -250,7 +253,6 @@ public final class CurrencyHelperTest
     assertEquals ("5,12" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
     assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
 
-    assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
     CurrencyHelper.setMinimumFractionDigits (e, 2);
     assertEquals (2, CurrencyHelper.getMinimumFractionDigits (e));
 
