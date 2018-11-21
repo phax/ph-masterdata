@@ -76,6 +76,9 @@ public final class PerCurrencySettings
     sVP = StringHelper.removeAll (sVP, "\u00A4 ");
     sVP = StringHelper.removeAll (sVP, " \u00A4");
     sVP = StringHelper.removeAll (sVP, "\u00A4");
+    // Java 9 may use non-breaking spaces as separator
+    // TODO make this configurable to use either blank or 0xa0
+    sVP = StringHelper.replaceAll (sVP, '\u00a0', ' ');
     m_sValuePattern = sVP;
 
     // Use the decimal symbols from the currency format
