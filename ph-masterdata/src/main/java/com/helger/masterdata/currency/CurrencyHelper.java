@@ -534,9 +534,14 @@ public final class CurrencyHelper
     final DecimalFormat aValueFormat = aPCS.getValueFormat ();
 
     // Adopt the decimal separator
-    final String sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
-                                                                    aPCS.getDecimalSeparator (),
-                                                                    aPCS.getGroupingSeparator ());
+    final String sRealTextValue;
+    // In Java 9 onwards, this the separators may be null (e.g. for AED)
+    if (aPCS.getDecimalSeparator () != null && aPCS.getGroupingSeparator () != null)
+      sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
+                                                         aPCS.getDecimalSeparator (),
+                                                         aPCS.getGroupingSeparator ());
+    else
+      sRealTextValue = sTextValue;
     return parseCurrency (sRealTextValue, aValueFormat, aDefault, aPCS.getRoundingMode ());
   }
 

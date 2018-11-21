@@ -71,14 +71,16 @@ public final class PerCurrencySettings
     m_aDFS = m_aCurrencyFormat.getDecimalFormatSymbols ();
 
     // Extract value pattern from currency pattern (without currency symbol)
-    m_sCurrencyPattern = m_aCurrencyFormat.toPattern ();
-    String sVP = m_sCurrencyPattern;
+    String sCP = m_aCurrencyFormat.toPattern ();
+    // Java 9 may use non-breaking spaces as separator
+    // TODO make this configurable to use either blank or 0xa0
+    sCP = StringHelper.replaceAll (sCP, '\u00a0', ' ');
+    m_sCurrencyPattern = sCP;
+
+    String sVP = sCP;
     sVP = StringHelper.removeAll (sVP, "\u00A4 ");
     sVP = StringHelper.removeAll (sVP, " \u00A4");
     sVP = StringHelper.removeAll (sVP, "\u00A4");
-    // Java 9 may use non-breaking spaces as separator
-    // TODO make this configurable to use either blank or 0xa0
-    sVP = StringHelper.replaceAll (sVP, '\u00a0', ' ');
     m_sValuePattern = sVP;
 
     // Use the decimal symbols from the currency format
