@@ -237,26 +237,28 @@ public final class CurrencyHelperTest
     {
       assertEquals ("5,00" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5,10" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+      assertEquals ("5,10", CurrencyHelper.getValueFormat (e).format (5.1));
     }
     else
     {
       assertEquals ("5" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5,1" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+      assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
     }
-    assertEquals ("5,1 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
-    assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
-    assertEquals ("5,12 zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
     assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
 
     assertEquals (0, CurrencyHelper.getMinimumFractionDigits (e));
     CurrencyHelper.setMinimumFractionDigits (e, 2);
     assertEquals (2, CurrencyHelper.getMinimumFractionDigits (e));
 
-    assertEquals ("5,00 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+    assertEquals ("5,00" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
     assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
-    assertEquals ("5,10 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+    assertEquals ("5,10" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
     assertEquals ("5,10", CurrencyHelper.getValueFormat (e).format (5.1));
-    assertEquals ("5,12 zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
     assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
 
     CurrencyHelper.setMinimumFractionDigits (e, 0);
@@ -289,16 +291,17 @@ public final class CurrencyHelperTest
     {
       assertEquals ("5,00" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5,10" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+      assertEquals ("5,10", CurrencyHelper.getValueFormat (e).format (5.1));
     }
     else
     {
       assertEquals ("5" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5,1" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
+      assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
     }
-    assertEquals ("5,1 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
-    assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
-    assertEquals ("5,12 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.123));
+    assertEquals ("5,12" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5.123));
     assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
-
   }
 }
