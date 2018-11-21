@@ -211,12 +211,16 @@ public final class CurrencyHelperTest
       }
 
       // symbol
-      final String sVF = aPCS.getValueFormat ().format (5);
-      assertTrue ("Searching in " + sVF, sVF.contains ("5"));
-      assertFalse ("Searching in " + sVF, sVF.contains (aPCS.getCurrencySymbol ()));
-      final String sCF = aPCS.getCurrencyFormat ().format (5);
-      assertTrue ("Searching in " + sCF, sCF.contains ("5"));
-      assertTrue ("Searching in " + sCF, sCF.contains (aPCS.getCurrencySymbol ()));
+      // Later versions print also non-arabic chars
+      if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+      {
+        final String sVF = aPCS.getValueFormat ().format (5);
+        assertTrue ("Searching in '" + sVF + "'", sVF.contains ("5"));
+        assertFalse ("Searching in '" + sVF + "'", sVF.contains (aPCS.getCurrencySymbol ()));
+        final String sCF = aPCS.getCurrencyFormat ().format (5);
+        assertTrue ("Searching in '" + sCF + "'", sCF.contains ("5"));
+        assertTrue ("Searching in '" + sCF + "'", sCF.contains (aPCS.getCurrencySymbol ()));
+      }
     }
   }
 
