@@ -42,6 +42,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public final class CurrencyHelperTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (CurrencyHelperTest.class);
+  private static final char CURRENCY_SPACE = EJavaVersion.JDK_9.isSupportedVersion () ? '\u00a0' : ' ';
 
   @Test
   public void testGetAll ()
@@ -234,12 +235,12 @@ public final class CurrencyHelperTest
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
     {
-      assertEquals ("5,00 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
     }
     else
     {
-      assertEquals ("5 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5" + CURRENCY_SPACE + "zł", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
     }
     assertEquals ("5,1 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
@@ -286,12 +287,12 @@ public final class CurrencyHelperTest
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
     {
-      assertEquals ("5,00 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
     }
     else
     {
-      assertEquals ("5 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5" + CURRENCY_SPACE + "Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
       assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
     }
     assertEquals ("5,1 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
