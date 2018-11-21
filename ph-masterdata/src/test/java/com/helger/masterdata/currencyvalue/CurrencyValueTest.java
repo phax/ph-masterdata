@@ -41,7 +41,7 @@ public final class CurrencyValueTest
   {
     IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, MathHelper.toBigDecimal (5));
     if (EJavaVersion.JDK_9.isSupportedVersion ())
-      assertEquals ("5,00 €", aCV.getCurrencyFormatted ());
+      assertEquals ("5,00\u00a0€", aCV.getCurrencyFormatted ());
     else
       assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));

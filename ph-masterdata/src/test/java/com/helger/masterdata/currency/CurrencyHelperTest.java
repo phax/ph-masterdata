@@ -230,7 +230,7 @@ public final class CurrencyHelperTest
     assertEquals ("zł", CurrencyHelper.getCurrencySymbol (e));
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
-      assertEquals ("5,00 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00\u00a0zł", CurrencyHelper.getCurrencyFormat (e).format (5));
     else
       assertEquals ("5 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
     assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
@@ -277,7 +277,7 @@ public final class CurrencyHelperTest
     assertEquals ("Ft", CurrencyHelper.getCurrencySymbol (e));
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
-      assertEquals ("5,00 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00\u00a0Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
     else
       assertEquals ("5 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
     assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
