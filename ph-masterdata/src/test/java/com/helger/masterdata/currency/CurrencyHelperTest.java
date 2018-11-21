@@ -35,7 +35,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Test class for class {@link CurrencyHelper}.
- * 
+ *
  * @author Philip Helger
  */
 public final class CurrencyHelperTest
@@ -108,6 +108,7 @@ public final class CurrencyHelperTest
     for (final ECurrency e : ECurrency.values ())
     {
       final PerCurrencySettings aPCS = CurrencyHelper.getSettings (e);
+      assertNotNull (aPCS);
       final int nDefaultFractionDigits = aPCS.getScale ();
       if (false)
         if (LOGGER.isInfoEnabled ())
@@ -261,6 +262,12 @@ public final class CurrencyHelperTest
   {
     final ECurrency e = ECurrency.HUF;
     assertEquals ("HUF", e.getID ());
+
+    final PerCurrencySettings aPCS = CurrencyHelper.getSettings (e);
+    assertNotNull (aPCS);
+    assertNotNull (aPCS.getDecimalSeparator ());
+    assertNotNull (aPCS.getGroupingSeparator ());
+
     assertEquals ("Ft", CurrencyHelper.getCurrencySymbol (e));
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     assertEquals ("5 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
@@ -269,5 +276,6 @@ public final class CurrencyHelperTest
     assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
     assertEquals ("5,12 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.123));
     assertEquals ("5,12", CurrencyHelper.getValueFormat (e).format (5.123));
+
   }
 }
