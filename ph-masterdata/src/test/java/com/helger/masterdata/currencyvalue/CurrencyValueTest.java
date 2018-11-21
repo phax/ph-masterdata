@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsTestHelper;
+import com.helger.commons.system.EJavaVersion;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 
@@ -39,7 +40,10 @@ public final class CurrencyValueTest
   public void testGetFormatted ()
   {
     IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, MathHelper.toBigDecimal (5));
-    assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
+    if (EJavaVersion.JDK_9.isSupportedVersion ())
+      assertEquals ("5,00 €", aCV.getCurrencyFormatted ());
+    else
+      assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));
     assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.USD, new BigDecimal ("5.12"));
