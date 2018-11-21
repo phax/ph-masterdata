@@ -35,20 +35,21 @@ import com.helger.masterdata.currency.ECurrency;
 public final class CurrencyValueTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (CurrencyValueTest.class);
+  private static final char CURRENCY_SPACE = EJavaVersion.JDK_9.isSupportedVersion () ? '\u00a0' : ' ';
 
   @Test
   public void testGetFormatted ()
   {
     IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, MathHelper.toBigDecimal (5));
     if (EJavaVersion.JDK_9.isSupportedVersion ())
-      assertEquals ("5,00 €", aCV.getCurrencyFormatted ());
+      assertEquals ("5,00" + CURRENCY_SPACE + "€", aCV.getCurrencyFormatted ());
     else
-      assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
+      assertEquals ("€" + CURRENCY_SPACE + "5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));
     if (EJavaVersion.JDK_9.isSupportedVersion ())
-      assertEquals ("5,12 €", aCV.getCurrencyFormatted ());
+      assertEquals ("5,12" + CURRENCY_SPACE + "€", aCV.getCurrencyFormatted ());
     else
-      assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());
+      assertEquals ("€" + CURRENCY_SPACE + "5,12", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.USD, new BigDecimal ("5.12"));
     assertEquals ("$5.12", aCV.getCurrencyFormatted ());
 

@@ -84,6 +84,7 @@ public final class PerCurrencySettings
     sVP = StringHelper.removeAll (sVP, "\u00A4 ");
     sVP = StringHelper.removeAll (sVP, " \u00A4");
     sVP = StringHelper.removeAll (sVP, "\u00A4");
+    sVP = StringHelper.removeAll (sVP, '\u00A0');
     m_sValuePattern = sVP;
 
     // Use the decimal symbols from the currency format
