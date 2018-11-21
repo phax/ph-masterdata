@@ -168,12 +168,13 @@ public final class CurrencyHelperTest
 
       // No decimal separator
       final BigDecimal FIVE = new BigDecimal ("5").setScale (nDefaultFractionDigits);
-      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5", BigDecimal.TEN));
       if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+      {
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5", BigDecimal.TEN));
         assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5", BigDecimal.TEN));
-      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5 ", BigDecimal.TEN));
-      if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5 ", BigDecimal.TEN));
         assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5 ", BigDecimal.TEN));
+      }
       if (false)
       {
         final BigDecimal MFIVE = new BigDecimal ("-5").setScale (nDefaultFractionDigits);
@@ -222,6 +223,7 @@ public final class CurrencyHelperTest
         assertTrue ("Searching in '" + sCF + "'", sCF.contains (aPCS.getCurrencySymbol ()));
       }
     }
+
   }
 
   @Test
