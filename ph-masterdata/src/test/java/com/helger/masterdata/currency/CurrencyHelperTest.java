@@ -110,8 +110,11 @@ public final class CurrencyHelperTest
     {
       final PerCurrencySettings aPCS = CurrencyHelper.getSettings (e);
       assertNotNull (aPCS);
-      assertNotNull ("No decimal separator for " + e, aPCS.getDecimalSeparator ());
-      assertNotNull ("No grouping separator for " + e, aPCS.getGroupingSeparator ());
+      if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+      {
+        assertNotNull ("No decimal separator for " + e, aPCS.getDecimalSeparator ());
+        assertNotNull ("No grouping separator for " + e, aPCS.getGroupingSeparator ());
+      }
       final int nDefaultFractionDigits = aPCS.getScale ();
       if (false)
         if (LOGGER.isInfoEnabled ())
@@ -230,10 +233,15 @@ public final class CurrencyHelperTest
     assertEquals ("zł", CurrencyHelper.getCurrencySymbol (e));
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
+    {
       assertEquals ("5,00\u00a0zł", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
+    }
     else
+    {
       assertEquals ("5 zł", CurrencyHelper.getCurrencyFormat (e).format (5));
-    assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+    }
     assertEquals ("5,1 zł", CurrencyHelper.getCurrencyFormat (e).format (5.1));
     assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
     assertEquals ("5,12 zł", CurrencyHelper.getCurrencyFormat (e).format (5.123));
@@ -277,10 +285,15 @@ public final class CurrencyHelperTest
     assertEquals ("Ft", CurrencyHelper.getCurrencySymbol (e));
     assertEquals (2, e.getAsCurrency ().getDefaultFractionDigits ());
     if (EJavaVersion.JDK_9.isSupportedVersion ())
+    {
       assertEquals ("5,00\u00a0Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
+      assertEquals ("5,00", CurrencyHelper.getValueFormat (e).format (5));
+    }
     else
+    {
       assertEquals ("5 Ft", CurrencyHelper.getCurrencyFormat (e).format (5));
-    assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+      assertEquals ("5", CurrencyHelper.getValueFormat (e).format (5));
+    }
     assertEquals ("5,1 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.1));
     assertEquals ("5,1", CurrencyHelper.getValueFormat (e).format (5.1));
     assertEquals ("5,12 Ft", CurrencyHelper.getCurrencyFormat (e).format (5.123));

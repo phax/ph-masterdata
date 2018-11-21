@@ -45,7 +45,10 @@ public final class CurrencyValueTest
     else
       assertEquals ("€ 5,00", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.EUR, new BigDecimal ("5.12"));
-    assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());
+    if (EJavaVersion.JDK_9.isSupportedVersion ())
+      assertEquals ("5,12\00a0€", aCV.getCurrencyFormatted ());
+    else
+      assertEquals ("€ 5,12", aCV.getCurrencyFormatted ());
     aCV = new CurrencyValue (ECurrency.USD, new BigDecimal ("5.12"));
     assertEquals ("$5.12", aCV.getCurrencyFormatted ());
 
