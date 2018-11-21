@@ -172,7 +172,8 @@ public final class CurrencyHelperTest
       if (EJavaVersion.JDK_1_8.isCurrentVersion ())
         assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5", BigDecimal.TEN));
       assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, "5 ", BigDecimal.TEN));
-      assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5 ", BigDecimal.TEN));
+      if (EJavaVersion.JDK_1_8.isCurrentVersion ())
+        assertEquals (FIVE, CurrencyHelper.parseValueFormat (e, " 5 ", BigDecimal.TEN));
       if (false)
       {
         final BigDecimal MFIVE = new BigDecimal ("-5").setScale (nDefaultFractionDigits);
