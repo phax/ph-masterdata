@@ -22,6 +22,8 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
+* v6.1.2 - 2018-11-22
+    * Updated to ph-commons 9.2.0
 * v6.1.1 - 2018-10-01
     * Added `IBusinessObject.isNotDeleted`
     * Added some APIs in `Tenant` and `AccountingArea` areas
@@ -63,7 +65,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>6.1.1</version>
+  <version>6.1.2</version>
 </dependency>
 ```
 
@@ -71,33 +73,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-tenancy</artifactId>
-  <version>6.1.1</version>
-</dependency>
-```
-
-
-# Legacy artefacts
-## ph-validation
-
-Java library for validation artifacts (errors etc.)
-Last version is 5.0.5.
-```xml
-<dependency>
-  <groupId>com.helger</groupId>
-  <artifactId>ph-validation</artifactId>
-  <version>5.0.5</version>
-</dependency>
-```
-
-## ph-masterdata-validation
-
-Java library that combines ph-masterdata and ph-validation. The same version requirements need to be matched there.
-Last version is 5.0.5.
-```xml
-<dependency>
-  <groupId>com.helger</groupId>
-  <artifactId>ph-masterdata-validation</artifactId>
-  <version>5.0.5</version>
+  <version>6.1.2</version>
 </dependency>
 ```
 
