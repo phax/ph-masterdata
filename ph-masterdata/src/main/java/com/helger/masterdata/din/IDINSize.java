@@ -16,12 +16,14 @@
  */
 package com.helger.masterdata.din;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnegative;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.id.IHasID;
 
-public interface IDINSize extends IHasID <String>
+public interface IDINSize extends IHasID <String>, Serializable
 {
   /**
    * @return The width in millimeter. Always &gt; 0.

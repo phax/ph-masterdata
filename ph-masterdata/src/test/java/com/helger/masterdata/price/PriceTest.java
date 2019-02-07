@@ -30,6 +30,7 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
@@ -81,6 +82,8 @@ public final class PriceTest
     CommonsAssert.assertEquals (9.9, p.getGrossAmount ().getValue ().doubleValue ());
 
     assertEquals (p, p.getMultiplied (BigDecimal.ONE));
+
+    CommonsTestHelper.testDefaultSerialization (p);
 
     try
     {

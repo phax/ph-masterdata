@@ -63,6 +63,8 @@ public final class ExtendedEmailAddressTest
     assertEquals ("Ich", a.getPersonal ());
     assertTrue (a.setPersonal ("Du").isChanged ());
     assertEquals ("Du", a.getPersonal ());
+
+    CommonsTestHelper.testDefaultSerialization (a);
   }
 
   @Test

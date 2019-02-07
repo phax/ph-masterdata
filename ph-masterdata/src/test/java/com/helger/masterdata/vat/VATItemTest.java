@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import com.helger.commons.CGlobal;
 import com.helger.commons.math.MathHelper;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link VATItem}.
@@ -42,5 +43,6 @@ public final class VATItemTest
                   CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
     assertNull (v.getPeriod ().getStart ());
     assertNull (v.getPeriod ().getEnd ());
+    CommonsTestHelper.testDefaultSerialization (v);
   }
 }

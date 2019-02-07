@@ -21,6 +21,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.helger.commons.mock.CommonsTestHelper;
+
 /**
  * Test class for class {@link Company}
  *
@@ -40,5 +42,7 @@ public final class CompanyTest
     assertTrue (c.setPublicName ("pubName").isChanged ());
     assertTrue (c.setPublicName ("pubName").isUnchanged ());
     assertTrue (c.setPublicName ("pubName2").isChanged ());
+
+    CommonsTestHelper.testDefaultSerialization (c);
   }
 }

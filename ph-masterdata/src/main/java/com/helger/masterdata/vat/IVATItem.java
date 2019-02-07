@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Locale;
 
@@ -36,7 +37,7 @@ import com.helger.datetime.period.ILocalDatePeriod;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IVATItem extends IHasDisplayText, IHasID <String>
+public interface IVATItem extends IHasDisplayText, IHasID <String>, Serializable
 {
   /**
    * @return The non-<code>null</code> type of this item.

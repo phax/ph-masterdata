@@ -53,6 +53,8 @@ public final class CurrencyValueTest
     aCV = new CurrencyValue (ECurrency.USD, new BigDecimal ("5.12"));
     assertEquals ("$5.12", aCV.getCurrencyFormatted ());
 
+    CommonsTestHelper.testDefaultSerialization (aCV);
+
     for (final ECurrency eCurrency : ECurrency.values ())
     {
       aCV = new CurrencyValue (eCurrency, new BigDecimal ("5.12"));

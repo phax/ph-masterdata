@@ -116,6 +116,8 @@ public final class PostalAddressTest
     assertEquals ("co1", a.getCareOf ());
     assertTrue (a.setCareOf ("co2", L_EN).isChanged ());
     assertEquals ("co2", a.getCareOf ());
+
+    CommonsTestHelper.testDefaultSerialization (a);
   }
 
   @Test

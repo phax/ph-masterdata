@@ -22,6 +22,8 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
+* v6.1.2 - work in progress
+    * Added serializability of base classes
 * v6.1.2 - 2018-11-22
     * Updated to ph-commons 9.2.0
 * v6.1.1 - 2018-10-01
