@@ -22,7 +22,7 @@ Java library with lots of default business objects and algorithms:
 
 # News and noteworthy
 
-* v6.1.2 - work in progress
+* v6.1.3 - 2019-02-09
     * Added serializability of base classes
 * v6.1.2 - 2018-11-22
     * Updated to ph-commons 9.2.0
@@ -67,7 +67,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>6.1.2</version>
+  <version>6.1.3</version>
 </dependency>
 ```
 
@@ -75,7 +75,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-tenancy</artifactId>
-  <version>6.1.2</version>
+  <version>6.1.3</version>
 </dependency>
 ```
 
