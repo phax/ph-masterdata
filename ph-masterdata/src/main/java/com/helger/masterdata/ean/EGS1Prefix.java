@@ -1,9 +1,31 @@
+/**
+ * Copyright (C) 2014-2019 Philip Helger (www.helger.com)
+ * philip[at]helger[dot]com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.helger.masterdata.ean;
 
+import java.util.function.Consumer;
+
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.collection.impl.CommonsHashSet;
+import com.helger.commons.collection.impl.ICommonsSet;
+import com.helger.commons.string.StringHelper;
 
 /**
  * GS1 company prefix<br>
@@ -168,6 +190,12 @@ public enum EGS1Prefix
     return m_sFrom;
   }
 
+  @Nonnegative
+  public int getPrefixLength ()
+  {
+    return m_sFrom.length ();
+  }
+
   @Nullable
   public String getTo ()
   {
@@ -185,5 +213,53 @@ public enum EGS1Prefix
   public String getCountryCode ()
   {
     return m_sCountryCode;
+  }
+
+  /**
+   * Iterate all valid prefixes for this prefix
+   *
+   * @param aConsumer
+   *        The consumer to be invoked for all prefixes. May not be
+   *        <code>null</code>.
+   */
+  public void iterateAllPrefixes (@Nonnull final Consumer <String> aConsumer)
+  {
+    if (m_sTo == null)
+      aConsumer.accept (m_sFrom);
+    else
+    {
+      final int nCharCount = m_sFrom.length ();
+      final int nStart = Integer.parseInt (m_sFrom);
+      final int nEnd = Integer.parseInt (m_sTo);
+      for (int i = nStart; i <= nEnd; ++i)
+      {
+        final String sValue = StringHelper.getLeadingZero (i, nCharCount);
+        aConsumer.accept (sValue);
+      }
+    }
+  }
+
+  @Nullable
+  public static EGS1Prefix getPrefixFromCode (@Nullable final String sCode)
+  {
+    // Input code length
+    final int nCodeLen = StringHelper.getLength (sCode);
+    if (nCodeLen > 0)
+    {
+      // Outside of the loop for performance
+      final ICommonsSet <String> aPrefixes = new CommonsHashSet <> (100);
+      for (final EGS1Prefix e : values ())
+        if (nCodeLen >= e.getPrefixLength ())
+        {
+          final String sUsablePrefix = sCode.substring (0, e.getPrefixLength ());
+
+          aPrefixes.clear ();
+          e.iterateAllPrefixes (aPrefixes::add);
+          if (aPrefixes.contains (sUsablePrefix))
+            return e;
+        }
+    }
+
+    return null;
   }
 }
