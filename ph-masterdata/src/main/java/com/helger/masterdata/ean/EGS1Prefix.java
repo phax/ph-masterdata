@@ -202,6 +202,11 @@ public enum EGS1Prefix
     return m_sTo;
   }
 
+  public boolean hasTo ()
+  {
+    return m_sTo != null;
+  }
+
   @Nonnull
   @Nonempty
   public String getDescription ()
@@ -213,6 +218,11 @@ public enum EGS1Prefix
   public String getCountryCode ()
   {
     return m_sCountryCode;
+  }
+
+  public boolean hasCountryCode ()
+  {
+    return m_sCountryCode != null;
   }
 
   /**

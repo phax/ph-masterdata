@@ -54,14 +54,14 @@ public class EGS1PrefixTest
 
       assertTrue (StringHelper.hasText (sFrom));
       assertEquals (sFrom.length (), e.getPrefixLength ());
-      if (sTo != null)
+      if (e.hasTo ())
         assertEquals (sFrom.length (), sTo.length ());
       assertTrue (StringHelper.hasText (sDesc));
-      if (sCC != null)
+      if (e.hasCountryCode ())
       {
         final Locale aC = CountryCache.getInstance ().getCountry (sCC);
         assertNotNull ("No such country '" + sCC + "'", aC);
-        assertNotEquals (sCC, aC.getDisplayCountry ());
+        assertNotEquals (sCC, aC.getDisplayCountry (Locale.US));
       }
     }
   }
@@ -101,6 +101,9 @@ public class EGS1PrefixTest
   @Test
   public void testGetPrefix ()
   {
+    assertNull (EGS1Prefix.getPrefixFromCode (null));
+    assertNull (EGS1Prefix.getPrefixFromCode (""));
+    assertNull (EGS1Prefix.getPrefixFromCode ("0"));
     assertNull (EGS1Prefix.getPrefixFromCode ("000000"));
     assertSame (EGS1Prefix.X0, EGS1Prefix.getPrefixFromCode ("0000000"));
     assertSame (EGS1Prefix.X0, EGS1Prefix.getPrefixFromCode ("00000000"));
@@ -112,6 +115,9 @@ public class EGS1PrefixTest
     assertSame (EGS1Prefix.NZ, EGS1Prefix.getPrefixFromCode ("9420123"));
 
     for (int i = 0; i < 1_000; ++i)
+    {
+      EGS1Prefix.getPrefixFromCode (Integer.toString (i));
       EGS1Prefix.getPrefixFromCode (Integer.toString (i) + "0000000000000");
+    }
   }
 }
