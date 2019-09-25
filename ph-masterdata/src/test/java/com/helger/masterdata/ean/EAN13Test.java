@@ -53,6 +53,11 @@ public final class EAN13Test
     assertEquals ("12345678901X", e.getMessage ());
     assertEquals (EEANChecksumMode.AUTO, e.getChecksumMode ());
     assertFalse (e.validate ().isValid ());
+
+    // Valid
+    e = new EAN13 ("1548079098355");
+    assertTrue (e.validate ().isValid ());
+    assertEquals ("1548079098355", e.getWithCorrectChecksum ());
   }
 
   @Test

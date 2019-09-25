@@ -119,10 +119,14 @@ public abstract class AbstractUPCEAN implements Serializable
   protected static int calcChecksum (@Nonnull final char [] aChars, @Nonnegative final int nLen)
   {
     int nChecksumBase = 0;
+    // 13-1=12 chars: 1,3
+    // 12-1=11 chars: 3,1
+    // 8-1= 7 chars: 3,1
     int nFactor = (nLen % 2) == 0 ? 1 : 3;
     for (int i = 0; i < nLen; ++i)
     {
       nChecksumBase += asInt (aChars[i]) * nFactor;
+      // Alternate between 1 and 3
       nFactor = 4 - nFactor;
     }
 
