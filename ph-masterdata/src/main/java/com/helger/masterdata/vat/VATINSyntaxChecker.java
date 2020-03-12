@@ -864,22 +864,8 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_NL (@Nonnull final String sVATIN)
+  private static boolean _isNL_BSN (final char [] c)
   {
-    ValueEnforcer.notNull (sVATIN, "VATIN");
-    final char [] c = sVATIN.toCharArray ();
-
-    if (c.length != 12)
-      return false;
-    for (int i = 0; i <= 8; ++i)
-      if (!_isNum (c[i]))
-        return false;
-    if (c[9] != 'B')
-      return false;
-    for (int i = 10; i <= 11; ++i)
-      if (!_isNum (c[i]))
-        return false;
-
     final int a1 = _toInt (c[0]) * 9 +
                    _toInt (c[1]) * 8 +
                    _toInt (c[2]) * 7 +
@@ -898,6 +884,52 @@ public class VATINSyntaxChecker
 
     final int nExpected = _toInt (c[8]);
     return nChecksum == nExpected;
+  }
+
+  private static int _mod97_10 (@Nonnull final String s)
+  {
+    int nChecksum = 0;
+    for (final char c : s.toCharArray ())
+    {
+      final int nCurChecksumValue;
+      if (c >= '0' && c <= '9')
+        nCurChecksumValue = c - '0';
+      else
+        if (c >= 'A' && c <= 'Z')
+          nCurChecksumValue = c - 'A' + 10;
+        else
+          return -1;
+
+      if (nCurChecksumValue > 9)
+        nChecksum = (100 * nChecksum + nCurChecksumValue) % 97;
+      else
+        nChecksum = (10 * nChecksum + nCurChecksumValue) % 97;
+    }
+    return nChecksum;
+  }
+
+  public static boolean isValidVATIN_NL (@Nonnull final String sVATIN)
+  {
+    ValueEnforcer.notNull (sVATIN, "VATIN");
+    final char [] c = sVATIN.toCharArray ();
+
+    if (c.length != 12)
+      return false;
+    for (int i = 0; i <= 8; ++i)
+      if (!_isNum (c[i]))
+        return false;
+    if (c[9] != 'B')
+      return false;
+    for (int i = 10; i <= 11; ++i)
+      if (!_isNum (c[i]))
+        return false;
+
+    // BSN algorithm
+    if (_isNL_BSN (c))
+      return true;
+
+    // BTW algorithm
+    return _mod97_10 ("NL" + sVATIN) == 1;
   }
 
   public static boolean isValidVATIN_PT (@Nonnull final String sVATIN)

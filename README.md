@@ -24,6 +24,7 @@ Java library with lots of default business objects and algorithms:
 
 * v6.1.4 - work in progress
     * Added GS1 common prefix list to determine the country of a GLN number
+    * Added new Dutch VAT number algorithm
 * v6.1.3 - 2019-02-09
     * Added serializability of base classes
 * v6.1.2 - 2018-11-22

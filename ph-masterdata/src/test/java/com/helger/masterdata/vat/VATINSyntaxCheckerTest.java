@@ -110,6 +110,9 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("NL010000447B01"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("NL009516980B05"));
     assertTrue (VATINSyntaxChecker.isValidVATIN ("NL123456782B12"));
+    // Valid since 2020-01-01
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("NL002455799B11"));
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("NL001900877B70"));
 
     assertTrue (VATINSyntaxChecker.isValidVATIN ("PT502757191"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("PT50275719"));
