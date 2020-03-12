@@ -28,6 +28,7 @@ import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.functional.IToBooleanFunction;
 import com.helger.commons.string.StringHelper;
+import com.helger.masterdata.iso.ISO7064;
 
 /**
  * Check the syntax of VATINs based on the published rules.
@@ -344,6 +345,7 @@ public class VATINSyntaxChecker
     for (int i = 2; i <= 9; ++i)
       if (!_isNum (c[i]))
         return false;
+
     final int nChecksum = 97 - (_toInt (c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 97);
     final int nExpected = _toInt (c[8], c[9]);
     return nExpected == nChecksum;
@@ -886,28 +888,6 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static int _mod97_10 (@Nonnull final String s)
-  {
-    int nChecksum = 0;
-    for (final char c : s.toCharArray ())
-    {
-      final int nCurChecksumValue;
-      if (c >= '0' && c <= '9')
-        nCurChecksumValue = c - '0';
-      else
-        if (c >= 'A' && c <= 'Z')
-          nCurChecksumValue = c - 'A' + 10;
-        else
-          return -1;
-
-      if (nCurChecksumValue > 9)
-        nChecksum = (100 * nChecksum + nCurChecksumValue) % 97;
-      else
-        nChecksum = (10 * nChecksum + nCurChecksumValue) % 97;
-    }
-    return nChecksum;
-  }
-
   public static boolean isValidVATIN_NL (@Nonnull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
@@ -929,7 +909,7 @@ public class VATINSyntaxChecker
       return true;
 
     // BTW algorithm
-    return _mod97_10 ("NL" + sVATIN) == 1;
+    return ISO7064.Mod97.isValid ("NL" + sVATIN);
   }
 
   public static boolean isValidVATIN_PT (@Nonnull final String sVATIN)

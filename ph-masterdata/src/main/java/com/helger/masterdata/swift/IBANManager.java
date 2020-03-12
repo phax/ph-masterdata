@@ -41,6 +41,7 @@ import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.StringParser;
+import com.helger.masterdata.iso.ISO7064;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
@@ -83,7 +84,6 @@ public final class IBANManager
   private static final String ATTR_LEN = "len";
   private static final String ATTR_CHECKDIGITS = "checkdigits";
   private static final String ATTR_LAYOUT = "layout";
-  private static final int ILLEGAL_CHECKSUM = CGlobal.ILLEGAL_UINT;
 
   private static final Logger LOGGER = LoggerFactory.getLogger (IBANManager.class);
 
@@ -184,31 +184,6 @@ public final class IBANManager
     return s_aIBANData.copyOfKeySet ();
   }
 
-  private static int _calculateChecksum (@Nonnull final String sIBAN)
-  {
-    final String sCalcBase = sIBAN.substring (4) + sIBAN.substring (0, 4);
-    int nChecksum = 0;
-    final int nLength = sCalcBase.length ();
-    for (int nIndex = 0; nIndex < nLength; nIndex++)
-    {
-      final char c = sCalcBase.charAt (nIndex);
-      int nCurChecksumValue;
-      if (c >= '0' && c <= '9')
-        nCurChecksumValue = c - '0';
-      else
-        if (c >= 'A' && c <= 'Z')
-          nCurChecksumValue = c - '7';
-        else
-          return ILLEGAL_CHECKSUM;
-
-      if (nCurChecksumValue > 9)
-        nChecksum = (100 * nChecksum + nCurChecksumValue) % 97;
-      else
-        nChecksum = (10 * nChecksum + nCurChecksumValue) % 97;
-    }
-    return nChecksum;
-  }
-
   private static boolean _isValidChecksumChar (final char c)
   {
     return c >= '0' && c <= '9';
@@ -251,6 +226,12 @@ public final class IBANManager
     return isValidIBAN (sIBAN, false);
   }
 
+  private static int _calculateChecksum (@Nonnull final String sIBAN)
+  {
+    final String sCalcBase = sIBAN.substring (4) + sIBAN.substring (0, 4);
+    return ISO7064.Mod97.getChecksum (sCalcBase);
+  }
+
   /**
    * Check if the passed IBAN is valid and the country is supported!
    *
@@ -282,7 +263,7 @@ public final class IBANManager
       return false;
 
     // Is existing checksum valid?
-    if (_calculateChecksum (sRealIBAN) != 1)
+    if (_calculateChecksum (sRealIBAN) != ISO7064.Mod97.EXPECTED_CHECKSUM)
       return false;
 
     // Perform pattern check
@@ -306,7 +287,7 @@ public final class IBANManager
 
     // calculate the new checksum
     final int nChecksum = _calculateChecksum (sIBAN);
-    if (nChecksum == ILLEGAL_CHECKSUM)
+    if (nChecksum == ISO7064.Mod97.ILLEGAL_CHECKSUM)
       throw new IllegalArgumentException ("The passed data does not resemble an IBAN!");
 
     return 98 - (((nChecksum - 1) % 97) + 1);
