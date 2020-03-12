@@ -20,9 +20,29 @@ Java library with lots of default business objects and algorithms:
   * VAT and VATIN handling
   * Vehicle sign handling 
 
+# Maven usage
+
+Add the following to your pom.xml to use this artifact:
+
+```xml
+<dependency>
+  <groupId>com.helger</groupId>
+  <artifactId>ph-masterdata</artifactId>
+  <version>6.1.4</version>
+</dependency>
+```
+
+```xml
+<dependency>
+  <groupId>com.helger</groupId>
+  <artifactId>ph-tenancy</artifactId>
+  <version>6.1.4</version>
+</dependency>
+```
+
 # News and noteworthy
 
-* v6.1.4 - work in progress
+* v6.1.4 - 2020-03-12
     * Added GS1 common prefix list to determine the country of a GLN number
     * Added new Dutch VAT number algorithm
 * v6.1.3 - 2019-02-09
@@ -61,26 +81,6 @@ Java library with lots of default business objects and algorithms:
     * Requires JDK 8
 * v4.0.0
     * Binds to ph-commons 6.x        
-
-# Maven usage
-
-Add the following to your pom.xml to use this artifact:
-
-```xml
-<dependency>
-  <groupId>com.helger</groupId>
-  <artifactId>ph-masterdata</artifactId>
-  <version>6.1.3</version>
-</dependency>
-```
-
-```xml
-<dependency>
-  <groupId>com.helger</groupId>
-  <artifactId>ph-tenancy</artifactId>
-  <version>6.1.3</version>
-</dependency>
-```
 
 ---
 
