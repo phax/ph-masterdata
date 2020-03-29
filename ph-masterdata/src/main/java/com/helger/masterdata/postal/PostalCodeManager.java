@@ -18,7 +18,6 @@ package com.helger.masterdata.postal;
 
 import java.io.Serializable;
 import java.util.Locale;
-import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -86,14 +85,14 @@ public class PostalCodeManager implements Serializable
   public IPostalCodeCountry getPostalCountryOfCountry (@Nullable final Locale aCountry)
   {
     final Locale aRealCountry = CountryCache.getInstance ().getCountry (aCountry);
-    return m_aRWLock.readLocked ( () -> m_aMap.get (aRealCountry));
+    return m_aRWLock.readLockedGet ( () -> m_aMap.get (aRealCountry));
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsSet <Locale> getAllAvailableCountries ()
   {
-    return m_aRWLock.readLocked ((Supplier <ICommonsSet <Locale>>) m_aMap::copyOfKeySet);
+    return m_aRWLock.readLockedGet (m_aMap::copyOfKeySet);
   }
 
   /**

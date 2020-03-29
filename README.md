@@ -42,6 +42,8 @@ Add the following to your pom.xml to use this artifact:
 
 # News and noteworthy
 
+* v6.1.5 - work in progress
+    * Updated to ph-commons 9.4.0
 * v6.1.4 - 2020-03-12
     * Added GS1 common prefix list to determine the country of a GLN number
     * Added new Dutch VAT number algorithm

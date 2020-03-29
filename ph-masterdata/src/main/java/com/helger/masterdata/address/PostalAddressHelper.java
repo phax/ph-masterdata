@@ -61,14 +61,24 @@ public final class PostalAddressHelper
   private PostalAddressHelper ()
   {}
 
-  public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
-  {
-    s_aRWLock.writeLocked ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
-  }
-
   public static boolean isComplexAddressHandlingEnabled ()
   {
-    return s_aRWLock.readLocked ( () -> s_bComplexAddressHandlingEnabled);
+    return s_aRWLock.readLockedBoolean ( () -> s_bComplexAddressHandlingEnabled);
+  }
+
+  public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
+  {
+    s_aRWLock.writeLockedBoolean ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
+  }
+
+  /**
+   * @return The prefix to be added in front of "c/o" lines. Never
+   *         <code>null</code>.
+   */
+  @Nonnull
+  public static String getCareOfPrefix ()
+  {
+    return s_aRWLock.readLockedGet ( () -> s_sCareOfPrefix);
   }
 
   /**
@@ -81,17 +91,7 @@ public final class PostalAddressHelper
   public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
-    s_aRWLock.writeLocked ( () -> s_sCareOfPrefix = sCareOfPrefix);
-  }
-
-  /**
-   * @return The prefix to be added in front of "c/o" lines. Never
-   *         <code>null</code>.
-   */
-  @Nonnull
-  public static String getCareOfPrefix ()
-  {
-    return s_aRWLock.readLocked ( () -> s_sCareOfPrefix);
+    s_aRWLock.writeLockedGet ( () -> s_sCareOfPrefix = sCareOfPrefix);
   }
 
   @Nullable
