@@ -28,7 +28,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>6.1.4</version>
+  <version>6.1.5</version>
 </dependency>
 ```
 
@@ -36,13 +36,13 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-tenancy</artifactId>
-  <version>6.1.4</version>
+  <version>6.1.5</version>
 </dependency>
 ```
 
 # News and noteworthy
 
-* v6.1.5 - work in progress
+* v6.1.5 - 2020-03-29
     * Updated to ph-commons 9.4.0
 * v6.1.4 - 2020-03-12
     * Added GS1 common prefix list to determine the country of a GLN number
