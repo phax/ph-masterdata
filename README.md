@@ -28,7 +28,7 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-masterdata</artifactId>
-  <version>6.1.5</version>
+  <version>x.y.z</version>
 </dependency>
 ```
 
@@ -36,7 +36,7 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-tenancy</artifactId>
-  <version>6.1.5</version>
+  <version>x.y.z</version>
 </dependency>
 ```
 
