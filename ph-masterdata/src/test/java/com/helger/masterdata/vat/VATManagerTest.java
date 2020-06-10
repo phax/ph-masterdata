@@ -64,11 +64,10 @@ public final class VATManagerTest
   }
 
   @Test
-  public void testValidity ()
+  public void testHU ()
   {
     final VATManager aVATMgr = VATManager.getDefaultInstance ();
-    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ()
-                                                                                       .getCountry ("hu"));
+    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("hu"));
     assertNotNull (aData);
 
     IVATItem aItem = aData.get ("hu.v25");
@@ -80,6 +79,25 @@ public final class VATManagerTest
     aItem = aData.get ("hu.v27");
     assertNotNull (aItem);
     assertEquals (PDTFactory.createLocalDate (2012, Month.JANUARY, 1), aItem.getPeriod ().getStart ());
+    assertNull (aItem.getPeriod ().getEnd ());
+  }
+
+  @Test
+  public void testDE ()
+  {
+    final VATManager aVATMgr = VATManager.getDefaultInstance ();
+    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("de"));
+    assertNotNull (aData);
+
+    IVATItem aItem = aData.get ("de.v16");
+    assertNotNull (aItem);
+    assertEquals (BigDecimal.valueOf (16), aItem.getPercentage ());
+    assertEquals (PDTFactory.createLocalDate (2020, Month.JULY, 1), aItem.getPeriod ().getStart ());
+    assertEquals (PDTFactory.createLocalDate (2020, Month.DECEMBER, 31), aItem.getPeriod ().getEnd ());
+
+    aItem = aData.get ("de.v19");
+    assertNotNull (aItem);
+    assertNull (aItem.getPeriod ().getStart ());
     assertNull (aItem.getPeriod ().getEnd ());
   }
 }

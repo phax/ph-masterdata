@@ -61,7 +61,9 @@
     <item id="v10" percentage="10" type="reduced" />
   </vattypes>
   <vattypes country="de" zerovat="true" countryname="Germany">
+    <comment>Germany lowered the regular rate from 19% to 16% from 2020-07-01 until 2020-12-31</comment>
     <item id="v19" percentage="19" type="regular" />
+    <item id="v16" percentage="16" type="regular" validfrom="2020-07-01" validto="2020-12-31" />
     <item id="v07" percentage="7" type="reduced" />
   </vattypes>
   <vattypes country="dk" zerovat="true" countryname="Denmark">

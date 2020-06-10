@@ -22,7 +22,7 @@ Java library with lots of default business objects and algorithms:
 
 # Maven usage
 
-Add the following to your pom.xml to use this artifact:
+Add the following to your pom.xml to use this artifact, replacing `x.y.z` with the effective version number:
 
 ```xml
 <dependency>
@@ -42,6 +42,8 @@ Add the following to your pom.xml to use this artifact:
 
 # News and noteworthy
 
+* v6.1.6 - 2020-06-10
+    * Updated VAT rates for Germany
 * v6.1.5 - 2020-03-29
     * Updated to ph-commons 9.4.0
 * v6.1.4 - 2020-03-12
