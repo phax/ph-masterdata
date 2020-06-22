@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-    Copyright (C) 2014-2020 Philip Helger (www.helger.com)
-    philip[at]helger[dot]com
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
-<root version="PLZ_Verzeichnis_MAR18.xls">
+<root version="PLZ-Verzeichnis-01062020.xls">
   <plz code="1000" city="Wien" state="9" validfrom="2009-08-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1004" city="Wien" state="9" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="1006" city="Wien" state="9" validfrom="2015-02-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -26,19 +8,14 @@
   <plz code="1015" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1016" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1017" city="Wien-Parlament" state="9" validfrom="2015-04-22" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
-  <plz code="1018" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1020" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1021" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1022" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1023" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1024" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1025" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1026" city="Wien" state="9" validfrom="2012-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1029" city="Wien" state="9" validfrom="2004-07-30" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="1030" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1031" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1032" city="Wien" state="9" validfrom="2012-08-22" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1033" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1035" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1037" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1038" city="Wien" state="9" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
@@ -48,14 +25,12 @@
   <plz code="1042" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1043" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1045" city="Wien" state="9" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
-  <plz code="1047" city="Wien" state="9" validfrom="2011-10-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1050" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1051" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1052" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1053" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1060" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1061" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1062" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1063" city="Wien-VÖPh" state="9" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="1064" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1065" city="Wien" state="9" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -69,12 +44,10 @@
   <plz code="1090" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1091" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1092" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1094" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1095" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1097" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1100" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1101" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1102" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1103" city="Wien" state="9" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1104" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1105" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -84,7 +57,6 @@
   <plz code="1109" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1110" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1111" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1113" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1114" city="Wien" state="9" validfrom="2010-10-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1115" city="Wien" state="9" validfrom="2011-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1120" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -121,7 +93,6 @@
   <plz code="1170" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1171" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1172" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1174" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1180" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1181" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1182" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -140,7 +111,6 @@
   <plz code="1208" city="Wien" state="9" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1210" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="1211" city="Wien Postfach" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1212" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1213" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1215" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1217" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -161,7 +131,6 @@
   <plz code="1236" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1238" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1239" city="Wien" state="9" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1251" city="Wien" state="9" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1252" city="Wien" state="9" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1254" city="Wien" state="9" validfrom="2012-11-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="1255" city="Wien" state="9" validfrom="2013-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -175,8 +144,7 @@
   <plz code="1502" city="AUTCON EUFOR" state="9" validfrom="1966-01-01" type="FeldPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="1503" city="AUTCON KFOR" state="9" validfrom="1966-01-01" type="FeldPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="1600" city="Wien" state="9" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
-  <plz code="1601" city="Wien" state="9" validfrom="2012-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="1810" city="Wien" state="9" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="1610" city="Wien" state="9" validfrom="2020-04-16" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2000" city="Stockerau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2002" city="Großmugl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2003" city="Leitzersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -205,7 +173,7 @@
   <plz code="2070" city="Retz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2073" city="Schrattenthal" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2074" city="Unterretzbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2081" city="Niederfladnitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2081" city="Niederfladnitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2082" city="Hardegg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2083" city="Pleißing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2084" city="Weitersfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -228,7 +196,7 @@
   <plz code="2116" city="Niederleis" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2120" city="Wolkersdorf im Weinviertel" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2122" city="Ulrichskirchen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2123" city="Schleinbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2123" city="Schleinbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2124" city="Niederkreuzstetten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2125" city="Neubau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2126" city="Ladendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -238,21 +206,21 @@
   <plz code="2132" city="Frättingsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2133" city="Loosdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2134" city="Staatz-Kautendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2135" city="Neudorf bei Staatz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2135" city="Neudorf im Weinviertel" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2136" city="Laa an der Thaya" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2137" city="Eibesthal" state="3" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2141" city="Ameis" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2143" city="Großkrut" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2144" city="Altlichtenwarth" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2145" city="Hausbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2151" city="Asparn an der Zaya" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2151" city="Asparn an der Zaya" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2152" city="Gnadendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2153" city="Stronsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2154" city="Unterstinkenbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2161" city="Poysbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2162" city="Falkenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2163" city="Ottenthal" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2164" city="Wildendürnbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2164" city="Wildendürnbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2165" city="Drasenhofen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2170" city="Poysdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2171" city="Herrnbaumgarten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -277,7 +245,7 @@
   <plz code="2221" city="Groß Schweinbarth" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2222" city="Bad Pirawarth" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2223" city="Hohenruppersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2224" city="Obersulz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2224" city="Obersulz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2225" city="Zistersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2230" city="Gänserndorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2231" city="Strasshof an der Nordbahn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -294,12 +262,13 @@
   <plz code="2262" city="Stillfried" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2263" city="Dürnkrut" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2264" city="Jedenspeigen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2265" city="Drösing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2265" city="Drösing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2272" city="Niederabsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2273" city="Hohenau an der March" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2274" city="Rabensburg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2275" city="Bernhardsthal" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2276" city="Reintal" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2280" city="Glinzendorf" state="3" validfrom="2019-06-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2281" city="Raasdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2282" city="Markgrafneusiedl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2283" city="Obersiebenbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -327,7 +296,7 @@
   <plz code="2344" city="Maria Enzersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2345" city="Brunn am Gebirge" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2346" city="Maria Enzersdorf-Südstadt" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="2348" city="Mödling" state="3" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="false" postfach="true" />
+  <plz code="2348" city="Mödling" state="3" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2349" city="Mödling" state="3" validfrom="2012-03-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2351" city="Wiener Neudorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2352" city="Gumpoldskirchen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -337,7 +306,7 @@
   <plz code="2361" city="Laxenburg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2362" city="Biedermannsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2371" city="Hinterbrühl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2372" city="Gießhübl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2372" city="Gießhübl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2380" city="Perchtoldsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2381" city="Laab im Walde" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2382" city="Perchtoldsdorf" state="3" validfrom="2012-03-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -365,7 +334,7 @@
   <plz code="2434" city="Götzendorf an der Leitha" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2435" city="Ebergassing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2440" city="Gramatneusiedl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2441" city="Mitterndorf an der Fischa" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2441" city="Mitterndorf an der Fischa" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2442" city="Unterwaltersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2443" city="Deutsch-Brodersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2444" city="Seibersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -388,19 +357,18 @@
   <plz code="2482" city="Münchendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2483" city="Ebreichsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2484" city="Weigelsdorf, Fischa" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="2485" city="Wampersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2485" city="Wampersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2486" city="Pottendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2490" city="Ebenfurth" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2491" city="Neufeld an der Leitha" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2492" city="Eggendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2493" city="Lichtenwörth-Nadelburg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2500" city="Baden" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2502" city="Baden-Leesdorf" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2504" city="Sooß" state="3" validfrom="2012-12-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2505" city="Baden-Leesdorf" state="3" validfrom="2011-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2511" city="Pfaffstätten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2512" city="Tribuswinkel" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2513" city="Traiskirchen" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="2513" city="Möllersdorf" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2514" city="Traiskirchen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2521" city="Trumau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2522" city="Oberwaltersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -411,12 +379,12 @@
   <plz code="2532" city="Heiligenkreuz im Wienerwald" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2533" city="Klausen-Leopoldsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2534" city="Alland" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2540" city="Bad Vöslau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2540" city="Bad Vöslau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2542" city="Kottingbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2544" city="Leobersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2551" city="Enzesfeld-Lindabrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2552" city="Hirtenberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2560" city="Berndorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2560" city="Berndorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2563" city="Pottenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2564" city="Weissenbach an der Triesting" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2565" city="Neuhaus" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -434,7 +402,7 @@
   <plz code="2632" city="Wimpassing im Schwarzatale" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2640" city="Gloggnitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2641" city="Schottwien" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="2642" city="Maria Schutz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2642" city="Maria Schutz" state="3" validfrom="1966-01-01" validto="2018-09-06" type="PLZ-Historisch" intern="true" addressable="false" postfach="false" />
   <plz code="2650" city="Payerbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2651" city="Reichenau an der Rax" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2654" city="Prein an der Rax" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -445,14 +413,13 @@
   <plz code="2673" city="Breitenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2680" city="Semmering" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2700" city="Wiener Neustadt" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2702" city="Wiener Neustadt" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2703" city="Wiener Neustadt" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2705" city="Wiener Neustadt" state="3" validfrom="2001-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2706" city="Wiener Neustadt" state="3" validfrom="2000-12-27" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="2707" city="Wiener Neustadt" state="3" validfrom="2010-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="2721" city="Bad Fischau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2722" city="Winzendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2723" city="Muthmannsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2723" city="Muthmannsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2724" city="Hohe Wand-Stollhof" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2731" city="St. Egyden am Steinfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2732" city="Willendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -461,13 +428,13 @@
   <plz code="2751" city="Steinabrückl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2752" city="Wöllersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2753" city="Markt Piesting" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2754" city="Waldegg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="2754" city="Waldegg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2755" city="Oed" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2761" city="Miesenbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2763" city="Pernitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2770" city="Gutenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2801" city="Katzelsdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2802" city="Hochwolkersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2802" city="Hochwolkersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2803" city="Schwarzenbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2811" city="Wiesmath" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2812" city="Hollenthon" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -480,7 +447,7 @@
   <plz code="2832" city="Thernberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2833" city="Bromberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2840" city="Grimmenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="2842" city="Edlitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="2842" city="Edlitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2851" city="Krumbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="2852" city="Hochneukirchen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="2853" city="Bad Schönau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -508,7 +475,7 @@
   <plz code="3042" city="Würmla" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3051" city="St. Christophen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3052" city="Innermanzing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3053" city="Laaben" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3053" city="Laaben" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3061" city="Ollersbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3062" city="Kirchstetten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3071" city="Böheimkirchen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -517,7 +484,6 @@
   <plz code="3074" city="Michelbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3100" city="St. Pölten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3101" city="St. Pölten Postfach" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="3103" city="St. Pölten" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="3104" city="St. Pölten-Harland" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3105" city="St. Pölten-Radlberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3106" city="St. Pölten-Spratzern" state="3" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -546,7 +512,7 @@
   <plz code="3160" city="Traisen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3161" city="St. Veit an der Gölsen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3162" city="Rainfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3163" city="Rohrbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3163" city="Rohrbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3170" city="Hainfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3171" city="Kleinzell-Salzerbad" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3172" city="Ramsau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -574,7 +540,7 @@
   <plz code="3232" city="Bischofstetten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3233" city="Kilb" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3240" city="Mank" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="3241" city="Kirnberg an der Mank" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3241" city="Kirnberg an der Mank" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3242" city="Texing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3243" city="St. Leonhard am Forst" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3244" city="Ruprechtshofen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -598,7 +564,6 @@
   <plz code="3295" city="Lackenhof" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3300" city="Amstetten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3304" city="St. Georgen am Ybbsfelde" state="3" validfrom="2006-05-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3305" city="Amstetten" state="3" validfrom="2011-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="3311" city="Zeillern" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3312" city="Oed" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3313" city="Wallsee" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -629,7 +594,7 @@
   <plz code="3361" city="Aschbach Markt" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3362" city="Mauer-Öhling" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3363" city="Ulmerfeld-Hausmening" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="3364" city="Neuhofen an der Ybbs" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3364" city="Neuhofen an der Ybbs" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3365" city="Allhartsberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3366" city="Kühberg" state="3" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="3370" city="Ybbs an der Donau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -645,7 +610,7 @@
   <plz code="3383" city="Hürm" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3384" city="Groß Sierning" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3385" city="Prinzersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="3386" city="Hafnerbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3386" city="Hafnerbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3387" city="Groß Sierning" state="3" validfrom="2010-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="3390" city="Melk" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3392" city="Schönbühel an der Donau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -656,7 +621,7 @@
   <plz code="3413" city="Hintersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3420" city="Kritzendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3421" city="Höflein an der Donau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3422" city="Greifenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3422" city="Greifenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3423" city="St. Andrä-Wördern" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3424" city="Zeiselmauer" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3425" city="Langenlebarn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -707,12 +672,12 @@
   <plz code="3531" city="Niedernondorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3532" city="Rastenfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3533" city="Friedersbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3541" city="Senftenberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3541" city="Senftenberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3542" city="Gföhl" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3543" city="Krumau am Kamp" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3544" city="Idolsberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3550" city="Langenlois" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="3552" city="Lengenfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3552" city="Lengenfeld" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3553" city="Schiltern" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3561" city="Zöbing" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3562" city="Schönberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -744,12 +709,12 @@
   <plz code="3644" city="Emmersdorf an der Donau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3650" city="Pöggstall" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3652" city="Leiben" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3653" city="Weiten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3653" city="Weiten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3654" city="Raxendorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3660" city="Klein-Pöchlarn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3661" city="Artstetten" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3662" city="Münichreith" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3663" city="Laimbach am Ostrong" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="3663" city="Laimbach am Ostrong" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3664" city="Martinsberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3665" city="Gutenbrunn" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3671" city="Marbach an der Donau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -757,7 +722,7 @@
   <plz code="3680" city="Persenbeug" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3681" city="Hofamt Priel" state="3" validfrom="2013-03-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3683" city="Yspertal" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="3684" city="St. Oswald" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3684" city="St. Oswald" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3691" city="Nöchling" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3701" city="Großweikersdorf" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3702" city="Niederrußbach" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -773,7 +738,7 @@
   <plz code="3730" city="Eggenburg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3741" city="Pulkau" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3742" city="Theras" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="3743" city="Röschitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="3743" city="Röschitz" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3744" city="Stockern" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="3751" city="Sigmundsherberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="3752" city="Walkenstein" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -837,15 +802,12 @@
   <plz code="3973" city="Karlstift" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4000" city="Allhaming" state="4" validfrom="2009-08-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4010" city="Linz, Donau" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="4013" city="Linz, Donau" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4016" city="Linz, Donau" state="4" validfrom="1966-01-01" type="InteressentenPLZ" intern="false" addressable="false" postfach="true" />
   <plz code="4018" city="Linz, Donau" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4020" city="Linz" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4021" city="Linz, Donau Postfach" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="4023" city="Linz, Donau" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4024" city="Linz, Donau" state="4" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4025" city="Linz, Donau" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="4026" city="Linz, Donau" state="4" validfrom="2012-11-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4027" city="Linz" state="4" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4030" city="Linz" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4031" city="Linz, Donau Postfach" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -905,7 +867,7 @@
   <plz code="4143" city="Neustift im Mühlkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4144" city="Oberkappel" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4150" city="Rohrbach in Oberösterreich" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4151" city="Oepping" state="4" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4151" city="Oepping" state="4" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4152" city="Sarleinsbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4153" city="Peilstein im Mühlviertel" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4154" city="Kollerschlag" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -914,7 +876,7 @@
   <plz code="4161" city="Ulrichsberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4162" city="Julbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4163" city="Klaffer am Hochficht" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4164" city="Schwarzenberg am Böhmerwald" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4164" city="Schwarzenberg am Böhmerwald" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4170" city="Haslach an der Mühl" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4171" city="St. Peter am Wimberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4172" city="St. Johann am Wimberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -930,19 +892,19 @@
   <plz code="4191" city="Vorderweißenbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4192" city="Schenkenfelden" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4193" city="Reichenthal" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4201" city="Gramastetten" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4201" city="Gramastetten" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4202" city="Hellmonsödt" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4203" city="Altenberg bei Linz" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4204" city="Reichenau im Mühlkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4204" city="Reichenau im Mühlkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4205" city="Kirchschlag bei Linz" state="4" validfrom="2010-10-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4209" city="Engerwitzdorf" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4210" city="Gallneukirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4211" city="Alberndorf in der Riedmark" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4212" city="Neumarkt im Mühlkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4213" city="Unterweitersdorf" state="4" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="4213" city="Unterweitersdorf" state="4" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4221" city="Steyregg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4222" city="St. Georgen an der Gusen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4223" city="Katsdorf" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4223" city="Katsdorf" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4224" city="Wartberg ob der Aist" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4225" city="Luftenberg" state="4" validfrom="2011-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4226" city="Langenstein" state="4" validfrom="2011-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -974,7 +936,7 @@
   <plz code="4303" city="St. Pantaleon" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4310" city="Mauthausen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4311" city="Schwertberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4312" city="Ried in der Riedmark" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4312" city="Ried in der Riedmark" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4320" city="Perg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4322" city="Windhaag bei Perg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4323" city="Münzbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -982,13 +944,13 @@
   <plz code="4331" city="Naarn" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4332" city="Au an der Donau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4341" city="Arbing" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4342" city="Baumgartenberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4342" city="Baumgartenberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4343" city="Mitterkirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4351" city="Saxen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4351" city="Saxen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4352" city="Klam" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4360" city="Grein" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4362" city="Bad Kreuzen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4363" city="Pabneukirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4363" city="Pabneukirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4364" city="St. Thomas" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4371" city="Dimbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4372" city="St. Georgen am Walde" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1002,11 +964,11 @@
   <plz code="4405" city="Steyr-Münichholz" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4407" city="Steyr-Gleink" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4410" city="Steyr" state="4" validfrom="2013-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="4421" city="Aschach an der Steyr" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4421" city="Aschach an der Steyr" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4431" city="Haidershofen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4432" city="Ernsthofen" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4441" city="Behamberg" state="3" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4442" city="Kleinraming" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4442" city="Kleinraming" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4443" city="Maria Neustift" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4451" city="Garsten" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4452" city="Ternberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1027,7 +989,7 @@
   <plz code="4493" city="Wolfern" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4501" city="Neuhofen an der Krems" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4502" city="St. Marien" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4511" city="Allhaming" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4511" city="Allhaming" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4521" city="Schiedlberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4522" city="Sierning" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4523" city="Neuzeug" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1081,7 +1043,7 @@
   <plz code="4622" city="Eggendorf im Traunkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4623" city="Gunskirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4624" city="Pennewang" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4625" city="Offenhausen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4625" city="Offenhausen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4631" city="Krenglbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4632" city="Pichl bei Wels" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4633" city="Kematen am Innbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1123,7 +1085,7 @@
   <plz code="4710" city="Grieskirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4712" city="Michaelnbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4713" city="Gallspach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4714" city="Meggenhofen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4714" city="Meggenhofen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4715" city="Taufkirchen an der Trattnach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4716" city="Hofkirchen an der Trattnach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4720" city="Neumarkt im Hausruckkreis" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1137,7 +1099,7 @@
   <plz code="4732" city="St. Thomas" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4733" city="Heiligenberg" state="4" validfrom="2007-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4741" city="Wendling" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4742" city="Pram" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4742" city="Pram" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4743" city="Peterskirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4751" city="Dorf" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4752" city="Riedau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1145,8 +1107,8 @@
   <plz code="4754" city="Andrichsfurt" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4755" city="Zell an der Pram" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4760" city="Raab" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4761" city="Enzenkirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4762" city="St. Willibald" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4761" city="Enzenkirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4762" city="St. Willibald" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4770" city="Andorf" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4771" city="Sigharting" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4772" city="Lambrechten" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1173,28 +1135,27 @@
   <plz code="4813" city="Altmünster" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4814" city="Neukirchen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4816" city="Gschwandt" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4817" city="St. Konrad" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4817" city="St. Konrad" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4820" city="Bad Ischl" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4821" city="Lauffen" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4822" city="Bad Goisern am Hallstättersee" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4823" city="Steeg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4824" city="Gosau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4824" city="Gosau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4825" city="Gosau-Hintertal" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4829" city="Bad Ischl" state="4" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4830" city="Hallstatt" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="4831" city="Obertraun" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4839" city="Vöcklabruck" state="4" validfrom="2013-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="4831" city="Obertraun" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4840" city="Vöcklabruck" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4841" city="Ungenach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4842" city="Zell am Pettenfirst" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4843" city="Ampflwang" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="4843" city="Ampflwang" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4844" city="Regau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4845" city="Rutzenmoos" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4846" city="Redlham" state="4" validfrom="2009-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="4847" city="Vöcklabruck" state="4" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="4849" city="Puchkirchen am Trattberg" state="4" validfrom="2010-10-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4850" city="Timelkam" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="4851" city="Gampern" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="4851" city="Gampern" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4852" city="Weyregg am Attersee" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4853" city="Steinbach am Attersee" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="4854" city="Weißenbach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1269,13 +1230,10 @@
   <plz code="5018" city="Salzburg-Europark" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5020" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5021" city="Salzburg Postfach" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="5022" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5023" city="Salzburg-Gnigl" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5024" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5025" city="Salzburg-Parsch" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5026" city="Salzburg-Aigen" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5027" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="5032" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5033" city="Salzburg" state="5" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5061" city="Elsbethen-Glasenbach" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5071" city="Wals" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1299,6 +1257,7 @@
   <plz code="5120" city="St. Pantaleon" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5121" city="Ostermiething" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5122" city="Ach" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="5123" city="Überackern" state="4" validfrom="2019-03-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5131" city="Franking" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5132" city="Geretsberg" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5133" city="Gilgenberg am Weilhart" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1346,7 +1305,7 @@
   <plz code="5282" city="Braunau" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5283" city="Braunau am Inn" state="4" validfrom="2012-05-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="5300" city="Hallwang" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5301" city="Eugendorf" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="5301" city="Eugendorf" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5302" city="Henndorf am Wallersee" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5303" city="Thalgau" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5310" city="Mondsee" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1360,11 +1319,11 @@
   <plz code="5340" city="St. Gilgen" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5342" city="Abersee" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5350" city="Strobl" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5351" city="Aigen-Voglhub" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="5351" city="Aigen-Voglhub" state="5" validfrom="1966-01-01" validto="2018-02-28" type="PLZ-Historisch" intern="true" addressable="false" postfach="false" />
   <plz code="5360" city="St. Wolfgang im Salzkammergut" state="4" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5400" city="Hallein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5411" city="Oberalm" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5412" city="Puch bei Hallein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="5412" city="Puch bei Hallein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5421" city="Adnet" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5422" city="Heilbad Dürrnberg" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5423" city="St. Koloman" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1379,8 +1338,8 @@
   <plz code="5452" city="Pfarrwerfen" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5453" city="Werfenweng" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5500" city="Bischofshofen" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5505" city="Mühlbach am Hochkönig" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5511" city="Hüttau" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="5505" city="Mühlbach am Hochkönig" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="5511" city="Hüttau" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5521" city="Niedernfritz" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5522" city="St. Martin am Tennengebirge" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5523" city="Lungötz" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1390,7 +1349,7 @@
   <plz code="5541" city="Altenmarkt im Pongau" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5542" city="Flachau" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5550" city="Radstadt" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="5552" city="Forstau" state="5" validfrom="2007-10-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="5552" city="Forstau" state="5" validfrom="2007-10-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5561" city="Untertauern" state="5" validfrom="1966-06-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5562" city="Obertauern" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5563" city="Tweng" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1421,7 +1380,7 @@
   <plz code="5632" city="Dorfgastein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5640" city="Bad Gastein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5645" city="Böckstein" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="5651" city="Lend" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="5651" city="Lend" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5652" city="Dienten am Hochkönig" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="5660" city="Taxenbach" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="5661" city="Rauris" state="5" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1454,13 +1413,11 @@
   <plz code="6013" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6018" city="Innsbruck" state="7" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6019" city="Innsbruck" state="7" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6020" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="6020" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6021" city="Innsbruck Postfach" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6022" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6023" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6027" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6029" city="Innsbruck" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6031" city="Innsbruck" state="7" validfrom="2011-10-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6033" city="Innsbruck-Arzl" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6034" city="Innsbruck" state="7" validfrom="2012-03-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6050" city="Hall in Tirol" state="7" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -1484,7 +1441,7 @@
   <plz code="6094" city="Axams" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6095" city="Grinzens" state="7" validfrom="2008-08-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6100" city="Seefeld in Tirol" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="6103" city="Reith bei Seefeld" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="6103" city="Reith bei Seefeld" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6105" city="Leutasch" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6108" city="Scharnitz" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6111" city="Volders" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1502,7 +1459,7 @@
   <plz code="6135" city="Stans" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6136" city="Pill" state="7" validfrom="2009-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6141" city="Schönberg im Stubaital" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="6142" city="Mieders" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="6142" city="Mieders" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6143" city="Matrei am Brenner" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6145" city="Navis" state="7" validfrom="2008-10-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6150" city="Steinach am Brenner" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1606,14 +1563,14 @@
   <plz code="6373" city="Jochberg" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6380" city="St. Johann in Tirol" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6382" city="Kirchdorf in Tirol" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="6383" city="Erpfendorf" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="6383" city="Erpfendorf" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6384" city="Waidring" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6385" city="Schwendt" state="7" validfrom="2008-11-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6391" city="Fieberbrunn" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6392" city="St. Jakob in Haus" state="7" validfrom="2008-10-09" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6393" city="St. Ulrich am Pillersee" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6395" city="Hochfilzen" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="6401" city="Inzing" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="6401" city="Inzing" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6402" city="Hatting" state="7" validfrom="2005-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6403" city="Flaurling" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6404" city="Polling" state="7" validfrom="2008-06-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1678,7 +1635,7 @@
   <plz code="6563" city="Galtür" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6571" city="Strengen" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6572" city="Flirsch" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="6574" city="Pettneu am Arlberg" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="6574" city="Pettneu am Arlberg" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6580" city="St. Anton am Arlberg" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6591" city="Grins" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6600" city="Reutte" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1689,7 +1646,7 @@
   <plz code="6622" city="Berwang" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6623" city="Namlos" state="7" validfrom="2008-10-09" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6631" city="Lermoos" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="6632" city="Ehrwald" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="6632" city="Ehrwald" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6633" city="Biberwier" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6642" city="Stanzach" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6644" city="Elmen" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1708,7 +1665,7 @@
   <plz code="6673" city="Grän" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6675" city="Tannheim" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6677" city="Schattwald" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="6682" city="Vils" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="6682" city="Vils" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6691" city="Jungholz" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6700" city="Bludenz" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6701" city="Bludenz Postfach" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -1746,7 +1703,6 @@
   <plz code="6800" city="Feldkirch" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6801" city="Feldkirch Postfach" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6805" city="Feldkirch-Gisingen" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6806" city="Feldkirch-Tosters" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6807" city="Feldkirch-Tisis" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6808" city="Feldkirch-Nofels" state="8" validfrom="2011-03-31" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6811" city="Göfis" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1764,11 +1720,10 @@
   <plz code="6840" city="Götzis" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6841" city="Mäder" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="6842" city="Koblach" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="6844" city="Altach" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="6844" city="Altach" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6845" city="Hohenems" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6850" city="Dornbirn" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6851" city="Dornbirn Postfach" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6853" city="Dornbirn" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6854" city="Dornbirn-Messepark" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6855" city="Dornbirn" state="8" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6857" city="Dornbirn-Haselstauden" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -1789,7 +1744,6 @@
   <plz code="6893" city="Lustenau-Rheindorf" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6900" city="Bregenz" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="6901" city="Bregenz Postfach" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="6902" city="Bregenz" state="8" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6904" city="Bregenz-Schendlingen" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6905" city="Bregenz-Achsiedlung" state="8" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="6911" city="Lochau" state="8" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1821,7 +1775,7 @@
   <plz code="7002" city="Eisenstadt" state="1" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="7011" city="Siegendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7012" city="Zagersdorf" state="1" validfrom="2015-09-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="7013" city="Klingenbach" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7013" city="Klingenbach" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7020" city="Loipersbach im Burgenland" state="1" validfrom="2012-03-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7021" city="Draßburg" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7022" city="Schattendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1833,7 +1787,7 @@
   <plz code="7034" city="Zillingtal" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7035" city="Steinbrunn" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7041" city="Wulkaprodersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7042" city="Antau" state="1" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7042" city="Antau" state="1" validfrom="2010-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7051" city="Großhöflein" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7052" city="Müllendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7053" city="Hornstein" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1869,10 +1823,10 @@
   <plz code="7202" city="Bad Sauerbrunn" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7203" city="Wiesen" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7210" city="Mattersburg" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7212" city="Forchtenstein" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="7212" city="Forchtenstein" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7221" city="Marz" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7222" city="Rohrbach bei Mattersburg" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7223" city="Sieggraben" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7223" city="Sieggraben" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7301" city="Deutschkreutz" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7302" city="Nikitsch" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7304" city="Großwarasdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1880,17 +1834,17 @@
   <plz code="7312" city="Horitschon" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7321" city="Lackendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7322" city="Lackenbach" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7323" city="Ritzing" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7323" city="Ritzing" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7331" city="Weppersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7332" city="Kobersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="7332" city="Kobersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7341" city="Markt St. Martin" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7342" city="Kaisersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7343" city="Neutal" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7344" city="Stoob" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7350" city="Oberpullendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7361" city="Lutzmannsburg" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7361" city="Lutzmannsburg" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7371" city="Unterrabnitz" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="7372" city="Draßmarkt" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7372" city="Draßmarkt" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7373" city="Piringsdorf" state="1" validfrom="2010-10-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7374" city="Weingraben" state="1" validfrom="2014-09-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7400" city="Oberwart" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -1902,6 +1856,7 @@
   <plz code="7422" city="Riedlingsdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7423" city="Pinkafeld" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7424" city="Grafenschachen" state="1" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="7425" city="Wiesfleck" state="1" validfrom="2018-12-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7431" city="Bad Tatzmannsdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7432" city="Oberschützen" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7433" city="Mariasdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1909,7 +1864,7 @@
   <plz code="7435" city="Unterkohlstätten" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7441" city="Pilgersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7442" city="Lockenhaus" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="7443" city="Rattersdorf-Liebing" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7443" city="Rattersdorf-Liebing" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7444" city="Mannersdorf an der Rabnitz" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7451" city="Oberloisdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7452" city="Unterpullendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1922,6 +1877,7 @@
   <plz code="7473" city="Hannersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7474" city="Deutsch Schützen" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7501" city="Rotenturm an der Pinka" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="7502" city="Unterwart" state="1" validfrom="2019-03-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7503" city="Großpetersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7504" city="Jabing" state="1" validfrom="2010-10-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="7511" city="Mischendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -1943,10 +1899,11 @@
   <plz code="7552" city="Stinatz" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7561" city="Heiligenkreuz im Lafnitztal" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7562" city="Eltendorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="7563" city="Königsdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7563" city="Königsdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7564" city="Dobersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="7571" city="Rudersdorf" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="7572" city="Deutsch Kaltenbrunn" state="1" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="7574" city="Burgauberg-Neudauberg" state="1" validfrom="2018-12-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8000" city="Graz" state="6" validfrom="2009-08-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8006" city="Graz" state="6" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8007" city="Graz" state="6" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -1958,23 +1915,19 @@
   <plz code="8015" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8016" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8017" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8018" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8019" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8020" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8021" city="Graz Postfach" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8022" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8023" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8024" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8025" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8026" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8028" city="Graz" state="6" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8035" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8036" city="Graz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8040" city="Graz-Liebenau" state="6" validfrom="2012-12-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8041" city="Graz-Liebenau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8042" city="Graz-St. Peter" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8043" city="Graz-Kroisbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8044" city="Graz-Mariatrost" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8044" city="Graz-Mariatrost" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8045" city="Graz-Andritz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8046" city="Graz-St. Veit" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8047" city="Graz-Ragnitz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2006,8 +1959,8 @@
   <plz code="8102" city="Semriach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8103" city="Rein" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8111" city="Judendorf-Straßengel" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8112" city="Gratwein" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8113" city="St. Oswald bei Plankenwarth" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8112" city="Gratwein" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8113" city="St. Oswald bei Plankenwarth" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8114" city="Stübing" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8120" city="Peggau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8121" city="Deutschfeistritz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2069,10 +2022,10 @@
   <plz code="8265" city="Großsteinbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8271" city="Bad Waltersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8272" city="Sebersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8273" city="Ebersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8273" city="Ebersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8274" city="Buch" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8280" city="Fürstenfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8282" city="Loipersdorf bei Fürstenfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8282" city="Bad Loipersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8283" city="Bad Blumau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8291" city="Burgau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8292" city="Neudau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2102,7 +2055,7 @@
   <plz code="8350" city="Fehring" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8352" city="Unterlamm" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8353" city="Kapfenstein" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8354" city="St. Anna am Aigen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8354" city="St. Anna am Aigen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8355" city="Tieschen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8361" city="Hatzendorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8362" city="Söchau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2127,7 +2080,7 @@
   <plz code="8430" city="Leibnitz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8431" city="Gralla" state="6" validfrom="2011-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8432" city="Kaindorf an der Sulm" state="6" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8434" city="Tillmitsch Links der Laßnitz" state="6" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
+  <plz code="8434" city="Tillmitsch" state="6" validfrom="2012-06-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8435" city="Wagna" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8441" city="Fresing" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8442" city="Kitzeck im Sausal" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2135,7 +2088,7 @@
   <plz code="8444" city="St. Andrä im Sausal" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8451" city="Heimschuh" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8452" city="Großklein" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8453" city="St. Johann im Saggautal" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8453" city="St. Johann im Saggautal" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8454" city="Arnfels" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8455" city="Oberhaag" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8461" city="Ehrenhausen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2150,7 +2103,7 @@
   <plz code="8483" city="Deutsch Goritz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8484" city="Unterpurkla" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8490" city="Bad Radkersburg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8492" city="Halbenrain" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8492" city="Halbenrain" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8493" city="Klöch" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8501" city="Lieboch" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8502" city="Lannach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2181,7 +2134,7 @@
   <plz code="8565" city="St. Johann ob Hohenburg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8570" city="Voitsberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8571" city="Bärnbach" state="6" validfrom="2012-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="8572" city="Bärnbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8572" city="Bärnbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8573" city="Kainach bei Voitsberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8580" city="Köflach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8582" city="Rosental an der Kainach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2227,7 +2180,7 @@
   <plz code="8673" city="Ratten" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8674" city="Rettenegg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8680" city="Mürzzuschlag" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8682" city="Mürzzuschlag-Hönigsberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8682" city="Mürzzuschlag-Hönigsberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8684" city="Spital am Semmering" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8685" city="Steinhaus am Semmering" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8691" city="Kapellen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2240,16 +2193,16 @@
   <plz code="8707" city="Leoben" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8709" city="Leoben-Lerchenfeld" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8712" city="Niklasdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8713" city="St. Stefan ob Leoben" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8713" city="St. Stefan ob Leoben" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8714" city="Kraubath an der Mur" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8715" city="St. Lorenzen bei Knittelfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8720" city="Knittelfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8722" city="Knittelfeld" state="6" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8723" city="Kobenz" state="6" validfrom="2012-12-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8724" city="Spielberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8724" city="Spielberg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8731" city="Bischoffeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8732" city="Seckau" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8733" city="St. Marein bei Knittelfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8733" city="St. Marein bei Knittelfeld" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8734" city="Großlobming" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8740" city="Zeltweg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8741" city="Weißkirchen in Steiermark" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2265,7 +2218,7 @@
   <plz code="8762" city="Oberzeiring" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8763" city="Möderbrugg" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8764" city="Pusterwald" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8765" city="St. Johann am Tauern" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8765" city="St. Johann am Tauern" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8766" city="Bretstein" state="6" validfrom="2012-09-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8770" city="St. Michael in Obersteiermark" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8772" city="Timmersdorf" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2289,7 +2242,7 @@
   <plz code="8813" city="St. Lambrecht" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8820" city="Neumarkt in Steiermark" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8822" city="Mühlen" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="8831" city="Niederwölz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="8831" city="Niederwölz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8832" city="Oberwölz" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8833" city="Teufenbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8841" city="Frojach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2329,7 +2282,7 @@
   <plz code="8953" city="Donnersbach" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8954" city="St. Martin am Grimming" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8960" city="Öblarn" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="8961" city="Stein an der Enns" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="8961" city="Stein an der Enns" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="8962" city="Gröbming" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="8963" city="Sankt Nikolai im Sölktal" state="6" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="8965" city="Pruggern" state="6" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2350,7 +2303,6 @@
   <plz code="9010" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9020" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9021" city="Klagenfurt am Wörthersee Postfach" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="9023" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9024" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9025" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9026" city="Klagenfurt am Wörthersee" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
@@ -2365,7 +2317,7 @@
   <plz code="9064" city="Pischeldorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9065" city="Ebenthal" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9071" city="Köttmannsdorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9072" city="Ludmannsdorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="9072" city="Ludmannsdorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9073" city="Klagenfurt-Viktring" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9074" city="Keutschach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9081" city="Reifnitz" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2394,7 +2346,7 @@
   <plz code="9161" city="Maria Rain" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9162" city="Strau" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9163" city="Unterbergen" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="9170" city="Ferlach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="9170" city="Ferlach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9171" city="Ferlach" state="2" validfrom="2010-06-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9172" city="Zell-Pfarre" state="2" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9173" city="St. Margareten im Rosental" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2434,7 +2386,7 @@
   <plz code="9363" city="Metnitz" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9371" city="Brückl" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9372" city="Eberstein" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9373" city="Klein St. Paul" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="9373" city="Klein St. Paul" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9374" city="Wieting" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9375" city="Hüttenberg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9376" city="Knappenberg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2462,7 +2414,6 @@
   <plz code="9503" city="Villach" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9504" city="Villach-Warmbad Villach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9507" city="Villach" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
-  <plz code="9508" city="Villach" state="2" validfrom="1966-01-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9509" city="Zauchen" state="2" validfrom="2011-04-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9510" city="Villach" state="2" validfrom="2011-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9520" city="Sattendorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2532,14 +2483,14 @@
   <plz code="9714" city="Stockenboi" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9721" city="Weißenstein" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9722" city="Gummern" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9751" city="Sachsenburg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="9751" city="Sachsenburg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9753" city="Lind im Drautal" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9754" city="Steinfeld" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9761" city="Greifenburg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9762" city="Weißensee" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9771" city="Berg im Drautal" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9772" city="Dellach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9773" city="Irschen" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="9773" city="Irschen" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9781" city="Oberdrauburg" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9782" city="Nikolsdorf" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9800" city="Spittal an der Drau" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2551,14 +2502,14 @@
   <plz code="9813" city="Möllbrücke" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9814" city="Mühldorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9815" city="Kolbnitz" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="9816" city="Penk" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="9816" city="Penk" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9821" city="Obervellach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9822" city="Mallnitz" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9831" city="Flattach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9832" city="Stall" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9833" city="Rangersdorf" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9841" city="Winklern" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9842" city="Mörtschach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
+  <plz code="9842" city="Mörtschach" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9843" city="Großkirchheim" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9844" city="Heiligenblut" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9851" city="Lieserbrücke" state="2" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
@@ -2585,7 +2536,6 @@
   <plz code="9918" city="Strassen" state="7" validfrom="2011-04-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9919" city="Heinfels" state="7" validfrom="2011-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9920" city="Sillian" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
-  <plz code="9922" city="Strassen" state="7" validfrom="2010-07-01" type="PLZ-Postfach" intern="false" addressable="false" postfach="true" />
   <plz code="9931" city="Außervillgraten" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9932" city="Innervillgraten" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9941" city="Kartitsch" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
@@ -2601,8 +2551,8 @@
   <plz code="9971" city="Matrei in Osttirol" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9972" city="Virgen" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
   <plz code="9974" city="Prägraten" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="9981" city="Kals" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="9981" city="Kals" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9990" city="Nußdorf-Debant" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
-  <plz code="9991" city="Dölsach" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="true" />
+  <plz code="9991" city="Dölsach" state="7" validfrom="1966-01-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
   <plz code="9992" city="Iselsberg-Stronach" state="7" validfrom="2009-07-01" type="PLZ-Adressierung" intern="false" addressable="true" postfach="false" />
 </root>
