@@ -66,6 +66,16 @@ public enum EAustriaState implements IHasIntID
     return m_sPostID;
   }
 
+  /**
+   * @return Verwaltungskennzeichen (VKZ) Prefix (L1 to L9).
+   */
+  @Nonnull
+  @Nonempty
+  public String getVKZPrefix ()
+  {
+    return "L" + m_nID;
+  }
+
   @Nullable
   public static EAustriaState getFromIDOrNull (final int nID)
   {
