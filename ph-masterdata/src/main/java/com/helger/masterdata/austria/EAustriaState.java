@@ -44,7 +44,7 @@ public enum EAustriaState implements IHasIntID
   private final int m_nID;
   private final String m_sPostID;
 
-  private EAustriaState (@Nonnegative final int nID, @Nonnull @Nonempty final String sPostID)
+  EAustriaState (@Nonnegative final int nID, @Nonnull @Nonempty final String sPostID)
   {
     m_nID = nID;
     m_sPostID = sPostID;
