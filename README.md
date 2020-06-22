@@ -42,6 +42,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+* v6.1.7 - 2020-06-22
+    * Updated VAT rates for Austria
+    * Updated postal codes for Austria
 * v6.1.6 - 2020-06-10
     * Updated VAT rates for Germany
 * v6.1.5 - 2020-03-29
