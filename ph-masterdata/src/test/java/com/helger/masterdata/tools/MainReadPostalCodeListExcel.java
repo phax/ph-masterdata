@@ -231,8 +231,7 @@ public class MainReadPostalCodeListExcel
             ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
                                        DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
           if (aItem.getValidTo () != null)
-            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO,
-                                       DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
+            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO, DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
           for (final String sSingleFormat : aItem.getFormats ())
             if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
               ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)

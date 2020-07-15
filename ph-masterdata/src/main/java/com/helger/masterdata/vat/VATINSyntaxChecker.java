@@ -182,21 +182,10 @@ public class VATINSyntaxChecker
 
   private static int _toInt (final char c0, final char c1, final char c2, final char c3, final char c4, final char c5)
   {
-    return _toInt (c0) * 100_000 +
-           _toInt (c1) * 10_000 +
-           _toInt (c2) * 1_000 +
-           _toInt (c3) * 100 +
-           _toInt (c4) * 10 +
-           _toInt (c5);
+    return _toInt (c0) * 100_000 + _toInt (c1) * 10_000 + _toInt (c2) * 1_000 + _toInt (c3) * 100 + _toInt (c4) * 10 + _toInt (c5);
   }
 
-  private static int _toInt (final char c0,
-                             final char c1,
-                             final char c2,
-                             final char c3,
-                             final char c4,
-                             final char c5,
-                             final char c6)
+  private static int _toInt (final char c0, final char c1, final char c2, final char c3, final char c4, final char c5, final char c6)
   {
     return _toInt (c0) * 1_000_000 +
            _toInt (c1) * 100_000 +
@@ -451,17 +440,7 @@ public class VATINSyntaxChecker
 
   private static boolean _es_c1valid_c9num (final char c)
   {
-    return c == 'A' ||
-           c == 'B' ||
-           c == 'C' ||
-           c == 'D' ||
-           c == 'E' ||
-           c == 'F' ||
-           c == 'G' ||
-           c == 'H' ||
-           c == 'J' ||
-           c == 'U' ||
-           c == 'V';
+    return c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' || c == 'G' || c == 'H' || c == 'J' || c == 'U' || c == 'V';
   }
 
   private static boolean _es_isV1 (final char c)
@@ -1344,12 +1323,7 @@ public class VATINSyntaxChecker
     if (v <= 100_000)
       return false;
 
-    final int a1 = 3 * _toInt (c[0]) +
-                   4 * _toInt (c[1]) +
-                   6 * _toInt (c[2]) +
-                   7 * _toInt (c[3]) +
-                   8 * _toInt (c[4]) +
-                   9 * _toInt (c[5]);
+    final int a1 = 3 * _toInt (c[0]) + 4 * _toInt (c[1]) + 6 * _toInt (c[2]) + 7 * _toInt (c[3]) + 8 * _toInt (c[4]) + 9 * _toInt (c[5]);
     final int r = 37 - (a1 % 37);
     final int nChecksum = r == 0 ? 37 : r;
     final int nExpected = _toInt (c[6], c[7]);

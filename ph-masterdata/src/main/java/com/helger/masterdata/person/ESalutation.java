@@ -36,11 +36,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public enum ESalutation implements IHasDisplayText, IHasID <String>
 {
   MISTER ("mr", EGender.MALE, ESalutationName.MISTER, ESalutationGreeting.MISTER, ESalutationGreetingComplete.MISTER),
-  MISSES ("mrs",
-          EGender.FEMALE,
-          ESalutationName.MISSES,
-          ESalutationGreeting.MISSES,
-          ESalutationGreetingComplete.MISSES),
+  MISSES ("mrs", EGender.FEMALE, ESalutationName.MISSES, ESalutationGreeting.MISSES, ESalutationGreetingComplete.MISSES),
   FAMILY ("fam", null, ESalutationName.FAMILY, ESalutationGreeting.FAMILY, ESalutationGreetingComplete.FAMILY),
   COMPANY ("com", null, ESalutationName.COMPANY, ESalutationGreeting.COMPANY, ESalutationGreetingComplete.COMPANY),
   CLUB ("cl", null, ESalutationName.CLUB, ESalutationGreeting.CLUB, ESalutationGreetingComplete.CLUB);
@@ -122,15 +118,13 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   }
 
   @Nullable
-  public static ESalutation getFromIDOrDefault (@Nullable final String sSalutationID,
-                                                @Nullable final ESalutation eDefault)
+  public static ESalutation getFromIDOrDefault (@Nullable final String sSalutationID, @Nullable final ESalutation eDefault)
   {
     return EnumHelper.getFromIDOrDefault (ESalutation.class, sSalutationID, eDefault);
   }
 
   @Nullable
-  public static ESalutation getFromDisplayNameOrNull (@Nullable final String sSalutation,
-                                                      @Nonnull final Locale aContentLocale)
+  public static ESalutation getFromDisplayNameOrNull (@Nullable final String sSalutation, @Nonnull final Locale aContentLocale)
   {
     return getFromDisplayNameOrDefault (sSalutation, aContentLocale, null);
   }

@@ -170,8 +170,7 @@ public class Company implements ICompany
     ValueEnforcer.notNull (aHeadQuarterSite, "HeadQuarterSite");
 
     if (!m_aAllSites.containsKey (aHeadQuarterSite.getID ()))
-      throw new IllegalArgumentException ("Passed headquarter site does not yet belong to this company: " +
-                                          aHeadQuarterSite);
+      throw new IllegalArgumentException ("Passed headquarter site does not yet belong to this company: " + aHeadQuarterSite);
 
     if (aHeadQuarterSite.equals (m_aHeadQuarterSite))
       return EChange.UNCHANGED;

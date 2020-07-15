@@ -195,14 +195,7 @@ public final class ECurrencyTest
         aLocale.append ('"').append (aLoc.toString ()).append ('"');
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      aSB.append (sID +
-                  " (Currency.getInstance (\"" +
-                  sID +
-                  "\"), ECurrencyName." +
-                  sID +
-                  ", " +
-                  aLocale.toString () +
-                  "),");
+      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + aLocale.toString () + "),");
     }
     LOGGER.info (aSB.toString ());
   }

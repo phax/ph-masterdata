@@ -50,8 +50,7 @@ public class PostalCodeFormat implements Serializable
    * @param aElements
    *        The elements this postal code format is made up
    */
-  public PostalCodeFormat (@Nonnull @Nonempty final String sISO,
-                           @Nonnull @Nonempty final List <EPostalCodeFormatElement> aElements)
+  public PostalCodeFormat (@Nonnull @Nonempty final String sISO, @Nonnull @Nonempty final List <EPostalCodeFormatElement> aElements)
   {
     ValueEnforcer.notEmpty (sISO, "ISO");
     ValueEnforcer.notEmpty (aElements, "Elements");

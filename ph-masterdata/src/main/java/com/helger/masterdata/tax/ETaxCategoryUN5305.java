@@ -59,8 +59,7 @@ public enum ETaxCategoryUN5305 implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final IHasDisplayText m_aName;
 
-  private ETaxCategoryUN5305 (@Nonnull @Nonempty final String sID,
-                              @Nonnull final ETaxCategoryUN5305Name eResponseCodeName)
+  private ETaxCategoryUN5305 (@Nonnull @Nonempty final String sID, @Nonnull final ETaxCategoryUN5305Name eResponseCodeName)
   {
     m_sID = sID;
     m_aName = eResponseCodeName;

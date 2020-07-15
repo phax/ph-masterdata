@@ -68,9 +68,7 @@ public final class UnitManager
       final UnitSector aSector = new UnitSector (nGroupNum, aName);
       final Integer aKey = aSector.getIDObj ();
       if (m_aSectors.containsKey (aKey))
-        throw new IllegalStateException ("A unit sector with group number " +
-                                         aSector.getID () +
-                                         " is already contained!");
+        throw new IllegalStateException ("A unit sector with group number " + aSector.getID () + " is already contained!");
       m_aSectors.put (aKey, aSector);
     }
 

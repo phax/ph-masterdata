@@ -93,9 +93,7 @@ public final class PriceGraduationTest
   @Test
   public void testAdd ()
   {
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY,
-                                                      EVATItemType.REGULAR,
-                                                      MathHelper.toBigDecimal ("20"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, MathHelper.toBigDecimal ("20"));
     final PriceGraduation pg = new PriceGraduation (CurrencyHelper.DEFAULT_CURRENCY);
     assertTrue (pg.isEmpty ());
 
@@ -183,16 +181,13 @@ public final class PriceGraduationTest
   @Test
   public void testAddSimple ()
   {
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY,
-                                                      EVATItemType.REGULAR,
-                                                      MathHelper.toBigDecimal ("20"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, MathHelper.toBigDecimal ("20"));
     final IMutablePriceGraduation pg = new PriceGraduation (ECurrency.GBP);
     assertEquals (ECurrency.GBP, pg.getCurrency ());
     assertTrue (pg.isEmpty ());
     assertTrue (pg.addItem (1, MathHelper.toBigDecimal ("19.9")).isChanged ());
     assertTrue (pg.addItem (5, MathHelper.toBigDecimal ("14.9")).isChanged ());
-    CommonsAssert.assertEquals (19.9,
-                                pg.getSinglePriceOfQuantity (1, aVATItem).getNetAmount ().getValue ().doubleValue ());
+    CommonsAssert.assertEquals (19.9, pg.getSinglePriceOfQuantity (1, aVATItem).getNetAmount ().getValue ().doubleValue ());
     assertEquals (ECurrency.GBP, pg.getSinglePriceOfQuantity (1, aVATItem).getCurrency ());
     assertEquals (aVATItem, pg.getSinglePriceOfQuantity (1, aVATItem).getVATItem ());
   }

@@ -84,8 +84,7 @@ public final class VehicleSignsTest
   public void testGetAllCountriesFromVehicleSign ()
   {
     final CountryCache aCC = CountryCache.getInstance ();
-    assertEquals (new CommonsLinkedHashSet <> (aCC.getCountry ("AT")),
-                  VehicleSigns.getAllCountriesFromVehicleSign ("A"));
+    assertEquals (new CommonsLinkedHashSet <> (aCC.getCountry ("AT")), VehicleSigns.getAllCountriesFromVehicleSign ("A"));
     assertEquals (new CommonsLinkedHashSet <> (), VehicleSigns.getAllCountriesFromVehicleSign ("XYZ"));
     // Has 2 countries
     assertEquals (new CommonsLinkedHashSet <> (aCC.getCountry ("KP"), aCC.getCountry ("KR")),

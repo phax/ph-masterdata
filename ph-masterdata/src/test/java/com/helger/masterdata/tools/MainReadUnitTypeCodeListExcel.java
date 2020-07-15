@@ -119,10 +119,7 @@ public final class MainReadUnitTypeCodeListExcel
           eItem.setAttribute ("conversion", sConversionFactor);
           eItem.setAttribute ("symbol", sSymbol);
           if (StringHelper.hasText (sDescription))
-            eItem.appendElement ("description")
-                 .appendElement ("text")
-                 .setAttribute ("locale", "en")
-                 .appendText (sDescription);
+            eItem.appendElement ("description").appendElement ("text").setAttribute ("locale", "en").appendText (sDescription);
         }
       }
 
@@ -132,10 +129,7 @@ public final class MainReadUnitTypeCodeListExcel
       {
         final IMicroElement eSector = eSectors.appendElement ("sector");
         eSector.setAttribute ("groupnum", aEntry.getKey ());
-        eSector.appendElement ("name")
-               .appendElement ("text")
-               .setAttribute ("locale", "en")
-               .appendText (aEntry.getValue ());
+        eSector.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (aEntry.getValue ());
       }
 
       // quantities
@@ -144,10 +138,7 @@ public final class MainReadUnitTypeCodeListExcel
       {
         final IMicroElement eSector = eQuantities.appendElement ("quantity");
         eSector.setAttribute ("id", aEntry.getValue ().intValue ());
-        eSector.appendElement ("name")
-               .appendElement ("text")
-               .setAttribute ("locale", "en")
-               .appendText (aEntry.getKey ());
+        eSector.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (aEntry.getKey ());
       }
 
       MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));

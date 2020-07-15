@@ -41,8 +41,7 @@ public enum EISO31Name implements IHasDisplayText
   ISO31_8 ("Physikalische Chemie und Molekularphysik", "Physical chemistry and molecular physics"),
   ISO31_9 ("Atomphysik und Kernphysik", "Atomic and nuclear physics"),
   ISO31_10 ("Kernreaktionen und ionisierende Strahlungen", "Nuclear reactions and ionizing radiations"),
-  ISO31_11 ("Mathematische Zeichen und Symbole",
-            "Mathematical signs and symbols for use in the physical sciences and technology"),
+  ISO31_11 ("Mathematische Zeichen und Symbole", "Mathematical signs and symbols for use in the physical sciences and technology"),
   ISO31_12 ("Kennzahlen", "Characteristic numbers"),
   ISO31_13 ("Festkörperphysik", "Solid state physics");
 

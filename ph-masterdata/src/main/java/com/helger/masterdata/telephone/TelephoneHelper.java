@@ -81,9 +81,7 @@ public final class TelephoneHelper
     if (StringHelper.hasText (ret))
     {
       // Remove the Skype highlighting :)
-      ret = RegExHelper.stringReplacePattern ("begin_of_the_skype_highlighting.+end_of_the_skype_highlighting",
-                                              ret,
-                                              "");
+      ret = RegExHelper.stringReplacePattern ("begin_of_the_skype_highlighting.+end_of_the_skype_highlighting", ret, "");
     }
     return ret;
   }

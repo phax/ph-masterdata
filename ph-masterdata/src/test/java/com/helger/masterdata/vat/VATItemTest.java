@@ -39,8 +39,7 @@ public final class VATItemTest
   {
     final VATItem v = VATItem.createTestItem (Locale.US, EVATItemType.REDUCED, MathHelper.toBigDecimal ("20"));
     assertEquals (MathHelper.toBigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
-    assertEquals (MathHelper.toBigDecimal ("120.0"),
-                  CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
+    assertEquals (MathHelper.toBigDecimal ("120.0"), CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
     assertNull (v.getPeriod ().getStart ());
     assertNull (v.getPeriod ().getEnd ());
     CommonsTestHelper.testDefaultSerialization (v);

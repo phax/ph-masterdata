@@ -140,8 +140,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
   }
 
   @Nonnull
-  public final EChange setDeletion (@Nonnull final LocalDateTime aDeletionDT,
-                                    @Nonnull @Nonempty final String sDeletionUserID)
+  public final EChange setDeletion (@Nonnull final LocalDateTime aDeletionDT, @Nonnull @Nonempty final String sDeletionUserID)
   {
     ValueEnforcer.notNull (aDeletionDT, "DeletionDT");
     ValueEnforcer.notEmpty (sDeletionUserID, "DeletionUserID");
@@ -158,8 +157,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject
   }
 
   @Nonnull
-  public final EChange setUndeletion (@Nonnull final LocalDateTime aUndeletionDT,
-                                      @Nonnull @Nonempty final String sUndeletionUserID)
+  public final EChange setUndeletion (@Nonnull final LocalDateTime aUndeletionDT, @Nonnull @Nonempty final String sUndeletionUserID)
   {
     ValueEnforcer.notNull (aUndeletionDT, "UndeletionDT");
     ValueEnforcer.notEmpty (sUndeletionUserID, "UndeletionUserID");

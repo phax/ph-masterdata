@@ -155,8 +155,7 @@ public class PriceGraduation implements IMutablePriceGraduation
     {
       final int nExistingMinQuantity = aExistingItem.getMinimumQuantity ();
       if (nExistingMinQuantity == nNewItemQuantity)
-        throw new IllegalArgumentException ("Another item with the exact same quantity is already contained: " +
-                                            nExistingMinQuantity);
+        throw new IllegalArgumentException ("Another item with the exact same quantity is already contained: " + nExistingMinQuantity);
 
       // Find the insertion index
       if (nNewItemQuantity > nExistingMinQuantity)

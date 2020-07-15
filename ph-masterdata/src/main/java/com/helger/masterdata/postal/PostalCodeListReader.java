@@ -74,10 +74,7 @@ public class PostalCodeListReader
     {
       eElement = EPostalCodeFormatElement.getFromString (sFormat, nIndex);
       if (eElement == null)
-        throw new IllegalArgumentException ("The format '" +
-                                            sFormat +
-                                            "' contains an illegal element at index " +
-                                            nIndex);
+        throw new IllegalArgumentException ("The format '" + sFormat + "' contains an illegal element at index " + nIndex);
       ret.add (eElement);
       nIndex += eElement.getTokenLength ();
     }
@@ -108,12 +105,9 @@ public class PostalCodeListReader
       for (final IMicroElement ePostalCode : eCountry.getAllChildElements (ELEMENT_POSTALCODES))
       {
         final String sValidFrom = ePostalCode.getAttributeValue (ATTR_VALIDFROM);
-        final LocalDate aValidFrom = sValidFrom == null ? null
-                                                        : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidFrom,
-                                                                                                  LocalDate::from);
+        final LocalDate aValidFrom = sValidFrom == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidFrom, LocalDate::from);
         final String sValidTo = ePostalCode.getAttributeValue (ATTR_VALIDTO);
-        final LocalDate aValidTo = sValidTo == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidTo,
-                                                                                                     LocalDate::from);
+        final LocalDate aValidTo = sValidTo == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidTo, LocalDate::from);
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))
         {

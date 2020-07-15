@@ -62,17 +62,11 @@ public class MainReadPackageTypeCodeListExcel
         // Split by "to"
         final String [] aToParts = RegExHelper.getSplitToArray (sOrPart, " to ");
         if (aToParts.length != 2)
-          throw new IllegalStateException (sRealNumericCode +
-                                           " ==> " +
-                                           Arrays.toString (aToParts) +
-                                           " ==> more than 2 parts");
+          throw new IllegalStateException (sRealNumericCode + " ==> " + Arrays.toString (aToParts) + " ==> more than 2 parts");
         final int nFrom = StringParser.parseInt (aToParts[0].trim (), -1);
         final int nTo = StringParser.parseInt (aToParts[1].trim (), -1);
         if (nFrom == -1 || nTo == -1)
-          throw new IllegalStateException (sRealNumericCode +
-                                           " ==> " +
-                                           Arrays.toString (aToParts) +
-                                           " ==> not numeric");
+          throw new IllegalStateException (sRealNumericCode + " ==> " + Arrays.toString (aToParts) + " ==> not numeric");
         for (int i = nFrom; i <= nTo; ++i)
           ret.add (Integer.toString (i));
       }
@@ -131,10 +125,7 @@ public class MainReadPackageTypeCodeListExcel
           eItem.setAttribute ("code", sCode);
           eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
           if (StringHelper.hasText (sDescription))
-            eItem.appendElement ("description")
-                 .appendElement ("text")
-                 .setAttribute ("locale", "en")
-                 .appendText (sDescription);
+            eItem.appendElement ("description").appendElement ("text").setAttribute ("locale", "en").appendText (sDescription);
           eItem.setAttribute ("numericcodes", sNumericCode);
         }
       }

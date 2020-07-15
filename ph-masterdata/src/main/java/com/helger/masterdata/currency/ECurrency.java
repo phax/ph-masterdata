@@ -358,9 +358,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
       }
     }
     if (m_aLocales.isEmpty ())
-      throw new IllegalArgumentException ("Passed currency is not valid in a single country (" +
-                                          Arrays.toString (aLocales) +
-                                          ")");
+      throw new IllegalArgumentException ("Passed currency is not valid in a single country (" + Arrays.toString (aLocales) + ")");
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
@@ -378,10 +376,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
       // Happens when an unsupported currency code is provided
       final Logger aLogger = LoggerFactory.getLogger (ECurrency.class);
       if (aLogger.isErrorEnabled ())
-        aLogger.error ("Failed to resolve currency with currency code '" +
-                       sCurrencyCode +
-                       "' - " +
-                       aName.getDisplayText (Locale.US));
+        aLogger.error ("Failed to resolve currency with currency code '" + sCurrencyCode + "' - " + aName.getDisplayText (Locale.US));
     }
     m_aCurrency = aCurrency;
     m_bIsDeprecated = bIsDeprecated;

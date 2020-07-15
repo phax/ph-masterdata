@@ -49,8 +49,7 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
     this (aAccountingArea.getTenant (), aAccountingArea);
   }
 
-  public AbstractHasAccountingAreaObject (@Nonnull final ITenant aTenant,
-                                          @Nonnull final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaObject (@Nonnull final ITenant aTenant, @Nonnull final IAccountingArea aAccountingArea)
   {
     super (aTenant);
     ValueEnforcer.notNull (aAccountingArea, "AccountingArea");
@@ -80,9 +79,7 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingArea aAccountingArea)
   {
-    return aAccountingArea != null &&
-           hasSameTenantID (aAccountingArea) &&
-           hasSameAccountingAreaID (aAccountingArea.getID ());
+    return aAccountingArea != null && hasSameTenantID (aAccountingArea) && hasSameAccountingAreaID (aAccountingArea.getID ());
   }
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingAreaObject aAccountingAreaObject)

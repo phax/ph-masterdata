@@ -191,9 +191,7 @@ public class IBANCountryData implements ILocalDatePeriod
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("elements", m_aElements)
-                                       .append ("expectedLength", m_nExpectedLength)
-                                       .getToString ();
+    return new ToStringGenerator (this).append ("elements", m_aElements).append ("expectedLength", m_nExpectedLength).getToString ();
   }
 
   @Nonnull
@@ -287,10 +285,7 @@ public class IBANCountryData implements ILocalDatePeriod
             throw new IllegalArgumentException ("Failed to parse layout part '" + sPart + "' - type is invalid");
     }
     if (nLen != nExpectedLength)
-      throw new IllegalArgumentException ("Failed to parse layout - length mismatch. Having " +
-                                          nLen +
-                                          " but expected " +
-                                          nExpectedLength);
+      throw new IllegalArgumentException ("Failed to parse layout - length mismatch. Having " + nLen + " but expected " + nExpectedLength);
 
     return RegExCache.getPattern (aRegEx.toString ());
   }

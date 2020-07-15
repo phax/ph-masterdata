@@ -261,10 +261,7 @@ public final class VehicleSigns
     {
       if (aSigns.size () == 1)
         return aSigns.getFirst ();
-      throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" +
-                                          sCountry +
-                                          "': " +
-                                          aSigns);
+      throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" + sCountry + "': " + aSigns);
     }
     return null;
   }
@@ -302,10 +299,7 @@ public final class VehicleSigns
     {
       if (aCountries.size () == 1)
         return aCountries.getFirst ();
-      throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" +
-                                          sSign +
-                                          "': " +
-                                          aCountries);
+      throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" + sSign + "': " + aCountries);
     }
     return null;
   }

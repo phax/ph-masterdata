@@ -48,10 +48,7 @@ public final class MainReadLatLonState
     final String sRevision = "20130209";
     final String sSource = "http://dev.maxmind.com/geoip/codes/state_latlon";
 
-    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (
-                                                                        new File ("src/test/resources/state_latlon-" +
-                                                                                  sRevision +
-                                                                                  ".csv"),
+    try (final CSVReader aReader = new CSVReader (FileHelper.getReader (new File ("src/test/resources/state_latlon-" + sRevision + ".csv"),
                                                                         StandardCharsets.ISO_8859_1)))
     {
       // Skip one row
@@ -74,8 +71,7 @@ public final class MainReadLatLonState
              .setAttributeWithConversion ("latitude", aLatitude)
              .setAttributeWithConversion ("longitude", aLongitude);
       }
-      MicroWriter.writeToFile (aDoc,
-                               new File ("src/main/resources/codelists/latitude-longitude-us-" + sRevision + ".xml"));
+      MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/latitude-longitude-us-" + sRevision + ".xml"));
     }
     LOGGER.info ("Done");
   }

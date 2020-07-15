@@ -66,9 +66,7 @@ public class Price implements IMutablePrice
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
    */
-  public Price (@Nonnull final ECurrency eCurrency,
-                @Nonnull final BigDecimal aNetAmount,
-                @Nonnull final IVATItem aVATItem)
+  public Price (@Nonnull final ECurrency eCurrency, @Nonnull final BigDecimal aNetAmount, @Nonnull final IVATItem aVATItem)
   {
     this (new CurrencyValue (eCurrency, aNetAmount), aVATItem);
   }
@@ -210,9 +208,7 @@ public class Price implements IMutablePrice
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("NetAmount", m_aNetAmount)
-                                       .append ("VATItem", m_aVATItem)
-                                       .getToString ();
+    return new ToStringGenerator (this).append ("NetAmount", m_aNetAmount).append ("VATItem", m_aVATItem).getToString ();
   }
 
   /**
@@ -316,8 +312,7 @@ public class Price implements IMutablePrice
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
-                                             @Nonnull final IVATItem aVATItem)
+  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount, @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
@@ -356,8 +351,6 @@ public class Price implements IMutablePrice
       return new Price (aGrossAmount, aVATItem);
     }
 
-    return new Price (aGrossAmount.getCurrency (),
-                      aGrossAmount.getValue ().divide (aFactor, nScale, eRoundingMode),
-                      aVATItem);
+    return new Price (aGrossAmount.getCurrency (), aGrossAmount.getValue ().divide (aFactor, nScale, eRoundingMode), aVATItem);
   }
 }

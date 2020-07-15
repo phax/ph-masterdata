@@ -69,13 +69,7 @@ public class VATManager implements IVATItemProvider
    * Special VAT item with 0% - this is the only VAT item that has NO country
    * locale
    */
-  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
-                                                           (Locale) null,
-                                                           EVATItemType.OTHER,
-                                                           BigDecimal.ZERO,
-                                                           false,
-                                                           null,
-                                                           null);
+  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_", (Locale) null, EVATItemType.OTHER, BigDecimal.ZERO, false, null, null);
 
   private static final Logger LOGGER = LoggerFactory.getLogger (VATManager.class);
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
@@ -142,10 +136,7 @@ public class VATManager implements IVATItemProvider
       final String sInternalComment = MicroHelper.getChildTextContent (eVATTypes, "comment");
 
       // read all items
-      final VATCountryData aVATCountryData = new VATCountryData (aCountry,
-                                                                 bZeroVATAllowed,
-                                                                 sCountryName,
-                                                                 sInternalComment);
+      final VATCountryData aVATCountryData = new VATCountryData (aCountry, bZeroVATAllowed, sCountryName, sInternalComment);
       for (final IMicroElement eVATItem : eVATTypes.getAllChildElements ("item"))
       {
         // item ID
@@ -174,11 +165,7 @@ public class VATManager implements IVATItemProvider
         if (aPercentage == null)
         {
           if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("Percentage value '" +
-                         sPercentage +
-                         "' for VAT item " +
-                         sRealID +
-                         " is illegal. Skipping VAT item.");
+            LOGGER.warn ("Percentage value '" + sPercentage + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
           continue;
         }
 

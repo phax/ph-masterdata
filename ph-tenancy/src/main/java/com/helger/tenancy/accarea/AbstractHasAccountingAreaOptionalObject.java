@@ -49,8 +49,7 @@ public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHa
     this (aAccountingArea.getTenant (), aAccountingArea);
   }
 
-  public AbstractHasAccountingAreaOptionalObject (@Nonnull final ITenant aTenant,
-                                                  @Nullable final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaOptionalObject (@Nonnull final ITenant aTenant, @Nullable final IAccountingArea aAccountingArea)
   {
     super (aTenant);
     ValueEnforcer.notNull (aAccountingArea, "AccountingArea");

@@ -75,8 +75,6 @@ public final class IBANElement implements Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).append ("elementType", m_eElementType)
-                                       .append ("length", m_nLength)
-                                       .getToString ();
+    return new ToStringGenerator (null).append ("elementType", m_eElementType).append ("length", m_nLength).getToString ();
   }
 }

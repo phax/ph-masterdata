@@ -86,15 +86,6 @@ public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <Pos
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
     final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
-    return new PostalAddress (eType,
-                              sCountry,
-                              sState,
-                              sPostalCode,
-                              sCity,
-                              sStreet,
-                              sBuildingNumber,
-                              sPostOfficeBox,
-                              sCareOf,
-                              aLocale);
+    return new PostalAddress (eType, sCountry, sState, sPostalCode, sCity, sStreet, sBuildingNumber, sPostOfficeBox, sCareOf, aLocale);
   }
 }

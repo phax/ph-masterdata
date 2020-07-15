@@ -98,8 +98,6 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity)
-                                       .append ("priceamount", m_aNetAmount)
-                                       .getToString ();
+    return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity).append ("priceamount", m_aNetAmount).getToString ();
   }
 }

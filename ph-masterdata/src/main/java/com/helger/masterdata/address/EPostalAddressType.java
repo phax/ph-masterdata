@@ -62,8 +62,7 @@ public enum EPostalAddressType implements IPostalAddressType
   }
 
   @Nullable
-  public static EPostalAddressType getFromIDOrDefault (@Nullable final String sID,
-                                                       @Nullable final EPostalAddressType eDefault)
+  public static EPostalAddressType getFromIDOrDefault (@Nullable final String sID, @Nullable final EPostalAddressType eDefault)
   {
     return EnumHelper.getFromIDOrDefault (EPostalAddressType.class, sID, eDefault);
   }

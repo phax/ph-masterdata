@@ -41,10 +41,7 @@ public final class IBANElementValue implements Serializable
     ValueEnforcer.notNull (aElement, "Element");
     ValueEnforcer.notNull (sValue, "Value");
     if (sValue.length () != aElement.getLength ())
-      throw new IllegalArgumentException ("Value length mismatch. Having " +
-                                          sValue.length () +
-                                          " but expected " +
-                                          aElement.getLength ());
+      throw new IllegalArgumentException ("Value length mismatch. Having " + sValue.length () + " but expected " + aElement.getLength ());
     m_aElement = aElement;
     m_sValue = sValue;
   }

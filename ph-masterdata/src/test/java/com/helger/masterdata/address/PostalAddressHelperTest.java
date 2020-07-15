@@ -95,8 +95,7 @@ public final class PostalAddressHelperTest
     a.setPostalCode ("12345");
     assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345", PostalAddressHelper.getAddressString (a, aLocale));
     a.setCity ("Eindhoven", aLocale);
-    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven",
-                  PostalAddressHelper.getAddressString (a, aLocale));
+    assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven", PostalAddressHelper.getAddressString (a, aLocale));
     a.setPostOfficeBox ("PO12", aLocale);
     assertEquals ("c/o any" + "\n" + "Main road 7" + "\n" + "12345 Eindhoven" + "\n" + "PO12",
                   PostalAddressHelper.getAddressString (a, aLocale));

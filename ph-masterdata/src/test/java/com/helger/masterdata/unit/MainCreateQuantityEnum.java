@@ -48,8 +48,7 @@ public final class MainCreateQuantityEnum
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
       final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
-      final IMultilingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"),
-                                                                          IMultilingualText.class);
+      final IMultilingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"), IMultilingualText.class);
       final String sEN = aName.getText (Locale.ENGLISH).trim ();
       aTexts.put (Integer.valueOf (nQuantity), sEN);
     }
@@ -89,12 +88,7 @@ public final class MainCreateQuantityEnum
     {
       final Integer aQuantity = aEntry.getKey ();
       final String sEnumName = aEntry.getValue ();
-      aSB1.append (sEnumName)
-          .append (" (")
-          .append (aQuantity)
-          .append (", EUnitQuantityName.")
-          .append (sEnumName)
-          .append ("),");
+      aSB1.append (sEnumName).append (" (").append (aQuantity).append (", EUnitQuantityName.").append (sEnumName).append ("),");
 
       final String sEN = StringHelper.replaceAll (aTexts.get (aQuantity), "\n", "\\n");
       aSB2.append (sEnumName).append (" (\"").append (sEN).append ("\", \"").append (sEN).append ("\"),");

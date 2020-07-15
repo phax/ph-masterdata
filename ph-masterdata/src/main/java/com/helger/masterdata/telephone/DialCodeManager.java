@@ -42,8 +42,7 @@ public final class DialCodeManager
 
   static
   {
-    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), s_aCountryToDialCode)
-                     .isFailure ())
+    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), s_aCountryToDialCode).isFailure ())
       throw new InitializationException ("Failed to init dial code country data");
   }
 

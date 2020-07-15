@@ -37,12 +37,7 @@ import com.helger.tenancy.datetime.IHasLastModificationInfo;
  *
  * @author Philip Helger
  */
-public interface IBusinessObject extends
-                                 ITypedObject <String>,
-                                 IHasCreationInfo,
-                                 IHasLastModificationInfo,
-                                 IHasDeletionInfo,
-                                 Serializable
+public interface IBusinessObject extends ITypedObject <String>, IHasCreationInfo, IHasLastModificationInfo, IHasDeletionInfo, Serializable
 {
   /**
    * @return The latest date time that something changed. This is the latest

@@ -59,9 +59,7 @@ public class DeprecatedLocaleHandler implements Serializable
     private final String m_sCountry;
     private final String m_sVariant;
 
-    public LocaleParts (@Nullable final String sLanguage,
-                        @Nullable final String sCountry,
-                        @Nullable final String sVariant)
+    public LocaleParts (@Nullable final String sLanguage, @Nullable final String sCountry, @Nullable final String sVariant)
     {
       m_sLanguage = sLanguage;
       m_sCountry = sCountry;

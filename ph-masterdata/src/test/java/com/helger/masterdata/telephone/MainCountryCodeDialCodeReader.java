@@ -35,8 +35,7 @@ public final class MainCountryCodeDialCodeReader
 
   public static void main (final String [] args) throws IOException
   {
-    try (
-        final CSVReader aCSVReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (StandardCharsets.ISO_8859_1)))
+    try (final CSVReader aCSVReader = new CSVReader (new ClassPathResource ("countrycode.org.csv").getReader (StandardCharsets.ISO_8859_1)))
     {
       aCSVReader.setSeparatorChar (';');
       for (int i = 0; i < 4; ++i)

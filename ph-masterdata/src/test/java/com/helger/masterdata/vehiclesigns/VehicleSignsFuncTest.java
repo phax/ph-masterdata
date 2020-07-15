@@ -217,10 +217,7 @@ public final class VehicleSignsFuncTest
         if (aLocale.getCountry ().length () == 0)
           continue;
         final Locale aSearchLocale = new Locale ("", aLocale.getCountry ());
-        for (final Locale aDisplayLocale : new Locale [] { Locale.US,
-                                                           Locale.UK,
-                                                           aLocale,
-                                                           SystemHelper.getSystemLocale () })
+        for (final Locale aDisplayLocale : new Locale [] { Locale.US, Locale.UK, aLocale, SystemHelper.getSystemLocale () })
         {
           final String sLocaleCountry = aSearchLocale.getDisplayCountry (aDisplayLocale);
           if (sCountry.equals (sLocaleCountry))
@@ -234,11 +231,7 @@ public final class VehicleSignsFuncTest
       if (aFound == null)
         throw new IllegalStateException ("Failed to resolve country " + sCountry);
       if (false)
-        LOGGER.info ("map.put (LocaleCache.get (\"\",\"" +
-                     aFound.getCountry () +
-                     "\"), \"" +
-                     map.get (sCountry) +
-                     "\");");
+        LOGGER.info ("map.put (LocaleCache.get (\"\",\"" + aFound.getCountry () + "\"), \"" + map.get (sCountry) + "\");");
     }
   }
 
