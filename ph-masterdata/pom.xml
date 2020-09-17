@@ -30,6 +30,7 @@
   <description>Library with support for certain re-ocurring standard business objects</description>
   <url>https://github.com/phax/ph-masterdata/ph-masterdata</url>
   <inceptionYear>2014</inceptionYear>
+  
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -37,10 +38,12 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  
   <organization>
     <name>Philip Helger</name>
     <url>http://www.helger.com</url>
   </organization>
+  
   <developers>
     <developer>
       <id>philip</id>
@@ -49,6 +52,7 @@
       <url>http://www.helger.com</url>
     </developer>
   </developers>
+  
   <dependencies>
     <dependency>
       <groupId>com.helger</groupId>
@@ -62,6 +66,7 @@
       <groupId>com.helger</groupId>
       <artifactId>ph-datetime</artifactId>
     </dependency>
+    
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-poi</artifactId>
@@ -73,6 +78,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
   <build>
     <plugins>
       <plugin>

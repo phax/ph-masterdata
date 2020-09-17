@@ -42,8 +42,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
-* v6.1.8 - work in progress
+* v6.1.8 - 2020-09-17
     * Updated VAT rates for Germany (added 5%)
+    * Updated to Jakarta JAXB 2.3.3
 * v6.1.7 - 2020-06-22
     * Updated VAT rates for Austria (added 5%)
     * Updated postal codes for Austria
