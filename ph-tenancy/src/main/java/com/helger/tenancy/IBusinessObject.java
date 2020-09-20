@@ -22,7 +22,6 @@ import java.time.LocalDateTime;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.attr.IStringMap;
 import com.helger.commons.type.ITypedObject;
@@ -37,7 +36,12 @@ import com.helger.tenancy.datetime.IHasLastModificationInfo;
  *
  * @author Philip Helger
  */
-public interface IBusinessObject extends ITypedObject <String>, IHasCreationInfo, IHasLastModificationInfo, IHasDeletionInfo, Serializable
+public interface IBusinessObject extends
+                                 ITypedObject <String>,
+                                 IHasCreationInfo,
+                                 IHasLastModificationInfo,
+                                 IHasDeletionInfo,
+                                 Serializable
 {
   /**
    * @return The latest date time that something changed. This is the latest
@@ -106,23 +110,6 @@ public interface IBusinessObject extends ITypedObject <String>, IHasCreationInfo
   default boolean isNotDeleted ()
   {
     return !hasDeletionDateTime ();
-  }
-
-  /**
-   * Check if the object was deleted at the specified local date time. This is
-   * <code>true</code>, if the deletion time is &le; than the specified local
-   * date time.
-   *
-   * @param aDT
-   *        The time to check for deletion. May not be <code>null</code>.
-   * @return <code>true</code> if this object was deleted, <code>false</code> if
-   *         not.
-   */
-  // TODO remove for ph-commons 9.1.6
-  default boolean isDeletedAt (@Nonnull final LocalDateTime aDT)
-  {
-    ValueEnforcer.notNull (aDT, "LocalDateTime");
-    return hasDeletionDateTime () && getDeletionDateTime ().compareTo (aDT) <= 0;
   }
 
   /**
