@@ -42,6 +42,8 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+* v6.1.9 - 2021-01-04
+    * Extended the `EEUCountry` enum with a "leave date" to represent UK leaving the EU
 * v6.1.8 - 2020-09-17
     * Updated VAT rates for Germany (added 5%)
     * Updated to Jakarta JAXB 2.3.3

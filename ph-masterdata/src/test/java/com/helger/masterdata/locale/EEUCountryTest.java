@@ -17,9 +17,17 @@
 package com.helger.masterdata.locale;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import java.time.Month;
+import java.util.Locale;
 
 import org.junit.Test;
+
+import com.helger.commons.datetime.PDTFactory;
 
 /**
  * Test class for class {@link EEUCountry}.
@@ -34,5 +42,43 @@ public final class EEUCountryTest
     assertEquals (28, EEUCountry.values ().length);
     for (final EEUCountry e : EEUCountry.values ())
       assertSame (e, EEUCountry.getFromIDOrNull (e.getID ()));
+  }
+
+  @Test
+  public void testLeaveDate ()
+  {
+    assertTrue (EEUCountry.UNITED_KINGDOM.hasLeaveDate ());
+    assertEquals (PDTFactory.createLocalDate (2020, Month.DECEMBER, 31), EEUCountry.UNITED_KINGDOM.getLeaveDate ());
+
+    assertFalse (EEUCountry.GERMANY.hasLeaveDate ());
+    assertNull (EEUCountry.GERMANY.getLeaveDate ());
+  }
+
+  @Test
+  public void testIsInEU ()
+  {
+    assertFalse (EEUCountry.UNITED_KINGDOM.isInEUAt (PDTFactory.createLocalDate (1972, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.UNITED_KINGDOM.isInEUAt (PDTFactory.createLocalDate (1973, Month.JANUARY, 1)));
+    assertTrue (EEUCountry.UNITED_KINGDOM.isInEUAt (PDTFactory.createLocalDate (2020, Month.DECEMBER, 31)));
+    assertFalse (EEUCountry.UNITED_KINGDOM.isInEUAt (PDTFactory.createLocalDate (2021, Month.JANUARY, 1)));
+
+    assertFalse (EEUCountry.GERMANY.isInEUAt (PDTFactory.createLocalDate (1951, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.GERMANY.isInEUAt (PDTFactory.createLocalDate (1952, Month.JANUARY, 1)));
+    assertTrue (EEUCountry.GERMANY.isInEUAt (PDTFactory.createLocalDate (2020, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.GERMANY.isInEUAt (PDTFactory.createLocalDate (2021, Month.JANUARY, 1)));
+  }
+
+  @Test
+  public void testIsEUCountryAt ()
+  {
+    assertFalse (EEUCountry.isEUCountryAt (Locale.UK, PDTFactory.createLocalDate (1972, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.isEUCountryAt (Locale.UK, PDTFactory.createLocalDate (1973, Month.JANUARY, 1)));
+    assertTrue (EEUCountry.isEUCountryAt (Locale.UK, PDTFactory.createLocalDate (2020, Month.DECEMBER, 31)));
+    assertFalse (EEUCountry.isEUCountryAt (Locale.UK, PDTFactory.createLocalDate (2021, Month.JANUARY, 1)));
+
+    assertFalse (EEUCountry.isEUCountryAt (Locale.GERMANY, PDTFactory.createLocalDate (1951, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.isEUCountryAt (Locale.GERMANY, PDTFactory.createLocalDate (1952, Month.JANUARY, 1)));
+    assertTrue (EEUCountry.isEUCountryAt (Locale.GERMANY, PDTFactory.createLocalDate (2020, Month.DECEMBER, 31)));
+    assertTrue (EEUCountry.isEUCountryAt (Locale.GERMANY, PDTFactory.createLocalDate (2021, Month.JANUARY, 1)));
   }
 }
