@@ -172,10 +172,10 @@ public enum EGS1Prefix
   private final String m_sDescription;
   private final String m_sCountryCode;
 
-  private EGS1Prefix (@Nonnull @Nonempty final String sFrom,
-                      @Nullable final String sTo,
-                      @Nonnull @Nonempty final String sDescription,
-                      @Nullable final String sCountryCode)
+  EGS1Prefix (@Nonnull @Nonempty final String sFrom,
+              @Nullable final String sTo,
+              @Nonnull @Nonempty final String sDescription,
+              @Nullable final String sCountryCode)
   {
     m_sFrom = sFrom;
     m_sTo = sTo;

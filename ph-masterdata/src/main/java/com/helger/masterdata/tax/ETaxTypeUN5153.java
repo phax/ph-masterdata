@@ -92,7 +92,7 @@ public enum ETaxTypeUN5153 implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final IHasDisplayText m_aName;
 
-  private ETaxTypeUN5153 (@Nonnull @Nonempty final String sID, @Nonnull final ETaxTypeUN5153Name eResponseCodeName)
+  ETaxTypeUN5153 (@Nonnull @Nonempty final String sID, @Nonnull final ETaxTypeUN5153Name eResponseCodeName)
   {
     m_sID = sID;
     m_aName = eResponseCodeName;

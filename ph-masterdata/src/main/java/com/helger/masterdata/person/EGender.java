@@ -39,7 +39,7 @@ public enum EGender implements IHasDisplayText, IHasID <String>
   private final String m_sID;
   private final EGenderName m_aText;
 
-  private EGender (@Nonnull final String sID, @Nonnull final EGenderName eText)
+  EGender (@Nonnull final String sID, @Nonnull final EGenderName eText)
   {
     m_sID = sID;
     m_aText = eText;

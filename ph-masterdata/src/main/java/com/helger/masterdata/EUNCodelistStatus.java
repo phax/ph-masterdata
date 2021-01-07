@@ -43,7 +43,7 @@ public enum EUNCodelistStatus implements IHasID <String>
   private final String m_sID;
   private final char m_cText;
 
-  private EUNCodelistStatus (@Nonnull @Nonempty final String sID, final char cText)
+  EUNCodelistStatus (@Nonnull @Nonempty final String sID, final char cText)
   {
     m_sID = sID;
     m_cText = cText;
@@ -76,7 +76,7 @@ public enum EUNCodelistStatus implements IHasID <String>
         if (sStatus.indexOf (eStatus.m_cText) != -1)
           ret.add (eStatus);
       if (ret.isEmpty ())
-        throw new IllegalArgumentException ("Illegal status: " + sStatus);
+        throw new IllegalArgumentException ("Illegal status: '" + sStatus + "'");
       return ret;
     }
     return new CommonsArrayList <> (UNCHANGED);
@@ -93,6 +93,6 @@ public enum EUNCodelistStatus implements IHasID <String>
   @Nonnull
   public static String getAsString (@Nonnull final Iterable <EUNCodelistStatus> aStatus)
   {
-    return StringHelper.getImplodedMapped (",", aStatus, EUNCodelistStatus::getID);
+    return StringHelper.getImplodedMapped (',', aStatus, EUNCodelistStatus::getID);
   }
 }

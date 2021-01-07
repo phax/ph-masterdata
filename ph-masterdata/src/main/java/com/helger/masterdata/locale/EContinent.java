@@ -31,6 +31,11 @@ import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
 
+/**
+ * Enumeration with all continents
+ *
+ * @author Philip Helger
+ */
 public enum EContinent implements IHasID <String>, IHasDisplayText
 {
   AFRICA ("af", EContinentName.AFRICA),
@@ -45,7 +50,7 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final EContinentName m_aName;
 
-  private EContinent (@Nonnull @Nonempty final String sID, @Nonnull final EContinentName aName)
+  EContinent (@Nonnull @Nonempty final String sID, @Nonnull final EContinentName aName)
   {
     m_sID = sID;
     m_aName = aName;

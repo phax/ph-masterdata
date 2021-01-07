@@ -49,7 +49,7 @@ public enum EDINB implements IDINSize
   private final int m_nWidthMM;
   private final int m_nHeightMM;
 
-  private EDINB (@Nonnull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
+  EDINB (@Nonnull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
   {
     m_sID = sID;
     m_nWidthMM = nWidthMM;

@@ -30,7 +30,7 @@ import com.helger.commons.log.InMemoryLogger;
 @NotThreadSafe
 public class MasterDataLogger extends InMemoryLogger
 {
-  private static final MasterDataLogger s_aInstance = new MasterDataLogger ();
+  private static final MasterDataLogger INSTANCE = new MasterDataLogger ();
 
   protected MasterDataLogger ()
   {}
@@ -38,6 +38,6 @@ public class MasterDataLogger extends InMemoryLogger
   @Nonnull
   public static MasterDataLogger getInstance ()
   {
-    return s_aInstance;
+    return INSTANCE;
   }
 }

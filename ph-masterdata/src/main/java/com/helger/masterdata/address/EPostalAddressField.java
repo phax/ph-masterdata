@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 /**
  * Enum to easily access parts of an address
- * 
+ *
  * @author Philip Helger
  */
 public enum EPostalAddressField
@@ -42,7 +42,7 @@ public enum EPostalAddressField
 
   private final BiFunction <IPostalAddress, Locale, String> m_aGetter;
 
-  private EPostalAddressField (@Nonnull final BiFunction <IPostalAddress, Locale, String> aGetter)
+  EPostalAddressField (@Nonnull final BiFunction <IPostalAddress, Locale, String> aGetter)
   {
     m_aGetter = aGetter;
   }

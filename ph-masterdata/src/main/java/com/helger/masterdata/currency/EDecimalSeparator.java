@@ -32,7 +32,7 @@ public enum EDecimalSeparator
 
   private final char m_cChar;
 
-  private EDecimalSeparator (final char c)
+  EDecimalSeparator (final char c)
   {
     m_cChar = c;
   }

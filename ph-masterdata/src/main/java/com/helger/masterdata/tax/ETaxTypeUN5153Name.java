@@ -239,7 +239,7 @@ public enum ETaxTypeUN5153Name implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private ETaxTypeUN5153Name (@Nonnull final String sDE, @Nonnull final String sEN)
+  ETaxTypeUN5153Name (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

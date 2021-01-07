@@ -31,13 +31,15 @@ public enum ESalutationGreeting implements IHasDisplayText
 {
   MISTER ("Sehr geehrter", "Dear"),
   MISSES ("Sehr geehrte", "Dear"),
+  MISTER_PERSONAL ("Lieber", "Dear"),
+  MISSES_PERSONAL ("Liebe", "Dear"),
   FAMILY ("Sehr geehrte", "Dear"),
   COMPANY ("Sehr geehrte", "Dear"),
   CLUB ("Sehr geehrte", "Dear");
 
   private final IMultilingualText m_aTP;
 
-  private ESalutationGreeting (@Nonnull final String sDE, @Nonnull final String sEN)
+  ESalutationGreeting (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

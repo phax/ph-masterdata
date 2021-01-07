@@ -49,7 +49,7 @@ public enum EDINC implements IDINSize
   private final int m_nWidthMM;
   private final int m_nHeightMM;
 
-  private EDINC (@Nonnull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
+  EDINC (@Nonnull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
   {
     m_sID = sID;
     m_nWidthMM = nWidthMM;

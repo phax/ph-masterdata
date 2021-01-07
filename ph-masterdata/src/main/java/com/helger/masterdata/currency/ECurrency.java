@@ -328,17 +328,15 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return new CommonsArrayList <> (aCountries, LocaleCache.getInstance ()::getLocale);
   }
 
-  private ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
-                     @Nonnull final ECurrencyName aName,
-                     @Nonnull @Nonempty final String... aLocales)
+  ECurrency (@Nonnull @Nonempty final String sCurrencyCode, @Nonnull final ECurrencyName aName, @Nonnull @Nonempty final String... aLocales)
   {
     this (sCurrencyCode, false, aName, aLocales);
   }
 
-  private ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
-                     final boolean bIsDeprecated,
-                     @Nonnull final ECurrencyName aName,
-                     @Nonnull @Nonempty final String... aLocales)
+  ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
+             final boolean bIsDeprecated,
+             @Nonnull final ECurrencyName aName,
+             @Nonnull @Nonempty final String... aLocales)
   {
     ValueEnforcer.notEmpty (sCurrencyCode, "CurrencyCode");
     ValueEnforcer.notNull (aName, "Name");
@@ -393,6 +391,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return m_sID;
   }
 
+  @Nullable
   public String getDisplayText (@Nonnull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);

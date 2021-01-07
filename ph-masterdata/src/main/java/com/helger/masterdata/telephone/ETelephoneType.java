@@ -49,7 +49,7 @@ public enum ETelephoneType implements ITelephoneType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  private ETelephoneType (@Nonnull @Nonempty final String sID, @Nonnull final ETelephoneText eText)
+  ETelephoneType (@Nonnull @Nonempty final String sID, @Nonnull final ETelephoneText eText)
   {
     m_sID = sID;
     m_aText = eText;

@@ -461,7 +461,7 @@ public enum EUnitQuantity implements IHasIntID, IHasDisplayText
   private final int m_nID;
   private final IHasDisplayText m_aName;
 
-  private EUnitQuantity (@Nonnegative final int nNumber, @Nonnull final EUnitQuantityName aName)
+  EUnitQuantity (@Nonnegative final int nNumber, @Nonnull final EUnitQuantityName aName)
   {
     m_nID = nNumber;
     m_aName = aName;

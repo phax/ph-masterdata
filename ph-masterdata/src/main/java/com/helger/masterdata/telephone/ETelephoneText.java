@@ -55,7 +55,7 @@ public enum ETelephoneText implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private ETelephoneText (@Nonnull final String sDE, @Nonnull final String sEN)
+  ETelephoneText (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

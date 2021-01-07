@@ -48,7 +48,7 @@ public enum EVATItemType implements IHasID <String>
   private final String m_sID;
   private final ETaxCategoryUN5305 m_eTaxCategory;
 
-  private EVATItemType (@Nonnull @Nonempty final String sID, @Nullable final ETaxCategoryUN5305 eTaxCategory)
+  EVATItemType (@Nonnull @Nonempty final String sID, @Nullable final ETaxCategoryUN5305 eTaxCategory)
   {
     m_sID = sID;
     m_eTaxCategory = eTaxCategory;

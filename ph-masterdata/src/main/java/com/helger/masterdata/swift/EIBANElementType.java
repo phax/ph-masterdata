@@ -43,7 +43,7 @@ public enum EIBANElementType
 
   private final String m_sField;
 
-  private EIBANElementType (@Nonnull final String sField)
+  EIBANElementType (@Nonnull final String sField)
   {
     m_sField = sField;
   }

@@ -36,7 +36,7 @@ public enum EPostalAddressType implements IPostalAddressType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  private EPostalAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EPostalAddressText eText)
+  EPostalAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EPostalAddressText eText)
   {
     m_sID = sID;
     m_aText = eText;

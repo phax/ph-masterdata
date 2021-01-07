@@ -46,7 +46,7 @@ public enum EISO31 implements IHasIntID, IHasDisplayText
   private final int m_nID;
   private final IHasDisplayText m_aName;
 
-  private EISO31 (@Nonnegative final int nNumber, @Nonnull final EISO31Name aName)
+  EISO31 (@Nonnegative final int nNumber, @Nonnull final EISO31Name aName)
   {
     m_nID = nNumber;
     m_aName = aName;

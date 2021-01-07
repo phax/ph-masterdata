@@ -36,7 +36,7 @@ public enum EEmailAddressType implements IEmailAddressType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  private EEmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EEmailAddressText eText)
+  EEmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EEmailAddressText eText)
   {
     m_sID = sID;
     m_aText = eText;

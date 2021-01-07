@@ -34,7 +34,7 @@ public enum EGroupingSeparator
 
   private final char m_cChar;
 
-  private EGroupingSeparator (final char c)
+  EGroupingSeparator (final char c)
   {
     m_cChar = c;
   }

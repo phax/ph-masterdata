@@ -53,7 +53,7 @@ public enum EIncoterm implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final IHasDisplayText m_aName;
 
-  private EIncoterm (@Nonnull @Nonempty final String sID, @Nonnull final EIncotermName eDeliveryTermName)
+  EIncoterm (@Nonnull @Nonempty final String sID, @Nonnull final EIncotermName eDeliveryTermName)
   {
     m_sID = sID;
     m_aName = eDeliveryTermName;

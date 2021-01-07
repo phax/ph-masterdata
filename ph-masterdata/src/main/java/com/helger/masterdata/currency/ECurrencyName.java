@@ -207,7 +207,7 @@ public enum ECurrencyName implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private ECurrencyName (@Nonnull final String sDE, @Nonnull final String sEN)
+  ECurrencyName (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

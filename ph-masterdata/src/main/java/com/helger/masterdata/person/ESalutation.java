@@ -47,11 +47,11 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   private final IHasDisplayText m_aGreeting;
   private final IHasDisplayText m_aGreetingComplete;
 
-  private ESalutation (@Nonnull final String sID,
-                       @Nullable final EGender eGender,
-                       @Nonnull final ESalutationName eName,
-                       @Nonnull final ESalutationGreeting eGreeting,
-                       @Nonnull final ESalutationGreetingComplete eGreetingComplete)
+  ESalutation (@Nonnull final String sID,
+               @Nullable final EGender eGender,
+               @Nonnull final ESalutationName eName,
+               @Nonnull final ESalutationGreeting eGreeting,
+               @Nonnull final ESalutationGreetingComplete eGreetingComplete)
   {
     m_sID = sID;
     m_eGender = eGender;
@@ -100,13 +100,19 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   }
 
   @Nullable
-  public String getGreeting (final Locale aContentLocale)
+  public String getGreeting (@Nonnull final Locale aContentLocale)
   {
     return m_aGreeting.getDisplayText (aContentLocale);
   }
 
+  @Nonnull
+  public IHasDisplayText getGreetingComplete ()
+  {
+    return m_aGreetingComplete;
+  }
+
   @Nullable
-  public String getGreetingComplete (final Locale aContentLocale)
+  public String getGreetingComplete (@Nonnull final Locale aContentLocale)
   {
     return m_aGreetingComplete.getDisplayText (aContentLocale);
   }

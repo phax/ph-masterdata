@@ -40,7 +40,7 @@ enum EPostalCodeFormatElement
   private final String m_sRegEx;
   private final String m_sExample;
 
-  private EPostalCodeFormatElement (@Nonnull @Nonempty final String sToken, @Nullable final String sRegEx, @Nullable final String sExample)
+  EPostalCodeFormatElement (@Nonnull @Nonempty final String sToken, @Nullable final String sRegEx, @Nullable final String sExample)
   {
     m_sToken = sToken;
     m_sRegEx = sRegEx;

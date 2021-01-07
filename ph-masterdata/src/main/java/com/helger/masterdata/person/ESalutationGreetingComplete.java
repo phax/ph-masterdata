@@ -37,7 +37,7 @@ public enum ESalutationGreetingComplete implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private ESalutationGreetingComplete (@Nonnull final String sDE, @Nonnull final String sEN)
+  ESalutationGreetingComplete (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

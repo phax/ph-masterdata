@@ -30,7 +30,7 @@ public enum EUnitLevel implements IHasIntID
 
   private final int m_nID;
 
-  private EUnitLevel (@Nonnegative final int nID)
+  EUnitLevel (@Nonnegative final int nID)
   {
     m_nID = nID;
   }

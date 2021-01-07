@@ -123,7 +123,7 @@ public enum ETaxCategoryUN5305Name implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private ETaxCategoryUN5305Name (@Nonnull final String sDE, @Nonnull final String sEN)
+  ETaxCategoryUN5305Name (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }

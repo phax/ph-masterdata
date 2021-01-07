@@ -35,7 +35,7 @@ public enum EGenderName implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  private EGenderName (@Nonnull final String sDE, @Nonnull final String sEN)
+  EGenderName (@Nonnull final String sDE, @Nonnull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }
