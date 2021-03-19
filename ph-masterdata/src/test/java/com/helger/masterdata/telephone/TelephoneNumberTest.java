@@ -81,8 +81,6 @@ public final class TelephoneNumberTest
     assertEquals ("47", a.getDirectDial ());
     assertTrue (a.setDirectDial ("2323").isChanged ());
     assertEquals ("2323", a.getDirectDial ());
-
-    CommonsTestHelper.testDefaultSerialization (a);
   }
 
   @Test

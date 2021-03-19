@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.exchangeratio;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Comparator;
 
@@ -42,7 +41,7 @@ import com.helger.masterdata.currency.IHasCurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, Serializable, IHasCurrency
+public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, IHasCurrency
 {
   private final ECurrency m_eCurrency;
   private final ICommonsNavigableSet <ExchangeRatio> m_aSet = new CommonsTreeSet <> (Comparator.comparing (ExchangeRatio::getDate));

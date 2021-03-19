@@ -16,7 +16,6 @@
  */
 package com.helger.tenancy;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.annotation.Nonnull;
@@ -40,8 +39,7 @@ public interface IBusinessObject extends
                                  ITypedObject <String>,
                                  IHasCreationInfo,
                                  IHasLastModificationInfo,
-                                 IHasDeletionInfo,
-                                 Serializable
+                                 IHasDeletionInfo
 {
   /**
    * @return The latest date time that something changed. This is the latest

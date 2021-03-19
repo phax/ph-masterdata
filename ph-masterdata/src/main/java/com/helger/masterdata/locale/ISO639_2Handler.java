@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.locale;
 
-import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -32,7 +31,7 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 
-public class ISO639_2Handler implements Serializable
+public class ISO639_2Handler
 {
   public static final String DEFAULT_RESOURCE = "codelists/iso639-2-data-20130111.xml";
 

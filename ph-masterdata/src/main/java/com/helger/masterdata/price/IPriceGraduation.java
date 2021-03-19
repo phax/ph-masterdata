@@ -16,8 +16,6 @@
  */
 package com.helger.masterdata.price;
 
-import java.io.Serializable;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -45,7 +43,7 @@ import com.helger.masterdata.vat.IVATItem;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IPriceGraduation extends IHasSize, IHasCurrency, Serializable
+public interface IPriceGraduation extends IHasSize, IHasCurrency
 {
   /**
    * @return The currency of this price graduation.

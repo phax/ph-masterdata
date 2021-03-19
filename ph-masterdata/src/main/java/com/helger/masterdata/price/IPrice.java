@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.price;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
@@ -32,7 +31,7 @@ import com.helger.masterdata.vat.IHasVATItem;
  *
  * @author Philip Helger
  */
-public interface IPrice extends IHasCurrency, IHasVATItem, Serializable
+public interface IPrice extends IHasCurrency, IHasVATItem
 {
   /**
    * @return The net amount value and currency of this price (value without

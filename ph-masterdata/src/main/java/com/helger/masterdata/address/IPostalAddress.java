@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.address;
 
-import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -29,7 +28,7 @@ import com.helger.commons.string.StringHelper;
  *
  * @author Philip Helger
  */
-public interface IPostalAddress extends Serializable
+public interface IPostalAddress
 {
   /**
    * @return The semantic type of this address.

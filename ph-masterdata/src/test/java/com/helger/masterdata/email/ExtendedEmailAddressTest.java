@@ -63,8 +63,6 @@ public final class ExtendedEmailAddressTest
     assertEquals ("Ich", a.getPersonal ());
     assertTrue (a.setPersonal ("Du").isChanged ());
     assertEquals ("Du", a.getPersonal ());
-
-    CommonsTestHelper.testDefaultSerialization (a);
   }
 
   @Test
@@ -92,6 +90,5 @@ public final class ExtendedEmailAddressTest
     CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new ExtendedEmailAddress ());
     CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new ExtendedEmailAddress (a));
     CommonsTestHelper.testGetClone (a);
-    CommonsTestHelper.testDefaultSerialization (a);
   }
 }

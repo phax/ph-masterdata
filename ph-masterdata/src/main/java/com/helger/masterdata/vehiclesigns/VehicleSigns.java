@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.collection.multimap.MultiHashMapLinkedHashSetBased;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.collection.impl.CommonsLinkedHashSet;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsOrderedSet;
@@ -39,8 +39,8 @@ import com.helger.commons.locale.country.CountryCache;
 @Immutable
 public final class VehicleSigns
 {
-  private static final MultiHashMapLinkedHashSetBased <Locale, String> s_aCountryToSign = new MultiHashMapLinkedHashSetBased <> ();
-  private static final MultiHashMapLinkedHashSetBased <String, Locale> s_aSignToCountry = new MultiHashMapLinkedHashSetBased <> ();
+  private static final ICommonsMap <Locale, ICommonsOrderedSet <String>> COUNTRY_TO_SIGN = new CommonsHashMap <> ();
+  private static final ICommonsMap <String, ICommonsOrderedSet <Locale>> SIGN_TO_COUNTRY = new CommonsHashMap <> ();
 
   static
   {
@@ -227,9 +227,9 @@ public final class VehicleSigns
   private static void _add (@Nonnull final String sCountryCode, @Nonnull final String sSign)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
-    if (s_aCountryToSign.putSingle (aCountry, sSign).isUnchanged ())
+    if (!COUNTRY_TO_SIGN.computeIfAbsent (aCountry, k -> new CommonsLinkedHashSet <> ()).add (sSign))
       throw new InitializationException ("Locale " + aCountry + " already contains sign '" + sSign + "'");
-    if (s_aSignToCountry.putSingle (sSign, aCountry).isUnchanged ())
+    if (!SIGN_TO_COUNTRY.computeIfAbsent (sSign, k -> new CommonsLinkedHashSet <> ()).add (aCountry))
       throw new InitializationException ("Sign '" + sSign + "' already contains country " + aCountry);
   }
 
@@ -241,7 +241,7 @@ public final class VehicleSigns
   public static ICommonsOrderedSet <String> getAllVehicleSigns (@Nullable final String sCountry)
   {
     final Locale aRealCountry = CountryCache.getInstance ().getCountry (sCountry);
-    final ICommonsOrderedSet <String> aSigns = s_aCountryToSign.get (aRealCountry);
+    final ICommonsOrderedSet <String> aSigns = COUNTRY_TO_SIGN.get (aRealCountry);
     return new CommonsLinkedHashSet <> (aSigns);
   }
 
@@ -256,12 +256,15 @@ public final class VehicleSigns
   public static String getSingleVehicleSign (@Nullable final String sCountry)
   {
     final Locale aRealCountry = CountryCache.getInstance ().getCountry (sCountry);
-    final ICommonsOrderedSet <String> aSigns = s_aCountryToSign.get (aRealCountry);
+    final ICommonsOrderedSet <String> aSigns = COUNTRY_TO_SIGN.get (aRealCountry);
     if (aSigns != null)
     {
       if (aSigns.size () == 1)
         return aSigns.getFirst ();
-      throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" + sCountry + "': " + aSigns);
+      throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" +
+                                          sCountry +
+                                          "': " +
+                                          aSigns);
     }
     return null;
   }
@@ -280,26 +283,29 @@ public final class VehicleSigns
   @ReturnsMutableCopy
   public static ICommonsMap <Locale, ICommonsOrderedSet <String>> getCountryToVehicleSignMap ()
   {
-    return s_aCountryToSign.getClone ();
+    return COUNTRY_TO_SIGN.getClone ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public static ICommonsOrderedSet <Locale> getAllCountriesFromVehicleSign (@Nullable final String sSign)
   {
-    final ICommonsOrderedSet <Locale> aCountries = s_aSignToCountry.get (sSign);
+    final ICommonsOrderedSet <Locale> aCountries = SIGN_TO_COUNTRY.get (sSign);
     return new CommonsLinkedHashSet <> (aCountries);
   }
 
   @Nullable
   public static Locale getSingleCountryFromVehicleSign (@Nullable final String sSign)
   {
-    final ICommonsOrderedSet <Locale> aCountries = s_aSignToCountry.get (sSign);
+    final ICommonsOrderedSet <Locale> aCountries = SIGN_TO_COUNTRY.get (sSign);
     if (aCountries != null)
     {
       if (aCountries.size () == 1)
         return aCountries.getFirst ();
-      throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" + sSign + "': " + aCountries);
+      throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" +
+                                          sSign +
+                                          "': " +
+                                          aCountries);
     }
     return null;
   }
@@ -313,6 +319,6 @@ public final class VehicleSigns
   @ReturnsMutableCopy
   public static ICommonsMap <String, ICommonsOrderedSet <Locale>> getVehicleSignToCountryMap ()
   {
-    return s_aSignToCountry.getClone ();
+    return SIGN_TO_COUNTRY.getClone ();
   }
 }

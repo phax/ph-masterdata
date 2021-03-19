@@ -16,8 +16,6 @@
  */
 package com.helger.masterdata.locale;
 
-import java.io.Serializable;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -28,7 +26,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
-public class ISO639_2Item implements Serializable
+public class ISO639_2Item
 {
   private final String m_sAlpha3B;
   private final String m_sAlpha3T;

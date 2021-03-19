@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.postal;
 
-import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -42,7 +41,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @ThreadSafe
-public class PostalCodeManager implements Serializable
+public class PostalCodeManager
 {
   /** Default postal code manager */
   public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20130209.xml"));

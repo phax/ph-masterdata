@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.currencyvalue;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
@@ -34,24 +33,13 @@ import com.helger.masterdata.currency.IHasCurrency;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface ICurrencyValue extends IHasCurrency, Serializable
+public interface ICurrencyValue extends IHasCurrency
 {
   /**
    * @return The contained numeric currency value.
    */
   @Nonnull
   BigDecimal getValue ();
-
-  /**
-   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
-   *         is &ge; 0.
-   * @deprecated Use {@link #isLT0()}
-   */
-  @Deprecated
-  default boolean isLowerThanZero ()
-  {
-    return isLT0 ();
-  }
 
   /**
    * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
@@ -91,17 +79,6 @@ public interface ICurrencyValue extends IHasCurrency, Serializable
   default boolean isNE0 ()
   {
     return MathHelper.isNE0 (getValue ());
-  }
-
-  /**
-   * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it
-   *         is &le; 0.
-   * @deprecated Use {@link #isGT0()}
-   */
-  @Deprecated
-  default boolean isGreaterThanZero ()
-  {
-    return isGT0 ();
   }
 
   /**

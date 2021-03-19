@@ -22,7 +22,7 @@
   <parent>
     <groupId>com.helger</groupId>
     <artifactId>ph-masterdata-parent-pom</artifactId>
-    <version>6.1.11-SNAPSHOT</version>
+    <version>6.2.0-SNAPSHOT</version>
   </parent>
   <artifactId>ph-masterdata</artifactId>
   <packaging>bundle</packaging>
@@ -55,15 +55,15 @@
   
   <dependencies>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-commons</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-xml</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-datetime</artifactId>
     </dependency>
     

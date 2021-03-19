@@ -40,14 +40,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.collection.multimap.IMultiMapListBased;
-import com.helger.collection.multimap.MultiHashMapArrayListBased;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsImmutableObject;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.impl.CommonsArrayList;
+import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.collection.impl.ICommonsList;
+import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.io.file.FileHelper;
 import com.helger.commons.string.StringHelper;
@@ -195,9 +195,9 @@ public class MainReadPostalCodeListExcel
       }
 
       // Convert to map, where the key is the ISO
-      final IMultiMapListBased <String, Item> aMap = new MultiHashMapArrayListBased <> ();
+      final ICommonsMap <String, ICommonsList <Item>> aMap = new CommonsHashMap <> ();
       for (final Item aItem : aItems)
-        aMap.putSingle (aItem.getISO (), aItem);
+        aMap.computeIfAbsent (aItem.getISO (), k -> new CommonsArrayList <> ()).add (aItem);
 
       // Sort all sub-lists by introduction date
       for (final List <Item> aSubList : aMap.values ())
@@ -231,7 +231,8 @@ public class MainReadPostalCodeListExcel
             ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
                                        DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
           if (aItem.getValidTo () != null)
-            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO, DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
+            ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDTO,
+                                       DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
           for (final String sSingleFormat : aItem.getFormats ())
             if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
               ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)

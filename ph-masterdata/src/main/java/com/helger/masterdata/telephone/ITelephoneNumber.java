@@ -16,8 +16,6 @@
  */
 package com.helger.masterdata.telephone;
 
-import java.io.Serializable;
-
 import javax.annotation.Nullable;
 
 import com.helger.commons.string.StringHelper;
@@ -27,7 +25,7 @@ import com.helger.commons.string.StringHelper;
  *
  * @author Philip Helger
  */
-public interface ITelephoneNumber extends Serializable
+public interface ITelephoneNumber
 {
   /**
    * @return The semantic type of this telephone number. May be

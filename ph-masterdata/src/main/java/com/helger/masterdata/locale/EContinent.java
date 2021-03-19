@@ -17,6 +17,7 @@
 package com.helger.masterdata.locale;
 
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,8 +26,7 @@ import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsNavigableSet;
-import com.helger.commons.functional.IPredicate;
+import com.helger.commons.collection.impl.ICommonsSortedSet;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.text.display.IHasDisplayText;
@@ -76,19 +76,19 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
   }
 
   @Nonnull
-  public static IPredicate <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
+  public static Predicate <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
   {
     ValueEnforcer.notNull (eContinent, "Continent");
     return aLocale -> CollectionHelper.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
   }
 
   @Nonnull
-  public static IPredicate <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
+  public static Predicate <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
   {
     ValueEnforcer.notEmptyNoNullValue (aContinents, "Continents");
     return aLocale -> {
       // Get all continents of the passed locale
-      final ICommonsNavigableSet <EContinent> aContinentsOfLocale = ContinentHelper.getContinentsOfCountry (aLocale);
+      final ICommonsSortedSet <EContinent> aContinentsOfLocale = ContinentHelper.getContinentsOfCountry (aLocale);
       if (aContinentsOfLocale == null)
         return false;
 

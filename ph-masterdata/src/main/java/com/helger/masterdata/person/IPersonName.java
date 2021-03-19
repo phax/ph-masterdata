@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.person;
 
-import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -30,7 +29,7 @@ import com.helger.commons.string.StringHelper;
  *
  * @author Philip Helger
  */
-public interface IPersonName extends ICloneable <IPersonName>, Serializable
+public interface IPersonName extends ICloneable <IPersonName>
 {
   /**
    * @return The salutation of this name. May be <code>null</code>.

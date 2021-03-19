@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.person;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.annotation.Nonnull;
@@ -31,7 +30,7 @@ import com.helger.masterdata.telephone.ITelephoneNumber;
  *
  * @author Philip Helger
  */
-public interface IPerson extends Serializable
+public interface IPerson
 {
   /**
    * @return The gender of the person. May be <code>null</code>.

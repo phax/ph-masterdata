@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.vat;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.function.Predicate;
@@ -41,7 +40,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class VATCountryData implements IHasCountry, Serializable
+public class VATCountryData implements IHasCountry
 {
   private final Locale m_aCountry;
   private final boolean m_bZeroVATAllowed;

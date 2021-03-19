@@ -16,7 +16,6 @@
  */
 package com.helger.masterdata.swift;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -38,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public class IBAN implements Serializable
+public class IBAN
 {
   private final ICommonsList <IBANElementValue> m_aValues;
 

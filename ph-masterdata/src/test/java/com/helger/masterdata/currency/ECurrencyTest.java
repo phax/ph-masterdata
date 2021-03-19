@@ -34,7 +34,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.collection.multimap.MultiHashMapHashSetBased;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.CommonsHashSet;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
@@ -175,12 +176,12 @@ public final class ECurrencyTest
   {
     final ICommonsMap <Locale, Currency> aMap = CurrencyHelper.getLocaleToCurrencyMap ();
 
-    final MultiHashMapHashSetBased <Currency, Locale> aAllOfCurrency = new MultiHashMapHashSetBased <> ();
+    final ICommonsMap <Currency, ICommonsSet <Locale>> aAllOfCurrency = new CommonsHashMap <> ();
     for (final Map.Entry <Locale, Currency> aEntry : aMap.entrySet ())
     {
       if (ECurrency.findFirst (ECurrency.filterContainsLocale (aEntry.getKey ())) == null)
       {
-        aAllOfCurrency.putSingle (aEntry.getValue (), aEntry.getKey ());
+        aAllOfCurrency.computeIfAbsent (aEntry.getValue (), k -> new CommonsHashSet <> ()).add (aEntry.getKey ());
       }
     }
     final StringBuilder aSB = new StringBuilder ();
@@ -195,7 +196,14 @@ public final class ECurrencyTest
         aLocale.append ('"').append (aLoc.toString ()).append ('"');
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + aLocale.toString () + "),");
+      aSB.append (sID +
+                  " (Currency.getInstance (\"" +
+                  sID +
+                  "\"), ECurrencyName." +
+                  sID +
+                  ", " +
+                  aLocale.toString () +
+                  "),");
     }
     LOGGER.info (aSB.toString ());
   }

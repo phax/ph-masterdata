@@ -21,11 +21,12 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.collection.multimap.MultiHashMapTreeSetBased;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.CommonsTreeSet;
 import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsNavigableSet;
+import com.helger.commons.collection.impl.ICommonsSortedSet;
 import com.helger.commons.locale.country.CountryCache;
 
 /**
@@ -35,7 +36,7 @@ import com.helger.commons.locale.country.CountryCache;
  */
 public final class ContinentHelper
 {
-  private static final MultiHashMapTreeSetBased <Locale, EContinent> s_aMap = new MultiHashMapTreeSetBased <> ();
+  private static final ICommonsMap <Locale, ICommonsSortedSet <EContinent>> s_aMap = new CommonsHashMap <> ();
 
   static
   {
@@ -312,7 +313,7 @@ public final class ContinentHelper
     if (s_aMap.containsKey (aCountry))
       throw new IllegalArgumentException ("Country code '" + sCountryCode + "' is already registered!");
     for (final EContinent eContinent : aContinents)
-      s_aMap.putSingle (aCountry, eContinent);
+      s_aMap.computeIfAbsent (aCountry, k -> new CommonsTreeSet <> ()).add (eContinent);
   }
 
   /**
@@ -326,12 +327,12 @@ public final class ContinentHelper
    */
   @Nullable
   @ReturnsMutableCopy
-  public static ICommonsNavigableSet <EContinent> getContinentsOfCountry (@Nullable final Locale aLocale)
+  public static ICommonsSortedSet <EContinent> getContinentsOfCountry (@Nullable final Locale aLocale)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
     if (aCountry != null)
     {
-      final ICommonsNavigableSet <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsSortedSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
         return ret.getClone ();
     }
@@ -349,12 +350,12 @@ public final class ContinentHelper
    */
   @Nullable
   @ReturnsMutableCopy
-  public static ICommonsNavigableSet <EContinent> getContinentsOfCountry (@Nullable final String sCountryID)
+  public static ICommonsSortedSet <EContinent> getContinentsOfCountry (@Nullable final String sCountryID)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryID);
     if (aCountry != null)
     {
-      final ICommonsNavigableSet <EContinent> ret = s_aMap.get (aCountry);
+      final ICommonsSortedSet <EContinent> ret = s_aMap.get (aCountry);
       if (ret != null)
         return ret.getClone ();
     }
@@ -367,7 +368,7 @@ public final class ContinentHelper
    */
   @Nonnull
   @ReturnsMutableCopy
-  public static final ICommonsMap <Locale, ICommonsNavigableSet <EContinent>> getAll ()
+  public static final ICommonsMap <Locale, ICommonsSortedSet <EContinent>> getAll ()
   {
     return s_aMap.getClone ();
   }

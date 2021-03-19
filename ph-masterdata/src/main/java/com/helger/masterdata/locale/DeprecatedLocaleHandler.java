@@ -17,7 +17,6 @@
 package com.helger.masterdata.locale;
 
 import java.io.InputStream;
-import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -45,21 +44,23 @@ import com.helger.xml.microdom.serialize.MicroReader;
  *
  * @author Philip Helger
  */
-public class DeprecatedLocaleHandler implements Serializable
+public class DeprecatedLocaleHandler
 {
   private static final class SingletonHolder
   {
-    static final DeprecatedLocaleHandler s_aInstance = readFromXML (new ClassPathResource ("codelists/locale-deprecated.xml"));
+    static final DeprecatedLocaleHandler INSTANCE = readFromXML (new ClassPathResource ("codelists/locale-deprecated.xml"));
   }
 
   @Immutable
-  private static final class LocaleParts implements Serializable
+  private static final class LocaleParts
   {
     private final String m_sLanguage;
     private final String m_sCountry;
     private final String m_sVariant;
 
-    public LocaleParts (@Nullable final String sLanguage, @Nullable final String sCountry, @Nullable final String sVariant)
+    public LocaleParts (@Nullable final String sLanguage,
+                        @Nullable final String sCountry,
+                        @Nullable final String sVariant)
     {
       m_sLanguage = sLanguage;
       m_sCountry = sCountry;
@@ -182,6 +183,6 @@ public class DeprecatedLocaleHandler implements Serializable
   @Nonnull
   public static DeprecatedLocaleHandler getDefaultInstance ()
   {
-    return SingletonHolder.s_aInstance;
+    return SingletonHolder.INSTANCE;
   }
 }

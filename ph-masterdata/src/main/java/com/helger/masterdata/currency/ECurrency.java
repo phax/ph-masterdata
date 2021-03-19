@@ -37,7 +37,6 @@ import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.ArrayHelper;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.functional.IPredicate;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 import com.helger.commons.locale.LocaleCache;
@@ -328,7 +327,9 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return new CommonsArrayList <> (aCountries, LocaleCache.getInstance ()::getLocale);
   }
 
-  ECurrency (@Nonnull @Nonempty final String sCurrencyCode, @Nonnull final ECurrencyName aName, @Nonnull @Nonempty final String... aLocales)
+  ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
+             @Nonnull final ECurrencyName aName,
+             @Nonnull @Nonempty final String... aLocales)
   {
     this (sCurrencyCode, false, aName, aLocales);
   }
@@ -356,7 +357,9 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
       }
     }
     if (m_aLocales.isEmpty ())
-      throw new IllegalArgumentException ("Passed currency is not valid in a single country (" + Arrays.toString (aLocales) + ")");
+      throw new IllegalArgumentException ("Passed currency is not valid in a single country (" +
+                                          Arrays.toString (aLocales) +
+                                          ")");
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
@@ -374,7 +377,10 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
       // Happens when an unsupported currency code is provided
       final Logger aLogger = LoggerFactory.getLogger (ECurrency.class);
       if (aLogger.isErrorEnabled ())
-        aLogger.error ("Failed to resolve currency with currency code '" + sCurrencyCode + "' - " + aName.getDisplayText (Locale.US));
+        aLogger.error ("Failed to resolve currency with currency code '" +
+                       sCurrencyCode +
+                       "' - " +
+                       aName.getDisplayText (Locale.US));
     }
     m_aCurrency = aCurrency;
     m_bIsDeprecated = bIsDeprecated;
@@ -487,33 +493,33 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   @Nonnull
-  public static IPredicate <ECurrency> filterDeprecated ()
+  public static Predicate <ECurrency> filterDeprecated ()
   {
     return ECurrency::isDeprecated;
   }
 
   @Nonnull
-  public static IPredicate <ECurrency> filterNotDeprecated ()
+  public static Predicate <ECurrency> filterNotDeprecated ()
   {
     return eCurrency -> !eCurrency.isDeprecated ();
   }
 
   @Nonnull
-  public static IPredicate <ECurrency> filterContainsLocale (@Nonnull final Locale aLocale)
+  public static Predicate <ECurrency> filterContainsLocale (@Nonnull final Locale aLocale)
   {
     ValueEnforcer.notNull (aLocale, "Locale");
     return eCurrency -> eCurrency.m_aLocales.contains (aLocale);
   }
 
   @Nonnull
-  public static IPredicate <ECurrency> filterLocaleAny (@Nonnull final IPredicate <Locale> aLocaleFilter)
+  public static Predicate <ECurrency> filterLocaleAny (@Nonnull final Predicate <? super Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     return eCurrency -> eCurrency.m_aLocales.containsAny (aLocaleFilter);
   }
 
   @Nonnull
-  public static IPredicate <ECurrency> filterLocaleAll (@Nonnull final IPredicate <Locale> aLocaleFilter)
+  public static Predicate <ECurrency> filterLocaleAll (@Nonnull final Predicate <? super Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     return eCurrency -> eCurrency.m_aLocales.containsOnly (aLocaleFilter);

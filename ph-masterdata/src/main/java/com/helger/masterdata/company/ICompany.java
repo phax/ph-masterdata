@@ -16,8 +16,6 @@
  */
 package com.helger.masterdata.company;
 
-import java.io.Serializable;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,7 +29,7 @@ import com.helger.commons.type.ITypedObject;
  *
  * @author Philip Helger
  */
-public interface ICompany extends ITypedObject <String>, Serializable
+public interface ICompany extends ITypedObject <String>
 {
   /**
    * @return The name of the company and how it is known. E.g. "IBM".

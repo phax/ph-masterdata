@@ -16,15 +16,13 @@
  */
 package com.helger.masterdata.ean;
 
-import java.io.Serializable;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.state.EValidity;
 
-public abstract class AbstractUPCEAN implements Serializable
+public abstract class AbstractUPCEAN
 {
   protected static final EEANChecksumMode DEFAULT_CHECKSUM_MODE = EEANChecksumMode.AUTO;
 

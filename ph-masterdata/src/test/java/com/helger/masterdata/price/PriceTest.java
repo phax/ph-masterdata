@@ -30,7 +30,6 @@ import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.mock.CommonsAssert;
-import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.state.EChange;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
@@ -51,7 +50,9 @@ public final class PriceTest
   @Test
   public void testAll ()
   {
-    final Price p = new Price (CurrencyHelper.DEFAULT_CURRENCY, MathHelper.toBigDecimal ("9.9"), VATManager.VATTYPE_NONE);
+    final Price p = new Price (CurrencyHelper.DEFAULT_CURRENCY,
+                               MathHelper.toBigDecimal ("9.9"),
+                               VATManager.VATTYPE_NONE);
     assertEquals (CurrencyHelper.DEFAULT_CURRENCY, p.getCurrency ());
     CommonsAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
     assertEquals (VATManager.VATTYPE_NONE, p.getVATItem ());
@@ -61,11 +62,14 @@ public final class PriceTest
     assertEquals (ECurrency.AMD, p.getCurrency ());
     assertEquals (EChange.UNCHANGED, p.getNetAmount ().setCurrency (ECurrency.AMD));
     assertEquals (ECurrency.AMD, p.getCurrency ());
-    assertEquals (EChange.UNCHANGED, p.setNetAmount (new CurrencyValue (ECurrency.AMD, MathHelper.toBigDecimal ("9.9"))));
+    assertEquals (EChange.UNCHANGED,
+                  p.setNetAmount (new CurrencyValue (ECurrency.AMD, MathHelper.toBigDecimal ("9.9"))));
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (CurrencyHelper.DEFAULT_CURRENCY));
     assertEquals (CurrencyHelper.DEFAULT_CURRENCY, p.getCurrency ());
 
-    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY, EVATItemType.REGULAR, MathHelper.toBigDecimal ("50"));
+    final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY,
+                                                      EVATItemType.REGULAR,
+                                                      MathHelper.toBigDecimal ("50"));
     assertEquals (EChange.CHANGED, p.setVATItem (aVATItem));
     assertEquals (aVATItem, p.getVATItem ());
     assertEquals (EChange.UNCHANGED, p.setVATItem (aVATItem));
@@ -77,8 +81,6 @@ public final class PriceTest
     CommonsAssert.assertEquals (9.9, p.getGrossAmount ().getValue ().doubleValue ());
 
     assertEquals (p, p.getMultiplied (BigDecimal.ONE));
-
-    CommonsTestHelper.testDefaultSerialization (p);
 
     try
     {
