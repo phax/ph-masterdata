@@ -24,6 +24,7 @@
     <artifactId>parent-pom</artifactId>
     <version>1.11.3</version>
   </parent>
+  <groupId>com.helger.masterdata</groupId>
   <artifactId>ph-masterdata-parent-pom</artifactId>
   <version>6.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -66,23 +67,23 @@
       <dependency>
         <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>10.0.0-SNAPSHOT</version>
+        <version>10.0.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-poi</artifactId>
-        <version>5.2.0-SNAPSHOT</version>
+        <version>5.2.0</version>
       </dependency>
 
       <dependency>
-        <groupId>com.helger</groupId>
+        <groupId>com.helger.masterdata</groupId>
         <artifactId>ph-masterdata</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.helger</groupId>
+        <groupId>com.helger.masterdata</groupId>
         <artifactId>ph-tenancy</artifactId>
         <version>${project.version}</version>
       </dependency>
