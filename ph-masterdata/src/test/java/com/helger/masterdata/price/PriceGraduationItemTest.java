@@ -36,7 +36,7 @@ import com.helger.commons.state.EChange;
  */
 public final class PriceGraduationItemTest
 {
-  @SuppressWarnings ({ "unused", "unlikely-arg-type" })
+  @SuppressWarnings ("unlikely-arg-type")
   @Test
   public void testFunctionality ()
   {
