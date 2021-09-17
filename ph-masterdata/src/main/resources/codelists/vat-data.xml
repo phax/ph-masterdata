@@ -315,10 +315,15 @@
   </vattypes>
   <vattypes country="ch" zerovat="true" countryname="Switzerland">
     <comment>1.1.2011-31.12.2017: 8/3.8/2.5</comment>
-    <item id="v08" percentage="8" type="regular" />
+    <comment>1.1.2018-: 7.7/3.7/2.5</comment>
+    <item id="v08" percentage="8" type="regular" deprecated="true"/>
+    <item id="v077" percentage="7.7" type="regular" />
     <item id="v076" percentage="7.6" type="regular" deprecated="true" />
-    <item id="v038" percentage="3.8" type="reduced" />
+
+    <item id="v038" percentage="3.8" type="reduced" deprecated="true" />
+    <item id="v037" percentage="3.7" type="reduced" />
     <item id="v036" percentage="3.6" type="reduced" deprecated="true"/>
+
     <item id="v025" percentage="2.5" type="reduced_heavily" />
     <item id="v024" percentage="2.4" type="reduced_heavily" deprecated="true" />
   </vattypes>
