@@ -16,6 +16,8 @@
  */
 package com.helger.tenancy.tenant;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
@@ -26,11 +28,11 @@ import com.helger.commons.string.ToStringGenerator;
 
 /**
  * Abstract base implementation for {@link IHasTenant}.
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
-public abstract class AbstractHasTenant implements IHasTenant
+public abstract class AbstractHasTenant implements IHasTenant, Serializable
 {
   @Nonnull
   private final ITenant m_aTenant;

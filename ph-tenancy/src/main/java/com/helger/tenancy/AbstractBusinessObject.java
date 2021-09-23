@@ -16,6 +16,7 @@
  */
 package com.helger.tenancy;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public abstract class AbstractBusinessObject implements IBusinessObject
+public abstract class AbstractBusinessObject implements IBusinessObject, Serializable
 {
   private final String m_sID;
   private final LocalDateTime m_aCreationDT;
