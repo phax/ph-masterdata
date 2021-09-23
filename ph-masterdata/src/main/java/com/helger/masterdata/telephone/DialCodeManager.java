@@ -38,11 +38,11 @@ import com.helger.xml.microdom.util.XMLMapHandler;
 @Immutable
 public final class DialCodeManager
 {
-  private static final ICommonsMap <String, String> s_aCountryToDialCode = new CommonsHashMap <> ();
+  private static final ICommonsMap <String, String> COUNTRY_TO_DIAL_CODE = new CommonsHashMap <> ();
 
   static
   {
-    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), s_aCountryToDialCode).isFailure ())
+    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), COUNTRY_TO_DIAL_CODE).isFailure ())
       throw new InitializationException ("Failed to init dial code country data");
   }
 
@@ -62,13 +62,13 @@ public final class DialCodeManager
   {
     if (StringHelper.hasNoText (sCountry))
       return null;
-    return s_aCountryToDialCode.get (sCountry.toUpperCase (Locale.US));
+    return COUNTRY_TO_DIAL_CODE.get (sCountry.toUpperCase (Locale.US));
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public static ICommonsMap <String, String> getAllDialCodes ()
   {
-    return s_aCountryToDialCode.getClone ();
+    return COUNTRY_TO_DIAL_CODE.getClone ();
   }
 }

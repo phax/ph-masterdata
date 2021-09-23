@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Locale;
@@ -42,7 +43,7 @@ import com.helger.datetime.period.LocalDatePeriod;
  * @author Philip Helger
  */
 @Immutable
-public class VATItem implements IVATItem
+public class VATItem implements IVATItem, Serializable
 {
   private final String m_sID;
   private final Locale m_aCountry;

@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.swift;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
@@ -30,7 +32,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class IBANElement
+public final class IBANElement implements Serializable
 {
   private final EIBANElementType m_eElementType;
   private final int m_nLength;
@@ -73,8 +75,6 @@ public final class IBANElement
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).append ("elementType", m_eElementType)
-                                       .append ("length", m_nLength)
-                                       .getToString ();
+    return new ToStringGenerator (null).append ("elementType", m_eElementType).append ("length", m_nLength).getToString ();
   }
 }

@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.swift;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -44,7 +45,7 @@ import com.helger.datetime.period.LocalDatePeriod;
  *
  * @author Philip Helger
  */
-public class IBANCountryData implements ILocalDatePeriod
+public class IBANCountryData implements ILocalDatePeriod, Serializable
 {
   private final int m_nExpectedLength;
   private final Pattern m_aPattern;

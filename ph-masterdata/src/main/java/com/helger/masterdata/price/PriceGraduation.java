@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.price;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnegative;
@@ -39,7 +40,7 @@ import com.helger.masterdata.vat.IVATItem;
  *
  * @author Philip Helger
  */
-public class PriceGraduation implements IMutablePriceGraduation
+public class PriceGraduation implements IMutablePriceGraduation, Serializable
 {
   private final ECurrency m_eCurrency;
 

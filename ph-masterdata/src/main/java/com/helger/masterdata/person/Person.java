@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.person;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Locale;
 
@@ -31,7 +32,7 @@ import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 
-public class Person implements IPerson
+public class Person implements IPerson, Serializable
 {
   public static final String FIELD_GENDER = "gender";
   public static final int LENGTH_GENDER = 2;

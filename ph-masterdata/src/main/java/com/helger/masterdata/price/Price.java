@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.price;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -41,7 +42,7 @@ import com.helger.masterdata.vat.IVATItem;
  *
  * @author Philip Helger
  */
-public class Price implements IMutablePrice
+public class Price implements IMutablePrice, Serializable
 {
   public static final String FIELD_VATITEM = "vatitem";
 

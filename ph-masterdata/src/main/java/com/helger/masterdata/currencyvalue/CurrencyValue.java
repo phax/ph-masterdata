@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.currencyvalue;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.CheckReturnValue;
@@ -38,7 +39,7 @@ import com.helger.masterdata.currency.ECurrency;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class CurrencyValue implements IMutableCurrencyValue
+public class CurrencyValue implements IMutableCurrencyValue, Serializable
 {
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;

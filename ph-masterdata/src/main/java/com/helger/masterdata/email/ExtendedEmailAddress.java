@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.email;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
@@ -38,7 +40,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <ExtendedEmailAddress>
+public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <ExtendedEmailAddress>, Serializable
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (ExtendedEmailAddress.class);
 

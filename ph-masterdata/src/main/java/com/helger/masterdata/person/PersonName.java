@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.person;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -27,7 +28,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 
-public class PersonName implements IPersonName
+public class PersonName implements IPersonName, Serializable
 {
   private ESalutation m_eSalutation;
   private String m_sPrefixTitle;

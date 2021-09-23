@@ -37,7 +37,7 @@ public class ISO639_2Handler
 
   private static final class SingletonHolder
   {
-    static final ISO639_2Handler s_aInstance = new ISO639_2Handler ().readFromResource (new ClassPathResource (DEFAULT_RESOURCE));
+    static final ISO639_2Handler INSTANCE = new ISO639_2Handler ().readFromResource (new ClassPathResource (DEFAULT_RESOURCE));
   }
 
   private final ICommonsMap <String, ISO639_2Item> m_aAlpha3B = new CommonsHashMap <> ();
@@ -50,7 +50,7 @@ public class ISO639_2Handler
   @Nonnull
   public static ISO639_2Handler getDefaultInstance ()
   {
-    return SingletonHolder.s_aInstance;
+    return SingletonHolder.INSTANCE;
   }
 
   @Nullable

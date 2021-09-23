@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.telephone;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
@@ -35,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneNumber>
+public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneNumber>, Serializable
 {
   private ITelephoneType m_aType;
   private String m_sCountryCode;

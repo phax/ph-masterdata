@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.address;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -36,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>
+public class PostalAddress implements IPostalAddress, ICloneable <PostalAddress>, Serializable
 {
   private IPostalAddressType m_aAddressType;
   private String m_sCountry;

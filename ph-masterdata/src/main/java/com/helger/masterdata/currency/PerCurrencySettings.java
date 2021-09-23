@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.currency;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -39,7 +40,7 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class PerCurrencySettings
+public final class PerCurrencySettings implements Serializable
 {
   private final int m_nScale;
   private final String m_sCurrencyPattern;

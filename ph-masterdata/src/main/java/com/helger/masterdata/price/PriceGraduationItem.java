@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.price;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.annotation.Nonnegative;
@@ -33,7 +34,7 @@ import com.helger.commons.string.ToStringGenerator;
  *
  * @author Philip Helger
  */
-public class PriceGraduationItem implements IMutablePriceGraduationItem
+public class PriceGraduationItem implements IMutablePriceGraduationItem, Serializable
 {
   private int m_nMinimumQuantity;
   private BigDecimal m_aNetAmount;

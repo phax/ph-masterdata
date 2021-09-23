@@ -38,39 +38,39 @@ import com.helger.masterdata.iso.ISO7064;
  */
 public class VATINSyntaxChecker
 {
-  private static final ICommonsMap <String, IToBooleanFunction <String>> s_aMap = new CommonsHashMap <> ();
+  private static final ICommonsMap <String, IToBooleanFunction <String>> MAP = new CommonsHashMap <> ();
 
   static
   {
-    s_aMap.put ("AT", VATINSyntaxChecker::isValidVATIN_AT);
-    s_aMap.put ("BE", VATINSyntaxChecker::isValidVATIN_BE);
-    s_aMap.put ("BG", VATINSyntaxChecker::isValidVATIN_BG);
-    s_aMap.put ("CY", VATINSyntaxChecker::isValidVATIN_CY);
-    s_aMap.put ("CZ", VATINSyntaxChecker::isValidVATIN_CZ);
-    s_aMap.put ("DE", VATINSyntaxChecker::isValidVATIN_DE);
-    s_aMap.put ("DK", VATINSyntaxChecker::isValidVATIN_DK);
-    s_aMap.put ("EE", VATINSyntaxChecker::isValidVATIN_EE);
-    s_aMap.put ("EL", VATINSyntaxChecker::isValidVATIN_EL);
-    s_aMap.put ("GR", VATINSyntaxChecker::isValidVATIN_EL);
-    s_aMap.put ("ES", VATINSyntaxChecker::isValidVATIN_ES);
-    s_aMap.put ("FI", VATINSyntaxChecker::isValidVATIN_FI);
-    s_aMap.put ("FR", VATINSyntaxChecker::isValidVATIN_FR);
-    s_aMap.put ("GB", VATINSyntaxChecker::isValidVATIN_GB);
-    s_aMap.put ("HR", VATINSyntaxChecker::isValidVATIN_HR);
-    s_aMap.put ("HU", VATINSyntaxChecker::isValidVATIN_HU);
-    s_aMap.put ("IE", VATINSyntaxChecker::isValidVATIN_IE);
-    s_aMap.put ("IT", VATINSyntaxChecker::isValidVATIN_IT);
-    s_aMap.put ("LT", VATINSyntaxChecker::isValidVATIN_LT);
-    s_aMap.put ("LU", VATINSyntaxChecker::isValidVATIN_LU);
-    s_aMap.put ("LV", VATINSyntaxChecker::isValidVATIN_LV);
-    s_aMap.put ("MT", VATINSyntaxChecker::isValidVATIN_MT);
-    s_aMap.put ("NL", VATINSyntaxChecker::isValidVATIN_NL);
-    s_aMap.put ("PL", VATINSyntaxChecker::isValidVATIN_PL);
-    s_aMap.put ("PT", VATINSyntaxChecker::isValidVATIN_PT);
-    s_aMap.put ("RO", VATINSyntaxChecker::isValidVATIN_RO);
-    s_aMap.put ("SE", VATINSyntaxChecker::isValidVATIN_SE);
-    s_aMap.put ("SI", VATINSyntaxChecker::isValidVATIN_SI);
-    s_aMap.put ("SK", VATINSyntaxChecker::isValidVATIN_SK);
+    MAP.put ("AT", VATINSyntaxChecker::isValidVATIN_AT);
+    MAP.put ("BE", VATINSyntaxChecker::isValidVATIN_BE);
+    MAP.put ("BG", VATINSyntaxChecker::isValidVATIN_BG);
+    MAP.put ("CY", VATINSyntaxChecker::isValidVATIN_CY);
+    MAP.put ("CZ", VATINSyntaxChecker::isValidVATIN_CZ);
+    MAP.put ("DE", VATINSyntaxChecker::isValidVATIN_DE);
+    MAP.put ("DK", VATINSyntaxChecker::isValidVATIN_DK);
+    MAP.put ("EE", VATINSyntaxChecker::isValidVATIN_EE);
+    MAP.put ("EL", VATINSyntaxChecker::isValidVATIN_EL);
+    MAP.put ("GR", VATINSyntaxChecker::isValidVATIN_EL);
+    MAP.put ("ES", VATINSyntaxChecker::isValidVATIN_ES);
+    MAP.put ("FI", VATINSyntaxChecker::isValidVATIN_FI);
+    MAP.put ("FR", VATINSyntaxChecker::isValidVATIN_FR);
+    MAP.put ("GB", VATINSyntaxChecker::isValidVATIN_GB);
+    MAP.put ("HR", VATINSyntaxChecker::isValidVATIN_HR);
+    MAP.put ("HU", VATINSyntaxChecker::isValidVATIN_HU);
+    MAP.put ("IE", VATINSyntaxChecker::isValidVATIN_IE);
+    MAP.put ("IT", VATINSyntaxChecker::isValidVATIN_IT);
+    MAP.put ("LT", VATINSyntaxChecker::isValidVATIN_LT);
+    MAP.put ("LU", VATINSyntaxChecker::isValidVATIN_LU);
+    MAP.put ("LV", VATINSyntaxChecker::isValidVATIN_LV);
+    MAP.put ("MT", VATINSyntaxChecker::isValidVATIN_MT);
+    MAP.put ("NL", VATINSyntaxChecker::isValidVATIN_NL);
+    MAP.put ("PL", VATINSyntaxChecker::isValidVATIN_PL);
+    MAP.put ("PT", VATINSyntaxChecker::isValidVATIN_PT);
+    MAP.put ("RO", VATINSyntaxChecker::isValidVATIN_RO);
+    MAP.put ("SE", VATINSyntaxChecker::isValidVATIN_SE);
+    MAP.put ("SI", VATINSyntaxChecker::isValidVATIN_SI);
+    MAP.put ("SK", VATINSyntaxChecker::isValidVATIN_SK);
   }
 
   private VATINSyntaxChecker ()
@@ -109,7 +109,7 @@ public class VATINSyntaxChecker
     if (sVATIN.length () > 2)
     {
       final String sCountryCode = sVATIN.substring (0, 2).toUpperCase (Locale.US);
-      final IToBooleanFunction <String> aValidator = s_aMap.get (sCountryCode);
+      final IToBooleanFunction <String> aValidator = MAP.get (sCountryCode);
       if (aValidator != null)
         return aValidator.applyAsBoolean (sVATIN.substring (2));
     }
@@ -133,7 +133,7 @@ public class VATINSyntaxChecker
       return false;
 
     final String sCountryCode = sVATIN.substring (0, 2).toUpperCase (Locale.US);
-    return s_aMap.containsKey (sCountryCode);
+    return MAP.containsKey (sCountryCode);
   }
 
   @VisibleForTesting

@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.email;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -32,7 +33,7 @@ import com.helger.commons.text.display.IHasDisplayText;
  *
  * @author Philip Helger
  */
-public class EmailAddressType implements IEmailAddressType
+public class EmailAddressType implements IEmailAddressType, Serializable
 {
   private final String m_sID;
   private final IHasDisplayText m_aText;

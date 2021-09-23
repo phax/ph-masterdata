@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.swift;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
@@ -29,7 +31,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public final class IBANElementValue
+public final class IBANElementValue implements Serializable
 {
   private final IBANElement m_aElement;
   private final String m_sValue;
@@ -39,10 +41,7 @@ public final class IBANElementValue
     ValueEnforcer.notNull (aElement, "Element");
     ValueEnforcer.notNull (sValue, "Value");
     if (sValue.length () != aElement.getLength ())
-      throw new IllegalArgumentException ("Value length mismatch. Having " +
-                                          sValue.length () +
-                                          " but expected " +
-                                          aElement.getLength ());
+      throw new IllegalArgumentException ("Value length mismatch. Having " + sValue.length () + " but expected " + aElement.getLength ());
     m_aElement = aElement;
     m_sValue = sValue;
   }

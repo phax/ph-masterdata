@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.company;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -39,7 +41,7 @@ import com.helger.masterdata.telephone.TelephoneNumber;
  *
  * @author Philip Helger
  */
-public class CompanySite implements ICompanySite
+public class CompanySite implements ICompanySite, Serializable
 {
   public static final ObjectType OT = new ObjectType ("company-site");
   public static final boolean DEFAULT_DELETABLE = true;

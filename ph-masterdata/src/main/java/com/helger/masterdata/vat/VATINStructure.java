@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.vat;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -44,16 +45,14 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @Immutable
-public class VATINStructure implements IHasCountry
+public class VATINStructure implements IHasCountry, Serializable
 {
   private final Locale m_aCountry;
   private final String m_sPattern;
   private final Pattern m_aPattern;
   private final ICommonsList <String> m_aExamples;
 
-  public VATINStructure (@Nonnull final String sCountry,
-                         @Nonnull @RegEx final String sRegEx,
-                         @Nonnull final Collection <String> aExamples)
+  public VATINStructure (@Nonnull final String sCountry, @Nonnull @RegEx final String sRegEx, @Nonnull final Collection <String> aExamples)
   {
     ValueEnforcer.notNull (sCountry, "Country");
     ValueEnforcer.notNull (sRegEx, "RegEx");
@@ -118,9 +117,7 @@ public class VATINStructure implements IHasCountry
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final VATINStructure rhs = (VATINStructure) o;
-    return m_aCountry.equals (rhs.m_aCountry) &&
-           m_sPattern.equals (rhs.m_sPattern) &&
-           m_aExamples.equals (rhs.m_aExamples);
+    return m_aCountry.equals (rhs.m_aCountry) && m_sPattern.equals (rhs.m_sPattern) && m_aExamples.equals (rhs.m_aExamples);
   }
 
   @Override

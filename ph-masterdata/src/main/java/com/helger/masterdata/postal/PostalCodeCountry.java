@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.postal;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -35,7 +37,7 @@ import com.helger.commons.string.ToStringGenerator;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class PostalCodeCountry implements IPostalCodeCountry
+public class PostalCodeCountry implements IPostalCodeCountry, Serializable
 {
   private final String m_sISO;
   private final ICommonsList <PostalCodeFormat> m_aFormats = new CommonsArrayList <> ();

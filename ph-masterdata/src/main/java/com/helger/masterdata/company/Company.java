@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.company;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,7 +40,7 @@ import com.helger.commons.type.ObjectType;
  *
  * @author Philip Helger
  */
-public class Company implements ICompany
+public class Company implements ICompany, Serializable
 {
   public static final ObjectType OT = new ObjectType ("company");
 
