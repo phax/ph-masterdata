@@ -196,15 +196,17 @@ public final class ECurrencyTest
         aLocale.append ('"').append (aLoc.toString ()).append ('"');
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      aSB.append (sID +
-                  " (Currency.getInstance (\"" +
-                  sID +
-                  "\"), ECurrencyName." +
-                  sID +
-                  ", " +
-                  aLocale.toString () +
-                  "),");
+      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + aLocale.toString () + "),");
     }
     LOGGER.info (aSB.toString ());
+  }
+
+  @Test
+  public void testCHF ()
+  {
+    assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getCurrencyCode ());
+    assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "AT")));
+    assertEquals ("SFr.", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "CH")));
+    assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "DE")));
   }
 }
