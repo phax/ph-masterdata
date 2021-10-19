@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.CGlobal;
+import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.regex.RegExHelper;
 import com.helger.commons.string.StringHelper;
@@ -25,7 +26,8 @@ public final class LeitwegID
   public static final int CHECKSUM_LENGTH = 2;
   public static final char SEPARATOR_CHAR = '-';
 
-  public static final String REGEX_LEITWEGID = "[0-9A-Z]{2,12}\\-([0-9A-Z]{0,30}\\-)?[0-9]{2}";
+  private static final String REGEX_LEITWEGID_CREATE = "[0-9A-Z]{2,12}(\\-[0-9A-Z]{0,30})?";
+  public static final String REGEX_LEITWEGID = REGEX_LEITWEGID_CREATE + "\\-[0-9]{2}";
 
   public static final int MIN_TOTAL_LENGTH = MIN_COARSE_LENGTH + 1 + CHECKSUM_LENGTH;
   public static final int MAX_TOTAL_LENGTH = MAX_COARSE_LENGTH + 1 + MAX_FINE_LENGTH + 1 + CHECKSUM_LENGTH;
@@ -39,11 +41,12 @@ public final class LeitwegID
   {
     if (c >= '0' && c <= '9')
       return c - '0';
-    // Must be A-Z
+
+    // Must be A-Z otherwise
     return 10 + (c - 'A');
   }
 
-  private static int _calcChecksum (final String s)
+  private static int _calcChecksum (@Nonempty final String s)
   {
     BigInteger aBI = BigInteger.ZERO;
     for (final char c : s.toCharArray ())
@@ -54,21 +57,27 @@ public final class LeitwegID
     // Add the trailing "00"
     aBI = aBI.multiply (CGlobal.BIGINT_100);
     final int nMod = aBI.mod (BI97).intValueExact ();
+    // Use 98 to avoid that the result can be 0
     return 98 - nMod;
   }
 
+  /**
+   * Check if the provided Leitweg ID is valid or not. This method also checks
+   * the validity of the checksum. An example code that is valid is
+   * <code>04011000-1234512345-06</code>.
+   *
+   * @param sID
+   *        The ID to check. May be <code>null</code>.
+   * @return <code>true</code> if the ID is valid, <code>false</code> if it is
+   *         not.
+   */
   public static boolean isLeitwegIDValid (@Nullable final String sID)
   {
     // Length checks first
     final int nLen = StringHelper.getLength (sID);
-    if (nLen < MIN_TOTAL_LENGTH)
+    if (nLen < MIN_TOTAL_LENGTH || nLen > MAX_TOTAL_LENGTH)
     {
-      // Too short
-      return false;
-    }
-    if (nLen > MAX_TOTAL_LENGTH)
-    {
-      // Too long
+      // Too short or too long
       return false;
     }
 
@@ -84,25 +93,71 @@ public final class LeitwegID
       throw new IllegalStateException ("Unexpected part count " + nParts + " - bug in the RegEx");
     }
 
-    if (aParts[0].length () < MIN_COARSE_LENGTH)
+    if (aParts[0].length () < MIN_COARSE_LENGTH || aParts[0].length () > MAX_COARSE_LENGTH)
       return false;
-    if (aParts[0].length () > MAX_COARSE_LENGTH)
-      return false;
+
+    final String sChecksum;
     final boolean bHasFineAddressing = nParts == 3;
-    final String sChecksum = aParts[bHasFineAddressing ? 2 : 1];
     if (bHasFineAddressing)
     {
-      // Check fine addressing and checksum
-      if (aParts[1].length () < MIN_FINE_LENGTH)
+      // Check fine addressing
+      if (aParts[1].length () < MIN_FINE_LENGTH || aParts[1].length () > MAX_FINE_LENGTH)
         return false;
-      if (aParts[1].length () > MAX_FINE_LENGTH)
-        return false;
+      sChecksum = aParts[2];
     }
-    // Check checksum only
+    else
+      sChecksum = aParts[1];
+
+    // Check checksum
     if (sChecksum.length () != CHECKSUM_LENGTH)
       return false;
 
     final int nCheckSum = _calcChecksum (bHasFineAddressing ? aParts[0] + aParts[1] : aParts[0]);
-    return sChecksum.equals (StringHelper.getLeadingZero (nCheckSum, 2));
+    return sChecksum.equals (StringHelper.getLeadingZero (nCheckSum, CHECKSUM_LENGTH));
+  }
+
+  /**
+   * Calculate the checksum of the Leitweg ID. When using the example code
+   * <code>04011000-1234512345</code> the output is <code>06</code>.
+   *
+   * @param sID
+   *        The Leitweg ID without the checksum part. May be <code>null</code>.
+   * @return <code>null</code> if the checksum cannot be created.
+   */
+  @Nullable
+  public static String calcLeitwegIDChecksum (@Nullable final String sID)
+  {
+    // Length checks first
+    final int nLen = StringHelper.getLength (sID);
+    if (nLen < MIN_TOTAL_LENGTH - 3 || nLen > MAX_TOTAL_LENGTH - 3)
+    {
+      // Too short or too long
+      return null;
+    }
+
+    // RegEx does it all
+    if (!RegExHelper.stringMatchesPattern (REGEX_LEITWEGID_CREATE, sID))
+      return null;
+
+    final String [] aParts = StringHelper.getExplodedArray (SEPARATOR_CHAR, sID);
+    final int nParts = aParts.length;
+    if (nParts < 1 || nParts > 2)
+    {
+      // Too many parts
+      throw new IllegalStateException ("Unexpected part count " + nParts + " - bug in the RegEx");
+    }
+
+    if (aParts[0].length () < MIN_COARSE_LENGTH || aParts[0].length () > MAX_COARSE_LENGTH)
+      return null;
+
+    if (nParts == 2)
+    {
+      // Check fine addressing
+      if (aParts[1].length () < MIN_FINE_LENGTH || aParts[1].length () > MAX_FINE_LENGTH)
+        return null;
+    }
+
+    final int nCheckSum = _calcChecksum (nParts == 2 ? aParts[0] + aParts[1] : aParts[0]);
+    return StringHelper.getLeadingZero (nCheckSum, CHECKSUM_LENGTH);
   }
 }

@@ -2,6 +2,7 @@ package com.helger.masterdata.leitwegid;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -29,5 +30,16 @@ public final class LeitwegIDTest
     assertFalse (LeitwegID.isLeitwegIDValid ("04011000-1234512345-05"));
     assertTrue (LeitwegID.isLeitwegIDValid ("04011000-1234512345-06"));
     assertFalse (LeitwegID.isLeitwegIDValid ("04011000-1234512345-07"));
+    assertTrue (LeitwegID.isLeitwegIDValid ("991-99012-32"));
+  }
+
+  @Test
+  public void testCalcLeitwegIDChecksum ()
+  {
+    assertNull (LeitwegID.calcLeitwegIDChecksum (null));
+    assertNull (LeitwegID.calcLeitwegIDChecksum (""));
+
+    assertEquals ("06", LeitwegID.calcLeitwegIDChecksum ("04011000-1234512345"));
+    assertEquals ("32", LeitwegID.calcLeitwegIDChecksum ("991-99012"));
   }
 }
