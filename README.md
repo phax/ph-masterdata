@@ -41,7 +41,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 ```
 
 # News and noteworthy
- 
+
+* v6.2.2 - work in progress
+    * Added support for validating Leitweg IDs
 * v6.2.1 - 2021-09-17
     * Updated VAT country data
 * v6.2.0 - 2021-03-22
