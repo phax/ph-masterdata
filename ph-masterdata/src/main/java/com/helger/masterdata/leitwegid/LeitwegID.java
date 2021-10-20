@@ -37,25 +37,26 @@ public final class LeitwegID
   private LeitwegID ()
   {}
 
-  private static int _getCode (final char c)
-  {
-    if (c >= '0' && c <= '9')
-      return c - '0';
-
-    // Must be A-Z otherwise
-    return 10 + (c - 'A');
-  }
-
   private static int _calcChecksum (@Nonempty final String s)
   {
     BigInteger aBI = BigInteger.ZERO;
     for (final char c : s.toCharArray ())
-    {
-      // Shift by one level (*10) than add
-      aBI = aBI.multiply (BigInteger.TEN).add (MathHelper.toBigInteger (_getCode (c)));
-    }
+      if (c >= '0' && c <= '9')
+      {
+        // Simple case
+        aBI = aBI.multiply (BigInteger.TEN).add (MathHelper.toBigInteger (c - '0'));
+      }
+      else
+      {
+        // Must be A-Z
+        // 10 <= n <= 35
+        final int n = 10 + (c - 'A');
+        aBI = aBI.multiply (CGlobal.BIGINT_100).add (MathHelper.toBigInteger (n));
+      }
+
     // Add the trailing "00"
     aBI = aBI.multiply (CGlobal.BIGINT_100);
+
     final int nMod = aBI.mod (BI97).intValueExact ();
     // Use 98 to avoid that the result can be 0
     return 98 - nMod;

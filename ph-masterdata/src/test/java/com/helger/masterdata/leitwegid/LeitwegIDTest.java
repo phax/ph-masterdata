@@ -31,6 +31,8 @@ public final class LeitwegIDTest
     assertTrue (LeitwegID.isLeitwegIDValid ("04011000-1234512345-06"));
     assertFalse (LeitwegID.isLeitwegIDValid ("04011000-1234512345-07"));
     assertTrue (LeitwegID.isLeitwegIDValid ("991-99012-32"));
+    assertTrue (LeitwegID.isLeitwegIDValid ("991-33333TEST-33"));
+    assertTrue (LeitwegID.isLeitwegIDValid ("99661-WEBSERVICEOZG-28"));
   }
 
   @Test
