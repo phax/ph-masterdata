@@ -55,7 +55,6 @@ public final class PostalCodeManagerTest
     assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "1234 5"));
     assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("CZ"), "a234 5"));
 
-    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "12345"));
     assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "12-345"));
     assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "123-45"));
     assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("PL"), "1234-5"));

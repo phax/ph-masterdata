@@ -42,6 +42,8 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+* v6.2.3- 2022-01-14
+    * Updated international postal code list
 * v6.2.2 - 2021-12-13
     * Added support for validating Leitweg IDs
 * v6.2.1 - 2021-09-17
