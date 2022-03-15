@@ -18,7 +18,6 @@ package com.helger.masterdata.postal;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -136,7 +135,7 @@ public class PostalCodeListReader
             throw new IllegalArgumentException ("The country " + sISO + " contains an empty postal code format!");
 
           // Parse into tokens
-          final List <EPostalCodeFormatElement> aElements = _parseFormat (sFormat);
+          final ICommonsList <EPostalCodeFormatElement> aElements = _parseFormat (sFormat);
           if (aElements.isEmpty ())
             throw new IllegalStateException ("The country " + sISO + " contains an invalid format '" + sFormat + "'");
 
