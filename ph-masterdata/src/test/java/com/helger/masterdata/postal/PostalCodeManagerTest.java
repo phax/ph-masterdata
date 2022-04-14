@@ -67,8 +67,8 @@ public final class PostalCodeManagerTest
     assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("IM"), "im1 1AA"));
 
     // South Korea
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("KR"), "123-45"));
-    assertFalse (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("KR"), "123-456"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("KR"), "123-45"));
+    assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("KR"), "123-456"));
     assertTrue (aMgr.isValidPostalCodeDefaultYes (CountryCache.getInstance ().getCountry ("KR"), "123456"));
   }
 

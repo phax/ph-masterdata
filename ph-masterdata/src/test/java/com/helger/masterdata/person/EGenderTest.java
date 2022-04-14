@@ -21,13 +21,18 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
+/**
+ * Test class for class {@link EGender}.
+ *
+ * @author Philip Helger
+ */
 public final class EGenderTest
 {
   @Test
   public void testGetFromID ()
   {
-    for (final EGender eGender : EGender.values ())
-      assertEquals (eGender, EGender.getFromIDOrNull (eGender.getID ()));
+    for (final EGender e : EGender.values ())
+      assertEquals (e, EGender.getFromIDOrNull (e.getID ()));
     assertNull (EGender.getFromIDOrNull (""));
     assertNull (EGender.getFromIDOrNull ("surely not a gender"));
   }

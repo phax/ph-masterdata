@@ -14,38 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.masterdata.person;
+package com.helger.masterdata.nuts;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-
-import java.util.Locale;
 
 import org.junit.Test;
 
 /**
- * Test class for class {@link ESalutation}.
+ * Test class for class {@link ENutsLevel}
  *
  * @author Philip Helger
  */
-public final class ESalutationTest
+public final class ENutsLevelTest
 {
-  private static final Locale L_DE = new Locale ("de");
-
   @Test
   public void testGetFromID ()
   {
-    for (final ESalutation e : ESalutation.values ())
-      assertEquals (e, ESalutation.getFromIDOrNull (e.getID ()));
-    assertNull (ESalutation.getFromIDOrNull (""));
-    assertNull (ESalutation.getFromIDOrNull ("surely something else"));
-  }
-
-  @Test
-  public void testGetText ()
-  {
-    final String sDisplayName = ESalutation.COMPANY.getDisplayText (L_DE);
-    assertNotNull (sDisplayName);
+    for (final ENutsLevel e : ENutsLevel.values ())
+      assertEquals (e, ENutsLevel.getFromIDOrNull (e.getID ()));
+    assertNull (ENutsLevel.getFromIDOrNull (""));
+    assertNull (ENutsLevel.getFromIDOrNull ("surely not a NutsLevel"));
   }
 }

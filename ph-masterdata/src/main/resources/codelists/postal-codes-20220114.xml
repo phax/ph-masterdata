@@ -1109,7 +1109,7 @@ Last three digits: locality / delivery block</note>
     </country>
     <country iso="UM" name="United States Minor Outlying Islands">
       <postalcodes>
-        <format>96898</format>
+        <specific>96898</specific>
       </postalcodes>
     </country>
     <country iso="US" name="United States">
