@@ -100,7 +100,7 @@ public final class MainReadCountry2Continent
 
   public static void main (final String [] args)
   {
-    final IReadableResource aRes = new ClassPathResource ("country2continent.xlsx");
+    final IReadableResource aRes = new ClassPathResource ("continent/country2continent.xlsx");
     final Workbook aWB = ExcelReadHelper.readWorkbookFromInputStream (aRes);
     final Sheet aSheet = aWB.getSheetAt (0);
     // Skip one row
