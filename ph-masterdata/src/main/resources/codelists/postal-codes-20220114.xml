@@ -584,10 +584,12 @@ It is presented in the format A12 A1BC The first 3 characters are a routing key 
       </postalcodes>
     </country>
     <country iso="KR" name="Korea, South">
-      <postalcodes validfrom="1970-01-01" validto="1987-12-31">
+      <!-- removed the validto -->
+      <postalcodes validfrom="1970-01-01">
         <format>NNN-NN</format>
       </postalcodes>
-      <postalcodes validfrom="1988-01-01" validto="2015-07-31">
+      <!-- removed the validto -->
+      <postalcodes validfrom="1988-01-01">
         <format>NNN-NNN</format>
       </postalcodes>
       <postalcodes validfrom="2015-08-01">
@@ -849,7 +851,7 @@ Last three digits: locality / delivery block</note>
     <country iso="PE" name="Peru">
       <postalcodes>
         <format>NNNNN</format>
-        <format>CC NNNNN</format>
+        <format>CC NNNN</format>
       </postalcodes>
     </country>
     <country iso="PF" name="French Polynesia">
@@ -869,7 +871,7 @@ Last three digits: locality / delivery block</note>
       </postalcodes>
     </country>
     <country iso="PK" name="Pakistan">
-      <postalcodes>
+      <postalcodes validfrom="1988-01-01">
         <format>NNNNN</format>
         <note>Pakistan postal codes list</note>
       </postalcodes>
@@ -900,7 +902,7 @@ Last three digits: locality / delivery block</note>
     </country>
     <country iso="PS" name="Palestine">
       <postalcodes>
-        <specific>NNN</specific>
+        <format>NNN</format>
         <note>not yet implemented in practice. Codes 100-899 are in the Westbank, 900-999 in the Gaza Strip</note>
       </postalcodes>
     </country>
@@ -953,8 +955,8 @@ Last three digits: locality / delivery block</note>
     </country>
     <country iso="SA" name="Saudi Arabia">
       <postalcodes>
-        <format>NNNNN</format>
         <format>NNNNN-NNNN</format>
+        <format>NNNNN</format>
         <note>Deliveries to PO Boxes only</note>
       </postalcodes>
     </country>
@@ -980,7 +982,7 @@ Last three digits: locality / delivery block</note>
         <note>Each building has its own unique postcode.</note>
       </postalcodes>
     </country>
-    <country iso="SH" name="Saint Helena">
+    <country iso="SH" name="Saint Helena, Ascension and Tristan da Cunha">
       <postalcodes>
         <specific>ASCN 1ZZ</specific>
         <note>Ascension uses one code ASCN 1ZZ</note>
@@ -1103,6 +1105,11 @@ Last three digits: locality / delivery block</note>
     <country iso="UA" name="Ukraine">
       <postalcodes>
         <format>NNNNN</format>
+      </postalcodes>
+    </country>
+    <country iso="UM" name="United States Minor Outlying Islands">
+      <postalcodes>
+        <format>96898</format>
       </postalcodes>
     </country>
     <country iso="US" name="United States">
