@@ -44,7 +44,7 @@ import com.helger.commons.string.ToStringGenerator;
 public class PostalCodeManager
 {
   /** Default postal code manager */
-  public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20229114.xml"));
+  public static final PostalCodeManager DEFAULT_MGR = new PostalCodeManager (new ClassPathResource ("codelists/postal-codes-20220114.xml"));
 
   private final SimpleReadWriteLock m_aRWLock = new SimpleReadWriteLock ();
   private final ICommonsMap <Locale, IPostalCodeCountry> m_aMap = new CommonsHashMap <> ();
