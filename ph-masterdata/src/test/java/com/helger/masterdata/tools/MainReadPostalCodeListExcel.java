@@ -139,7 +139,7 @@ public class MainReadPostalCodeListExcel
     final String sSource = "http://en.wikipedia.org/wiki/List_of_postal_codes";
     final String sRevision = "20130209";
 
-    final File f = new File ("src/test/resources/" + sRevision + "PostalCodes.xls");
+    final File f = new File ("src/test/resources/postalcode/" + sRevision + "PostalCodes.xls");
     try (final Workbook aWB = new HSSFWorkbook (FileHelper.getInputStream (f)))
     {
       final Sheet aSheet = aWB.getSheetAt (0);
