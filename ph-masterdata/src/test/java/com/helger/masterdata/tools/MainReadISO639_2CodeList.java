@@ -38,7 +38,7 @@ public class MainReadISO639_2CodeList
 {
   public static void main (final String [] args) throws IOException
   {
-    final String sRevision = "20130111";
+    final String sRevision = "20220414";
 
     final IMicroDocument aDoc = new MicroDocument ();
     final IMicroElement eRoot = aDoc.appendElement ("iso639-2");

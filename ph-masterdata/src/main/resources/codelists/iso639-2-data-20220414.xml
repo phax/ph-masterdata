@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-    Copyright (C) 2014-2022 Philip Helger (www.helger.com)
-    philip[at]helger[dot]com
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
 <iso639-2>
   <item alpha3="aar" alpha2="aa" en="Afar" fr="afar" />
   <item alpha3="abk" alpha2="ab" en="Abkhazian" fr="abkhaze" />
@@ -39,7 +21,7 @@
   <item alpha3="anp" en="Angika" fr="angika" />
   <item alpha3="apa" en="Apache languages" fr="apaches, langues" />
   <item alpha3="ara" alpha2="ar" en="Arabic" fr="arabe" />
-  <item alpha3="arc" en="Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)" fr="araméen d&#39;empire (700-300 BCE)" />
+  <item alpha3="arc" en="Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)" fr="araméen d'empire (700-300 BCE)" />
   <item alpha3="arg" alpha2="an" en="Aragonese" fr="aragonais" />
   <item alpha3="arm" alpha3t="hye" alpha2="hy" en="Armenian" fr="arménien" />
   <item alpha3="arn" en="Mapudungun; Mapuche" fr="mapudungun; mapuche; mapuce" />
@@ -75,7 +57,7 @@
   <item alpha3="bin" en="Bini; Edo" fr="bini; edo" />
   <item alpha3="bis" alpha2="bi" en="Bislama" fr="bichlamar" />
   <item alpha3="bla" en="Siksika" fr="blackfoot" />
-  <item alpha3="bnt" en="Bantu (Other)" fr="bantoues, autres langues" />
+  <item alpha3="bnt" en="Bantu languages" fr="bantou, langues" />
   <item alpha3="bos" alpha2="bs" en="Bosnian" fr="bosniaque" />
   <item alpha3="bra" en="Braj" fr="braj" />
   <item alpha3="bre" alpha2="br" en="Breton" fr="breton" />
@@ -86,7 +68,7 @@
   <item alpha3="bur" alpha3t="mya" alpha2="my" en="Burmese" fr="birman" />
   <item alpha3="byn" en="Blin; Bilin" fr="blin; bilen" />
   <item alpha3="cad" en="Caddo" fr="caddo" />
-  <item alpha3="cai" en="Central American Indian languages" fr="amérindiennes de L&#39;Amérique centrale, langues" />
+  <item alpha3="cai" en="Central American Indian languages" fr="amérindiennes de L'Amérique centrale, langues" />
   <item alpha3="car" en="Galibi Carib" fr="karib; galibi; carib" />
   <item alpha3="cat" alpha2="ca" en="Catalan; Valencian" fr="catalan; valencien" />
   <item alpha3="cau" en="Caucasian languages" fr="caucasiennes, langues" />
@@ -103,19 +85,20 @@
   <item alpha3="cho" en="Choctaw" fr="choctaw" />
   <item alpha3="chp" en="Chipewyan; Dene Suline" fr="chipewyan" />
   <item alpha3="chr" en="Cherokee" fr="cherokee" />
-  <item alpha3="chu" alpha2="cu" en="Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" fr="slavon d&#39;église; vieux slave; slavon liturgique; vieux bulgare" />
+  <item alpha3="chu" alpha2="cu" en="Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" fr="slavon d'église; vieux slave; slavon liturgique; vieux bulgare" />
   <item alpha3="chv" alpha2="cv" en="Chuvash" fr="tchouvache" />
   <item alpha3="chy" en="Cheyenne" fr="cheyenne" />
   <item alpha3="cmc" en="Chamic languages" fr="chames, langues" />
+  <item alpha3="cnr" en="Montenegrin" fr="monténégrin" />
   <item alpha3="cop" en="Coptic" fr="copte" />
   <item alpha3="cor" alpha2="kw" en="Cornish" fr="cornique" />
   <item alpha3="cos" alpha2="co" en="Corsican" fr="corse" />
-  <item alpha3="cpe" en="Creoles and pidgins, English based" fr="créoles et pidgins basés sur l&#39;anglais" />
-  <item alpha3="cpf" en="Creoles and pidgins, French-based " fr="créoles et pidgins basés sur le français" />
-  <item alpha3="cpp" en="Creoles and pidgins, Portuguese-based " fr="créoles et pidgins basés sur le portugais" />
+  <item alpha3="cpe" en="Creoles and pidgins, English based" fr="créoles et pidgins basés sur l'anglais" />
+  <item alpha3="cpf" en="Creoles and pidgins, French-based" fr="créoles et pidgins basés sur le français" />
+  <item alpha3="cpp" en="Creoles and pidgins, Portuguese-based" fr="créoles et pidgins basés sur le portugais" />
   <item alpha3="cre" alpha2="cr" en="Cree" fr="cree" />
   <item alpha3="crh" en="Crimean Tatar; Crimean Turkish" fr="tatar de Crimé" />
-  <item alpha3="crp" en="Creoles and pidgins " fr="créoles et pidgins" />
+  <item alpha3="crp" en="Creoles and pidgins" fr="créoles et pidgins" />
   <item alpha3="csb" en="Kashubian" fr="kachoube" />
   <item alpha3="cus" en="Cushitic languages" fr="couchitiques, langues" />
   <item alpha3="cze" alpha3t="ces" alpha2="cs" en="Czech" fr="tchèque" />
@@ -180,12 +163,12 @@
   <item alpha3="gor" en="Gorontalo" fr="gorontalo" />
   <item alpha3="got" en="Gothic" fr="gothique" />
   <item alpha3="grb" en="Grebo" fr="grebo" />
-  <item alpha3="grc" en="Greek, Ancient (to 1453)" fr="grec ancien (jusqu&#39;à 1453)" />
+  <item alpha3="grc" en="Greek, Ancient (to 1453)" fr="grec ancien (jusqu'à 1453)" />
   <item alpha3="gre" alpha3t="ell" alpha2="el" en="Greek, Modern (1453-)" fr="grec moderne (après 1453)" />
   <item alpha3="grn" alpha2="gn" en="Guarani" fr="guarani" />
   <item alpha3="gsw" en="Swiss German; Alemannic; Alsatian" fr="suisse alémanique; alémanique; alsacien" />
   <item alpha3="guj" alpha2="gu" en="Gujarati" fr="goudjrati" />
-  <item alpha3="gwi" en="Gwich&#39;in" fr="gwich&#39;in" />
+  <item alpha3="gwi" en="Gwich'in" fr="gwich'in" />
   <item alpha3="hai" en="Haida" fr="haida" />
   <item alpha3="hat" alpha2="ht" en="Haitian; Haitian Creole" fr="haïtien; créole haïtien" />
   <item alpha3="hau" alpha2="ha" en="Hausa" fr="haoussa" />
@@ -296,7 +279,7 @@
   <item alpha3="mdr" en="Mandar" fr="mandar" />
   <item alpha3="men" en="Mende" fr="mendé" />
   <item alpha3="mga" en="Irish, Middle (900-1200)" fr="irlandais moyen (900-1200)" />
-  <item alpha3="mic" en="Mi&#39;kmaq; Micmac" fr="mi&#39;kmaq; micmac" />
+  <item alpha3="mic" en="Mi'kmaq; Micmac" fr="mi'kmaq; micmac" />
   <item alpha3="min" en="Minangkabau" fr="minangkabau" />
   <item alpha3="mis" en="Uncoded languages" fr="langues non codées" />
   <item alpha3="mkh" en="Mon-Khmer languages" fr="môn-khmer, langues" />
@@ -334,7 +317,7 @@
   <item alpha3="nog" en="Nogai" fr="nogaï; nogay" />
   <item alpha3="non" en="Norse, Old" fr="norrois, vieux" />
   <item alpha3="nor" alpha2="no" en="Norwegian" fr="norvégien" />
-  <item alpha3="nqo" en="N&#39;Ko" fr="n&#39;ko" />
+  <item alpha3="nqo" en="N'Ko" fr="n'ko" />
   <item alpha3="nso" en="Pedi; Sepedi; Northern Sotho" fr="pedi; sepedi; sotho du Nord" />
   <item alpha3="nub" en="Nubian languages" fr="nubiennes, langues" />
   <item alpha3="nwc" en="Classical Newari; Old Newari; Classical Nepal Bhasa" fr="newari classique" />
@@ -343,7 +326,7 @@
   <item alpha3="nyn" en="Nyankole" fr="nyankolé" />
   <item alpha3="nyo" en="Nyoro" fr="nyoro" />
   <item alpha3="nzi" en="Nzima" fr="nzema" />
-  <item alpha3="oci" alpha2="oc" en="Occitan (post 1500); Provençal" fr="occitan (après 1500); provençal" />
+  <item alpha3="oci" alpha2="oc" en="Occitan (post 1500)" fr="occitan (après 1500)" />
   <item alpha3="oji" alpha2="oj" en="Ojibwa" fr="ojibwa" />
   <item alpha3="ori" alpha2="or" en="Oriya" fr="oriya" />
   <item alpha3="orm" alpha2="om" en="Oromo" fr="galla" />
@@ -367,7 +350,7 @@
   <item alpha3="pon" en="Pohnpeian" fr="pohnpei" />
   <item alpha3="por" alpha2="pt" en="Portuguese" fr="portugais" />
   <item alpha3="pra" en="Prakrit languages" fr="prâkrit, langues" />
-  <item alpha3="pro" en="Provençal, Old (to 1500)" fr="provençal ancien (jusqu&#39;à 1500)" />
+  <item alpha3="pro" en="Provençal, Old (to 1500); Occitan, Old (to 1500)" fr="provençal ancien (jusqu'à 1500); occitan ancien (jusqu'à 1500)" />
   <item alpha3="pus" alpha2="ps" en="Pushto; Pashto" fr="pachto" />
   <item alpha3="que" alpha2="qu" en="Quechua" fr="quechua" />
   <item alpha3="raj" en="Rajasthani" fr="rajasthani" />
@@ -383,7 +366,7 @@
   <item alpha3="sad" en="Sandawe" fr="sandawe" />
   <item alpha3="sag" alpha2="sg" en="Sango" fr="sango" />
   <item alpha3="sah" en="Yakut" fr="iakoute" />
-  <item alpha3="sai" en="South American Indian (Other)" fr="indiennes d&#39;Amérique du Sud, autres langues" />
+  <item alpha3="sai" en="South American Indian languages" fr="sud-amérindiennes, langues" />
   <item alpha3="sal" en="Salishan languages" fr="salishennes, langues" />
   <item alpha3="sam" en="Samaritan Aramaic" fr="samaritain" />
   <item alpha3="san" alpha2="sa" en="Sanskrit" fr="sanskrit" />
@@ -393,7 +376,7 @@
   <item alpha3="sco" en="Scots" fr="écossais" />
   <item alpha3="sel" en="Selkup" fr="selkoupe" />
   <item alpha3="sem" en="Semitic languages" fr="sémitiques, langues" />
-  <item alpha3="sga" en="Irish, Old (to 900)" fr="irlandais ancien (jusqu&#39;à 900)" />
+  <item alpha3="sga" en="Irish, Old (to 900)" fr="irlandais ancien (jusqu'à 900)" />
   <item alpha3="sgn" en="Sign Languages" fr="langues des signes" />
   <item alpha3="shn" en="Shan" fr="chan" />
   <item alpha3="sid" en="Sidamo" fr="sidamo" />
@@ -407,7 +390,7 @@
   <item alpha3="sme" alpha2="se" en="Northern Sami" fr="sami du Nord" />
   <item alpha3="smi" en="Sami languages" fr="sames, langues" />
   <item alpha3="smj" en="Lule Sami" fr="sami de Lule" />
-  <item alpha3="smn" en="Inari Sami" fr="sami d&#39;Inari" />
+  <item alpha3="smn" en="Inari Sami" fr="sami d'Inari" />
   <item alpha3="smo" alpha2="sm" en="Samoan" fr="samoan" />
   <item alpha3="sms" en="Skolt Sami" fr="sami skolt" />
   <item alpha3="sna" alpha2="sn" en="Shona" fr="shona" />
@@ -479,7 +462,7 @@
   <item alpha3="vol" alpha2="vo" en="Volapük" fr="volapük" />
   <item alpha3="vot" en="Votic" fr="vote" />
   <item alpha3="wak" en="Wakashan languages" fr="wakashanes, langues" />
-  <item alpha3="wal" en="Walamo" fr="walamo" />
+  <item alpha3="wal" en="Wolaitta; Wolaytta" fr="wolaitta; wolaytta" />
   <item alpha3="war" en="Waray" fr="waray" />
   <item alpha3="was" en="Washo" fr="washo" />
   <item alpha3="wel" alpha3t="cym" alpha2="cy" en="Welsh" fr="gallois" />

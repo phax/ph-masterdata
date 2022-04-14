@@ -33,7 +33,7 @@ import com.helger.xml.microdom.serialize.MicroReader;
 
 public class ISO639_2Handler
 {
-  public static final String DEFAULT_RESOURCE = "codelists/iso639-2-data-20130111.xml";
+  public static final String DEFAULT_RESOURCE = "codelists/iso639-2-data-20220414.xml";
 
   private static final class SingletonHolder
   {
