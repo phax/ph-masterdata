@@ -18,12 +18,14 @@ package com.helger.masterdata.nuts;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.id.IHasID;
 import com.helger.commons.name.IHasDisplayName;
+import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
@@ -40,12 +42,14 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
 
   private final String m_sID;
   private final String m_sDisplayName;
+  private final String m_sLatinName;
   private final ENutsLevel m_eNutsLevel;
   private final int m_nCountryOrdinal;
   private final int m_nRegionOrdinal;
 
   public NutsItem (@Nonnull @Nonempty final String sID,
                    @Nonnull @Nonempty final String sDisplayName,
+                   @Nullable final String sLatinName,
                    @Nonnegative final int nCountryOrdinal,
                    @Nonnegative final int nRegionOrdinal)
   {
@@ -57,6 +61,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
 
     m_sID = sID;
     m_sDisplayName = sDisplayName;
+    m_sLatinName = StringHelper.hasText (sLatinName) ? sLatinName : sDisplayName;
     m_eNutsLevel = ENutsLevel.getFromLengthOrThrow (sID.length ());
     m_nCountryOrdinal = nCountryOrdinal;
     m_nRegionOrdinal = nRegionOrdinal;
@@ -74,6 +79,17 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   public String getDisplayName ()
   {
     return m_sDisplayName;
+  }
+
+  /**
+   * @return The Latin display name. If no specific latin name is provided, it's
+   *         identical to {@link #getDisplayName()}.
+   */
+  @Nonnull
+  @Nonempty
+  public String getLatinDisplayName ()
+  {
+    return m_sLatinName;
   }
 
   @Nonnull
@@ -99,6 +115,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   {
     return new ToStringGenerator (null).append ("ID", m_sID)
                                        .append ("DisplayName", m_sDisplayName)
+                                       .append ("LatinDisplayName", m_sLatinName)
                                        .append ("Level", m_eNutsLevel)
                                        .append ("CountryOrdinal", m_nCountryOrdinal)
                                        .append ("RegionOrdinal", m_nRegionOrdinal)

@@ -107,9 +107,10 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
     {
       final String sID = eItem.getAttributeValue ("id");
       final String sName = eItem.getAttributeValue ("name");
+      final String sLatinName = eItem.getAttributeValue ("latinName");
       final int nCountryOrdinal = eItem.getAttributeValueAsInt ("countryOrd", -1);
       final int nRegionOrdinal = eItem.getAttributeValueAsInt ("regionOrd", -1);
-      ret.addItem (new NutsItem (sID, sName, nCountryOrdinal, nRegionOrdinal));
+      ret.addItem (new NutsItem (sID, sName, sLatinName, nCountryOrdinal, nRegionOrdinal));
     }
 
     LOGGER.info ("Successfully read " + ret.m_aItems.size () + " NUTS items");

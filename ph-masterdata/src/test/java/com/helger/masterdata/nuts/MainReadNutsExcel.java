@@ -62,7 +62,9 @@ public class MainReadNutsExcel
       if (eLevel == null)
         break;
 
-      final String sName = aRow.getCell (1 + eLevel.getCharCount () - 2).getStringCellValue ();
+      final int nNameIdx = 1 + eLevel.getCharCount () - 2;
+      final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (nNameIdx));
+      final String sLatinName = ExcelReadHelper.getCellValueString (aRow.getCell (nNameIdx + 8));
       final int nCountryOrdinal = ExcelReadHelper.getCellValueNumber (aRow.getCell (6)).intValue ();
       final int nRegionOrdinal = ExcelReadHelper.getCellValueNumber (aRow.getCell (7)).intValue ();
 
@@ -70,6 +72,7 @@ public class MainReadNutsExcel
       eRoot.appendElement ("item")
            .setAttribute ("id", sID)
            .setAttribute ("name", sName)
+           .setAttribute ("latinName", sLatinName)
            .setAttribute ("countryOrd", nCountryOrdinal)
            .setAttribute ("regionOrd", nRegionOrdinal);
     }

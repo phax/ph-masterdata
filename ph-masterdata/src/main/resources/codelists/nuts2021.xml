@@ -80,46 +80,46 @@
   <item id="BEZ" name="Extra-Regio NUTS 1" countryOrd="1" regionOrd="60" />
   <item id="BEZZ" name="Extra-Regio NUTS 2" countryOrd="1" regionOrd="61" />
   <item id="BEZZZ" name="Extra-Regio NUTS 3" countryOrd="1" regionOrd="62" />
-  <item id="BG" name="България " countryOrd="2" regionOrd="63" />
-  <item id="BG3" name="Северна и Югоизточна България" countryOrd="2" regionOrd="64" />
-  <item id="BG31" name="Северозападен" countryOrd="2" regionOrd="65" />
-  <item id="BG311" name="Видин" countryOrd="2" regionOrd="66" />
-  <item id="BG312" name="Монтана" countryOrd="2" regionOrd="67" />
-  <item id="BG313" name="Враца" countryOrd="2" regionOrd="68" />
-  <item id="BG314" name="Плевен" countryOrd="2" regionOrd="69" />
-  <item id="BG315" name="Ловеч" countryOrd="2" regionOrd="70" />
-  <item id="BG32" name="Северен централен" countryOrd="2" regionOrd="71" />
-  <item id="BG321" name="Велико Търново" countryOrd="2" regionOrd="72" />
-  <item id="BG322" name="Габрово" countryOrd="2" regionOrd="73" />
-  <item id="BG323" name="Русе" countryOrd="2" regionOrd="74" />
-  <item id="BG324" name="Разград" countryOrd="2" regionOrd="75" />
-  <item id="BG325" name="Силистра" countryOrd="2" regionOrd="76" />
-  <item id="BG33" name="Североизточен" countryOrd="2" regionOrd="77" />
-  <item id="BG331" name="Варна" countryOrd="2" regionOrd="78" />
-  <item id="BG332" name="Добрич" countryOrd="2" regionOrd="79" />
-  <item id="BG333" name="Шумен" countryOrd="2" regionOrd="80" />
-  <item id="BG334" name="Търговище" countryOrd="2" regionOrd="81" />
-  <item id="BG34" name="Югоизточен" countryOrd="2" regionOrd="82" />
-  <item id="BG341" name="Бургас" countryOrd="2" regionOrd="83" />
-  <item id="BG342" name="Сливен" countryOrd="2" regionOrd="84" />
-  <item id="BG343" name="Ямбол" countryOrd="2" regionOrd="85" />
-  <item id="BG344" name="Стара Загора" countryOrd="2" regionOrd="86" />
-  <item id="BG4" name="Югозападна и Южна централна България" countryOrd="2" regionOrd="87" />
-  <item id="BG41" name="Югозападен" countryOrd="2" regionOrd="88" />
-  <item id="BG411" name="София (столица)" countryOrd="2" regionOrd="89" />
-  <item id="BG412" name="София" countryOrd="2" regionOrd="90" />
-  <item id="BG413" name="Благоевград" countryOrd="2" regionOrd="91" />
-  <item id="BG414" name="Перник" countryOrd="2" regionOrd="92" />
-  <item id="BG415" name="Кюстендил" countryOrd="2" regionOrd="93" />
-  <item id="BG42" name="Южен централен" countryOrd="2" regionOrd="94" />
-  <item id="BG421" name="Пловдив" countryOrd="2" regionOrd="95" />
-  <item id="BG422" name="Хасково" countryOrd="2" regionOrd="96" />
-  <item id="BG423" name="Пазарджик" countryOrd="2" regionOrd="97" />
-  <item id="BG424" name="Смолян" countryOrd="2" regionOrd="98" />
-  <item id="BG425" name="Кърджали" countryOrd="2" regionOrd="99" />
-  <item id="BGZ" name="Extra-Regio NUTS 1" countryOrd="2" regionOrd="100" />
-  <item id="BGZZ" name="Extra-Regio NUTS 2" countryOrd="2" regionOrd="101" />
-  <item id="BGZZZ" name="Extra-Regio NUTS 3" countryOrd="2" regionOrd="102" />
+  <item id="BG" name="България " latinName="BG" countryOrd="2" regionOrd="63" />
+  <item id="BG3" name="Северна и Югоизточна България" latinName="Severna i Yugoiztochna Bulgaria" countryOrd="2" regionOrd="64" />
+  <item id="BG31" name="Северозападен" latinName="Severozapaden" countryOrd="2" regionOrd="65" />
+  <item id="BG311" name="Видин" latinName="Vidin" countryOrd="2" regionOrd="66" />
+  <item id="BG312" name="Монтана" latinName="Montana" countryOrd="2" regionOrd="67" />
+  <item id="BG313" name="Враца" latinName="Vratsa" countryOrd="2" regionOrd="68" />
+  <item id="BG314" name="Плевен" latinName="Pleven" countryOrd="2" regionOrd="69" />
+  <item id="BG315" name="Ловеч" latinName="Lovech" countryOrd="2" regionOrd="70" />
+  <item id="BG32" name="Северен централен" latinName="Severen tsentralen" countryOrd="2" regionOrd="71" />
+  <item id="BG321" name="Велико Търново" latinName="Veliko Tarnovo" countryOrd="2" regionOrd="72" />
+  <item id="BG322" name="Габрово" latinName="Gabrovo" countryOrd="2" regionOrd="73" />
+  <item id="BG323" name="Русе" latinName="Ruse" countryOrd="2" regionOrd="74" />
+  <item id="BG324" name="Разград" latinName="Razgrad" countryOrd="2" regionOrd="75" />
+  <item id="BG325" name="Силистра" latinName="Silistra" countryOrd="2" regionOrd="76" />
+  <item id="BG33" name="Североизточен" latinName="Severoiztochen" countryOrd="2" regionOrd="77" />
+  <item id="BG331" name="Варна" latinName="Varna" countryOrd="2" regionOrd="78" />
+  <item id="BG332" name="Добрич" latinName="Dobrich" countryOrd="2" regionOrd="79" />
+  <item id="BG333" name="Шумен" latinName="Shumen" countryOrd="2" regionOrd="80" />
+  <item id="BG334" name="Търговище" latinName="Targovishte" countryOrd="2" regionOrd="81" />
+  <item id="BG34" name="Югоизточен" latinName="Yugoiztochen" countryOrd="2" regionOrd="82" />
+  <item id="BG341" name="Бургас" latinName="Burgas" countryOrd="2" regionOrd="83" />
+  <item id="BG342" name="Сливен" latinName="Sliven" countryOrd="2" regionOrd="84" />
+  <item id="BG343" name="Ямбол" latinName="Yambol" countryOrd="2" regionOrd="85" />
+  <item id="BG344" name="Стара Загора" latinName="Stara Zagora" countryOrd="2" regionOrd="86" />
+  <item id="BG4" name="Югозападна и Южна централна България" latinName="Yugozapadna i Yuzhna tsentralna Bulgaria" countryOrd="2" regionOrd="87" />
+  <item id="BG41" name="Югозападен" latinName="Yugozapaden" countryOrd="2" regionOrd="88" />
+  <item id="BG411" name="София (столица)" latinName="Sofia (stolitsa)" countryOrd="2" regionOrd="89" />
+  <item id="BG412" name="София" latinName="Sofia" countryOrd="2" regionOrd="90" />
+  <item id="BG413" name="Благоевград" latinName="Blagoevgrad" countryOrd="2" regionOrd="91" />
+  <item id="BG414" name="Перник" latinName="Pernik" countryOrd="2" regionOrd="92" />
+  <item id="BG415" name="Кюстендил" latinName="Kyustendil" countryOrd="2" regionOrd="93" />
+  <item id="BG42" name="Южен централен" latinName="Yuzhen tsentralen" countryOrd="2" regionOrd="94" />
+  <item id="BG421" name="Пловдив" latinName="Plovdiv" countryOrd="2" regionOrd="95" />
+  <item id="BG422" name="Хасково" latinName="Haskovo" countryOrd="2" regionOrd="96" />
+  <item id="BG423" name="Пазарджик" latinName="Pazardzhik" countryOrd="2" regionOrd="97" />
+  <item id="BG424" name="Смолян" latinName="Smolyan" countryOrd="2" regionOrd="98" />
+  <item id="BG425" name="Кърджали" latinName="Kardzhali" countryOrd="2" regionOrd="99" />
+  <item id="BGZ" name="Extra-Regio NUTS 1" latinName="Extra-Regio NUTS 1" countryOrd="2" regionOrd="100" />
+  <item id="BGZZ" name="Extra-Regio NUTS 2" latinName="Extra-Regio NUTS 2" countryOrd="2" regionOrd="101" />
+  <item id="BGZZZ" name="Extra-Regio NUTS 3" latinName="Extra-Regio NUTS 3" countryOrd="2" regionOrd="102" />
   <item id="CZ" name="Česko" countryOrd="3" regionOrd="103" />
   <item id="CZ0" name="Česko" countryOrd="3" regionOrd="104" />
   <item id="CZ01" name="Praha" countryOrd="3" regionOrd="105" />
@@ -654,79 +654,79 @@
   <item id="IEZ" name="Extra-Regio NUTS 1" countryOrd="7" regionOrd="634" />
   <item id="IEZZ" name="Extra-Regio NUTS 2" countryOrd="7" regionOrd="635" />
   <item id="IEZZZ" name="Extra-Regio NUTS 3" countryOrd="7" regionOrd="636" />
-  <item id="EL" name="Ελλάδα " countryOrd="8" regionOrd="637" />
-  <item id="EL3" name="Αττική " countryOrd="8" regionOrd="638" />
-  <item id="EL30" name="Aττική" countryOrd="8" regionOrd="639" />
-  <item id="EL301" name="Βόρειος Τομέας Αθηνών" countryOrd="8" regionOrd="640" />
-  <item id="EL302" name="Δυτικός Τομέας Αθηνών" countryOrd="8" regionOrd="641" />
-  <item id="EL303" name="Κεντρικός Τομέας Αθηνών" countryOrd="8" regionOrd="642" />
-  <item id="EL304" name="Νότιος Τομέας Αθηνών" countryOrd="8" regionOrd="643" />
-  <item id="EL305" name="Ανατολική Αττική" countryOrd="8" regionOrd="644" />
-  <item id="EL306" name="Δυτική Αττική" countryOrd="8" regionOrd="645" />
-  <item id="EL307" name="Πειραιάς, Νήσοι" countryOrd="8" regionOrd="646" />
-  <item id="EL4" name="Νησιά Αιγαίου, Κρήτη" countryOrd="8" regionOrd="647" />
-  <item id="EL41" name="Βόρειο Αιγαίο" countryOrd="8" regionOrd="648" />
-  <item id="EL411" name="Λέσβος, Λήμνος" countryOrd="8" regionOrd="649" />
-  <item id="EL412" name="Ικαρία, Σάμος" countryOrd="8" regionOrd="650" />
-  <item id="EL413" name="Χίος" countryOrd="8" regionOrd="651" />
-  <item id="EL42" name="Νότιο Αιγαίο" countryOrd="8" regionOrd="652" />
-  <item id="EL421" name="Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος" countryOrd="8" regionOrd="653" />
-  <item id="EL422" name="Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος" countryOrd="8" regionOrd="654" />
-  <item id="EL43" name="Κρήτη" countryOrd="8" regionOrd="655" />
-  <item id="EL431" name="Ηράκλειο" countryOrd="8" regionOrd="656" />
-  <item id="EL432" name="Λασίθι" countryOrd="8" regionOrd="657" />
-  <item id="EL433" name="Ρέθυμνο" countryOrd="8" regionOrd="658" />
-  <item id="EL434" name="Χανιά" countryOrd="8" regionOrd="659" />
-  <item id="EL5" name="Βόρεια Ελλάδα" countryOrd="8" regionOrd="660" />
-  <item id="EL51" name="Aνατολική Μακεδονία, Θράκη" countryOrd="8" regionOrd="661" />
-  <item id="EL511" name="Έβρος" countryOrd="8" regionOrd="662" />
-  <item id="EL512" name="Ξάνθη" countryOrd="8" regionOrd="663" />
-  <item id="EL513" name="Ροδόπη" countryOrd="8" regionOrd="664" />
-  <item id="EL514" name="Δράμα" countryOrd="8" regionOrd="665" />
-  <item id="EL515" name="Θάσος, Καβάλα" countryOrd="8" regionOrd="666" />
-  <item id="EL52" name="Κεντρική Μακεδονία" countryOrd="8" regionOrd="667" />
-  <item id="EL521" name="Ημαθία" countryOrd="8" regionOrd="668" />
-  <item id="EL522" name="Θεσσαλονίκη" countryOrd="8" regionOrd="669" />
-  <item id="EL523" name="Κιλκίς" countryOrd="8" regionOrd="670" />
-  <item id="EL524" name="Πέλλα" countryOrd="8" regionOrd="671" />
-  <item id="EL525" name="Πιερία" countryOrd="8" regionOrd="672" />
-  <item id="EL526" name="Σέρρες" countryOrd="8" regionOrd="673" />
-  <item id="EL527" name="Χαλκιδική" countryOrd="8" regionOrd="674" />
-  <item id="EL53" name="Δυτική Μακεδονία" countryOrd="8" regionOrd="675" />
-  <item id="EL531" name="Γρεβενά, Κοζάνη" countryOrd="8" regionOrd="676" />
-  <item id="EL532" name="Καστοριά" countryOrd="8" regionOrd="677" />
-  <item id="EL533" name="Φλώρινα" countryOrd="8" regionOrd="678" />
-  <item id="EL54" name="Ήπειρος" countryOrd="8" regionOrd="679" />
-  <item id="EL541" name="Άρτα, Πρέβεζα" countryOrd="8" regionOrd="680" />
-  <item id="EL542" name="Θεσπρωτία" countryOrd="8" regionOrd="681" />
-  <item id="EL543" name="Ιωάννινα" countryOrd="8" regionOrd="682" />
-  <item id="EL6" name="Κεντρική Ελλάδα" countryOrd="8" regionOrd="683" />
-  <item id="EL61" name="Θεσσαλία" countryOrd="8" regionOrd="684" />
-  <item id="EL611" name="Καρδίτσα, Τρίκαλα" countryOrd="8" regionOrd="685" />
-  <item id="EL612" name="Λάρισα" countryOrd="8" regionOrd="686" />
-  <item id="EL613" name="Μαγνησία, Σποράδες" countryOrd="8" regionOrd="687" />
-  <item id="EL62" name="Ιόνια Νησιά" countryOrd="8" regionOrd="688" />
-  <item id="EL621" name="Ζάκυνθος" countryOrd="8" regionOrd="689" />
-  <item id="EL622" name="Κέρκυρα" countryOrd="8" regionOrd="690" />
-  <item id="EL623" name="Ιθάκη, Κεφαλληνία" countryOrd="8" regionOrd="691" />
-  <item id="EL624" name="Λευκάδα" countryOrd="8" regionOrd="692" />
-  <item id="EL63" name="Δυτική Ελλάδα" countryOrd="8" regionOrd="693" />
-  <item id="EL631" name="Αιτωλοακαρνανία" countryOrd="8" regionOrd="694" />
-  <item id="EL632" name="Αχαΐα" countryOrd="8" regionOrd="695" />
-  <item id="EL633" name="Ηλεία" countryOrd="8" regionOrd="696" />
-  <item id="EL64" name="Στερεά Ελλάδα" countryOrd="8" regionOrd="697" />
-  <item id="EL641" name="Βοιωτία" countryOrd="8" regionOrd="698" />
-  <item id="EL642" name="Εύβοια" countryOrd="8" regionOrd="699" />
-  <item id="EL643" name="Ευρυτανία" countryOrd="8" regionOrd="700" />
-  <item id="EL644" name="Φθιώτιδα" countryOrd="8" regionOrd="701" />
-  <item id="EL645" name="Φωκίδα" countryOrd="8" regionOrd="702" />
-  <item id="EL65" name="Πελοπόννησος" countryOrd="8" regionOrd="703" />
-  <item id="EL651" name="Αργολίδα, Αρκαδία" countryOrd="8" regionOrd="704" />
-  <item id="EL652" name="Κορινθία" countryOrd="8" regionOrd="705" />
-  <item id="EL653" name="Λακωνία, Μεσσηνία" countryOrd="8" regionOrd="706" />
-  <item id="ELZ" name="Extra-Regio NUTS 1" countryOrd="8" regionOrd="707" />
-  <item id="ELZZ" name="Extra-Regio NUTS 2" countryOrd="8" regionOrd="708" />
-  <item id="ELZZZ" name="Extra-Regio NUTS 3" countryOrd="8" regionOrd="709" />
+  <item id="EL" name="Ελλάδα " latinName="EL" countryOrd="8" regionOrd="637" />
+  <item id="EL3" name="Αττική " latinName="Attiki" countryOrd="8" regionOrd="638" />
+  <item id="EL30" name="Aττική" latinName="Attiki" countryOrd="8" regionOrd="639" />
+  <item id="EL301" name="Βόρειος Τομέας Αθηνών" latinName="Voreios Tomeas Athinon" countryOrd="8" regionOrd="640" />
+  <item id="EL302" name="Δυτικός Τομέας Αθηνών" latinName="Dytikos Tomeas Athinon" countryOrd="8" regionOrd="641" />
+  <item id="EL303" name="Κεντρικός Τομέας Αθηνών" latinName="Kentrikos Tomeas Athinon" countryOrd="8" regionOrd="642" />
+  <item id="EL304" name="Νότιος Τομέας Αθηνών" latinName="Notios Tomeas Athinon" countryOrd="8" regionOrd="643" />
+  <item id="EL305" name="Ανατολική Αττική" latinName="Anatoliki Attiki" countryOrd="8" regionOrd="644" />
+  <item id="EL306" name="Δυτική Αττική" latinName="Dytiki Attiki" countryOrd="8" regionOrd="645" />
+  <item id="EL307" name="Πειραιάς, Νήσοι" latinName="Peiraias, Nisoi" countryOrd="8" regionOrd="646" />
+  <item id="EL4" name="Νησιά Αιγαίου, Κρήτη" latinName="Nisia Aigaiou, Kriti" countryOrd="8" regionOrd="647" />
+  <item id="EL41" name="Βόρειο Αιγαίο" latinName="Voreio Aigaio" countryOrd="8" regionOrd="648" />
+  <item id="EL411" name="Λέσβος, Λήμνος" latinName="Lesvos, Limnos" countryOrd="8" regionOrd="649" />
+  <item id="EL412" name="Ικαρία, Σάμος" latinName="Ikaria, Samos" countryOrd="8" regionOrd="650" />
+  <item id="EL413" name="Χίος" latinName="Chios" countryOrd="8" regionOrd="651" />
+  <item id="EL42" name="Νότιο Αιγαίο" latinName="Notio Aigaio" countryOrd="8" regionOrd="652" />
+  <item id="EL421" name="Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος" latinName="Kalymnos, Karpathos, Kasos, Kos, Rodos" countryOrd="8" regionOrd="653" />
+  <item id="EL422" name="Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος" latinName="Andros, Thira, Kea, Milos, Mykonos, Naxos, Paros,  Syros, Tinos" countryOrd="8" regionOrd="654" />
+  <item id="EL43" name="Κρήτη" latinName="Kriti" countryOrd="8" regionOrd="655" />
+  <item id="EL431" name="Ηράκλειο" latinName="Irakleio" countryOrd="8" regionOrd="656" />
+  <item id="EL432" name="Λασίθι" latinName="Lasithi" countryOrd="8" regionOrd="657" />
+  <item id="EL433" name="Ρέθυμνο" latinName="Rethymni" countryOrd="8" regionOrd="658" />
+  <item id="EL434" name="Χανιά" latinName="Chania" countryOrd="8" regionOrd="659" />
+  <item id="EL5" name="Βόρεια Ελλάδα" latinName="Voreia Elláda" countryOrd="8" regionOrd="660" />
+  <item id="EL51" name="Aνατολική Μακεδονία, Θράκη" latinName="Anatoliki Makedonia, Thraki" countryOrd="8" regionOrd="661" />
+  <item id="EL511" name="Έβρος" latinName="Evros" countryOrd="8" regionOrd="662" />
+  <item id="EL512" name="Ξάνθη" latinName="Xanthi" countryOrd="8" regionOrd="663" />
+  <item id="EL513" name="Ροδόπη" latinName="Rodopi" countryOrd="8" regionOrd="664" />
+  <item id="EL514" name="Δράμα" latinName="Drama" countryOrd="8" regionOrd="665" />
+  <item id="EL515" name="Θάσος, Καβάλα" latinName="Thasos, Kavala" countryOrd="8" regionOrd="666" />
+  <item id="EL52" name="Κεντρική Μακεδονία" latinName="Kentriki Makedonia" countryOrd="8" regionOrd="667" />
+  <item id="EL521" name="Ημαθία" latinName="Imathia" countryOrd="8" regionOrd="668" />
+  <item id="EL522" name="Θεσσαλονίκη" latinName="Thessaloniki" countryOrd="8" regionOrd="669" />
+  <item id="EL523" name="Κιλκίς" latinName="Kilkis" countryOrd="8" regionOrd="670" />
+  <item id="EL524" name="Πέλλα" latinName="Pella" countryOrd="8" regionOrd="671" />
+  <item id="EL525" name="Πιερία" latinName="Pieria" countryOrd="8" regionOrd="672" />
+  <item id="EL526" name="Σέρρες" latinName="Serres" countryOrd="8" regionOrd="673" />
+  <item id="EL527" name="Χαλκιδική" latinName="Chalkidiki" countryOrd="8" regionOrd="674" />
+  <item id="EL53" name="Δυτική Μακεδονία" latinName="Dytiki Makedonia" countryOrd="8" regionOrd="675" />
+  <item id="EL531" name="Γρεβενά, Κοζάνη" latinName="Grevena, Kozani" countryOrd="8" regionOrd="676" />
+  <item id="EL532" name="Καστοριά" latinName="Kastoria" countryOrd="8" regionOrd="677" />
+  <item id="EL533" name="Φλώρινα" latinName="Florina" countryOrd="8" regionOrd="678" />
+  <item id="EL54" name="Ήπειρος" latinName="Ipeiros" countryOrd="8" regionOrd="679" />
+  <item id="EL541" name="Άρτα, Πρέβεζα" latinName="Arta, Preveza" countryOrd="8" regionOrd="680" />
+  <item id="EL542" name="Θεσπρωτία" latinName="Thesprotia" countryOrd="8" regionOrd="681" />
+  <item id="EL543" name="Ιωάννινα" latinName="Ioannina" countryOrd="8" regionOrd="682" />
+  <item id="EL6" name="Κεντρική Ελλάδα" latinName="Kentriki Elláda" countryOrd="8" regionOrd="683" />
+  <item id="EL61" name="Θεσσαλία" latinName="Thessalia" countryOrd="8" regionOrd="684" />
+  <item id="EL611" name="Καρδίτσα, Τρίκαλα" latinName="Karditsa, Trikala" countryOrd="8" regionOrd="685" />
+  <item id="EL612" name="Λάρισα" latinName="Larisa" countryOrd="8" regionOrd="686" />
+  <item id="EL613" name="Μαγνησία, Σποράδες" latinName="Magnisia, Sporades" countryOrd="8" regionOrd="687" />
+  <item id="EL62" name="Ιόνια Νησιά" latinName="Ionia Nisia" countryOrd="8" regionOrd="688" />
+  <item id="EL621" name="Ζάκυνθος" latinName="Zakynthos" countryOrd="8" regionOrd="689" />
+  <item id="EL622" name="Κέρκυρα" latinName="Kerkyra" countryOrd="8" regionOrd="690" />
+  <item id="EL623" name="Ιθάκη, Κεφαλληνία" latinName="Ithaki, Kefallinia" countryOrd="8" regionOrd="691" />
+  <item id="EL624" name="Λευκάδα" latinName="Lefkada" countryOrd="8" regionOrd="692" />
+  <item id="EL63" name="Δυτική Ελλάδα" latinName="Dytiki Elláda" countryOrd="8" regionOrd="693" />
+  <item id="EL631" name="Αιτωλοακαρνανία" latinName="Aitoloakarnania" countryOrd="8" regionOrd="694" />
+  <item id="EL632" name="Αχαΐα" latinName="Achaia" countryOrd="8" regionOrd="695" />
+  <item id="EL633" name="Ηλεία" latinName="Ileia" countryOrd="8" regionOrd="696" />
+  <item id="EL64" name="Στερεά Ελλάδα" latinName="Sterea Elláda" countryOrd="8" regionOrd="697" />
+  <item id="EL641" name="Βοιωτία" latinName="Voiotia" countryOrd="8" regionOrd="698" />
+  <item id="EL642" name="Εύβοια" latinName="Evvoia" countryOrd="8" regionOrd="699" />
+  <item id="EL643" name="Ευρυτανία" latinName="Evrytania" countryOrd="8" regionOrd="700" />
+  <item id="EL644" name="Φθιώτιδα" latinName="Fthiotida" countryOrd="8" regionOrd="701" />
+  <item id="EL645" name="Φωκίδα" latinName="Fokida" countryOrd="8" regionOrd="702" />
+  <item id="EL65" name="Πελοπόννησος" latinName="Peloponnisos" countryOrd="8" regionOrd="703" />
+  <item id="EL651" name="Αργολίδα, Αρκαδία" latinName="Argolida, Arkadia" countryOrd="8" regionOrd="704" />
+  <item id="EL652" name="Κορινθία" latinName="Korinthia" countryOrd="8" regionOrd="705" />
+  <item id="EL653" name="Λακωνία, Μεσσηνία" latinName="Lakonia, Messinia" countryOrd="8" regionOrd="706" />
+  <item id="ELZ" name="Extra-Regio NUTS 1" latinName="Extra-Regio NUTS 1" countryOrd="8" regionOrd="707" />
+  <item id="ELZZ" name="Extra-Regio NUTS 2" latinName="Extra-Regio NUTS 2" countryOrd="8" regionOrd="708" />
+  <item id="ELZZZ" name="Extra-Regio NUTS 3" latinName="Extra-Regio NUTS 3" countryOrd="8" regionOrd="709" />
   <item id="ES" name="España" countryOrd="9" regionOrd="710" />
   <item id="ES1" name="Noroeste" countryOrd="9" regionOrd="711" />
   <item id="ES11" name="Galicia" countryOrd="9" regionOrd="712" />
@@ -1129,13 +1129,13 @@
   <item id="ITZ" name="Extra-Regio NUTS 1" countryOrd="12" regionOrd="1109" />
   <item id="ITZZ" name="Extra-Regio NUTS 2" countryOrd="12" regionOrd="1110" />
   <item id="ITZZZ" name="Extra-Regio NUTS 3" countryOrd="12" regionOrd="1111" />
-  <item id="CY" name="Κύπρος " countryOrd="13" regionOrd="1112" />
-  <item id="CY0" name="Κύπρος" countryOrd="13" regionOrd="1113" />
-  <item id="CY00" name="Κύπρος" countryOrd="13" regionOrd="1114" />
-  <item id="CY000" name="Κύπρος" countryOrd="13" regionOrd="1115" />
-  <item id="CYZ" name="Extra-Regio NUTS 1" countryOrd="13" regionOrd="1116" />
-  <item id="CYZZ" name="Extra-Regio NUTS 2" countryOrd="13" regionOrd="1117" />
-  <item id="CYZZZ" name="Extra-Regio NUTS 3" countryOrd="13" regionOrd="1118" />
+  <item id="CY" name="Κύπρος " latinName="CY" countryOrd="13" regionOrd="1112" />
+  <item id="CY0" name="Κύπρος" latinName="Kýpros" countryOrd="13" regionOrd="1113" />
+  <item id="CY00" name="Κύπρος" latinName="Kýpros" countryOrd="13" regionOrd="1114" />
+  <item id="CY000" name="Κύπρος" latinName="Kýpros" countryOrd="13" regionOrd="1115" />
+  <item id="CYZ" name="Extra-Regio NUTS 1" latinName="EXTRA-REGIO NUTS 1" countryOrd="13" regionOrd="1116" />
+  <item id="CYZZ" name="Extra-Regio NUTS 2" latinName="Extra-Regio NUTS 2" countryOrd="13" regionOrd="1117" />
+  <item id="CYZZZ" name="Extra-Regio NUTS 3" latinName="Extra-Regio NUTS 3" countryOrd="13" regionOrd="1118" />
   <item id="LV" name="Latvija" countryOrd="14" regionOrd="1119" />
   <item id="LV0" name="Latvija" countryOrd="14" regionOrd="1120" />
   <item id="LV00" name="Latvija" countryOrd="14" regionOrd="1121" />
