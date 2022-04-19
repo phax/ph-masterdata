@@ -1,0 +1,1865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2014-2022 Philip Helger (www.helger.com)
+    philip[at]helger[dot]com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<root version="nuts2021">
+  <item id="BE" name="Belgique/België" countryOrd="1" regionOrd="1" />
+  <item id="BE1" name="Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest" countryOrd="1" regionOrd="2" />
+  <item id="BE10" name="Région de Bruxelles-Capitale/ Brussels Hoofdstedelijk Gewest" countryOrd="1" regionOrd="3" />
+  <item id="BE100" name="Arr. de Bruxelles-Capitale/Arr. Brussel-Hoofdstad" countryOrd="1" regionOrd="4" />
+  <item id="BE2" name="Vlaams Gewest" countryOrd="1" regionOrd="5" />
+  <item id="BE21" name="Prov. Antwerpen" countryOrd="1" regionOrd="6" />
+  <item id="BE211" name="Arr. Antwerpen" countryOrd="1" regionOrd="7" />
+  <item id="BE212" name="Arr. Mechelen" countryOrd="1" regionOrd="8" />
+  <item id="BE213" name="Arr. Turnhout" countryOrd="1" regionOrd="9" />
+  <item id="BE22" name="Prov. Limburg (BE)" countryOrd="1" regionOrd="10" />
+  <item id="BE223" name="Arr. Tongeren" countryOrd="1" regionOrd="11" />
+  <item id="BE224" name="Arr. Hasselt" countryOrd="1" regionOrd="12" />
+  <item id="BE225" name="Arr. Maaseik" countryOrd="1" regionOrd="13" />
+  <item id="BE23" name="Prov. Oost-Vlaanderen" countryOrd="1" regionOrd="14" />
+  <item id="BE231" name="Arr. Aalst" countryOrd="1" regionOrd="15" />
+  <item id="BE232" name="Arr. Dendermonde" countryOrd="1" regionOrd="16" />
+  <item id="BE233" name="Arr. Eeklo" countryOrd="1" regionOrd="17" />
+  <item id="BE234" name="Arr. Gent" countryOrd="1" regionOrd="18" />
+  <item id="BE235" name="Arr. Oudenaarde" countryOrd="1" regionOrd="19" />
+  <item id="BE236" name="Arr. Sint-Niklaas" countryOrd="1" regionOrd="20" />
+  <item id="BE24" name="Prov. Vlaams-Brabant" countryOrd="1" regionOrd="21" />
+  <item id="BE241" name="Arr. Halle-Vilvoorde" countryOrd="1" regionOrd="22" />
+  <item id="BE242" name="Arr. Leuven" countryOrd="1" regionOrd="23" />
+  <item id="BE25" name="Prov. West-Vlaanderen" countryOrd="1" regionOrd="24" />
+  <item id="BE251" name="Arr. Brugge" countryOrd="1" regionOrd="25" />
+  <item id="BE252" name="Arr. Diksmuide" countryOrd="1" regionOrd="26" />
+  <item id="BE253" name="Arr. Ieper" countryOrd="1" regionOrd="27" />
+  <item id="BE254" name="Arr. Kortrijk" countryOrd="1" regionOrd="28" />
+  <item id="BE255" name="Arr. Oostende" countryOrd="1" regionOrd="29" />
+  <item id="BE256" name="Arr. Roeselare" countryOrd="1" regionOrd="30" />
+  <item id="BE257" name="Arr. Tielt" countryOrd="1" regionOrd="31" />
+  <item id="BE258" name="Arr. Veurne" countryOrd="1" regionOrd="32" />
+  <item id="BE3" name="Région wallonne" countryOrd="1" regionOrd="33" />
+  <item id="BE31" name="Prov. Brabant Wallon" countryOrd="1" regionOrd="34" />
+  <item id="BE310" name="Arr. Nivelles" countryOrd="1" regionOrd="35" />
+  <item id="BE32" name="Prov. Hainaut" countryOrd="1" regionOrd="36" />
+  <item id="BE323" name="Arr. Mons" countryOrd="1" regionOrd="37" />
+  <item id="BE328" name="Arr. Tournai-Mouscron" countryOrd="1" regionOrd="38" />
+  <item id="BE329" name="Arr. La Louvière" countryOrd="1" regionOrd="39" />
+  <item id="BE32A" name="Arr. Ath" countryOrd="1" regionOrd="40" />
+  <item id="BE32B" name="Arr. Charleroi" countryOrd="1" regionOrd="41" />
+  <item id="BE32C" name="Arr. Soignies" countryOrd="1" regionOrd="42" />
+  <item id="BE32D" name="Arr. Thuin" countryOrd="1" regionOrd="43" />
+  <item id="BE33" name="Prov. Liège" countryOrd="1" regionOrd="44" />
+  <item id="BE331" name="Arr. Huy" countryOrd="1" regionOrd="45" />
+  <item id="BE332" name="Arr. Liège" countryOrd="1" regionOrd="46" />
+  <item id="BE334" name="Arr. Waremme" countryOrd="1" regionOrd="47" />
+  <item id="BE335" name="Arr. Verviers — communes francophones" countryOrd="1" regionOrd="48" />
+  <item id="BE336" name="Bezirk Verviers — Deutschsprachige Gemeinschaft" countryOrd="1" regionOrd="49" />
+  <item id="BE34" name="Prov. Luxembourg (BE)" countryOrd="1" regionOrd="50" />
+  <item id="BE341" name="Arr. Arlon" countryOrd="1" regionOrd="51" />
+  <item id="BE342" name="Arr. Bastogne" countryOrd="1" regionOrd="52" />
+  <item id="BE343" name="Arr. Marche-en-Famenne" countryOrd="1" regionOrd="53" />
+  <item id="BE344" name="Arr. Neufchâteau" countryOrd="1" regionOrd="54" />
+  <item id="BE345" name="Arr. Virton" countryOrd="1" regionOrd="55" />
+  <item id="BE35" name="Prov. Namur" countryOrd="1" regionOrd="56" />
+  <item id="BE351" name="Arr. Dinant" countryOrd="1" regionOrd="57" />
+  <item id="BE352" name="Arr. Namur" countryOrd="1" regionOrd="58" />
+  <item id="BE353" name="Arr. Philippeville" countryOrd="1" regionOrd="59" />
+  <item id="BEZ" name="Extra-Regio NUTS 1" countryOrd="1" regionOrd="60" />
+  <item id="BEZZ" name="Extra-Regio NUTS 2" countryOrd="1" regionOrd="61" />
+  <item id="BEZZZ" name="Extra-Regio NUTS 3" countryOrd="1" regionOrd="62" />
+  <item id="BG" name="България " countryOrd="2" regionOrd="63" />
+  <item id="BG3" name="Северна и Югоизточна България" countryOrd="2" regionOrd="64" />
+  <item id="BG31" name="Северозападен" countryOrd="2" regionOrd="65" />
+  <item id="BG311" name="Видин" countryOrd="2" regionOrd="66" />
+  <item id="BG312" name="Монтана" countryOrd="2" regionOrd="67" />
+  <item id="BG313" name="Враца" countryOrd="2" regionOrd="68" />
+  <item id="BG314" name="Плевен" countryOrd="2" regionOrd="69" />
+  <item id="BG315" name="Ловеч" countryOrd="2" regionOrd="70" />
+  <item id="BG32" name="Северен централен" countryOrd="2" regionOrd="71" />
+  <item id="BG321" name="Велико Търново" countryOrd="2" regionOrd="72" />
+  <item id="BG322" name="Габрово" countryOrd="2" regionOrd="73" />
+  <item id="BG323" name="Русе" countryOrd="2" regionOrd="74" />
+  <item id="BG324" name="Разград" countryOrd="2" regionOrd="75" />
+  <item id="BG325" name="Силистра" countryOrd="2" regionOrd="76" />
+  <item id="BG33" name="Североизточен" countryOrd="2" regionOrd="77" />
+  <item id="BG331" name="Варна" countryOrd="2" regionOrd="78" />
+  <item id="BG332" name="Добрич" countryOrd="2" regionOrd="79" />
+  <item id="BG333" name="Шумен" countryOrd="2" regionOrd="80" />
+  <item id="BG334" name="Търговище" countryOrd="2" regionOrd="81" />
+  <item id="BG34" name="Югоизточен" countryOrd="2" regionOrd="82" />
+  <item id="BG341" name="Бургас" countryOrd="2" regionOrd="83" />
+  <item id="BG342" name="Сливен" countryOrd="2" regionOrd="84" />
+  <item id="BG343" name="Ямбол" countryOrd="2" regionOrd="85" />
+  <item id="BG344" name="Стара Загора" countryOrd="2" regionOrd="86" />
+  <item id="BG4" name="Югозападна и Южна централна България" countryOrd="2" regionOrd="87" />
+  <item id="BG41" name="Югозападен" countryOrd="2" regionOrd="88" />
+  <item id="BG411" name="София (столица)" countryOrd="2" regionOrd="89" />
+  <item id="BG412" name="София" countryOrd="2" regionOrd="90" />
+  <item id="BG413" name="Благоевград" countryOrd="2" regionOrd="91" />
+  <item id="BG414" name="Перник" countryOrd="2" regionOrd="92" />
+  <item id="BG415" name="Кюстендил" countryOrd="2" regionOrd="93" />
+  <item id="BG42" name="Южен централен" countryOrd="2" regionOrd="94" />
+  <item id="BG421" name="Пловдив" countryOrd="2" regionOrd="95" />
+  <item id="BG422" name="Хасково" countryOrd="2" regionOrd="96" />
+  <item id="BG423" name="Пазарджик" countryOrd="2" regionOrd="97" />
+  <item id="BG424" name="Смолян" countryOrd="2" regionOrd="98" />
+  <item id="BG425" name="Кърджали" countryOrd="2" regionOrd="99" />
+  <item id="BGZ" name="Extra-Regio NUTS 1" countryOrd="2" regionOrd="100" />
+  <item id="BGZZ" name="Extra-Regio NUTS 2" countryOrd="2" regionOrd="101" />
+  <item id="BGZZZ" name="Extra-Regio NUTS 3" countryOrd="2" regionOrd="102" />
+  <item id="CZ" name="Česko" countryOrd="3" regionOrd="103" />
+  <item id="CZ0" name="Česko" countryOrd="3" regionOrd="104" />
+  <item id="CZ01" name="Praha" countryOrd="3" regionOrd="105" />
+  <item id="CZ010" name="Hlavní město Praha" countryOrd="3" regionOrd="106" />
+  <item id="CZ02" name="Střední Čechy" countryOrd="3" regionOrd="107" />
+  <item id="CZ020" name="Středočeský kraj" countryOrd="3" regionOrd="108" />
+  <item id="CZ03" name="Jihozápad" countryOrd="3" regionOrd="109" />
+  <item id="CZ031" name="Jihočeský kraj" countryOrd="3" regionOrd="110" />
+  <item id="CZ032" name="Plzeňský kraj" countryOrd="3" regionOrd="111" />
+  <item id="CZ04" name="Severozápad" countryOrd="3" regionOrd="112" />
+  <item id="CZ041" name="Karlovarský kraj" countryOrd="3" regionOrd="113" />
+  <item id="CZ042" name="Ústecký kraj" countryOrd="3" regionOrd="114" />
+  <item id="CZ05" name="Severovýchod" countryOrd="3" regionOrd="115" />
+  <item id="CZ051" name="Liberecký kraj" countryOrd="3" regionOrd="116" />
+  <item id="CZ052" name="Královéhradecký kraj" countryOrd="3" regionOrd="117" />
+  <item id="CZ053" name="Pardubický kraj" countryOrd="3" regionOrd="118" />
+  <item id="CZ06" name="Jihovýchod" countryOrd="3" regionOrd="119" />
+  <item id="CZ063" name="Kraj Vysočina" countryOrd="3" regionOrd="120" />
+  <item id="CZ064" name="Jihomoravský kraj" countryOrd="3" regionOrd="121" />
+  <item id="CZ07" name="Střední Morava" countryOrd="3" regionOrd="122" />
+  <item id="CZ071" name="Olomoucký kraj" countryOrd="3" regionOrd="123" />
+  <item id="CZ072" name="Zlínský kraj" countryOrd="3" regionOrd="124" />
+  <item id="CZ08" name="Moravskoslezsko" countryOrd="3" regionOrd="125" />
+  <item id="CZ080" name="Moravskoslezský kraj" countryOrd="3" regionOrd="126" />
+  <item id="CZZ" name="Extra-Regio NUTS 1" countryOrd="3" regionOrd="127" />
+  <item id="CZZZ" name="Extra-Regio NUTS 2" countryOrd="3" regionOrd="128" />
+  <item id="CZZZZ" name="Extra-Regio NUTS 3" countryOrd="3" regionOrd="129" />
+  <item id="DK" name="Danmark" countryOrd="4" regionOrd="130" />
+  <item id="DK0" name="Danmark" countryOrd="4" regionOrd="131" />
+  <item id="DK01" name="Hovedstaden" countryOrd="4" regionOrd="132" />
+  <item id="DK011" name="Byen København" countryOrd="4" regionOrd="133" />
+  <item id="DK012" name="Københavns omegn" countryOrd="4" regionOrd="134" />
+  <item id="DK013" name="Nordsjælland" countryOrd="4" regionOrd="135" />
+  <item id="DK014" name="Bornholm" countryOrd="4" regionOrd="136" />
+  <item id="DK02" name="Sjælland" countryOrd="4" regionOrd="137" />
+  <item id="DK021" name="Østsjælland" countryOrd="4" regionOrd="138" />
+  <item id="DK022" name="Vest- og Sydsjælland" countryOrd="4" regionOrd="139" />
+  <item id="DK03" name="Syddanmark" countryOrd="4" regionOrd="140" />
+  <item id="DK031" name="Fyn" countryOrd="4" regionOrd="141" />
+  <item id="DK032" name="Sydjylland" countryOrd="4" regionOrd="142" />
+  <item id="DK04" name="Midtjylland" countryOrd="4" regionOrd="143" />
+  <item id="DK041" name="Vestjylland" countryOrd="4" regionOrd="144" />
+  <item id="DK042" name="Østjylland" countryOrd="4" regionOrd="145" />
+  <item id="DK05" name="Nordjylland" countryOrd="4" regionOrd="146" />
+  <item id="DK050" name="Nordjylland" countryOrd="4" regionOrd="147" />
+  <item id="DKZ" name="Extra-Regio NUTS 1" countryOrd="4" regionOrd="148" />
+  <item id="DKZZ" name="Extra-Regio NUTS 2" countryOrd="4" regionOrd="149" />
+  <item id="DKZZZ" name="Extra-Regio NUTS 3" countryOrd="4" regionOrd="150" />
+  <item id="DE" name="Deutschland" countryOrd="5" regionOrd="151" />
+  <item id="DE1" name="Baden-Württemberg" countryOrd="5" regionOrd="152" />
+  <item id="DE11" name="Stuttgart" countryOrd="5" regionOrd="153" />
+  <item id="DE111" name="Stuttgart, Stadtkreis" countryOrd="5" regionOrd="154" />
+  <item id="DE112" name="Böblingen" countryOrd="5" regionOrd="155" />
+  <item id="DE113" name="Esslingen" countryOrd="5" regionOrd="156" />
+  <item id="DE114" name="Göppingen" countryOrd="5" regionOrd="157" />
+  <item id="DE115" name="Ludwigsburg" countryOrd="5" regionOrd="158" />
+  <item id="DE116" name="Rems-Murr-Kreis" countryOrd="5" regionOrd="159" />
+  <item id="DE117" name="Heilbronn, Stadtkreis" countryOrd="5" regionOrd="160" />
+  <item id="DE118" name="Heilbronn, Landkreis" countryOrd="5" regionOrd="161" />
+  <item id="DE119" name="Hohenlohekreis" countryOrd="5" regionOrd="162" />
+  <item id="DE11A" name="Schwäbisch Hall" countryOrd="5" regionOrd="163" />
+  <item id="DE11B" name="Main-Tauber-Kreis" countryOrd="5" regionOrd="164" />
+  <item id="DE11C" name="Heidenheim" countryOrd="5" regionOrd="165" />
+  <item id="DE11D" name="Ostalbkreis" countryOrd="5" regionOrd="166" />
+  <item id="DE12" name="Karlsruhe" countryOrd="5" regionOrd="167" />
+  <item id="DE121" name="Baden-Baden, Stadtkreis" countryOrd="5" regionOrd="168" />
+  <item id="DE122" name="Karlsruhe, Stadtkreis" countryOrd="5" regionOrd="169" />
+  <item id="DE123" name="Karlsruhe, Landkreis" countryOrd="5" regionOrd="170" />
+  <item id="DE124" name="Rastatt" countryOrd="5" regionOrd="171" />
+  <item id="DE125" name="Heidelberg, Stadtkreis" countryOrd="5" regionOrd="172" />
+  <item id="DE126" name="Mannheim, Stadtkreis" countryOrd="5" regionOrd="173" />
+  <item id="DE127" name="Neckar-Odenwald-Kreis" countryOrd="5" regionOrd="174" />
+  <item id="DE128" name="Rhein-Neckar-Kreis" countryOrd="5" regionOrd="175" />
+  <item id="DE129" name="Pforzheim, Stadtkreis" countryOrd="5" regionOrd="176" />
+  <item id="DE12A" name="Calw" countryOrd="5" regionOrd="177" />
+  <item id="DE12B" name="Enzkreis" countryOrd="5" regionOrd="178" />
+  <item id="DE12C" name="Freudenstadt" countryOrd="5" regionOrd="179" />
+  <item id="DE13" name="Freiburg" countryOrd="5" regionOrd="180" />
+  <item id="DE131" name="Freiburg im Breisgau, Stadtkreis" countryOrd="5" regionOrd="181" />
+  <item id="DE132" name="Breisgau-Hochschwarzwald" countryOrd="5" regionOrd="182" />
+  <item id="DE133" name="Emmendingen" countryOrd="5" regionOrd="183" />
+  <item id="DE134" name="Ortenaukreis" countryOrd="5" regionOrd="184" />
+  <item id="DE135" name="Rottweil" countryOrd="5" regionOrd="185" />
+  <item id="DE136" name="Schwarzwald-Baar-Kreis" countryOrd="5" regionOrd="186" />
+  <item id="DE137" name="Tuttlingen" countryOrd="5" regionOrd="187" />
+  <item id="DE138" name="Konstanz" countryOrd="5" regionOrd="188" />
+  <item id="DE139" name="Lörrach" countryOrd="5" regionOrd="189" />
+  <item id="DE13A" name="Waldshut" countryOrd="5" regionOrd="190" />
+  <item id="DE14" name="Tübingen" countryOrd="5" regionOrd="191" />
+  <item id="DE141" name="Reutlingen" countryOrd="5" regionOrd="192" />
+  <item id="DE142" name="Tübingen, Landkreis" countryOrd="5" regionOrd="193" />
+  <item id="DE143" name="Zollernalbkreis" countryOrd="5" regionOrd="194" />
+  <item id="DE144" name="Ulm, Stadtkreis" countryOrd="5" regionOrd="195" />
+  <item id="DE145" name="Alb-Donau-Kreis" countryOrd="5" regionOrd="196" />
+  <item id="DE146" name="Biberach" countryOrd="5" regionOrd="197" />
+  <item id="DE147" name="Bodenseekreis" countryOrd="5" regionOrd="198" />
+  <item id="DE148" name="Ravensburg" countryOrd="5" regionOrd="199" />
+  <item id="DE149" name="Sigmaringen" countryOrd="5" regionOrd="200" />
+  <item id="DE2" name="Bayern" countryOrd="5" regionOrd="201" />
+  <item id="DE21" name="Oberbayern" countryOrd="5" regionOrd="202" />
+  <item id="DE211" name="Ingolstadt, Kreisfreie Stadt" countryOrd="5" regionOrd="203" />
+  <item id="DE212" name="München, Kreisfreie Stadt" countryOrd="5" regionOrd="204" />
+  <item id="DE213" name="Rosenheim, Kreisfreie Stadt" countryOrd="5" regionOrd="205" />
+  <item id="DE214" name="Altötting" countryOrd="5" regionOrd="206" />
+  <item id="DE215" name="Berchtesgadener Land" countryOrd="5" regionOrd="207" />
+  <item id="DE216" name="Bad Tölz-Wolfratshausen" countryOrd="5" regionOrd="208" />
+  <item id="DE217" name="Dachau" countryOrd="5" regionOrd="209" />
+  <item id="DE218" name="Ebersberg" countryOrd="5" regionOrd="210" />
+  <item id="DE219" name="Eichstätt" countryOrd="5" regionOrd="211" />
+  <item id="DE21A" name="Erding" countryOrd="5" regionOrd="212" />
+  <item id="DE21B" name="Freising" countryOrd="5" regionOrd="213" />
+  <item id="DE21C" name="Fürstenfeldbruck" countryOrd="5" regionOrd="214" />
+  <item id="DE21D" name="Garmisch-Partenkirchen" countryOrd="5" regionOrd="215" />
+  <item id="DE21E" name="Landsberg am Lech" countryOrd="5" regionOrd="216" />
+  <item id="DE21F" name="Miesbach" countryOrd="5" regionOrd="217" />
+  <item id="DE21G" name="Mühldorf a. Inn" countryOrd="5" regionOrd="218" />
+  <item id="DE21H" name="München, Landkreis" countryOrd="5" regionOrd="219" />
+  <item id="DE21I" name="Neuburg-Schrobenhausen" countryOrd="5" regionOrd="220" />
+  <item id="DE21J" name="Pfaffenhofen a. d. Ilm" countryOrd="5" regionOrd="221" />
+  <item id="DE21K" name="Rosenheim, Landkreis" countryOrd="5" regionOrd="222" />
+  <item id="DE21L" name="Starnberg" countryOrd="5" regionOrd="223" />
+  <item id="DE21M" name="Traunstein" countryOrd="5" regionOrd="224" />
+  <item id="DE21N" name="Weilheim-Schongau" countryOrd="5" regionOrd="225" />
+  <item id="DE22" name="Niederbayern" countryOrd="5" regionOrd="226" />
+  <item id="DE221" name="Landshut, Kreisfreie Stadt" countryOrd="5" regionOrd="227" />
+  <item id="DE222" name="Passau, Kreisfreie Stadt" countryOrd="5" regionOrd="228" />
+  <item id="DE223" name="Straubing, Kreisfreie Stadt" countryOrd="5" regionOrd="229" />
+  <item id="DE224" name="Deggendorf" countryOrd="5" regionOrd="230" />
+  <item id="DE225" name="Freyung-Grafenau" countryOrd="5" regionOrd="231" />
+  <item id="DE226" name="Kelheim" countryOrd="5" regionOrd="232" />
+  <item id="DE227" name="Landshut, Landkreis" countryOrd="5" regionOrd="233" />
+  <item id="DE228" name="Passau, Landkreis" countryOrd="5" regionOrd="234" />
+  <item id="DE229" name="Regen" countryOrd="5" regionOrd="235" />
+  <item id="DE22A" name="Rottal-Inn" countryOrd="5" regionOrd="236" />
+  <item id="DE22B" name="Straubing-Bogen" countryOrd="5" regionOrd="237" />
+  <item id="DE22C" name="Dingolfing-Landau" countryOrd="5" regionOrd="238" />
+  <item id="DE23" name="Oberpfalz" countryOrd="5" regionOrd="239" />
+  <item id="DE231" name="Amberg, Kreisfreie Stadt" countryOrd="5" regionOrd="240" />
+  <item id="DE232" name="Regensburg, Kreisfreie Stadt" countryOrd="5" regionOrd="241" />
+  <item id="DE233" name="Weiden i. d. Opf, Kreisfreie Stadt" countryOrd="5" regionOrd="242" />
+  <item id="DE234" name="Amberg-Sulzbach" countryOrd="5" regionOrd="243" />
+  <item id="DE235" name="Cham" countryOrd="5" regionOrd="244" />
+  <item id="DE236" name="Neumarkt i. d. OPf." countryOrd="5" regionOrd="245" />
+  <item id="DE237" name="Neustadt a. d. Waldnaab" countryOrd="5" regionOrd="246" />
+  <item id="DE238" name="Regensburg, Landkreis" countryOrd="5" regionOrd="247" />
+  <item id="DE239" name="Schwandorf" countryOrd="5" regionOrd="248" />
+  <item id="DE23A" name="Tirschenreuth" countryOrd="5" regionOrd="249" />
+  <item id="DE24" name="Oberfranken" countryOrd="5" regionOrd="250" />
+  <item id="DE241" name="Bamberg, Kreisfreie Stadt" countryOrd="5" regionOrd="251" />
+  <item id="DE242" name="Bayreuth, Kreisfreie Stadt" countryOrd="5" regionOrd="252" />
+  <item id="DE243" name="Coburg, Kreisfreie Stadt" countryOrd="5" regionOrd="253" />
+  <item id="DE244" name="Hof, Kreisfreie Stadt" countryOrd="5" regionOrd="254" />
+  <item id="DE245" name="Bamberg, Landkreis" countryOrd="5" regionOrd="255" />
+  <item id="DE246" name="Bayreuth, Landkreis" countryOrd="5" regionOrd="256" />
+  <item id="DE247" name="Coburg, Landkreis" countryOrd="5" regionOrd="257" />
+  <item id="DE248" name="Forchheim" countryOrd="5" regionOrd="258" />
+  <item id="DE249" name="Hof, Landkreis" countryOrd="5" regionOrd="259" />
+  <item id="DE24A" name="Kronach" countryOrd="5" regionOrd="260" />
+  <item id="DE24B" name="Kulmbach" countryOrd="5" regionOrd="261" />
+  <item id="DE24C" name="Lichtenfels" countryOrd="5" regionOrd="262" />
+  <item id="DE24D" name="Wunsiedel i. Fichtelgebirge" countryOrd="5" regionOrd="263" />
+  <item id="DE25" name="Mittelfranken" countryOrd="5" regionOrd="264" />
+  <item id="DE251" name="Ansbach, Kreisfreie Stadt" countryOrd="5" regionOrd="265" />
+  <item id="DE252" name="Erlangen, Kreisfreie Stadt" countryOrd="5" regionOrd="266" />
+  <item id="DE253" name="Fürth, Kreisfreie Stadt" countryOrd="5" regionOrd="267" />
+  <item id="DE254" name="Nürnberg, Kreisfreie Stadt" countryOrd="5" regionOrd="268" />
+  <item id="DE255" name="Schwabach, Kreisfreie Stadt" countryOrd="5" regionOrd="269" />
+  <item id="DE256" name="Ansbach, Landkreis" countryOrd="5" regionOrd="270" />
+  <item id="DE257" name="Erlangen-Höchstadt" countryOrd="5" regionOrd="271" />
+  <item id="DE258" name="Fürth, Landkreis" countryOrd="5" regionOrd="272" />
+  <item id="DE259" name="Nürnberger Land" countryOrd="5" regionOrd="273" />
+  <item id="DE25A" name="Neustadt a. d. Aisch-Bad Windsheim" countryOrd="5" regionOrd="274" />
+  <item id="DE25B" name="Roth" countryOrd="5" regionOrd="275" />
+  <item id="DE25C" name="Weißenburg-Gunzenhausen" countryOrd="5" regionOrd="276" />
+  <item id="DE26" name="Unterfranken" countryOrd="5" regionOrd="277" />
+  <item id="DE261" name="Aschaffenburg, Kreisfreie Stadt" countryOrd="5" regionOrd="278" />
+  <item id="DE262" name="Schweinfurt, Kreisfreie Stadt" countryOrd="5" regionOrd="279" />
+  <item id="DE263" name="Würzburg, Kreisfreie Stadt" countryOrd="5" regionOrd="280" />
+  <item id="DE264" name="Aschaffenburg, Landkreis" countryOrd="5" regionOrd="281" />
+  <item id="DE265" name="Bad Kissingen" countryOrd="5" regionOrd="282" />
+  <item id="DE266" name="Rhön-Grabfeld" countryOrd="5" regionOrd="283" />
+  <item id="DE267" name="Haßberge" countryOrd="5" regionOrd="284" />
+  <item id="DE268" name="Kitzingen" countryOrd="5" regionOrd="285" />
+  <item id="DE269" name="Miltenberg" countryOrd="5" regionOrd="286" />
+  <item id="DE26A" name="Main-Spessart" countryOrd="5" regionOrd="287" />
+  <item id="DE26B" name="Schweinfurt, Landkreis" countryOrd="5" regionOrd="288" />
+  <item id="DE26C" name="Würzburg, Landkreis" countryOrd="5" regionOrd="289" />
+  <item id="DE27" name="Schwaben" countryOrd="5" regionOrd="290" />
+  <item id="DE271" name="Augsburg, Kreisfreie Stadt" countryOrd="5" regionOrd="291" />
+  <item id="DE272" name="Kaufbeuren, Kreisfreie Stadt" countryOrd="5" regionOrd="292" />
+  <item id="DE273" name="Kempten (Allgäu), Kreisfreie Stadt" countryOrd="5" regionOrd="293" />
+  <item id="DE274" name="Memmingen, Kreisfreie Stadt" countryOrd="5" regionOrd="294" />
+  <item id="DE275" name="Aichach-Friedberg" countryOrd="5" regionOrd="295" />
+  <item id="DE276" name="Augsburg, Landkreis" countryOrd="5" regionOrd="296" />
+  <item id="DE277" name="Dillingen a.d. Donau" countryOrd="5" regionOrd="297" />
+  <item id="DE278" name="Günzburg" countryOrd="5" regionOrd="298" />
+  <item id="DE279" name="Neu-Ulm" countryOrd="5" regionOrd="299" />
+  <item id="DE27A" name="Lindau (Bodensee)" countryOrd="5" regionOrd="300" />
+  <item id="DE27B" name="Ostallgäu" countryOrd="5" regionOrd="301" />
+  <item id="DE27C" name="Unterallgäu" countryOrd="5" regionOrd="302" />
+  <item id="DE27D" name="Donau-Ries" countryOrd="5" regionOrd="303" />
+  <item id="DE27E" name="Oberallgäu" countryOrd="5" regionOrd="304" />
+  <item id="DE3" name="Berlin" countryOrd="5" regionOrd="305" />
+  <item id="DE30" name="Berlin" countryOrd="5" regionOrd="306" />
+  <item id="DE300" name="Berlin" countryOrd="5" regionOrd="307" />
+  <item id="DE4" name="Brandenburg" countryOrd="5" regionOrd="308" />
+  <item id="DE40" name="Brandenburg" countryOrd="5" regionOrd="309" />
+  <item id="DE401" name="Brandenburg an der Havel, Kreisfreie Stadt" countryOrd="5" regionOrd="310" />
+  <item id="DE402" name="Cottbus, Kreisfreie Stadt" countryOrd="5" regionOrd="311" />
+  <item id="DE403" name="Frankfurt (Oder), Kreisfreie Stadt" countryOrd="5" regionOrd="312" />
+  <item id="DE404" name="Potsdam, Kreisfreie Stadt" countryOrd="5" regionOrd="313" />
+  <item id="DE405" name="Barnim" countryOrd="5" regionOrd="314" />
+  <item id="DE406" name="Dahme-Spreewald" countryOrd="5" regionOrd="315" />
+  <item id="DE407" name="Elbe-Elster" countryOrd="5" regionOrd="316" />
+  <item id="DE408" name="Havelland" countryOrd="5" regionOrd="317" />
+  <item id="DE409" name="Märkisch-Oderland" countryOrd="5" regionOrd="318" />
+  <item id="DE40A" name="Oberhavel" countryOrd="5" regionOrd="319" />
+  <item id="DE40B" name="Oberspreewald-Lausitz" countryOrd="5" regionOrd="320" />
+  <item id="DE40C" name="Oder-Spree" countryOrd="5" regionOrd="321" />
+  <item id="DE40D" name="Ostprignitz-Ruppin" countryOrd="5" regionOrd="322" />
+  <item id="DE40E" name="Potsdam-Mittelmark" countryOrd="5" regionOrd="323" />
+  <item id="DE40F" name="Prignitz" countryOrd="5" regionOrd="324" />
+  <item id="DE40G" name="Spree-Neiße" countryOrd="5" regionOrd="325" />
+  <item id="DE40H" name="Teltow-Fläming" countryOrd="5" regionOrd="326" />
+  <item id="DE40I" name="Uckermark" countryOrd="5" regionOrd="327" />
+  <item id="DE5" name="Bremen" countryOrd="5" regionOrd="328" />
+  <item id="DE50" name="Bremen" countryOrd="5" regionOrd="329" />
+  <item id="DE501" name="Bremen, Kreisfreie Stadt" countryOrd="5" regionOrd="330" />
+  <item id="DE502" name="Bremerhaven, Kreisfreie Stadt" countryOrd="5" regionOrd="331" />
+  <item id="DE6" name="Hamburg" countryOrd="5" regionOrd="332" />
+  <item id="DE60" name="Hamburg" countryOrd="5" regionOrd="333" />
+  <item id="DE600" name="Hamburg" countryOrd="5" regionOrd="334" />
+  <item id="DE7" name="Hessen" countryOrd="5" regionOrd="335" />
+  <item id="DE71" name="Darmstadt" countryOrd="5" regionOrd="336" />
+  <item id="DE711" name="Darmstadt, Kreisfreie Stadt" countryOrd="5" regionOrd="337" />
+  <item id="DE712" name="Frankfurt am Main, Kreisfreie Stadt" countryOrd="5" regionOrd="338" />
+  <item id="DE713" name="Offenbach am Main, Kreisfreie Stadt" countryOrd="5" regionOrd="339" />
+  <item id="DE714" name="Wiesbaden, Kreisfreie Stadt" countryOrd="5" regionOrd="340" />
+  <item id="DE715" name="Bergstraße" countryOrd="5" regionOrd="341" />
+  <item id="DE716" name="Darmstadt-Dieburg" countryOrd="5" regionOrd="342" />
+  <item id="DE717" name="Groß-Gerau" countryOrd="5" regionOrd="343" />
+  <item id="DE718" name="Hochtaunuskreis" countryOrd="5" regionOrd="344" />
+  <item id="DE719" name="Main-Kinzig-Kreis" countryOrd="5" regionOrd="345" />
+  <item id="DE71A" name="Main-Taunus-Kreis" countryOrd="5" regionOrd="346" />
+  <item id="DE71B" name="Odenwaldkreis" countryOrd="5" regionOrd="347" />
+  <item id="DE71C" name="Offenbach, Landkreis" countryOrd="5" regionOrd="348" />
+  <item id="DE71D" name="Rheingau-Taunus-Kreis" countryOrd="5" regionOrd="349" />
+  <item id="DE71E" name="Wetteraukreis" countryOrd="5" regionOrd="350" />
+  <item id="DE72" name="Gießen" countryOrd="5" regionOrd="351" />
+  <item id="DE721" name="Gießen, Landkreis" countryOrd="5" regionOrd="352" />
+  <item id="DE722" name="Lahn-Dill-Kreis" countryOrd="5" regionOrd="353" />
+  <item id="DE723" name="Limburg-Weilburg" countryOrd="5" regionOrd="354" />
+  <item id="DE724" name="Marburg-Biedenkopf" countryOrd="5" regionOrd="355" />
+  <item id="DE725" name="Vogelsbergkreis" countryOrd="5" regionOrd="356" />
+  <item id="DE73" name="Kassel" countryOrd="5" regionOrd="357" />
+  <item id="DE731" name="Kassel, Kreisfreie Stadt" countryOrd="5" regionOrd="358" />
+  <item id="DE732" name="Fulda" countryOrd="5" regionOrd="359" />
+  <item id="DE733" name="Hersfeld-Rotenburg" countryOrd="5" regionOrd="360" />
+  <item id="DE734" name="Kassel, Landkreis" countryOrd="5" regionOrd="361" />
+  <item id="DE735" name="Schwalm-Eder-Kreis" countryOrd="5" regionOrd="362" />
+  <item id="DE736" name="Waldeck-Frankenberg" countryOrd="5" regionOrd="363" />
+  <item id="DE737" name="Werra-Meißner-Kreis" countryOrd="5" regionOrd="364" />
+  <item id="DE8" name="Mecklenburg-Vorpommern" countryOrd="5" regionOrd="365" />
+  <item id="DE80" name="Mecklenburg-Vorpommern" countryOrd="5" regionOrd="366" />
+  <item id="DE803" name="Rostock, Kreisfreie Stadt" countryOrd="5" regionOrd="367" />
+  <item id="DE804" name="Schwerin, Kreisfreie Stadt" countryOrd="5" regionOrd="368" />
+  <item id="DE80J" name="Mecklenburgische Seenplatte" countryOrd="5" regionOrd="369" />
+  <item id="DE80K" name="Landkreis Rostock" countryOrd="5" regionOrd="370" />
+  <item id="DE80L" name="Vorpommern-Rügen" countryOrd="5" regionOrd="371" />
+  <item id="DE80M" name="Nordwestmecklenburg" countryOrd="5" regionOrd="372" />
+  <item id="DE80N" name="Vorpommern-Greifswald" countryOrd="5" regionOrd="373" />
+  <item id="DE80O" name="Ludwigslust-Parchim" countryOrd="5" regionOrd="374" />
+  <item id="DE9" name="Niedersachsen" countryOrd="5" regionOrd="375" />
+  <item id="DE91" name="Braunschweig" countryOrd="5" regionOrd="376" />
+  <item id="DE911" name="Braunschweig, Kreisfreie Stadt" countryOrd="5" regionOrd="377" />
+  <item id="DE912" name="Salzgitter, Kreisfreie Stadt" countryOrd="5" regionOrd="378" />
+  <item id="DE913" name="Wolfsburg, Kreisfreie Stadt" countryOrd="5" regionOrd="379" />
+  <item id="DE914" name="Gifhorn" countryOrd="5" regionOrd="380" />
+  <item id="DE916" name="Goslar" countryOrd="5" regionOrd="381" />
+  <item id="DE917" name="Helmstedt" countryOrd="5" regionOrd="382" />
+  <item id="DE918" name="Northeim" countryOrd="5" regionOrd="383" />
+  <item id="DE91A" name="Peine" countryOrd="5" regionOrd="384" />
+  <item id="DE91B" name="Wolfenbüttel" countryOrd="5" regionOrd="385" />
+  <item id="DE91C" name="Göttingen" countryOrd="5" regionOrd="386" />
+  <item id="DE92" name="Hannover" countryOrd="5" regionOrd="387" />
+  <item id="DE922" name="Diepholz" countryOrd="5" regionOrd="388" />
+  <item id="DE923" name="Hameln-Pyrmont" countryOrd="5" regionOrd="389" />
+  <item id="DE925" name="Hildesheim" countryOrd="5" regionOrd="390" />
+  <item id="DE926" name="Holzminden" countryOrd="5" regionOrd="391" />
+  <item id="DE927" name="Nienburg (Weser)" countryOrd="5" regionOrd="392" />
+  <item id="DE928" name="Schaumburg" countryOrd="5" regionOrd="393" />
+  <item id="DE929" name="Region Hannover" countryOrd="5" regionOrd="394" />
+  <item id="DE93" name="Lüneburg" countryOrd="5" regionOrd="395" />
+  <item id="DE931" name="Celle" countryOrd="5" regionOrd="396" />
+  <item id="DE932" name="Cuxhaven" countryOrd="5" regionOrd="397" />
+  <item id="DE933" name="Harburg" countryOrd="5" regionOrd="398" />
+  <item id="DE934" name="Lüchow-Dannenberg" countryOrd="5" regionOrd="399" />
+  <item id="DE935" name="Lüneburg, Landkreis" countryOrd="5" regionOrd="400" />
+  <item id="DE936" name="Osterholz" countryOrd="5" regionOrd="401" />
+  <item id="DE937" name="Rotenburg (Wümme)" countryOrd="5" regionOrd="402" />
+  <item id="DE938" name="Heidekreis" countryOrd="5" regionOrd="403" />
+  <item id="DE939" name="Stade" countryOrd="5" regionOrd="404" />
+  <item id="DE93A" name="Uelzen" countryOrd="5" regionOrd="405" />
+  <item id="DE93B" name="Verden" countryOrd="5" regionOrd="406" />
+  <item id="DE94" name="Weser-Ems" countryOrd="5" regionOrd="407" />
+  <item id="DE941" name="Delmenhorst, Kreisfreie Stadt" countryOrd="5" regionOrd="408" />
+  <item id="DE942" name="Emden, Kreisfreie Stadt" countryOrd="5" regionOrd="409" />
+  <item id="DE943" name="Oldenburg (Oldenburg), Kreisfreie Stadt" countryOrd="5" regionOrd="410" />
+  <item id="DE944" name="Osnabrück, Kreisfreie Stadt" countryOrd="5" regionOrd="411" />
+  <item id="DE945" name="Wilhelmshaven, Kreisfreie Stadt" countryOrd="5" regionOrd="412" />
+  <item id="DE946" name="Ammerland" countryOrd="5" regionOrd="413" />
+  <item id="DE947" name="Aurich" countryOrd="5" regionOrd="414" />
+  <item id="DE948" name="Cloppenburg" countryOrd="5" regionOrd="415" />
+  <item id="DE949" name="Emsland" countryOrd="5" regionOrd="416" />
+  <item id="DE94A" name="Friesland (DE)" countryOrd="5" regionOrd="417" />
+  <item id="DE94B" name="Grafschaft Bentheim" countryOrd="5" regionOrd="418" />
+  <item id="DE94C" name="Leer" countryOrd="5" regionOrd="419" />
+  <item id="DE94D" name="Oldenburg, Landkreis" countryOrd="5" regionOrd="420" />
+  <item id="DE94E" name="Osnabrück, Landkreis" countryOrd="5" regionOrd="421" />
+  <item id="DE94F" name="Vechta" countryOrd="5" regionOrd="422" />
+  <item id="DE94G" name="Wesermarsch" countryOrd="5" regionOrd="423" />
+  <item id="DE94H" name="Wittmund" countryOrd="5" regionOrd="424" />
+  <item id="DEA" name="Nordrhein-Westfalen" countryOrd="5" regionOrd="425" />
+  <item id="DEA1" name="Düsseldorf" countryOrd="5" regionOrd="426" />
+  <item id="DEA11" name="Düsseldorf, Kreisfreie Stadt" countryOrd="5" regionOrd="427" />
+  <item id="DEA12" name="Duisburg, Kreisfreie Stadt" countryOrd="5" regionOrd="428" />
+  <item id="DEA13" name="Essen, Kreisfreie Stadt" countryOrd="5" regionOrd="429" />
+  <item id="DEA14" name="Krefeld, Kreisfreie Stadt" countryOrd="5" regionOrd="430" />
+  <item id="DEA15" name="Mönchengladbach, Kreisfreie Stadt" countryOrd="5" regionOrd="431" />
+  <item id="DEA16" name="Mülheim an der Ruhr, Kreisfreie Stadt" countryOrd="5" regionOrd="432" />
+  <item id="DEA17" name="Oberhausen, Kreisfreie Stadt" countryOrd="5" regionOrd="433" />
+  <item id="DEA18" name="Remscheid, Kreisfreie Stadt" countryOrd="5" regionOrd="434" />
+  <item id="DEA19" name="Solingen, Kreisfreie Stadt" countryOrd="5" regionOrd="435" />
+  <item id="DEA1A" name="Wuppertal, Kreisfreie Stadt" countryOrd="5" regionOrd="436" />
+  <item id="DEA1B" name="Kleve" countryOrd="5" regionOrd="437" />
+  <item id="DEA1C" name="Mettmann" countryOrd="5" regionOrd="438" />
+  <item id="DEA1D" name="Rhein-Kreis Neuss" countryOrd="5" regionOrd="439" />
+  <item id="DEA1E" name="Viersen" countryOrd="5" regionOrd="440" />
+  <item id="DEA1F" name="Wesel" countryOrd="5" regionOrd="441" />
+  <item id="DEA2" name="Köln" countryOrd="5" regionOrd="442" />
+  <item id="DEA22" name="Bonn, Kreisfreie Stadt" countryOrd="5" regionOrd="443" />
+  <item id="DEA23" name="Köln, Kreisfreie Stadt" countryOrd="5" regionOrd="444" />
+  <item id="DEA24" name="Leverkusen, Kreisfreie Stadt" countryOrd="5" regionOrd="445" />
+  <item id="DEA26" name="Düren" countryOrd="5" regionOrd="446" />
+  <item id="DEA27" name="Rhein-Erft-Kreis" countryOrd="5" regionOrd="447" />
+  <item id="DEA28" name="Euskirchen" countryOrd="5" regionOrd="448" />
+  <item id="DEA29" name="Heinsberg" countryOrd="5" regionOrd="449" />
+  <item id="DEA2A" name="Oberbergischer Kreis" countryOrd="5" regionOrd="450" />
+  <item id="DEA2B" name="Rheinisch-Bergischer Kreis" countryOrd="5" regionOrd="451" />
+  <item id="DEA2C" name="Rhein-Sieg-Kreis" countryOrd="5" regionOrd="452" />
+  <item id="DEA2D" name="Städteregion Aachen" countryOrd="5" regionOrd="453" />
+  <item id="DEA3" name="Münster" countryOrd="5" regionOrd="454" />
+  <item id="DEA31" name="Bottrop, Kreisfreie Stadt" countryOrd="5" regionOrd="455" />
+  <item id="DEA32" name="Gelsenkirchen, Kreisfreie Stadt" countryOrd="5" regionOrd="456" />
+  <item id="DEA33" name="Münster, Kreisfreie Stadt" countryOrd="5" regionOrd="457" />
+  <item id="DEA34" name="Borken" countryOrd="5" regionOrd="458" />
+  <item id="DEA35" name="Coesfeld" countryOrd="5" regionOrd="459" />
+  <item id="DEA36" name="Recklinghausen" countryOrd="5" regionOrd="460" />
+  <item id="DEA37" name="Steinfurt" countryOrd="5" regionOrd="461" />
+  <item id="DEA38" name="Warendorf" countryOrd="5" regionOrd="462" />
+  <item id="DEA4" name="Detmold" countryOrd="5" regionOrd="463" />
+  <item id="DEA41" name="Bielefeld, Kreisfreie Stadt" countryOrd="5" regionOrd="464" />
+  <item id="DEA42" name="Gütersloh" countryOrd="5" regionOrd="465" />
+  <item id="DEA43" name="Herford" countryOrd="5" regionOrd="466" />
+  <item id="DEA44" name="Höxter" countryOrd="5" regionOrd="467" />
+  <item id="DEA45" name="Lippe" countryOrd="5" regionOrd="468" />
+  <item id="DEA46" name="Minden-Lübbecke" countryOrd="5" regionOrd="469" />
+  <item id="DEA47" name="Paderborn" countryOrd="5" regionOrd="470" />
+  <item id="DEA5" name="Arnsberg" countryOrd="5" regionOrd="471" />
+  <item id="DEA51" name="Bochum, Kreisfreie Stadt" countryOrd="5" regionOrd="472" />
+  <item id="DEA52" name="Dortmund, Kreisfreie Stadt" countryOrd="5" regionOrd="473" />
+  <item id="DEA53" name="Hagen, Kreisfreie Stadt" countryOrd="5" regionOrd="474" />
+  <item id="DEA54" name="Hamm, Kreisfreie Stadt" countryOrd="5" regionOrd="475" />
+  <item id="DEA55" name="Herne, Kreisfreie Stadt" countryOrd="5" regionOrd="476" />
+  <item id="DEA56" name="Ennepe-Ruhr-Kreis" countryOrd="5" regionOrd="477" />
+  <item id="DEA57" name="Hochsauerlandkreis" countryOrd="5" regionOrd="478" />
+  <item id="DEA58" name="Märkischer Kreis" countryOrd="5" regionOrd="479" />
+  <item id="DEA59" name="Olpe" countryOrd="5" regionOrd="480" />
+  <item id="DEA5A" name="Siegen-Wittgenstein" countryOrd="5" regionOrd="481" />
+  <item id="DEA5B" name="Soest" countryOrd="5" regionOrd="482" />
+  <item id="DEA5C" name="Unna" countryOrd="5" regionOrd="483" />
+  <item id="DEB" name="Rheinland-Pfalz" countryOrd="5" regionOrd="484" />
+  <item id="DEB1" name="Koblenz" countryOrd="5" regionOrd="485" />
+  <item id="DEB11" name="Koblenz, Kreisfreie Stadt" countryOrd="5" regionOrd="486" />
+  <item id="DEB12" name="Ahrweiler" countryOrd="5" regionOrd="487" />
+  <item id="DEB13" name="Altenkirchen (Westerwald)" countryOrd="5" regionOrd="488" />
+  <item id="DEB14" name="Bad Kreuznach" countryOrd="5" regionOrd="489" />
+  <item id="DEB15" name="Birkenfeld" countryOrd="5" regionOrd="490" />
+  <item id="DEB17" name="Mayen-Koblenz" countryOrd="5" regionOrd="491" />
+  <item id="DEB18" name="Neuwied" countryOrd="5" regionOrd="492" />
+  <item id="DEB1A" name="Rhein-Lahn-Kreis" countryOrd="5" regionOrd="493" />
+  <item id="DEB1B" name="Westerwaldkreis" countryOrd="5" regionOrd="494" />
+  <item id="DEB1C" name="Cochem-Zell" countryOrd="5" regionOrd="495" />
+  <item id="DEB1D" name="Rhein-Hunsrück-Kreis" countryOrd="5" regionOrd="496" />
+  <item id="DEB2" name="Trier" countryOrd="5" regionOrd="497" />
+  <item id="DEB21" name="Trier, Kreisfreie Stadt" countryOrd="5" regionOrd="498" />
+  <item id="DEB22" name="Bernkastel-Wittlich" countryOrd="5" regionOrd="499" />
+  <item id="DEB23" name="Eifelkreis Bitburg-Prüm" countryOrd="5" regionOrd="500" />
+  <item id="DEB24" name="Vulkaneifel" countryOrd="5" regionOrd="501" />
+  <item id="DEB25" name="Trier-Saarburg" countryOrd="5" regionOrd="502" />
+  <item id="DEB3" name="Rheinhessen-Pfalz" countryOrd="5" regionOrd="503" />
+  <item id="DEB31" name="Frankenthal (Pfalz), Kreisfreie Stadt" countryOrd="5" regionOrd="504" />
+  <item id="DEB32" name="Kaiserslautern, Kreisfreie Stadt" countryOrd="5" regionOrd="505" />
+  <item id="DEB33" name="Landau in der Pfalz, Kreisfreie Stadt" countryOrd="5" regionOrd="506" />
+  <item id="DEB34" name="Ludwigshafen am Rhein, Kreisfreie Stadt" countryOrd="5" regionOrd="507" />
+  <item id="DEB35" name="Mainz, Kreisfreie Stadt" countryOrd="5" regionOrd="508" />
+  <item id="DEB36" name="Neustadt an der Weinstraße, Kreisfreie Stadt" countryOrd="5" regionOrd="509" />
+  <item id="DEB37" name="Pirmasens, Kreisfreie Stadt" countryOrd="5" regionOrd="510" />
+  <item id="DEB38" name="Speyer, Kreisfreie Stadt" countryOrd="5" regionOrd="511" />
+  <item id="DEB39" name="Worms, Kreisfreie Stadt" countryOrd="5" regionOrd="512" />
+  <item id="DEB3A" name="Zweibrücken, Kreisfreie Stadt" countryOrd="5" regionOrd="513" />
+  <item id="DEB3B" name="Alzey-Worms" countryOrd="5" regionOrd="514" />
+  <item id="DEB3C" name="Bad Dürkheim" countryOrd="5" regionOrd="515" />
+  <item id="DEB3D" name="Donnersbergkreis" countryOrd="5" regionOrd="516" />
+  <item id="DEB3E" name="Germersheim" countryOrd="5" regionOrd="517" />
+  <item id="DEB3F" name="Kaiserslautern, Landkreis" countryOrd="5" regionOrd="518" />
+  <item id="DEB3G" name="Kusel" countryOrd="5" regionOrd="519" />
+  <item id="DEB3H" name="Südliche Weinstraße" countryOrd="5" regionOrd="520" />
+  <item id="DEB3I" name="Rhein-Pfalz-Kreis" countryOrd="5" regionOrd="521" />
+  <item id="DEB3J" name="Mainz-Bingen" countryOrd="5" regionOrd="522" />
+  <item id="DEB3K" name="Südwestpfalz" countryOrd="5" regionOrd="523" />
+  <item id="DEC" name="Saarland" countryOrd="5" regionOrd="524" />
+  <item id="DEC0" name="Saarland" countryOrd="5" regionOrd="525" />
+  <item id="DEC01" name="Regionalverband Saarbrücken" countryOrd="5" regionOrd="526" />
+  <item id="DEC02" name="Merzig-Wadern" countryOrd="5" regionOrd="527" />
+  <item id="DEC03" name="Neunkirchen" countryOrd="5" regionOrd="528" />
+  <item id="DEC04" name="Saarlouis" countryOrd="5" regionOrd="529" />
+  <item id="DEC05" name="Saarpfalz-Kreis" countryOrd="5" regionOrd="530" />
+  <item id="DEC06" name="St. Wendel" countryOrd="5" regionOrd="531" />
+  <item id="DED" name="Sachsen" countryOrd="5" regionOrd="532" />
+  <item id="DED2" name="Dresden" countryOrd="5" regionOrd="533" />
+  <item id="DED21" name="Dresden, Kreisfreie Stadt" countryOrd="5" regionOrd="534" />
+  <item id="DED2C" name="Bautzen" countryOrd="5" regionOrd="535" />
+  <item id="DED2D" name="Görlitz" countryOrd="5" regionOrd="536" />
+  <item id="DED2E" name="Meißen" countryOrd="5" regionOrd="537" />
+  <item id="DED2F" name="Sächsische Schweiz-Osterzgebirge" countryOrd="5" regionOrd="538" />
+  <item id="DED4" name="Chemnitz" countryOrd="5" regionOrd="539" />
+  <item id="DED41" name="Chemnitz, Kreisfreie Stadt" countryOrd="5" regionOrd="540" />
+  <item id="DED42" name="Erzgebirgskreis" countryOrd="5" regionOrd="541" />
+  <item id="DED43" name="Mittelsachsen" countryOrd="5" regionOrd="542" />
+  <item id="DED44" name="Vogtlandkreis" countryOrd="5" regionOrd="543" />
+  <item id="DED45" name="Zwickau" countryOrd="5" regionOrd="544" />
+  <item id="DED5" name="Leipzig" countryOrd="5" regionOrd="545" />
+  <item id="DED51" name="Leipzig, Kreisfreie Stadt" countryOrd="5" regionOrd="546" />
+  <item id="DED52" name="Leipzig" countryOrd="5" regionOrd="547" />
+  <item id="DED53" name="Nordsachsen" countryOrd="5" regionOrd="548" />
+  <item id="DEE" name="Sachsen-Anhalt" countryOrd="5" regionOrd="549" />
+  <item id="DEE0" name="Sachsen-Anhalt" countryOrd="5" regionOrd="550" />
+  <item id="DEE01" name="Dessau-Roßlau, Kreisfreie Stadt" countryOrd="5" regionOrd="551" />
+  <item id="DEE02" name="Halle (Saale), Kreisfreie Stadt" countryOrd="5" regionOrd="552" />
+  <item id="DEE03" name="Magdeburg, Kreisfreie Stadt" countryOrd="5" regionOrd="553" />
+  <item id="DEE04" name="Altmarkkreis Salzwedel" countryOrd="5" regionOrd="554" />
+  <item id="DEE05" name="Anhalt-Bitterfeld" countryOrd="5" regionOrd="555" />
+  <item id="DEE06" name="Jerichower Land" countryOrd="5" regionOrd="556" />
+  <item id="DEE07" name="Börde" countryOrd="5" regionOrd="557" />
+  <item id="DEE08" name="Burgenlandkreis" countryOrd="5" regionOrd="558" />
+  <item id="DEE09" name="Harz" countryOrd="5" regionOrd="559" />
+  <item id="DEE0A" name="Mansfeld-Südharz" countryOrd="5" regionOrd="560" />
+  <item id="DEE0B" name="Saalekreis" countryOrd="5" regionOrd="561" />
+  <item id="DEE0C" name="Salzlandkreis" countryOrd="5" regionOrd="562" />
+  <item id="DEE0D" name="Stendal" countryOrd="5" regionOrd="563" />
+  <item id="DEE0E" name="Wittenberg" countryOrd="5" regionOrd="564" />
+  <item id="DEF" name="Schleswig-Holstein" countryOrd="5" regionOrd="565" />
+  <item id="DEF0" name="Schleswig-Holstein" countryOrd="5" regionOrd="566" />
+  <item id="DEF01" name="Flensburg, Kreisfreie Stadt" countryOrd="5" regionOrd="567" />
+  <item id="DEF02" name="Kiel, Kreisfreie Stadt" countryOrd="5" regionOrd="568" />
+  <item id="DEF03" name="Lübeck, Kreisfreie Stadt" countryOrd="5" regionOrd="569" />
+  <item id="DEF04" name="Neumünster, Kreisfreie Stadt" countryOrd="5" regionOrd="570" />
+  <item id="DEF05" name="Dithmarschen" countryOrd="5" regionOrd="571" />
+  <item id="DEF06" name="Herzogtum Lauenburg" countryOrd="5" regionOrd="572" />
+  <item id="DEF07" name="Nordfriesland" countryOrd="5" regionOrd="573" />
+  <item id="DEF08" name="Ostholstein" countryOrd="5" regionOrd="574" />
+  <item id="DEF09" name="Pinneberg" countryOrd="5" regionOrd="575" />
+  <item id="DEF0A" name="Plön" countryOrd="5" regionOrd="576" />
+  <item id="DEF0B" name="Rendsburg-Eckernförde" countryOrd="5" regionOrd="577" />
+  <item id="DEF0C" name="Schleswig-Flensburg" countryOrd="5" regionOrd="578" />
+  <item id="DEF0D" name="Segeberg" countryOrd="5" regionOrd="579" />
+  <item id="DEF0E" name="Steinburg" countryOrd="5" regionOrd="580" />
+  <item id="DEF0F" name="Stormarn" countryOrd="5" regionOrd="581" />
+  <item id="DEG" name="Thüringen" countryOrd="5" regionOrd="582" />
+  <item id="DEG0" name="Thüringen" countryOrd="5" regionOrd="583" />
+  <item id="DEG01" name="Erfurt, Kreisfreie Stadt" countryOrd="5" regionOrd="584" />
+  <item id="DEG02" name="Gera, Kreisfreie Stadt" countryOrd="5" regionOrd="585" />
+  <item id="DEG03" name="Jena, Kreisfreie Stadt" countryOrd="5" regionOrd="586" />
+  <item id="DEG04" name="Suhl, Kreisfreie Stadt" countryOrd="5" regionOrd="587" />
+  <item id="DEG05" name="Weimar, Kreisfreie Stadt" countryOrd="5" regionOrd="588" />
+  <item id="DEG06" name="Eichsfeld" countryOrd="5" regionOrd="589" />
+  <item id="DEG07" name="Nordhausen" countryOrd="5" regionOrd="590" />
+  <item id="DEG09" name="Unstrut-Hainich-Kreis" countryOrd="5" regionOrd="591" />
+  <item id="DEG0A" name="Kyffhäuserkreis" countryOrd="5" regionOrd="592" />
+  <item id="DEG0B" name="Schmalkalden-Meiningen" countryOrd="5" regionOrd="593" />
+  <item id="DEG0C" name="Gotha" countryOrd="5" regionOrd="594" />
+  <item id="DEG0D" name="Sömmerda" countryOrd="5" regionOrd="595" />
+  <item id="DEG0E" name="Hildburghausen" countryOrd="5" regionOrd="596" />
+  <item id="DEG0F" name="Ilm-Kreis" countryOrd="5" regionOrd="597" />
+  <item id="DEG0G" name="Weimarer Land" countryOrd="5" regionOrd="598" />
+  <item id="DEG0H" name="Sonneberg" countryOrd="5" regionOrd="599" />
+  <item id="DEG0I" name="Saalfeld-Rudolstadt" countryOrd="5" regionOrd="600" />
+  <item id="DEG0J" name="Saale-Holzland-Kreis" countryOrd="5" regionOrd="601" />
+  <item id="DEG0K" name="Saale-Orla-Kreis" countryOrd="5" regionOrd="602" />
+  <item id="DEG0L" name="Greiz" countryOrd="5" regionOrd="603" />
+  <item id="DEG0M" name="Altenburger Land" countryOrd="5" regionOrd="604" />
+  <item id="DEG0N" name="Eisenach, Kreisfreie Stadt" countryOrd="5" regionOrd="605" />
+  <item id="DEG0P" name="Wartburgkreis" countryOrd="5" regionOrd="606" />
+  <item id="DEZ" name="Extra-Regio NUTS 1" countryOrd="5" regionOrd="607" />
+  <item id="DEZZ" name="Extra-Regio NUTS 2" countryOrd="5" regionOrd="608" />
+  <item id="DEZZZ" name="Extra-Regio NUTS 3" countryOrd="5" regionOrd="609" />
+  <item id="EE" name="Eesti" countryOrd="6" regionOrd="610" />
+  <item id="EE0" name="Eesti" countryOrd="6" regionOrd="611" />
+  <item id="EE00" name="Eesti" countryOrd="6" regionOrd="612" />
+  <item id="EE001" name="Põhja-Eesti" countryOrd="6" regionOrd="613" />
+  <item id="EE004" name="Lääne-Eesti" countryOrd="6" regionOrd="614" />
+  <item id="EE008" name="Lõuna-Eesti" countryOrd="6" regionOrd="615" />
+  <item id="EE009" name="Kesk-Eesti" countryOrd="6" regionOrd="616" />
+  <item id="EE00A" name="Kirde-Eesti" countryOrd="6" regionOrd="617" />
+  <item id="EEZ" name="Extra-Regio NUTS 1" countryOrd="6" regionOrd="618" />
+  <item id="EEZZ" name="Extra-Regio NUTS 2" countryOrd="6" regionOrd="619" />
+  <item id="EEZZZ" name="Extra-Regio NUTS 3" countryOrd="6" regionOrd="620" />
+  <item id="IE" name="Éire/Ireland" countryOrd="7" regionOrd="621" />
+  <item id="IE0" name="Ireland" countryOrd="7" regionOrd="622" />
+  <item id="IE04" name="Northern and Western" countryOrd="7" regionOrd="623" />
+  <item id="IE041" name="Border" countryOrd="7" regionOrd="624" />
+  <item id="IE042" name="West" countryOrd="7" regionOrd="625" />
+  <item id="IE05" name="Southern" countryOrd="7" regionOrd="626" />
+  <item id="IE051" name="Mid-West " countryOrd="7" regionOrd="627" />
+  <item id="IE052" name="South-East " countryOrd="7" regionOrd="628" />
+  <item id="IE053" name="South-West " countryOrd="7" regionOrd="629" />
+  <item id="IE06" name="Eastern and Midland" countryOrd="7" regionOrd="630" />
+  <item id="IE061" name="Dublin" countryOrd="7" regionOrd="631" />
+  <item id="IE062" name="Mid-East" countryOrd="7" regionOrd="632" />
+  <item id="IE063" name="Midland" countryOrd="7" regionOrd="633" />
+  <item id="IEZ" name="Extra-Regio NUTS 1" countryOrd="7" regionOrd="634" />
+  <item id="IEZZ" name="Extra-Regio NUTS 2" countryOrd="7" regionOrd="635" />
+  <item id="IEZZZ" name="Extra-Regio NUTS 3" countryOrd="7" regionOrd="636" />
+  <item id="EL" name="Ελλάδα " countryOrd="8" regionOrd="637" />
+  <item id="EL3" name="Αττική " countryOrd="8" regionOrd="638" />
+  <item id="EL30" name="Aττική" countryOrd="8" regionOrd="639" />
+  <item id="EL301" name="Βόρειος Τομέας Αθηνών" countryOrd="8" regionOrd="640" />
+  <item id="EL302" name="Δυτικός Τομέας Αθηνών" countryOrd="8" regionOrd="641" />
+  <item id="EL303" name="Κεντρικός Τομέας Αθηνών" countryOrd="8" regionOrd="642" />
+  <item id="EL304" name="Νότιος Τομέας Αθηνών" countryOrd="8" regionOrd="643" />
+  <item id="EL305" name="Ανατολική Αττική" countryOrd="8" regionOrd="644" />
+  <item id="EL306" name="Δυτική Αττική" countryOrd="8" regionOrd="645" />
+  <item id="EL307" name="Πειραιάς, Νήσοι" countryOrd="8" regionOrd="646" />
+  <item id="EL4" name="Νησιά Αιγαίου, Κρήτη" countryOrd="8" regionOrd="647" />
+  <item id="EL41" name="Βόρειο Αιγαίο" countryOrd="8" regionOrd="648" />
+  <item id="EL411" name="Λέσβος, Λήμνος" countryOrd="8" regionOrd="649" />
+  <item id="EL412" name="Ικαρία, Σάμος" countryOrd="8" regionOrd="650" />
+  <item id="EL413" name="Χίος" countryOrd="8" regionOrd="651" />
+  <item id="EL42" name="Νότιο Αιγαίο" countryOrd="8" regionOrd="652" />
+  <item id="EL421" name="Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος" countryOrd="8" regionOrd="653" />
+  <item id="EL422" name="Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος" countryOrd="8" regionOrd="654" />
+  <item id="EL43" name="Κρήτη" countryOrd="8" regionOrd="655" />
+  <item id="EL431" name="Ηράκλειο" countryOrd="8" regionOrd="656" />
+  <item id="EL432" name="Λασίθι" countryOrd="8" regionOrd="657" />
+  <item id="EL433" name="Ρέθυμνο" countryOrd="8" regionOrd="658" />
+  <item id="EL434" name="Χανιά" countryOrd="8" regionOrd="659" />
+  <item id="EL5" name="Βόρεια Ελλάδα" countryOrd="8" regionOrd="660" />
+  <item id="EL51" name="Aνατολική Μακεδονία, Θράκη" countryOrd="8" regionOrd="661" />
+  <item id="EL511" name="Έβρος" countryOrd="8" regionOrd="662" />
+  <item id="EL512" name="Ξάνθη" countryOrd="8" regionOrd="663" />
+  <item id="EL513" name="Ροδόπη" countryOrd="8" regionOrd="664" />
+  <item id="EL514" name="Δράμα" countryOrd="8" regionOrd="665" />
+  <item id="EL515" name="Θάσος, Καβάλα" countryOrd="8" regionOrd="666" />
+  <item id="EL52" name="Κεντρική Μακεδονία" countryOrd="8" regionOrd="667" />
+  <item id="EL521" name="Ημαθία" countryOrd="8" regionOrd="668" />
+  <item id="EL522" name="Θεσσαλονίκη" countryOrd="8" regionOrd="669" />
+  <item id="EL523" name="Κιλκίς" countryOrd="8" regionOrd="670" />
+  <item id="EL524" name="Πέλλα" countryOrd="8" regionOrd="671" />
+  <item id="EL525" name="Πιερία" countryOrd="8" regionOrd="672" />
+  <item id="EL526" name="Σέρρες" countryOrd="8" regionOrd="673" />
+  <item id="EL527" name="Χαλκιδική" countryOrd="8" regionOrd="674" />
+  <item id="EL53" name="Δυτική Μακεδονία" countryOrd="8" regionOrd="675" />
+  <item id="EL531" name="Γρεβενά, Κοζάνη" countryOrd="8" regionOrd="676" />
+  <item id="EL532" name="Καστοριά" countryOrd="8" regionOrd="677" />
+  <item id="EL533" name="Φλώρινα" countryOrd="8" regionOrd="678" />
+  <item id="EL54" name="Ήπειρος" countryOrd="8" regionOrd="679" />
+  <item id="EL541" name="Άρτα, Πρέβεζα" countryOrd="8" regionOrd="680" />
+  <item id="EL542" name="Θεσπρωτία" countryOrd="8" regionOrd="681" />
+  <item id="EL543" name="Ιωάννινα" countryOrd="8" regionOrd="682" />
+  <item id="EL6" name="Κεντρική Ελλάδα" countryOrd="8" regionOrd="683" />
+  <item id="EL61" name="Θεσσαλία" countryOrd="8" regionOrd="684" />
+  <item id="EL611" name="Καρδίτσα, Τρίκαλα" countryOrd="8" regionOrd="685" />
+  <item id="EL612" name="Λάρισα" countryOrd="8" regionOrd="686" />
+  <item id="EL613" name="Μαγνησία, Σποράδες" countryOrd="8" regionOrd="687" />
+  <item id="EL62" name="Ιόνια Νησιά" countryOrd="8" regionOrd="688" />
+  <item id="EL621" name="Ζάκυνθος" countryOrd="8" regionOrd="689" />
+  <item id="EL622" name="Κέρκυρα" countryOrd="8" regionOrd="690" />
+  <item id="EL623" name="Ιθάκη, Κεφαλληνία" countryOrd="8" regionOrd="691" />
+  <item id="EL624" name="Λευκάδα" countryOrd="8" regionOrd="692" />
+  <item id="EL63" name="Δυτική Ελλάδα" countryOrd="8" regionOrd="693" />
+  <item id="EL631" name="Αιτωλοακαρνανία" countryOrd="8" regionOrd="694" />
+  <item id="EL632" name="Αχαΐα" countryOrd="8" regionOrd="695" />
+  <item id="EL633" name="Ηλεία" countryOrd="8" regionOrd="696" />
+  <item id="EL64" name="Στερεά Ελλάδα" countryOrd="8" regionOrd="697" />
+  <item id="EL641" name="Βοιωτία" countryOrd="8" regionOrd="698" />
+  <item id="EL642" name="Εύβοια" countryOrd="8" regionOrd="699" />
+  <item id="EL643" name="Ευρυτανία" countryOrd="8" regionOrd="700" />
+  <item id="EL644" name="Φθιώτιδα" countryOrd="8" regionOrd="701" />
+  <item id="EL645" name="Φωκίδα" countryOrd="8" regionOrd="702" />
+  <item id="EL65" name="Πελοπόννησος" countryOrd="8" regionOrd="703" />
+  <item id="EL651" name="Αργολίδα, Αρκαδία" countryOrd="8" regionOrd="704" />
+  <item id="EL652" name="Κορινθία" countryOrd="8" regionOrd="705" />
+  <item id="EL653" name="Λακωνία, Μεσσηνία" countryOrd="8" regionOrd="706" />
+  <item id="ELZ" name="Extra-Regio NUTS 1" countryOrd="8" regionOrd="707" />
+  <item id="ELZZ" name="Extra-Regio NUTS 2" countryOrd="8" regionOrd="708" />
+  <item id="ELZZZ" name="Extra-Regio NUTS 3" countryOrd="8" regionOrd="709" />
+  <item id="ES" name="España" countryOrd="9" regionOrd="710" />
+  <item id="ES1" name="Noroeste" countryOrd="9" regionOrd="711" />
+  <item id="ES11" name="Galicia" countryOrd="9" regionOrd="712" />
+  <item id="ES111" name="A Coruña" countryOrd="9" regionOrd="713" />
+  <item id="ES112" name="Lugo" countryOrd="9" regionOrd="714" />
+  <item id="ES113" name="Ourense" countryOrd="9" regionOrd="715" />
+  <item id="ES114" name="Pontevedra" countryOrd="9" regionOrd="716" />
+  <item id="ES12" name="Principado de Asturias" countryOrd="9" regionOrd="717" />
+  <item id="ES120" name="Asturias" countryOrd="9" regionOrd="718" />
+  <item id="ES13" name="Cantabria" countryOrd="9" regionOrd="719" />
+  <item id="ES130" name="Cantabria" countryOrd="9" regionOrd="720" />
+  <item id="ES2" name="Noreste" countryOrd="9" regionOrd="721" />
+  <item id="ES21" name="País Vasco" countryOrd="9" regionOrd="722" />
+  <item id="ES211" name="Araba/Álava" countryOrd="9" regionOrd="723" />
+  <item id="ES212" name="Gipuzkoa" countryOrd="9" regionOrd="724" />
+  <item id="ES213" name="Bizkaia" countryOrd="9" regionOrd="725" />
+  <item id="ES22" name="Comunidad Foral de Navarra" countryOrd="9" regionOrd="726" />
+  <item id="ES220" name="Navarra" countryOrd="9" regionOrd="727" />
+  <item id="ES23" name="La Rioja" countryOrd="9" regionOrd="728" />
+  <item id="ES230" name="La Rioja" countryOrd="9" regionOrd="729" />
+  <item id="ES24" name="Aragón" countryOrd="9" regionOrd="730" />
+  <item id="ES241" name="Huesca" countryOrd="9" regionOrd="731" />
+  <item id="ES242" name="Teruel" countryOrd="9" regionOrd="732" />
+  <item id="ES243" name="Zaragoza" countryOrd="9" regionOrd="733" />
+  <item id="ES3" name="Comunidad de Madrid" countryOrd="9" regionOrd="734" />
+  <item id="ES30" name="Comunidad de Madrid" countryOrd="9" regionOrd="735" />
+  <item id="ES300" name="Madrid" countryOrd="9" regionOrd="736" />
+  <item id="ES4" name="Centro (ES)" countryOrd="9" regionOrd="737" />
+  <item id="ES41" name="Castilla y León" countryOrd="9" regionOrd="738" />
+  <item id="ES411" name="Ávila" countryOrd="9" regionOrd="739" />
+  <item id="ES412" name="Burgos" countryOrd="9" regionOrd="740" />
+  <item id="ES413" name="León" countryOrd="9" regionOrd="741" />
+  <item id="ES414" name="Palencia" countryOrd="9" regionOrd="742" />
+  <item id="ES415" name="Salamanca" countryOrd="9" regionOrd="743" />
+  <item id="ES416" name="Segovia" countryOrd="9" regionOrd="744" />
+  <item id="ES417" name="Soria" countryOrd="9" regionOrd="745" />
+  <item id="ES418" name="Valladolid" countryOrd="9" regionOrd="746" />
+  <item id="ES419" name="Zamora" countryOrd="9" regionOrd="747" />
+  <item id="ES42" name="Castilla-La Mancha" countryOrd="9" regionOrd="748" />
+  <item id="ES421" name="Albacete" countryOrd="9" regionOrd="749" />
+  <item id="ES422" name="Ciudad Real" countryOrd="9" regionOrd="750" />
+  <item id="ES423" name="Cuenca" countryOrd="9" regionOrd="751" />
+  <item id="ES424" name="Guadalajara" countryOrd="9" regionOrd="752" />
+  <item id="ES425" name="Toledo" countryOrd="9" regionOrd="753" />
+  <item id="ES43" name="Extremadura" countryOrd="9" regionOrd="754" />
+  <item id="ES431" name="Badajoz" countryOrd="9" regionOrd="755" />
+  <item id="ES432" name="Cáceres" countryOrd="9" regionOrd="756" />
+  <item id="ES5" name="Este" countryOrd="9" regionOrd="757" />
+  <item id="ES51" name="Cataluña" countryOrd="9" regionOrd="758" />
+  <item id="ES511" name="Barcelona" countryOrd="9" regionOrd="759" />
+  <item id="ES512" name="Girona" countryOrd="9" regionOrd="760" />
+  <item id="ES513" name="Lleida" countryOrd="9" regionOrd="761" />
+  <item id="ES514" name="Tarragona" countryOrd="9" regionOrd="762" />
+  <item id="ES52" name="Comunitat Valenciana " countryOrd="9" regionOrd="763" />
+  <item id="ES521" name="Alicante/Alacant" countryOrd="9" regionOrd="764" />
+  <item id="ES522" name="Castellón/Castelló" countryOrd="9" regionOrd="765" />
+  <item id="ES523" name="Valencia/València" countryOrd="9" regionOrd="766" />
+  <item id="ES53" name="Illes Balears" countryOrd="9" regionOrd="767" />
+  <item id="ES531" name="Eivissa y Formentera" countryOrd="9" regionOrd="768" />
+  <item id="ES532" name="Mallorca" countryOrd="9" regionOrd="769" />
+  <item id="ES533" name="Menorca" countryOrd="9" regionOrd="770" />
+  <item id="ES6" name="Sur" countryOrd="9" regionOrd="771" />
+  <item id="ES61" name="Andalucía" countryOrd="9" regionOrd="772" />
+  <item id="ES611" name="Almería" countryOrd="9" regionOrd="773" />
+  <item id="ES612" name="Cádiz" countryOrd="9" regionOrd="774" />
+  <item id="ES613" name="Córdoba" countryOrd="9" regionOrd="775" />
+  <item id="ES614" name="Granada" countryOrd="9" regionOrd="776" />
+  <item id="ES615" name="Huelva" countryOrd="9" regionOrd="777" />
+  <item id="ES616" name="Jaén" countryOrd="9" regionOrd="778" />
+  <item id="ES617" name="Málaga" countryOrd="9" regionOrd="779" />
+  <item id="ES618" name="Sevilla" countryOrd="9" regionOrd="780" />
+  <item id="ES62" name="Región de Murcia" countryOrd="9" regionOrd="781" />
+  <item id="ES620" name="Murcia" countryOrd="9" regionOrd="782" />
+  <item id="ES63" name="Ciudad de Ceuta" countryOrd="9" regionOrd="783" />
+  <item id="ES630" name="Ceuta" countryOrd="9" regionOrd="784" />
+  <item id="ES64" name="Ciudad de Melilla" countryOrd="9" regionOrd="785" />
+  <item id="ES640" name="Melilla" countryOrd="9" regionOrd="786" />
+  <item id="ES7" name="Canarias" countryOrd="9" regionOrd="787" />
+  <item id="ES70" name="Canarias" countryOrd="9" regionOrd="788" />
+  <item id="ES703" name="El Hierro" countryOrd="9" regionOrd="789" />
+  <item id="ES704" name="Fuerteventura" countryOrd="9" regionOrd="790" />
+  <item id="ES705" name="Gran Canaria" countryOrd="9" regionOrd="791" />
+  <item id="ES706" name="La Gomera" countryOrd="9" regionOrd="792" />
+  <item id="ES707" name="La Palma" countryOrd="9" regionOrd="793" />
+  <item id="ES708" name="Lanzarote" countryOrd="9" regionOrd="794" />
+  <item id="ES709" name="Tenerife" countryOrd="9" regionOrd="795" />
+  <item id="ESZ" name="Extra-Regio NUTS 1" countryOrd="9" regionOrd="796" />
+  <item id="ESZZ" name="Extra-Regio NUTS 2" countryOrd="9" regionOrd="797" />
+  <item id="ESZZZ" name="Extra-Regio NUTS 3" countryOrd="9" regionOrd="798" />
+  <item id="FR" name="France" countryOrd="10" regionOrd="799" />
+  <item id="FR1" name="Ile-de-France" countryOrd="10" regionOrd="800" />
+  <item id="FR10" name="Ile-de-France" countryOrd="10" regionOrd="801" />
+  <item id="FR101" name="Paris" countryOrd="10" regionOrd="802" />
+  <item id="FR102" name="Seine-et-Marne " countryOrd="10" regionOrd="803" />
+  <item id="FR103" name="Yvelines " countryOrd="10" regionOrd="804" />
+  <item id="FR104" name="Essonne" countryOrd="10" regionOrd="805" />
+  <item id="FR105" name="Hauts-de-Seine " countryOrd="10" regionOrd="806" />
+  <item id="FR106" name="Seine-Saint-Denis " countryOrd="10" regionOrd="807" />
+  <item id="FR107" name="Val-de-Marne" countryOrd="10" regionOrd="808" />
+  <item id="FR108" name="Val-d’Oise" countryOrd="10" regionOrd="809" />
+  <item id="FRB" name="Centre — Val de Loire" countryOrd="10" regionOrd="810" />
+  <item id="FRB0" name="Centre — Val de Loire" countryOrd="10" regionOrd="811" />
+  <item id="FRB01" name="Cher" countryOrd="10" regionOrd="812" />
+  <item id="FRB02" name="Eure-et-Loir" countryOrd="10" regionOrd="813" />
+  <item id="FRB03" name="Indre" countryOrd="10" regionOrd="814" />
+  <item id="FRB04" name="Indre-et-Loire" countryOrd="10" regionOrd="815" />
+  <item id="FRB05" name="Loir-et-Cher" countryOrd="10" regionOrd="816" />
+  <item id="FRB06" name="Loiret" countryOrd="10" regionOrd="817" />
+  <item id="FRC" name="Bourgogne-Franche-Comté" countryOrd="10" regionOrd="818" />
+  <item id="FRC1" name="Bourgogne" countryOrd="10" regionOrd="819" />
+  <item id="FRC11" name="Côte-d’Or" countryOrd="10" regionOrd="820" />
+  <item id="FRC12" name="Nièvre" countryOrd="10" regionOrd="821" />
+  <item id="FRC13" name="Saône-et-Loire" countryOrd="10" regionOrd="822" />
+  <item id="FRC14" name="Yonne" countryOrd="10" regionOrd="823" />
+  <item id="FRC2" name="Franche-Comté" countryOrd="10" regionOrd="824" />
+  <item id="FRC21" name="Doubs" countryOrd="10" regionOrd="825" />
+  <item id="FRC22" name="Jura" countryOrd="10" regionOrd="826" />
+  <item id="FRC23" name="Haute-Saône" countryOrd="10" regionOrd="827" />
+  <item id="FRC24" name="Territoire de Belfort" countryOrd="10" regionOrd="828" />
+  <item id="FRD" name="Normandie" countryOrd="10" regionOrd="829" />
+  <item id="FRD1" name="Basse-Normandie " countryOrd="10" regionOrd="830" />
+  <item id="FRD11" name="Calvados " countryOrd="10" regionOrd="831" />
+  <item id="FRD12" name="Manche " countryOrd="10" regionOrd="832" />
+  <item id="FRD13" name="Orne" countryOrd="10" regionOrd="833" />
+  <item id="FRD2" name="Haute-Normandie " countryOrd="10" regionOrd="834" />
+  <item id="FRD21" name="Eure" countryOrd="10" regionOrd="835" />
+  <item id="FRD22" name="Seine-Maritime" countryOrd="10" regionOrd="836" />
+  <item id="FRE" name="Hauts-de-France" countryOrd="10" regionOrd="837" />
+  <item id="FRE1" name="Nord-Pas de Calais" countryOrd="10" regionOrd="838" />
+  <item id="FRE11" name="Nord" countryOrd="10" regionOrd="839" />
+  <item id="FRE12" name="Pas-de-Calais" countryOrd="10" regionOrd="840" />
+  <item id="FRE2" name="Picardie" countryOrd="10" regionOrd="841" />
+  <item id="FRE21" name="Aisne" countryOrd="10" regionOrd="842" />
+  <item id="FRE22" name="Oise" countryOrd="10" regionOrd="843" />
+  <item id="FRE23" name="Somme" countryOrd="10" regionOrd="844" />
+  <item id="FRF" name="Grand Est" countryOrd="10" regionOrd="845" />
+  <item id="FRF1" name="Alsace" countryOrd="10" regionOrd="846" />
+  <item id="FRF11" name="Bas-Rhin" countryOrd="10" regionOrd="847" />
+  <item id="FRF12" name="Haut-Rhin" countryOrd="10" regionOrd="848" />
+  <item id="FRF2" name="Champagne-Ardenne" countryOrd="10" regionOrd="849" />
+  <item id="FRF21" name="Ardennes" countryOrd="10" regionOrd="850" />
+  <item id="FRF22" name="Aube" countryOrd="10" regionOrd="851" />
+  <item id="FRF23" name="Marne" countryOrd="10" regionOrd="852" />
+  <item id="FRF24" name="Haute-Marne" countryOrd="10" regionOrd="853" />
+  <item id="FRF3" name="Lorraine" countryOrd="10" regionOrd="854" />
+  <item id="FRF31" name="Meurthe-et-Moselle " countryOrd="10" regionOrd="855" />
+  <item id="FRF32" name="Meuse " countryOrd="10" regionOrd="856" />
+  <item id="FRF33" name="Moselle" countryOrd="10" regionOrd="857" />
+  <item id="FRF34" name="Vosges" countryOrd="10" regionOrd="858" />
+  <item id="FRG" name="Pays de la Loire" countryOrd="10" regionOrd="859" />
+  <item id="FRG0" name="Pays de la Loire" countryOrd="10" regionOrd="860" />
+  <item id="FRG01" name="Loire-Atlantique" countryOrd="10" regionOrd="861" />
+  <item id="FRG02" name="Maine-et-Loire" countryOrd="10" regionOrd="862" />
+  <item id="FRG03" name="Mayenne" countryOrd="10" regionOrd="863" />
+  <item id="FRG04" name="Sarthe" countryOrd="10" regionOrd="864" />
+  <item id="FRG05" name="Vendée" countryOrd="10" regionOrd="865" />
+  <item id="FRH" name="Bretagne" countryOrd="10" regionOrd="866" />
+  <item id="FRH0" name="Bretagne" countryOrd="10" regionOrd="867" />
+  <item id="FRH01" name="Côtes-d’Armor" countryOrd="10" regionOrd="868" />
+  <item id="FRH02" name="Finistère" countryOrd="10" regionOrd="869" />
+  <item id="FRH03" name="Ille-et-Vilaine" countryOrd="10" regionOrd="870" />
+  <item id="FRH04" name="Morbihan" countryOrd="10" regionOrd="871" />
+  <item id="FRI" name="Nouvelle-Aquitaine" countryOrd="10" regionOrd="872" />
+  <item id="FRI1" name="Aquitaine" countryOrd="10" regionOrd="873" />
+  <item id="FRI11" name="Dordogne" countryOrd="10" regionOrd="874" />
+  <item id="FRI12" name="Gironde" countryOrd="10" regionOrd="875" />
+  <item id="FRI13" name="Landes" countryOrd="10" regionOrd="876" />
+  <item id="FRI14" name="Lot-et-Garonne" countryOrd="10" regionOrd="877" />
+  <item id="FRI15" name="Pyrénées-Atlantiques" countryOrd="10" regionOrd="878" />
+  <item id="FRI2" name="Limousin" countryOrd="10" regionOrd="879" />
+  <item id="FRI21" name="Corrèze" countryOrd="10" regionOrd="880" />
+  <item id="FRI22" name="Creuse" countryOrd="10" regionOrd="881" />
+  <item id="FRI23" name="Haute-Vienne" countryOrd="10" regionOrd="882" />
+  <item id="FRI3" name="Poitou-Charentes" countryOrd="10" regionOrd="883" />
+  <item id="FRI31" name="Charente" countryOrd="10" regionOrd="884" />
+  <item id="FRI32" name="Charente-Maritime" countryOrd="10" regionOrd="885" />
+  <item id="FRI33" name="Deux-Sèvres" countryOrd="10" regionOrd="886" />
+  <item id="FRI34" name="Vienne" countryOrd="10" regionOrd="887" />
+  <item id="FRJ" name="Occitanie" countryOrd="10" regionOrd="888" />
+  <item id="FRJ1" name="Languedoc-Roussillon" countryOrd="10" regionOrd="889" />
+  <item id="FRJ11" name="Aude" countryOrd="10" regionOrd="890" />
+  <item id="FRJ12" name="Gard" countryOrd="10" regionOrd="891" />
+  <item id="FRJ13" name="Hérault" countryOrd="10" regionOrd="892" />
+  <item id="FRJ14" name="Lozère" countryOrd="10" regionOrd="893" />
+  <item id="FRJ15" name="Pyrénées-Orientales" countryOrd="10" regionOrd="894" />
+  <item id="FRJ2" name="Midi-Pyrénées" countryOrd="10" regionOrd="895" />
+  <item id="FRJ21" name="Ariège" countryOrd="10" regionOrd="896" />
+  <item id="FRJ22" name="Aveyron" countryOrd="10" regionOrd="897" />
+  <item id="FRJ23" name="Haute-Garonne" countryOrd="10" regionOrd="898" />
+  <item id="FRJ24" name="Gers" countryOrd="10" regionOrd="899" />
+  <item id="FRJ25" name="Lot" countryOrd="10" regionOrd="900" />
+  <item id="FRJ26" name="Hautes-Pyrénées " countryOrd="10" regionOrd="901" />
+  <item id="FRJ27" name="Tarn" countryOrd="10" regionOrd="902" />
+  <item id="FRJ28" name="Tarn-et-Garonne" countryOrd="10" regionOrd="903" />
+  <item id="FRK" name="Auvergne-Rhône-Alpes" countryOrd="10" regionOrd="904" />
+  <item id="FRK1" name="Auvergne" countryOrd="10" regionOrd="905" />
+  <item id="FRK11" name="Allier" countryOrd="10" regionOrd="906" />
+  <item id="FRK12" name="Cantal" countryOrd="10" regionOrd="907" />
+  <item id="FRK13" name="Haute-Loire" countryOrd="10" regionOrd="908" />
+  <item id="FRK14" name="Puy-de-Dôme" countryOrd="10" regionOrd="909" />
+  <item id="FRK2" name="Rhône-Alpes" countryOrd="10" regionOrd="910" />
+  <item id="FRK21" name="Ain" countryOrd="10" regionOrd="911" />
+  <item id="FRK22" name="Ardèche" countryOrd="10" regionOrd="912" />
+  <item id="FRK23" name="Drôme" countryOrd="10" regionOrd="913" />
+  <item id="FRK24" name="Isère" countryOrd="10" regionOrd="914" />
+  <item id="FRK25" name="Loire" countryOrd="10" regionOrd="915" />
+  <item id="FRK26" name="Rhône" countryOrd="10" regionOrd="916" />
+  <item id="FRK27" name="Savoie" countryOrd="10" regionOrd="917" />
+  <item id="FRK28" name="Haute-Savoie" countryOrd="10" regionOrd="918" />
+  <item id="FRL" name="Provence-Alpes-Côte d’Azur" countryOrd="10" regionOrd="919" />
+  <item id="FRL0" name="Provence-Alpes-Côte d’Azur" countryOrd="10" regionOrd="920" />
+  <item id="FRL01" name="Alpes-de-Haute-Provence" countryOrd="10" regionOrd="921" />
+  <item id="FRL02" name="Hautes-Alpes " countryOrd="10" regionOrd="922" />
+  <item id="FRL03" name="Alpes-Maritimes" countryOrd="10" regionOrd="923" />
+  <item id="FRL04" name="Bouches-du-Rhône" countryOrd="10" regionOrd="924" />
+  <item id="FRL05" name="Var" countryOrd="10" regionOrd="925" />
+  <item id="FRL06" name="Vaucluse" countryOrd="10" regionOrd="926" />
+  <item id="FRM" name="Corse" countryOrd="10" regionOrd="927" />
+  <item id="FRM0" name="Corse" countryOrd="10" regionOrd="928" />
+  <item id="FRM01" name="Corse-du-Sud" countryOrd="10" regionOrd="929" />
+  <item id="FRM02" name="Haute-Corse" countryOrd="10" regionOrd="930" />
+  <item id="FRY" name="RUP FR — Régions Ultrapériphériques Françaises" countryOrd="10" regionOrd="931" />
+  <item id="FRY1" name="Guadeloupe" countryOrd="10" regionOrd="932" />
+  <item id="FRY10" name="Guadeloupe" countryOrd="10" regionOrd="933" />
+  <item id="FRY2" name="Martinique " countryOrd="10" regionOrd="934" />
+  <item id="FRY20" name="Martinique " countryOrd="10" regionOrd="935" />
+  <item id="FRY3" name="Guyane" countryOrd="10" regionOrd="936" />
+  <item id="FRY30" name="Guyane" countryOrd="10" regionOrd="937" />
+  <item id="FRY4" name="La Réunion " countryOrd="10" regionOrd="938" />
+  <item id="FRY40" name="La Réunion" countryOrd="10" regionOrd="939" />
+  <item id="FRY5" name="Mayotte" countryOrd="10" regionOrd="940" />
+  <item id="FRY50" name="Mayotte " countryOrd="10" regionOrd="941" />
+  <item id="FRZ" name="Extra-Regio NUTS 1" countryOrd="10" regionOrd="942" />
+  <item id="FRZZ" name="Extra-Regio NUTS 2" countryOrd="10" regionOrd="943" />
+  <item id="FRZZZ" name="Extra-Regio NUTS 3" countryOrd="10" regionOrd="944" />
+  <item id="HR" name="Hrvatska" countryOrd="11" regionOrd="945" />
+  <item id="HR0" name="Hrvatska" countryOrd="11" regionOrd="946" />
+  <item id="HR02" name="Panonska Hrvatska" countryOrd="11" regionOrd="947" />
+  <item id="HR021" name="Bjelovarsko-bilogorska županija" countryOrd="11" regionOrd="948" />
+  <item id="HR022" name="Virovitičko-podravska županija" countryOrd="11" regionOrd="949" />
+  <item id="HR023" name="Požeško-slavonska županija" countryOrd="11" regionOrd="950" />
+  <item id="HR024" name="Brodsko-posavska županija" countryOrd="11" regionOrd="951" />
+  <item id="HR025" name="Osječko-baranjska županija" countryOrd="11" regionOrd="952" />
+  <item id="HR026" name="Vukovarsko-srijemska županija" countryOrd="11" regionOrd="953" />
+  <item id="HR027" name="Karlovačka županija" countryOrd="11" regionOrd="954" />
+  <item id="HR028" name="Sisačko-moslavačka županija" countryOrd="11" regionOrd="955" />
+  <item id="HR03" name="Jadranska Hrvatska" countryOrd="11" regionOrd="956" />
+  <item id="HR031" name="Primorsko-goranska županija" countryOrd="11" regionOrd="957" />
+  <item id="HR032" name="Ličko-senjska županija" countryOrd="11" regionOrd="958" />
+  <item id="HR033" name="Zadarska županija" countryOrd="11" regionOrd="959" />
+  <item id="HR034" name="Šibensko-kninska županija" countryOrd="11" regionOrd="960" />
+  <item id="HR035" name="Splitsko-dalmatinska županija" countryOrd="11" regionOrd="961" />
+  <item id="HR036" name="Istarska županija" countryOrd="11" regionOrd="962" />
+  <item id="HR037" name="Dubrovačko-neretvanska županija" countryOrd="11" regionOrd="963" />
+  <item id="HR05" name="Grad Zagreb" countryOrd="11" regionOrd="964" />
+  <item id="HR050" name="Grad Zagreb" countryOrd="11" regionOrd="965" />
+  <item id="HR06" name="Sjeverna Hrvatska" countryOrd="11" regionOrd="966" />
+  <item id="HR061" name="Međimurska županija" countryOrd="11" regionOrd="967" />
+  <item id="HR062" name="Varaždinska županija" countryOrd="11" regionOrd="968" />
+  <item id="HR063" name="Koprivničko-križevačka županija" countryOrd="11" regionOrd="969" />
+  <item id="HR064" name="Krapinsko-zagorska županija" countryOrd="11" regionOrd="970" />
+  <item id="HR065" name="Zagrebačka županija" countryOrd="11" regionOrd="971" />
+  <item id="HRZ" name="Extra-Regio NUTS 1" countryOrd="11" regionOrd="972" />
+  <item id="HRZZ" name="Extra-Regio NUTS 2" countryOrd="11" regionOrd="973" />
+  <item id="HRZZZ" name="Extra-Regio NUTS 3" countryOrd="11" regionOrd="974" />
+  <item id="IT" name="Italia" countryOrd="12" regionOrd="975" />
+  <item id="ITC" name="Nord-Ovest" countryOrd="12" regionOrd="976" />
+  <item id="ITC1" name="Piemonte" countryOrd="12" regionOrd="977" />
+  <item id="ITC11" name="Torino" countryOrd="12" regionOrd="978" />
+  <item id="ITC12" name="Vercelli" countryOrd="12" regionOrd="979" />
+  <item id="ITC13" name="Biella" countryOrd="12" regionOrd="980" />
+  <item id="ITC14" name="Verbano-Cusio-Ossola" countryOrd="12" regionOrd="981" />
+  <item id="ITC15" name="Novara" countryOrd="12" regionOrd="982" />
+  <item id="ITC16" name="Cuneo" countryOrd="12" regionOrd="983" />
+  <item id="ITC17" name="Asti" countryOrd="12" regionOrd="984" />
+  <item id="ITC18" name="Alessandria" countryOrd="12" regionOrd="985" />
+  <item id="ITC2" name="Valle d’Aosta/Vallée d’Aoste" countryOrd="12" regionOrd="986" />
+  <item id="ITC20" name="Valle d’Aosta/Vallée d’Aoste" countryOrd="12" regionOrd="987" />
+  <item id="ITC3" name="Liguria" countryOrd="12" regionOrd="988" />
+  <item id="ITC31" name="Imperia" countryOrd="12" regionOrd="989" />
+  <item id="ITC32" name="Savona" countryOrd="12" regionOrd="990" />
+  <item id="ITC33" name="Genova" countryOrd="12" regionOrd="991" />
+  <item id="ITC34" name="La Spezia" countryOrd="12" regionOrd="992" />
+  <item id="ITC4" name="Lombardia" countryOrd="12" regionOrd="993" />
+  <item id="ITC41" name="Varese" countryOrd="12" regionOrd="994" />
+  <item id="ITC42" name="Como" countryOrd="12" regionOrd="995" />
+  <item id="ITC43" name="Lecco" countryOrd="12" regionOrd="996" />
+  <item id="ITC44" name="Sondrio" countryOrd="12" regionOrd="997" />
+  <item id="ITC46" name="Bergamo" countryOrd="12" regionOrd="998" />
+  <item id="ITC47" name="Brescia" countryOrd="12" regionOrd="999" />
+  <item id="ITC48" name="Pavia" countryOrd="12" regionOrd="1000" />
+  <item id="ITC49" name="Lodi" countryOrd="12" regionOrd="1001" />
+  <item id="ITC4A" name="Cremona" countryOrd="12" regionOrd="1002" />
+  <item id="ITC4B" name="Mantova" countryOrd="12" regionOrd="1003" />
+  <item id="ITC4C" name="Milano" countryOrd="12" regionOrd="1004" />
+  <item id="ITC4D" name="Monza e della Brianza" countryOrd="12" regionOrd="1005" />
+  <item id="ITF" name="Sud" countryOrd="12" regionOrd="1006" />
+  <item id="ITF1" name="Abruzzo" countryOrd="12" regionOrd="1007" />
+  <item id="ITF11" name="L’Aquila" countryOrd="12" regionOrd="1008" />
+  <item id="ITF12" name="Teramo" countryOrd="12" regionOrd="1009" />
+  <item id="ITF13" name="Pescara" countryOrd="12" regionOrd="1010" />
+  <item id="ITF14" name="Chieti" countryOrd="12" regionOrd="1011" />
+  <item id="ITF2" name="Molise" countryOrd="12" regionOrd="1012" />
+  <item id="ITF21" name="Isernia" countryOrd="12" regionOrd="1013" />
+  <item id="ITF22" name="Campobasso" countryOrd="12" regionOrd="1014" />
+  <item id="ITF3" name="Campania" countryOrd="12" regionOrd="1015" />
+  <item id="ITF31" name="Caserta" countryOrd="12" regionOrd="1016" />
+  <item id="ITF32" name="Benevento" countryOrd="12" regionOrd="1017" />
+  <item id="ITF33" name="Napoli" countryOrd="12" regionOrd="1018" />
+  <item id="ITF34" name="Avellino" countryOrd="12" regionOrd="1019" />
+  <item id="ITF35" name="Salerno" countryOrd="12" regionOrd="1020" />
+  <item id="ITF4" name="Puglia" countryOrd="12" regionOrd="1021" />
+  <item id="ITF43" name="Taranto" countryOrd="12" regionOrd="1022" />
+  <item id="ITF44" name="Brindisi" countryOrd="12" regionOrd="1023" />
+  <item id="ITF45" name="Lecce" countryOrd="12" regionOrd="1024" />
+  <item id="ITF46" name="Foggia" countryOrd="12" regionOrd="1025" />
+  <item id="ITF47" name="Bari" countryOrd="12" regionOrd="1026" />
+  <item id="ITF48" name="Barletta-Andria-Trani" countryOrd="12" regionOrd="1027" />
+  <item id="ITF5" name="Basilicata" countryOrd="12" regionOrd="1028" />
+  <item id="ITF51" name="Potenza" countryOrd="12" regionOrd="1029" />
+  <item id="ITF52" name="Matera" countryOrd="12" regionOrd="1030" />
+  <item id="ITF6" name="Calabria" countryOrd="12" regionOrd="1031" />
+  <item id="ITF61" name="Cosenza" countryOrd="12" regionOrd="1032" />
+  <item id="ITF62" name="Crotone" countryOrd="12" regionOrd="1033" />
+  <item id="ITF63" name="Catanzaro" countryOrd="12" regionOrd="1034" />
+  <item id="ITF64" name="Vibo Valentia" countryOrd="12" regionOrd="1035" />
+  <item id="ITF65" name="Reggio di Calabria" countryOrd="12" regionOrd="1036" />
+  <item id="ITG" name="Isole" countryOrd="12" regionOrd="1037" />
+  <item id="ITG1" name="Sicilia" countryOrd="12" regionOrd="1038" />
+  <item id="ITG11" name="Trapani" countryOrd="12" regionOrd="1039" />
+  <item id="ITG12" name="Palermo" countryOrd="12" regionOrd="1040" />
+  <item id="ITG13" name="Messina" countryOrd="12" regionOrd="1041" />
+  <item id="ITG14" name="Agrigento" countryOrd="12" regionOrd="1042" />
+  <item id="ITG15" name="Caltanissetta" countryOrd="12" regionOrd="1043" />
+  <item id="ITG16" name="Enna" countryOrd="12" regionOrd="1044" />
+  <item id="ITG17" name="Catania" countryOrd="12" regionOrd="1045" />
+  <item id="ITG18" name="Ragusa" countryOrd="12" regionOrd="1046" />
+  <item id="ITG19" name="Siracusa" countryOrd="12" regionOrd="1047" />
+  <item id="ITG2" name="Sardegna" countryOrd="12" regionOrd="1048" />
+  <item id="ITG2D" name="Sassari" countryOrd="12" regionOrd="1049" />
+  <item id="ITG2E" name="Nuoro" countryOrd="12" regionOrd="1050" />
+  <item id="ITG2F" name="Cagliari" countryOrd="12" regionOrd="1051" />
+  <item id="ITG2G" name="Oristano" countryOrd="12" regionOrd="1052" />
+  <item id="ITG2H" name="Sud Sardegna" countryOrd="12" regionOrd="1053" />
+  <item id="ITH" name="Nord-Est" countryOrd="12" regionOrd="1054" />
+  <item id="ITH1" name="Provincia Autonoma di Bolzano/Bozen" countryOrd="12" regionOrd="1055" />
+  <item id="ITH10" name="Bolzano-Bozen" countryOrd="12" regionOrd="1056" />
+  <item id="ITH2" name="Provincia Autonoma di Trento" countryOrd="12" regionOrd="1057" />
+  <item id="ITH20" name="Trento" countryOrd="12" regionOrd="1058" />
+  <item id="ITH3" name="Veneto" countryOrd="12" regionOrd="1059" />
+  <item id="ITH31" name="Verona" countryOrd="12" regionOrd="1060" />
+  <item id="ITH32" name="Vicenza" countryOrd="12" regionOrd="1061" />
+  <item id="ITH33" name="Belluno" countryOrd="12" regionOrd="1062" />
+  <item id="ITH34" name="Treviso" countryOrd="12" regionOrd="1063" />
+  <item id="ITH35" name="Venezia" countryOrd="12" regionOrd="1064" />
+  <item id="ITH36" name="Padova" countryOrd="12" regionOrd="1065" />
+  <item id="ITH37" name="Rovigo" countryOrd="12" regionOrd="1066" />
+  <item id="ITH4" name="Friuli-Venezia Giulia" countryOrd="12" regionOrd="1067" />
+  <item id="ITH41" name="Pordenone" countryOrd="12" regionOrd="1068" />
+  <item id="ITH42" name="Udine" countryOrd="12" regionOrd="1069" />
+  <item id="ITH43" name="Gorizia" countryOrd="12" regionOrd="1070" />
+  <item id="ITH44" name="Trieste" countryOrd="12" regionOrd="1071" />
+  <item id="ITH5" name="Emilia-Romagna" countryOrd="12" regionOrd="1072" />
+  <item id="ITH51" name="Piacenza" countryOrd="12" regionOrd="1073" />
+  <item id="ITH52" name="Parma" countryOrd="12" regionOrd="1074" />
+  <item id="ITH53" name="Reggio nell’Emilia" countryOrd="12" regionOrd="1075" />
+  <item id="ITH54" name="Modena" countryOrd="12" regionOrd="1076" />
+  <item id="ITH55" name="Bologna" countryOrd="12" regionOrd="1077" />
+  <item id="ITH56" name="Ferrara" countryOrd="12" regionOrd="1078" />
+  <item id="ITH57" name="Ravenna" countryOrd="12" regionOrd="1079" />
+  <item id="ITH58" name="Forlì-Cesena" countryOrd="12" regionOrd="1080" />
+  <item id="ITH59" name="Rimini" countryOrd="12" regionOrd="1081" />
+  <item id="ITI" name="Centro (IT)" countryOrd="12" regionOrd="1082" />
+  <item id="ITI1" name="Toscana" countryOrd="12" regionOrd="1083" />
+  <item id="ITI11" name="Massa-Carrara" countryOrd="12" regionOrd="1084" />
+  <item id="ITI12" name="Lucca" countryOrd="12" regionOrd="1085" />
+  <item id="ITI13" name="Pistoia" countryOrd="12" regionOrd="1086" />
+  <item id="ITI14" name="Firenze" countryOrd="12" regionOrd="1087" />
+  <item id="ITI15" name="Prato" countryOrd="12" regionOrd="1088" />
+  <item id="ITI16" name="Livorno" countryOrd="12" regionOrd="1089" />
+  <item id="ITI17" name="Pisa" countryOrd="12" regionOrd="1090" />
+  <item id="ITI18" name="Arezzo" countryOrd="12" regionOrd="1091" />
+  <item id="ITI19" name="Siena" countryOrd="12" regionOrd="1092" />
+  <item id="ITI1A" name="Grosseto" countryOrd="12" regionOrd="1093" />
+  <item id="ITI2" name="Umbria" countryOrd="12" regionOrd="1094" />
+  <item id="ITI21" name="Perugia" countryOrd="12" regionOrd="1095" />
+  <item id="ITI22" name="Terni" countryOrd="12" regionOrd="1096" />
+  <item id="ITI3" name="Marche" countryOrd="12" regionOrd="1097" />
+  <item id="ITI31" name="Pesaro e Urbino" countryOrd="12" regionOrd="1098" />
+  <item id="ITI32" name="Ancona" countryOrd="12" regionOrd="1099" />
+  <item id="ITI33" name="Macerata" countryOrd="12" regionOrd="1100" />
+  <item id="ITI34" name="Ascoli Piceno" countryOrd="12" regionOrd="1101" />
+  <item id="ITI35" name="Fermo" countryOrd="12" regionOrd="1102" />
+  <item id="ITI4" name="Lazio" countryOrd="12" regionOrd="1103" />
+  <item id="ITI41" name="Viterbo" countryOrd="12" regionOrd="1104" />
+  <item id="ITI42" name="Rieti" countryOrd="12" regionOrd="1105" />
+  <item id="ITI43" name="Roma" countryOrd="12" regionOrd="1106" />
+  <item id="ITI44" name="Latina" countryOrd="12" regionOrd="1107" />
+  <item id="ITI45" name="Frosinone" countryOrd="12" regionOrd="1108" />
+  <item id="ITZ" name="Extra-Regio NUTS 1" countryOrd="12" regionOrd="1109" />
+  <item id="ITZZ" name="Extra-Regio NUTS 2" countryOrd="12" regionOrd="1110" />
+  <item id="ITZZZ" name="Extra-Regio NUTS 3" countryOrd="12" regionOrd="1111" />
+  <item id="CY" name="Κύπρος " countryOrd="13" regionOrd="1112" />
+  <item id="CY0" name="Κύπρος" countryOrd="13" regionOrd="1113" />
+  <item id="CY00" name="Κύπρος" countryOrd="13" regionOrd="1114" />
+  <item id="CY000" name="Κύπρος" countryOrd="13" regionOrd="1115" />
+  <item id="CYZ" name="Extra-Regio NUTS 1" countryOrd="13" regionOrd="1116" />
+  <item id="CYZZ" name="Extra-Regio NUTS 2" countryOrd="13" regionOrd="1117" />
+  <item id="CYZZZ" name="Extra-Regio NUTS 3" countryOrd="13" regionOrd="1118" />
+  <item id="LV" name="Latvija" countryOrd="14" regionOrd="1119" />
+  <item id="LV0" name="Latvija" countryOrd="14" regionOrd="1120" />
+  <item id="LV00" name="Latvija" countryOrd="14" regionOrd="1121" />
+  <item id="LV003" name="Kurzeme" countryOrd="14" regionOrd="1122" />
+  <item id="LV005" name="Latgale" countryOrd="14" regionOrd="1123" />
+  <item id="LV006" name="Rīga" countryOrd="14" regionOrd="1124" />
+  <item id="LV007" name="Pierīga" countryOrd="14" regionOrd="1125" />
+  <item id="LV008" name="Vidzeme" countryOrd="14" regionOrd="1126" />
+  <item id="LV009" name="Zemgale" countryOrd="14" regionOrd="1127" />
+  <item id="LVZ" name="Extra-Regio NUTS 1" countryOrd="14" regionOrd="1128" />
+  <item id="LVZZ" name="Extra-Regio NUTS 2" countryOrd="14" regionOrd="1129" />
+  <item id="LVZZZ" name="Extra-Regio NUTS 3" countryOrd="14" regionOrd="1130" />
+  <item id="LT" name="Lietuva" countryOrd="15" regionOrd="1131" />
+  <item id="LT0" name="Lietuva" countryOrd="15" regionOrd="1132" />
+  <item id="LT01" name="Sostinės regionas" countryOrd="15" regionOrd="1133" />
+  <item id="LT011" name="Vilniaus apskritis" countryOrd="15" regionOrd="1134" />
+  <item id="LT02" name="Vidurio ir vakarų Lietuvos regionas " countryOrd="15" regionOrd="1135" />
+  <item id="LT021" name="Alytaus apskritis" countryOrd="15" regionOrd="1136" />
+  <item id="LT022" name="Kauno apskritis" countryOrd="15" regionOrd="1137" />
+  <item id="LT023" name="Klaipėdos apskritis" countryOrd="15" regionOrd="1138" />
+  <item id="LT024" name="Marijampolės apskritis" countryOrd="15" regionOrd="1139" />
+  <item id="LT025" name="Panevėžio apskritis" countryOrd="15" regionOrd="1140" />
+  <item id="LT026" name="Šiaulių apskritis" countryOrd="15" regionOrd="1141" />
+  <item id="LT027" name="Tauragės apskritis" countryOrd="15" regionOrd="1142" />
+  <item id="LT028" name="Telšių apskritis" countryOrd="15" regionOrd="1143" />
+  <item id="LT029" name="Utenos apskritis" countryOrd="15" regionOrd="1144" />
+  <item id="LTZ" name="Extra-Regio NUTS 1" countryOrd="15" regionOrd="1145" />
+  <item id="LTZZ" name="Extra-Regio NUTS 2" countryOrd="15" regionOrd="1146" />
+  <item id="LTZZZ" name="Extra-Regio NUTS 3" countryOrd="15" regionOrd="1147" />
+  <item id="LU" name="Luxembourg" countryOrd="16" regionOrd="1148" />
+  <item id="LU0" name="Luxembourg" countryOrd="16" regionOrd="1149" />
+  <item id="LU00" name="Luxembourg" countryOrd="16" regionOrd="1150" />
+  <item id="LU000" name="Luxembourg" countryOrd="16" regionOrd="1151" />
+  <item id="LUZ" name="Extra-Regio NUTS 1" countryOrd="16" regionOrd="1152" />
+  <item id="LUZZ" name="Extra-Regio NUTS 2" countryOrd="16" regionOrd="1153" />
+  <item id="LUZZZ" name="Extra-Regio NUTS 3" countryOrd="16" regionOrd="1154" />
+  <item id="HU" name="Magyarország" countryOrd="17" regionOrd="1155" />
+  <item id="HU1" name="Közép-Magyarország" countryOrd="17" regionOrd="1156" />
+  <item id="HU11" name="Budapest" countryOrd="17" regionOrd="1157" />
+  <item id="HU110" name="Budapest" countryOrd="17" regionOrd="1158" />
+  <item id="HU12" name="Pest" countryOrd="17" regionOrd="1159" />
+  <item id="HU120" name="Pest" countryOrd="17" regionOrd="1160" />
+  <item id="HU2" name="Dunántúl" countryOrd="17" regionOrd="1161" />
+  <item id="HU21" name="Közép-Dunántúl" countryOrd="17" regionOrd="1162" />
+  <item id="HU211" name="Fejér" countryOrd="17" regionOrd="1163" />
+  <item id="HU212" name="Komárom-Esztergom" countryOrd="17" regionOrd="1164" />
+  <item id="HU213" name="Veszprém" countryOrd="17" regionOrd="1165" />
+  <item id="HU22" name="Nyugat-Dunántúl" countryOrd="17" regionOrd="1166" />
+  <item id="HU221" name="Győr-Moson-Sopron" countryOrd="17" regionOrd="1167" />
+  <item id="HU222" name="Vas" countryOrd="17" regionOrd="1168" />
+  <item id="HU223" name="Zala" countryOrd="17" regionOrd="1169" />
+  <item id="HU23" name="Dél-Dunántúl" countryOrd="17" regionOrd="1170" />
+  <item id="HU231" name="Baranya" countryOrd="17" regionOrd="1171" />
+  <item id="HU232" name="Somogy" countryOrd="17" regionOrd="1172" />
+  <item id="HU233" name="Tolna" countryOrd="17" regionOrd="1173" />
+  <item id="HU3" name="Alföld és Észak" countryOrd="17" regionOrd="1174" />
+  <item id="HU31" name="Észak-Magyarország" countryOrd="17" regionOrd="1175" />
+  <item id="HU311" name="Borsod-Abaúj-Zemplén" countryOrd="17" regionOrd="1176" />
+  <item id="HU312" name="Heves" countryOrd="17" regionOrd="1177" />
+  <item id="HU313" name="Nógrád" countryOrd="17" regionOrd="1178" />
+  <item id="HU32" name="Észak-Alföld" countryOrd="17" regionOrd="1179" />
+  <item id="HU321" name="Hajdú-Bihar" countryOrd="17" regionOrd="1180" />
+  <item id="HU322" name="Jász-Nagykun-Szolnok" countryOrd="17" regionOrd="1181" />
+  <item id="HU323" name="Szabolcs-Szatmár-Bereg" countryOrd="17" regionOrd="1182" />
+  <item id="HU33" name="Dél-Alföld" countryOrd="17" regionOrd="1183" />
+  <item id="HU331" name="Bács-Kiskun" countryOrd="17" regionOrd="1184" />
+  <item id="HU332" name="Békés" countryOrd="17" regionOrd="1185" />
+  <item id="HU333" name="Csongrád" countryOrd="17" regionOrd="1186" />
+  <item id="HUZ" name="Extra-Regio NUTS 1" countryOrd="17" regionOrd="1187" />
+  <item id="HUZZ" name="Extra-Regio NUTS 2" countryOrd="17" regionOrd="1188" />
+  <item id="HUZZZ" name="Extra-Regio NUTS 3" countryOrd="17" regionOrd="1189" />
+  <item id="MT" name="Malta" countryOrd="18" regionOrd="1190" />
+  <item id="MT0" name="Malta" countryOrd="18" regionOrd="1191" />
+  <item id="MT00" name="Malta" countryOrd="18" regionOrd="1192" />
+  <item id="MT001" name="Malta" countryOrd="18" regionOrd="1193" />
+  <item id="MT002" name="Gozo and Comino/Għawdex u Kemmuna" countryOrd="18" regionOrd="1194" />
+  <item id="MTZ" name="Extra-Regio NUTS 1" countryOrd="18" regionOrd="1195" />
+  <item id="MTZZ" name="Extra-Regio NUTS 2" countryOrd="18" regionOrd="1196" />
+  <item id="MTZZZ" name="Extra-Regio NUTS 3" countryOrd="18" regionOrd="1197" />
+  <item id="NL" name="Nederland" countryOrd="19" regionOrd="1198" />
+  <item id="NL1" name="Noord-Nederland" countryOrd="19" regionOrd="1199" />
+  <item id="NL11" name="Groningen" countryOrd="19" regionOrd="1200" />
+  <item id="NL111" name="Oost-Groningen" countryOrd="19" regionOrd="1201" />
+  <item id="NL112" name="Delfzijl en omgeving" countryOrd="19" regionOrd="1202" />
+  <item id="NL113" name="Overig Groningen" countryOrd="19" regionOrd="1203" />
+  <item id="NL12" name="Friesland (NL)" countryOrd="19" regionOrd="1204" />
+  <item id="NL124" name="Noord-Friesland" countryOrd="19" regionOrd="1205" />
+  <item id="NL125" name="Zuidwest-Friesland" countryOrd="19" regionOrd="1206" />
+  <item id="NL126" name="Zuidoost-Friesland" countryOrd="19" regionOrd="1207" />
+  <item id="NL13" name="Drenthe" countryOrd="19" regionOrd="1208" />
+  <item id="NL131" name="Noord-Drenthe" countryOrd="19" regionOrd="1209" />
+  <item id="NL132" name="Zuidoost-Drenthe" countryOrd="19" regionOrd="1210" />
+  <item id="NL133" name="Zuidwest-Drenthe" countryOrd="19" regionOrd="1211" />
+  <item id="NL2" name="Oost-Nederland" countryOrd="19" regionOrd="1212" />
+  <item id="NL21" name="Overijssel" countryOrd="19" regionOrd="1213" />
+  <item id="NL211" name="Noord-Overijssel" countryOrd="19" regionOrd="1214" />
+  <item id="NL212" name="Zuidwest-Overijssel" countryOrd="19" regionOrd="1215" />
+  <item id="NL213" name="Twente" countryOrd="19" regionOrd="1216" />
+  <item id="NL22" name="Gelderland" countryOrd="19" regionOrd="1217" />
+  <item id="NL221" name="Veluwe" countryOrd="19" regionOrd="1218" />
+  <item id="NL224" name="Zuidwest-Gelderland" countryOrd="19" regionOrd="1219" />
+  <item id="NL225" name="Achterhoek" countryOrd="19" regionOrd="1220" />
+  <item id="NL226" name="Arnhem/Nijmegen" countryOrd="19" regionOrd="1221" />
+  <item id="NL23" name="Flevoland" countryOrd="19" regionOrd="1222" />
+  <item id="NL230" name="Flevoland" countryOrd="19" regionOrd="1223" />
+  <item id="NL3" name="West-Nederland" countryOrd="19" regionOrd="1224" />
+  <item id="NL31" name="Utrecht" countryOrd="19" regionOrd="1225" />
+  <item id="NL310" name="Utrecht" countryOrd="19" regionOrd="1226" />
+  <item id="NL32" name="Noord-Holland" countryOrd="19" regionOrd="1227" />
+  <item id="NL321" name="Kop van Noord-Holland" countryOrd="19" regionOrd="1228" />
+  <item id="NL323" name="IJmond" countryOrd="19" regionOrd="1229" />
+  <item id="NL324" name="Agglomeratie Haarlem" countryOrd="19" regionOrd="1230" />
+  <item id="NL325" name="Zaanstreek" countryOrd="19" regionOrd="1231" />
+  <item id="NL327" name="Het Gooi en Vechtstreek" countryOrd="19" regionOrd="1232" />
+  <item id="NL328" name="Alkmaar en omgeving" countryOrd="19" regionOrd="1233" />
+  <item id="NL329" name="Groot-Amsterdam" countryOrd="19" regionOrd="1234" />
+  <item id="NL33" name="Zuid-Holland" countryOrd="19" regionOrd="1235" />
+  <item id="NL332" name="Agglomeratie ’s-Gravenhage" countryOrd="19" regionOrd="1236" />
+  <item id="NL333" name="Delft en Westland" countryOrd="19" regionOrd="1237" />
+  <item id="NL337" name="Agglomeratie Leiden en Bollenstreek" countryOrd="19" regionOrd="1238" />
+  <item id="NL33A" name="Zuidoost-Zuid-Holland" countryOrd="19" regionOrd="1239" />
+  <item id="NL33B" name="Oost-Zuid-Holland" countryOrd="19" regionOrd="1240" />
+  <item id="NL33C" name="Groot-Rijnmond" countryOrd="19" regionOrd="1241" />
+  <item id="NL34" name="Zeeland" countryOrd="19" regionOrd="1242" />
+  <item id="NL341" name="Zeeuwsch-Vlaanderen" countryOrd="19" regionOrd="1243" />
+  <item id="NL342" name="Overig Zeeland" countryOrd="19" regionOrd="1244" />
+  <item id="NL4" name="Zuid-Nederland" countryOrd="19" regionOrd="1245" />
+  <item id="NL41" name="Noord-Brabant" countryOrd="19" regionOrd="1246" />
+  <item id="NL411" name="West-Noord-Brabant" countryOrd="19" regionOrd="1247" />
+  <item id="NL412" name="Midden-Noord-Brabant" countryOrd="19" regionOrd="1248" />
+  <item id="NL413" name="Noordoost-Noord-Brabant" countryOrd="19" regionOrd="1249" />
+  <item id="NL414" name="Zuidoost-Noord-Brabant" countryOrd="19" regionOrd="1250" />
+  <item id="NL42" name="Limburg (NL)" countryOrd="19" regionOrd="1251" />
+  <item id="NL421" name="Noord-Limburg" countryOrd="19" regionOrd="1252" />
+  <item id="NL422" name="Midden-Limburg" countryOrd="19" regionOrd="1253" />
+  <item id="NL423" name="Zuid-Limburg" countryOrd="19" regionOrd="1254" />
+  <item id="NLZ" name="Extra-Regio NUTS 1" countryOrd="19" regionOrd="1255" />
+  <item id="NLZZ" name="Extra-Regio NUTS 2" countryOrd="19" regionOrd="1256" />
+  <item id="NLZZZ" name="Extra-Regio NUTS 3" countryOrd="19" regionOrd="1257" />
+  <item id="AT" name="Österreich" countryOrd="20" regionOrd="1258" />
+  <item id="AT1" name="Ostösterreich" countryOrd="20" regionOrd="1259" />
+  <item id="AT11" name="Burgenland" countryOrd="20" regionOrd="1260" />
+  <item id="AT111" name="Mittelburgenland" countryOrd="20" regionOrd="1261" />
+  <item id="AT112" name="Nordburgenland" countryOrd="20" regionOrd="1262" />
+  <item id="AT113" name="Südburgenland" countryOrd="20" regionOrd="1263" />
+  <item id="AT12" name="Niederösterreich" countryOrd="20" regionOrd="1264" />
+  <item id="AT121" name="Mostviertel-Eisenwurzen" countryOrd="20" regionOrd="1265" />
+  <item id="AT122" name="Niederösterreich-Süd" countryOrd="20" regionOrd="1266" />
+  <item id="AT123" name="Sankt Pölten" countryOrd="20" regionOrd="1267" />
+  <item id="AT124" name="Waldviertel" countryOrd="20" regionOrd="1268" />
+  <item id="AT125" name="Weinviertel" countryOrd="20" regionOrd="1269" />
+  <item id="AT126" name="Wiener Umland/Nordteil" countryOrd="20" regionOrd="1270" />
+  <item id="AT127" name="Wiener Umland/Südteil" countryOrd="20" regionOrd="1271" />
+  <item id="AT13" name="Wien" countryOrd="20" regionOrd="1272" />
+  <item id="AT130" name="Wien" countryOrd="20" regionOrd="1273" />
+  <item id="AT2" name="Südösterreich" countryOrd="20" regionOrd="1274" />
+  <item id="AT21" name="Kärnten" countryOrd="20" regionOrd="1275" />
+  <item id="AT211" name="Klagenfurt-Villach" countryOrd="20" regionOrd="1276" />
+  <item id="AT212" name="Oberkärnten" countryOrd="20" regionOrd="1277" />
+  <item id="AT213" name="Unterkärnten" countryOrd="20" regionOrd="1278" />
+  <item id="AT22" name="Steiermark" countryOrd="20" regionOrd="1279" />
+  <item id="AT221" name="Graz" countryOrd="20" regionOrd="1280" />
+  <item id="AT222" name="Liezen" countryOrd="20" regionOrd="1281" />
+  <item id="AT223" name="Östliche Obersteiermark" countryOrd="20" regionOrd="1282" />
+  <item id="AT224" name="Oststeiermark" countryOrd="20" regionOrd="1283" />
+  <item id="AT225" name="West- und Südsteiermark" countryOrd="20" regionOrd="1284" />
+  <item id="AT226" name="Westliche Obersteiermark" countryOrd="20" regionOrd="1285" />
+  <item id="AT3" name="Westösterreich" countryOrd="20" regionOrd="1286" />
+  <item id="AT31" name="Oberösterreich" countryOrd="20" regionOrd="1287" />
+  <item id="AT311" name="Innviertel" countryOrd="20" regionOrd="1288" />
+  <item id="AT312" name="Linz-Wels" countryOrd="20" regionOrd="1289" />
+  <item id="AT313" name="Mühlviertel" countryOrd="20" regionOrd="1290" />
+  <item id="AT314" name="Steyr-Kirchdorf" countryOrd="20" regionOrd="1291" />
+  <item id="AT315" name="Traunviertel" countryOrd="20" regionOrd="1292" />
+  <item id="AT32" name="Salzburg" countryOrd="20" regionOrd="1293" />
+  <item id="AT321" name="Lungau" countryOrd="20" regionOrd="1294" />
+  <item id="AT322" name="Pinzgau-Pongau" countryOrd="20" regionOrd="1295" />
+  <item id="AT323" name="Salzburg und Umgebung" countryOrd="20" regionOrd="1296" />
+  <item id="AT33" name="Tirol" countryOrd="20" regionOrd="1297" />
+  <item id="AT331" name="Außerfern" countryOrd="20" regionOrd="1298" />
+  <item id="AT332" name="Innsbruck" countryOrd="20" regionOrd="1299" />
+  <item id="AT333" name="Osttirol" countryOrd="20" regionOrd="1300" />
+  <item id="AT334" name="Tiroler Oberland" countryOrd="20" regionOrd="1301" />
+  <item id="AT335" name="Tiroler Unterland" countryOrd="20" regionOrd="1302" />
+  <item id="AT34" name="Vorarlberg" countryOrd="20" regionOrd="1303" />
+  <item id="AT341" name="Bludenz-Bregenzer Wald" countryOrd="20" regionOrd="1304" />
+  <item id="AT342" name="Rheintal-Bodenseegebiet" countryOrd="20" regionOrd="1305" />
+  <item id="ATZ" name="Extra-Regio NUTS 1" countryOrd="20" regionOrd="1306" />
+  <item id="ATZZ" name="Extra-Regio NUTS 2" countryOrd="20" regionOrd="1307" />
+  <item id="ATZZZ" name="Extra-Regio NUTS 3" countryOrd="20" regionOrd="1308" />
+  <item id="PL" name="Polska" countryOrd="21" regionOrd="1309" />
+  <item id="PL2" name="Makroregion południowy" countryOrd="21" regionOrd="1310" />
+  <item id="PL21" name="Małopolskie" countryOrd="21" regionOrd="1311" />
+  <item id="PL213" name="Miasto Kraków" countryOrd="21" regionOrd="1312" />
+  <item id="PL214" name="Krakowski" countryOrd="21" regionOrd="1313" />
+  <item id="PL217" name="Tarnowski" countryOrd="21" regionOrd="1314" />
+  <item id="PL218" name="Nowosądecki" countryOrd="21" regionOrd="1315" />
+  <item id="PL219" name="Nowotarski" countryOrd="21" regionOrd="1316" />
+  <item id="PL21A" name="Oświęcimski" countryOrd="21" regionOrd="1317" />
+  <item id="PL22" name="Śląskie" countryOrd="21" regionOrd="1318" />
+  <item id="PL224" name="Częstochowski" countryOrd="21" regionOrd="1319" />
+  <item id="PL225" name="Bielski" countryOrd="21" regionOrd="1320" />
+  <item id="PL227" name="Rybnicki" countryOrd="21" regionOrd="1321" />
+  <item id="PL228" name="Bytomski" countryOrd="21" regionOrd="1322" />
+  <item id="PL229" name="Gliwicki" countryOrd="21" regionOrd="1323" />
+  <item id="PL22A" name="Katowicki" countryOrd="21" regionOrd="1324" />
+  <item id="PL22B" name="Sosnowiecki" countryOrd="21" regionOrd="1325" />
+  <item id="PL22C" name="Tyski" countryOrd="21" regionOrd="1326" />
+  <item id="PL4" name="Makroregion północno-zachodni" countryOrd="21" regionOrd="1327" />
+  <item id="PL41" name="Wielkopolskie" countryOrd="21" regionOrd="1328" />
+  <item id="PL411" name="Pilski" countryOrd="21" regionOrd="1329" />
+  <item id="PL414" name="Koniński" countryOrd="21" regionOrd="1330" />
+  <item id="PL415" name="Miasto Poznań" countryOrd="21" regionOrd="1331" />
+  <item id="PL416" name="Kaliski" countryOrd="21" regionOrd="1332" />
+  <item id="PL417" name="Leszczyński" countryOrd="21" regionOrd="1333" />
+  <item id="PL418" name="Poznański" countryOrd="21" regionOrd="1334" />
+  <item id="PL42" name="Zachodniopomorskie" countryOrd="21" regionOrd="1335" />
+  <item id="PL424" name="Miasto Szczecin" countryOrd="21" regionOrd="1336" />
+  <item id="PL426" name="Koszaliński" countryOrd="21" regionOrd="1337" />
+  <item id="PL427" name="Szczecinecko-pyrzycki" countryOrd="21" regionOrd="1338" />
+  <item id="PL428" name="Szczeciński" countryOrd="21" regionOrd="1339" />
+  <item id="PL43" name="Lubuskie" countryOrd="21" regionOrd="1340" />
+  <item id="PL431" name="Gorzowski" countryOrd="21" regionOrd="1341" />
+  <item id="PL432" name="Zielonogórski" countryOrd="21" regionOrd="1342" />
+  <item id="PL5" name="Makroregion południowo-zachodni" countryOrd="21" regionOrd="1343" />
+  <item id="PL51" name="Dolnośląskie" countryOrd="21" regionOrd="1344" />
+  <item id="PL514" name="Miasto Wrocław" countryOrd="21" regionOrd="1345" />
+  <item id="PL515" name="Jeleniogórski" countryOrd="21" regionOrd="1346" />
+  <item id="PL516" name="Legnicko-głogowski" countryOrd="21" regionOrd="1347" />
+  <item id="PL517" name="Wałbrzyski" countryOrd="21" regionOrd="1348" />
+  <item id="PL518" name="Wrocławski" countryOrd="21" regionOrd="1349" />
+  <item id="PL52" name="Opolskie" countryOrd="21" regionOrd="1350" />
+  <item id="PL523" name="Nyski" countryOrd="21" regionOrd="1351" />
+  <item id="PL524" name="Opolski" countryOrd="21" regionOrd="1352" />
+  <item id="PL6" name="Makroregion północny" countryOrd="21" regionOrd="1353" />
+  <item id="PL61" name="Kujawsko-pomorskie" countryOrd="21" regionOrd="1354" />
+  <item id="PL613" name="Bydgosko-toruński" countryOrd="21" regionOrd="1355" />
+  <item id="PL616" name="Grudziądzki" countryOrd="21" regionOrd="1356" />
+  <item id="PL617" name="Inowrocławski" countryOrd="21" regionOrd="1357" />
+  <item id="PL618" name="Świecki" countryOrd="21" regionOrd="1358" />
+  <item id="PL619" name="Włocławski" countryOrd="21" regionOrd="1359" />
+  <item id="PL62" name="Warmińsko-mazurskie" countryOrd="21" regionOrd="1360" />
+  <item id="PL621" name="Elbląski" countryOrd="21" regionOrd="1361" />
+  <item id="PL622" name="Olsztyński" countryOrd="21" regionOrd="1362" />
+  <item id="PL623" name="Ełcki" countryOrd="21" regionOrd="1363" />
+  <item id="PL63" name="Pomorskie" countryOrd="21" regionOrd="1364" />
+  <item id="PL633" name="Trójmiejski" countryOrd="21" regionOrd="1365" />
+  <item id="PL634" name="Gdański" countryOrd="21" regionOrd="1366" />
+  <item id="PL636" name="Słupski" countryOrd="21" regionOrd="1367" />
+  <item id="PL637" name="Chojnicki" countryOrd="21" regionOrd="1368" />
+  <item id="PL638" name="Starogardzki" countryOrd="21" regionOrd="1369" />
+  <item id="PL7" name="Makroregion centralny" countryOrd="21" regionOrd="1370" />
+  <item id="PL71" name="Łódzkie" countryOrd="21" regionOrd="1371" />
+  <item id="PL711" name="Miasto Łódź" countryOrd="21" regionOrd="1372" />
+  <item id="PL712" name="Łódzki" countryOrd="21" regionOrd="1373" />
+  <item id="PL713" name="Piotrkowski" countryOrd="21" regionOrd="1374" />
+  <item id="PL714" name="Sieradzki" countryOrd="21" regionOrd="1375" />
+  <item id="PL715" name="Skierniewicki" countryOrd="21" regionOrd="1376" />
+  <item id="PL72" name="Świętokrzyskie" countryOrd="21" regionOrd="1377" />
+  <item id="PL721" name="Kielecki" countryOrd="21" regionOrd="1378" />
+  <item id="PL722" name="Sandomiersko-jędrzejowski" countryOrd="21" regionOrd="1379" />
+  <item id="PL8" name="Makroregion wschodni" countryOrd="21" regionOrd="1380" />
+  <item id="PL81" name="Lubelskie" countryOrd="21" regionOrd="1381" />
+  <item id="PL811" name="Bialski" countryOrd="21" regionOrd="1382" />
+  <item id="PL812" name="Chełmsko-zamojski" countryOrd="21" regionOrd="1383" />
+  <item id="PL814" name="Lubelski" countryOrd="21" regionOrd="1384" />
+  <item id="PL815" name="Puławski" countryOrd="21" regionOrd="1385" />
+  <item id="PL82" name="Podkarpackie" countryOrd="21" regionOrd="1386" />
+  <item id="PL821" name="Krośnieński" countryOrd="21" regionOrd="1387" />
+  <item id="PL822" name="Przemyski" countryOrd="21" regionOrd="1388" />
+  <item id="PL823" name="Rzeszowski" countryOrd="21" regionOrd="1389" />
+  <item id="PL824" name="Tarnobrzeski" countryOrd="21" regionOrd="1390" />
+  <item id="PL84" name="Podlaskie" countryOrd="21" regionOrd="1391" />
+  <item id="PL841" name="Białostocki" countryOrd="21" regionOrd="1392" />
+  <item id="PL842" name="Łomżyński" countryOrd="21" regionOrd="1393" />
+  <item id="PL843" name="Suwalski" countryOrd="21" regionOrd="1394" />
+  <item id="PL9" name="Makroregion województwo mazowieckie" countryOrd="21" regionOrd="1395" />
+  <item id="PL91" name="Warszawski stołeczny" countryOrd="21" regionOrd="1396" />
+  <item id="PL911" name="Miasto Warszawa" countryOrd="21" regionOrd="1397" />
+  <item id="PL912" name="Warszawski wschodni" countryOrd="21" regionOrd="1398" />
+  <item id="PL913" name="Warszawski zachodni" countryOrd="21" regionOrd="1399" />
+  <item id="PL92" name="Mazowiecki regionalny" countryOrd="21" regionOrd="1400" />
+  <item id="PL921" name="Radomski" countryOrd="21" regionOrd="1401" />
+  <item id="PL922" name="Ciechanowski" countryOrd="21" regionOrd="1402" />
+  <item id="PL923" name="Płocki" countryOrd="21" regionOrd="1403" />
+  <item id="PL924" name="Ostrołęcki" countryOrd="21" regionOrd="1404" />
+  <item id="PL925" name="Siedlecki" countryOrd="21" regionOrd="1405" />
+  <item id="PL926" name="Żyrardowski" countryOrd="21" regionOrd="1406" />
+  <item id="PLZ" name="Extra-Regio NUTS 1" countryOrd="21" regionOrd="1407" />
+  <item id="PLZZ" name="Extra-Regio NUTS 2" countryOrd="21" regionOrd="1408" />
+  <item id="PLZZZ" name="Extra-Regio NUTS 3" countryOrd="21" regionOrd="1409" />
+  <item id="PT" name="Portugal" countryOrd="22" regionOrd="1410" />
+  <item id="PT1" name="Continente" countryOrd="22" regionOrd="1411" />
+  <item id="PT11" name="Norte" countryOrd="22" regionOrd="1412" />
+  <item id="PT111" name="Alto Minho" countryOrd="22" regionOrd="1413" />
+  <item id="PT112" name="Cávado" countryOrd="22" regionOrd="1414" />
+  <item id="PT119" name="Ave" countryOrd="22" regionOrd="1415" />
+  <item id="PT11A" name="Área Metropolitana do Porto" countryOrd="22" regionOrd="1416" />
+  <item id="PT11B" name="Alto Tâmega" countryOrd="22" regionOrd="1417" />
+  <item id="PT11C" name="Tâmega e Sousa" countryOrd="22" regionOrd="1418" />
+  <item id="PT11D" name="Douro" countryOrd="22" regionOrd="1419" />
+  <item id="PT11E" name="Terras de Trás-os-Montes" countryOrd="22" regionOrd="1420" />
+  <item id="PT15" name="Algarve" countryOrd="22" regionOrd="1421" />
+  <item id="PT150" name="Algarve" countryOrd="22" regionOrd="1422" />
+  <item id="PT16" name="Centro (PT)" countryOrd="22" regionOrd="1423" />
+  <item id="PT16B" name="Oeste" countryOrd="22" regionOrd="1424" />
+  <item id="PT16D" name="Região de Aveiro" countryOrd="22" regionOrd="1425" />
+  <item id="PT16E" name="Região de Coimbra" countryOrd="22" regionOrd="1426" />
+  <item id="PT16F" name="Região de Leiria" countryOrd="22" regionOrd="1427" />
+  <item id="PT16G" name="Viseu Dão Lafões" countryOrd="22" regionOrd="1428" />
+  <item id="PT16H" name="Beira Baixa" countryOrd="22" regionOrd="1429" />
+  <item id="PT16I" name="Médio Tejo" countryOrd="22" regionOrd="1430" />
+  <item id="PT16J" name="Beiras e Serra da Estrela" countryOrd="22" regionOrd="1431" />
+  <item id="PT17" name="Área Metropolitana de Lisboa" countryOrd="22" regionOrd="1432" />
+  <item id="PT170" name="Área Metropolitana de Lisboa" countryOrd="22" regionOrd="1433" />
+  <item id="PT18" name="Alentejo" countryOrd="22" regionOrd="1434" />
+  <item id="PT181" name="Alentejo Litoral" countryOrd="22" regionOrd="1435" />
+  <item id="PT184" name="Baixo Alentejo" countryOrd="22" regionOrd="1436" />
+  <item id="PT185" name="Lezíria do Tejo" countryOrd="22" regionOrd="1437" />
+  <item id="PT186" name="Alto Alentejo" countryOrd="22" regionOrd="1438" />
+  <item id="PT187" name="Alentejo Central" countryOrd="22" regionOrd="1439" />
+  <item id="PT2" name="Região Autónoma dos Açores" countryOrd="22" regionOrd="1440" />
+  <item id="PT20" name="Região Autónoma dos Açores" countryOrd="22" regionOrd="1441" />
+  <item id="PT200" name="Região Autónoma dos Açores" countryOrd="22" regionOrd="1442" />
+  <item id="PT3" name="Região Autónoma da Madeira" countryOrd="22" regionOrd="1443" />
+  <item id="PT30" name="Região Autónoma da Madeira" countryOrd="22" regionOrd="1444" />
+  <item id="PT300" name="Região Autónoma da Madeira" countryOrd="22" regionOrd="1445" />
+  <item id="PTZ" name="Extra-Regio NUTS 1" countryOrd="22" regionOrd="1446" />
+  <item id="PTZZ" name="Extra-Regio NUTS 2" countryOrd="22" regionOrd="1447" />
+  <item id="PTZZZ" name="Extra-Regio NUTS 3" countryOrd="22" regionOrd="1448" />
+  <item id="RO" name="România" countryOrd="23" regionOrd="1449" />
+  <item id="RO1" name="Macroregiunea Unu" countryOrd="23" regionOrd="1450" />
+  <item id="RO11" name="Nord-Vest" countryOrd="23" regionOrd="1451" />
+  <item id="RO111" name="Bihor" countryOrd="23" regionOrd="1452" />
+  <item id="RO112" name="Bistriţa-Năsăud" countryOrd="23" regionOrd="1453" />
+  <item id="RO113" name="Cluj" countryOrd="23" regionOrd="1454" />
+  <item id="RO114" name="Maramureş" countryOrd="23" regionOrd="1455" />
+  <item id="RO115" name="Satu Mare" countryOrd="23" regionOrd="1456" />
+  <item id="RO116" name="Sălaj" countryOrd="23" regionOrd="1457" />
+  <item id="RO12" name="Centru" countryOrd="23" regionOrd="1458" />
+  <item id="RO121" name="Alba" countryOrd="23" regionOrd="1459" />
+  <item id="RO122" name="Braşov" countryOrd="23" regionOrd="1460" />
+  <item id="RO123" name="Covasna" countryOrd="23" regionOrd="1461" />
+  <item id="RO124" name="Harghita" countryOrd="23" regionOrd="1462" />
+  <item id="RO125" name="Mureş" countryOrd="23" regionOrd="1463" />
+  <item id="RO126" name="Sibiu" countryOrd="23" regionOrd="1464" />
+  <item id="RO2" name="Macroregiunea Doi" countryOrd="23" regionOrd="1465" />
+  <item id="RO21" name="Nord-Est" countryOrd="23" regionOrd="1466" />
+  <item id="RO211" name="Bacău" countryOrd="23" regionOrd="1467" />
+  <item id="RO212" name="Botoşani" countryOrd="23" regionOrd="1468" />
+  <item id="RO213" name="Iaşi" countryOrd="23" regionOrd="1469" />
+  <item id="RO214" name="Neamţ" countryOrd="23" regionOrd="1470" />
+  <item id="RO215" name="Suceava" countryOrd="23" regionOrd="1471" />
+  <item id="RO216" name="Vaslui" countryOrd="23" regionOrd="1472" />
+  <item id="RO22" name="Sud-Est" countryOrd="23" regionOrd="1473" />
+  <item id="RO221" name="Brăila" countryOrd="23" regionOrd="1474" />
+  <item id="RO222" name="Buzău" countryOrd="23" regionOrd="1475" />
+  <item id="RO223" name="Constanţa" countryOrd="23" regionOrd="1476" />
+  <item id="RO224" name="Galaţi" countryOrd="23" regionOrd="1477" />
+  <item id="RO225" name="Tulcea" countryOrd="23" regionOrd="1478" />
+  <item id="RO226" name="Vrancea" countryOrd="23" regionOrd="1479" />
+  <item id="RO3" name="Macroregiunea Trei" countryOrd="23" regionOrd="1480" />
+  <item id="RO31" name="Sud-Muntenia" countryOrd="23" regionOrd="1481" />
+  <item id="RO311" name="Argeş" countryOrd="23" regionOrd="1482" />
+  <item id="RO312" name="Călăraşi" countryOrd="23" regionOrd="1483" />
+  <item id="RO313" name="Dâmboviţa" countryOrd="23" regionOrd="1484" />
+  <item id="RO314" name="Giurgiu" countryOrd="23" regionOrd="1485" />
+  <item id="RO315" name="Ialomiţa" countryOrd="23" regionOrd="1486" />
+  <item id="RO316" name="Prahova" countryOrd="23" regionOrd="1487" />
+  <item id="RO317" name="Teleorman" countryOrd="23" regionOrd="1488" />
+  <item id="RO32" name="Bucureşti-Ilfov" countryOrd="23" regionOrd="1489" />
+  <item id="RO321" name="Bucureşti" countryOrd="23" regionOrd="1490" />
+  <item id="RO322" name="Ilfov" countryOrd="23" regionOrd="1491" />
+  <item id="RO4" name="Macroregiunea Patru" countryOrd="23" regionOrd="1492" />
+  <item id="RO41" name="Sud-Vest Oltenia" countryOrd="23" regionOrd="1493" />
+  <item id="RO411" name="Dolj" countryOrd="23" regionOrd="1494" />
+  <item id="RO412" name="Gorj" countryOrd="23" regionOrd="1495" />
+  <item id="RO413" name="Mehedinţi" countryOrd="23" regionOrd="1496" />
+  <item id="RO414" name="Olt" countryOrd="23" regionOrd="1497" />
+  <item id="RO415" name="Vâlcea" countryOrd="23" regionOrd="1498" />
+  <item id="RO42" name="Vest" countryOrd="23" regionOrd="1499" />
+  <item id="RO421" name="Arad" countryOrd="23" regionOrd="1500" />
+  <item id="RO422" name="Caraş-Severin" countryOrd="23" regionOrd="1501" />
+  <item id="RO423" name="Hunedoara" countryOrd="23" regionOrd="1502" />
+  <item id="RO424" name="Timiş" countryOrd="23" regionOrd="1503" />
+  <item id="ROZ" name="Extra-Regio NUTS 1" countryOrd="23" regionOrd="1504" />
+  <item id="ROZZ" name="Extra-Regio NUTS 2" countryOrd="23" regionOrd="1505" />
+  <item id="ROZZZ" name="Extra-Regio NUTS 3" countryOrd="23" regionOrd="1506" />
+  <item id="SI" name="Slovenija" countryOrd="24" regionOrd="1507" />
+  <item id="SI0" name="Slovenija" countryOrd="24" regionOrd="1508" />
+  <item id="SI03" name="Vzhodna Slovenija" countryOrd="24" regionOrd="1509" />
+  <item id="SI031" name="Pomurska" countryOrd="24" regionOrd="1510" />
+  <item id="SI032" name="Podravska" countryOrd="24" regionOrd="1511" />
+  <item id="SI033" name="Koroška" countryOrd="24" regionOrd="1512" />
+  <item id="SI034" name="Savinjska" countryOrd="24" regionOrd="1513" />
+  <item id="SI035" name="Zasavska" countryOrd="24" regionOrd="1514" />
+  <item id="SI036" name="Posavska" countryOrd="24" regionOrd="1515" />
+  <item id="SI037" name="Jugovzhodna Slovenija" countryOrd="24" regionOrd="1516" />
+  <item id="SI038" name="Primorsko-notranjska" countryOrd="24" regionOrd="1517" />
+  <item id="SI04" name="Zahodna Slovenija" countryOrd="24" regionOrd="1518" />
+  <item id="SI041" name="Osrednjeslovenska" countryOrd="24" regionOrd="1519" />
+  <item id="SI042" name="Gorenjska" countryOrd="24" regionOrd="1520" />
+  <item id="SI043" name="Goriška" countryOrd="24" regionOrd="1521" />
+  <item id="SI044" name="Obalno-kraška" countryOrd="24" regionOrd="1522" />
+  <item id="SIZ" name="Extra-Regio NUTS 1" countryOrd="24" regionOrd="1523" />
+  <item id="SIZZ" name="Extra-Regio NUTS 2" countryOrd="24" regionOrd="1524" />
+  <item id="SIZZZ" name="Extra-Regio NUTS 3" countryOrd="24" regionOrd="1525" />
+  <item id="SK" name="Slovensko" countryOrd="25" regionOrd="1526" />
+  <item id="SK0" name="Slovensko" countryOrd="25" regionOrd="1527" />
+  <item id="SK01" name="Bratislavský kraj" countryOrd="25" regionOrd="1528" />
+  <item id="SK010" name="Bratislavský kraj" countryOrd="25" regionOrd="1529" />
+  <item id="SK02" name="Západné Slovensko" countryOrd="25" regionOrd="1530" />
+  <item id="SK021" name="Trnavský kraj" countryOrd="25" regionOrd="1531" />
+  <item id="SK022" name="Trenčiansky kraj" countryOrd="25" regionOrd="1532" />
+  <item id="SK023" name="Nitriansky kraj" countryOrd="25" regionOrd="1533" />
+  <item id="SK03" name="Stredné Slovensko" countryOrd="25" regionOrd="1534" />
+  <item id="SK031" name="Žilinský kraj" countryOrd="25" regionOrd="1535" />
+  <item id="SK032" name="Banskobystrický kraj" countryOrd="25" regionOrd="1536" />
+  <item id="SK04" name="Východné Slovensko" countryOrd="25" regionOrd="1537" />
+  <item id="SK041" name="Prešovský kraj" countryOrd="25" regionOrd="1538" />
+  <item id="SK042" name="Košický kraj" countryOrd="25" regionOrd="1539" />
+  <item id="SKZ" name="Extra-Regio NUTS 1" countryOrd="25" regionOrd="1540" />
+  <item id="SKZZ" name="Extra-Regio NUTS 2" countryOrd="25" regionOrd="1541" />
+  <item id="SKZZZ" name="Extra-Regio NUTS 3" countryOrd="25" regionOrd="1542" />
+  <item id="FI" name="Suomi/Finland" countryOrd="26" regionOrd="1543" />
+  <item id="FI1" name="Manner-Suomi" countryOrd="26" regionOrd="1544" />
+  <item id="FI19" name="Länsi-Suomi" countryOrd="26" regionOrd="1545" />
+  <item id="FI193" name="Keski-Suomi" countryOrd="26" regionOrd="1546" />
+  <item id="FI194" name="Etelä-Pohjanmaa" countryOrd="26" regionOrd="1547" />
+  <item id="FI195" name="Pohjanmaa" countryOrd="26" regionOrd="1548" />
+  <item id="FI196" name="Satakunta" countryOrd="26" regionOrd="1549" />
+  <item id="FI197" name="Pirkanmaa" countryOrd="26" regionOrd="1550" />
+  <item id="FI1B" name="Helsinki-Uusimaa" countryOrd="26" regionOrd="1551" />
+  <item id="FI1B1" name="Helsinki-Uusimaa" countryOrd="26" regionOrd="1552" />
+  <item id="FI1C" name="Etelä-Suomi" countryOrd="26" regionOrd="1553" />
+  <item id="FI1C1" name="Varsinais-Suomi" countryOrd="26" regionOrd="1554" />
+  <item id="FI1C2" name="Kanta-Häme" countryOrd="26" regionOrd="1555" />
+  <item id="FI1C3" name="Päijät-Häme" countryOrd="26" regionOrd="1556" />
+  <item id="FI1C4" name="Kymenlaakso" countryOrd="26" regionOrd="1557" />
+  <item id="FI1C5" name="Etelä-Karjala" countryOrd="26" regionOrd="1558" />
+  <item id="FI1D" name="Pohjois- ja Itä-Suomi" countryOrd="26" regionOrd="1559" />
+  <item id="FI1D1" name="Etelä-Savo" countryOrd="26" regionOrd="1560" />
+  <item id="FI1D2" name="Pohjois-Savo" countryOrd="26" regionOrd="1561" />
+  <item id="FI1D3" name="Pohjois-Karjala" countryOrd="26" regionOrd="1562" />
+  <item id="FI1D5" name="Keski-Pohjanmaa" countryOrd="26" regionOrd="1563" />
+  <item id="FI1D7" name="Lappi" countryOrd="26" regionOrd="1564" />
+  <item id="FI1D8" name="Kainuu" countryOrd="26" regionOrd="1565" />
+  <item id="FI1D9" name="Pohjois-Pohjanmaa" countryOrd="26" regionOrd="1566" />
+  <item id="FI2" name="Åland" countryOrd="26" regionOrd="1567" />
+  <item id="FI20" name="Åland" countryOrd="26" regionOrd="1568" />
+  <item id="FI200" name="Åland" countryOrd="26" regionOrd="1569" />
+  <item id="FIZ" name="Extra-Regio NUTS 1" countryOrd="26" regionOrd="1570" />
+  <item id="FIZZ" name="Extra-Regio NUTS 2" countryOrd="26" regionOrd="1571" />
+  <item id="FIZZZ" name="Extra-Regio NUTS 3" countryOrd="26" regionOrd="1572" />
+  <item id="SE" name="Sverige" countryOrd="27" regionOrd="1573" />
+  <item id="SE1" name="Östra Sverige" countryOrd="27" regionOrd="1574" />
+  <item id="SE11" name="Stockholm" countryOrd="27" regionOrd="1575" />
+  <item id="SE110" name="Stockholms län" countryOrd="27" regionOrd="1576" />
+  <item id="SE12" name="Östra Mellansverige" countryOrd="27" regionOrd="1577" />
+  <item id="SE121" name="Uppsala län" countryOrd="27" regionOrd="1578" />
+  <item id="SE122" name="Södermanlands län" countryOrd="27" regionOrd="1579" />
+  <item id="SE123" name="Östergötlands län" countryOrd="27" regionOrd="1580" />
+  <item id="SE124" name="Örebro län" countryOrd="27" regionOrd="1581" />
+  <item id="SE125" name="Västmanlands län" countryOrd="27" regionOrd="1582" />
+  <item id="SE2" name="Södra Sverige" countryOrd="27" regionOrd="1583" />
+  <item id="SE21" name="Småland med öarna" countryOrd="27" regionOrd="1584" />
+  <item id="SE211" name="Jönköpings län" countryOrd="27" regionOrd="1585" />
+  <item id="SE212" name="Kronobergs län" countryOrd="27" regionOrd="1586" />
+  <item id="SE213" name="Kalmar län" countryOrd="27" regionOrd="1587" />
+  <item id="SE214" name="Gotlands län" countryOrd="27" regionOrd="1588" />
+  <item id="SE22" name="Sydsverige" countryOrd="27" regionOrd="1589" />
+  <item id="SE221" name="Blekinge län" countryOrd="27" regionOrd="1590" />
+  <item id="SE224" name="Skåne län" countryOrd="27" regionOrd="1591" />
+  <item id="SE23" name="Västsverige" countryOrd="27" regionOrd="1592" />
+  <item id="SE231" name="Hallands län" countryOrd="27" regionOrd="1593" />
+  <item id="SE232" name="Västra Götalands län" countryOrd="27" regionOrd="1594" />
+  <item id="SE3" name="Norra Sverige" countryOrd="27" regionOrd="1595" />
+  <item id="SE31" name="Norra Mellansverige" countryOrd="27" regionOrd="1596" />
+  <item id="SE311" name="Värmlands län" countryOrd="27" regionOrd="1597" />
+  <item id="SE312" name="Dalarnas län" countryOrd="27" regionOrd="1598" />
+  <item id="SE313" name="Gävleborgs län" countryOrd="27" regionOrd="1599" />
+  <item id="SE32" name="Mellersta Norrland" countryOrd="27" regionOrd="1600" />
+  <item id="SE321" name="Västernorrlands län" countryOrd="27" regionOrd="1601" />
+  <item id="SE322" name="Jämtlands län" countryOrd="27" regionOrd="1602" />
+  <item id="SE33" name="Övre Norrland" countryOrd="27" regionOrd="1603" />
+  <item id="SE331" name="Västerbottens län" countryOrd="27" regionOrd="1604" />
+  <item id="SE332" name="Norrbottens län" countryOrd="27" regionOrd="1605" />
+  <item id="SEZ" name="Extra-Regio NUTS 1" countryOrd="27" regionOrd="1606" />
+  <item id="SEZZ" name="Extra-Regio NUTS 2" countryOrd="27" regionOrd="1607" />
+  <item id="SEZZZ" name="Extra-Regio NUTS 3" countryOrd="27" regionOrd="1608" />
+  <item id="UK" name="United Kingdom" countryOrd="28" regionOrd="1609" />
+  <item id="UKC" name="North East (England)" countryOrd="28" regionOrd="1610" />
+  <item id="UKC1" name="Tees Valley and Durham" countryOrd="28" regionOrd="1611" />
+  <item id="UKC11" name="Hartlepool and Stockton-on-Tees" countryOrd="28" regionOrd="1612" />
+  <item id="UKC12" name="South Teesside" countryOrd="28" regionOrd="1613" />
+  <item id="UKC13" name="Darlington" countryOrd="28" regionOrd="1614" />
+  <item id="UKC14" name="Durham CC" countryOrd="28" regionOrd="1615" />
+  <item id="UKC2" name="Northumberland and Tyne and Wear" countryOrd="28" regionOrd="1616" />
+  <item id="UKC21" name="Northumberland" countryOrd="28" regionOrd="1617" />
+  <item id="UKC22" name="Tyneside" countryOrd="28" regionOrd="1618" />
+  <item id="UKC23" name="Sunderland" countryOrd="28" regionOrd="1619" />
+  <item id="UKD" name="North West (England)" countryOrd="28" regionOrd="1620" />
+  <item id="UKD1" name="Cumbria" countryOrd="28" regionOrd="1621" />
+  <item id="UKD11" name="West Cumbria" countryOrd="28" regionOrd="1622" />
+  <item id="UKD12" name="East Cumbria" countryOrd="28" regionOrd="1623" />
+  <item id="UKD3" name="Greater Manchester" countryOrd="28" regionOrd="1624" />
+  <item id="UKD33" name="Manchester" countryOrd="28" regionOrd="1625" />
+  <item id="UKD34" name="Greater Manchester South West" countryOrd="28" regionOrd="1626" />
+  <item id="UKD35" name="Greater Manchester South East" countryOrd="28" regionOrd="1627" />
+  <item id="UKD36" name="Greater Manchester North West" countryOrd="28" regionOrd="1628" />
+  <item id="UKD37" name="Greater Manchester North East" countryOrd="28" regionOrd="1629" />
+  <item id="UKD4" name="Lancashire" countryOrd="28" regionOrd="1630" />
+  <item id="UKD41" name="Blackburn with Darwen" countryOrd="28" regionOrd="1631" />
+  <item id="UKD42" name="Blackpool" countryOrd="28" regionOrd="1632" />
+  <item id="UKD44" name="Lancaster and Wyre" countryOrd="28" regionOrd="1633" />
+  <item id="UKD45" name="Mid Lancashire" countryOrd="28" regionOrd="1634" />
+  <item id="UKD46" name="East Lancashire" countryOrd="28" regionOrd="1635" />
+  <item id="UKD47" name="Chorley and West Lancashire" countryOrd="28" regionOrd="1636" />
+  <item id="UKD6" name="Cheshire" countryOrd="28" regionOrd="1637" />
+  <item id="UKD61" name="Warrington" countryOrd="28" regionOrd="1638" />
+  <item id="UKD62" name="Cheshire East" countryOrd="28" regionOrd="1639" />
+  <item id="UKD63" name="Cheshire West and Chester" countryOrd="28" regionOrd="1640" />
+  <item id="UKD7" name="Merseyside" countryOrd="28" regionOrd="1641" />
+  <item id="UKD71" name="East Merseyside" countryOrd="28" regionOrd="1642" />
+  <item id="UKD72" name="Liverpool" countryOrd="28" regionOrd="1643" />
+  <item id="UKD73" name="Sefton" countryOrd="28" regionOrd="1644" />
+  <item id="UKD74" name="Wirral" countryOrd="28" regionOrd="1645" />
+  <item id="UKE" name="Yorkshire and the Humber" countryOrd="28" regionOrd="1646" />
+  <item id="UKE1" name="East Yorkshire and Northern Lincolnshire" countryOrd="28" regionOrd="1647" />
+  <item id="UKE11" name="Kingston upon Hull, City of" countryOrd="28" regionOrd="1648" />
+  <item id="UKE12" name="East Riding of Yorkshire" countryOrd="28" regionOrd="1649" />
+  <item id="UKE13" name="North and North East Lincolnshire" countryOrd="28" regionOrd="1650" />
+  <item id="UKE2" name="North Yorkshire" countryOrd="28" regionOrd="1651" />
+  <item id="UKE21" name="York" countryOrd="28" regionOrd="1652" />
+  <item id="UKE22" name="North Yorkshire CC" countryOrd="28" regionOrd="1653" />
+  <item id="UKE3" name="South Yorkshire" countryOrd="28" regionOrd="1654" />
+  <item id="UKE31" name="Barnsley, Doncaster and Rotherham" countryOrd="28" regionOrd="1655" />
+  <item id="UKE32" name="Sheffield" countryOrd="28" regionOrd="1656" />
+  <item id="UKE4" name="West Yorkshire" countryOrd="28" regionOrd="1657" />
+  <item id="UKE41" name="Bradford" countryOrd="28" regionOrd="1658" />
+  <item id="UKE42" name="Leeds" countryOrd="28" regionOrd="1659" />
+  <item id="UKE44" name="Calderdale and Kirklees" countryOrd="28" regionOrd="1660" />
+  <item id="UKE45" name="Wakefield" countryOrd="28" regionOrd="1661" />
+  <item id="UKF" name="East Midlands (England)" countryOrd="28" regionOrd="1662" />
+  <item id="UKF1" name="Derbyshire and Nottinghamshire" countryOrd="28" regionOrd="1663" />
+  <item id="UKF11" name="Derby" countryOrd="28" regionOrd="1664" />
+  <item id="UKF12" name="East Derbyshire" countryOrd="28" regionOrd="1665" />
+  <item id="UKF13" name="South and West Derbyshire" countryOrd="28" regionOrd="1666" />
+  <item id="UKF14" name="Nottingham" countryOrd="28" regionOrd="1667" />
+  <item id="UKF15" name="North Nottinghamshire" countryOrd="28" regionOrd="1668" />
+  <item id="UKF16" name="South Nottinghamshire" countryOrd="28" regionOrd="1669" />
+  <item id="UKF2" name="Leicestershire, Rutland and Northamptonshire" countryOrd="28" regionOrd="1670" />
+  <item id="UKF21" name="Leicester" countryOrd="28" regionOrd="1671" />
+  <item id="UKF22" name="Leicestershire CC and Rutland" countryOrd="28" regionOrd="1672" />
+  <item id="UKF24" name="West Northamptonshire" countryOrd="28" regionOrd="1673" />
+  <item id="UKF25" name="North Northamptonshire" countryOrd="28" regionOrd="1674" />
+  <item id="UKF3" name="Lincolnshire" countryOrd="28" regionOrd="1675" />
+  <item id="UKF30" name="Lincolnshire" countryOrd="28" regionOrd="1676" />
+  <item id="UKG" name="West Midlands (England)" countryOrd="28" regionOrd="1677" />
+  <item id="UKG1" name="Herefordshire, Worcestershire and Warwickshire" countryOrd="28" regionOrd="1678" />
+  <item id="UKG11" name="Herefordshire, County of" countryOrd="28" regionOrd="1679" />
+  <item id="UKG12" name="Worcestershire" countryOrd="28" regionOrd="1680" />
+  <item id="UKG13" name="Warwickshire" countryOrd="28" regionOrd="1681" />
+  <item id="UKG2" name="Shropshire and Staffordshire" countryOrd="28" regionOrd="1682" />
+  <item id="UKG21" name="Telford and Wrekin" countryOrd="28" regionOrd="1683" />
+  <item id="UKG22" name="Shropshire CC" countryOrd="28" regionOrd="1684" />
+  <item id="UKG23" name="Stoke-on-Trent" countryOrd="28" regionOrd="1685" />
+  <item id="UKG24" name="Staffordshire CC" countryOrd="28" regionOrd="1686" />
+  <item id="UKG3" name="West Midlands" countryOrd="28" regionOrd="1687" />
+  <item id="UKG31" name="Birmingham" countryOrd="28" regionOrd="1688" />
+  <item id="UKG32" name="Solihull" countryOrd="28" regionOrd="1689" />
+  <item id="UKG33" name="Coventry" countryOrd="28" regionOrd="1690" />
+  <item id="UKG36" name="Dudley" countryOrd="28" regionOrd="1691" />
+  <item id="UKG37" name="Sandwell" countryOrd="28" regionOrd="1692" />
+  <item id="UKG38" name="Walsall" countryOrd="28" regionOrd="1693" />
+  <item id="UKG39" name="Wolverhampton" countryOrd="28" regionOrd="1694" />
+  <item id="UKH" name="East of England" countryOrd="28" regionOrd="1695" />
+  <item id="UKH1" name="East Anglia" countryOrd="28" regionOrd="1696" />
+  <item id="UKH11" name="Peterborough" countryOrd="28" regionOrd="1697" />
+  <item id="UKH12" name="Cambridgeshire CC" countryOrd="28" regionOrd="1698" />
+  <item id="UKH14" name="Suffolk" countryOrd="28" regionOrd="1699" />
+  <item id="UKH15" name="Norwich and East Norfolk" countryOrd="28" regionOrd="1700" />
+  <item id="UKH16" name="North and West Norfolk" countryOrd="28" regionOrd="1701" />
+  <item id="UKH17" name="Breckland and South Norfolk" countryOrd="28" regionOrd="1702" />
+  <item id="UKH2" name="Bedfordshire and Hertfordshire" countryOrd="28" regionOrd="1703" />
+  <item id="UKH21" name="Luton" countryOrd="28" regionOrd="1704" />
+  <item id="UKH23" name="Hertfordshire" countryOrd="28" regionOrd="1705" />
+  <item id="UKH24" name="Bedford" countryOrd="28" regionOrd="1706" />
+  <item id="UKH25" name="Central Bedfordshire" countryOrd="28" regionOrd="1707" />
+  <item id="UKH3" name="Essex" countryOrd="28" regionOrd="1708" />
+  <item id="UKH31" name="Southend-on-Sea" countryOrd="28" regionOrd="1709" />
+  <item id="UKH32" name="Thurrock" countryOrd="28" regionOrd="1710" />
+  <item id="UKH34" name="Essex Haven Gateway" countryOrd="28" regionOrd="1711" />
+  <item id="UKH35" name="West Essex" countryOrd="28" regionOrd="1712" />
+  <item id="UKH36" name="Heart of Essex" countryOrd="28" regionOrd="1713" />
+  <item id="UKH37" name="Essex Thames Gateway" countryOrd="28" regionOrd="1714" />
+  <item id="UKI" name="London" countryOrd="28" regionOrd="1715" />
+  <item id="UKI3" name="Inner London — West" countryOrd="28" regionOrd="1716" />
+  <item id="UKI31" name="Camden and City of London" countryOrd="28" regionOrd="1717" />
+  <item id="UKI32" name="Westminster" countryOrd="28" regionOrd="1718" />
+  <item id="UKI33" name="Kensington &amp; Chelsea and Hammersmith &amp; Fulham" countryOrd="28" regionOrd="1719" />
+  <item id="UKI34" name="Wandsworth" countryOrd="28" regionOrd="1720" />
+  <item id="UKI4" name="Inner London — East" countryOrd="28" regionOrd="1721" />
+  <item id="UKI41" name="Hackney and Newham" countryOrd="28" regionOrd="1722" />
+  <item id="UKI42" name="Tower Hamlets" countryOrd="28" regionOrd="1723" />
+  <item id="UKI43" name="Haringey and Islington" countryOrd="28" regionOrd="1724" />
+  <item id="UKI44" name="Lewisham and Southwark" countryOrd="28" regionOrd="1725" />
+  <item id="UKI45" name="Lambeth" countryOrd="28" regionOrd="1726" />
+  <item id="UKI5" name="Outer London — East and North East" countryOrd="28" regionOrd="1727" />
+  <item id="UKI51" name="Bexley and Greenwich" countryOrd="28" regionOrd="1728" />
+  <item id="UKI52" name="Barking &amp; Dagenham and Havering" countryOrd="28" regionOrd="1729" />
+  <item id="UKI53" name="Redbridge and Waltham Forest" countryOrd="28" regionOrd="1730" />
+  <item id="UKI54" name="Enfield" countryOrd="28" regionOrd="1731" />
+  <item id="UKI6" name="Outer London — South" countryOrd="28" regionOrd="1732" />
+  <item id="UKI61" name="Bromley" countryOrd="28" regionOrd="1733" />
+  <item id="UKI62" name="Croydon" countryOrd="28" regionOrd="1734" />
+  <item id="UKI63" name="Merton, Kingston upon Thames and Sutton" countryOrd="28" regionOrd="1735" />
+  <item id="UKI7" name="Outer London — West and North West" countryOrd="28" regionOrd="1736" />
+  <item id="UKI71" name="Barnet" countryOrd="28" regionOrd="1737" />
+  <item id="UKI72" name="Brent" countryOrd="28" regionOrd="1738" />
+  <item id="UKI73" name="Ealing" countryOrd="28" regionOrd="1739" />
+  <item id="UKI74" name="Harrow and Hillingdon" countryOrd="28" regionOrd="1740" />
+  <item id="UKI75" name="Hounslow and Richmond upon Thames" countryOrd="28" regionOrd="1741" />
+  <item id="UKJ" name="South East (England)" countryOrd="28" regionOrd="1742" />
+  <item id="UKJ1" name="Berkshire, Buckinghamshire and Oxfordshire" countryOrd="28" regionOrd="1743" />
+  <item id="UKJ11" name="Berkshire" countryOrd="28" regionOrd="1744" />
+  <item id="UKJ12" name="Milton Keynes" countryOrd="28" regionOrd="1745" />
+  <item id="UKJ13" name="Buckinghamshire CC" countryOrd="28" regionOrd="1746" />
+  <item id="UKJ14" name="Oxfordshire" countryOrd="28" regionOrd="1747" />
+  <item id="UKJ2" name="Surrey, East and West Sussex" countryOrd="28" regionOrd="1748" />
+  <item id="UKJ21" name="Brighton and Hove" countryOrd="28" regionOrd="1749" />
+  <item id="UKJ22" name="East Sussex CC" countryOrd="28" regionOrd="1750" />
+  <item id="UKJ25" name="West Surrey" countryOrd="28" regionOrd="1751" />
+  <item id="UKJ26" name="East Surrey" countryOrd="28" regionOrd="1752" />
+  <item id="UKJ27" name="West Sussex (South West)" countryOrd="28" regionOrd="1753" />
+  <item id="UKJ28" name="West Sussex (North East)" countryOrd="28" regionOrd="1754" />
+  <item id="UKJ3" name="Hampshire and Isle of Wight" countryOrd="28" regionOrd="1755" />
+  <item id="UKJ31" name="Portsmouth" countryOrd="28" regionOrd="1756" />
+  <item id="UKJ32" name="Southampton" countryOrd="28" regionOrd="1757" />
+  <item id="UKJ34" name="Isle of Wight" countryOrd="28" regionOrd="1758" />
+  <item id="UKJ35" name="South Hampshire" countryOrd="28" regionOrd="1759" />
+  <item id="UKJ36" name="Central Hampshire" countryOrd="28" regionOrd="1760" />
+  <item id="UKJ37" name="North Hampshire" countryOrd="28" regionOrd="1761" />
+  <item id="UKJ4" name="Kent" countryOrd="28" regionOrd="1762" />
+  <item id="UKJ41" name="Medway" countryOrd="28" regionOrd="1763" />
+  <item id="UKJ43" name="Kent Thames Gateway" countryOrd="28" regionOrd="1764" />
+  <item id="UKJ44" name="East Kent" countryOrd="28" regionOrd="1765" />
+  <item id="UKJ45" name="Mid Kent" countryOrd="28" regionOrd="1766" />
+  <item id="UKJ46" name="West Kent" countryOrd="28" regionOrd="1767" />
+  <item id="UKK" name="South West (England)" countryOrd="28" regionOrd="1768" />
+  <item id="UKK1" name="Gloucestershire, Wiltshire and Bristol/Bath area" countryOrd="28" regionOrd="1769" />
+  <item id="UKK11" name="Bristol, City of" countryOrd="28" regionOrd="1770" />
+  <item id="UKK12" name="Bath and North East Somerset, North Somerset and South Gloucestershire" countryOrd="28" regionOrd="1771" />
+  <item id="UKK13" name="Gloucestershire" countryOrd="28" regionOrd="1772" />
+  <item id="UKK14" name="Swindon" countryOrd="28" regionOrd="1773" />
+  <item id="UKK15" name="Wiltshire CC" countryOrd="28" regionOrd="1774" />
+  <item id="UKK2" name="Dorset and Somerset" countryOrd="28" regionOrd="1775" />
+  <item id="UKK23" name="Somerset" countryOrd="28" regionOrd="1776" />
+  <item id="UKK24" name="Bournemouth, Christchurch and Poole" countryOrd="28" regionOrd="1777" />
+  <item id="UKK25" name="Dorset" countryOrd="28" regionOrd="1778" />
+  <item id="UKK3" name="Cornwall and Isles of Scilly" countryOrd="28" regionOrd="1779" />
+  <item id="UKK30" name="Cornwall and Isles of Scilly" countryOrd="28" regionOrd="1780" />
+  <item id="UKK4" name="Devon" countryOrd="28" regionOrd="1781" />
+  <item id="UKK41" name="Plymouth" countryOrd="28" regionOrd="1782" />
+  <item id="UKK42" name="Torbay" countryOrd="28" regionOrd="1783" />
+  <item id="UKK43" name="Devon CC" countryOrd="28" regionOrd="1784" />
+  <item id="UKL" name="Wales" countryOrd="28" regionOrd="1785" />
+  <item id="UKL1" name="West Wales and The Valleys" countryOrd="28" regionOrd="1786" />
+  <item id="UKL11" name="Isle of Anglesey" countryOrd="28" regionOrd="1787" />
+  <item id="UKL12" name="Gwynedd" countryOrd="28" regionOrd="1788" />
+  <item id="UKL13" name="Conwy and Denbighshire" countryOrd="28" regionOrd="1789" />
+  <item id="UKL14" name="South West Wales" countryOrd="28" regionOrd="1790" />
+  <item id="UKL15" name="Central Valleys" countryOrd="28" regionOrd="1791" />
+  <item id="UKL16" name="Gwent Valleys" countryOrd="28" regionOrd="1792" />
+  <item id="UKL17" name="Bridgend and Neath Port Talbot" countryOrd="28" regionOrd="1793" />
+  <item id="UKL18" name="Swansea" countryOrd="28" regionOrd="1794" />
+  <item id="UKL2" name="East Wales" countryOrd="28" regionOrd="1795" />
+  <item id="UKL21" name="Monmouthshire and Newport" countryOrd="28" regionOrd="1796" />
+  <item id="UKL22" name="Cardiff and Vale of Glamorgan" countryOrd="28" regionOrd="1797" />
+  <item id="UKL23" name="Flintshire and Wrexham" countryOrd="28" regionOrd="1798" />
+  <item id="UKL24" name="Powys" countryOrd="28" regionOrd="1799" />
+  <item id="UKM" name="Scotland" countryOrd="28" regionOrd="1800" />
+  <item id="UKM5" name="North Eastern Scotland" countryOrd="28" regionOrd="1801" />
+  <item id="UKM50" name="Aberdeen City and Aberdeenshire" countryOrd="28" regionOrd="1802" />
+  <item id="UKM6" name="Highlands and Islands" countryOrd="28" regionOrd="1803" />
+  <item id="UKM61" name="Caithness &amp; Sutherland and Ross &amp; Cromarty" countryOrd="28" regionOrd="1804" />
+  <item id="UKM62" name="Inverness &amp; Nairn and Moray, Badenoch &amp; Strathspey" countryOrd="28" regionOrd="1805" />
+  <item id="UKM63" name="Lochaber, Skye &amp; Lochalsh, Arran &amp; Cumbrae and Argyll &amp; Bute" countryOrd="28" regionOrd="1806" />
+  <item id="UKM64" name="Na h-Eileanan Siar (Western Isles)" countryOrd="28" regionOrd="1807" />
+  <item id="UKM65" name="Orkney Islands" countryOrd="28" regionOrd="1808" />
+  <item id="UKM66" name="Shetland Islands" countryOrd="28" regionOrd="1809" />
+  <item id="UKM7" name="Eastern Scotland" countryOrd="28" regionOrd="1810" />
+  <item id="UKM71" name="Angus and Dundee City" countryOrd="28" regionOrd="1811" />
+  <item id="UKM72" name="Clackmannanshire and Fife" countryOrd="28" regionOrd="1812" />
+  <item id="UKM73" name="East Lothian and Midlothian" countryOrd="28" regionOrd="1813" />
+  <item id="UKM75" name="Edinburgh, City of" countryOrd="28" regionOrd="1814" />
+  <item id="UKM76" name="Falkirk" countryOrd="28" regionOrd="1815" />
+  <item id="UKM77" name="Perth &amp; Kinross and Stirling" countryOrd="28" regionOrd="1816" />
+  <item id="UKM78" name="West Lothian" countryOrd="28" regionOrd="1817" />
+  <item id="UKM8" name="West Central Scotland" countryOrd="28" regionOrd="1818" />
+  <item id="UKM81" name="East Dunbartonshire, West Dunbartonshire and Helensburgh &amp; Lomond" countryOrd="28" regionOrd="1819" />
+  <item id="UKM82" name="Glasgow City" countryOrd="28" regionOrd="1820" />
+  <item id="UKM83" name="Inverclyde, East Renfrewshire and Renfrewshire" countryOrd="28" regionOrd="1821" />
+  <item id="UKM84" name="North Lanarkshire" countryOrd="28" regionOrd="1822" />
+  <item id="UKM9" name="Southern Scotland" countryOrd="28" regionOrd="1823" />
+  <item id="UKM91" name="Scottish Borders" countryOrd="28" regionOrd="1824" />
+  <item id="UKM92" name="Dumfries &amp; Galloway" countryOrd="28" regionOrd="1825" />
+  <item id="UKM93" name="East Ayrshire and North Ayrshire mainland" countryOrd="28" regionOrd="1826" />
+  <item id="UKM94" name="South Ayrshire" countryOrd="28" regionOrd="1827" />
+  <item id="UKM95" name="South Lanarkshire" countryOrd="28" regionOrd="1828" />
+  <item id="UKN" name="Northern Ireland" countryOrd="28" regionOrd="1829" />
+  <item id="UKN0" name="Northern Ireland" countryOrd="28" regionOrd="1830" />
+  <item id="UKN06" name="Belfast" countryOrd="28" regionOrd="1831" />
+  <item id="UKN07" name="Armagh City, Banbridge and Craigavon" countryOrd="28" regionOrd="1832" />
+  <item id="UKN08" name="Newry, Mourne and Down" countryOrd="28" regionOrd="1833" />
+  <item id="UKN09" name="Ards and North Down " countryOrd="28" regionOrd="1834" />
+  <item id="UKN0A" name="Derry City and Strabane" countryOrd="28" regionOrd="1835" />
+  <item id="UKN0B" name="Mid Ulster" countryOrd="28" regionOrd="1836" />
+  <item id="UKN0C" name="Causeway Coast and Glens" countryOrd="28" regionOrd="1837" />
+  <item id="UKN0D" name="Antrim and Newtownabbey" countryOrd="28" regionOrd="1838" />
+  <item id="UKN0E" name="Lisburn and Castlereagh" countryOrd="28" regionOrd="1839" />
+  <item id="UKN0F" name="Mid and East Antrim" countryOrd="28" regionOrd="1840" />
+  <item id="UKN0G" name="Fermanagh and Omagh" countryOrd="28" regionOrd="1841" />
+  <item id="UKZ" name="Extra-Regio NUTS 1" countryOrd="28" regionOrd="1842" />
+  <item id="UKZZ" name="Extra-Regio NUTS 2" countryOrd="28" regionOrd="1843" />
+  <item id="UKZZZ" name="Extra-Regio NUTS 3" countryOrd="28" regionOrd="1844" />
+</root>
