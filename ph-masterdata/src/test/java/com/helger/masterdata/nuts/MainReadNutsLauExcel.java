@@ -39,7 +39,14 @@ import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
-public class MainReadNutsLauExcel
+/**
+ * Take the LAU Excel from
+ * https://ec.europa.eu/eurostat/web/nuts/local-administrative-units and convert
+ * to XML.
+ *
+ * @author Philip Helger
+ */
+public final class MainReadNutsLauExcel
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainReadNutsLauExcel.class);
 
@@ -58,9 +65,11 @@ public class MainReadNutsLauExcel
     final IMicroElement eRoot = aDoc.appendElement ("root");
 
     for (final Sheet aSheet : new IterableIterator <> (aWB.sheetIterator ()))
+    {
+      // Only consider sheets, that represent a country
       if (RegExHelper.stringMatchesPattern ("^[A-Z]{2}$", aSheet.getSheetName ()))
       {
-        LOGGER.info ("Reading " + aSheet.getSheetName ());
+        LOGGER.info ("Reading sheet " + aSheet.getSheetName ());
 
         final Iterator <Row> aRowIt = aSheet.rowIterator ();
 
@@ -94,6 +103,7 @@ public class MainReadNutsLauExcel
           }
         }
       }
+    }
 
     MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/lau-nuts2021.xml"));
     LOGGER.info ("Wrote XML file");

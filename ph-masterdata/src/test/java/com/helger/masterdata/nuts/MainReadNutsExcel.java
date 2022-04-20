@@ -33,7 +33,13 @@ import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
-public class MainReadNutsExcel
+/**
+ * Take the NUTS Excel from https://ec.europa.eu/eurostat/web/nuts/background
+ * and convert it to an XML
+ *
+ * @author Philip Helger
+ */
+public final class MainReadNutsExcel
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainReadNutsExcel.class);
 

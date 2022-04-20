@@ -24,7 +24,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class LauManagerTest
+/**
+ * Test class for class {@link LauManager}.
+ *
+ * @author Philip Helger
+ */
+public final class LauManagerTest
 {
   @Test
   public void testBasic ()

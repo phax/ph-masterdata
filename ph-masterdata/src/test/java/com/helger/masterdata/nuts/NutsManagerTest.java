@@ -25,7 +25,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class NutsManagerTest
+/**
+ * Test class for class {@link NutsManager}.
+ *
+ * @author Philip Helger
+ */
+public final class NutsManagerTest
 {
   @Test
   public void testBasic ()
@@ -39,6 +44,7 @@ public class NutsManagerTest
 
     assertEquals ("AT130", aItem.getID ());
     assertEquals ("Wien", aItem.getDisplayName ());
+    assertEquals ("Wien", aItem.getLatinDisplayName ());
     assertSame (ENutsLevel.NUTS3, aItem.getLevel ());
     assertEquals (20, aItem.getCountryOrdinal ());
     assertEquals (1273, aItem.getRegionOrdinal ());
