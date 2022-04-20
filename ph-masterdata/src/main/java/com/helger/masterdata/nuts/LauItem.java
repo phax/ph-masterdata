@@ -1,0 +1,130 @@
+/*
+ * Copyright (C) 2014-2022 Philip Helger (www.helger.com)
+ * philip[at]helger[dot]com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.helger.masterdata.nuts;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
+
+import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.id.IHasID;
+import com.helger.commons.name.IHasDisplayName;
+import com.helger.commons.string.StringHelper;
+import com.helger.commons.string.ToStringGenerator;
+
+/**
+ * Represents a single LAU item and its relationship to the NUTS codes.
+ *
+ * @author Philip Helger
+ * @since 6.2.4
+ */
+@Immutable
+public class LauItem implements IHasID <String>, IHasDisplayName
+{
+  // These values have been determined heuristically based on the 2021 data
+  public static final int ID_MIN_LENGTH = 1;
+  public static final int ID_MAX_LENGTH = 13;
+
+  private final String m_sID;
+  private final String m_sNuts3;
+  private final String m_sDisplayName;
+  private final String m_sLatinDisplayName;
+
+  public LauItem (@Nonnull @Nonempty final String sID,
+                  @Nonnull @Nonempty final String sNuts3,
+                  @Nonnull @Nonempty final String sDisplayName,
+                  @Nullable final String sLatinDisplayName)
+  {
+    ValueEnforcer.notEmpty (sID, "ID");
+    ValueEnforcer.isTrue ( () -> sID.length () >= ID_MIN_LENGTH && sID.length () <= ID_MAX_LENGTH,
+                           () -> "Odd ID length of '" + sID + "'");
+    ValueEnforcer.notEmpty (sNuts3, "Nuts3");
+    ValueEnforcer.isTrue ( () -> sNuts3.length () == ENutsLevel.NUTS3.getCharCount (),
+                           "() ->Odd Nuts3 length of '" + sNuts3 + "'");
+    ValueEnforcer.notEmpty (sDisplayName, "Name");
+
+    m_sID = sID;
+    m_sNuts3 = sNuts3;
+    m_sDisplayName = sDisplayName;
+    m_sLatinDisplayName = StringHelper.hasText (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
+  }
+
+  /**
+   * @return The LAU code. Neither <code>null</code> nor empty.
+   */
+  @Nonnull
+  @Nonempty
+  public String getID ()
+  {
+    return m_sID;
+  }
+
+  /**
+   * @return The Country code to which the LAU belongs to. This is calculated
+   *         from the NUTS code. Never <code>null</code>.
+   */
+  @Nonnull
+  @Nonempty
+  public String getCountryCode ()
+  {
+    return m_sNuts3.substring (0, 2);
+  }
+
+  /**
+   * @return The NUTS3 code to which the LAU belongs to. Never
+   *         <code>null</code>.
+   */
+  @Nonnull
+  @Nonempty
+  public String getNuts3Code ()
+  {
+    return m_sNuts3;
+  }
+
+  /**
+   * @return The display name of the LAU item in local language.
+   * @see #getLatinDisplayName() for the Latin version
+   */
+  @Nonnull
+  @Nonempty
+  public String getDisplayName ()
+  {
+    return m_sDisplayName;
+  }
+
+  /**
+   * @return The Latin display name of the LAU item. If no specific latin name
+   *         is provided, it's identical to {@link #getDisplayName()}.
+   */
+  @Nonnull
+  @Nonempty
+  public String getLatinDisplayName ()
+  {
+    return m_sLatinDisplayName;
+  }
+
+  @Override
+  public String toString ()
+  {
+    return new ToStringGenerator (null).append ("ID", m_sID)
+                                       .append ("Nuts3", m_sNuts3)
+                                       .append ("DisplayName", m_sDisplayName)
+                                       .append ("LatinDisplayName", m_sLatinDisplayName)
+                                       .getToString ();
+  }
+}

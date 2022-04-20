@@ -19,6 +19,9 @@ package com.helger.masterdata.nuts;
 import java.io.File;
 import java.util.Iterator;
 
+import javax.annotation.Nullable;
+
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -39,6 +42,12 @@ import com.helger.xml.microdom.serialize.MicroWriter;
 public class MainReadNutsLauExcel
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainReadNutsLauExcel.class);
+
+  @Nullable
+  private static String _getString (@Nullable final Cell aCell)
+  {
+    return StringHelper.trim (ExcelReadHelper.getCellValueString (aCell));
+  }
 
   public static void main (final String [] args)
   {
@@ -65,13 +74,17 @@ public class MainReadNutsLauExcel
         while (aRowIt.hasNext ())
         {
           final Row aRow = aRowIt.next ();
-          final String sNuts3 = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-          final String sLau = ExcelReadHelper.getCellValueString (aRow.getCell (1));
-          final String sName = ExcelReadHelper.getCellValueString (aRow.getCell (2));
-          final String sLatinName = ExcelReadHelper.getCellValueString (aRow.getCell (3));
+          String sNuts3 = _getString (aRow.getCell (0));
+          final String sLau = _getString (aRow.getCell (1));
+          final String sName = _getString (aRow.getCell (2));
+          final String sLatinName = _getString (aRow.getCell (3));
 
           if (StringHelper.hasText (sLau))
           {
+            // Bug in the data for Albania
+            if (sNuts3.length () == 4 && sNuts3.startsWith ("AL"))
+              sNuts3 = sNuts3.substring (0, 2) + "0" + sNuts3.substring (2, 4);
+
             final IMicroElement eItem = eRoot.appendElement ("item")
                                              .setAttribute ("lau", sLau)
                                              .setAttribute ("nuts3", sNuts3)

@@ -17,6 +17,7 @@
 package com.helger.masterdata.nuts;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import org.slf4j.Logger;
@@ -30,6 +31,8 @@ import com.helger.commons.collection.impl.ICommonsOrderedMap;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.IReadableResource;
 import com.helger.commons.lang.ICloneable;
+import com.helger.commons.regex.RegExHelper;
+import com.helger.commons.string.StringHelper;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
@@ -44,6 +47,12 @@ import com.helger.xml.microdom.serialize.MicroReader;
 @NotThreadSafe
 public class NutsManager implements INutsManager, ICloneable <NutsManager>
 {
+  /**
+   * The regular expression used to validate NUTS codes. It works for country
+   * codes and all NUTS levels.
+   */
+  public static final String REGEX_NUTS_CODE = "^[A-Z]{2}[0-9A-Z]{0,3}$";
+
   private static final Logger LOGGER = LoggerFactory.getLogger (NutsManager.class);
 
   /**
@@ -51,7 +60,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
    * for reference. Never modify the default instance. Instead create a clone
    * using {@link #getClone()} and work on the clone.
    */
-  public static final NutsManager INSTANCE_2021 = NutsManager.createNuts2021 ();
+  public static final NutsManager INSTANCE_2021 = NutsManager.createFor2021 ();
 
   private final ICommonsOrderedMap <String, NutsItem> m_aItems = new CommonsLinkedHashMap <> ();
 
@@ -65,6 +74,11 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
     return m_aItems;
   }
 
+  public static boolean isValidNutsCode (@Nullable final String s)
+  {
+    return StringHelper.hasText (s) && RegExHelper.stringMatchesPattern (REGEX_NUTS_CODE, s);
+  }
+
   /**
    * Add a new item to the manager.
    *
@@ -74,10 +88,11 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
   public void addItem (@Nonnull final NutsItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
-
     final String sID = aItem.getID ();
+    ValueEnforcer.isTrue ( () -> isValidNutsCode (sID), () -> "NUTS Code '" + sID + "' is invalid");
+
     if (m_aItems.containsKey (sID))
-      throw new IllegalArgumentException ("An item with ID '" + sID + "' is already contained");
+      throw new IllegalArgumentException ("A NUTS item with ID '" + sID + "' is already contained");
     m_aItems.put (sID, aItem);
   }
 
@@ -119,7 +134,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
   }
 
   @Nonnull
-  public static NutsManager createNuts2021 ()
+  public static NutsManager createFor2021 ()
   {
     return createFromXML (new ClassPathResource ("codelists/nuts2021.xml", NutsManager.class.getClassLoader ()));
   }

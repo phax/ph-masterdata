@@ -29,7 +29,7 @@ import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
- * Represents a single NUTS item from the code list.
+ * Represents a single NUTS item from the list.
  *
  * @author Philip Helger
  * @since 6.2.4
@@ -42,14 +42,14 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
 
   private final String m_sID;
   private final String m_sDisplayName;
-  private final String m_sLatinName;
+  private final String m_sLatinDisplayName;
   private final ENutsLevel m_eNutsLevel;
   private final int m_nCountryOrdinal;
   private final int m_nRegionOrdinal;
 
   public NutsItem (@Nonnull @Nonempty final String sID,
                    @Nonnull @Nonempty final String sDisplayName,
-                   @Nullable final String sLatinName,
+                   @Nullable final String sLatinDisplayName,
                    @Nonnegative final int nCountryOrdinal,
                    @Nonnegative final int nRegionOrdinal)
   {
@@ -61,12 +61,15 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
 
     m_sID = sID;
     m_sDisplayName = sDisplayName;
-    m_sLatinName = StringHelper.hasText (sLatinName) ? sLatinName : sDisplayName;
+    m_sLatinDisplayName = StringHelper.hasText (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
     m_eNutsLevel = ENutsLevel.getFromLengthOrThrow (sID.length ());
     m_nCountryOrdinal = nCountryOrdinal;
     m_nRegionOrdinal = nRegionOrdinal;
   }
 
+  /**
+   * @return The NUTS code. As in <code>BE</code> or <code>AT130</code>.
+   */
   @Nonnull
   @Nonempty
   public String getID ()
@@ -74,6 +77,10 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
     return m_sID;
   }
 
+  /**
+   * @return The display name of the NUTS item in local language.
+   * @see #getLatinDisplayName() for the Latin version
+   */
   @Nonnull
   @Nonempty
   public String getDisplayName ()
@@ -82,29 +89,40 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The Latin display name. If no specific latin name is provided, it's
-   *         identical to {@link #getDisplayName()}.
+   * @return The Latin display name of the NUTS item. If no specific latin name
+   *         is provided, it's identical to {@link #getDisplayName()}.
    */
   @Nonnull
   @Nonempty
   public String getLatinDisplayName ()
   {
-    return m_sLatinName;
+    return m_sLatinDisplayName;
   }
 
+  /**
+   * @return The NUTS level of the item. Never <code>null</code>.
+   */
   @Nonnull
   public ENutsLevel getLevel ()
   {
     return m_eNutsLevel;
   }
 
-  @Nonnull
+  /**
+   * @return The ordinal number of the country, to which the NUTS item belongs
+   *         to. Always &gt; 0.
+   */
+  @Nonnegative
   public int getCountryOrdinal ()
   {
     return m_nCountryOrdinal;
   }
 
-  @Nonnull
+  /**
+   * @return The ordinal number of the region, which the NUTS item represents.
+   *         Always &gt; 0.
+   */
+  @Nonnegative
   public int getRegionOrdinal ()
   {
     return m_nRegionOrdinal;
@@ -115,7 +133,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   {
     return new ToStringGenerator (null).append ("ID", m_sID)
                                        .append ("DisplayName", m_sDisplayName)
-                                       .append ("LatinDisplayName", m_sLatinName)
+                                       .append ("LatinDisplayName", m_sLatinDisplayName)
                                        .append ("Level", m_eNutsLevel)
                                        .append ("CountryOrdinal", m_nCountryOrdinal)
                                        .append ("RegionOrdinal", m_nRegionOrdinal)
