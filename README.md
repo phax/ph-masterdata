@@ -42,9 +42,10 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
-* v6.2.4 - work in progress
+* v6.2.4 - 2022-04-21
     * Updated the ISO 639-2 list to the latest version
-    * Added support for NUTS data (version 2021)
+    * Added support for NUTS (Nomenclature of territorial units for statistics) data (version 2021)
+    * Added support for NUTS LAU (Local Administrative Units) data (version 2021)
 * v6.2.3 - 2022-01-14
     * Updated international postal code list
 * v6.2.2 - 2021-12-13
