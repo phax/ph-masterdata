@@ -74,11 +74,10 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
   public void addItem (@Nonnull final LauItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
-    ValueEnforcer.isTrue ( () -> NutsManager.isValidNutsCode (aItem.getNuts3Code ()),
-                           () -> "NUTS Code '" + aItem.getNuts3Code () + "' is invalid");
+    ValueEnforcer.isTrue ( () -> NutsManager.isValidNutsCode (aItem.getNutsCode ()),
+                           () -> "NUTS Code '" + aItem.getNutsCode () + "' is invalid");
 
-    final String sCountryCode = aItem.getCountryCode ();
-    final String sID = sCountryCode + aItem.getID ();
+    final String sID = aItem.getID ();
     if (m_aItems.containsKey (sID))
       throw new IllegalArgumentException ("An item with ID '" + sID + "' is already contained");
     m_aItems.put (sID, aItem);
@@ -108,11 +107,11 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
     final LauManager ret = new LauManager ();
     for (final IMicroElement eItem : aDoc.getDocumentElement ().getAllChildElements ("item"))
     {
+      final String sNuts = eItem.getAttributeValue ("nuts");
       final String sID = eItem.getAttributeValue ("lau");
-      final String sNuts3 = eItem.getAttributeValue ("nuts3");
       final String sName = eItem.getAttributeValue ("name");
       final String sLatinName = eItem.getAttributeValue ("latinName");
-      ret.addItem (new LauItem (sID, sNuts3, sName, sLatinName));
+      ret.addItem (new LauItem (sNuts, sID, sName, sLatinName));
     }
 
     LOGGER.info ("Successfully read " + ret.m_aItems.size () + " LAU items");

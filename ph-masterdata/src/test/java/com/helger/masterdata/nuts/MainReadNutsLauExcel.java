@@ -83,20 +83,16 @@ public final class MainReadNutsLauExcel
         while (aRowIt.hasNext ())
         {
           final Row aRow = aRowIt.next ();
-          String sNuts3 = _getString (aRow.getCell (0));
+          final String sNuts = _getString (aRow.getCell (0));
           final String sLau = _getString (aRow.getCell (1));
           final String sName = _getString (aRow.getCell (2));
           final String sLatinName = _getString (aRow.getCell (3));
 
           if (StringHelper.hasText (sLau))
           {
-            // Bug in the data for Albania
-            if (sNuts3.length () == 4 && sNuts3.startsWith ("AL"))
-              sNuts3 = sNuts3.substring (0, 2) + "0" + sNuts3.substring (2, 4);
-
             final IMicroElement eItem = eRoot.appendElement ("item")
+                                             .setAttribute ("nuts", sNuts)
                                              .setAttribute ("lau", sLau)
-                                             .setAttribute ("nuts3", sNuts3)
                                              .setAttribute ("name", sName);
             if (StringHelper.hasText (sLatinName) && !sLatinName.equals (sName))
               eItem.setAttribute ("latinName", sLatinName);

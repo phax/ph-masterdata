@@ -40,28 +40,39 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   public static final int ID_MIN_LENGTH = 1;
   public static final int ID_MAX_LENGTH = 13;
 
-  private final String m_sID;
-  private final String m_sNuts3;
+  private final String m_sLau;
+  private final String m_sNuts;
   private final String m_sDisplayName;
   private final String m_sLatinDisplayName;
 
-  public LauItem (@Nonnull @Nonempty final String sID,
-                  @Nonnull @Nonempty final String sNuts3,
+  public LauItem (@Nonnull @Nonempty final String sNuts,
+                  @Nonnull @Nonempty final String sLau,
                   @Nonnull @Nonempty final String sDisplayName,
                   @Nullable final String sLatinDisplayName)
   {
-    ValueEnforcer.notEmpty (sID, "ID");
-    ValueEnforcer.isTrue ( () -> sID.length () >= ID_MIN_LENGTH && sID.length () <= ID_MAX_LENGTH,
-                           () -> "Odd ID length of '" + sID + "'");
-    ValueEnforcer.notEmpty (sNuts3, "Nuts3");
-    ValueEnforcer.isTrue ( () -> sNuts3.length () == ENutsLevel.NUTS3.getCharCount (),
-                           "() ->Odd Nuts3 length of '" + sNuts3 + "'");
+    ValueEnforcer.notEmpty (sLau, "LAU");
+    ValueEnforcer.isTrue ( () -> sLau.length () >= ID_MIN_LENGTH && sLau.length () <= ID_MAX_LENGTH,
+                           () -> "Odd LAU length of '" + sLau + "'");
+    ValueEnforcer.notEmpty (sNuts, "NUTS");
+    ValueEnforcer.isTrue ( () -> sNuts.length () <= ENutsLevel.NUTS3.getCharCount (),
+                           "() ->Odd NUTS length of '" + sNuts + "'");
     ValueEnforcer.notEmpty (sDisplayName, "Name");
 
-    m_sID = sID;
-    m_sNuts3 = sNuts3;
+    m_sLau = sLau;
+    m_sNuts = sNuts;
     m_sDisplayName = sDisplayName;
     m_sLatinDisplayName = StringHelper.hasText (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
+  }
+
+  /**
+   * @return The NUTS + LAU code combined. This one is ensured to be unique.
+   *         Neither <code>null</code> nor empty.
+   */
+  @Nonnull
+  @Nonempty
+  public String getID ()
+  {
+    return m_sNuts + m_sLau;
   }
 
   /**
@@ -69,9 +80,9 @@ public class LauItem implements IHasID <String>, IHasDisplayName
    */
   @Nonnull
   @Nonempty
-  public String getID ()
+  public String getLauCode ()
   {
-    return m_sID;
+    return m_sLau;
   }
 
   /**
@@ -82,18 +93,17 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   @Nonempty
   public String getCountryCode ()
   {
-    return m_sNuts3.substring (0, 2);
+    return m_sNuts.substring (0, 2);
   }
 
   /**
-   * @return The NUTS3 code to which the LAU belongs to. Never
-   *         <code>null</code>.
+   * @return The NUTS code to which the LAU belongs to. Never <code>null</code>.
    */
   @Nonnull
   @Nonempty
-  public String getNuts3Code ()
+  public String getNutsCode ()
   {
-    return m_sNuts3;
+    return m_sNuts;
   }
 
   /**
@@ -121,8 +131,8 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (null).append ("ID", m_sID)
-                                       .append ("Nuts3", m_sNuts3)
+    return new ToStringGenerator (null).append ("ID", m_sLau)
+                                       .append ("Nuts3", m_sNuts)
                                        .append ("DisplayName", m_sDisplayName)
                                        .append ("LatinDisplayName", m_sLatinDisplayName)
                                        .getToString ();

@@ -38,17 +38,18 @@ public final class LauManagerTest
     assertNotNull (nm);
     assertEquals (98891, nm.lauItems ().size ());
 
-    final LauItem aItem = nm.getItemOfID ("DE09188137");
+    final LauItem aItem = nm.getItemOfID ("DE21L09188137");
     assertNotNull (aItem);
 
-    assertEquals ("09188137", aItem.getID ());
+    assertEquals ("DE21L09188137", aItem.getID ());
+    assertEquals ("09188137", aItem.getLauCode ());
     assertEquals ("DE", aItem.getCountryCode ());
-    assertEquals ("DE21L", aItem.getNuts3Code ());
+    assertEquals ("DE21L", aItem.getNutsCode ());
     assertEquals ("Pöcking", aItem.getDisplayName ());
     assertEquals ("Pöcking", aItem.getLatinDisplayName ());
 
-    assertTrue (nm.isIDValid ("DE09188137"));
-    assertFalse (nm.isIDValid ("DE09188137b"));
+    assertTrue (nm.isIDValid ("DE21L09188137"));
+    assertFalse (nm.isIDValid ("DE21L09188137b"));
   }
 
   @Test
