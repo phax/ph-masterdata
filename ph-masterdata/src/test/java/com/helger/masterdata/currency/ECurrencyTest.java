@@ -40,6 +40,7 @@ import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.collection.impl.ICommonsSet;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.locale.country.CountryCache;
+import com.helger.commons.system.EJavaVersion;
 import com.helger.masterdata.locale.EContinent;
 
 public final class ECurrencyTest
@@ -196,7 +197,14 @@ public final class ECurrencyTest
         aLocale.append ('"').append (aLoc.toString ()).append ('"');
       }
       final String sID = a.getKey ().getCurrencyCode ();
-      aSB.append (sID + " (Currency.getInstance (\"" + sID + "\"), ECurrencyName." + sID + ", " + aLocale.toString () + "),");
+      aSB.append (sID +
+                  " (Currency.getInstance (\"" +
+                  sID +
+                  "\"), ECurrencyName." +
+                  sID +
+                  ", " +
+                  aLocale.toString () +
+                  "),");
     }
     LOGGER.info (aSB.toString ());
   }
@@ -206,7 +214,8 @@ public final class ECurrencyTest
   {
     assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getCurrencyCode ());
     assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "AT")));
-    assertEquals ("SFr.", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "CH")));
+    assertEquals (EJavaVersion.JDK_11.isSupportedVersion () ? "CHF" : "SFr.",
+                  ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "CH")));
     assertEquals ("CHF", ECurrency.CHF.getAsCurrency ().getSymbol (new Locale ("de", "DE")));
   }
 }
