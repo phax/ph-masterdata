@@ -42,6 +42,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+* v7.0.0 - work in progress
+    * Using Java 11 as the baseline
+    * Updated to ph-commons 11
 * v6.2.4 - 2022-04-21
     * Updated the ISO 639-2 list to the latest version
     * Added support for NUTS (Nomenclature of territorial units for statistics) data (version 2021)
