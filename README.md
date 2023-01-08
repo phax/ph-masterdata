@@ -42,7 +42,7 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
-* v7.0.0 - work in progress
+* v7.0.0 - 2023-01-08
     * Using Java 11 as the baseline
     * Updated to ph-commons 11
 * v6.2.4 - 2022-04-21
