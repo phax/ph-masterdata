@@ -194,7 +194,9 @@
     <item id="v05" percentage="5" type="reduced_heavily" deprecated="true" />
   </vattypes>
   <vattypes country="ro" zerovat="false" countryname="Romania">
-    <item id="v24" percentage="24" type="regular" />
+    <item id="v24" percentage="24" type="regular" validfrom="2010-07-01" validto="2015-12-31" />
+    <item id="v20" percentage="20" type="regular" validfrom="2016-01-01" validto="2016-12-31" />
+    <item id="v19" percentage="19" type="regular" validfrom="2017-01-01" />
     <item id="v09" percentage="9" type="reduced" />
     <item id="v05" percentage="5" type="reduced" />
   </vattypes>
