@@ -45,7 +45,7 @@ public class MainCreateAT_PLZ_XML
   {
     // Source:
     // https://www.post.at/geschaeftlich_werben_produkte_und_services_adressen_postlexikon.php
-    final File fSrc = new File ("src/test/resources/at_plz/PLZ-Verzeichnis-01062020.xls").getAbsoluteFile ();
+    final File fSrc = new File ("src/test/resources/external/at_plz/PLZ-Verzeichnis-01062020.xls").getAbsoluteFile ();
     final Workbook aWB = EExcelVersion.XLS.readWorkbook (FileHelper.getInputStream (fSrc));
     final IMicroDocument aDoc = new MicroDocument ();
     final IMicroElement eRoot = aDoc.appendElement ("root");
