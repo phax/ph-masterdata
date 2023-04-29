@@ -110,15 +110,13 @@ public final class IBANManager
       throw new InitializationException ("Failed to read IBAN country data [2]");
 
     final DateTimeFormatter aDTPattern = DateTimeFormatter.ISO_DATE;
-
     for (final IMicroElement eCountry : aDoc.getDocumentElement ().getAllChildElements (ELEMENT_COUNTRY))
     {
       // get descriptive string
       final String sDesc = eCountry.getTextContent ();
       final String sCountryCode = sDesc.substring (0, 2);
       if (CountryCache.getInstance ().getCountry (sCountryCode) == null)
-        if (LOGGER.isWarnEnabled ())
-          LOGGER.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
+        LOGGER.warn ("IBAN country data: no such country code '" + sCountryCode + "' - be careful");
 
       LocalDate aValidFrom = null;
       if (eCountry.hasAttribute (ATTR_VALIDFROM))
@@ -126,14 +124,12 @@ public final class IBANManager
         // Constant format, conforming to XML date
         aValidFrom = PDTFromString.getLocalDateFromString (eCountry.getAttributeValue (ATTR_VALIDFROM), aDTPattern);
       }
-
       LocalDate aValidTo = null;
       if (eCountry.hasAttribute (ATTR_VALIDUNTIL))
       {
         // Constant format, conforming to XML date
         aValidTo = PDTFromString.getLocalDateFromString (eCountry.getAttributeValue (ATTR_VALIDUNTIL), aDTPattern);
       }
-
       final String sLayout = eCountry.getAttributeValue (ATTR_LAYOUT);
 
       final String sCheckDigits = eCountry.getAttributeValue (ATTR_CHECKDIGITS);

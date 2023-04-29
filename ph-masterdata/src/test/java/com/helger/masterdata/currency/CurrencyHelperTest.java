@@ -118,8 +118,7 @@ public final class CurrencyHelperTest
       }
       final int nDefaultFractionDigits = aPCS.getScale ();
       if (false)
-        if (LOGGER.isInfoEnabled ())
-          LOGGER.info (e.getID () + " - " + nDefaultFractionDigits);
+        LOGGER.info (e.getID () + " - " + nDefaultFractionDigits);
 
       // currency format
       assertNotNull (aPCS.getCurrencyFormat ());

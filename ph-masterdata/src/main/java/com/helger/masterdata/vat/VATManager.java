@@ -69,7 +69,13 @@ public class VATManager implements IVATItemProvider
    * Special VAT item with 0% - this is the only VAT item that has NO country
    * locale
    */
-  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_", (Locale) null, EVATItemType.OTHER, BigDecimal.ZERO, false, null, null);
+  public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
+                                                           (Locale) null,
+                                                           EVATItemType.OTHER,
+                                                           BigDecimal.ZERO,
+                                                           false,
+                                                           null,
+                                                           null);
 
   private static final Logger LOGGER = LoggerFactory.getLogger (VATManager.class);
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_DATE;
@@ -114,7 +120,6 @@ public class VATManager implements IVATItemProvider
         if (StringHelper.hasText (sSource))
           m_aSources.add (sSource);
       });
-
     for (final IMicroElement eVATTypes : aDoc.getDocumentElement ().getAllChildElements ("vattypes"))
     {
       // Country
@@ -122,8 +127,7 @@ public class VATManager implements IVATItemProvider
       final Locale aCountry = CountryCache.getInstance ().getCountry (sCountry);
       if (m_aVATItemsPerCountry.containsKey (aCountry))
       {
-        if (LOGGER.isWarnEnabled ())
-          LOGGER.warn ("VAT types for country " + aCountry + " have already been defined!");
+        LOGGER.warn ("VAT types for country " + aCountry + " have already been defined!");
         continue;
       }
       final String sCountryName = eVATTypes.getAttributeValue ("countryname");
@@ -136,15 +140,17 @@ public class VATManager implements IVATItemProvider
       final String sInternalComment = MicroHelper.getChildTextContent (eVATTypes, "comment");
 
       // read all items
-      final VATCountryData aVATCountryData = new VATCountryData (aCountry, bZeroVATAllowed, sCountryName, sInternalComment);
+      final VATCountryData aVATCountryData = new VATCountryData (aCountry,
+                                                                 bZeroVATAllowed,
+                                                                 sCountryName,
+                                                                 sInternalComment);
       for (final IMicroElement eVATItem : eVATTypes.getAllChildElements ("item"))
       {
         // item ID
         final String sID = eVATItem.getAttributeValue ("id");
         if (StringHelper.hasNoText (sID))
         {
-          if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
+          LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
           continue;
         }
         final String sRealID = _getCountryString (aCountry) + "." + sID;
@@ -154,21 +160,21 @@ public class VATManager implements IVATItemProvider
         final EVATItemType eType = EVATItemType.getFromIDOrNull (sType);
         if (eType == null)
         {
-          if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
+          LOGGER.warn ("VAT type '" + sType + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
           continue;
         }
-
         // item percentage
         final String sPercentage = eVATItem.getAttributeValue ("percentage");
         final BigDecimal aPercentage = StringParser.parseBigDecimal (sPercentage, null);
         if (aPercentage == null)
         {
-          if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("Percentage value '" + sPercentage + "' for VAT item " + sRealID + " is illegal. Skipping VAT item.");
+          LOGGER.warn ("Percentage value '" +
+                       sPercentage +
+                       "' for VAT item " +
+                       sRealID +
+                       " is illegal. Skipping VAT item.");
           continue;
         }
-
         // Deprecated?
         final String sDeprecated = eVATItem.getAttributeValue ("deprecated");
         final boolean bDeprecated = sDeprecated != null && StringParser.parseBool (sDeprecated);
@@ -184,16 +190,12 @@ public class VATManager implements IVATItemProvider
         // build and add item
         final VATItem aVATItem = new VATItem (sRealID, aCountry, eType, aPercentage, bDeprecated, aValidFrom, aValidTo);
         if (aVATCountryData.addItem (aVATItem).isUnchanged ())
-          if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
+          LOGGER.warn ("Found duplicate VAT item " + aVATItem + " for country " + aCountry);
         if (m_aAllVATItems.put (sRealID, aVATItem) != null)
-          if (LOGGER.isWarnEnabled ())
-            LOGGER.warn ("Found overall duplicate VAT item " + aVATItem);
+          LOGGER.warn ("Found overall duplicate VAT item " + aVATItem);
       }
-
       if (aVATCountryData.isEmpty ())
-        if (LOGGER.isWarnEnabled ())
-          LOGGER.warn ("No VAT types for country " + aCountry + " defined!");
+        LOGGER.warn ("No VAT types for country " + aCountry + " defined!");
       m_aVATItemsPerCountry.put (aCountry, aVATCountryData);
     }
   }

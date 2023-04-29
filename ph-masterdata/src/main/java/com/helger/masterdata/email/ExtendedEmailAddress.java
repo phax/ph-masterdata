@@ -126,8 +126,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     // bottleneck when having multiple customers
     if (sRealAddress != null && !EmailAddressHelper.isValid (sRealAddress))
     {
-      if (LOGGER.isErrorEnabled ())
-        LOGGER.error ("Found an illegal email address: '" + sRealAddress + "'");
+      LOGGER.error ("Found an illegal email address: '" + sRealAddress + "'");
       return EChange.UNCHANGED;
     }
     m_sAddress = sRealAddress;
