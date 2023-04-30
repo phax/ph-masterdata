@@ -43,8 +43,8 @@ public final class PostalAddressHelper
   public static final String DEFAULT_CARE_OF_PREFIX = "c/o ";
   public static final String DEFAULT_LINE_SEPARATOR = "\n";
 
-  private static final String [] STREET_SEARCH = new String [] { "str.", "g." };
-  private static final String [] STREET_REPLACE = new String [] { "straße", "gasse" };
+  private static final String [] STREET_SEARCH = { "str.", "g." };
+  private static final String [] STREET_REPLACE = { "straße", "gasse" };
 
   static
   {
@@ -52,10 +52,10 @@ public final class PostalAddressHelper
       throw new InitializationException ("Search and replace arrays for street have different length!");
   }
 
-  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
-  @GuardedBy ("s_aRWLock")
+  private static final SimpleReadWriteLock RW_LOCK = new SimpleReadWriteLock ();
+  @GuardedBy ("RW_LOCK")
   private static boolean s_bComplexAddressHandlingEnabled = DEFAULT_COMPLEX_ADDRESS_HANDLING_ENABLED;
-  @GuardedBy ("s_aRWLock")
+  @GuardedBy ("RW_LOCK")
   private static String s_sCareOfPrefix = DEFAULT_CARE_OF_PREFIX;
 
   private PostalAddressHelper ()
@@ -63,12 +63,12 @@ public final class PostalAddressHelper
 
   public static boolean isComplexAddressHandlingEnabled ()
   {
-    return s_aRWLock.readLockedBoolean ( () -> s_bComplexAddressHandlingEnabled);
+    return RW_LOCK.readLockedBoolean ( () -> s_bComplexAddressHandlingEnabled);
   }
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
   {
-    s_aRWLock.writeLockedBoolean ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
+    RW_LOCK.writeLocked ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
   }
 
   /**
@@ -78,7 +78,7 @@ public final class PostalAddressHelper
   @Nonnull
   public static String getCareOfPrefix ()
   {
-    return s_aRWLock.readLockedGet ( () -> s_sCareOfPrefix);
+    return RW_LOCK.readLockedGet ( () -> s_sCareOfPrefix);
   }
 
   /**
@@ -91,7 +91,7 @@ public final class PostalAddressHelper
   public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
-    s_aRWLock.writeLockedGet ( () -> s_sCareOfPrefix = sCareOfPrefix);
+    RW_LOCK.writeLocked ( () -> s_sCareOfPrefix = sCareOfPrefix);
   }
 
   @Nullable

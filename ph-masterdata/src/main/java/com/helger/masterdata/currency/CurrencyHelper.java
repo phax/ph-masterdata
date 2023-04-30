@@ -68,11 +68,11 @@ public final class CurrencyHelper
   public static final int DEFAULT_SCALE = 2;
 
   // Sorted set of all available currencies
-  private static final ICommonsSortedSet <Currency> s_aAllCurrencies = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
-  private static final ICommonsMap <Locale, Currency> s_aLocaleToCurrency = new CommonsHashMap <> ();
-  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
-  @GuardedBy ("s_aRWLock")
-  private static final ICommonsMap <ECurrency, PerCurrencySettings> s_aSettingsMap = new CommonsEnumMap <> (ECurrency.class);
+  private static final ICommonsSortedSet <Currency> ALL_CURRENCIES = new CommonsTreeSet <> (Comparator.comparing (Currency::getCurrencyCode));
+  private static final ICommonsMap <Locale, Currency> LOCALE_TO_CURRENCY = new CommonsHashMap <> ();
+  private static final SimpleReadWriteLock RW_LOCK = new SimpleReadWriteLock ();
+  @GuardedBy ("RW_LOCK")
+  private static final ICommonsMap <ECurrency, PerCurrencySettings> SETTINGS_MAP = new CommonsEnumMap <> (ECurrency.class);
 
   static
   {
@@ -84,8 +84,8 @@ public final class CurrencyHelper
         final Currency aCurrency = Currency.getInstance (aLocale);
         if (aCurrency != null)
         {
-          s_aAllCurrencies.add (aCurrency);
-          s_aLocaleToCurrency.put (aLocale, aCurrency);
+          ALL_CURRENCIES.add (aCurrency);
+          LOCALE_TO_CURRENCY.put (aLocale, aCurrency);
         }
       }
       catch (final IllegalArgumentException ex)
@@ -93,7 +93,6 @@ public final class CurrencyHelper
         // No currency present for locale
       }
     }
-
     reinitializeCurrencySettings ();
   }
 
@@ -102,11 +101,11 @@ public final class CurrencyHelper
    */
   public static void reinitializeCurrencySettings ()
   {
-    s_aRWLock.writeLocked ( () -> {
-      s_aSettingsMap.clear ();
+    RW_LOCK.writeLocked ( () -> {
+      SETTINGS_MAP.clear ();
       for (final ECurrency e : ECurrency.values ())
       {
-        s_aSettingsMap.put (e, new PerCurrencySettings (e));
+        SETTINGS_MAP.put (e, new PerCurrencySettings (e));
 
         for (final Locale aLocale : e.matchingLocales ())
           if (!localeSupportsCurrencyRetrieval (aLocale))
@@ -122,12 +121,12 @@ public final class CurrencyHelper
   @ReturnsMutableCopy
   public static ICommonsSortedSet <Currency> getAllSupportedCurrencies ()
   {
-    return s_aAllCurrencies.getClone ();
+    return ALL_CURRENCIES.getClone ();
   }
 
   public static boolean isSupportedCurrency (@Nullable final Currency aCurrency)
   {
-    return aCurrency != null && s_aAllCurrencies.contains (aCurrency);
+    return aCurrency != null && ALL_CURRENCIES.contains (aCurrency);
   }
 
   public static boolean isSupportedCurrency (@Nullable final ECurrency eCurrency)
@@ -167,7 +166,7 @@ public final class CurrencyHelper
     if (!localeSupportsCurrencyRetrieval (aContentLocale))
       throw new IllegalArgumentException ("Cannot get currency of locale " + aContentLocale);
 
-    return s_aLocaleToCurrency.get (aContentLocale);
+    return LOCALE_TO_CURRENCY.get (aContentLocale);
   }
 
   /**
@@ -178,7 +177,7 @@ public final class CurrencyHelper
   @ReturnsMutableCopy
   public static ICommonsMap <Locale, Currency> getLocaleToCurrencyMap ()
   {
-    return s_aLocaleToCurrency.getClone ();
+    return LOCALE_TO_CURRENCY.getClone ();
   }
 
   /**
@@ -251,14 +250,14 @@ public final class CurrencyHelper
   @Nonnull
   public static PerCurrencySettings getSettings (@Nullable final ECurrency eCurrency)
   {
-    s_aRWLock.readLock ().lock ();
+    RW_LOCK.readLock ().lock ();
     try
     {
-      return s_aSettingsMap.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
+      return SETTINGS_MAP.get (eCurrency != null ? eCurrency : DEFAULT_CURRENCY);
     }
     finally
     {
-      s_aRWLock.readLock ().unlock ();
+      RW_LOCK.readLock ().unlock ();
     }
   }
 
@@ -475,7 +474,9 @@ public final class CurrencyHelper
     final String sRealTextValue;
     // In Java 9 onwards, this the separators may be null (e.g. for AED)
     if (aPCS.getDecimalSeparator () != null && aPCS.getGroupingSeparator () != null)
-      sRealTextValue = _getTextValueForDecimalSeparator (sTextValue, aPCS.getDecimalSeparator (), aPCS.getGroupingSeparator ());
+      sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
+                                                         aPCS.getDecimalSeparator (),
+                                                         aPCS.getGroupingSeparator ());
     else
       sRealTextValue = sTextValue;
     return parseCurrency (sRealTextValue, aCurrencyFormat, aDefault, aPCS.getRoundingMode ());
@@ -535,7 +536,9 @@ public final class CurrencyHelper
     final String sRealTextValue;
     // In Java 9 onwards, this the separators may be null (e.g. for AED)
     if (aPCS.getDecimalSeparator () != null && aPCS.getGroupingSeparator () != null)
-      sRealTextValue = _getTextValueForDecimalSeparator (sTextValue, aPCS.getDecimalSeparator (), aPCS.getGroupingSeparator ());
+      sRealTextValue = _getTextValueForDecimalSeparator (sTextValue,
+                                                         aPCS.getDecimalSeparator (),
+                                                         aPCS.getGroupingSeparator ());
     else
       sRealTextValue = sTextValue;
     return parseCurrency (sRealTextValue, aValueFormat, aDefault, aPCS.getRoundingMode ());

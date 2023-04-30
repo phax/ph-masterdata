@@ -32,7 +32,7 @@ public final class CTenant
   public static final String GLOBAL_TENANT_NAME = "$system tenant$";
 
   @PresentForCodeCoverage
-  private static final CTenant s_aInstance = new CTenant ();
+  private static final CTenant INSTANCE = new CTenant ();
 
   private CTenant ()
   {}

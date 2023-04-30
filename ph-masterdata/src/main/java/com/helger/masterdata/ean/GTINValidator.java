@@ -33,7 +33,7 @@ import com.helger.commons.string.StringHelper;
 public final class GTINValidator
 {
   @PresentForCodeCoverage
-  private static final GTINValidator s_aInstance = new GTINValidator ();
+  private static final GTINValidator INSTANCE = new GTINValidator ();
 
   private GTINValidator ()
   {}

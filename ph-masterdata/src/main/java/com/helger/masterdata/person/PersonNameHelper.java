@@ -59,25 +59,25 @@ public final class PersonNameHelper
                                                                        "zu",
                                                                        "zum" };
 
-  private static final AtomicBoolean s_aComplexNameHandlingEnabled = new AtomicBoolean (DEFAULT_COMPLEX_NAME_HANDLING);
-  private static final AtomicBoolean s_aFirstNameFirst = new AtomicBoolean (DEFAULT_FIRST_NAME_FIRST);
+  private static final AtomicBoolean COMPLEX_NAME_HANDLING_ENABLED = new AtomicBoolean (DEFAULT_COMPLEX_NAME_HANDLING);
+  private static final AtomicBoolean FIRST_NAME_FIRST = new AtomicBoolean (DEFAULT_FIRST_NAME_FIRST);
 
   private PersonNameHelper ()
   {}
 
   public static void setComplexNameHandlingEnabled (final boolean bEnabled)
   {
-    s_aComplexNameHandlingEnabled.set (bEnabled);
+    COMPLEX_NAME_HANDLING_ENABLED.set (bEnabled);
   }
 
   public static boolean isComplexNameHandlingEnabled ()
   {
-    return s_aComplexNameHandlingEnabled.get ();
+    return COMPLEX_NAME_HANDLING_ENABLED.get ();
   }
 
   public static void setFirstNameFirst (final boolean bFirstNameFirst)
   {
-    s_aFirstNameFirst.set (bFirstNameFirst);
+    FIRST_NAME_FIRST.set (bFirstNameFirst);
   }
 
   /**
@@ -90,7 +90,7 @@ public final class PersonNameHelper
    */
   public static boolean isFirstNameFirst ()
   {
-    return s_aFirstNameFirst.get ();
+    return FIRST_NAME_FIRST.get ();
   }
 
   /**

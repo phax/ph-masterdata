@@ -62,7 +62,7 @@ public class VATManager implements IVATItemProvider
 {
   private static final class SingletonHolder
   {
-    static final VATManager s_aInstance = readFromXML (new ClassPathResource ("codelists/vat-data.xml"));
+    static final VATManager INSTANCE = readFromXML (new ClassPathResource ("codelists/vat-data.xml"));
   }
 
   /**
@@ -411,6 +411,6 @@ public class VATManager implements IVATItemProvider
   @Nonnull
   public static VATManager getDefaultInstance ()
   {
-    return SingletonHolder.s_aInstance;
+    return SingletonHolder.INSTANCE;
   }
 }

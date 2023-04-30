@@ -47,7 +47,7 @@ public final class UnitManager
 
   private static final class SingletonHolder
   {
-    static final UnitManager s_aInstance = new UnitManager (DEFAULT_UNIT_RES);
+    static final UnitManager INSTANCE = new UnitManager (DEFAULT_UNIT_RES);
   }
 
   private final ICommonsMap <Integer, UnitSector> m_aSectors = new CommonsHashMap <> ();
@@ -88,7 +88,7 @@ public final class UnitManager
   @Nonnull
   public static UnitManager getDefaultInstance ()
   {
-    return SingletonHolder.s_aInstance;
+    return SingletonHolder.INSTANCE;
   }
 
   @Nonnull

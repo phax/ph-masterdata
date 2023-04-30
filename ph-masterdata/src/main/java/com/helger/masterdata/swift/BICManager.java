@@ -46,10 +46,10 @@ public final class BICManager
   public static final String BIC_PATTERN = "(?i)^[a-z]{6}[a-z0-9]{2}([a-z0-9]{3})?$";
 
   /** Pre-compiled pattern */
-  private static final Pattern s_aBICPattern = RegExCache.getPattern (BIC_PATTERN);
+  private static final Pattern BIC_PATTERN_PATTERN = RegExCache.getPattern (BIC_PATTERN);
 
   @PresentForCodeCoverage
-  private static final BICManager s_aInstance = new BICManager ();
+  private static final BICManager INSTANCE = new BICManager ();
 
   private BICManager ()
   {}
@@ -77,7 +77,7 @@ public final class BICManager
   {
     if (StringHelper.hasNoText (sBIC))
       return false;
-    return s_aBICPattern.matcher (sBIC).matches ();
+    return BIC_PATTERN_PATTERN.matcher (sBIC).matches ();
   }
 
   public static boolean isPassiveBICParticipant (@Nullable final String sBIC)
