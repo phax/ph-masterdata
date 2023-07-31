@@ -1,5 +1,9 @@
 # ph-masterdata
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.helger.masterdata/ph-masterdata-parent-pom/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.helger.masterdata/ph-masterdata-parent-pom) 
+[![javadoc](https://javadoc.io/badge2/com.helger.masterdata/ph-masterdata-parent-pom/javadoc.svg)](https://javadoc.io/doc/com.helger.masterdata/ph-masterdata-parent-pom)
+[![CodeCov](https://codecov.io/gh/phax/ph-masterdata/branch/master/graph/badge.svg)](https://codecov.io/gh/phax/ph-masterdata)
+
 Java library with lots of default business objects and algorithms:
 * Postal address data
 * Company and site descriptors
