@@ -59,7 +59,7 @@ public final class PerCurrencySettings implements Serializable
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
-      aRelevantLocale = eCurrency.matchingLocales ().getFirst ();
+      aRelevantLocale = eCurrency.matchingLocales ().getFirstOrNull ();
     }
 
     final Currency aCurrency = eCurrency.getAsCurrency ();

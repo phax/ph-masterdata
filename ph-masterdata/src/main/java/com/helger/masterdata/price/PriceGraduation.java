@@ -68,13 +68,13 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
   @Nullable
   public IMutablePriceGraduationItem getSmallestMinimumQuantityItem ()
   {
-    return m_aItems.getFirst ();
+    return m_aItems.getFirstOrNull ();
   }
 
   @Nullable
   public IMutablePriceGraduationItem getLargestMinimumQuantityItem ()
   {
-    return m_aItems.getLast ();
+    return m_aItems.getLastOrNull ();
   }
 
   @Nonnull
@@ -156,7 +156,8 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     {
       final int nExistingMinQuantity = aExistingItem.getMinimumQuantity ();
       if (nExistingMinQuantity == nNewItemQuantity)
-        throw new IllegalArgumentException ("Another item with the exact same quantity is already contained: " + nExistingMinQuantity);
+        throw new IllegalArgumentException ("Another item with the exact same quantity is already contained: " +
+                                            nExistingMinQuantity);
 
       // Find the insertion index
       if (nNewItemQuantity > nExistingMinQuantity)

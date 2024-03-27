@@ -363,7 +363,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     if (aRelevantLocale == null)
     {
       // Fallback to the first locale
-      aRelevantLocale = m_aLocales.getFirst ();
+      aRelevantLocale = m_aLocales.getFirstOrNull ();
     }
     m_sID = sCurrencyCode;
     Currency aCurrency = null;
