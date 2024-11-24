@@ -55,12 +55,14 @@
     <item id="v05" percentage="5" type="reduced" />
   </vattypes>
   <vattypes country="cz" zerovat="false" countryname="Czech Republic">
+    <comment>Czech VAT use 21% per 2024; 10% and 15% consolidated to 12%</comment>
     <comment>Czech VAT cut from 20% to 17.5% in 2013</comment>
     <comment>Czech reduced VAT increased from 10% to 14% on 2012-01-01</comment>
     <item id="v21" percentage="21" type="regular" />
     <item id="v20" percentage="20" type="regular" deprecated="true" />
-    <item id="v15" percentage="15" type="reduced" />
-    <item id="v10" percentage="10" type="reduced" />
+    <item id="v15" percentage="15" type="reduced" deprecated="true" />
+    <item id="v12" percentage="12" type="reduced" />
+    <item id="v10" percentage="10" type="reduced" deprecated="true" />
   </vattypes>
   <vattypes country="de" zerovat="true" countryname="Germany">
     <comment>Germany lowered the regular rate from 19% to 16% from 2020-07-01 until 2020-12-31</comment>
@@ -151,8 +153,10 @@
     <item id="v17" percentage="17" type="regular" />
     <item id="v15" percentage="15" type="regular" deprecated="true" />
     <item id="v14" percentage="14" type="reduced" />
+    <item id="v13" percentage="13" type="reduced" deprecated="true" />
     <item id="v12" percentage="12" type="reduced" deprecated="true" />
     <item id="v08" percentage="8" type="reduced" />
+    <item id="v07" percentage="7" type="reduced" deprecated="true"/>
     <item id="v06" percentage="6" type="reduced" deprecated="true"/>
     <item id="v03" percentage="3" type="reduced_heavily" />
   </vattypes>
