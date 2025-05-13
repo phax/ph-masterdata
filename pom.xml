@@ -63,6 +63,10 @@
   </developers>
   
   <properties>
+    <!-- for testing purposes only
+    <maven.compiler.target>24</maven.compiler.target>
+    <maven.compiler.source>24</maven.compiler.source>
+    -->
     <spotbugs-annotations.version>4.9.3</spotbugs-annotations.version>
   </properties>
   
@@ -71,7 +75,7 @@
       <dependency>
         <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>11.2.2</version>
+        <version>11.2.3</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
