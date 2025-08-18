@@ -26,11 +26,11 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.mock.CommonsTestHelper;
-import com.helger.commons.system.EJavaVersion;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.system.EJavaVersion;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
+import com.helger.unittest.support.TestHelper;
 
 public final class CurrencyValueTest
 {
@@ -40,7 +40,7 @@ public final class CurrencyValueTest
   @Test
   public void testGetFormatted ()
   {
-    IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, MathHelper.toBigDecimal (5));
+    IMutableCurrencyValue aCV = new CurrencyValue (ECurrency.EUR, BigHelper.toBigDecimal (5));
     if (EJavaVersion.JDK_9.isSupportedVersion ())
       assertEquals ("5,00" + CURRENCY_SPACE + "€", aCV.getCurrencyFormatted ());
     else
@@ -61,7 +61,7 @@ public final class CurrencyValueTest
       final String sValueFormatted = aCV.getValueFormatted ();
       assertNotNull (sValueFormatted);
       assertTrue (sValueFormatted, sValueFormatted.indexOf (CurrencyHelper.getCurrencySymbol (eCurrency)) < 0);
-      CommonsTestHelper.testGetClone (aCV);
+      TestHelper.testGetClone (aCV);
 
       // There seems to be a bug in the optimizer of 1.6.0_45 so that the output
       // values are sometimes reordered - dunno why :(

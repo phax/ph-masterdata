@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 
 /**
  * Unit test class for class {@link EDINC}
@@ -36,7 +36,7 @@ public final class EDINCTest
   {
     for (final EDINC e : EDINC.values ())
     {
-      assertTrue (StringHelper.hasText (e.getID ()));
+      assertTrue (StringHelper.isNotEmpty (e.getID ()));
       assertSame (e, EDINC.getFromIDOrNull (e.getID ()));
       assertSame (e, EDINC.getFromIDOrDefault (e.getID (), EDINC.C0));
     }

@@ -23,8 +23,8 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.math.MathHelper;
+import com.helger.base.CGlobal;
+import com.helger.base.numeric.BigHelper;
 
 /**
  * Test class for class {@link VATItem}.
@@ -36,9 +36,9 @@ public final class VATItemTest
   @Test
   public void testFactors ()
   {
-    final VATItem v = VATItem.createTestItem (Locale.US, EVATItemType.REDUCED, MathHelper.toBigDecimal ("20"));
-    assertEquals (MathHelper.toBigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
-    assertEquals (MathHelper.toBigDecimal ("120.0"),
+    final VATItem v = VATItem.createTestItem (Locale.US, EVATItemType.REDUCED, BigHelper.toBigDecimal ("20"));
+    assertEquals (BigHelper.toBigDecimal ("1.2"), v.getMultiplicationFactorNetToGross ());
+    assertEquals (BigHelper.toBigDecimal ("120.0"),
                   CGlobal.BIGDEC_100.multiply (v.getMultiplicationFactorNetToGross ()));
     assertNull (v.getPeriod ().getStart ());
     assertNull (v.getPeriod ().getEnd ());

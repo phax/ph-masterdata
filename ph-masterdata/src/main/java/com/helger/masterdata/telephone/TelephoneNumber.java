@@ -22,14 +22,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.clone.ICloneable;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.state.EChange;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
 
 /**
  * Default writable version of {@link ITelephoneNumber}.
@@ -202,7 +202,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
   @Nullable
   public static TelephoneNumber createOnDemandLineOnly (@Nullable final String sLine)
   {
-    if (StringHelper.hasNoText (sLine))
+    if (StringHelper.isEmpty (sLine))
       return null;
 
     final TelephoneNumber ret = new TelephoneNumber ();

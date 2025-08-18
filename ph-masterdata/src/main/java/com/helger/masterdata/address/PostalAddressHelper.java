@@ -24,12 +24,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.concurrent.SimpleReadWriteLock;
-import com.helger.commons.exception.InitializationException;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.concurrent.SimpleReadWriteLock;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.exception.InitializationException;
+import com.helger.base.string.StringImplode;
+import com.helger.base.string.StringReplace;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 
 /**
  * Contains utility methods for addresses.
@@ -72,8 +73,7 @@ public final class PostalAddressHelper
   }
 
   /**
-   * @return The prefix to be added in front of "c/o" lines. Never
-   *         <code>null</code>.
+   * @return The prefix to be added in front of "c/o" lines. Never <code>null</code>.
    */
   @Nonnull
   public static String getCareOfPrefix ()
@@ -82,8 +82,7 @@ public final class PostalAddressHelper
   }
 
   /**
-   * Set the prefix to be added in front of "c/o" address line. By default it is
-   * "c/o ".
+   * Set the prefix to be added in front of "c/o" address line. By default it is "c/o ".
    *
    * @param sCareOfPrefix
    *        The c/o prefix. May not be <code>null</code> but maybe empty.
@@ -122,7 +121,7 @@ public final class PostalAddressHelper
     if (sStreet == null)
       return null;
 
-    final String s = StringHelper.replaceMultiple (sStreet, STREET_SEARCH, STREET_REPLACE);
+    final String s = StringReplace.replaceMultiple (sStreet, STREET_SEARCH, STREET_REPLACE);
     return _unifyPart (s, aSortLocale);
   }
 
@@ -191,7 +190,7 @@ public final class PostalAddressHelper
   {
     if (aAddress == null)
       return null;
-    return StringHelper.getImplodedNonEmpty (' ', aAddress.getStreet (), aAddress.getBuildingNumber ());
+    return StringImplode.getImplodedNonEmpty (' ', aAddress.getStreet (), aAddress.getBuildingNumber ());
   }
 
   @Nullable
@@ -199,7 +198,7 @@ public final class PostalAddressHelper
   {
     if (aAddress == null)
       return null;
-    return StringHelper.getImplodedNonEmpty (' ', aAddress.getPostalCode (), aAddress.getCity ());
+    return StringImplode.getImplodedNonEmpty (' ', aAddress.getPostalCode (), aAddress.getCity ());
   }
 
   @Nullable
@@ -246,6 +245,6 @@ public final class PostalAddressHelper
     final ICommonsList <String> aValues = new CommonsArrayList <> (aFields.size ());
     for (final EPostalAddressField eField : aFields)
       aValues.add (eField.get (aAddress, aDisplayLocale));
-    return StringHelper.getImplodedNonEmpty (sLineSeparator, aValues);
+    return StringImplode.getImplodedNonEmpty (sLineSeparator, aValues);
   }
 }

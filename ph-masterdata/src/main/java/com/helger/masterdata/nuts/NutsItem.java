@@ -21,12 +21,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.name.IHasDisplayName;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.id.IHasID;
+import com.helger.base.name.IHasDisplayName;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
 
 /**
  * Represents a single NUTS item from the list.
@@ -61,7 +61,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
 
     m_sID = sID;
     m_sDisplayName = sDisplayName;
-    m_sLatinDisplayName = StringHelper.hasText (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
+    m_sLatinDisplayName = StringHelper.isNotEmpty (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
     m_eNutsLevel = ENutsLevel.getFromLengthOrThrow (sID.length ());
     m_nCountryOrdinal = nCountryOrdinal;
     m_nRegionOrdinal = nRegionOrdinal;
@@ -89,8 +89,8 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The Latin display name of the NUTS item. If no specific latin name
-   *         is provided, it's identical to {@link #getDisplayName()}.
+   * @return The Latin display name of the NUTS item. If no specific latin name is provided, it's
+   *         identical to {@link #getDisplayName()}.
    */
   @Nonnull
   @Nonempty
@@ -109,8 +109,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The ordinal number of the country, to which the NUTS item belongs
-   *         to. Always &gt; 0.
+   * @return The ordinal number of the country, to which the NUTS item belongs to. Always &gt; 0.
    */
   @Nonnegative
   public int getCountryOrdinal ()
@@ -119,8 +118,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The ordinal number of the region, which the NUTS item represents.
-   *         Always &gt; 0.
+   * @return The ordinal number of the region, which the NUTS item represents. Always &gt; 0.
    */
   @Nonnegative
   public int getRegionOrdinal ()

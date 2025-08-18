@@ -21,8 +21,8 @@ import java.io.Serializable;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.state.EValidity;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.state.EValidity;
 
 public abstract class AbstractUPCEAN implements Serializable
 {

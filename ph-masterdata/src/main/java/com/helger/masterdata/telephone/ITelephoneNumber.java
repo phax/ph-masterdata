@@ -18,7 +18,7 @@ package com.helger.masterdata.telephone;
 
 import javax.annotation.Nullable;
 
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 
 /**
  * Read-only interface for a telephone number.
@@ -28,8 +28,7 @@ import com.helger.commons.string.StringHelper;
 public interface ITelephoneNumber
 {
   /**
-   * @return The semantic type of this telephone number. May be
-   *         <code>null</code>.
+   * @return The semantic type of this telephone number. May be <code>null</code>.
    */
   @Nullable
   ITelephoneType getType ();
@@ -47,42 +46,41 @@ public interface ITelephoneNumber
 
   default boolean hasCountryCode ()
   {
-    return StringHelper.hasText (getCountryCode ());
+    return StringHelper.isNotEmpty (getCountryCode ());
   }
 
   /**
-   * @return The area code for the phone number. This is country dependent. May
-   *         be <code>null</code>.
+   * @return The area code for the phone number. This is country dependent. May be
+   *         <code>null</code>.
    */
   @Nullable
   String getAreaCode ();
 
   default boolean hasAreaCode ()
   {
-    return StringHelper.hasText (getAreaCode ());
+    return StringHelper.isNotEmpty (getAreaCode ());
   }
 
   /**
-   * @return The main telephone number within an area code. May be
-   *         <code>null</code>.
+   * @return The main telephone number within an area code. May be <code>null</code>.
    */
   @Nullable
   String getLine ();
 
   default boolean hasLine ()
   {
-    return StringHelper.hasText (getLine ());
+    return StringHelper.isNotEmpty (getLine ());
   }
 
   /**
-   * @return The direct dial for a further specification of a line. Is optional
-   *         and may be <code>null</code>.
+   * @return The direct dial for a further specification of a line. Is optional and may be
+   *         <code>null</code>.
    */
   @Nullable
   String getDirectDial ();
 
   default boolean hasDirectDial ()
   {
-    return StringHelper.hasText (getDirectDial ());
+    return StringHelper.isNotEmpty (getDirectDial ());
   }
 }

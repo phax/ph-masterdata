@@ -36,20 +36,22 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsImmutableObject;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.CommonsHashSet;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.compare.CompareHelper;
-import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsImmutableObject;
+import com.helger.base.compare.CompareHelper;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringReplace;
+import com.helger.collection.CollectionHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.CommonsHashSet;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.collection.helper.CollectionSort;
+import com.helger.datetime.helper.PDTFactory;
+import com.helger.io.file.FileHelper;
 import com.helger.masterdata.postal.PostalCodeListReader;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -148,12 +150,12 @@ public class MainReadPostalCodeListExcel
       it.next ();
 
       final IMicroDocument aDoc = new MicroDocument ();
-      final IMicroElement eRoot = aDoc.appendElement (PostalCodeListReader.ELEMENT_ROOT);
-      final IMicroElement eHeader = eRoot.appendElement (PostalCodeListReader.ELEMENT_HEADER);
-      eHeader.appendElement (PostalCodeListReader.ELEMENT_SOURCE).appendText (sSource);
-      eHeader.appendElement (PostalCodeListReader.ELEMENT_REVISION).appendText (sRevision);
+      final IMicroElement eRoot = aDoc.addElement (PostalCodeListReader.ELEMENT_ROOT);
+      final IMicroElement eHeader = eRoot.addElement (PostalCodeListReader.ELEMENT_HEADER);
+      eHeader.addElement (PostalCodeListReader.ELEMENT_SOURCE).addText (sSource);
+      eHeader.addElement (PostalCodeListReader.ELEMENT_REVISION).addText (sRevision);
 
-      final IMicroElement eBody = eRoot.appendElement (PostalCodeListReader.ELEMENT_BODY);
+      final IMicroElement eBody = eRoot.addElement (PostalCodeListReader.ELEMENT_BODY);
       final ICommonsList <Item> aItems = new CommonsArrayList <> ();
       int nRow = 0;
       while (it.hasNext ())
@@ -163,7 +165,7 @@ public class MainReadPostalCodeListExcel
 
         // Country name
         final String sCountryName = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-        if (StringHelper.hasNoText (sCountryName))
+        if (StringHelper.isEmpty (sCountryName))
         {
           LOGGER.warn ("Line " + nRow + ": No country name present");
           continue;
@@ -187,7 +189,7 @@ public class MainReadPostalCodeListExcel
 
         // Country ISO
         final String sCountryISO = ExcelReadHelper.getCellValueString (aRow.getCell (2));
-        if (StringHelper.hasNoText (sCountryISO))
+        if (StringHelper.isEmpty (sCountryISO))
         {
           LOGGER.warn ("Line " + nRow + ": No Country ISO code for " + sCountryName);
           continue;
@@ -195,10 +197,9 @@ public class MainReadPostalCodeListExcel
 
         // Postal code Format
         final String sFormat = ExcelReadHelper.getCellValueString (aRow.getCell (3));
-        if (NO_CODES.contains (sFormat) || StringHelper.hasNoText (sFormat))
+        if (NO_CODES.contains (sFormat) || StringHelper.isEmpty (sFormat))
           continue;
-        final ICommonsList <String> aFormats = StringHelper.getExploded ("\n",
-                                                                         StringHelper.replaceAll (sFormat, ",", "\n"));
+        final List <String> aFormats = StringHelper.getExploded ("\n", StringReplace.replaceAll (sFormat, ",", "\n"));
         for (int i = 0; i < aFormats.size (); ++i)
           aFormats.set (i, aFormats.get (i).trim ());
 
@@ -229,7 +230,7 @@ public class MainReadPostalCodeListExcel
       }
 
       // Print sorted by ISO code
-      for (final Map.Entry <String, ? extends List <Item>> aEntry : CollectionHelper.getSortedByKey (aMap).entrySet ())
+      for (final Map.Entry <String, ? extends List <Item>> aEntry : CollectionSort.getSortedByKey (aMap).entrySet ())
       {
         IMicroElement eCountry = null;
         for (final Item aItem : aEntry.getValue ())
@@ -237,12 +238,12 @@ public class MainReadPostalCodeListExcel
           if (eCountry == null)
           {
             // First item - ISO and name only once
-            eCountry = eBody.appendElement (PostalCodeListReader.ELEMENT_COUNTRY);
+            eCountry = eBody.addElement (PostalCodeListReader.ELEMENT_COUNTRY);
             eCountry.setAttribute (PostalCodeListReader.ATTR_ISO, aItem.getISO ());
             eCountry.setAttribute (PostalCodeListReader.ATTR_NAME, aItem.getCountry ());
           }
 
-          final IMicroElement ePostalCodes = eCountry.appendElement (PostalCodeListReader.ELEMENT_POSTALCODES);
+          final IMicroElement ePostalCodes = eCountry.addElement (PostalCodeListReader.ELEMENT_POSTALCODES);
           if (aItem.getValidFrom () != null)
             ePostalCodes.setAttribute (PostalCodeListReader.ATTR_VALIDFROM,
                                        DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidFrom ()));
@@ -251,15 +252,15 @@ public class MainReadPostalCodeListExcel
                                        DateTimeFormatter.ISO_LOCAL_DATE.format (aItem.getValidTo ()));
           for (final String sSingleFormat : aItem.getFormats ())
             if (sSingleFormat.startsWith (PREFIX_ONE_CODE))
-              ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_SPECIFIC)
-                          .appendText (sSingleFormat.substring (PREFIX_ONE_CODE.length ()));
+              ePostalCodes.addElement (PostalCodeListReader.ELEMENT_SPECIFIC)
+                          .addText (sSingleFormat.substring (PREFIX_ONE_CODE.length ()));
             else
             {
 
-              ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_FORMAT).appendText (sSingleFormat);
+              ePostalCodes.addElement (PostalCodeListReader.ELEMENT_FORMAT).addText (sSingleFormat);
             }
-          if (StringHelper.hasText (aItem.getNote ()))
-            ePostalCodes.appendElement (PostalCodeListReader.ELEMENT_NOTE).appendText (aItem.getNote ());
+          if (StringHelper.isNotEmpty (aItem.getNote ()))
+            ePostalCodes.addElement (PostalCodeListReader.ELEMENT_NOTE).addText (aItem.getNote ());
         }
       }
 

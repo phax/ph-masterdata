@@ -23,17 +23,17 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 
 /**
- * This class represents a single IBAN number (SEPA). An IBAN number is a
- * combination of different values that are country dependent.
+ * This class represents a single IBAN number (SEPA). An IBAN number is a combination of different
+ * values that are country dependent.
  *
  * @author Philip Helger
  */
@@ -88,7 +88,7 @@ public class IBAN implements Serializable
   public static IBAN createFromString (@Nullable final String sIBAN)
   {
     final String sRealIBAN = IBANManager.unifyIBAN (sIBAN);
-    if (StringHelper.hasNoText (sRealIBAN))
+    if (StringHelper.isEmpty (sRealIBAN))
       return null;
 
     // get country specific data

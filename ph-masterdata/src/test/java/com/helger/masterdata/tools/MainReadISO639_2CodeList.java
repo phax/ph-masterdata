@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.stream.NonBlockingBufferedReader;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.io.nonblocking.NonBlockingBufferedReader;
+import com.helger.base.string.StringHelper;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
@@ -41,9 +41,8 @@ public class MainReadISO639_2CodeList
     final String sRevision = "20220414";
 
     final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("iso639-2");
-    try (
-        final NonBlockingBufferedReader aReader = new NonBlockingBufferedReader (new ClassPathResource ("language/ISO-639-2_utf-8.txt").getReader (StandardCharsets.UTF_8)))
+    final IMicroElement eRoot = aDoc.addElement ("iso639-2");
+    try (final NonBlockingBufferedReader aReader = new NonBlockingBufferedReader (new ClassPathResource ("language/ISO-639-2_utf-8.txt").getReader (StandardCharsets.UTF_8)))
     {
       String sLine;
       // Skip the BOM!
@@ -64,22 +63,22 @@ public class MainReadISO639_2CodeList
         final String sEN = aParts[3];
         final String sFR = aParts[4];
 
-        if (StringHelper.hasNoText (sAlpha3B))
+        if (StringHelper.isEmpty (sAlpha3B))
           throw new IllegalArgumentException ("Alpha3B");
-        if (StringHelper.hasNoText (sEN))
+        if (StringHelper.isEmpty (sEN))
           throw new IllegalArgumentException ("EN");
-        if (StringHelper.hasNoText (sFR))
+        if (StringHelper.isEmpty (sFR))
           throw new IllegalArgumentException ("FR");
 
         // "Reserved for local use"
         if (sAlpha3B.equals ("qaa-qtz"))
           continue;
 
-        final IMicroElement eItem = eRoot.appendElement ("item");
+        final IMicroElement eItem = eRoot.addElement ("item");
         eItem.setAttribute ("alpha3", sAlpha3B.toLowerCase (Locale.US));
-        if (StringHelper.hasText (sAlpha3T))
+        if (StringHelper.isNotEmpty (sAlpha3T))
           eItem.setAttribute ("alpha3t", sAlpha3T.toLowerCase (Locale.US));
-        if (StringHelper.hasText (sAlpha2))
+        if (StringHelper.isNotEmpty (sAlpha2))
           eItem.setAttribute ("alpha2", sAlpha2.toLowerCase (Locale.US));
         eItem.setAttribute ("en", sEN);
         eItem.setAttribute ("fr", sFR);

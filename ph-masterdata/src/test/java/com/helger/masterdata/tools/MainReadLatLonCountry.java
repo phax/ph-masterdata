@@ -25,17 +25,16 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.base.string.StringParser;
 import com.helger.commons.csv.CSVReader;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.io.file.FileHelper;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
- * Read average county longitude and latitude from CSV. The CSV can be
- * downloaded and read as-is!
+ * Read average county longitude and latitude from CSV. The CSV can be downloaded and read as-is!
  *
  * @author Philip Helger
  */
@@ -57,10 +56,10 @@ public final class MainReadLatLonCountry
       aReader.readNext ();
 
       final IMicroDocument aDoc = new MicroDocument ();
-      final IMicroElement eRoot = aDoc.appendElement ("root");
-      final IMicroElement eHeader = eRoot.appendElement ("header");
-      eHeader.appendElement ("source").appendText (sSource);
-      eHeader.appendElement ("revision").appendText (sRevision);
+      final IMicroElement eRoot = aDoc.addElement ("root");
+      final IMicroElement eHeader = eRoot.addElement ("header");
+      eHeader.addElement ("source").addText (sSource);
+      eHeader.addElement ("revision").addText (sRevision);
 
       List <String> aLine;
       while ((aLine = aReader.readNext ()) != null)
@@ -68,12 +67,15 @@ public final class MainReadLatLonCountry
         final String sISO = aLine.get (0);
         final BigDecimal aLatitude = StringParser.parseBigDecimal (aLine.get (1));
         final BigDecimal aLongitude = StringParser.parseBigDecimal (aLine.get (2));
-        eRoot.appendElement ("entry")
+        eRoot.addElement ("entry")
              .setAttribute ("id", sISO)
              .setAttributeWithConversion ("latitude", aLatitude)
              .setAttributeWithConversion ("longitude", aLongitude);
       }
-      MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/latitude-longitude-country-" + sRevision + ".xml"));
+      MicroWriter.writeToFile (aDoc,
+                               new File ("src/main/resources/codelists/latitude-longitude-country-" +
+                                         sRevision +
+                                         ".xml"));
     }
     LOGGER.info ("Done");
   }

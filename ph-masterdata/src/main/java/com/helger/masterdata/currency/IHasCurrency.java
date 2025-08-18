@@ -18,7 +18,7 @@ package com.helger.masterdata.currency;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.Nonempty;
+import com.helger.annotation.Nonempty;
 
 /**
  * Base interface for objects having a currency.

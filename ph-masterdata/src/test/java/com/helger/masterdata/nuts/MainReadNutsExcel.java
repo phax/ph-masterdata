@@ -25,7 +25,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.io.file.FileHelper;
+import com.helger.io.file.FileHelper;
 import com.helger.poi.excel.EExcelVersion;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -34,8 +34,8 @@ import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
- * Take the NUTS Excel from https://ec.europa.eu/eurostat/web/nuts/background
- * and convert it to an XML
+ * Take the NUTS Excel from https://ec.europa.eu/eurostat/web/nuts/background and convert it to an
+ * XML
  *
  * @author Philip Helger
  */
@@ -58,7 +58,7 @@ public final class MainReadNutsExcel
         aRowIt.next ();
 
     final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
+    final IMicroElement eRoot = aDoc.addElement ("root");
     eRoot.setAttribute ("version", "nuts2021");
     while (aRowIt.hasNext ())
     {
@@ -75,7 +75,7 @@ public final class MainReadNutsExcel
       final int nRegionOrdinal = ExcelReadHelper.getCellValueNumber (aRow.getCell (7)).intValue ();
 
       // Names
-      eRoot.appendElement ("item")
+      eRoot.addElement ("item")
            .setAttribute ("id", sID)
            .setAttribute ("name", sName)
            .setAttribute ("latinName", sLatinName)

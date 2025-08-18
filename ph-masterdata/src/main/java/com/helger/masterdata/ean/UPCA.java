@@ -19,9 +19,9 @@ package com.helger.masterdata.ean;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.state.EValidity;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.state.EValidity;
+import com.helger.base.string.StringHelper;
 
 /**
  * UPC-A implementation (Universal product code; =GTIN-12).

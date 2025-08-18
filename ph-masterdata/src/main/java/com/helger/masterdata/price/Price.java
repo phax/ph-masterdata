@@ -24,12 +24,12 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.state.EChange;
+import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.PerCurrencySettings;
@@ -67,7 +67,9 @@ public class Price implements IMutablePrice, Serializable
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
    */
-  public Price (@Nonnull final ECurrency eCurrency, @Nonnull final BigDecimal aNetAmount, @Nonnull final IVATItem aVATItem)
+  public Price (@Nonnull final ECurrency eCurrency,
+                @Nonnull final BigDecimal aNetAmount,
+                @Nonnull final IVATItem aVATItem)
   {
     this (new CurrencyValue (eCurrency, aNetAmount), aVATItem);
   }
@@ -209,7 +211,9 @@ public class Price implements IMutablePrice, Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("NetAmount", m_aNetAmount).append ("VATItem", m_aVATItem).getToString ();
+    return new ToStringGenerator (this).append ("NetAmount", m_aNetAmount)
+                                       .append ("VATItem", m_aVATItem)
+                                       .getToString ();
   }
 
   /**
@@ -247,8 +251,7 @@ public class Price implements IMutablePrice, Serializable
   }
 
   /**
-   * Create a price from a gross amount using the scale and rounding mode from
-   * the currency.
+   * Create a price from a gross amount using the scale and rounding mode from the currency.
    *
    * @param eCurrency
    *        Currency to use. May not be <code>null</code>.
@@ -278,8 +281,7 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @param nScale
    *        The scaling to be used for the resulting amount, in case
-   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact
-   *        result.
+   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact result.
    * @param eRoundingMode
    *        The rounding mode to be used to create a valid result.
    * @return The created {@link Price}
@@ -294,7 +296,7 @@ public class Price implements IMutablePrice, Serializable
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
     final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
-    if (MathHelper.isEQ1 (aFactor))
+    if (BigHelper.isEQ1 (aFactor))
     {
       // Shortcut for no VAT (net == gross)
       return new Price (eCurrency, aGrossAmount, aVATItem);
@@ -303,8 +305,7 @@ public class Price implements IMutablePrice, Serializable
   }
 
   /**
-   * Create a price from a gross amount using the scale and rounding mode from
-   * the currency.
+   * Create a price from a gross amount using the scale and rounding mode from the currency.
    *
    * @param aGrossAmount
    *        The gross amount to use. May not be <code>null</code>.
@@ -313,7 +314,8 @@ public class Price implements IMutablePrice, Serializable
    * @return The created {@link Price}
    */
   @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount, @Nonnull final IVATItem aVATItem)
+  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
+                                             @Nonnull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
@@ -331,8 +333,7 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @param nScale
    *        The scaling to be used for the resulting amount, in case
-   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact
-   *        result.
+   *        <code>grossAmount / (1 + perc/100)</code> delivery an inexact result.
    * @param eRoundingMode
    *        The rounding mode to be used to create a valid result.
    * @return The created {@link Price}
@@ -346,12 +347,14 @@ public class Price implements IMutablePrice, Serializable
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
     final BigDecimal aFactor = aVATItem.getMultiplicationFactorNetToGross ();
-    if (MathHelper.isEQ1 (aFactor))
+    if (BigHelper.isEQ1 (aFactor))
     {
       // Shortcut for no VAT (net == gross)
       return new Price (aGrossAmount, aVATItem);
     }
 
-    return new Price (aGrossAmount.getCurrency (), aGrossAmount.getValue ().divide (aFactor, nScale, eRoundingMode), aVATItem);
+    return new Price (aGrossAmount.getCurrency (),
+                      aGrossAmount.getValue ().divide (aFactor, nScale, eRoundingMode),
+                      aVATItem);
   }
 }

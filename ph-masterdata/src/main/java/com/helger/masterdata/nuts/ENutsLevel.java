@@ -20,8 +20,8 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasID;
-import com.helger.commons.lang.EnumHelper;
+import com.helger.base.id.IHasID;
+import com.helger.base.lang.EnumHelper;
 
 /**
  * NUTS level

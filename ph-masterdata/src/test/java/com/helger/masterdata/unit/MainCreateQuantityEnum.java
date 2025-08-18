@@ -19,14 +19,15 @@ package com.helger.masterdata.unit;
 import java.util.Locale;
 import java.util.Map;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.collection.impl.CommonsLinkedHashMap;
-import com.helger.commons.collection.impl.ICommonsOrderedMap;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
-import com.helger.commons.text.IMultilingualText;
+import com.helger.base.CGlobal;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.base.string.StringReplace;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsLinkedHashMap;
+import com.helger.collection.commons.ICommonsOrderedMap;
 import com.helger.masterdata.unit.impl.UnitManager;
+import com.helger.text.IMultilingualText;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
@@ -48,7 +49,8 @@ public final class MainCreateQuantityEnum
     for (final IMicroElement eQuantity : eRoot.getFirstChildElement ("quantities").getAllChildElements ("quantity"))
     {
       final int nQuantity = StringParser.parseInt (eQuantity.getAttributeValue ("id"), CGlobal.ILLEGAL_UINT);
-      final IMultilingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"), IMultilingualText.class);
+      final IMultilingualText aName = MicroTypeConverter.convertToNative (eQuantity.getFirstChildElement ("name"),
+                                                                          IMultilingualText.class);
       final String sEN = aName.getText (Locale.ENGLISH).trim ();
       aTexts.put (Integer.valueOf (nQuantity), sEN);
     }
@@ -78,7 +80,7 @@ public final class MainCreateQuantityEnum
       sEnumName = RegExHelper.getAsIdentifier (sEnumName, "_");
       sEnumName = StringHelper.trimStartRepeatedly (sEnumName, '_');
       sEnumName = StringHelper.trimEndRepeatedly (sEnumName, '_');
-      sEnumName = StringHelper.replaceAllRepeatedly (sEnumName, "__", "_");
+      sEnumName = StringReplace.replaceAllRepeatedly (sEnumName, "__", "_");
       aEnumNames.put (aEntry.getKey (), sEnumName);
     }
 
@@ -88,9 +90,14 @@ public final class MainCreateQuantityEnum
     {
       final Integer aQuantity = aEntry.getKey ();
       final String sEnumName = aEntry.getValue ();
-      aSB1.append (sEnumName).append (" (").append (aQuantity).append (", EUnitQuantityName.").append (sEnumName).append ("),");
+      aSB1.append (sEnumName)
+          .append (" (")
+          .append (aQuantity)
+          .append (", EUnitQuantityName.")
+          .append (sEnumName)
+          .append ("),");
 
-      final String sEN = StringHelper.replaceAll (aTexts.get (aQuantity), "\n", "\\n");
+      final String sEN = StringReplace.replaceAll (aTexts.get (aQuantity), "\n", "\\n");
       aSB2.append (sEnumName).append (" (\"").append (sEN).append ("\", \"").append (sEN).append ("\"),");
     }
   }

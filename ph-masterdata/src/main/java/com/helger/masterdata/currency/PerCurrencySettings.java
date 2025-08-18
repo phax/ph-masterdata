@@ -30,9 +30,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringRemove;
+import com.helger.base.string.StringReplace;
 
 /**
  * Per currency settings. Not thread safe.
@@ -77,15 +78,15 @@ public final class PerCurrencySettings implements Serializable
     {
       // Java 9 may use non-breaking spaces as separator
       // TODO make this configurable to use either blank or 0xa0
-      sCP = StringHelper.replaceAll (sCP, '\u00a0', ' ');
+      sCP = StringReplace.replaceAll (sCP, '\u00a0', ' ');
     }
     m_sCurrencyPattern = sCP;
 
     String sVP = sCP;
-    sVP = StringHelper.removeAll (sVP, "\u00A4 ");
-    sVP = StringHelper.removeAll (sVP, " \u00A4");
-    sVP = StringHelper.removeAll (sVP, "\u00A4");
-    sVP = StringHelper.removeAll (sVP, '\u00A0');
+    sVP = StringRemove.removeAll (sVP, "\u00A4 ");
+    sVP = StringRemove.removeAll (sVP, " \u00A4");
+    sVP = StringRemove.removeAll (sVP, "\u00A4");
+    sVP = StringRemove.removeAll (sVP, '\u00A0');
     m_sValuePattern = sVP;
 
     // Use the decimal symbols from the currency format
@@ -99,9 +100,8 @@ public final class PerCurrencySettings implements Serializable
   }
 
   /**
-   * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If
-   *         no underlying JDK currency is present,
-   *         {@value CurrencyHelper#DEFAULT_SCALE} is returned.
+   * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If no underlying JDK
+   *         currency is present, {@value CurrencyHelper#DEFAULT_SCALE} is returned.
    */
   @Nonnegative
   public int getScale ()
@@ -110,8 +110,8 @@ public final class PerCurrencySettings implements Serializable
   }
 
   /**
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern includes the currency string.
+   * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
+   *         includes the currency string.
    */
   @Nonnull
   @Nonempty
@@ -121,8 +121,8 @@ public final class PerCurrencySettings implements Serializable
   }
 
   /**
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern does NOT includes the currency string.
+   * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
+   *         does NOT includes the currency string.
    */
   @Nonnull
   @Nonempty
@@ -132,9 +132,8 @@ public final class PerCurrencySettings implements Serializable
   }
 
   /**
-   * @return The {@link DecimalFormat} used to format this currency. Always
-   *         returns a copy of the contained formatter for thread-safety and
-   *         modification.
+   * @return The {@link DecimalFormat} used to format this currency. Always returns a copy of the
+   *         contained formatter for thread-safety and modification.
    */
   @Nonnull
   public DecimalFormat getCurrencyFormat ()
@@ -159,9 +158,8 @@ public final class PerCurrencySettings implements Serializable
 
   /**
    * @return The {@link DecimalFormat} object that formats an object like the
-   *         {@link #getCurrencyFormat()} but without the currency sign. Always
-   *         returns a copy of the contained formatter for thread-safety and
-   *         modification.
+   *         {@link #getCurrencyFormat()} but without the currency sign. Always returns a copy of
+   *         the contained formatter for thread-safety and modification.
    */
   @Nonnull
   public DecimalFormat getValueFormat ()
@@ -185,8 +183,8 @@ public final class PerCurrencySettings implements Serializable
   }
 
   /**
-   * Set the minimum fraction digits to be used for formatting. Applies to the
-   * currency-formatting and the value-formatting.
+   * Set the minimum fraction digits to be used for formatting. Applies to the currency-formatting
+   * and the value-formatting.
    *
    * @param nDecimals
    *        The new minimum fraction digits. May not be negative.
@@ -206,8 +204,8 @@ public final class PerCurrencySettings implements Serializable
 
   /**
    * @return The rounding mode of this currency. If non is specified,
-   *         {@link CurrencyHelper#DEFAULT_ROUNDING_MODE} is returned instead.
-   *         May not be <code>null</code>.
+   *         {@link CurrencyHelper#DEFAULT_ROUNDING_MODE} is returned instead. May not be
+   *         <code>null</code>.
    */
   @Nonnull
   public RoundingMode getRoundingMode ()

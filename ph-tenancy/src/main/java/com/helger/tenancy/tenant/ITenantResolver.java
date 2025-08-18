@@ -16,7 +16,7 @@
  */
 package com.helger.tenancy.tenant;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Resolver for {@link ITenant} objects.

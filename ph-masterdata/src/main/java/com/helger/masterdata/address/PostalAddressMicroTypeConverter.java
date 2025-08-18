@@ -21,8 +21,8 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.system.SystemHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.base.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
@@ -31,7 +31,7 @@ import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
 /**
  * MicroType converter for {@link PostalAddress}.
- * 
+ *
  * @author Philip Helger
  */
 public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <PostalAddress>
@@ -54,21 +54,21 @@ public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <Pos
     final IMicroElement eAddress = new MicroElement (sNamespaceURI, sTagName);
     if (aAddress.getType () != null)
       eAddress.setAttribute (ATTR_TYPE, aAddress.getType ().getID ());
-    if (StringHelper.hasText (aAddress.getCountry ()))
+    if (StringHelper.isNotEmpty (aAddress.getCountry ()))
       eAddress.setAttribute (ATTR_COUNTRY, aAddress.getCountry ());
-    if (StringHelper.hasText (aAddress.getState ()))
+    if (StringHelper.isNotEmpty (aAddress.getState ()))
       eAddress.setAttribute (ATTR_STATE, aAddress.getState ());
-    if (StringHelper.hasText (aAddress.getPostalCode ()))
+    if (StringHelper.isNotEmpty (aAddress.getPostalCode ()))
       eAddress.setAttribute (ATTR_POSTALCODE, aAddress.getPostalCode ());
-    if (StringHelper.hasText (aAddress.getCity ()))
+    if (StringHelper.isNotEmpty (aAddress.getCity ()))
       eAddress.setAttribute (ATTR_CITY, aAddress.getCity ());
-    if (StringHelper.hasText (aAddress.getStreet ()))
+    if (StringHelper.isNotEmpty (aAddress.getStreet ()))
       eAddress.setAttribute (ATTR_STREET, aAddress.getStreet ());
-    if (StringHelper.hasText (aAddress.getBuildingNumber ()))
+    if (StringHelper.isNotEmpty (aAddress.getBuildingNumber ()))
       eAddress.setAttribute (ATTR_BUILDINGNUMBER, aAddress.getBuildingNumber ());
-    if (StringHelper.hasText (aAddress.getPostOfficeBox ()))
+    if (StringHelper.isNotEmpty (aAddress.getPostOfficeBox ()))
       eAddress.setAttribute (ATTR_POBOX, aAddress.getPostOfficeBox ());
-    if (StringHelper.hasText (aAddress.getCareOf ()))
+    if (StringHelper.isNotEmpty (aAddress.getCareOf ()))
       eAddress.setAttribute (ATTR_CARE_OF, aAddress.getCareOf ());
     return eAddress;
   }
@@ -86,6 +86,15 @@ public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <Pos
     final String sBuildingNumber = eAddress.getAttributeValue (ATTR_BUILDINGNUMBER);
     final String sPostOfficeBox = eAddress.getAttributeValue (ATTR_POBOX);
     final String sCareOf = eAddress.getAttributeValue (ATTR_CARE_OF);
-    return new PostalAddress (eType, sCountry, sState, sPostalCode, sCity, sStreet, sBuildingNumber, sPostOfficeBox, sCareOf, aLocale);
+    return new PostalAddress (eType,
+                              sCountry,
+                              sState,
+                              sPostalCode,
+                              sCity,
+                              sStreet,
+                              sBuildingNumber,
+                              sPostOfficeBox,
+                              sCareOf,
+                              aLocale);
   }
 }

@@ -22,12 +22,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.exception.InitializationException;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.exception.InitializationException;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.xml.microdom.util.XMLMapHandler;
 
 /**
@@ -42,7 +42,8 @@ public final class DialCodeManager
 
   static
   {
-    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), COUNTRY_TO_DIAL_CODE).isFailure ())
+    if (XMLMapHandler.readMap (new ClassPathResource ("codelists/dialcode-country-data.xml"), COUNTRY_TO_DIAL_CODE)
+                     .isFailure ())
       throw new InitializationException ("Failed to init dial code country data");
   }
 
@@ -50,8 +51,7 @@ public final class DialCodeManager
   {}
 
   /**
-   * Get the dial code for the specified country (in the ISO-3166 two letter
-   * type).
+   * Get the dial code for the specified country (in the ISO-3166 two letter type).
    *
    * @param sCountry
    *        The country code. Must be 2 characters long.
@@ -60,8 +60,9 @@ public final class DialCodeManager
   @Nullable
   public static String getDialCodeOfCountry (@Nullable final String sCountry)
   {
-    if (StringHelper.hasNoText (sCountry))
+    if (StringHelper.isEmpty (sCountry))
       return null;
+
     return COUNTRY_TO_DIAL_CODE.get (sCountry.toUpperCase (Locale.US));
   }
 

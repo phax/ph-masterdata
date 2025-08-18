@@ -28,15 +28,15 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.impl.CommonsTreeMap;
-import com.helger.commons.collection.impl.ICommonsNavigableMap;
-import com.helger.commons.compare.IComparator;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.resource.IReadableResource;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.commons.CommonsTreeMap;
+import com.helger.collection.commons.ICommonsNavigableMap;
+import com.helger.io.resource.ClassPathResource;
+import com.helger.io.resource.IReadableResource;
 import com.helger.masterdata.locale.EContinent;
 import com.helger.poi.excel.ExcelReadHelper;
+import com.helger.text.compare.ComparatorHelper;
+import com.helger.text.locale.country.CountryCache;
 
 public final class MainReadCountry2Continent
 {
@@ -106,15 +106,15 @@ public final class MainReadCountry2Continent
     // Skip one row
     int nRow = 1;
     int nNotFound = 0;
-    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap <> (IComparator.getComparatorCollating (Locale::getCountry,
-                                                                                                                      LOC));
+    final ICommonsNavigableMap <Locale, EContinent> aMap = new CommonsTreeMap <> (ComparatorHelper.getComparatorCollating (Locale::getCountry,
+                                                                                                                           LOC));
     while (true)
     {
       final Row aRow = aSheet.getRow (nRow);
       if (aRow == null)
         break;
       final String sContinent = ExcelReadHelper.getCellValueString (aRow.getCell (0));
-      if (StringHelper.hasNoText (sContinent))
+      if (StringHelper.isEmpty (sContinent))
         break;
       final EContinent eContinent = _findContinent (sContinent);
       final String sCountryName = ExcelReadHelper.getCellValueString (aRow.getCell (1));

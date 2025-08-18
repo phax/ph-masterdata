@@ -24,7 +24,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 
 /**
  * Test class for class {@link ETaxTypeUN5153}.
@@ -38,7 +38,7 @@ public final class ETaxTypeUN5153Test
   {
     for (final ETaxTypeUN5153 e : ETaxTypeUN5153.values ())
     {
-      assertTrue (StringHelper.hasText (e.getID ()));
+      assertTrue (StringHelper.isNotEmpty (e.getID ()));
       assertNotNull (e.getDisplayText (Locale.GERMAN));
       assertSame (e, ETaxTypeUN5153.valueOf (e.name ()));
       assertSame (e, ETaxTypeUN5153.getFromIDOrNull (e.getID ()));

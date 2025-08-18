@@ -18,16 +18,16 @@ package com.helger.tenancy;
 
 import java.time.LocalDateTime;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.ReturnsMutableObject;
-import com.helger.commons.collection.attr.IStringMap;
-import com.helger.commons.type.ITypedObject;
+import com.helger.annotation.style.ReturnsMutableObject;
+import com.helger.base.type.ITypedObject;
 import com.helger.datetime.util.PDTHelper;
 import com.helger.tenancy.datetime.IHasCreationInfo;
 import com.helger.tenancy.datetime.IHasDeletionInfo;
 import com.helger.tenancy.datetime.IHasLastModificationInfo;
+import com.helger.typeconvert.collection.IStringMap;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface for all business objects. Has a creation, last modification

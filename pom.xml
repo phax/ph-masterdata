@@ -22,11 +22,11 @@
   <parent>
     <groupId>com.helger</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>2.1.4</version>
+    <version>3.0.0-SNAPSHOT</version>
   </parent>
   <groupId>com.helger.masterdata</groupId>
   <artifactId>ph-masterdata-parent-pom</artifactId>
-  <version>7.0.3-SNAPSHOT</version>
+  <version>8.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>ph-masterdata-parent-pom</name>
   <description>Base POM to build the ph-masterdata projects</description>
@@ -62,6 +62,23 @@
     </developer>
   </developers>
   
+  <!-- Enable when using a SNAPSHOT version: -->
+  <!--
+  -->
+  <repositories>
+    <repository>
+      <name>Central Portal Snapshots</name>
+      <id>central-portal-snapshots</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  
   <properties>
     <spotbugs-annotations.version>4.9.3</spotbugs-annotations.version>
   </properties>
@@ -71,14 +88,14 @@
       <dependency>
         <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>11.2.6</version>
+        <version>12.0.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-poi</artifactId>
-        <version>6.0.4</version>
+        <version>7.0.0-SNAPSHOT</version>
       </dependency>
 
       <dependency>

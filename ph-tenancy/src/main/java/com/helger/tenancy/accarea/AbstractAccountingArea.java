@@ -18,21 +18,21 @@ package com.helger.tenancy.accarea;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.NotThreadSafe;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.concurrent.NotThreadSafe;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.state.EChange;
+import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.address.PostalAddress;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.tenancy.IBusinessObject;
 import com.helger.tenancy.tenant.AbstractTenantObject;
 import com.helger.tenancy.tenant.ITenant;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Abstract base implementation of {@link IAccountingArea}

@@ -21,13 +21,13 @@ import java.time.format.DateTimeFormatter;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.io.resource.IReadableResource;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.datetime.helper.PDTFactory;
+import com.helger.io.resource.IReadableResource;
 import com.helger.masterdata.MasterDataLogger;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
@@ -73,7 +73,10 @@ public class PostalCodeListReader
     {
       eElement = EPostalCodeFormatElement.getFromString (sFormat, nIndex);
       if (eElement == null)
-        throw new IllegalArgumentException ("The format '" + sFormat + "' contains an illegal element at index " + nIndex);
+        throw new IllegalArgumentException ("The format '" +
+                                            sFormat +
+                                            "' contains an illegal element at index " +
+                                            nIndex);
       ret.add (eElement);
       nIndex += eElement.getTokenLength ();
     }
@@ -104,9 +107,11 @@ public class PostalCodeListReader
       for (final IMicroElement ePostalCode : eCountry.getAllChildElements (ELEMENT_POSTALCODES))
       {
         final String sValidFrom = ePostalCode.getAttributeValue (ATTR_VALIDFROM);
-        final LocalDate aValidFrom = sValidFrom == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidFrom, LocalDate::from);
+        final LocalDate aValidFrom = sValidFrom == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidFrom,
+                                                                                                         LocalDate::from);
         final String sValidTo = ePostalCode.getAttributeValue (ATTR_VALIDTO);
-        final LocalDate aValidTo = sValidTo == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidTo, LocalDate::from);
+        final LocalDate aValidTo = sValidTo == null ? null : DateTimeFormatter.ISO_LOCAL_DATE.parse (sValidTo,
+                                                                                                     LocalDate::from);
 
         if (aValidFrom != null && aValidFrom.isAfter (aNow))
         {
@@ -131,7 +136,7 @@ public class PostalCodeListReader
         for (final IMicroElement eFormat : ePostalCode.getAllChildElements (ELEMENT_FORMAT))
         {
           final String sFormat = eFormat.getTextContent ();
-          if (StringHelper.hasNoText (sFormat))
+          if (StringHelper.isEmpty (sFormat))
             throw new IllegalArgumentException ("The country " + sISO + " contains an empty postal code format!");
 
           // Parse into tokens

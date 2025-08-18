@@ -28,12 +28,12 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashSet;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashSet;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.text.locale.country.CountryCache;
 
 /**
  * Test class for class {@link EGS1Prefix}.
@@ -52,11 +52,11 @@ public class EGS1PrefixTest
       final String sDesc = e.getDescription ();
       final String sCC = e.getCountryCode ();
 
-      assertTrue (StringHelper.hasText (sFrom));
+      assertTrue (StringHelper.isNotEmpty (sFrom));
       assertEquals (sFrom.length (), e.getPrefixLength ());
       if (e.hasTo ())
         assertEquals (sFrom.length (), sTo.length ());
-      assertTrue (StringHelper.hasText (sDesc));
+      assertTrue (StringHelper.isNotEmpty (sDesc));
       if (e.hasCountryCode ())
       {
         final Locale aC = CountryCache.getInstance ().getCountry (sCC);

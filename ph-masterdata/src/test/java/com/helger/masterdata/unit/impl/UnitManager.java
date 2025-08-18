@@ -18,18 +18,18 @@ package com.helger.masterdata.unit.impl;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.annotation.WorkInProgress;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsCollection;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.resource.IReadableResource;
-import com.helger.commons.string.StringParser;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.ReadOnlyMultilingualText;
+import com.helger.annotation.misc.WorkInProgress;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.CGlobal;
+import com.helger.base.string.StringParser;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsCollection;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.io.resource.ClassPathResource;
+import com.helger.io.resource.IReadableResource;
 import com.helger.masterdata.unit.UnitSector;
+import com.helger.text.IMultilingualText;
+import com.helger.text.ReadOnlyMultilingualText;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
@@ -68,7 +68,9 @@ public final class UnitManager
       final UnitSector aSector = new UnitSector (nGroupNum, aName);
       final Integer aKey = aSector.getIDObj ();
       if (m_aSectors.containsKey (aKey))
-        throw new IllegalStateException ("A unit sector with group number " + aSector.getID () + " is already contained!");
+        throw new IllegalStateException ("A unit sector with group number " +
+                                         aSector.getID () +
+                                         " is already contained!");
       m_aSectors.put (aKey, aSector);
     }
 

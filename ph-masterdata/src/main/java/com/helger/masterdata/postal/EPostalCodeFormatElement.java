@@ -20,8 +20,8 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.base.string.StringHelper;
 
 /**
  * Represents a single element within a postal code format definition
@@ -40,7 +40,9 @@ enum EPostalCodeFormatElement
   private final String m_sRegEx;
   private final String m_sExample;
 
-  EPostalCodeFormatElement (@Nonnull @Nonempty final String sToken, @Nullable final String sRegEx, @Nullable final String sExample)
+  EPostalCodeFormatElement (@Nonnull @Nonempty final String sToken,
+                            @Nullable final String sRegEx,
+                            @Nullable final String sExample)
   {
     m_sToken = sToken;
     m_sRegEx = sRegEx;
@@ -67,8 +69,8 @@ enum EPostalCodeFormatElement
   }
 
   /**
-   * @return The regular expression to parse this element. May be
-   *         <code>null</code> for the country code!
+   * @return The regular expression to parse this element. May be <code>null</code> for the country
+   *         code!
    */
   @Nullable
   public String getRegEx ()
@@ -77,8 +79,7 @@ enum EPostalCodeFormatElement
   }
 
   /**
-   * @return The example character for this element. May be <code>null</code>
-   *         for the country code!
+   * @return The example character for this element. May be <code>null</code> for the country code!
    */
   @Nullable
   public String getExample ()
@@ -89,7 +90,7 @@ enum EPostalCodeFormatElement
   @Nullable
   public static EPostalCodeFormatElement getFromString (@Nullable final String sString, final int nIndex)
   {
-    if (StringHelper.hasText (sString))
+    if (StringHelper.isNotEmpty (sString))
       for (final EPostalCodeFormatElement eElement : values ())
         if (sString.substring (nIndex, nIndex + eElement.getTokenLength ()).equals (eElement.getToken ()))
           return eElement;

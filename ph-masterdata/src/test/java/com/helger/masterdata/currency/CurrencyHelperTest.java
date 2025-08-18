@@ -28,9 +28,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.system.EJavaVersion;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.base.system.EJavaVersion;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
@@ -56,8 +56,8 @@ public final class CurrencyHelperTest
   @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED")
   public void testGetDivided ()
   {
-    final BigDecimal aBD3 = MathHelper.toBigDecimal (3);
-    final BigDecimal aBD = MathHelper.toBigDecimal (2);
+    final BigDecimal aBD3 = BigHelper.toBigDecimal (3);
+    final BigDecimal aBD = BigHelper.toBigDecimal (2);
     try
     {
       // 2/3 == 0.666666666....
@@ -96,8 +96,8 @@ public final class CurrencyHelperTest
   {
     for (final ECurrency e : ECurrency.values ())
     {
-      assertTrue (StringHelper.hasText (CurrencyHelper.getCurrencyPattern (e)));
-      assertTrue (StringHelper.hasText (CurrencyHelper.getValuePattern (e)));
+      assertTrue (StringHelper.isNotEmpty (CurrencyHelper.getCurrencyPattern (e)));
+      assertTrue (StringHelper.isNotEmpty (CurrencyHelper.getValuePattern (e)));
       assertNotNull (CurrencyHelper.getCurrencyFormat (e));
       assertNotNull (CurrencyHelper.getValueFormat (e));
     }
@@ -222,7 +222,6 @@ public final class CurrencyHelperTest
         assertTrue ("Searching in '" + sCF + "'", sCF.contains (aPCS.getCurrencySymbol ()));
       }
     }
-
   }
 
   @Test

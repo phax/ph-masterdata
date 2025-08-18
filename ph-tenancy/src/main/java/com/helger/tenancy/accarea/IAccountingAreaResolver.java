@@ -16,7 +16,7 @@
  */
 package com.helger.tenancy.accarea;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Resolver for {@link IAccountingArea} objects.

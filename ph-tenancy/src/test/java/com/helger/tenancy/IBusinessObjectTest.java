@@ -23,10 +23,10 @@ import java.time.LocalDateTime;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.attr.IStringMap;
-import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.id.factory.GlobalIDFactory;
-import com.helger.commons.type.ObjectType;
+import com.helger.base.id.factory.GlobalIDFactory;
+import com.helger.base.type.ObjectType;
+import com.helger.datetime.helper.PDTFactory;
+import com.helger.typeconvert.collection.IStringMap;
 
 /**
  * Test class for class {@link IBusinessObject}

@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.address;
 
-import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.text.display.IHasDisplayText;
+import com.helger.annotation.style.MustImplementEqualsAndHashcode;
+import com.helger.base.id.IHasID;
+import com.helger.text.display.IHasDisplayText;
 
 /**
  * Address base type.

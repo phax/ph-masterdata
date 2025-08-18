@@ -19,10 +19,10 @@ package com.helger.masterdata.ean;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.state.EValidity;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.state.EValidity;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
 
 /**
  * UPC-E implementation (Universal product code)
@@ -67,9 +67,8 @@ public final class UPCE extends AbstractUPCEAN
    *
    * @param sMsg
    *        an UPC-A message
-   * @return String the derived UPC-E message (with checksum), null if the
-   *         message is a valid UPC-A message but no UPC-E representation is
-   *         possible
+   * @return String the derived UPC-E message (with checksum), null if the message is a valid UPC-A
+   *         message but no UPC-E representation is possible
    */
   @Nullable
   public static String getCompactMessage (final String sMsg)
@@ -206,9 +205,9 @@ public final class UPCE extends AbstractUPCEAN
   }
 
   /**
-   * Validates an UPC-E message. The message can also be UPC-A in which case the
-   * message is compacted to a UPC-E message if possible. If it's not possible
-   * an IllegalArgumentException is thrown
+   * Validates an UPC-E message. The message can also be UPC-A in which case the message is
+   * compacted to a UPC-E message if possible. If it's not possible an IllegalArgumentException is
+   * thrown
    *
    * @param sMsg
    *        the message to validate

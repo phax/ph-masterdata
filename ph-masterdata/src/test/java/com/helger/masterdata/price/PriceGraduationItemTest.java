@@ -26,8 +26,8 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.CommonsAssert;
-import com.helger.commons.state.EChange;
+import com.helger.base.mock.CommonsAssert;
+import com.helger.base.state.EChange;
 
 /**
  * Test class for class {@link PriceGraduationItem}.

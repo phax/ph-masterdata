@@ -27,12 +27,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringImplode;
+import com.helger.base.string.StringParser;
+import com.helger.base.string.StringReplace;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.io.file.FileHelper;
 import com.helger.masterdata.EUNCodelistStatus;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -46,10 +48,10 @@ public class MainReadPackageTypeCodeListExcel
 
   private static String _convertNumericCodes (final String sNumericCode)
   {
-    if (StringHelper.hasNoText (sNumericCode))
+    if (StringHelper.isEmpty (sNumericCode))
       return null;
 
-    final String sRealNumericCode = StringHelper.replaceAll (sNumericCode, '\n', ' ');
+    final String sRealNumericCode = StringReplace.replaceAll (sNumericCode, '\n', ' ');
     // E.g. "22 to 25", "44 or 45", "21 to 23 or 31 to 33"
     final ICommonsList <String> ret = new CommonsArrayList <> ();
 
@@ -62,11 +64,17 @@ public class MainReadPackageTypeCodeListExcel
         // Split by "to"
         final String [] aToParts = RegExHelper.getSplitToArray (sOrPart, " to ");
         if (aToParts.length != 2)
-          throw new IllegalStateException (sRealNumericCode + " ==> " + Arrays.toString (aToParts) + " ==> more than 2 parts");
+          throw new IllegalStateException (sRealNumericCode +
+                                           " ==> " +
+                                           Arrays.toString (aToParts) +
+                                           " ==> more than 2 parts");
         final int nFrom = StringParser.parseInt (aToParts[0].trim (), -1);
         final int nTo = StringParser.parseInt (aToParts[1].trim (), -1);
         if (nFrom == -1 || nTo == -1)
-          throw new IllegalStateException (sRealNumericCode + " ==> " + Arrays.toString (aToParts) + " ==> not numeric");
+          throw new IllegalStateException (sRealNumericCode +
+                                           " ==> " +
+                                           Arrays.toString (aToParts) +
+                                           " ==> not numeric");
         for (int i = nFrom; i <= nTo; ++i)
           ret.add (Integer.toString (i));
       }
@@ -80,7 +88,7 @@ public class MainReadPackageTypeCodeListExcel
         ret.add (sRealOrPart);
       }
     }
-    return StringHelper.getImploded (",", ret);
+    return StringImplode.getImploded (",", ret);
   }
 
   public static void main (final String [] args) throws Exception
@@ -101,12 +109,12 @@ public class MainReadPackageTypeCodeListExcel
         it.next ();
 
       final IMicroDocument aDoc = new MicroDocument ();
-      final IMicroElement eRoot = aDoc.appendElement ("root");
-      final IMicroElement eHeader = eRoot.appendElement ("header");
-      eHeader.appendElement ("source").appendText (sSource);
-      eHeader.appendElement ("revision").appendText (sRevision);
+      final IMicroElement eRoot = aDoc.addElement ("root");
+      final IMicroElement eHeader = eRoot.addElement ("header");
+      eHeader.addElement ("source").addText (sSource);
+      eHeader.addElement ("revision").addText (sRevision);
 
-      final IMicroElement eBody = eRoot.appendElement ("body");
+      final IMicroElement eBody = eRoot.addElement ("body");
       while (it.hasNext ())
       {
         final Row aRow = it.next ();
@@ -118,14 +126,14 @@ public class MainReadPackageTypeCodeListExcel
         final String sNumericCode = _convertNumericCodes (ExcelReadHelper.getCellValueString (aRow.getCell (4)));
 
         // Avoid reading empty lines
-        if (StringHelper.hasText (sCode))
+        if (StringHelper.isNotEmpty (sCode))
         {
-          final IMicroElement eItem = eBody.appendElement ("item");
+          final IMicroElement eItem = eBody.addElement ("item");
           eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
           eItem.setAttribute ("code", sCode);
-          eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
-          if (StringHelper.hasText (sDescription))
-            eItem.appendElement ("description").appendElement ("text").setAttribute ("locale", "en").appendText (sDescription);
+          eItem.addElement ("name").addElement ("text").setAttribute ("locale", "en").addText (sName);
+          if (StringHelper.isNotEmpty (sDescription))
+            eItem.addElement ("description").addElement ("text").setAttribute ("locale", "en").addText (sDescription);
           eItem.setAttribute ("numericcodes", sNumericCode);
         }
       }

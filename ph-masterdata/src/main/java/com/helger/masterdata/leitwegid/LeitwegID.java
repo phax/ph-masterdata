@@ -21,11 +21,11 @@ import java.math.BigInteger;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.base.CGlobal;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.cache.regex.RegExHelper;
 
 /**
  * Handler for Leitweg-ID specific stuff.
@@ -60,14 +60,14 @@ public final class LeitwegID
       if (c >= '0' && c <= '9')
       {
         // Simple case
-        aBI = aBI.multiply (BigInteger.TEN).add (MathHelper.toBigInteger (c - '0'));
+        aBI = aBI.multiply (BigInteger.TEN).add (BigHelper.toBigInteger (c - '0'));
       }
       else
       {
         // Must be A-Z
         // 10 <= n <= 35
         final int n = 10 + (c - 'A');
-        aBI = aBI.multiply (CGlobal.BIGINT_100).add (MathHelper.toBigInteger (n));
+        aBI = aBI.multiply (CGlobal.BIGINT_100).add (BigHelper.toBigInteger (n));
       }
 
     // Add the trailing "00"
@@ -79,14 +79,12 @@ public final class LeitwegID
   }
 
   /**
-   * Check if the provided Leitweg ID is valid or not. This method also checks
-   * the validity of the checksum. An example code that is valid is
-   * <code>04011000-1234512345-06</code>.
+   * Check if the provided Leitweg ID is valid or not. This method also checks the validity of the
+   * checksum. An example code that is valid is <code>04011000-1234512345-06</code>.
    *
    * @param sID
    *        The ID to check. May be <code>null</code>.
-   * @return <code>true</code> if the ID is valid, <code>false</code> if it is
-   *         not.
+   * @return <code>true</code> if the ID is valid, <code>false</code> if it is not.
    */
   public static boolean isLeitwegIDValid (@Nullable final String sID)
   {

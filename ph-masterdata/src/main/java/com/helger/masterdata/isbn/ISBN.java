@@ -19,7 +19,7 @@ package com.helger.masterdata.isbn;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.regex.RegExHelper;
+import com.helger.cache.regex.RegExHelper;
 
 /**
  * Helper class for validating ISBN numbers.

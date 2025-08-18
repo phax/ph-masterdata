@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.CommonsTestHelper;
+import com.helger.unittest.support.TestHelper;
 
 /**
  * Test class for class {@link TelephoneNumber}
@@ -87,38 +87,38 @@ public final class TelephoneNumberTest
   public void testDefaultImpl ()
   {
     TelephoneNumber a = new TelephoneNumber ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setType (ETelephoneType.PERSONAL);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setCountryCode ("0043");
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setAreaCode ("01");
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setLine ("1231234");
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
 
     a = new TelephoneNumber ();
     a.setDirectDial ("47");
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new TelephoneNumber ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new TelephoneNumber (a));
+    TestHelper.testGetClone (a);
   }
 }

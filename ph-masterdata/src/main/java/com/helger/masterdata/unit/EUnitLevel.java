@@ -19,8 +19,8 @@ package com.helger.masterdata.unit;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nullable;
 
-import com.helger.commons.id.IHasIntID;
-import com.helger.commons.lang.EnumHelper;
+import com.helger.base.id.IHasIntID;
+import com.helger.base.lang.EnumHelper;
 
 public enum EUnitLevel implements IHasIntID
 {

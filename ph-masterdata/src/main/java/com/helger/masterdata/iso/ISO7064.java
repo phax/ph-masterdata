@@ -18,7 +18,7 @@ package com.helger.masterdata.iso;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.CGlobal;
+import com.helger.base.CGlobal;
 
 /**
  * ISO 7064 checksum algorithms.

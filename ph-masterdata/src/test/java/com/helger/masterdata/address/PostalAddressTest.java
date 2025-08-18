@@ -25,7 +25,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.CommonsTestHelper;
+import com.helger.unittest.support.TestHelper;
 
 /**
  * Test class for class {@link PostalAddress}
@@ -122,56 +122,56 @@ public final class PostalAddressTest
   public void testDefaultImpl ()
   {
     PostalAddress a = new PostalAddress ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setType (EPostalAddressType.PERSONAL);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setCountry ("de", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setState ("Wien", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setPostalCode ("1140");
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setCity ("St. Plöten", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setStreet ("Hauptstr. 1", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setPostOfficeBox ("12AB", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
 
     a = new PostalAddress ();
     a.setCareOf ("co", L_DE);
-    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
-    CommonsTestHelper.testGetClone (a);
+    TestHelper.testDefaultImplementationWithDifferentContentObject (a, new PostalAddress ());
+    TestHelper.testDefaultImplementationWithEqualContentObject (a, new PostalAddress (a, L_DE));
+    TestHelper.testGetClone (a);
   }
 }

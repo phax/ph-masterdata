@@ -24,11 +24,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.id.IHasIntID;
-import com.helger.commons.string.ToStringGenerator;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayText;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.id.IHasIntID;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayText;
 
 @Immutable
 public class UnitSector implements IHasIntID, IHasDisplayText, Serializable

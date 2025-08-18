@@ -16,14 +16,17 @@
  */
 package com.helger.masterdata;
 
+import java.util.Collection;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.base.id.IHasID;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringImplode;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 
 /**
  * Represents the status of single elements within UN code lists.
@@ -57,19 +60,17 @@ public enum EUNCodelistStatus implements IHasID <String>
   }
 
   /**
-   * Convert the passed status string into an array of {@link EUNCodelistStatus}
-   * elements.
+   * Convert the passed status string into an array of {@link EUNCodelistStatus} elements.
    *
    * @param sStatus
    *        The status string to be parsed. May be <code>null</code> or empty.
-   * @return An array with one {@link #UNCHANGED} element if the passed input
-   *         string is empty.
+   * @return An array with one {@link #UNCHANGED} element if the passed input string is empty.
    */
   @Nonnull
   @Nonempty
   public static ICommonsList <EUNCodelistStatus> getFromTextOrUnchanged (@Nullable final String sStatus)
   {
-    if (StringHelper.hasText (sStatus))
+    if (StringHelper.isNotEmpty (sStatus))
     {
       final ICommonsList <EUNCodelistStatus> ret = new CommonsArrayList <> ();
       for (final EUNCodelistStatus eStatus : values ())
@@ -83,16 +84,15 @@ public enum EUNCodelistStatus implements IHasID <String>
   }
 
   /**
-   * Get the passed code list status array as one big string, separated by a
-   * comma.
+   * Get the passed code list status array as one big string, separated by a comma.
    *
    * @param aStatus
    *        The status array. May not be <code>null</code>.
    * @return The non-<code>null</code> String of all passed status elements.
    */
   @Nonnull
-  public static String getAsString (@Nonnull final Iterable <EUNCodelistStatus> aStatus)
+  public static String getAsString (@Nonnull final Collection <EUNCodelistStatus> aStatus)
   {
-    return StringHelper.getImplodedMapped (',', aStatus, EUNCodelistStatus::getID);
+    return StringImplode.getImplodedMapped (',', aStatus, EUNCodelistStatus::getID);
   }
 }
