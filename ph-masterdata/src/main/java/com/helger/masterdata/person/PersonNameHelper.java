@@ -23,11 +23,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.ArrayHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.array.ArrayHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringImplode;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 
 @Immutable
 public final class PersonNameHelper
@@ -37,27 +38,27 @@ public final class PersonNameHelper
   /** By default a persons first name comes before the last name */
   public static final boolean DEFAULT_FIRST_NAME_FIRST = true;
 
-  private static final String [] NOBILIARY_PARTICLES = new String [] { "aw",
-                                                                       "da",
-                                                                       "dalla",
-                                                                       "de",
-                                                                       "degli",
-                                                                       "del",
-                                                                       "dem",
-                                                                       "der",
-                                                                       "di",
-                                                                       "du",
-                                                                       "of",
-                                                                       "ter",
-                                                                       "thoe",
-                                                                       "tot",
-                                                                       "und",
-                                                                       "v.",
-                                                                       "van",
-                                                                       "vom",
-                                                                       "von",
-                                                                       "zu",
-                                                                       "zum" };
+  private static final String [] NOBILIARY_PARTICLES = { "aw",
+                                                         "da",
+                                                         "dalla",
+                                                         "de",
+                                                         "degli",
+                                                         "del",
+                                                         "dem",
+                                                         "der",
+                                                         "di",
+                                                         "du",
+                                                         "of",
+                                                         "ter",
+                                                         "thoe",
+                                                         "tot",
+                                                         "und",
+                                                         "v.",
+                                                         "van",
+                                                         "vom",
+                                                         "von",
+                                                         "zu",
+                                                         "zum" };
 
   private static final AtomicBoolean COMPLEX_NAME_HANDLING_ENABLED = new AtomicBoolean (DEFAULT_COMPLEX_NAME_HANDLING);
   private static final AtomicBoolean FIRST_NAME_FIRST = new AtomicBoolean (DEFAULT_FIRST_NAME_FIRST);
@@ -81,12 +82,11 @@ public final class PersonNameHelper
   }
 
   /**
-   * Determine the order how the customer display name is assembled. This was
-   * introduced for starkl.hu as they want the lastname before the firstname
+   * Determine the order how the customer display name is assembled. This was introduced for
+   * starkl.hu as they want the lastname before the firstname
    *
-   * @return <code>true</code> if the customer display name is "firstname
-   *         lastname". <code>false</code> if the customer display name is
-   *         "lastname firstname"
+   * @return <code>true</code> if the customer display name is "firstname lastname".
+   *         <code>false</code> if the customer display name is "lastname firstname"
    */
   public static boolean isFirstNameFirst ()
   {
@@ -97,8 +97,7 @@ public final class PersonNameHelper
    * Unify a single name part. Performs the following transformations:
    * <ul>
    * <li>Remove leading and trailing whitespaces</li>
-   * <li>If the name is all upper case, down case all except the first character
-   * </li>
+   * <li>If the name is all upper case, down case all except the first character</li>
    * </ul>
    *
    * @param sPart
@@ -180,20 +179,27 @@ public final class PersonNameHelper
   public static String getAsDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
-    return StringHelper.getImplodedNonEmpty (' ', aName.getFirstName (), aName.getMiddleName (), aName.getLastName ());
+    return StringImplode.imploder ()
+                        .source (aName.getFirstName (), aName.getMiddleName (), aName.getLastName ())
+                        .separator (' ')
+                        .filterNonEmpty ()
+                        .build ();
   }
 
   @Nonnull
   public static String getAsDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
-    return StringHelper.getImplodedNonEmpty (' ', aName.getLastName (), aName.getFirstName (), aName.getMiddleName ());
+    return StringImplode.imploder ()
+                        .source (aName.getLastName (), aName.getFirstName (), aName.getMiddleName ())
+                        .separator (' ')
+                        .filterNonEmpty ()
+                        .build ();
   }
 
   /**
-   * Get the name of the person consisting of first name, middle name and last
-   * name. Titles are not considered here. {@link #isFirstNameFirst()} is
-   * considered!
+   * Get the name of the person consisting of first name, middle name and last name. Titles are not
+   * considered here. {@link #isFirstNameFirst()} is considered!
    *
    * @param aName
    *        The name to be converted. May not be <code>null</code>.
@@ -211,29 +217,35 @@ public final class PersonNameHelper
   public static String getAsCompleteDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
-    return StringHelper.getImplodedNonEmpty (' ',
-                                             aName.getPrefixTitle (),
-                                             aName.getFirstName (),
-                                             aName.getMiddleName (),
-                                             aName.getLastName (),
-                                             aName.getSuffixTitle ());
+    return StringImplode.imploder ()
+                        .source (aName.getPrefixTitle (),
+                                 aName.getFirstName (),
+                                 aName.getMiddleName (),
+                                 aName.getLastName (),
+                                 aName.getSuffixTitle ())
+                        .separator (' ')
+                        .filterNonEmpty ()
+                        .build ();
   }
 
   @Nonnull
   public static String getAsCompleteDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
   {
     // Concatenate all non-empty parts
-    return StringHelper.getImplodedNonEmpty (' ',
-                                             aName.getPrefixTitle (),
-                                             aName.getLastName (),
-                                             aName.getFirstName (),
-                                             aName.getMiddleName (),
-                                             aName.getSuffixTitle ());
+    return StringImplode.imploder ()
+                        .source (aName.getPrefixTitle (),
+                                 aName.getLastName (),
+                                 aName.getFirstName (),
+                                 aName.getMiddleName (),
+                                 aName.getSuffixTitle ())
+                        .separator (' ')
+                        .filterNonEmpty ()
+                        .build ();
   }
 
   /**
-   * Get the display name of the person consisting of titles, first name, middle
-   * name and last name. {@link #isFirstNameFirst()} is considered!
+   * Get the display name of the person consisting of titles, first name, middle name and last name.
+   * {@link #isFirstNameFirst()} is considered!
    *
    * @param aName
    *        The name to be converted. May not be <code>null</code>.

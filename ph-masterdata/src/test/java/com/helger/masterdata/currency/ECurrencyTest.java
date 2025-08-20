@@ -34,14 +34,14 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.CommonsHashSet;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.system.EJavaVersion;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.system.EJavaVersion;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.CommonsHashSet;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
 import com.helger.masterdata.locale.EContinent;
+import com.helger.text.locale.country.CountryCache;
 
 public final class ECurrencyTest
 {

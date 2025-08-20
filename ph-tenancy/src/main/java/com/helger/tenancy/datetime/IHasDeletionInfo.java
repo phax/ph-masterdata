@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.datetime;
 
-import javax.annotation.Nullable;
-
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 import com.helger.datetime.domain.IHasDeletionDateTime;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface for an object that has a date time and a user ID.
@@ -29,19 +29,18 @@ import com.helger.datetime.domain.IHasDeletionDateTime;
 public interface IHasDeletionInfo extends IHasDeletionDateTime
 {
   /**
-   * @return The user ID who deleted the object or <code>null</code> if this
-   *         object has not yet been deleted.
+   * @return The user ID who deleted the object or <code>null</code> if this object has not yet been
+   *         deleted.
    */
   @Nullable
   String getDeletionUserID ();
 
   /**
-   * @return <code>true</code> if a deletion user is present, <code>false</code>
-   *         if not.
+   * @return <code>true</code> if a deletion user is present, <code>false</code> if not.
    * @since 6.1.1
    */
   default boolean hasDeletionUserID ()
   {
-    return StringHelper.hasText (getDeletionUserID ());
+    return StringHelper.isNotEmpty (getDeletionUserID ());
   }
 }

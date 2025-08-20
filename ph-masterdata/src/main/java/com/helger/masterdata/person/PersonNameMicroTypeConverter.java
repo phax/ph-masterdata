@@ -21,8 +21,8 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.system.SystemHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.base.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
@@ -46,15 +46,15 @@ public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <
     final IMicroElement eName = new MicroElement (sNamespaceURI, sTagName);
     if (aValue.getSalutation () != null)
       eName.setAttribute (ATTR_SALUTATION, aValue.getSalutationID ());
-    if (StringHelper.hasText (aValue.getPrefixTitle ()))
+    if (StringHelper.isNotEmpty (aValue.getPrefixTitle ()))
       eName.setAttribute (ATTR_PREFIXTITLE, aValue.getPrefixTitle ());
-    if (StringHelper.hasText (aValue.getFirstName ()))
+    if (StringHelper.isNotEmpty (aValue.getFirstName ()))
       eName.setAttribute (ATTR_FIRSTNAME, aValue.getFirstName ());
-    if (StringHelper.hasText (aValue.getMiddleName ()))
+    if (StringHelper.isNotEmpty (aValue.getMiddleName ()))
       eName.setAttribute (ATTR_MIDDLENAME, aValue.getMiddleName ());
-    if (StringHelper.hasText (aValue.getLastName ()))
+    if (StringHelper.isNotEmpty (aValue.getLastName ()))
       eName.setAttribute (ATTR_LASTNAME, aValue.getLastName ());
-    if (StringHelper.hasText (aValue.getSuffixTitle ()))
+    if (StringHelper.isNotEmpty (aValue.getSuffixTitle ()))
       eName.setAttribute (ATTR_SUFFIXTITLE, aValue.getSuffixTitle ());
     return eName;
   }

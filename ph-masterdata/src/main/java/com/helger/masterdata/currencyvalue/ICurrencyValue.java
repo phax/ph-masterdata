@@ -22,8 +22,8 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.math.MathHelper;
+import com.helger.annotation.style.MustImplementEqualsAndHashcode;
+import com.helger.base.numeric.BigHelper;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.IHasCurrency;
 
@@ -42,63 +42,57 @@ public interface ICurrencyValue extends IHasCurrency
   BigDecimal getValue ();
 
   /**
-   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it
-   *         is &ge; 0.
+   * @return <code>true</code> if the value is &lt; 0, <code>false</code> if it is &ge; 0.
    * @since 6.1.1
    */
   default boolean isLT0 ()
   {
-    return MathHelper.isLT0 (getValue ());
+    return BigHelper.isLT0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is &le; 0, <code>false</code> if it
-   *         is &gt; 0.
+   * @return <code>true</code> if the value is &le; 0, <code>false</code> if it is &gt; 0.
    * @since 6.1.1
    */
   default boolean isLE0 ()
   {
-    return MathHelper.isLE0 (getValue ());
+    return BigHelper.isLE0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is 0, <code>false</code> if it is
-   *         not 0.
+   * @return <code>true</code> if the value is 0, <code>false</code> if it is not 0.
    * @since 6.1.1
    */
   default boolean isEQ0 ()
   {
-    return MathHelper.isEQ0 (getValue ());
+    return BigHelper.isEQ0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is not 0, <code>false</code> if it
-   *         is 0.
+   * @return <code>true</code> if the value is not 0, <code>false</code> if it is 0.
    * @since 6.1.1
    */
   default boolean isNE0 ()
   {
-    return MathHelper.isNE0 (getValue ());
+    return BigHelper.isNE0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it
-   *         is &le; 0.
+   * @return <code>true</code> if the value is &gt; 0, <code>false</code> if it is &le; 0.
    * @since 6.1.1
    */
   default boolean isGT0 ()
   {
-    return MathHelper.isGT0 (getValue ());
+    return BigHelper.isGT0 (getValue ());
   }
 
   /**
-   * @return <code>true</code> if the value is &ge; 0, <code>false</code> if it
-   *         is &lt; 0.
+   * @return <code>true</code> if the value is &ge; 0, <code>false</code> if it is &lt; 0.
    * @since 6.1.1
    */
   default boolean isGE0 ()
   {
-    return MathHelper.isGE0 (getValue ());
+    return BigHelper.isGE0 (getValue ());
   }
 
   /**
@@ -125,7 +119,7 @@ public interface ICurrencyValue extends IHasCurrency
   {
     if (nValue == 0)
       return this;
-    return getAdded (MathHelper.toBigDecimal (nValue));
+    return getAdded (BigHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -152,7 +146,7 @@ public interface ICurrencyValue extends IHasCurrency
   {
     if (nValue == 0)
       return this;
-    return getSubtracted (MathHelper.toBigDecimal (nValue));
+    return getSubtracted (BigHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -179,7 +173,7 @@ public interface ICurrencyValue extends IHasCurrency
   {
     if (nValue == 1)
       return this;
-    return getMultiplied (MathHelper.toBigDecimal (nValue));
+    return getMultiplied (BigHelper.toBigDecimal (nValue));
   }
 
   /**
@@ -206,12 +200,12 @@ public interface ICurrencyValue extends IHasCurrency
   {
     if (nValue == 1)
       return this;
-    return getDivided (MathHelper.toBigDecimal (nValue));
+    return getDivided (BigHelper.toBigDecimal (nValue));
   }
 
   /**
-   * @return The value as a formatted currency including the currency sign. The
-   *         scale is defined by the currency.
+   * @return The value as a formatted currency including the currency sign. The scale is defined by
+   *         the currency.
    */
   @Nonnull
   default String getCurrencyFormatted ()
@@ -231,8 +225,8 @@ public interface ICurrencyValue extends IHasCurrency
   }
 
   /**
-   * @return The value as a formatted currency excluding the currency sign. The
-   *         scale is defined by the currency.
+   * @return The value as a formatted currency excluding the currency sign. The scale is defined by
+   *         the currency.
    */
   @Nonnull
   default String getValueFormatted ()

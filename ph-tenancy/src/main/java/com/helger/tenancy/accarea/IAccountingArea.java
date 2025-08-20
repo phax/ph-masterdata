@@ -16,15 +16,16 @@
  */
 package com.helger.tenancy.accarea;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.name.IHasDisplayName;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.name.IHasDisplayName;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringImplode;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.tenancy.tenant.ITenantObject;
 import com.helger.tenancy.uitext.IHasUIText;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * This interface represents a single accounting area.
@@ -40,18 +41,17 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getCompanyType ();
 
   /**
-   * @return <code>true</code> if a company type is present, <code>false</code>
-   *         if not.
+   * @return <code>true</code> if a company type is present, <code>false</code> if not.
    * @see #getCompanyType()
    */
   default boolean hasCompanyType ()
   {
-    return StringHelper.hasText (getCompanyType ());
+    return StringHelper.isNotEmpty (getCompanyType ());
   }
 
   /**
-   * @return The same as {@link #getDisplayNameAndCompanyType(String)} but using
-   *         the fixed separator " " (1 blank).
+   * @return The same as {@link #getDisplayNameAndCompanyType(String)} but using the fixed separator
+   *         " " (1 blank).
    * @see #getDisplayNameAndCompanyType(String)
    */
   @Nonnull
@@ -61,9 +61,8 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   }
 
   /**
-   * Get display name and company type concatenated using the provided
-   * separator. The separator is only used, if both fields are present and not
-   * empty.
+   * Get display name and company type concatenated using the provided separator. The separator is
+   * only used, if both fields are present and not empty.
    *
    * @param sSep
    *        The separator to use. May not be <code>null</code>.
@@ -74,7 +73,7 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   @Nonnull
   default String getDisplayNameAndCompanyType (@Nonnull final String sSep)
   {
-    return StringHelper.getImplodedNonEmpty (sSep, getDisplayName (), getCompanyType ());
+    return StringImplode.getImplodedNonEmpty (sSep, getDisplayName (), getCompanyType ());
   }
 
   /**
@@ -89,24 +88,22 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
    */
   default boolean hasCompanyVATIN ()
   {
-    return StringHelper.hasText (getCompanyVATIN ());
+    return StringHelper.isNotEmpty (getCompanyVATIN ());
   }
 
   /**
-   * @return The company number (Interne Betriebsnummer). May be
-   *         <code>null</code>.
+   * @return The company number (Interne Betriebsnummer). May be <code>null</code>.
    */
   @Nullable
   String getCompanyNumber ();
 
   /**
-   * @return <code>true</code> if a company number is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a company number is present, <code>false</code> if not.
    * @see #getCompanyNumber()
    */
   default boolean hasCompanyNumber ()
   {
-    return StringHelper.hasText (getCompanyNumber ());
+    return StringHelper.isNotEmpty (getCompanyNumber ());
   }
 
   /**
@@ -116,13 +113,12 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getCustomerNumber ();
 
   /**
-   * @return <code>true</code> if a customer number is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a customer number is present, <code>false</code> if not.
    * @see #getCustomerNumber()
    */
   default boolean hasCustomerNumber ()
   {
-    return StringHelper.hasText (getCustomerNumber ());
+    return StringHelper.isNotEmpty (getCustomerNumber ());
   }
 
   /**
@@ -138,13 +134,12 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getTelephone ();
 
   /**
-   * @return <code>true</code> if a telephone number is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a telephone number is present, <code>false</code> if not.
    * @see #getTelephone()
    */
   default boolean hasTelephone ()
   {
-    return StringHelper.hasText (getTelephone ());
+    return StringHelper.isNotEmpty (getTelephone ());
   }
 
   /**
@@ -154,13 +149,12 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getFax ();
 
   /**
-   * @return <code>true</code> if a fax number is present, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if a fax number is present, <code>false</code> if not.
    * @see #getFax()
    */
   default boolean hasFax ()
   {
-    return StringHelper.hasText (getFax ());
+    return StringHelper.isNotEmpty (getFax ());
   }
 
   /**
@@ -170,13 +164,12 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getEmailAddress ();
 
   /**
-   * @return <code>true</code> if an email address is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if an email address is present, <code>false</code> if not.
    * @see #getEmailAddress()
    */
   default boolean hasEmailAddress ()
   {
-    return StringHelper.hasText (getEmailAddress ());
+    return StringHelper.isNotEmpty (getEmailAddress ());
   }
 
   /**
@@ -186,13 +179,12 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getWebSite ();
 
   /**
-   * @return <code>true</code> if a website is present, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if a website is present, <code>false</code> if not.
    * @see #getWebSite()
    */
   default boolean hasWebSite ()
   {
-    return StringHelper.hasText (getWebSite ());
+    return StringHelper.isNotEmpty (getWebSite ());
   }
 
   /**
@@ -213,8 +205,7 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   }
 
   /**
-   * @return <code>true</code> if a default currency is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a default currency is present, <code>false</code> if not.
    * @see #getDefaultCurrency()
    */
   default boolean hasDefaultCurrency ()
@@ -229,30 +220,28 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getOfficeLocation ();
 
   /**
-   * @return <code>true</code> if an office location is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if an office location is present, <code>false</code> if not.
    * @see #getOfficeLocation()
    */
   default boolean hasOfficeLocation ()
   {
-    return StringHelper.hasText (getOfficeLocation ());
+    return StringHelper.isNotEmpty (getOfficeLocation ());
   }
 
   /**
-   * @return Commercial registration number (e.g. Firmenbuchnummer). May be
-   *         <code>null</code>.
+   * @return Commercial registration number (e.g. Firmenbuchnummer). May be <code>null</code>.
    */
   @Nullable
   String getCommercialRegistrationNumber ();
 
   /**
-   * @return <code>true</code> if a commercial register number is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a commercial register number is present, <code>false</code> if
+   *         not.
    * @see #getCommercialRegistrationNumber()
    */
   default boolean hasCommercialRegistrationNumber ()
   {
-    return StringHelper.hasText (getCommercialRegistrationNumber ());
+    return StringHelper.isNotEmpty (getCommercialRegistrationNumber ());
   }
 
   /**
@@ -262,12 +251,11 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   String getCommercialCourt ();
 
   /**
-   * @return <code>true</code> if a commercial court is present,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if a commercial court is present, <code>false</code> if not.
    * @see #getCommercialCourt()
    */
   default boolean hasCommercialCourt ()
   {
-    return StringHelper.hasText (getCommercialCourt ());
+    return StringHelper.isNotEmpty (getCommercialCourt ());
   }
 }

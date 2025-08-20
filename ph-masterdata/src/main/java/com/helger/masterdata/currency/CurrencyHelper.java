@@ -31,18 +31,19 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsEnumMap;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.CommonsTreeSet;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSortedSet;
-import com.helger.commons.concurrent.SimpleReadWriteLock;
-import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.locale.LocaleParser;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.concurrent.SimpleReadWriteLock;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringReplace;
+import com.helger.collection.commons.CommonsEnumMap;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.CommonsTreeSet;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSortedSet;
+import com.helger.text.locale.LocaleCache;
+import com.helger.text.locale.LocaleParser;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
@@ -56,8 +57,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public final class CurrencyHelper
 {
   /**
-   * The default rounding mode to be used for currency values. It may be
-   * overridden for each currency individually.
+   * The default rounding mode to be used for currency values. It may be overridden for each
+   * currency individually.
    */
   public static final RoundingMode DEFAULT_ROUNDING_MODE = RoundingMode.HALF_EVEN;
 
@@ -152,8 +153,8 @@ public final class CurrencyHelper
    *
    * @param aLocale
    *        The locale to check.
-   * @return <code>true</code> if a currency is available for the given locale,
-   *         <code>false</code> otherwise.
+   * @return <code>true</code> if a currency is available for the given locale, <code>false</code>
+   *         otherwise.
    */
   public static boolean localeSupportsCurrencyRetrieval (@Nullable final Locale aLocale)
   {
@@ -170,8 +171,7 @@ public final class CurrencyHelper
   }
 
   /**
-   * @return A map from {@link Locale} to {@link Currency} as offered by the
-   *         JDK.
+   * @return A map from {@link Locale} to {@link Currency} as offered by the JDK.
    */
   @Nonnull
   @ReturnsMutableCopy
@@ -181,8 +181,7 @@ public final class CurrencyHelper
   }
 
   /**
-   * Parse a currency value from string using the currency default rounding
-   * mode.<br>
+   * Parse a currency value from string using the currency default rounding mode.<br>
    * Source:
    * <code>http://wheelworkshop.blogspot.com/2006/02/parsing-currency-into-bigdecimal.html</code>
    *
@@ -192,8 +191,7 @@ public final class CurrencyHelper
    *        The formatting object to be used. May not be <code>null</code>.
    * @param aDefault
    *        The default value to be returned, if parsing failed.
-   * @return Either default value or the {@link BigDecimal} value with the
-   *         correct scaling.
+   * @return Either default value or the {@link BigDecimal} value with the correct scaling.
    */
   @Nullable
   public static BigDecimal parseCurrency (@Nullable final String sStr,
@@ -214,8 +212,7 @@ public final class CurrencyHelper
    *        The default value to be returned, if parsing failed.
    * @param eRoundingMode
    *        The rounding mode to be used. May not be <code>null</code>.
-   * @return Either default value or the {@link BigDecimal} value with the
-   *         correct scaling.
+   * @return Either default value or the {@link BigDecimal} value with the correct scaling.
    */
   @Nullable
   public static BigDecimal parseCurrency (@Nullable final String sStr,
@@ -224,7 +221,7 @@ public final class CurrencyHelper
                                           @Nonnull final RoundingMode eRoundingMode)
   {
     // Shortcut
-    if (StringHelper.hasNoText (sStr))
+    if (StringHelper.isEmpty (sStr))
       return aDefault;
 
     // So that the call to "parse" returns a BigDecimal
@@ -243,8 +240,8 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @return Never <code>null</code>.
    */
   @Nonnull
@@ -269,10 +266,10 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern includes the currency string.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
+   * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
+   *         includes the currency string.
    */
   @Nonnull
   @Nonempty
@@ -283,10 +280,10 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   * @return The pattern to be used in {@link DecimalFormat} to format this
-   *         currency. This pattern does NOT includes the currency string.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
+   * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
+   *         does NOT includes the currency string.
    */
   @Nonnull
   @Nonempty
@@ -297,11 +294,10 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   * @return The {@link DecimalFormat} used to format this currency. Always
-   *         returns a copy of the contained formatter for thread-safety and
-   *         modification.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
+   * @return The {@link DecimalFormat} used to format this currency. Always returns a copy of the
+   *         contained formatter for thread-safety and modification.
    */
   @Nonnull
   public static DecimalFormat getCurrencyFormat (@Nullable final ECurrency eCurrency)
@@ -326,11 +322,9 @@ public final class CurrencyHelper
   /**
    * @return The {@link DecimalFormat} object that formats an object like the
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   *        {@link #getCurrencyFormat(ECurrency)} but without the currency sign.
-   *        Always returns a copy of the contained formatter for thread-safety
-   *        and modification.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead. {@link #getCurrencyFormat(ECurrency)} but without the currency sign.
+   *        Always returns a copy of the contained formatter for thread-safety and modification.
    */
   @Nonnull
   public static DecimalFormat getValueFormat (@Nullable final ECurrency eCurrency)
@@ -354,8 +348,8 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @return The minimum fraction digits to be used for formatting.
    */
   @Nonnegative
@@ -365,12 +359,12 @@ public final class CurrencyHelper
   }
 
   /**
-   * Set the minimum fraction digits to be used for formatting. Applies to the
-   * currency-formatting and the value-formatting.
+   * Set the minimum fraction digits to be used for formatting. Applies to the currency-formatting
+   * and the value-formatting.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param nDecimals
    *        The new minimum fraction digits. May not be negative.
    */
@@ -397,13 +391,11 @@ public final class CurrencyHelper
    * @param sTextValue
    *        The text to be manipulated. May be <code>null</code>.
    * @param eDecimalSep
-   *        The decimal separator that is required. May not be <code>null</code>
-   *        .
+   *        The decimal separator that is required. May not be <code>null</code> .
    * @param eGroupingSep
-   *        The grouping separator that is required. May not be
-   *        <code>null</code> .
-   * @return The manipulated text so that it matches the required decimal
-   *         separator or the original text
+   *        The grouping separator that is required. May not be <code>null</code> .
+   * @return The manipulated text so that it matches the required decimal separator or the original
+   *         text
    */
   @Nullable
   private static String _getTextValueForDecimalSeparator (@Nullable final String sTextValue,
@@ -425,7 +417,7 @@ public final class CurrencyHelper
           if (ret.indexOf ('.') > -1 && eGroupingSep.getChar () != '.')
           {
             // Currency expects "," but user passed "."
-            return StringHelper.replaceAll (ret, '.', eDecimalSep.getChar ());
+            return StringReplace.replaceAll (ret, '.', eDecimalSep.getChar ());
           }
           break;
         }
@@ -435,7 +427,7 @@ public final class CurrencyHelper
           if (ret.indexOf (',') > -1 && eGroupingSep.getChar () != ',')
           {
             // Pattern contains no "," but value contains ","
-            return StringHelper.replaceAll (ret, ',', eDecimalSep.getChar ());
+            return StringReplace.replaceAll (ret, ',', eDecimalSep.getChar ());
           }
           break;
         }
@@ -446,21 +438,17 @@ public final class CurrencyHelper
   }
 
   /**
-   * Try to parse a string value formatted by the {@link NumberFormat} object
-   * returned from {@link #getCurrencyFormat(ECurrency)}. E.g.
-   * <code>&euro; 5,00</code>
+   * Try to parse a string value formatted by the {@link NumberFormat} object returned from
+   * {@link #getCurrencyFormat(ECurrency)}. E.g. <code>&euro; 5,00</code>
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param sTextValue
-   *        The string value. It will be trimmed, and the decimal separator will
-   *        be adopted.
+   *        The string value. It will be trimmed, and the decimal separator will be adopted.
    * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
+   *        The default value to be used in case parsing fails. May be <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the passed default value.
    */
   @Nullable
   public static BigDecimal parseCurrencyFormat (@Nullable final ECurrency eCurrency,
@@ -483,20 +471,17 @@ public final class CurrencyHelper
   }
 
   /**
-   * Try to parse a string value formatted by the {@link NumberFormat} object
-   * returned from {@link #getCurrencyFormat(ECurrency)}. E.g.
-   * <code>&euro; 5,00</code>
+   * Try to parse a string value formatted by the {@link NumberFormat} object returned from
+   * {@link #getCurrencyFormat(ECurrency)}. E.g. <code>&euro; 5,00</code>
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param sTextValue
    *        The string value. It will be parsed unmodified!
    * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
+   *        The default value to be used in case parsing fails. May be <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the passed default value.
    */
   @Nullable
   public static BigDecimal parseCurrencyFormatUnchanged (@Nullable final ECurrency eCurrency,
@@ -509,20 +494,17 @@ public final class CurrencyHelper
   }
 
   /**
-   * Try to parse a string value formatted by the {@link DecimalFormat} object
-   * returned from {@link #getValueFormat(ECurrency)}
+   * Try to parse a string value formatted by the {@link DecimalFormat} object returned from
+   * {@link #getValueFormat(ECurrency)}
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param sTextValue
-   *        The string value. It will be trimmed, and the decimal separator will
-   *        be adopted.
+   *        The string value. It will be trimmed, and the decimal separator will be adopted.
    * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
+   *        The default value to be used in case parsing fails. May be <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the passed default value.
    */
   @Nullable
   public static BigDecimal parseValueFormat (@Nullable final ECurrency eCurrency,
@@ -545,19 +527,17 @@ public final class CurrencyHelper
   }
 
   /**
-   * Try to parse a string value formatted by the {@link DecimalFormat} object
-   * returned from {@link #getValueFormat(ECurrency)}
+   * Try to parse a string value formatted by the {@link DecimalFormat} object returned from
+   * {@link #getValueFormat(ECurrency)}
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param sTextValue
    *        The string value. It will be parsed unmodified!
    * @param aDefault
-   *        The default value to be used in case parsing fails. May be
-   *        <code>null</code>.
-   * @return The {@link BigDecimal} value matching the string value or the
-   *         passed default value.
+   *        The default value to be used in case parsing fails. May be <code>null</code>.
+   * @return The {@link BigDecimal} value matching the string value or the passed default value.
    */
   @Nullable
   public static BigDecimal parseValueFormatUnchanged (@Nullable final ECurrency eCurrency,
@@ -572,11 +552,10 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If
-   *         no underlying JDK currency is present, {@value #DEFAULT_SCALE} is
-   *         returned.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
+   * @return The scaling to be used for BigDecimal operations. Always &ge; 0. If no underlying JDK
+   *         currency is present, {@value #DEFAULT_SCALE} is returned.
    */
   @Nonnegative
   public static int getScale (@Nullable final ECurrency eCurrency)
@@ -585,15 +564,14 @@ public final class CurrencyHelper
   }
 
   /**
-   * Special currency division method. This method solves the problem of
-   * dividing "1/3" as it would result in a never ending series of
-   * "0.33333333..." which results in an {@link ArithmeticException} thrown by
-   * the divide method!<br>
+   * Special currency division method. This method solves the problem of dividing "1/3" as it would
+   * result in a never ending series of "0.33333333..." which results in an
+   * {@link ArithmeticException} thrown by the divide method!<br>
    * The default scaling of this currency is used.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param aDividend
    *        Dividend
    * @param aDivisor
@@ -613,17 +591,15 @@ public final class CurrencyHelper
   }
 
   /**
-   * Special currency division method. This method solves the problem of
-   * dividing "1/3" as it would result in a never ending series of
-   * "0.33333333..." which results in an {@link ArithmeticException} thrown by
-   * the divide method!<br>
-   * This method takes a custom scaling. If the default scaling of this currency
-   * should be used, than {@link #getDivided(ECurrency,BigDecimal, BigDecimal)}
-   * should be used instead.
+   * Special currency division method. This method solves the problem of dividing "1/3" as it would
+   * result in a never ending series of "0.33333333..." which results in an
+   * {@link ArithmeticException} thrown by the divide method!<br>
+   * This method takes a custom scaling. If the default scaling of this currency should be used,
+   * than {@link #getDivided(ECurrency,BigDecimal, BigDecimal)} should be used instead.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param aDividend
    *        Dividend
    * @param aDivisor
@@ -646,13 +622,13 @@ public final class CurrencyHelper
   }
 
   /**
-   * Get the passed value rounded to the appropriate number of fraction digits,
-   * based on this currencies default fraction digits.<br>
+   * Get the passed value rounded to the appropriate number of fraction digits, based on this
+   * currencies default fraction digits.<br>
    * The default scaling of this currency is used.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param aValue
    *        The value to be rounded. May not be <code>null</code>.
    * @return The rounded value. Never <code>null</code>.
@@ -666,15 +642,14 @@ public final class CurrencyHelper
   }
 
   /**
-   * Get the passed value rounded to the appropriate number of fraction digits,
-   * based on this currencies default fraction digits.<br>
-   * This method takes a custom scaling. If the default scaling of this currency
-   * should be used, than {@link #getRounded(ECurrency,BigDecimal)} should be
-   * used instead.
+   * Get the passed value rounded to the appropriate number of fraction digits, based on this
+   * currencies default fraction digits.<br>
+   * This method takes a custom scaling. If the default scaling of this currency should be used,
+   * than {@link #getRounded(ECurrency,BigDecimal)} should be used instead.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param aValue
    *        The value to be rounded. May not be <code>null</code>.
    * @param nFractionDigits
@@ -693,11 +668,10 @@ public final class CurrencyHelper
 
   /**
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
-   * @return The rounding mode of this currency. If non is specified,
-   *         {@link #DEFAULT_ROUNDING_MODE} is returned instead. May not be
-   *         <code>null</code>.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
+   * @return The rounding mode of this currency. If non is specified, {@link #DEFAULT_ROUNDING_MODE}
+   *         is returned instead. May not be <code>null</code>.
    */
   @Nonnull
   public static RoundingMode getRoundingMode (@Nullable final ECurrency eCurrency)
@@ -709,8 +683,8 @@ public final class CurrencyHelper
    * Change the rounding mode of this currency.
    *
    * @param eCurrency
-   *        The currency it is about. If <code>null</code> is provided
-   *        {@link #DEFAULT_CURRENCY} is used instead.
+   *        The currency it is about. If <code>null</code> is provided {@link #DEFAULT_CURRENCY} is
+   *        used instead.
    * @param eRoundingMode
    *        The rounding mode to be used. May be <code>null</code>.
    */

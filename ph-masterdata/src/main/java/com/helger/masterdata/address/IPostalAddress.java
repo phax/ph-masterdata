@@ -21,7 +21,7 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 
 /**
  * Read-only interface of an address.
@@ -42,8 +42,8 @@ public interface IPostalAddress
   }
 
   /**
-   * @return The country the address resides in. The upper case two-letter
-   *         ISO-3166 code as used by java.util.Locale.
+   * @return The country the address resides in. The upper case two-letter ISO-3166 code as used by
+   *         java.util.Locale.
    */
   @Nullable
   String getCountry ();
@@ -71,7 +71,7 @@ public interface IPostalAddress
 
   default boolean hasCountry (@Nonnull final String sCountryCode)
   {
-    return StringHelper.hasNoText (sCountryCode) && sCountryCode.equals (getCountry ());
+    return StringHelper.isNotEmpty (sCountryCode) && sCountryCode.equals (getCountry ());
   }
 
   default boolean hasCountry (@Nullable final Locale aLocale)
@@ -87,7 +87,7 @@ public interface IPostalAddress
 
   default boolean hasState ()
   {
-    return StringHelper.hasText (getState ());
+    return StringHelper.isNotEmpty (getState ());
   }
 
   /**
@@ -98,7 +98,7 @@ public interface IPostalAddress
 
   default boolean hasPostalCode ()
   {
-    return StringHelper.hasText (getPostalCode ());
+    return StringHelper.isNotEmpty (getPostalCode ());
   }
 
   /**
@@ -109,7 +109,7 @@ public interface IPostalAddress
 
   default boolean hasCity ()
   {
-    return StringHelper.hasText (getCity ());
+    return StringHelper.isNotEmpty (getCity ());
   }
 
   /**
@@ -120,43 +120,41 @@ public interface IPostalAddress
 
   default boolean hasStreet ()
   {
-    return StringHelper.hasText (getStreet ());
+    return StringHelper.isNotEmpty (getStreet ());
   }
 
   /**
-   * @return The number of the building in the street (if it is not contained in
-   *         the street).
+   * @return The number of the building in the street (if it is not contained in the street).
    */
   @Nullable
   String getBuildingNumber ();
 
   default boolean hasBuildingNumber ()
   {
-    return StringHelper.hasText (getBuildingNumber ());
+    return StringHelper.isNotEmpty (getBuildingNumber ());
   }
 
   /**
-   * @return An optional post office box that should be used instead the street.
-   *         May be <code>null</code>.
+   * @return An optional post office box that should be used instead the street. May be
+   *         <code>null</code>.
    */
   @Nullable
   String getPostOfficeBox ();
 
   default boolean hasPostOfficeBox ()
   {
-    return StringHelper.hasText (getPostOfficeBox ());
+    return StringHelper.isNotEmpty (getPostOfficeBox ());
   }
 
   /**
-   * @return An optional "care of" (c/o) that is used when you’re sending mail
-   *         to someone who does not actually live at the address in question.
-   *         May be <code>null</code>.
+   * @return An optional "care of" (c/o) that is used when you’re sending mail to someone who does
+   *         not actually live at the address in question. May be <code>null</code>.
    */
   @Nullable
   String getCareOf ();
 
   default boolean hasCareOf ()
   {
-    return StringHelper.hasText (getCareOf ());
+    return StringHelper.isNotEmpty (getCareOf ());
   }
 }

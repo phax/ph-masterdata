@@ -16,7 +16,7 @@
  */
 package com.helger.tenancy.tenant;
 
-import com.helger.commons.name.IHasDisplayName;
+import com.helger.base.name.IHasDisplayName;
 import com.helger.tenancy.IBusinessObject;
 import com.helger.tenancy.uitext.IHasUIText;
 

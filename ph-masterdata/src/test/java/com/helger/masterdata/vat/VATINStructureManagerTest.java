@@ -45,14 +45,14 @@ public final class VATINStructureManagerTest
   public void testConvertToXML ()
   {
     final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("vatins");
+    final IMicroElement eRoot = aDoc.addElement ("vatins");
     for (final VATINStructure aStructure : VATINStructureManager.getAllStructures ())
     {
-      final IMicroElement eVatin = eRoot.appendElement ("vatin");
+      final IMicroElement eVatin = eRoot.addElement ("vatin");
       eVatin.setAttribute ("country", aStructure.getCountry ().getCountry ());
       eVatin.setAttribute ("pattern", aStructure.getPattern ());
       for (final String sExample : aStructure.getExamples ())
-        eVatin.appendElement ("example").appendText (sExample);
+        eVatin.addElement ("example").addText (sExample);
     }
     final String sXML = MicroWriter.getNodeAsString (aDoc);
     assertNotNull (sXML);

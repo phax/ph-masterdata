@@ -25,23 +25,23 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.regex.RegExCache;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.CGlobal;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.cache.regex.RegExCache;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.datetime.period.LocalDatePeriod;
 
 /**
- * The IBAN country data defines a list of elements that are contained within
- * the IBAN number of that country.
+ * The IBAN country data defines a list of elements that are contained within the IBAN number of
+ * that country.
  *
  * @author Philip Helger
  */
@@ -55,11 +55,10 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
 
   /**
    * @param nExpectedLength
-   *        The total expected length. Serves mainly as a checksum field to
-   *        check whether the length of the passed fields matches.
+   *        The total expected length. Serves mainly as a checksum field to check whether the length
+   *        of the passed fields matches.
    * @param aPattern
-   *        <code>null</code> or the RegEx pattern to valid values of this
-   *        country.
+   *        <code>null</code> or the RegEx pattern to valid values of this country.
    * @param sFixedCheckDigits
    *        <code>null</code> or fixed check digits (of length 2)
    * @param aValidFrom
@@ -97,8 +96,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
   }
 
   /**
-   * @return The length the complete IBAN string needs to have (incl. country
-   *         code)
+   * @return The length the complete IBAN string needs to have (incl. country code)
    */
   @Nonnegative
   public int getExpectedLength ()
@@ -158,8 +156,8 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
   }
 
   /**
-   * Parse a given IBAN number string and convert it to elements according to
-   * this country's definition of IBAN numbers.
+   * Parse a given IBAN number string and convert it to elements according to this country's
+   * definition of IBAN numbers.
    *
    * @param sIBAN
    *        The IBAN number string to parse. May not be <code>null</code>.
@@ -192,7 +190,9 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("elements", m_aElements).append ("expectedLength", m_nExpectedLength).getToString ();
+    return new ToStringGenerator (this).append ("elements", m_aElements)
+                                       .append ("expectedLength", m_nExpectedLength)
+                                       .getToString ();
   }
 
   @Nonnull
@@ -286,14 +286,16 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
             throw new IllegalArgumentException ("Failed to parse layout part '" + sPart + "' - type is invalid");
     }
     if (nLen != nExpectedLength)
-      throw new IllegalArgumentException ("Failed to parse layout - length mismatch. Having " + nLen + " but expected " + nExpectedLength);
+      throw new IllegalArgumentException ("Failed to parse layout - length mismatch. Having " +
+                                          nLen +
+                                          " but expected " +
+                                          nExpectedLength);
 
     return RegExCache.getPattern (aRegEx.toString ());
   }
 
   /**
-   * This method is used to create an instance of this class from a string
-   * representation.
+   * This method is used to create an instance of this class from a string representation.
    *
    * @param sCountryCode
    *        Country code to use. Neither <code>null</code> nor empty.
@@ -308,8 +310,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
    * @param aValidTo
    *        Validity end date. May be <code>null</code>.
    * @param sDesc
-   *        The string description of this country data. May not be
-   *        <code>null</code>.
+   *        The string description of this country data. May not be <code>null</code>.
    * @return The parsed county data.
    */
   @Nonnull

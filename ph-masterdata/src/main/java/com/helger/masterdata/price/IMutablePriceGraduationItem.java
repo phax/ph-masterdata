@@ -21,8 +21,8 @@ import java.math.BigDecimal;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.state.EChange;
+import com.helger.annotation.style.MustImplementEqualsAndHashcode;
+import com.helger.base.state.EChange;
 
 /**
  * The writable version of a single price graduation item.

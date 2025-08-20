@@ -23,18 +23,17 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.state.EChange;
+import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 
 /**
- * This class represents a single currency value as the combination of a value
- * and a currency.
+ * This class represents a single currency value as the combination of a value and a currency.
  *
  * @author Philip Helger
  */
@@ -105,7 +104,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
   public CurrencyValue getAdded (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEQ0 (aValue))
+    if (BigHelper.isEQ0 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().add (aValue));
   }
@@ -115,7 +114,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
   public CurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEQ0 (aValue))
+    if (BigHelper.isEQ0 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().subtract (aValue));
   }
@@ -125,7 +124,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
   public CurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEQ1 (aValue))
+    if (BigHelper.isEQ1 (aValue))
       return this;
     return new CurrencyValue (getCurrency (), getValue ().multiply (aValue));
   }
@@ -135,7 +134,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
   public CurrencyValue getDivided (@Nonnull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
-    if (MathHelper.isEQ1 (aValue))
+    if (BigHelper.isEQ1 (aValue))
       return this;
     final ECurrency eCurrency = getCurrency ();
     return new CurrencyValue (eCurrency, CurrencyHelper.getDivided (eCurrency, getValue (), aValue));

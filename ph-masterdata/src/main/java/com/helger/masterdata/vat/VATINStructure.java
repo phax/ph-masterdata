@@ -26,18 +26,19 @@ import javax.annotation.Nullable;
 import javax.annotation.RegEx;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.debug.GlobalDebug;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.locale.country.IHasCountry;
-import com.helger.commons.regex.RegExCache;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.debug.GlobalDebug;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringRemove;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.cache.regex.RegExCache;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.text.locale.country.CountryCache;
+import com.helger.text.locale.country.IHasCountry;
 
 /**
  * Represents a VATIN structure for a single country.
@@ -52,7 +53,9 @@ public class VATINStructure implements IHasCountry, Serializable
   private final Pattern m_aPattern;
   private final ICommonsList <String> m_aExamples;
 
-  public VATINStructure (@Nonnull final String sCountry, @Nonnull @RegEx final String sRegEx, @Nonnull final Collection <String> aExamples)
+  public VATINStructure (@Nonnull final String sCountry,
+                         @Nonnull @RegEx final String sRegEx,
+                         @Nonnull final Collection <String> aExamples)
   {
     ValueEnforcer.notNull (sCountry, "Country");
     ValueEnforcer.notNull (sRegEx, "RegEx");
@@ -73,9 +76,9 @@ public class VATINStructure implements IHasCountry, Serializable
 
   public boolean isValid (@Nullable final String sVATIN)
   {
-    if (StringHelper.hasNoText (sVATIN))
+    if (StringHelper.isEmpty (sVATIN))
       return false;
-    final String sRealVATIN = StringHelper.removeAll (sVATIN, " ").toUpperCase (Locale.US);
+    final String sRealVATIN = StringRemove.removeAll (sVATIN, " ").toUpperCase (Locale.US);
     return m_aPattern.matcher (sRealVATIN).matches ();
   }
 
@@ -98,8 +101,8 @@ public class VATINStructure implements IHasCountry, Serializable
   }
 
   /**
-   * @return A non-<code>null</code> list with example VAT numbers. This list
-   *         contains at least a single item.
+   * @return A non-<code>null</code> list with example VAT numbers. This list contains at least a
+   *         single item.
    */
   @Nonnull
   @Nonempty
@@ -117,7 +120,9 @@ public class VATINStructure implements IHasCountry, Serializable
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final VATINStructure rhs = (VATINStructure) o;
-    return m_aCountry.equals (rhs.m_aCountry) && m_sPattern.equals (rhs.m_sPattern) && m_aExamples.equals (rhs.m_aExamples);
+    return m_aCountry.equals (rhs.m_aCountry) &&
+           m_sPattern.equals (rhs.m_sPattern) &&
+           m_aExamples.equals (rhs.m_aExamples);
   }
 
   @Override

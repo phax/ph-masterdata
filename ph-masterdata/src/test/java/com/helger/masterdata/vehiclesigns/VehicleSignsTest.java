@@ -22,8 +22,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.collection.impl.CommonsLinkedHashSet;
-import com.helger.commons.locale.country.CountryCache;
+import com.helger.collection.commons.CommonsLinkedHashSet;
+import com.helger.text.locale.country.CountryCache;
 
 /**
  * Test class for class {@link VehicleSigns}.

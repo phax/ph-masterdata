@@ -21,8 +21,8 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.clone.ICloneable;
+import com.helger.base.string.StringHelper;
 
 /**
  * The name of a person.
@@ -74,15 +74,14 @@ public interface IPersonName extends ICloneable <IPersonName>
   }
 
   /**
-   * @return An optional title that is written before the name. E.g. "Dr." in
-   *         Germany.
+   * @return An optional title that is written before the name. E.g. "Dr." in Germany.
    */
   @Nullable
   String getPrefixTitle ();
 
   default boolean hasPrefixTitle ()
   {
-    return StringHelper.hasText (getPrefixTitle ());
+    return StringHelper.isNotEmpty (getPrefixTitle ());
   }
 
   /**
@@ -93,7 +92,7 @@ public interface IPersonName extends ICloneable <IPersonName>
 
   default boolean hasFirstName ()
   {
-    return StringHelper.hasText (getFirstName ());
+    return StringHelper.isNotEmpty (getFirstName ());
   }
 
   /**
@@ -104,7 +103,7 @@ public interface IPersonName extends ICloneable <IPersonName>
 
   default boolean hasMiddleName ()
   {
-    return StringHelper.hasText (getMiddleName ());
+    return StringHelper.isNotEmpty (getMiddleName ());
   }
 
   /**
@@ -115,18 +114,17 @@ public interface IPersonName extends ICloneable <IPersonName>
 
   default boolean hasLastName ()
   {
-    return StringHelper.hasText (getLastName ());
+    return StringHelper.isNotEmpty (getLastName ());
   }
 
   /**
-   * @return An optional title that is written after the name. E.g. "MBA" in
-   *         Austria.
+   * @return An optional title that is written after the name. E.g. "MBA" in Austria.
    */
   @Nullable
   String getSuffixTitle ();
 
   default boolean hasSuffixTitle ()
   {
-    return StringHelper.hasText (getSuffixTitle ());
+    return StringHelper.isNotEmpty (getSuffixTitle ());
   }
 }

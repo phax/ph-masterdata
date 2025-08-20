@@ -23,23 +23,22 @@ import javax.annotation.concurrent.NotThreadSafe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.annotation.ReturnsMutableObject;
-import com.helger.commons.collection.impl.CommonsLinkedHashMap;
-import com.helger.commons.collection.impl.ICommonsOrderedMap;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.io.resource.IReadableResource;
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.annotation.style.ReturnsMutableObject;
+import com.helger.base.clone.ICloneable;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsLinkedHashMap;
+import com.helger.collection.commons.ICommonsOrderedMap;
+import com.helger.io.resource.ClassPathResource;
+import com.helger.io.resource.IReadableResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 
 /**
- * A manager for NUTS items. The data of 2021 is accessible via
- * {@link #INSTANCE_2021}
+ * A manager for NUTS items. The data of 2021 is accessible via {@link #INSTANCE_2021}
  *
  * @author Philip Helger
  * @since 6.2.4
@@ -48,17 +47,17 @@ import com.helger.xml.microdom.serialize.MicroReader;
 public class NutsManager implements INutsManager, ICloneable <NutsManager>
 {
   /**
-   * The regular expression used to validate NUTS codes. It works for country
-   * codes and all NUTS levels.
+   * The regular expression used to validate NUTS codes. It works for country codes and all NUTS
+   * levels.
    */
   public static final String REGEX_NUTS_CODE = "^[A-Z]{2}[0-9A-Z]{0,3}$";
 
   private static final Logger LOGGER = LoggerFactory.getLogger (NutsManager.class);
 
   /**
-   * This is the default instance of the {@link NutsManager} using the 2021 data
-   * for reference. Never modify the default instance. Instead create a clone
-   * using {@link #getClone()} and work on the clone.
+   * This is the default instance of the {@link NutsManager} using the 2021 data for reference.
+   * Never modify the default instance. Instead create a clone using {@link #getClone()} and work on
+   * the clone.
    */
   public static final NutsManager INSTANCE_2021 = NutsManager.createFor2021 ();
 
@@ -76,7 +75,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
 
   public static boolean isValidNutsCode (@Nullable final String s)
   {
-    return StringHelper.hasText (s) && RegExHelper.stringMatchesPattern (REGEX_NUTS_CODE, s);
+    return StringHelper.isNotEmpty (s) && RegExHelper.stringMatchesPattern (REGEX_NUTS_CODE, s);
   }
 
   /**

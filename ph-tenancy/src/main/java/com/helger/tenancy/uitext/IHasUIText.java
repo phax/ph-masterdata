@@ -19,11 +19,11 @@ package com.helger.tenancy.uitext;
 import java.util.Comparator;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.helger.annotation.Nonempty;
+import com.helger.text.compare.ComparatorHelper;
 
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.compare.IComparator;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Interface for objects that have a UI display text
@@ -42,8 +42,9 @@ public interface IHasUIText
   String getAsUIText (@Nonnull Locale aDisplayLocale);
 
   @Nonnull
-  static Comparator <IHasUIText> getComparatorCollating (@Nonnull final Locale aContentLocale, @Nullable final Locale aSortLocale)
+  static Comparator <IHasUIText> getComparatorCollating (@Nonnull final Locale aContentLocale,
+                                                         @Nullable final Locale aSortLocale)
   {
-    return IComparator.getComparatorCollating (x -> x.getAsUIText (aContentLocale), aSortLocale);
+    return ComparatorHelper.getComparatorCollating (x -> x.getAsUIText (aContentLocale), aSortLocale);
   }
 }

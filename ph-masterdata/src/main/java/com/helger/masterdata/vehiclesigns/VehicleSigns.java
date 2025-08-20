@@ -22,13 +22,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.CommonsLinkedHashSet;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsOrderedSet;
-import com.helger.commons.exception.InitializationException;
-import com.helger.commons.locale.country.CountryCache;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.exception.InitializationException;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.CommonsLinkedHashSet;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsOrderedSet;
+import com.helger.text.locale.country.CountryCache;
 
 /**
  * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old

@@ -19,7 +19,7 @@ package com.helger.masterdata.swift;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.lang.EnumHelper;
+import com.helger.base.lang.EnumHelper;
 
 /**
  * Possible elements of an IBAN description.

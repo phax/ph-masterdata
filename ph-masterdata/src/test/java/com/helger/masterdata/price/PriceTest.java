@@ -26,11 +26,9 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.mock.CommonsAssert;
-import com.helger.commons.state.EChange;
+import com.helger.base.mock.CommonsAssert;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
@@ -39,6 +37,7 @@ import com.helger.masterdata.vat.EVATItemType;
 import com.helger.masterdata.vat.IVATItem;
 import com.helger.masterdata.vat.VATItem;
 import com.helger.masterdata.vat.VATManager;
+import com.helger.text.locale.country.CountryCache;
 
 /**
  * Test class for class {@link Price}.
@@ -51,7 +50,7 @@ public final class PriceTest
   public void testAll ()
   {
     final Price p = new Price (CurrencyHelper.DEFAULT_CURRENCY,
-                               MathHelper.toBigDecimal ("9.9"),
+                               BigHelper.toBigDecimal ("9.9"),
                                VATManager.VATTYPE_NONE);
     assertEquals (CurrencyHelper.DEFAULT_CURRENCY, p.getCurrency ());
     CommonsAssert.assertEquals (9.9, p.getNetAmount ().getValue ().doubleValue ());
@@ -63,13 +62,13 @@ public final class PriceTest
     assertEquals (EChange.UNCHANGED, p.getNetAmount ().setCurrency (ECurrency.AMD));
     assertEquals (ECurrency.AMD, p.getCurrency ());
     assertEquals (EChange.UNCHANGED,
-                  p.setNetAmount (new CurrencyValue (ECurrency.AMD, MathHelper.toBigDecimal ("9.9"))));
+                  p.setNetAmount (new CurrencyValue (ECurrency.AMD, BigHelper.toBigDecimal ("9.9"))));
     assertEquals (EChange.CHANGED, p.getNetAmount ().setCurrency (CurrencyHelper.DEFAULT_CURRENCY));
     assertEquals (CurrencyHelper.DEFAULT_CURRENCY, p.getCurrency ());
 
     final IVATItem aVATItem = VATItem.createTestItem (Locale.GERMANY,
                                                       EVATItemType.REGULAR,
-                                                      MathHelper.toBigDecimal ("50"));
+                                                      BigHelper.toBigDecimal ("50"));
     assertEquals (EChange.CHANGED, p.setVATItem (aVATItem));
     assertEquals (aVATItem, p.getVATItem ());
     assertEquals (EChange.UNCHANGED, p.setVATItem (aVATItem));
@@ -114,13 +113,13 @@ public final class PriceTest
   {
     final IVATItem aVATItem = VATManager.getDefaultInstance ().getVATItemOfID ("at.v20");
     assertNotNull (aVATItem);
-    Price p = Price.createFromNetAmount (ECurrency.EUR, MathHelper.toBigDecimal ("10"), aVATItem);
-    assertTrue (EqualsHelper.equals (MathHelper.toBigDecimal ("10"), p.getNetAmount ().getValue ()));
-    assertTrue (EqualsHelper.equals (MathHelper.toBigDecimal ("12"), p.getGrossAmount ().getValue ()));
+    Price p = Price.createFromNetAmount (ECurrency.EUR, BigHelper.toBigDecimal ("10"), aVATItem);
+    assertTrue (BigHelper.equalValues (BigHelper.toBigDecimal ("10"), p.getNetAmount ().getValue ()));
+    assertTrue (BigHelper.equalValues (BigHelper.toBigDecimal ("12"), p.getGrossAmount ().getValue ()));
 
-    p = Price.createFromGrossAmount (ECurrency.EUR, MathHelper.toBigDecimal ("12"), aVATItem);
-    assertTrue (EqualsHelper.equals (MathHelper.toBigDecimal ("10"), p.getNetAmount ().getValue ()));
-    assertTrue (EqualsHelper.equals (MathHelper.toBigDecimal ("12"), p.getGrossAmount ().getValue ()));
+    p = Price.createFromGrossAmount (ECurrency.EUR, BigHelper.toBigDecimal ("12"), aVATItem);
+    assertTrue (BigHelper.equalValues (BigHelper.toBigDecimal ("10"), p.getNetAmount ().getValue ()));
+    assertTrue (BigHelper.equalValues (BigHelper.toBigDecimal ("12"), p.getGrossAmount ().getValue ()));
   }
 
   @Test
@@ -130,10 +129,10 @@ public final class PriceTest
     for (final String sNumber : new String [] { "1", "10", "12", "3.66666", "0.000555" })
       for (final IVATItem aVATItem : VATManager.getDefaultInstance ().getAllVATItemsForCountry (aAT).values ())
       {
-        Price p = Price.createFromNetAmount (ECurrency.EUR, MathHelper.toBigDecimal (sNumber), aVATItem);
+        Price p = Price.createFromNetAmount (ECurrency.EUR, BigHelper.toBigDecimal (sNumber), aVATItem);
         assertNotNull (p);
 
-        p = Price.createFromGrossAmount (ECurrency.EUR, MathHelper.toBigDecimal (sNumber), aVATItem);
+        p = Price.createFromGrossAmount (ECurrency.EUR, BigHelper.toBigDecimal (sNumber), aVATItem);
         assertNotNull (p);
       }
   }

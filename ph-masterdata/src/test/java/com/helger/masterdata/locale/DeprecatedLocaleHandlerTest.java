@@ -23,8 +23,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.locale.country.CountryCache;
+import com.helger.text.locale.LocaleCache;
+import com.helger.text.locale.country.CountryCache;
 
 /**
  * Test class for class {@link DeprecatedLocaleHandler}.

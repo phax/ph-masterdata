@@ -25,15 +25,15 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.locale.country.IHasCountry;
-import com.helger.commons.math.MathHelper;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.numeric.BigHelper;
+import com.helger.base.state.EChange;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.text.locale.country.IHasCountry;
 
 /**
  * Represents all the different VAT items for a single country.
@@ -101,8 +101,7 @@ public class VATCountryData implements IHasCountry, Serializable
   }
 
   /**
-   * @return A non-<code>null</code> but may be empty map from VATItem ID to VAT
-   *         item.
+   * @return A non-<code>null</code> but may be empty map from VATItem ID to VAT item.
    */
   @Nonnull
   @ReturnsMutableCopy
@@ -128,7 +127,7 @@ public class VATCountryData implements IHasCountry, Serializable
           return aItem;
 
       // Special handling for 0%
-      if (isZeroVATAllowed () && MathHelper.isEQ0 (aPercentage))
+      if (isZeroVATAllowed () && BigHelper.isEQ0 (aPercentage))
         return VATManager.VATTYPE_NONE;
     }
     return null;

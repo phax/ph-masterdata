@@ -27,51 +27,45 @@ import javax.annotation.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.datetime.PDTFromString;
-import com.helger.commons.exception.InitializationException;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.CGlobal;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.exception.InitializationException;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.datetime.format.PDTFromString;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.masterdata.iso.ISO7064;
+import com.helger.text.locale.country.CountryCache;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 
 /**
  * Contains the IBAN manager.<br>
- * All banks in Europe (except for those in the CIS) provide an IBAN identifier
- * for their accounts as well as nationally recognized identifiers. In addition,
- * Israel, Tunisia, Mauritius, Turkey, and Saudi Arabia also provide IBAN format
- * account identifiers.<br>
- * Banks in the British dependencies (except Gibraltar and the Crown
- * Dependencies) do not use the IBAN format, but this may be due to internal
- * banking regulatory issues. Banks in the Dutch West Indies don't use the IBAN
- * format either. Some banks outside Europe may not recognize IBAN, though as
- * time passes this is expected to diminish. Non-European banks typically accept
- * IBANs as bank account numbers for accounts in Europe, although they might not
- * treat IBANs differently to the way they treat other foreign bank account
- * numbers. In particular, they might choose not to check that the IBAN is valid
- * prior to sending the payment.<br>
- * In the absence of an IBAN it remains necessary to use the current ISO 9362
- * Bank Identifier Code system (BIC or SWIFT code) in conjunction with the BBAN.
- * <br>
- * Banks in the United States do not provide IBAN format account numbers. Any
- * adoption of the IBAN standard by U.S. banks would likely be initiated by ANSI
- * ASC X9, the U.S. financial services standards development organization but to
- * date it has not done so. Hence payments to U.S. bank accounts from outside
- * the U.S. are prone to errors of routing.<br>
- * Banks in Australia and New Zealand have not adopted IBAN, and tend to use
- * Bank State Branch codes for domestic transfers and SWIFT for international.
- * <br>
+ * All banks in Europe (except for those in the CIS) provide an IBAN identifier for their accounts
+ * as well as nationally recognized identifiers. In addition, Israel, Tunisia, Mauritius, Turkey,
+ * and Saudi Arabia also provide IBAN format account identifiers.<br>
+ * Banks in the British dependencies (except Gibraltar and the Crown Dependencies) do not use the
+ * IBAN format, but this may be due to internal banking regulatory issues. Banks in the Dutch West
+ * Indies don't use the IBAN format either. Some banks outside Europe may not recognize IBAN, though
+ * as time passes this is expected to diminish. Non-European banks typically accept IBANs as bank
+ * account numbers for accounts in Europe, although they might not treat IBANs differently to the
+ * way they treat other foreign bank account numbers. In particular, they might choose not to check
+ * that the IBAN is valid prior to sending the payment.<br>
+ * In the absence of an IBAN it remains necessary to use the current ISO 9362 Bank Identifier Code
+ * system (BIC or SWIFT code) in conjunction with the BBAN. <br>
+ * Banks in the United States do not provide IBAN format account numbers. Any adoption of the IBAN
+ * standard by U.S. banks would likely be initiated by ANSI ASC X9, the U.S. financial services
+ * standards development organization but to date it has not done so. Hence payments to U.S. bank
+ * accounts from outside the U.S. are prone to errors of routing.<br>
+ * Banks in Australia and New Zealand have not adopted IBAN, and tend to use Bank State Branch codes
+ * for domestic transfers and SWIFT for international. <br>
  * Source: http://en.wikipedia.org/wiki/International_Bank_Account_Number
  *
  * @author Philip Helger
@@ -157,8 +151,8 @@ public final class IBANManager
    * Get the country data for the given country code.
    *
    * @param sCountryCode
-   *        The country code to use. May not be <code>null</code> and needs to
-   *        have exactly 2 characters to work.
+   *        The country code to use. May not be <code>null</code> and needs to have exactly 2
+   *        characters to work.
    * @return <code>null</code> if the passed country has no IBAN support.
    */
   @Nullable
@@ -170,8 +164,8 @@ public final class IBANManager
   }
 
   /**
-   * @return An unmodifiable, non-<code>null</code> set of all countries for
-   *         which IBAN information is present.
+   * @return An unmodifiable, non-<code>null</code> set of all countries for which IBAN information
+   *         is present.
    */
   @Nonnull
   @ReturnsMutableCopy
@@ -186,8 +180,8 @@ public final class IBANManager
   }
 
   /**
-   * Make an IBAN that can be parsed. It is converted to upper case and all
-   * non-alphanumeric characters are removed.
+   * Make an IBAN that can be parsed. It is converted to upper case and all non-alphanumeric
+   * characters are removed.
    *
    * @param sIBAN
    *        The IBAN to be unified.
@@ -234,8 +228,7 @@ public final class IBANManager
    * @param sIBAN
    *        The IBAN number string to check.
    * @param bReturnCodeIfNoCountryData
-   *        The return value if no country data is present for the specified
-   *        IBAN.
+   *        The return value if no country data is present for the specified IBAN.
    * @return <code>true</code> if the IBAN is valid and supported.
    */
   public static boolean isValidIBAN (@Nullable final String sIBAN, final boolean bReturnCodeIfNoCountryData)
@@ -314,7 +307,7 @@ public final class IBANManager
     ValueEnforcer.isGT0 (nGroupSize, "GroupSize");
     ValueEnforcer.notEmpty (sDelimiter, "Delimiter");
 
-    if (StringHelper.hasNoText (sIBAN))
+    if (StringHelper.isEmpty (sIBAN))
       return sIBAN;
 
     final StringBuilder aSB = new StringBuilder ();

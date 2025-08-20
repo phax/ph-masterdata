@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.datetime;
 
-import javax.annotation.Nullable;
-
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 import com.helger.datetime.domain.IHasTrashDateTime;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface for an object that has a date time and a user ID.
@@ -29,19 +29,18 @@ import com.helger.datetime.domain.IHasTrashDateTime;
 public interface IHasTrashInfo extends IHasTrashDateTime
 {
   /**
-   * @return The user ID who trashed the object or <code>null</code> if this
-   *         object has not yet been trashed.
+   * @return The user ID who trashed the object or <code>null</code> if this object has not yet been
+   *         trashed.
    */
   @Nullable
   String getTrashUserID ();
 
   /**
-   * @return <code>true</code> if a trash user is present, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if a trash user is present, <code>false</code> if not.
    * @since 6.1.1
    */
   default boolean hasTrashUserID ()
   {
-    return StringHelper.hasText (getTrashUserID ());
+    return StringHelper.isNotEmpty (getTrashUserID ());
   }
 }

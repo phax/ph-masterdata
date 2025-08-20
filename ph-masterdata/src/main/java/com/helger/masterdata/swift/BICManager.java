@@ -21,9 +21,9 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.RegEx;
 
-import com.helger.commons.annotation.PresentForCodeCoverage;
-import com.helger.commons.regex.RegExCache;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.PresentForCodeCoverage;
+import com.helger.base.string.StringHelper;
+import com.helger.cache.regex.RegExCache;
 
 /**
  * This class manages the SWIFT Bank Identification Code (BIC).
@@ -70,12 +70,11 @@ public final class BICManager
    *
    * @param sBIC
    *        The BIC to check. May be <code>null</code>.
-   * @return <code>true</code> if the passed BIC is valid, <code>false</code>
-   *         otherwise.
+   * @return <code>true</code> if the passed BIC is valid, <code>false</code> otherwise.
    */
   public static boolean isValidBIC (@Nullable final String sBIC)
   {
-    if (StringHelper.hasNoText (sBIC))
+    if (StringHelper.isEmpty (sBIC))
       return false;
     return BIC_PATTERN_PATTERN.matcher (sBIC).matches ();
   }
@@ -90,8 +89,7 @@ public final class BICManager
    *
    * @param sBIC
    *        The BIC to be tested.
-   * @return <code>true</code> if the passed BIC is a test BIC,
-   *         <code>false</code> otherwise.
+   * @return <code>true</code> if the passed BIC is a test BIC, <code>false</code> otherwise.
    */
   public static boolean isTestBIC (@Nullable final String sBIC)
   {

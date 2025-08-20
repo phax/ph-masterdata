@@ -31,22 +31,22 @@ import javax.annotation.concurrent.NotThreadSafe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.datetime.PDTFromString;
-import com.helger.commons.io.IHasInputStream;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.locale.LocaleHelper;
-import com.helger.commons.locale.country.CountryCache;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.io.iface.IHasInputStream;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.collection.CollectionFind;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.datetime.format.PDTFromString;
+import com.helger.io.resource.ClassPathResource;
+import com.helger.text.locale.LocaleHelper;
+import com.helger.text.locale.country.CountryCache;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
@@ -66,8 +66,7 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * Special VAT item with 0% - this is the only VAT item that has NO country
-   * locale
+   * Special VAT item with 0% - this is the only VAT item that has NO country locale
    */
   public static final IVATItem VATTYPE_NONE = new VATItem ("_none_",
                                                            (Locale) null,
@@ -117,7 +116,7 @@ public class VATManager implements IVATItemProvider
     if (eSources != null)
       eSources.forAllChildElements (IMicroElement.filterNamespaceURIAndName (null, "source"), eSource -> {
         final String sSource = eSource.getTextContent ();
-        if (StringHelper.hasText (sSource))
+        if (StringHelper.isNotEmpty (sSource))
           m_aSources.add (sSource);
       });
     for (final IMicroElement eVATTypes : aDoc.getDocumentElement ().getAllChildElements ("vattypes"))
@@ -148,7 +147,7 @@ public class VATManager implements IVATItemProvider
       {
         // item ID
         final String sID = eVATItem.getAttributeValue ("id");
-        if (StringHelper.hasNoText (sID))
+        if (StringHelper.isEmpty (sID))
         {
           LOGGER.warn ("VAT item in country " + aCountry + " has no ID. Skipping VAT item.");
           continue;
@@ -201,8 +200,8 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * @return A list with all URLs where the data was gathered from. Purely
-   *         descriptive. Has no impact on the logic. Never <code>null</code>.
+   * @return A list with all URLs where the data was gathered from. Purely descriptive. Has no
+   *         impact on the logic. Never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
@@ -212,8 +211,7 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * @return All countries for which VAT type definitions are present. Never
-   *         <code>null</code>.
+   * @return All countries for which VAT type definitions are present. Never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
@@ -223,8 +221,7 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * @return The complete map from locale to VAT country data. Never
-   *         <code>null</code>.
+   * @return The complete map from locale to VAT country data. Never <code>null</code>.
    * @since 5.0.5
    */
   @Nonnull
@@ -240,8 +237,7 @@ public class VATManager implements IVATItemProvider
    * @param aCountry
    *        The country to be checked.
    * @param bUndefinedValue
-   *        The value to be returned, if no VAT data is available for the passed
-   *        country
+   *        The value to be returned, if no VAT data is available for the passed country
    * @return <code>true</code> or <code>false</code>
    */
   public boolean isZeroVATAllowed (@Nonnull final Locale aCountry, final boolean bUndefinedValue)
@@ -282,15 +278,13 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * Get all VAT types matching the given locale (without any fallback!). It
-   * contains both the specific definitions and the locale independent
-   * definitions.
+   * Get all VAT types matching the given locale (without any fallback!). It contains both the
+   * specific definitions and the locale independent definitions.
    *
    * @param aCountry
    *        The locale to use. May not be <code>null</code>.
-   * @return A non-<code>null</code> map from ID to the matching VAT item. Also
-   *         the deprecated VAT items are returned! VATTYPE_NONE.getID () is
-   *         used if zero VAT is allowed
+   * @return A non-<code>null</code> map from ID to the matching VAT item. Also the deprecated VAT
+   *         items are returned! VATTYPE_NONE.getID () is used if zero VAT is allowed
    */
   @ReturnsMutableCopy
   @Nonnull
@@ -327,15 +321,13 @@ public class VATManager implements IVATItemProvider
   }
 
   /**
-   * Find a matching VAT item with the passed properties, independent of the
-   * country.
+   * Find a matching VAT item with the passed properties, independent of the country.
    *
    * @param eType
-   *        The VAT type to use. May be <code>null</code> resulting in a
-   *        <code>null</code> result.
+   *        The VAT type to use. May be <code>null</code> resulting in a <code>null</code> result.
    * @param aPercentage
-   *        The percentage to find. May be <code>null</code> resulting in a
-   *        <code>null</code> result.
+   *        The percentage to find. May be <code>null</code> resulting in a <code>null</code>
+   *        result.
    * @return <code>null</code> if no matching item could be found,
    */
   @Nullable
@@ -356,7 +348,7 @@ public class VATManager implements IVATItemProvider
   @Nullable
   public IVATItem findFirst (@Nonnull final Predicate <? super IVATItem> aFilter)
   {
-    return CollectionHelper.findFirst (m_aAllVATItems.values (), aFilter);
+    return CollectionFind.findFirst (m_aAllVATItems.values (), aFilter);
   }
 
   /**
@@ -364,8 +356,8 @@ public class VATManager implements IVATItemProvider
    *
    * @param aFilter
    *        The filter to be used. May not be <code>null</code>.
-   * @return A non-<code>null</code> but maybe empty list with all matching
-   *         {@link IVATItem} objects.
+   * @return A non-<code>null</code> but maybe empty list with all matching {@link IVATItem}
+   *         objects.
    * @since 5.0.5
    */
   @Nonnull
@@ -373,7 +365,7 @@ public class VATManager implements IVATItemProvider
   public ICommonsList <IVATItem> findAll (@Nonnull final Predicate <? super IVATItem> aFilter)
   {
     final ICommonsList <IVATItem> ret = new CommonsArrayList <> ();
-    CollectionHelper.findAll (m_aAllVATItems.values (), aFilter, ret::add);
+    CollectionFind.findAll (m_aAllVATItems.values (), aFilter, ret::add);
     return ret;
   }
 

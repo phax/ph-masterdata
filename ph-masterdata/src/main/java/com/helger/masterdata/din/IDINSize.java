@@ -18,8 +18,8 @@ package com.helger.masterdata.din;
 
 import javax.annotation.Nonnegative;
 
-import com.helger.commons.CGlobal;
-import com.helger.commons.id.IHasID;
+import com.helger.base.CGlobal;
+import com.helger.base.id.IHasID;
 
 public interface IDINSize extends IHasID <String>
 {

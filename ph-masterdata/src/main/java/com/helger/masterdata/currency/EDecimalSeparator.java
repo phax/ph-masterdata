@@ -18,7 +18,7 @@ package com.helger.masterdata.currency;
 
 import javax.annotation.Nullable;
 
-import com.helger.commons.lang.EnumHelper;
+import com.helger.base.lang.EnumHelper;
 
 /**
  * Represents the different possible decimal separators.

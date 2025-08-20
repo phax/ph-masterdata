@@ -18,8 +18,8 @@ package com.helger.masterdata.company;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.ICommonsCollection;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.collection.commons.ICommonsCollection;
 
 /**
  * Generic company manager interface.

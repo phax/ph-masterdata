@@ -20,8 +20,8 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.cache.regex.RegExHelper;
 
 /**
  * Telephone handling utils.
@@ -43,7 +43,7 @@ public final class TelephoneHelper
 
     final StringBuilder ret = new StringBuilder ();
     // Country and area code
-    if (StringHelper.hasText (aTelNo.getCountryCode ()) && StringHelper.hasText (aTelNo.getAreaCode ()))
+    if (StringHelper.isNotEmpty (aTelNo.getCountryCode ()) && StringHelper.isNotEmpty (aTelNo.getAreaCode ()))
     {
       // prepend "+" if necessary
       if (!StringHelper.startsWith (aTelNo.getCountryCode (), '+'))
@@ -68,7 +68,7 @@ public final class TelephoneHelper
       ret.append (aTelNo.getLine ());
 
     // direct dial
-    if (StringHelper.hasText (aTelNo.getDirectDial ()))
+    if (StringHelper.isNotEmpty (aTelNo.getDirectDial ()))
       ret.append ('-').append (aTelNo.getDirectDial ());
     return ret.toString ();
   }
@@ -78,10 +78,12 @@ public final class TelephoneHelper
   public static String getCleanedLine (@Nullable final String sLine)
   {
     String ret = StringHelper.trim (sLine);
-    if (StringHelper.hasText (ret))
+    if (StringHelper.isNotEmpty (ret))
     {
       // Remove the Skype highlighting :)
-      ret = RegExHelper.stringReplacePattern ("begin_of_the_skype_highlighting.+end_of_the_skype_highlighting", ret, "");
+      ret = RegExHelper.stringReplacePattern ("begin_of_the_skype_highlighting.+end_of_the_skype_highlighting",
+                                              ret,
+                                              "");
     }
     return ret;
   }

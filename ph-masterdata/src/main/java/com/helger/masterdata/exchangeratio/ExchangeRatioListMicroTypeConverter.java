@@ -40,7 +40,9 @@ public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConv
     final IMicroElement aElement = new MicroElement (sNamespaceURI, sTagName);
     aElement.setAttribute (ATTR_CURRENCY, aValue.getCurrencyID ());
     for (final ExchangeRatio aExchangeRatio : aValue.getAllExchangeRatios ())
-      aElement.appendChild (MicroTypeConverter.convertToMicroElement (aExchangeRatio, sNamespaceURI, ELEMENT_EXCHANGE_RATIO));
+      aElement.addChild (MicroTypeConverter.convertToMicroElement (aExchangeRatio,
+                                                                   sNamespaceURI,
+                                                                   ELEMENT_EXCHANGE_RATIO));
     return aElement;
   }
 

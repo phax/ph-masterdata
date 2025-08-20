@@ -20,12 +20,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.name.IHasDisplayName;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.id.IHasID;
+import com.helger.base.name.IHasDisplayName;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
 
 /**
  * Represents a single LAU item and its relationship to the NUTS codes.
@@ -61,12 +61,12 @@ public class LauItem implements IHasID <String>, IHasDisplayName
     m_sLau = sLau;
     m_sNuts = sNuts;
     m_sDisplayName = sDisplayName;
-    m_sLatinDisplayName = StringHelper.hasText (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
+    m_sLatinDisplayName = StringHelper.isNotEmpty (sLatinDisplayName) ? sLatinDisplayName : sDisplayName;
   }
 
   /**
-   * @return The NUTS + LAU code combined. This one is ensured to be unique.
-   *         Neither <code>null</code> nor empty.
+   * @return The NUTS + LAU code combined. This one is ensured to be unique. Neither
+   *         <code>null</code> nor empty.
    */
   @Nonnull
   @Nonempty
@@ -86,8 +86,8 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The Country code to which the LAU belongs to. This is calculated
-   *         from the NUTS code. Never <code>null</code>.
+   * @return The Country code to which the LAU belongs to. This is calculated from the NUTS code.
+   *         Never <code>null</code>.
    */
   @Nonnull
   @Nonempty
@@ -118,8 +118,8 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   }
 
   /**
-   * @return The Latin display name of the LAU item. If no specific latin name
-   *         is provided, it's identical to {@link #getDisplayName()}.
+   * @return The Latin display name of the LAU item. If no specific latin name is provided, it's
+   *         identical to {@link #getDisplayName()}.
    */
   @Nonnull
   @Nonempty

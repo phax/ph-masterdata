@@ -25,14 +25,14 @@ import javax.annotation.concurrent.NotThreadSafe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.email.EmailAddressHelper;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.lang.ICloneable;
-import com.helger.commons.state.EChange;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.base.clone.ICloneable;
+import com.helger.base.email.EmailAddressHelper;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.state.EChange;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
 
 /**
  * Default writable implementation of {@link IExtendedEmailAddress}.
@@ -103,15 +103,13 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
   }
 
   /**
-   * Set the address part of the email address. Performs a validity check of the
-   * email address.
+   * Set the address part of the email address. Performs a validity check of the email address.
    *
    * @param sAddress
    *        The address part to be set. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if the address was valid and different from
-   *         the existing one. Returns {@link EChange#UNCHANGED} if the email
-   *         address was the same as before, or the email address itself was
-   *         invalid.
+   * @return {@link EChange#CHANGED} if the address was valid and different from the existing one.
+   *         Returns {@link EChange#UNCHANGED} if the email address was the same as before, or the
+   *         email address itself was invalid.
    */
   @Nonnull
   public final EChange setAddress (@Nonnull final String sAddress)
@@ -155,7 +153,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     if (m_sAddress == null)
       return "";
 
-    if (StringHelper.hasText (m_sPersonal))
+    if (StringHelper.isNotEmpty (m_sPersonal))
       return m_sPersonal + " <" + m_sAddress + ">";
     return m_sAddress;
   }
@@ -197,7 +195,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
   @Nullable
   public static ExtendedEmailAddress createOnDemand (@Nullable final String sAddress)
   {
-    if (StringHelper.hasNoText (sAddress))
+    if (StringHelper.isEmpty (sAddress))
       return null;
 
     final ExtendedEmailAddress ret = new ExtendedEmailAddress ();

@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.tenant;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.annotation.Nonempty;
+import com.helger.annotation.Nonempty;
 import com.helger.tenancy.IBusinessObject;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Base interface for an object that is uniquely assigned to a tenant.

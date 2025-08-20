@@ -24,11 +24,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.ArrayHelper;
-import com.helger.commons.datetime.PDTFromString;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.base.array.ArrayHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.datetime.format.PDTFromString;
+import com.helger.io.file.FileHelper;
 import com.helger.masterdata.austria.EAustriaState;
 import com.helger.poi.excel.EExcelVersion;
 import com.helger.poi.excel.ExcelReadHelper;
@@ -48,7 +48,7 @@ public class MainCreateAT_PLZ_XML
     final File fSrc = new File ("src/test/resources/external/at_plz/PLZ-Verzeichnis-01062020.xls").getAbsoluteFile ();
     final Workbook aWB = EExcelVersion.XLS.readWorkbook (FileHelper.getInputStream (fSrc));
     final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
+    final IMicroElement eRoot = aDoc.addElement ("root");
     eRoot.setAttribute ("version", fSrc.getName ());
 
     // Check whether all required sheets are present
@@ -82,10 +82,10 @@ public class MainCreateAT_PLZ_XML
         throw new IllegalStateException ("Failed to resolve state: " + sState);
 
       final LocalDate aValidFrom = PDTFromString.getLocalDateFromString (sValidFrom, "dd.MM.uuuu");
-      if (StringHelper.hasText (sValidFrom) && aValidFrom == null)
+      if (StringHelper.isNotEmpty (sValidFrom) && aValidFrom == null)
         throw new IllegalStateException ("Invalid valid from: " + sValidFrom);
       final LocalDate aValidTo = PDTFromString.getLocalDateFromString (sValidTo, "dd.MM.uuuu");
-      if (StringHelper.hasText (sValidTo) && aValidTo == null)
+      if (StringHelper.isNotEmpty (sValidTo) && aValidTo == null)
         throw new IllegalStateException ("Invalid valid to: " + sValidTo);
 
       boolean bIntern;
@@ -115,7 +115,7 @@ public class MainCreateAT_PLZ_XML
         else
           throw new IllegalStateException ("Illegal Postfach: " + sPostfach);
 
-      final IMicroElement ePLZ = eRoot.appendElement ("plz");
+      final IMicroElement ePLZ = eRoot.addElement ("plz");
       ePLZ.setAttribute ("code", nPLZ);
       ePLZ.setAttribute ("city", sCity);
       ePLZ.setAttribute ("state", eState.getID ());

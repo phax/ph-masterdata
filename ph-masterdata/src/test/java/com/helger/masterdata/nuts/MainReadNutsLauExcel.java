@@ -28,10 +28,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.iterate.IterableIterator;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.regex.RegExHelper;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
+import com.helger.cache.regex.RegExHelper;
+import com.helger.collection.commons.CommonsIterableIterator;
+import com.helger.io.file.FileHelper;
 import com.helger.poi.excel.EExcelVersion;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -40,9 +40,8 @@ import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
- * Take the LAU Excel from
- * https://ec.europa.eu/eurostat/web/nuts/local-administrative-units and convert
- * to XML.
+ * Take the LAU Excel from https://ec.europa.eu/eurostat/web/nuts/local-administrative-units and
+ * convert to XML.
  *
  * @author Philip Helger
  */
@@ -62,9 +61,9 @@ public final class MainReadNutsLauExcel
     final Workbook aWB = EExcelVersion.XLSX.readWorkbook (FileHelper.getBufferedInputStream (new File ("src/test/resources/nuts/EU-27-LAU-2021-NUTS-2021.xlsx")));
 
     final IMicroDocument aDoc = new MicroDocument ();
-    final IMicroElement eRoot = aDoc.appendElement ("root");
+    final IMicroElement eRoot = aDoc.addElement ("root");
 
-    for (final Sheet aSheet : new IterableIterator <> (aWB.sheetIterator ()))
+    for (final Sheet aSheet : new CommonsIterableIterator <> (aWB.sheetIterator ()))
     {
       // Only consider sheets, that represent a country
       if (RegExHelper.stringMatchesPattern ("^[A-Z]{2}$", aSheet.getSheetName ()))
@@ -88,13 +87,13 @@ public final class MainReadNutsLauExcel
           final String sName = _getString (aRow.getCell (2));
           final String sLatinName = _getString (aRow.getCell (3));
 
-          if (StringHelper.hasText (sLau))
+          if (StringHelper.isNotEmpty (sLau))
           {
-            final IMicroElement eItem = eRoot.appendElement ("item")
+            final IMicroElement eItem = eRoot.addElement ("item")
                                              .setAttribute ("nuts", sNuts)
                                              .setAttribute ("lau", sLau)
                                              .setAttribute ("name", sName);
-            if (StringHelper.hasText (sLatinName) && !sLatinName.equals (sName))
+            if (StringHelper.isNotEmpty (sLatinName) && !sLatinName.equals (sName))
               eItem.setAttribute ("latinName", sLatinName);
           }
         }

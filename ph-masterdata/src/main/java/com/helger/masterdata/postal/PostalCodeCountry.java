@@ -23,13 +23,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 
 /**
  * Contains postal code information for a single country.
@@ -116,7 +116,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
 
   public boolean isValidPostalCode (@Nullable final String sPostalCode)
   {
-    if (StringHelper.hasText (sPostalCode))
+    if (StringHelper.isNotEmpty (sPostalCode))
       for (final PostalCodeFormat aFormat : m_aFormats)
         if (aFormat.isValidPostalCode (sPostalCode))
           return true;

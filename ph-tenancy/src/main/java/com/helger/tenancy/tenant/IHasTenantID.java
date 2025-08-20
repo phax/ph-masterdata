@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.tenant;
 
-import javax.annotation.Nullable;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.string.StringHelper;
 
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.string.StringHelper;
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface for objects that have a tenant ID.
@@ -35,13 +35,12 @@ public interface IHasTenantID
   String getTenantID ();
 
   /**
-   * @return <code>true</code> if a tenant ID is present, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if a tenant ID is present, <code>false</code> if not.
    * @since 6.1.1
    */
   default boolean hasTenantID ()
   {
-    return StringHelper.hasText (getTenantID ());
+    return StringHelper.isNotEmpty (getTenantID ());
   }
 
   /**
@@ -49,8 +48,7 @@ public interface IHasTenantID
    *
    * @param sTenantID
    *        The tenant ID to check. May be <code>null</code>.
-   * @return <code>true</code> if this object and the passed object have the
-   *         same tenant ID
+   * @return <code>true</code> if this object and the passed object have the same tenant ID
    */
   default boolean hasSameTenantID (@Nullable final String sTenantID)
   {

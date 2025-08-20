@@ -19,7 +19,7 @@ package com.helger.masterdata;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.log.InMemoryLogger;
+import com.helger.diagnostics.log.InMemoryLogger;
 
 /**
  * A singleton instance that keeps master data relevant messages, but may bloat

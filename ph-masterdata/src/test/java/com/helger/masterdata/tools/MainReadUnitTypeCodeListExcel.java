@@ -27,13 +27,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.io.file.FileHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.helper.CollectionSort;
+import com.helger.io.file.FileHelper;
 import com.helger.masterdata.EUNCodelistStatus;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.xml.microdom.IMicroDocument;
@@ -42,8 +42,8 @@ import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
 /**
- * Utility to read the Excel file from CEFACT Recommendation No. 20 and convert
- * it to XML for internal use.
+ * Utility to read the Excel file from CEFACT Recommendation No. 20 and convert it to XML for
+ * internal use.
  *
  * @author Philip Helger
  */
@@ -68,12 +68,12 @@ public final class MainReadUnitTypeCodeListExcel
       it.next ();
 
       final IMicroDocument aDoc = new MicroDocument ();
-      final IMicroElement eRoot = aDoc.appendElement ("root");
-      final IMicroElement eHeader = eRoot.appendElement ("header");
-      eHeader.appendElement ("source").appendText (sSource);
-      eHeader.appendElement ("revision").appendText (sRevision);
+      final IMicroElement eRoot = aDoc.addElement ("root");
+      final IMicroElement eHeader = eRoot.addElement ("header");
+      eHeader.addElement ("source").addText (sSource);
+      eHeader.addElement ("revision").addText (sRevision);
 
-      final IMicroElement eBody = eRoot.appendElement ("body");
+      final IMicroElement eBody = eRoot.addElement ("body");
       final ICommonsMap <String, String> aSectors = new CommonsHashMap <> ();
       final ICommonsMap <String, Integer> aQuantities = new CommonsHashMap <> ();
       while (it.hasNext ())
@@ -95,7 +95,7 @@ public final class MainReadUnitTypeCodeListExcel
         final String sDescription = ExcelReadHelper.getCellValueString (aRow.getCell (10));
 
         // Avoid reading empty lines
-        if (StringHelper.hasText (sCommonCode))
+        if (StringHelper.isNotEmpty (sCommonCode))
         {
           aSectors.put (sGroupNumber, sSector);
 
@@ -106,39 +106,39 @@ public final class MainReadUnitTypeCodeListExcel
             aQuantities.put (sQuantity, aQuantityID);
           }
 
-          final IMicroElement eItem = eBody.appendElement ("item");
+          final IMicroElement eItem = eBody.addElement ("item");
           eItem.setAttribute ("groupnum", sGroupNumber);
           eItem.setAttribute ("groupid", sGroupID);
           eItem.setAttribute ("quantityid", aQuantityID.intValue ());
           eItem.setAttribute ("level", nLevel);
-          if (StringHelper.hasText (sLevelSuffix))
+          if (StringHelper.isNotEmpty (sLevelSuffix))
             eItem.setAttribute ("levelsuffix", sLevelSuffix);
           eItem.setAttribute ("status", EUNCodelistStatus.getAsString (aStatus));
           eItem.setAttribute ("commoncode", sCommonCode);
-          eItem.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (sName);
+          eItem.addElement ("name").addElement ("text").setAttribute ("locale", "en").addText (sName);
           eItem.setAttribute ("conversion", sConversionFactor);
           eItem.setAttribute ("symbol", sSymbol);
-          if (StringHelper.hasText (sDescription))
-            eItem.appendElement ("description").appendElement ("text").setAttribute ("locale", "en").appendText (sDescription);
+          if (StringHelper.isNotEmpty (sDescription))
+            eItem.addElement ("description").addElement ("text").setAttribute ("locale", "en").addText (sDescription);
         }
       }
 
       // sectors
-      final IMicroElement eSectors = eRoot.appendElement ("sectors");
-      for (final Map.Entry <String, String> aEntry : CollectionHelper.getSortedByKey (aSectors).entrySet ())
+      final IMicroElement eSectors = eRoot.addElement ("sectors");
+      for (final Map.Entry <String, String> aEntry : CollectionSort.getSortedByKey (aSectors).entrySet ())
       {
-        final IMicroElement eSector = eSectors.appendElement ("sector");
+        final IMicroElement eSector = eSectors.addElement ("sector");
         eSector.setAttribute ("groupnum", aEntry.getKey ());
-        eSector.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (aEntry.getValue ());
+        eSector.addElement ("name").addElement ("text").setAttribute ("locale", "en").addText (aEntry.getValue ());
       }
 
       // quantities
-      final IMicroElement eQuantities = eRoot.appendElement ("quantities");
-      for (final Map.Entry <String, Integer> aEntry : CollectionHelper.getSortedByValue (aQuantities).entrySet ())
+      final IMicroElement eQuantities = eRoot.addElement ("quantities");
+      for (final Map.Entry <String, Integer> aEntry : CollectionSort.getSortedByValue (aQuantities).entrySet ())
       {
-        final IMicroElement eSector = eQuantities.appendElement ("quantity");
+        final IMicroElement eSector = eQuantities.addElement ("quantity");
         eSector.setAttribute ("id", aEntry.getValue ().intValue ());
-        eSector.appendElement ("name").appendElement ("text").setAttribute ("locale", "en").appendText (aEntry.getKey ());
+        eSector.addElement ("name").addElement ("text").setAttribute ("locale", "en").addText (aEntry.getKey ());
       }
 
       MicroWriter.writeToFile (aDoc, new File ("src/main/resources/codelists/" + sBaseName + ".xml"));

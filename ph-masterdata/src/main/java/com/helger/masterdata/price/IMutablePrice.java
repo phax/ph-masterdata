@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
-import com.helger.commons.state.EChange;
+import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;

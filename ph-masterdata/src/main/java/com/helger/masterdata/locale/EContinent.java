@@ -22,14 +22,14 @@ import java.util.function.Predicate;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsSortedSet;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.lang.EnumHelper;
-import com.helger.commons.text.display.IHasDisplayText;
+import com.helger.annotation.Nonempty;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.id.IHasID;
+import com.helger.base.lang.EnumHelper;
+import com.helger.collection.CollectionFind;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsSortedSet;
+import com.helger.text.display.IHasDisplayText;
 
 /**
  * Enumeration with all continents
@@ -79,7 +79,7 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
   public static Predicate <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
   {
     ValueEnforcer.notNull (eContinent, "Continent");
-    return aLocale -> CollectionHelper.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
+    return aLocale -> CollectionFind.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
   }
 
   @Nonnull
