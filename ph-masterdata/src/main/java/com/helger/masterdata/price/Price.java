@@ -20,10 +20,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckReturnValue;
+import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
@@ -36,6 +34,8 @@ import com.helger.masterdata.currency.PerCurrencySettings;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Default implementation of the {@link IMutablePrice} interface.

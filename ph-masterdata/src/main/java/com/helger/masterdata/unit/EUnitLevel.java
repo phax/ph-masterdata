@@ -16,11 +16,11 @@
  */
 package com.helger.masterdata.unit;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.base.id.IHasIntID;
 import com.helger.base.lang.EnumHelper;
+
+import jakarta.annotation.Nullable;
 
 public enum EUnitLevel implements IHasIntID
 {

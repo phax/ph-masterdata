@@ -18,15 +18,15 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * MicroType converter for {@link CurrencyValue}.

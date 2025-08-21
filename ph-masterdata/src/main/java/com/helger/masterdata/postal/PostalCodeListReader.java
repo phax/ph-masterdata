@@ -19,8 +19,6 @@ package com.helger.masterdata.postal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import javax.annotation.Nonnull;
-
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
@@ -32,6 +30,8 @@ import com.helger.masterdata.MasterDataLogger;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Read postal code definitions from an XML resource.

@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata.company;
 
-import javax.annotation.Nonnull;
-
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.collection.commons.ICommonsCollection;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Generic company manager interface.

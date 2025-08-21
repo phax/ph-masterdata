@@ -18,14 +18,14 @@ package com.helger.masterdata.leitwegid;
 
 import java.math.BigInteger;
 
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
 import com.helger.annotation.Nonempty;
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.CGlobal;
 import com.helger.base.numeric.BigHelper;
 import com.helger.base.string.StringHelper;
 import com.helger.cache.regex.RegExHelper;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Handler for Leitweg-ID specific stuff.

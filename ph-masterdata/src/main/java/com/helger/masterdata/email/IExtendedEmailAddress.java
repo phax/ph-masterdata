@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.email;
 
-import javax.annotation.Nullable;
-
 import com.helger.base.email.IEmailAddress;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Extended interface for an email address with a type.

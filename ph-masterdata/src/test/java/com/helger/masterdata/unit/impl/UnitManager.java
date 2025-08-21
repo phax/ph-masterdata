@@ -16,8 +16,6 @@
  */
 package com.helger.masterdata.unit.impl;
 
-import javax.annotation.Nonnull;
-
 import com.helger.annotation.misc.WorkInProgress;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.CGlobal;
@@ -34,6 +32,8 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
 import com.helger.xml.microdom.serialize.MicroReader;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * FIXME THIS CLASS IS NOT YET FINISHED!

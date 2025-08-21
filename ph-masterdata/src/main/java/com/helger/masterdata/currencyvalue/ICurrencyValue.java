@@ -18,14 +18,14 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckReturnValue;
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.numeric.BigHelper;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.IHasCurrency;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Read only interface of a currency value.

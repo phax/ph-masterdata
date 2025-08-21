@@ -19,16 +19,16 @@ package com.helger.masterdata.vat;
 import java.math.BigDecimal;
 import java.util.Locale;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.id.IHasID;
 import com.helger.base.numeric.BigHelper;
 import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.text.display.IHasDisplayText;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Defines a single VAT item valid within a country.

@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata.isbn;
 
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.cache.regex.RegExHelper;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Helper class for validating ISBN numbers.

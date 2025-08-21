@@ -18,12 +18,12 @@ package com.helger.masterdata.swift;
 
 import java.util.regex.Pattern;
 
-import javax.annotation.Nullable;
-import javax.annotation.RegEx;
-
+import com.helger.annotation.RegEx;
 import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.base.string.StringHelper;
 import com.helger.cache.regex.RegExCache;
+
+import jakarta.annotation.Nullable;
 
 /**
  * This class manages the SWIFT Bank Identification Code (BIC).

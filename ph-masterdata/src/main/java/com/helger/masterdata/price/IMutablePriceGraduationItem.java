@@ -18,11 +18,11 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.state.EChange;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * The writable version of a single price graduation item.

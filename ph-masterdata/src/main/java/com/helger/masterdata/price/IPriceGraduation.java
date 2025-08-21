@@ -16,10 +16,7 @@
  */
 package com.helger.masterdata.price;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.iface.IHasSize;
@@ -27,6 +24,9 @@ import com.helger.collection.commons.ICommonsList;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.vat.IVATItem;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Read only interface for a single complete price graduation (German:

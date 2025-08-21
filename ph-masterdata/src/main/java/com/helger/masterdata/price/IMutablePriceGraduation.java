@@ -18,15 +18,15 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsImmutableObject;
 import com.helger.base.state.EChange;
 import com.helger.base.state.IClearable;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.masterdata.vat.IVATItem;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The writable interface for a single price graduation.

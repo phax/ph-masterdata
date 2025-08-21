@@ -18,24 +18,23 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckReturnValue;
 import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IHasVATItem;
 
+import jakarta.annotation.Nonnull;
+
 /**
- * Base interface for a price that has a value, a currency and a VAT type. This
- * is a read-only interface. The mutable version is {@link IMutablePrice}.
+ * Base interface for a price that has a value, a currency and a VAT type. This is a read-only
+ * interface. The mutable version is {@link IMutablePrice}.
  *
  * @author Philip Helger
  */
 public interface IPrice extends IHasCurrency, IHasVATItem
 {
   /**
-   * @return The net amount value and currency of this price (value without
-   *         VAT).
+   * @return The net amount value and currency of this price (value without VAT).
    */
   @Nonnull
   ICurrencyValue getNetAmount ();
@@ -68,8 +67,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   }
 
   /**
-   * @return The tax amount value and currency of this price (=net amount *
-   *         percentage / 100).
+   * @return The tax amount value and currency of this price (=net amount * percentage / 100).
    */
   @Nonnull
   default ICurrencyValue getTaxAmount ()
@@ -78,8 +76,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   }
 
   /**
-   * @return The tax amount value of this price (=net amount * percentage /
-   *         100).
+   * @return The tax amount value of this price (=net amount * percentage / 100).
    */
   @Nonnull
   default BigDecimal getTaxValue ()

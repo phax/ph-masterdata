@@ -18,14 +18,14 @@ package com.helger.masterdata.vat;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.annotation.misc.Translatable;
 import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 @Translatable
 public enum EVATItemText implements IHasDisplayTextWithArgs

@@ -18,11 +18,11 @@ package com.helger.masterdata.ean;
 
 import java.io.Serializable;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
+
+import jakarta.annotation.Nonnull;
 
 public abstract class AbstractUPCEAN implements Serializable
 {

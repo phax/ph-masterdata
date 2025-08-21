@@ -20,13 +20,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.Immutable;
-
 import com.helger.annotation.Nonempty;
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.cache.regex.RegExCache;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * This class contains a single postal code format for a certain country.

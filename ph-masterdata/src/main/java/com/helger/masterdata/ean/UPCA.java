@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.ean;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
 import com.helger.base.string.StringHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * UPC-A implementation (Universal product code; =GTIN-12).

@@ -64,14 +64,6 @@
     </dependency>
 
     <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <version>${spotbugs-annotations.version}</version>
-      <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
-    
-    <dependency>
       <groupId>com.helger.commons</groupId>
       <artifactId>ph-commons</artifactId>
       <scope>test</scope>

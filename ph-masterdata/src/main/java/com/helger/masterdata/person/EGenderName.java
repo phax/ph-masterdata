@@ -18,13 +18,13 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-
 import com.helger.annotation.misc.Translatable;
 import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
 
 @Translatable
 public enum EGenderName implements IHasDisplayText

@@ -21,11 +21,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.annotation.Nonempty;
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.CGlobal;
 import com.helger.base.enforce.ValueEnforcer;
@@ -38,6 +35,9 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.datetime.period.LocalDatePeriod;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The IBAN country data defines a list of elements that are contained within the IBAN number of

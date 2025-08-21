@@ -21,12 +21,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Locale;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
 import com.helger.annotation.Nonempty;
+import com.helger.annotation.Nonnegative;
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.CGlobal;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -36,6 +33,9 @@ import com.helger.base.numeric.BigHelper;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.datetime.period.LocalDatePeriod;
 import com.helger.text.locale.country.CountryCache;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Default implementation of {@link IVATItem}.

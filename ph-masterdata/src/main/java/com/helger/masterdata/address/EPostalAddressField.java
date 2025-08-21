@@ -19,8 +19,8 @@ package com.helger.masterdata.address;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Enum to easily access parts of an address

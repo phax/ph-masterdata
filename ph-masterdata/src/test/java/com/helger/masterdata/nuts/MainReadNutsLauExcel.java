@@ -19,8 +19,6 @@ package com.helger.masterdata.nuts;
 import java.io.File;
 import java.util.Iterator;
 
-import javax.annotation.Nullable;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -38,6 +36,8 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Take the LAU Excel from https://ec.europa.eu/eurostat/web/nuts/local-administrative-units and

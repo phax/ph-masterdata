@@ -20,9 +20,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
@@ -31,6 +28,9 @@ import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class Person implements IPerson, Serializable
 {

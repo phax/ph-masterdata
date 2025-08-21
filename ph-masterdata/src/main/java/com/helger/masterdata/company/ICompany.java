@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.company;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.type.ITypedObject;
 import com.helger.collection.commons.ICommonsCollection;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface representing a read-only company.

@@ -18,9 +18,6 @@ package com.helger.masterdata.company;
 
 import java.io.Serializable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -35,6 +32,9 @@ import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The default implementation of the {@link ICompanySite} interface.

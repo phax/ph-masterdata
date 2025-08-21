@@ -18,11 +18,11 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.base.clone.ICloneable;
 import com.helger.base.string.StringHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The name of a person.

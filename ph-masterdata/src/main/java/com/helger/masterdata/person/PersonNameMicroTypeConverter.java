@@ -18,9 +18,6 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.base.string.StringHelper;
 import com.helger.base.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
@@ -28,6 +25,9 @@ import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <PersonName>
 {

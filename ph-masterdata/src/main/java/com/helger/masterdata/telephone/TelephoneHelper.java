@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.telephone;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
+import com.helger.annotation.CheckReturnValue;
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.string.StringHelper;
 import com.helger.cache.regex.RegExHelper;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Telephone handling utils.

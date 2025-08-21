@@ -18,18 +18,18 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckReturnValue;
 import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
 
+import jakarta.annotation.Nonnull;
+
 /**
  * Mutable base interface of a price.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutablePrice extends IPrice

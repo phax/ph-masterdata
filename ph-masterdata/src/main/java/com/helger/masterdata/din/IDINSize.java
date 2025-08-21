@@ -16,8 +16,7 @@
  */
 package com.helger.masterdata.din;
 
-import javax.annotation.Nonnegative;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.base.CGlobal;
 import com.helger.base.id.IHasID;
 

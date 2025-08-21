@@ -32,8 +32,6 @@ import com.helger.base.numeric.BigHelper;
 import com.helger.base.string.StringHelper;
 import com.helger.base.system.EJavaVersion;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * Test class for class {@link CurrencyHelper}.
  *
@@ -53,7 +51,6 @@ public final class CurrencyHelperTest
   }
 
   @Test
-  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED")
   public void testGetDivided ()
   {
     final BigDecimal aBD3 = BigHelper.toBigDecimal (3);
@@ -234,7 +231,6 @@ public final class CurrencyHelperTest
   }
 
   @Test
-  @SuppressFBWarnings ("TQ_NEVER_VALUE_USED_WHERE_ALWAYS_REQUIRED")
   public void testPLN ()
   {
     final ECurrency e = ECurrency.PLN;

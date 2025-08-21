@@ -19,9 +19,6 @@ package com.helger.masterdata.tools;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -37,6 +34,9 @@ import com.helger.masterdata.locale.EContinent;
 import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.text.compare.ComparatorHelper;
 import com.helger.text.locale.country.CountryCache;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public final class MainReadCountry2Continent
 {

@@ -18,25 +18,26 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Represents salutations for persons.
  *
  * @author Philip Helger
  */
-@SuppressFBWarnings ("NP_NONNULL_PARAM_VIOLATION")
 public enum ESalutation implements IHasDisplayText, IHasID <String>
 {
   MISTER ("mr", EGender.MALE, ESalutationName.MISTER, ESalutationGreeting.MISTER, ESalutationGreetingComplete.MISTER),
-  MISSES ("mrs", EGender.FEMALE, ESalutationName.MISSES, ESalutationGreeting.MISSES, ESalutationGreetingComplete.MISSES),
+  MISSES ("mrs",
+          EGender.FEMALE,
+          ESalutationName.MISSES,
+          ESalutationGreeting.MISSES,
+          ESalutationGreetingComplete.MISSES),
   FAMILY ("fam", null, ESalutationName.FAMILY, ESalutationGreeting.FAMILY, ESalutationGreetingComplete.FAMILY),
   COMPANY ("com", null, ESalutationName.COMPANY, ESalutationGreeting.COMPANY, ESalutationGreetingComplete.COMPANY),
   CLUB ("cl", null, ESalutationName.CLUB, ESalutationGreeting.CLUB, ESalutationGreetingComplete.CLUB);
@@ -67,8 +68,8 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   }
 
   /**
-   * @return The gender matching this salutation. May be <code>null</code> for
-   *         non-individual salutations.
+   * @return The gender matching this salutation. May be <code>null</code> for non-individual
+   *         salutations.
    */
   @Nullable
   public EGender getGender ()
@@ -124,13 +125,15 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   }
 
   @Nullable
-  public static ESalutation getFromIDOrDefault (@Nullable final String sSalutationID, @Nullable final ESalutation eDefault)
+  public static ESalutation getFromIDOrDefault (@Nullable final String sSalutationID,
+                                                @Nullable final ESalutation eDefault)
   {
     return EnumHelper.getFromIDOrDefault (ESalutation.class, sSalutationID, eDefault);
   }
 
   @Nullable
-  public static ESalutation getFromDisplayNameOrNull (@Nullable final String sSalutation, @Nonnull final Locale aContentLocale)
+  public static ESalutation getFromDisplayNameOrNull (@Nullable final String sSalutation,
+                                                      @Nonnull final Locale aContentLocale)
   {
     return getFromDisplayNameOrDefault (sSalutation, aContentLocale, null);
   }

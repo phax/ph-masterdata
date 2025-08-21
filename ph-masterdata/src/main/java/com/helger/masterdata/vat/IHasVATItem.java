@@ -18,9 +18,9 @@ package com.helger.masterdata.vat;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnull;
-
 import com.helger.annotation.Nonempty;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Base interface for objects having a VAT item.

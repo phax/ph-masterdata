@@ -18,9 +18,7 @@ package com.helger.masterdata.vat;
 
 import java.util.Locale;
 
-import javax.annotation.CheckForSigned;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckForSigned;
 import com.helger.annotation.style.VisibleForTesting;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.functional.IToBooleanFunction;
@@ -29,6 +27,8 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.datetime.helper.PDTFactory;
 import com.helger.masterdata.iso.ISO7064;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Check the syntax of VATINs based on the published rules.

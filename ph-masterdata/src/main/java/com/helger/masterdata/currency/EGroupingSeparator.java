@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.currency;
 
-import javax.annotation.Nullable;
-
 import com.helger.base.lang.EnumHelper;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Represents the different possible grouping separators.

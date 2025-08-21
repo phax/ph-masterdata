@@ -18,12 +18,12 @@ package com.helger.masterdata.email;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.annotation.Nonempty;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public enum EEmailAddressType implements IEmailAddressType
 {

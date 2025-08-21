@@ -16,11 +16,11 @@
  */
 package com.helger.masterdata.nuts;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.annotation.style.ReturnsMutableObject;
 import com.helger.collection.commons.ICommonsMap;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Read only interface of the LAU manager

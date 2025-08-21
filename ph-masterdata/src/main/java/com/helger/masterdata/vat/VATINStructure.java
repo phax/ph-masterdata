@@ -21,12 +21,9 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.RegEx;
-import javax.annotation.concurrent.Immutable;
-
 import com.helger.annotation.Nonempty;
+import com.helger.annotation.RegEx;
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.debug.GlobalDebug;
 import com.helger.base.enforce.ValueEnforcer;
@@ -39,6 +36,9 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.text.locale.country.CountryCache;
 import com.helger.text.locale.country.IHasCountry;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Represents a VATIN structure for a single country.

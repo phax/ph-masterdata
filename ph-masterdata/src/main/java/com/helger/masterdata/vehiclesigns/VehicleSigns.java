@@ -18,10 +18,7 @@ package com.helger.masterdata.vehiclesigns;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
+import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.exception.InitializationException;
 import com.helger.collection.commons.CommonsHashMap;
@@ -29,6 +26,9 @@ import com.helger.collection.commons.CommonsLinkedHashSet;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsOrderedSet;
 import com.helger.text.locale.country.CountryCache;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old

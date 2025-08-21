@@ -18,10 +18,10 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Interface representing a single read only item of a price graduation.

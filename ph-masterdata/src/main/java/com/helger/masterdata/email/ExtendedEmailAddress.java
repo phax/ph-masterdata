@@ -18,13 +18,10 @@ package com.helger.masterdata.email;
 
 import java.io.Serializable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.NotThreadSafe;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.clone.ICloneable;
 import com.helger.base.email.EmailAddressHelper;
 import com.helger.base.enforce.ValueEnforcer;
@@ -33,6 +30,9 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.state.EChange;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Default writable implementation of {@link IExtendedEmailAddress}.

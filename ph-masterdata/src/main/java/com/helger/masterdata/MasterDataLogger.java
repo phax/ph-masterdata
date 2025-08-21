@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.NotThreadSafe;
-
+import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.diagnostics.log.InMemoryLogger;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * A singleton instance that keeps master data relevant messages, but may bloat

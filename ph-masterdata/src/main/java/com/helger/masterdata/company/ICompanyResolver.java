@@ -16,7 +16,7 @@
  */
 package com.helger.masterdata.company;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Generic company resolver interface.

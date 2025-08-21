@@ -19,10 +19,8 @@ package com.helger.masterdata.currencyvalue;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.NotThreadSafe;
-
+import com.helger.annotation.CheckReturnValue;
+import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
@@ -31,6 +29,8 @@ import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * This class represents a single currency value as the combination of a value and a currency.

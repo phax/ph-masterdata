@@ -18,13 +18,13 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
-
+import com.helger.annotation.CheckReturnValue;
 import com.helger.base.clone.ICloneable;
 import com.helger.base.numeric.BigHelper;
 import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Writable version of a currency value. The reading methods are inherited from
