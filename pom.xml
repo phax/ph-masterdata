@@ -64,7 +64,6 @@
   
   <!-- Enable when using a SNAPSHOT version: -->
   <!--
-  -->
   <repositories>
     <repository>
       <name>Central Portal Snapshots</name>
@@ -78,20 +77,21 @@
       </snapshots>
     </repository>
   </repositories>
+  -->
   
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>12.0.0-SNAPSHOT</version>
+        <version>12.0.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-poi</artifactId>
-        <version>7.0.0-SNAPSHOT</version>
+        <version>7.0.0</version>
       </dependency>
 
       <dependency>
