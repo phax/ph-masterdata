@@ -23,6 +23,7 @@ import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.numeric.BigHelper;
 import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
 
@@ -87,7 +88,7 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final PriceGraduationItem rhs = (PriceGraduationItem) o;
-    return m_nMinimumQuantity == rhs.m_nMinimumQuantity && EqualsHelper.equals (m_aNetAmount, rhs.m_aNetAmount);
+    return m_nMinimumQuantity == rhs.m_nMinimumQuantity && BigHelper.equalValues (m_aNetAmount, rhs.m_aNetAmount);
   }
 
   @Override
@@ -99,6 +100,8 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity).append ("priceamount", m_aNetAmount).getToString ();
+    return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity)
+                                       .append ("priceamount", m_aNetAmount)
+                                       .getToString ();
   }
 }

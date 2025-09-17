@@ -151,7 +151,7 @@ public class VATItem implements IVATItem, Serializable
     return m_sID.equals (rhs.m_sID) &&
            EqualsHelper.equals (m_aCountry, rhs.m_aCountry) &&
            m_eType.equals (rhs.m_eType) &&
-           EqualsHelper.equals (m_aPercentage, rhs.m_aPercentage) &&
+           BigHelper.equalValues (m_aPercentage, rhs.m_aPercentage) &&
            m_bDeprecated == rhs.m_bDeprecated &&
            m_aPeriod.equals (rhs.m_aPeriod);
   }

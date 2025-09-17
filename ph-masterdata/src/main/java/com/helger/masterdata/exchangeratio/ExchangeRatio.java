@@ -24,15 +24,14 @@ import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.enforce.ValueEnforcer;
-import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
+import com.helger.base.numeric.BigHelper;
 import com.helger.base.tostring.ToStringGenerator;
 
 import jakarta.annotation.Nonnull;
 
 /**
- * Represents a single currency exchange ratio compared to a base currency (e.g.
- * EUR)
+ * Represents a single currency exchange ratio compared to a base currency (e.g. EUR)
  *
  * @author Philip Helger
  */
@@ -70,7 +69,7 @@ public class ExchangeRatio implements Serializable
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ExchangeRatio rhs = (ExchangeRatio) o;
-    return m_aDate.equals (rhs.m_aDate) && EqualsHelper.equals (m_aRatio, rhs.m_aRatio);
+    return m_aDate.equals (rhs.m_aDate) && BigHelper.equalValues (m_aRatio, rhs.m_aRatio);
   }
 
   @Override

@@ -46,6 +46,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.0.1 - work in progress
+* Fixed some `BigDecimal` equals implementations
+
 v8.0.0 - 2025-08-25
 * Requires Java 17 as the minimum version
 * Updated to ph-commons 12.0.0

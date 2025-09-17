@@ -154,7 +154,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final CurrencyValue rhs = (CurrencyValue) o;
-    return m_eCurrency.equals (rhs.m_eCurrency) && EqualsHelper.equals (m_aValue, rhs.m_aValue);
+    return m_eCurrency.equals (rhs.m_eCurrency) && BigHelper.equalValues (m_aValue, rhs.m_aValue);
   }
 
   @Override
