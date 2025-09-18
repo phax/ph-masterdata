@@ -100,8 +100,8 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("minQuantity", m_nMinimumQuantity)
-                                       .append ("priceamount", m_aNetAmount)
+    return new ToStringGenerator (this).append ("MinQuantity", m_nMinimumQuantity)
+                                       .append ("NetAmount", m_aNetAmount)
                                        .getToString ();
   }
 }
