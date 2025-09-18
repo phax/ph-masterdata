@@ -46,7 +46,7 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
-v8.0.1 - work in progress
+v8.0.1 - 2025-09-18
 * Fixed some `BigDecimal` equals implementations
 
 v8.0.0 - 2025-08-25
