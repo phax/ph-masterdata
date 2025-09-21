@@ -1,7 +1,7 @@
 # ph-masterdata
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.helger.masterdata/ph-masterdata-parent-pom)](https://img.shields.io/maven-central/v/com.helger.masterdata/ph-masterdata-parent-pom)
-[![javadoc](https://javadoc.io/badge2/com.helger.masterdata/ph-masterdata-parent-pom/javadoc.svg)](https://javadoc.io/doc/com.helger.masterdata/ph-masterdata-parent-pom)
+[![javadoc](https://javadoc.io/badge2/com.helger.masterdata/ph-masterdata/javadoc.svg)](https://javadoc.io/doc/com.helger.masterdata/ph-masterdata)
 [![CodeCov](https://codecov.io/gh/phax/ph-masterdata/branch/master/graph/badge.svg)](https://codecov.io/gh/phax/ph-masterdata)
 
 Java library with lots of default business objects and algorithms:
