@@ -327,11 +327,9 @@ public class VATINSyntaxChecker
     final char [] c = sVATIN.toCharArray ();
     if (c.length != 10)
       return false;
-    if (c[0] != '0')
+    if (c[0] != '0' && c[0] != '1')
       return false;
-    if (!_isNum1to9 (c[1]))
-      return false;
-    for (int i = 2; i <= 9; ++i)
+    for (int i = 1; i <= 9; ++i)
       if (!_isNum (c[i]))
         return false;
 

@@ -21,7 +21,7 @@
   <vatin country="AT" pattern="^ATU[0-9]{8}$">
     <example>ATU99999999</example>
   </vatin>
-  <vatin country="BE" pattern="^BE0[0-9]{9}$">
+  <vatin country="BE" pattern="^BE[0-1][0-9]{9}$">
     <example>BE0999999999</example>
   </vatin>
   <vatin country="BG" pattern="^BG[0-9]{9,10}$">
