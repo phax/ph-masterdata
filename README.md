@@ -46,6 +46,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.0.2 - 2025-09-21
+* Updated Belgium VAT number check to include numbers starting with '1'. See [#2](https://github.com/phax/ph-masterdata/pull/2) - thx @Karting06 
+
 v8.0.1 - 2025-09-18
 * Fixed some `BigDecimal` equals implementations
 
