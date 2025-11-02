@@ -18,10 +18,10 @@ package com.helger.masterdata.address;
 
 import java.util.Locale;
 
-import com.helger.base.string.StringHelper;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import com.helger.base.string.StringHelper;
 
 /**
  * Read-only interface of an address.
@@ -62,14 +62,14 @@ public interface IPostalAddress
    * @return <code>null</code> if no country is set
    */
   @Nullable
-  String getCountryDisplayName (@Nonnull Locale aDisplayLocale);
+  String getCountryDisplayName (@NonNull Locale aDisplayLocale);
 
   default boolean hasCountry ()
   {
     return getCountry () != null;
   }
 
-  default boolean hasCountry (@Nonnull final String sCountryCode)
+  default boolean hasCountry (@NonNull final String sCountryCode)
   {
     return StringHelper.isNotEmpty (sCountryCode) && sCountryCode.equals (getCountry ());
   }

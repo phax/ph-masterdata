@@ -18,6 +18,9 @@ package com.helger.masterdata.telephone;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.exception.InitializationException;
@@ -26,9 +29,6 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.io.resource.ClassPathResource;
 import com.helger.xml.microdom.util.XMLMapHandler;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains a list of dial up codes.
@@ -66,7 +66,7 @@ public final class DialCodeManager
     return COUNTRY_TO_DIAL_CODE.get (sCountry.toUpperCase (Locale.US));
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsMap <String, String> getAllDialCodes ()
   {

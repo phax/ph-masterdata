@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.base.string.StringReplace;
 import com.helger.collection.commons.ICommonsList;
-import com.helger.commons.csv.CSVReader;
+import com.helger.csv.CSVReader;
 import com.helger.io.resource.ClassPathResource;
 import com.helger.text.locale.LocaleCache;
 

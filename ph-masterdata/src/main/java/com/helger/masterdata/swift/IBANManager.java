@@ -20,6 +20,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,9 +44,6 @@ import com.helger.text.locale.country.CountryCache;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains the IBAN manager.<br>
@@ -156,7 +155,7 @@ public final class IBANManager
    * @return <code>null</code> if the passed country has no IBAN support.
    */
   @Nullable
-  public static IBANCountryData getCountryData (@Nonnull final String sCountryCode)
+  public static IBANCountryData getCountryData (@NonNull final String sCountryCode)
   {
     ValueEnforcer.notNull (sCountryCode, "CountryCode");
 
@@ -167,7 +166,7 @@ public final class IBANManager
    * @return An unmodifiable, non-<code>null</code> set of all countries for which IBAN information
    *         is present.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsSet <String> getAllSupportedCountries ()
   {
@@ -216,7 +215,7 @@ public final class IBANManager
     return isValidIBAN (sIBAN, false);
   }
 
-  private static int _calculateChecksum (@Nonnull final String sIBAN)
+  private static int _calculateChecksum (@NonNull final String sIBAN)
   {
     final String sCalcBase = sIBAN.substring (4) + sIBAN.substring (0, 4);
     return ISO7064.Mod97.getChecksum (sCalcBase);
@@ -262,7 +261,7 @@ public final class IBANManager
     return true;
   }
 
-  public static int createChecksumOfNewIBAN (@Nonnull final String sCountryCode, @Nonnull final String sBBAN)
+  public static int createChecksumOfNewIBAN (@NonNull final String sCountryCode, @NonNull final String sBBAN)
   {
     ValueEnforcer.notNull (sCountryCode, "CountryCode");
     if (sCountryCode.length () != 2)
@@ -282,8 +281,8 @@ public final class IBANManager
     return 98 - (((nChecksum - 1) % 97) + 1);
   }
 
-  @Nonnull
-  public static String createIBANWithValidChecksum (@Nonnull final String sCountry, @Nonnull final String sBBAN)
+  @NonNull
+  public static String createIBANWithValidChecksum (@NonNull final String sCountry, @NonNull final String sBBAN)
   {
     // create the checksum
     final int nChecksum = createChecksumOfNewIBAN (sCountry, sBBAN);
@@ -302,7 +301,7 @@ public final class IBANManager
   @Nullable
   public static String getFormattedIBAN (@Nullable final String sIBAN,
                                          @Nonnegative final int nGroupSize,
-                                         @Nonnull @Nonempty final String sDelimiter)
+                                         @NonNull @Nonempty final String sDelimiter)
   {
     ValueEnforcer.isGT0 (nGroupSize, "GroupSize");
     ValueEnforcer.notEmpty (sDelimiter, "Delimiter");

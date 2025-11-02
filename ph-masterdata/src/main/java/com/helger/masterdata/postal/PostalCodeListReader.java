@@ -19,6 +19,8 @@ package com.helger.masterdata.postal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
@@ -30,8 +32,6 @@ import com.helger.masterdata.MasterDataLogger;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Read postal code definitions from an XML resource.
@@ -57,12 +57,12 @@ public class PostalCodeListReader
 
   private final PostalCodeManager m_aMgr;
 
-  public PostalCodeListReader (@Nonnull final PostalCodeManager aMgr)
+  public PostalCodeListReader (@NonNull final PostalCodeManager aMgr)
   {
     m_aMgr = ValueEnforcer.notNull (aMgr, "Mgr");
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   private static ICommonsList <EPostalCodeFormatElement> _parseFormat (final String sFormat)
   {
@@ -83,7 +83,7 @@ public class PostalCodeListReader
     return ret;
   }
 
-  public void readFromFile (@Nonnull final IReadableResource aRes)
+  public void readFromFile (@NonNull final IReadableResource aRes)
   {
     ValueEnforcer.notNull (aRes, "Resource");
     final IMicroDocument aDoc = MicroReader.readMicroXML (aRes);

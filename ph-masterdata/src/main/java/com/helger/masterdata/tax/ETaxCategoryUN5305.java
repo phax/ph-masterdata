@@ -18,13 +18,13 @@ package com.helger.masterdata.tax;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Tax category.<br>
@@ -59,13 +59,13 @@ public enum ETaxCategoryUN5305 implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final IHasDisplayText m_aName;
 
-  ETaxCategoryUN5305 (@Nonnull @Nonempty final String sID, @Nonnull final ETaxCategoryUN5305Name eResponseCodeName)
+  ETaxCategoryUN5305 (@NonNull @Nonempty final String sID, @NonNull final ETaxCategoryUN5305Name eResponseCodeName)
   {
     m_sID = sID;
     m_aName = eResponseCodeName;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -73,7 +73,7 @@ public enum ETaxCategoryUN5305 implements IHasID <String>, IHasDisplayText
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);
   }

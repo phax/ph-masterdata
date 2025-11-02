@@ -18,6 +18,9 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.base.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
@@ -25,9 +28,6 @@ import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <PersonName>
 {
@@ -38,10 +38,10 @@ public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <
   protected static final IMicroQName ATTR_LASTNAME = new MicroQName ("lastname");
   protected static final IMicroQName ATTR_SUFFIXTITLE = new MicroQName ("suffixtitle");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final PersonName aValue,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final PersonName aValue,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement eName = new MicroElement (sNamespaceURI, sTagName);
     if (aValue.getSalutation () != null)
@@ -59,8 +59,8 @@ public final class PersonNameMicroTypeConverter implements IMicroTypeConverter <
     return eName;
   }
 
-  @Nonnull
-  public PersonName convertToNative (@Nonnull final IMicroElement eAddress)
+  @NonNull
+  public PersonName convertToNative (@NonNull final IMicroElement eAddress)
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
     final PersonName aName = new PersonName ();

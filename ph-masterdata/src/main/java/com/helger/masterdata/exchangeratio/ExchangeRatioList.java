@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Comparator;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.clone.ICloneable;
@@ -31,9 +34,6 @@ import com.helger.collection.commons.ICommonsList;
 import com.helger.collection.commons.ICommonsNavigableSet;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class maintains an ordered list of {@link ExchangeRatio}, sorted
@@ -47,33 +47,33 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, IHasCu
   private final ECurrency m_eCurrency;
   private final ICommonsNavigableSet <ExchangeRatio> m_aSet = new CommonsTreeSet <> (Comparator.comparing (ExchangeRatio::getDate));
 
-  public ExchangeRatioList (@Nonnull final ECurrency eCurrency)
+  public ExchangeRatioList (@NonNull final ECurrency eCurrency)
   {
     m_eCurrency = ValueEnforcer.notNull (eCurrency, "Currency");
   }
 
-  public ExchangeRatioList (@Nonnull final ExchangeRatioList aOther)
+  public ExchangeRatioList (@NonNull final ExchangeRatioList aOther)
   {
     ValueEnforcer.notNull (aOther, "Other");
     m_eCurrency = aOther.m_eCurrency;
     m_aSet.addAll (aOther.m_aSet);
   }
 
-  @Nonnull
+  @NonNull
   public ECurrency getCurrency ()
   {
     return m_eCurrency;
   }
 
-  @Nonnull
-  public EChange addExchangeRatio (@Nonnull final ExchangeRatio aExchangeRatio)
+  @NonNull
+  public EChange addExchangeRatio (@NonNull final ExchangeRatio aExchangeRatio)
   {
     ValueEnforcer.notNull (aExchangeRatio, "ExchangeRatio");
     return EChange.valueOf (m_aSet.add (aExchangeRatio));
   }
 
-  @Nonnull
-  public EChange mergeWith (@Nonnull final ExchangeRatioList aList)
+  @NonNull
+  public EChange mergeWith (@NonNull final ExchangeRatioList aList)
   {
     ValueEnforcer.notNull (aList, "List");
     return EChange.valueOf (m_aSet.addAll (aList.m_aSet));
@@ -86,7 +86,7 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, IHasCu
   }
 
   @Nullable
-  public ExchangeRatio getExchangeRatioOfDate (@Nonnull final LocalDate aDate)
+  public ExchangeRatio getExchangeRatioOfDate (@NonNull final LocalDate aDate)
   {
     ValueEnforcer.notNull (aDate, "Date");
     for (final ExchangeRatio aExchangeRatio : m_aSet)
@@ -99,14 +99,14 @@ public class ExchangeRatioList implements ICloneable <ExchangeRatioList>, IHasCu
     return null;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <ExchangeRatio> getAllExchangeRatios ()
   {
     return m_aSet.getCopyAsList ();
   }
 
-  @Nonnull
+  @NonNull
   public ExchangeRatioList getClone ()
   {
     return new ExchangeRatioList (this);

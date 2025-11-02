@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.ean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Utility class that makes verification of GTIN numbers a bit simpler :)
@@ -38,7 +38,7 @@ public final class GTINValidator
   private GTINValidator ()
   {}
 
-  private static boolean _containsValidChecksum (@Nonnull final char [] aChars)
+  private static boolean _containsValidChecksum (@NonNull final char [] aChars)
   {
     final int nCalcedChecksum = AbstractUPCEAN.calcChecksum (aChars, aChars.length - 1);
     final int nChecksum = AbstractUPCEAN.asInt (aChars[aChars.length - 1]);

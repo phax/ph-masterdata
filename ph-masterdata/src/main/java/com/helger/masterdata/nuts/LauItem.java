@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
@@ -23,9 +26,6 @@ import com.helger.base.id.IHasID;
 import com.helger.base.name.IHasDisplayName;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents a single LAU item and its relationship to the NUTS codes.
@@ -45,9 +45,9 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   private final String m_sDisplayName;
   private final String m_sLatinDisplayName;
 
-  public LauItem (@Nonnull @Nonempty final String sNuts,
-                  @Nonnull @Nonempty final String sLau,
-                  @Nonnull @Nonempty final String sDisplayName,
+  public LauItem (@NonNull @Nonempty final String sNuts,
+                  @NonNull @Nonempty final String sLau,
+                  @NonNull @Nonempty final String sDisplayName,
                   @Nullable final String sLatinDisplayName)
   {
     ValueEnforcer.notEmpty (sLau, "LAU");
@@ -68,7 +68,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
    * @return The NUTS + LAU code combined. This one is ensured to be unique. Neither
    *         <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -78,7 +78,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   /**
    * @return The LAU code. Neither <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getLauCode ()
   {
@@ -89,7 +89,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
    * @return The Country code to which the LAU belongs to. This is calculated from the NUTS code.
    *         Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCountryCode ()
   {
@@ -99,7 +99,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
   /**
    * @return The NUTS code to which the LAU belongs to. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getNutsCode ()
   {
@@ -110,7 +110,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
    * @return The display name of the LAU item in local language.
    * @see #getLatinDisplayName() for the Latin version
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getDisplayName ()
   {
@@ -121,7 +121,7 @@ public class LauItem implements IHasID <String>, IHasDisplayName
    * @return The Latin display name of the LAU item. If no specific latin name is provided, it's
    *         identical to {@link #getDisplayName()}.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getLatinDisplayName ()
   {

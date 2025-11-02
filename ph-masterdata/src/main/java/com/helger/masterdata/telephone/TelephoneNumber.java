@@ -18,6 +18,9 @@ package com.helger.masterdata.telephone;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.clone.ICloneable;
@@ -27,9 +30,6 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.state.EChange;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Default writable version of {@link ITelephoneNumber}.
@@ -48,7 +48,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
   public TelephoneNumber ()
   {}
 
-  public TelephoneNumber (@Nonnull final ITelephoneNumber aBase)
+  public TelephoneNumber (@NonNull final ITelephoneNumber aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());
@@ -82,7 +82,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return m_aType;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setType (@Nullable final ITelephoneType aType)
   {
     if (EqualsHelper.equals (m_aType, aType))
@@ -97,7 +97,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return m_sCountryCode;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCountryCode (@Nullable final String sCountryCode)
   {
     final String sRealCountryCode = sCountryCode;
@@ -113,7 +113,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return m_sAreaCode;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setAreaCode (@Nullable final String sAreaCode)
   {
     final String sRealAreaCode = sAreaCode;
@@ -129,7 +129,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return m_sLine;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setLine (@Nullable final String sLine)
   {
     final String sRealLine = TelephoneHelper.getCleanedLine (sLine);
@@ -145,7 +145,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return m_sDirectDial;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setDirectDial (@Nullable final String sDirectDial)
   {
     final String sRealDirectDial = sDirectDial;
@@ -155,7 +155,7 @@ public class TelephoneNumber implements ITelephoneNumber, ICloneable <TelephoneN
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public TelephoneNumber getClone ()
   {

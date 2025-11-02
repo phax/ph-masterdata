@@ -18,6 +18,9 @@ package com.helger.masterdata.company;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -32,9 +35,6 @@ import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.TelephoneNumber;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * The default implementation of the {@link ICompanySite} interface.
@@ -58,31 +58,31 @@ public class CompanySite implements ICompanySite, Serializable
   private ITelephoneNumber m_aFaxNo = new TelephoneNumber ();
   private IExtendedEmailAddress m_aEmailAddress = new ExtendedEmailAddress ();
 
-  public CompanySite (@Nonnull final ICompany aCompany)
+  public CompanySite (@NonNull final ICompany aCompany)
   {
     this (GlobalIDFactory.getNewPersistentStringID (), aCompany);
   }
 
-  public CompanySite (@Nonnull @Nonempty final String sID, @Nonnull final ICompany aCompany)
+  public CompanySite (@NonNull @Nonempty final String sID, @NonNull final ICompany aCompany)
   {
     m_sID = ValueEnforcer.notEmpty (sID, "ID");
     m_aCompany = ValueEnforcer.notNull (aCompany, "Company");
   }
 
-  @Nonnull
+  @NonNull
   public ObjectType getObjectType ()
   {
     return OT;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
     return m_sID;
   }
 
-  @Nonnull
+  @NonNull
   public ICompany getCompany ()
   {
     return m_aCompany;
@@ -94,7 +94,7 @@ public class CompanySite implements ICompanySite, Serializable
     return m_sDisplayName;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setDisplayName (@Nullable final String sDisplayName)
   {
     if (EqualsHelper.equals (m_sDisplayName, sDisplayName))
@@ -109,7 +109,7 @@ public class CompanySite implements ICompanySite, Serializable
     return m_sLongName;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setLongName (@Nullable final String sLongName)
   {
     if (EqualsHelper.equals (m_sLongName, sLongName))
@@ -123,7 +123,7 @@ public class CompanySite implements ICompanySite, Serializable
     return m_bIsDeletable;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setDeletable (final boolean bIsDeletable)
   {
     if (m_bIsDeletable == bIsDeletable)
@@ -137,7 +137,7 @@ public class CompanySite implements ICompanySite, Serializable
     return m_bIsVirtualSite;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setVirtualSite (final boolean bIsVirtualSite)
   {
     if (m_bIsVirtualSite == bIsVirtualSite)
@@ -146,14 +146,14 @@ public class CompanySite implements ICompanySite, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public IPostalAddress getAddress ()
   {
     return m_aAddress;
   }
 
-  @Nonnull
-  public EChange setAddress (@Nonnull final IPostalAddress aAddress)
+  @NonNull
+  public EChange setAddress (@NonNull final IPostalAddress aAddress)
   {
     ValueEnforcer.notNull (aAddress, "Address");
 
@@ -163,14 +163,14 @@ public class CompanySite implements ICompanySite, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public ITelephoneNumber getDefaultTelNo ()
   {
     return m_aTelNo;
   }
 
-  @Nonnull
-  public EChange setDefaultTelNo (@Nonnull final ITelephoneNumber aTelNo)
+  @NonNull
+  public EChange setDefaultTelNo (@NonNull final ITelephoneNumber aTelNo)
   {
     ValueEnforcer.notNull (aTelNo, "TelNo");
 
@@ -180,14 +180,14 @@ public class CompanySite implements ICompanySite, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public ITelephoneNumber getDefaultFaxNo ()
   {
     return m_aFaxNo;
   }
 
-  @Nonnull
-  public EChange setDefaultFaxNo (@Nonnull final ITelephoneNumber aFaxNo)
+  @NonNull
+  public EChange setDefaultFaxNo (@NonNull final ITelephoneNumber aFaxNo)
   {
     ValueEnforcer.notNull (aFaxNo, "FaxNo");
 
@@ -197,14 +197,14 @@ public class CompanySite implements ICompanySite, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public IExtendedEmailAddress getDefaultEmailAddress ()
   {
     return m_aEmailAddress;
   }
 
-  @Nonnull
-  public EChange setDefaultEmailAddress (@Nonnull final IExtendedEmailAddress aEmailAddress)
+  @NonNull
+  public EChange setDefaultEmailAddress (@NonNull final IExtendedEmailAddress aEmailAddress)
   {
     ValueEnforcer.notNull (aEmailAddress, "EmailAddress");
 

@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.diagnostics.log.InMemoryLogger;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A singleton instance that keeps master data relevant messages, but may bloat
@@ -35,7 +35,7 @@ public class MasterDataLogger extends InMemoryLogger
   protected MasterDataLogger ()
   {}
 
-  @Nonnull
+  @NonNull
   public static MasterDataLogger getInstance ()
   {
     return INSTANCE;

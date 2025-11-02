@@ -25,15 +25,15 @@ import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringRemove;
 import com.helger.base.string.StringReplace;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Per currency settings. Not thread safe.
@@ -53,7 +53,7 @@ public final class PerCurrencySettings implements Serializable
   private final EDecimalSeparator m_eDecimalSep;
   private final EGroupingSeparator m_eGroupingSep;
 
-  public PerCurrencySettings (@Nonnull final ECurrency eCurrency)
+  public PerCurrencySettings (@NonNull final ECurrency eCurrency)
   {
     // Use the first locale with a language as the most relevant one
     Locale aRelevantLocale = eCurrency.matchingLocales ().findFirst (x -> x.getLanguage ().length () > 0);
@@ -113,7 +113,7 @@ public final class PerCurrencySettings implements Serializable
    * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
    *         includes the currency string.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCurrencyPattern ()
   {
@@ -124,7 +124,7 @@ public final class PerCurrencySettings implements Serializable
    * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
    *         does NOT includes the currency string.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getValuePattern ()
   {
@@ -135,21 +135,21 @@ public final class PerCurrencySettings implements Serializable
    * @return The {@link DecimalFormat} used to format this currency. Always returns a copy of the
    *         contained formatter for thread-safety and modification.
    */
-  @Nonnull
+  @NonNull
   public DecimalFormat getCurrencyFormat ()
   {
     // DecimalFormat is not thread safe - clone!
     return (DecimalFormat) m_aCurrencyFormat.clone ();
   }
 
-  @Nonnull
-  public String getCurrencyFormatted (@Nonnull final BigDecimal aValue)
+  @NonNull
+  public String getCurrencyFormatted (@NonNull final BigDecimal aValue)
   {
     return getCurrencyFormat ().format (aValue);
   }
 
-  @Nonnull
-  public String getCurrencyFormatted (@Nonnull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
+  @NonNull
+  public String getCurrencyFormatted (@NonNull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
   {
     final DecimalFormat aFormat = getCurrencyFormat ();
     aFormat.setMaximumFractionDigits (nFractionDigits);
@@ -161,21 +161,21 @@ public final class PerCurrencySettings implements Serializable
    *         {@link #getCurrencyFormat()} but without the currency sign. Always returns a copy of
    *         the contained formatter for thread-safety and modification.
    */
-  @Nonnull
+  @NonNull
   public DecimalFormat getValueFormat ()
   {
     // DecimalFormat is not thread safe - clone!
     return (DecimalFormat) m_aValueFormat.clone ();
   }
 
-  @Nonnull
-  public String getValueFormatted (@Nonnull final BigDecimal aValue)
+  @NonNull
+  public String getValueFormatted (@NonNull final BigDecimal aValue)
   {
     return getValueFormat ().format (aValue);
   }
 
-  @Nonnull
-  public String getValueFormatted (@Nonnull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
+  @NonNull
+  public String getValueFormatted (@NonNull final BigDecimal aValue, @Nonnegative final int nFractionDigits)
   {
     final DecimalFormat aFormat = getValueFormat ();
     aFormat.setMaximumFractionDigits (nFractionDigits);
@@ -196,7 +196,7 @@ public final class PerCurrencySettings implements Serializable
     m_aValueFormat.setMinimumFractionDigits (nDecimals);
   }
 
-  @Nonnull
+  @NonNull
   public String getCurrencySymbol ()
   {
     return m_aDFS.getCurrencySymbol ();
@@ -207,7 +207,7 @@ public final class PerCurrencySettings implements Serializable
    *         {@link CurrencyHelper#DEFAULT_ROUNDING_MODE} is returned instead. May not be
    *         <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public RoundingMode getRoundingMode ()
   {
     return m_eRoundingMode != null ? m_eRoundingMode : CurrencyHelper.DEFAULT_ROUNDING_MODE;

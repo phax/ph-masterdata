@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.base.string.StringParser;
-import com.helger.commons.csv.CSVReader;
+import com.helger.csv.CSVReader;
 import com.helger.io.file.FileHelper;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;

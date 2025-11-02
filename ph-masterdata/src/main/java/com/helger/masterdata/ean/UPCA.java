@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.ean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * UPC-A implementation (Universal product code; =GTIN-12).
@@ -36,7 +36,7 @@ public final class UPCA extends AbstractUPCEAN
    * @param sMsg
    *        The code string.
    */
-  public UPCA (@Nonnull final String sMsg)
+  public UPCA (@NonNull final String sMsg)
   {
     this (sMsg, DEFAULT_CHECKSUM_MODE);
   }
@@ -49,13 +49,13 @@ public final class UPCA extends AbstractUPCEAN
    * @param eMode
    *        the checksum mode
    */
-  public UPCA (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public UPCA (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     super (sMsg, eMode);
   }
 
   @Override
-  @Nonnull
+  @NonNull
   public EValidity validate ()
   {
     return validateMessage (getMessage ());
@@ -70,7 +70,7 @@ public final class UPCA extends AbstractUPCEAN
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
-  @Nonnull
+  @NonNull
   public static EValidity validateMessage (@Nullable final String sMsg)
   {
     final int nLen = StringHelper.getLength (sMsg);
@@ -91,7 +91,7 @@ public final class UPCA extends AbstractUPCEAN
    * @exception IllegalArgumentException
    *            In case of an internal inconsistency
    */
-  public static String handleChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public static String handleChecksum (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

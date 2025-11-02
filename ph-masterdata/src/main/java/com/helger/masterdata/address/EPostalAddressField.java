@@ -19,8 +19,8 @@ package com.helger.masterdata.address;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Enum to easily access parts of an address
@@ -42,13 +42,13 @@ public enum EPostalAddressField
 
   private final BiFunction <IPostalAddress, Locale, String> m_aGetter;
 
-  EPostalAddressField (@Nonnull final BiFunction <IPostalAddress, Locale, String> aGetter)
+  EPostalAddressField (@NonNull final BiFunction <IPostalAddress, Locale, String> aGetter)
   {
     m_aGetter = aGetter;
   }
 
   @Nullable
-  public String get (@Nonnull final IPostalAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  public String get (@NonNull final IPostalAddress aAddress, @NonNull final Locale aDisplayLocale)
   {
     return m_aGetter.apply (aAddress, aDisplayLocale);
   }

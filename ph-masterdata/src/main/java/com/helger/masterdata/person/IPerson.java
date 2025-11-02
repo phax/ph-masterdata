@@ -18,12 +18,12 @@ package com.helger.masterdata.person;
 
 import java.time.LocalDate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Read only person interface
@@ -46,7 +46,7 @@ public interface IPerson
   /**
    * @return The name of the person. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   IPersonName getName ();
 
   /**

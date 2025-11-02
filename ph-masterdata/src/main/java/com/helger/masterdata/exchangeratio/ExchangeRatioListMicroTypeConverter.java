@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.exchangeratio;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
@@ -24,18 +27,15 @@ import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConverter <ExchangeRatioList>
 {
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final String ELEMENT_EXCHANGE_RATIO = "exchangeratio";
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final ExchangeRatioList aValue,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final ExchangeRatioList aValue,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement aElement = new MicroElement (sNamespaceURI, sTagName);
     aElement.setAttribute (ATTR_CURRENCY, aValue.getCurrencyID ());
@@ -46,8 +46,8 @@ public final class ExchangeRatioListMicroTypeConverter implements IMicroTypeConv
     return aElement;
   }
 
-  @Nonnull
-  public ExchangeRatioList convertToNative (@Nonnull final IMicroElement aElement)
+  @NonNull
+  public ExchangeRatioList convertToNative (@NonNull final IMicroElement aElement)
   {
     final String sCurrencyID = aElement.getAttributeValue (ATTR_CURRENCY);
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (sCurrencyID);

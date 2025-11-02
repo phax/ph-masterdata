@@ -18,6 +18,9 @@ package com.helger.masterdata.company;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
@@ -31,9 +34,6 @@ import com.helger.collection.CollectionFind;
 import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.collection.commons.ICommonsMap;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * The default implementation of the {@link ICompany} interface.
@@ -55,18 +55,18 @@ public class Company implements ICompany, Serializable
   private final ICommonsMap <String, CompanySite> m_aAllSites = new CommonsHashMap <> ();
   private CompanySite m_aHeadQuarterSite;
 
-  public Company (@Nonnull @Nonempty final String sID)
+  public Company (@NonNull @Nonempty final String sID)
   {
     m_sID = ValueEnforcer.notEmpty (sID, "ID");
   }
 
-  @Nonnull
+  @NonNull
   public ObjectType getObjectType ()
   {
     return OT;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -79,7 +79,7 @@ public class Company implements ICompany, Serializable
     return m_sPublicName;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setPublicName (@Nullable final String sPublicName)
   {
     if (EqualsHelper.equals (m_sPublicName, sPublicName))
@@ -94,7 +94,7 @@ public class Company implements ICompany, Serializable
     return m_sOfficialName;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setOfficialName (@Nullable final String sOfficialName)
   {
     if (EqualsHelper.equals (m_sOfficialName, sOfficialName))
@@ -109,29 +109,29 @@ public class Company implements ICompany, Serializable
     return m_aAllSites.size ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <? extends ICompanySite> getAllSites ()
   {
     return m_aAllSites.copyOfValues ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <? extends ICompanySite> getAllPhysicalSites ()
   {
     return m_aAllSites.copyOfValues (ICompanySite::isPhysicalSite);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <? extends ICompanySite> getAllVirtualSites ()
   {
     return m_aAllSites.copyOfValues (ICompanySite::isVirtualSite);
   }
 
-  @Nonnull
-  public EChange addSite (@Nonnull final CompanySite aSite)
+  @NonNull
+  public EChange addSite (@NonNull final CompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
@@ -142,8 +142,8 @@ public class Company implements ICompany, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
-  public EChange removeSite (@Nonnull final ICompanySite aSite)
+  @NonNull
+  public EChange removeSite (@NonNull final ICompanySite aSite)
   {
     ValueEnforcer.notNull (aSite, "Site");
 
@@ -166,8 +166,8 @@ public class Company implements ICompany, Serializable
     return m_aAllSites.getFirstValue ();
   }
 
-  @Nonnull
-  public EChange setHeadQuarterSite (@Nonnull final CompanySite aHeadQuarterSite)
+  @NonNull
+  public EChange setHeadQuarterSite (@NonNull final CompanySite aHeadQuarterSite)
   {
     ValueEnforcer.notNull (aHeadQuarterSite, "HeadQuarterSite");
 

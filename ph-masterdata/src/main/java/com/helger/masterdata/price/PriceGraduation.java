@@ -19,6 +19,9 @@ package com.helger.masterdata.price;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
@@ -30,9 +33,6 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Default implementation of the {@link IMutablePriceGraduation} and
@@ -54,12 +54,12 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
    * @param eCurrency
    *        The currency to use. May not be <code>null</code>.
    */
-  public PriceGraduation (@Nonnull final ECurrency eCurrency)
+  public PriceGraduation (@NonNull final ECurrency eCurrency)
   {
     m_eCurrency = ValueEnforcer.notNull (eCurrency, "Currency");
   }
 
-  @Nonnull
+  @NonNull
   public final ECurrency getCurrency ()
   {
     return m_eCurrency;
@@ -77,7 +77,7 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     return m_aItems.getLastOrNull ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <? extends IMutablePriceGraduationItem> getAllItems ()
   {
@@ -90,7 +90,7 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     return m_aItems.getAtIndex (nIndex);
   }
 
-  @Nonnull
+  @NonNull
   private IMutablePriceGraduationItem _getItemOfQuantity (@Nonnegative final int nQuantity)
   {
     ValueEnforcer.isGT0 (nQuantity, "Quantity");
@@ -107,14 +107,14 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     return ret;
   }
 
-  @Nonnull
-  private IMutablePrice _createPrice (@Nonnull final BigDecimal aNetAmount, @Nonnull final IVATItem aVAT)
+  @NonNull
+  private IMutablePrice _createPrice (@NonNull final BigDecimal aNetAmount, @NonNull final IVATItem aVAT)
   {
     return new Price (m_eCurrency, aNetAmount, aVAT);
   }
 
-  @Nonnull
-  public IMutablePrice getPrice (@Nonnull final IPriceGraduationItem aItem, @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public IMutablePrice getPrice (@NonNull final IPriceGraduationItem aItem, @NonNull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
     ValueEnforcer.notNull (aVATItem, "VATItem");
@@ -124,27 +124,27 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     return _createPrice (aItem.getUnitNetAmount (), aVATItem);
   }
 
-  @Nonnull
-  public IMutablePrice getSinglePriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public IMutablePrice getSinglePriceOfQuantity (@Nonnegative final int nQuantity, @NonNull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
     return _createPrice (_getItemOfQuantity (nQuantity).getUnitNetAmount (), aVATItem);
   }
 
-  @Nonnull
-  public IMutablePrice getTotalPriceOfQuantity (@Nonnegative final int nQuantity, @Nonnull final IVATItem aVAT)
+  @NonNull
+  public IMutablePrice getTotalPriceOfQuantity (@Nonnegative final int nQuantity, @NonNull final IVATItem aVAT)
   {
     return getSinglePriceOfQuantity (nQuantity, aVAT).getMultiplied (nQuantity);
   }
 
-  @Nonnull
-  public EChange addItem (@Nonnegative final int nMinimumQuantity, @Nonnull final BigDecimal aUnitNetAmount)
+  @NonNull
+  public EChange addItem (@Nonnegative final int nMinimumQuantity, @NonNull final BigDecimal aUnitNetAmount)
   {
     return addItem (new PriceGraduationItem (nMinimumQuantity, aUnitNetAmount));
   }
 
-  @Nonnull
-  public EChange addItem (@Nonnull final IMutablePriceGraduationItem aItem)
+  @NonNull
+  public EChange addItem (@NonNull final IMutablePriceGraduationItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
 
@@ -168,7 +168,7 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public EChange removeAll ()
   {
     return m_aItems.removeAll ();
@@ -216,8 +216,8 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
    *        The price to use. May not be <code>null</code>.
    * @return Never <code>null</code>.
    */
-  @Nonnull
-  public static IMutablePriceGraduation createSimple (@Nonnull final IMutablePrice aPrice)
+  @NonNull
+  public static IMutablePriceGraduation createSimple (@NonNull final IMutablePrice aPrice)
   {
     final PriceGraduation ret = new PriceGraduation (aPrice.getCurrency ());
     ret.addItem (new PriceGraduationItem (1, aPrice.getNetAmount ().getValue ()));

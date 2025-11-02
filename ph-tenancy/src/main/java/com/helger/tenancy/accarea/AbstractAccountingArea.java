@@ -18,6 +18,9 @@ package com.helger.tenancy.accarea;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.enforce.ValueEnforcer;
@@ -30,9 +33,6 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.tenancy.IBusinessObject;
 import com.helger.tenancy.tenant.AbstractTenantObject;
 import com.helger.tenancy.tenant.ITenant;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract base implementation of {@link IAccountingArea}
@@ -57,14 +57,14 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
   private String m_sCommercialRegistrationNumber;
   private String m_sCommercialCourt;
 
-  protected AbstractAccountingArea (@Nonnull final ITenant aTenant,
-                                    @Nonnull final IBusinessObject aStubObject,
-                                    @Nonnull @Nonempty final String sDisplayName,
+  protected AbstractAccountingArea (@NonNull final ITenant aTenant,
+                                    @NonNull final IBusinessObject aStubObject,
+                                    @NonNull @Nonempty final String sDisplayName,
                                     @Nullable final String sCompanyType,
                                     @Nullable final String sCompanyVATIN,
                                     @Nullable final String sCompanyNumber,
                                     @Nullable final String sCustomerNumber,
-                                    @Nonnull final IPostalAddress aAddress,
+                                    @NonNull final IPostalAddress aAddress,
                                     @Nullable final String sTelephone,
                                     @Nullable final String sFax,
                                     @Nullable final String sEmailAddress,
@@ -73,7 +73,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
                                     @Nullable final String sOfficeLocation,
                                     @Nullable final String sCommercialRegistrationNumber,
                                     @Nullable final String sCommercialCourt,
-                                    @Nonnull final Locale aDisplayLocale)
+                                    @NonNull final Locale aDisplayLocale)
   {
     super (aTenant, aStubObject);
     setDisplayName (sDisplayName);
@@ -92,15 +92,15 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     setCommercialCourt (sCommercialCourt);
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getDisplayName ()
   {
     return m_sDisplayName;
   }
 
-  @Nonnull
-  public EChange setDisplayName (@Nonnull @Nonempty final String sDisplayName)
+  @NonNull
+  public EChange setDisplayName (@NonNull @Nonempty final String sDisplayName)
   {
     ValueEnforcer.notEmpty (sDisplayName, "DisplayName");
 
@@ -116,7 +116,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCompanyType;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCompanyType (@Nullable final String sCompanyType)
   {
     if (EqualsHelper.equals (sCompanyType, m_sCompanyType))
@@ -131,7 +131,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCompanyVATIN;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCompanyVATIN (@Nullable final String sCompanyVATIN)
   {
     if (EqualsHelper.equals (sCompanyVATIN, m_sCompanyVATIN))
@@ -146,7 +146,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCompanyNumber;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCompanyNumber (@Nullable final String sCompanyNumber)
   {
     if (EqualsHelper.equals (sCompanyNumber, m_sCompanyNumber))
@@ -161,7 +161,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCustomerNumber;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCustomerNumber (@Nullable final String sCustomerNumber)
   {
     if (EqualsHelper.equals (sCustomerNumber, m_sCustomerNumber))
@@ -170,14 +170,14 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public IPostalAddress getAddress ()
   {
     return m_aAddress;
   }
 
-  @Nonnull
-  public EChange setAddress (@Nonnull final IPostalAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public EChange setAddress (@NonNull final IPostalAddress aAddress, @NonNull final Locale aDisplayLocale)
   {
     ValueEnforcer.notNull (aAddress, "Address");
 
@@ -194,7 +194,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sTelephone;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setTelephone (@Nullable final String sTelephone)
   {
     if (EqualsHelper.equals (sTelephone, m_sTelephone))
@@ -209,7 +209,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sFax;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setFax (@Nullable final String sFax)
   {
     if (EqualsHelper.equals (sFax, m_sFax))
@@ -224,7 +224,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sEmailAddress;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setEmailAddress (@Nullable final String sEmailAddress)
   {
     if (EqualsHelper.equals (sEmailAddress, m_sEmailAddress))
@@ -239,7 +239,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sWebSite;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setWebSite (@Nullable final String sWebSite)
   {
     if (EqualsHelper.equals (sWebSite, m_sWebSite))
@@ -254,7 +254,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_eDefaultCurrency;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setDefaultCurrency (@Nullable final ECurrency eDefaultCurrency)
   {
     if (EqualsHelper.equals (eDefaultCurrency, m_eDefaultCurrency))
@@ -269,7 +269,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sOfficeLocation;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setOfficeLocation (@Nullable final String sOfficeLocation)
   {
     if (EqualsHelper.equals (sOfficeLocation, m_sOfficeLocation))
@@ -284,7 +284,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCommercialRegistrationNumber;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCommercialRegistrationNumber (@Nullable final String sCommercialRegistrationNumber)
   {
     if (EqualsHelper.equals (sCommercialRegistrationNumber, m_sCommercialRegistrationNumber))
@@ -299,7 +299,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return m_sCommercialCourt;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setCommercialCourt (@Nullable final String sCommercialCourt)
   {
     if (EqualsHelper.equals (sCommercialCourt, m_sCommercialCourt))
@@ -308,7 +308,7 @@ public abstract class AbstractAccountingArea extends AbstractTenantObject implem
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getAsUIText (final Locale aDisplayLocale)
   {

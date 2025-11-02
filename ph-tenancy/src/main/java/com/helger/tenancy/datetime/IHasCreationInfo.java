@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.datetime;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.datetime.domain.IHasCreationDateTime;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Base interface for an object that has a date time and a user ID.

@@ -16,14 +16,14 @@
  */
 package com.helger.masterdata.email;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeConverter <ExtendedEmailAddress>
 {
@@ -31,10 +31,10 @@ public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeC
   private static final IMicroQName ATTR_ADDRESS = new MicroQName ("address");
   private static final IMicroQName ATTR_PERSONAL = new MicroQName ("personal");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final ExtendedEmailAddress aEmail,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final ExtendedEmailAddress aEmail,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement eEmail = new MicroElement (sNamespaceURI, sTagName);
     if (aEmail.getType () != null)
@@ -44,8 +44,8 @@ public final class ExtendedEmailAddressMicroTypeConverter implements IMicroTypeC
     return eEmail;
   }
 
-  @Nonnull
-  public ExtendedEmailAddress convertToNative (@Nonnull final IMicroElement eEmail)
+  @NonNull
+  public ExtendedEmailAddress convertToNative (@NonNull final IMicroElement eEmail)
   {
     final EEmailAddressType eType = EEmailAddressType.getFromIDOrNull (eEmail.getAttributeValue (ATTR_TYPE));
     final String sAddress = eEmail.getAttributeValue (ATTR_ADDRESS);

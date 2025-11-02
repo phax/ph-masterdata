@@ -30,6 +30,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,9 +58,6 @@ import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.MicroDocument;
 import com.helger.xml.microdom.serialize.MicroWriter;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class MainReadPostalCodeListExcel
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainReadPostalCodeListExcel.class);
@@ -74,10 +73,10 @@ public class MainReadPostalCodeListExcel
     private final List <String> m_aFormats;
     private final String m_sNote;
 
-    public Item (@Nonnull @Nonempty final String sCountry,
+    public Item (@NonNull @Nonempty final String sCountry,
                  @Nullable final LocalDate aValidFrom,
-                 @Nonnull @Nonempty final String sISO,
-                 @Nonnull @Nonempty final List <String> aFormats,
+                 @NonNull @Nonempty final String sISO,
+                 @NonNull @Nonempty final List <String> aFormats,
                  @Nullable final String sNote)
     {
       ValueEnforcer.notEmpty (sCountry, "country");
@@ -90,7 +89,7 @@ public class MainReadPostalCodeListExcel
       m_sNote = sNote;
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getCountry ()
     {
@@ -114,14 +113,14 @@ public class MainReadPostalCodeListExcel
       m_aValidTo = aValidTo;
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getISO ()
     {
       return m_sISO;
     }
 
-    @Nonnull
+    @NonNull
     @ReturnsImmutableObject
     public List <String> getFormats ()
     {

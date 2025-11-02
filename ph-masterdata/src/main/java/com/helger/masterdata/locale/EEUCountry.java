@@ -20,15 +20,15 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.locale.country.CountryCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Enumeration with all countries that are part of the EU.
@@ -79,7 +79,7 @@ public enum EEUCountry implements IHasID <String>
    * @param aLeaveDate
    *        The date when the country left the EU. May be <code>null</code>.
    */
-  EEUCountry (@Nonnull @Nonempty final String sCountryCode, @Nonnull final LocalDate aJoinDate, @Nullable final LocalDate aLeaveDate)
+  EEUCountry (@NonNull @Nonempty final String sCountryCode, @NonNull final LocalDate aJoinDate, @Nullable final LocalDate aLeaveDate)
   {
     m_sCountryCode = sCountryCode;
     m_aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
@@ -89,27 +89,27 @@ public enum EEUCountry implements IHasID <String>
     m_aLeaveDate = aLeaveDate;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
     return m_sCountryCode;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCountryCode ()
   {
     return m_sCountryCode;
   }
 
-  @Nonnull
+  @NonNull
   public Locale getCountry ()
   {
     return m_aCountry;
   }
 
-  @Nonnull
+  @NonNull
   public LocalDate getJoinDate ()
   {
     return m_aJoinDate;
@@ -151,7 +151,7 @@ public enum EEUCountry implements IHasID <String>
    *         time, <code>false</code> if not.
    * @since 6.1.9
    */
-  public boolean isInEUAt (@Nonnull final LocalDate aDate)
+  public boolean isInEUAt (@NonNull final LocalDate aDate)
   {
     ValueEnforcer.notNull (aDate, "Date");
     if (aDate.isBefore (m_aJoinDate))
@@ -190,7 +190,7 @@ public enum EEUCountry implements IHasID <String>
    *         provided point in time.
    * @since 6.1.9
    */
-  public static boolean isEUCountryAt (@Nullable final Locale aLocale, @Nonnull final LocalDate aDate)
+  public static boolean isEUCountryAt (@Nullable final Locale aLocale, @NonNull final LocalDate aDate)
   {
     final EEUCountry eCountry = getFromLocaleOrNull (aLocale);
     return eCountry != null && eCountry.isInEUAt (aDate);

@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.company;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.type.ITypedObject;
 import com.helger.collection.commons.ICommonsCollection;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base interface representing a read-only company.
@@ -54,7 +54,7 @@ public interface ICompany extends ITypedObject <String>
    * @return A collection of all sites belonging to this company. Includes both
    *         virtual and non-virtual sites.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsCollection <? extends ICompanySite> getAllSites ();
 
@@ -71,14 +71,14 @@ public interface ICompany extends ITypedObject <String>
   /**
    * @return A collection of all non-virtual sites belonging to this company.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsCollection <? extends ICompanySite> getAllPhysicalSites ();
 
   /**
    * @return A collection of all virtual sites belonging to this company.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsCollection <? extends ICompanySite> getAllVirtualSites ();
 

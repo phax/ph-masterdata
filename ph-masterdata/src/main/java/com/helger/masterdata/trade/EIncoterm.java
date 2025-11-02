@@ -18,13 +18,13 @@ package com.helger.masterdata.trade;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Possible delivery terms based on Incoterms.<br>
@@ -53,21 +53,21 @@ public enum EIncoterm implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final IHasDisplayText m_aName;
 
-  EIncoterm (@Nonnull @Nonempty final String sID, @Nonnull final EIncotermName eDeliveryTermName)
+  EIncoterm (@NonNull @Nonempty final String sID, @NonNull final EIncotermName eDeliveryTermName)
   {
     m_sID = sID;
     m_aName = eDeliveryTermName;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
     return m_sID;
   }
 
-  @Nonnull
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  @NonNull
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale) + " (" + m_sID + ')';
   }

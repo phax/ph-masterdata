@@ -19,6 +19,9 @@ package com.helger.masterdata.vat;
 import java.math.BigDecimal;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.equals.EqualsHelper;
@@ -26,9 +29,6 @@ import com.helger.base.id.IHasID;
 import com.helger.base.numeric.BigHelper;
 import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Defines a single VAT item valid within a country.
@@ -41,7 +41,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
   /**
    * @return The non-<code>null</code> type of this item.
    */
-  @Nonnull
+  @NonNull
   EVATItemType getType ();
 
   /**
@@ -64,7 +64,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
   /**
    * @return The percentage of this VAT type. Must be between 0 and 100.
    */
-  @Nonnull
+  @NonNull
   @Nonnegative
   BigDecimal getPercentage ();
 
@@ -100,7 +100,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
    * @return The factor (e.g. 0.2 for 20% or 0.5 for 50%). Always &ge; 0 (for 0% VAT) and &le; 1
    *         (for 100% VAT) (equals <code>getPercentage() / 100</code>)
    */
-  @Nonnull
+  @NonNull
   @Nonnegative
   BigDecimal getPercentageFactor ();
 
@@ -111,7 +111,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
    *         <code>1 + getPercentageFactor()</code> which in turn is
    *         <code>1 + getPercentage() / 100</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonnegative
   BigDecimal getMultiplicationFactorNetToGross ();
 
@@ -123,6 +123,6 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
   /**
    * @return The validity period of this item. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   ILocalDatePeriod getPeriod ();
 }

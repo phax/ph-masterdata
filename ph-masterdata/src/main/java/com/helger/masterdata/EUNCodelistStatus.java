@@ -18,15 +18,15 @@ package com.helger.masterdata;
 
 import java.util.Collection;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.base.string.StringHelper;
 import com.helger.base.string.StringImplode;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents the status of single elements within UN code lists.
@@ -46,13 +46,13 @@ public enum EUNCodelistStatus implements IHasID <String>
   private final String m_sID;
   private final char m_cText;
 
-  EUNCodelistStatus (@Nonnull @Nonempty final String sID, final char cText)
+  EUNCodelistStatus (@NonNull @Nonempty final String sID, final char cText)
   {
     m_sID = sID;
     m_cText = cText;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -66,7 +66,7 @@ public enum EUNCodelistStatus implements IHasID <String>
    *        The status string to be parsed. May be <code>null</code> or empty.
    * @return An array with one {@link #UNCHANGED} element if the passed input string is empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public static ICommonsList <EUNCodelistStatus> getFromTextOrUnchanged (@Nullable final String sStatus)
   {
@@ -90,8 +90,8 @@ public enum EUNCodelistStatus implements IHasID <String>
    *        The status array. May not be <code>null</code>.
    * @return The non-<code>null</code> String of all passed status elements.
    */
-  @Nonnull
-  public static String getAsString (@Nonnull final Collection <EUNCodelistStatus> aStatus)
+  @NonNull
+  public static String getAsString (@NonNull final Collection <EUNCodelistStatus> aStatus)
   {
     return StringImplode.getImplodedMapped (',', aStatus, EUNCodelistStatus::getID);
   }

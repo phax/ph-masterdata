@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
@@ -34,8 +36,6 @@ import com.helger.masterdata.currency.PerCurrencySettings;
 import com.helger.masterdata.currencyvalue.CurrencyValue;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Default implementation of the {@link IMutablePrice} interface.
@@ -52,7 +52,7 @@ public class Price implements IMutablePrice, Serializable
   public Price ()
   {}
 
-  public Price (@Nonnull final IPrice aPrice)
+  public Price (@NonNull final IPrice aPrice)
   {
     this (aPrice.getNetAmount (), aPrice.getVATItem ());
   }
@@ -67,9 +67,9 @@ public class Price implements IMutablePrice, Serializable
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
    */
-  public Price (@Nonnull final ECurrency eCurrency,
-                @Nonnull final BigDecimal aNetAmount,
-                @Nonnull final IVATItem aVATItem)
+  public Price (@NonNull final ECurrency eCurrency,
+                @NonNull final BigDecimal aNetAmount,
+                @NonNull final IVATItem aVATItem)
   {
     this (new CurrencyValue (eCurrency, aNetAmount), aVATItem);
   }
@@ -82,20 +82,20 @@ public class Price implements IMutablePrice, Serializable
    * @param aVATItem
    *        The VAT item to use. May not be <code>null</code>.
    */
-  public Price (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
+  public Price (@NonNull final ICurrencyValue aNetAmount, @NonNull final IVATItem aVATItem)
   {
     setNetAmount (aNetAmount);
     setVATItem (aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   public final CurrencyValue getNetAmount ()
   {
     return m_aNetAmount;
   }
 
-  @Nonnull
-  public final EChange setNetAmount (@Nonnull final ICurrencyValue aNetAmount)
+  @NonNull
+  public final EChange setNetAmount (@NonNull final ICurrencyValue aNetAmount)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 
@@ -106,14 +106,14 @@ public class Price implements IMutablePrice, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public final IVATItem getVATItem ()
   {
     return m_aVATItem;
   }
 
-  @Nonnull
-  public final EChange setVATItem (@Nonnull final IVATItem aVATItem)
+  @NonNull
+  public final EChange setVATItem (@NonNull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
@@ -123,68 +123,68 @@ public class Price implements IMutablePrice, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public final ECurrency getCurrency ()
   {
     return m_aNetAmount.getCurrency ();
   }
 
-  @Nonnull
-  public final EChange setCurrency (@Nonnull final ECurrency eCurrency)
+  @NonNull
+  public final EChange setCurrency (@NonNull final ECurrency eCurrency)
   {
     return m_aNetAmount.setCurrency (eCurrency);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public Price getAdded (@Nonnull final BigDecimal aValue)
+  public Price getAdded (@NonNull final BigDecimal aValue)
   {
     return new Price (m_aNetAmount.getAdded (aValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public Price getAdded (final long nValue)
   {
     return new Price (m_aNetAmount.getAdded (nValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public Price getSubtracted (@Nonnull final BigDecimal aValue)
+  public Price getSubtracted (@NonNull final BigDecimal aValue)
   {
     return new Price (m_aNetAmount.getSubtracted (aValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public Price getSubtracted (final long nValue)
   {
     return new Price (m_aNetAmount.getSubtracted (nValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public Price getMultiplied (@Nonnull final BigDecimal aValue)
+  public Price getMultiplied (@NonNull final BigDecimal aValue)
   {
     return new Price (m_aNetAmount.getMultiplied (aValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public Price getMultiplied (final long nValue)
   {
     return new Price (m_aNetAmount.getMultiplied (nValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public Price getDivided (@Nonnull final BigDecimal aValue)
+  public Price getDivided (@NonNull final BigDecimal aValue)
   {
     return new Price (m_aNetAmount.getDivided (aValue), m_aVATItem);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public Price getDivided (final long nValue)
   {
@@ -227,10 +227,10 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromNetAmount (@Nonnull final ECurrency eCurrency,
-                                           @Nonnull final BigDecimal aNetAmount,
-                                           @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public static Price createFromNetAmount (@NonNull final ECurrency eCurrency,
+                                           @NonNull final BigDecimal aNetAmount,
+                                           @NonNull final IVATItem aVATItem)
   {
     return new Price (eCurrency, aNetAmount, aVATItem);
   }
@@ -244,8 +244,8 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromNetAmount (@Nonnull final ICurrencyValue aNetAmount, @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public static Price createFromNetAmount (@NonNull final ICurrencyValue aNetAmount, @NonNull final IVATItem aVATItem)
   {
     return new Price (aNetAmount, aVATItem);
   }
@@ -261,10 +261,10 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ECurrency eCurrency,
-                                             @Nonnull final BigDecimal aGrossAmount,
-                                             @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public static Price createFromGrossAmount (@NonNull final ECurrency eCurrency,
+                                             @NonNull final BigDecimal aGrossAmount,
+                                             @NonNull final IVATItem aVATItem)
   {
     final PerCurrencySettings aPCS = CurrencyHelper.getSettings (eCurrency);
     return createFromGrossAmount (eCurrency, aGrossAmount, aVATItem, aPCS.getScale (), aPCS.getRoundingMode ());
@@ -286,12 +286,12 @@ public class Price implements IMutablePrice, Serializable
    *        The rounding mode to be used to create a valid result.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ECurrency eCurrency,
-                                             @Nonnull final BigDecimal aGrossAmount,
-                                             @Nonnull final IVATItem aVATItem,
+  @NonNull
+  public static Price createFromGrossAmount (@NonNull final ECurrency eCurrency,
+                                             @NonNull final BigDecimal aGrossAmount,
+                                             @NonNull final IVATItem aVATItem,
                                              @Nonnegative final int nScale,
-                                             @Nonnull final RoundingMode eRoundingMode)
+                                             @NonNull final RoundingMode eRoundingMode)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
@@ -313,9 +313,9 @@ public class Price implements IMutablePrice, Serializable
    *        The VAT item to use. May not be <code>null</code>.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
-                                             @Nonnull final IVATItem aVATItem)
+  @NonNull
+  public static Price createFromGrossAmount (@NonNull final ICurrencyValue aGrossAmount,
+                                             @NonNull final IVATItem aVATItem)
   {
     ValueEnforcer.notNull (aGrossAmount, "GrossAmount");
 
@@ -338,11 +338,11 @@ public class Price implements IMutablePrice, Serializable
    *        The rounding mode to be used to create a valid result.
    * @return The created {@link Price}
    */
-  @Nonnull
-  public static Price createFromGrossAmount (@Nonnull final ICurrencyValue aGrossAmount,
-                                             @Nonnull final IVATItem aVATItem,
+  @NonNull
+  public static Price createFromGrossAmount (@NonNull final ICurrencyValue aGrossAmount,
+                                             @NonNull final IVATItem aVATItem,
                                              @Nonnegative final int nScale,
-                                             @Nonnull final RoundingMode eRoundingMode)
+                                             @NonNull final RoundingMode eRoundingMode)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
 

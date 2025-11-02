@@ -16,11 +16,11 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableObject;
 import com.helger.collection.commons.ICommonsOrderedMap;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Read only interface of the NUTS manager
@@ -30,7 +30,7 @@ import jakarta.annotation.Nullable;
  */
 public interface INutsManager
 {
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   ICommonsOrderedMap <String, NutsItem> nutsItems ();
 

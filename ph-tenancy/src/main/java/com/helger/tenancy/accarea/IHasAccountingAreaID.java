@@ -16,10 +16,10 @@
  */
 package com.helger.tenancy.accarea;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Base interface for objects that have an accounting area ID.

@@ -18,11 +18,11 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.state.EChange;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * The writable version of a single price graduation item.
@@ -40,7 +40,7 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
    * @return {@link EChange#CHANGED} if the value changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
-  @Nonnull
+  @NonNull
   EChange setMinimumQuantity (@Nonnegative int nMinimumQuantity);
 
   /**
@@ -51,6 +51,6 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
    * @return {@link EChange#CHANGED} if the value changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
-  @Nonnull
-  EChange setUnitNetAmount (@Nonnull BigDecimal aAmount);
+  @NonNull
+  EChange setUnitNetAmount (@NonNull BigDecimal aAmount);
 }

@@ -20,13 +20,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.cache.regex.RegExCache;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * This class contains a single postal code format for a certain country.
@@ -50,7 +50,7 @@ public class PostalCodeFormat implements Serializable
    * @param aElements
    *        The elements this postal code format is made up
    */
-  public PostalCodeFormat (@Nonnull @Nonempty final String sISO, @Nonnull @Nonempty final List <EPostalCodeFormatElement> aElements)
+  public PostalCodeFormat (@NonNull @Nonempty final String sISO, @NonNull @Nonempty final List <EPostalCodeFormatElement> aElements)
   {
     ValueEnforcer.notEmpty (sISO, "ISO");
     ValueEnforcer.notEmpty (aElements, "Elements");
@@ -80,7 +80,7 @@ public class PostalCodeFormat implements Serializable
   /**
    * @return The format definition string. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getFormatDefinitionString ()
   {
@@ -91,7 +91,7 @@ public class PostalCodeFormat implements Serializable
    * @return The non-<code>null</code> ISO country string, to which this format
    *         belongs.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getISO ()
   {
@@ -102,7 +102,7 @@ public class PostalCodeFormat implements Serializable
    * @return The regular expression pattern used to parse postal codes. Never
    *         <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getRegExPattern ()
   {
@@ -112,7 +112,7 @@ public class PostalCodeFormat implements Serializable
   /**
    * @return The example string that would match this format.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getExample ()
   {

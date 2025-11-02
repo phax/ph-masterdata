@@ -16,6 +16,9 @@
  */
 package com.helger.tenancy.accarea;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -23,9 +26,6 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.tenancy.tenant.AbstractHasTenant;
 import com.helger.tenancy.tenant.ITenant;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract implementation of {@link IHasAccountingArea} based on
@@ -38,18 +38,18 @@ public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHa
 {
   private final IAccountingArea m_aAccountingArea;
 
-  protected AbstractHasAccountingAreaOptionalObject (@Nonnull final IAccountingAreaObject aOther)
+  protected AbstractHasAccountingAreaOptionalObject (@NonNull final IAccountingAreaObject aOther)
   {
     super (aOther.getTenant ());
     m_aAccountingArea = aOther.getAccountingArea ();
   }
 
-  public AbstractHasAccountingAreaOptionalObject (@Nonnull final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaOptionalObject (@NonNull final IAccountingArea aAccountingArea)
   {
     this (aAccountingArea.getTenant (), aAccountingArea);
   }
 
-  public AbstractHasAccountingAreaOptionalObject (@Nonnull final ITenant aTenant, @Nullable final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaOptionalObject (@NonNull final ITenant aTenant, @Nullable final IAccountingArea aAccountingArea)
   {
     super (aTenant);
     ValueEnforcer.notNull (aAccountingArea, "AccountingArea");

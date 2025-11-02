@@ -18,12 +18,12 @@ package com.helger.masterdata.address;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public enum EPostalAddressType implements IPostalAddressType
 {
@@ -36,13 +36,13 @@ public enum EPostalAddressType implements IPostalAddressType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  EPostalAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EPostalAddressText eText)
+  EPostalAddressType (@NonNull @Nonempty final String sID, @NonNull final EPostalAddressText eText)
   {
     m_sID = sID;
     m_aText = eText;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -50,7 +50,7 @@ public enum EPostalAddressType implements IPostalAddressType
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aText.getDisplayText (aContentLocale);
   }

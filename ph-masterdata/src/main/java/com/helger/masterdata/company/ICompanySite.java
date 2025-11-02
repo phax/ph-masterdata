@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.company;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.type.ITypedObject;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents a single location of a company.
@@ -34,7 +34,7 @@ public interface ICompanySite extends ITypedObject <String>
   /**
    * @return The company to which the site belongs
    */
-  @Nonnull
+  @NonNull
   ICompany getCompany ();
 
   /**
@@ -74,24 +74,24 @@ public interface ICompanySite extends ITypedObject <String>
   /**
    * @return The address of this company site.
    */
-  @Nonnull
+  @NonNull
   IPostalAddress getAddress ();
 
   /**
    * @return The default telephone number of the company site.
    */
-  @Nonnull
+  @NonNull
   ITelephoneNumber getDefaultTelNo ();
 
   /**
    * @return The default fax number of the company site.
    */
-  @Nonnull
+  @NonNull
   ITelephoneNumber getDefaultFaxNo ();
 
   /**
    * @return The default email address of the company site.
    */
-  @Nonnull
+  @NonNull
   IExtendedEmailAddress getDefaultEmailAddress ();
 }

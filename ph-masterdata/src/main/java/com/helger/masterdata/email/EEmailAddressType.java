@@ -18,12 +18,12 @@ package com.helger.masterdata.email;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public enum EEmailAddressType implements IEmailAddressType
 {
@@ -36,20 +36,20 @@ public enum EEmailAddressType implements IEmailAddressType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  EEmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final EEmailAddressText eText)
+  EEmailAddressType (@NonNull @Nonempty final String sID, @NonNull final EEmailAddressText eText)
   {
     m_sID = sID;
     m_aText = eText;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aText.getDisplayText (aContentLocale);
   }

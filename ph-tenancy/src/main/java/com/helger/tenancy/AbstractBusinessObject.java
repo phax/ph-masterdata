@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableObject;
@@ -29,9 +32,6 @@ import com.helger.base.hashcode.IHashCodeGenerator;
 import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.typeconvert.collection.StringMap;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract base implementation of {@link IBusinessObject} that handles everything except
@@ -53,7 +53,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
   // Status vars
   private transient int m_nHashCode = IHashCodeGenerator.ILLEGAL_HASHCODE;
 
-  public AbstractBusinessObject (@Nonnull final IBusinessObject aObject)
+  public AbstractBusinessObject (@NonNull final IBusinessObject aObject)
   {
     this (aObject.getID (),
           aObject.getCreationDateTime (),
@@ -65,7 +65,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
           aObject.attrs ());
   }
 
-  public AbstractBusinessObject (@Nonnull @Nonempty final String sID,
+  public AbstractBusinessObject (@NonNull @Nonempty final String sID,
                                  @Nullable final LocalDateTime aCreationDT,
                                  @Nullable final String sCreationUserID,
                                  @Nullable final LocalDateTime aLastModificationDT,
@@ -84,7 +84,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
     m_aAttrs.putAllIfNotNull (aAttrs);
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public final String getID ()
   {
@@ -115,8 +115,8 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
     return m_sLastModificationUserID;
   }
 
-  public final void setLastModification (@Nonnull final LocalDateTime aLastModificationDT,
-                                         @Nonnull @Nonempty final String sLastModificationUserID)
+  public final void setLastModification (@NonNull final LocalDateTime aLastModificationDT,
+                                         @NonNull @Nonempty final String sLastModificationUserID)
   {
     ValueEnforcer.notNull (aLastModificationDT, "LastModificationDT");
     ValueEnforcer.notEmpty (sLastModificationUserID, "LastModificationUserID");
@@ -140,9 +140,9 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
     return m_sDeletionUserID;
   }
 
-  @Nonnull
-  public final EChange setDeletion (@Nonnull final LocalDateTime aDeletionDT,
-                                    @Nonnull @Nonempty final String sDeletionUserID)
+  @NonNull
+  public final EChange setDeletion (@NonNull final LocalDateTime aDeletionDT,
+                                    @NonNull @Nonempty final String sDeletionUserID)
   {
     ValueEnforcer.notNull (aDeletionDT, "DeletionDT");
     ValueEnforcer.notEmpty (sDeletionUserID, "DeletionUserID");
@@ -158,9 +158,9 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
     return EChange.CHANGED;
   }
 
-  @Nonnull
-  public final EChange setUndeletion (@Nonnull final LocalDateTime aUndeletionDT,
-                                      @Nonnull @Nonempty final String sUndeletionUserID)
+  @NonNull
+  public final EChange setUndeletion (@NonNull final LocalDateTime aUndeletionDT,
+                                      @NonNull @Nonempty final String sUndeletionUserID)
   {
     ValueEnforcer.notNull (aUndeletionDT, "UndeletionDT");
     ValueEnforcer.notEmpty (sUndeletionUserID, "UndeletionUserID");
@@ -179,7 +179,7 @@ public abstract class AbstractBusinessObject implements IBusinessObject, Seriali
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public final StringMap attrs ()
   {

@@ -21,6 +21,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
@@ -33,9 +36,6 @@ import com.helger.base.numeric.BigHelper;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.datetime.period.LocalDatePeriod;
 import com.helger.text.locale.country.CountryCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Default implementation of {@link IVATItem}.
@@ -54,10 +54,10 @@ public class VATItem implements IVATItem, Serializable
   private final boolean m_bDeprecated;
   private final LocalDatePeriod m_aPeriod;
 
-  public VATItem (@Nonnull @Nonempty final String sID,
+  public VATItem (@NonNull @Nonempty final String sID,
                   @Nullable final Locale aCountry,
-                  @Nonnull final EVATItemType eType,
-                  @Nonnull @Nonnegative final BigDecimal aPercentage,
+                  @NonNull final EVATItemType eType,
+                  @NonNull @Nonnegative final BigDecimal aPercentage,
                   final boolean bDeprecated,
                   @Nullable final LocalDate aValidFrom,
                   @Nullable final LocalDate aValidTo)
@@ -83,7 +83,7 @@ public class VATItem implements IVATItem, Serializable
     m_aPeriod = new LocalDatePeriod (aValidFrom, aValidTo);
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -96,27 +96,27 @@ public class VATItem implements IVATItem, Serializable
     return m_aCountry;
   }
 
-  @Nonnull
+  @NonNull
   public EVATItemType getType ()
   {
     return m_eType;
   }
 
-  @Nonnull
+  @NonNull
   @Nonnegative
   public BigDecimal getPercentage ()
   {
     return m_aPercentage;
   }
 
-  @Nonnull
+  @NonNull
   @Nonnegative
   public BigDecimal getPercentageFactor ()
   {
     return m_aPercentageFactor;
   }
 
-  @Nonnull
+  @NonNull
   @Nonnegative
   public BigDecimal getMultiplicationFactorNetToGross ()
   {
@@ -124,7 +124,7 @@ public class VATItem implements IVATItem, Serializable
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return EVATItemText.VAT_PERC.getDisplayTextWithArgs (aContentLocale, m_aPercentage);
   }
@@ -134,7 +134,7 @@ public class VATItem implements IVATItem, Serializable
     return m_bDeprecated;
   }
 
-  @Nonnull
+  @NonNull
   public LocalDatePeriod getPeriod ()
   {
     return m_aPeriod;
@@ -182,10 +182,10 @@ public class VATItem implements IVATItem, Serializable
                                        .getToString ();
   }
 
-  @Nonnull
+  @NonNull
   public static VATItem createTestItem (@Nullable final Locale aCountry,
-                                        @Nonnull final EVATItemType eType,
-                                        @Nonnull @Nonnegative final BigDecimal aPercentage)
+                                        @NonNull final EVATItemType eType,
+                                        @NonNull @Nonnegative final BigDecimal aPercentage)
   {
     final String sID = (aCountry != null ? aCountry.getCountry ().toLowerCase (Locale.US) : "zero") +
                        "." +

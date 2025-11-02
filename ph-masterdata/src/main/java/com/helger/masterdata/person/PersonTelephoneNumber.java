@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.person;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
@@ -23,9 +26,6 @@ import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.telephone.ITelephoneNumber;
 import com.helger.masterdata.telephone.ITelephoneType;
 import com.helger.masterdata.telephone.TelephoneNumber;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Person specific implementation
@@ -39,18 +39,18 @@ public class PersonTelephoneNumber extends TelephoneNumber
   public PersonTelephoneNumber ()
   {}
 
-  public PersonTelephoneNumber (@Nonnull final Person aOwner)
+  public PersonTelephoneNumber (@NonNull final Person aOwner)
   {
     setOwner (aOwner);
   }
 
-  public PersonTelephoneNumber (@Nonnull final Person aOwner, @Nonnull final ITelephoneNumber aBase)
+  public PersonTelephoneNumber (@NonNull final Person aOwner, @NonNull final ITelephoneNumber aBase)
   {
     super (aBase);
     setOwner (aOwner);
   }
 
-  public PersonTelephoneNumber (@Nonnull final Person aOwner,
+  public PersonTelephoneNumber (@NonNull final Person aOwner,
                                 @Nullable final ITelephoneType aType,
                                 @Nullable final String sCountryCode,
                                 @Nullable final String sAreaCode,
@@ -67,7 +67,7 @@ public class PersonTelephoneNumber extends TelephoneNumber
     return m_aOwner;
   }
 
-  public final void setOwner (@Nonnull final Person aOwner)
+  public final void setOwner (@NonNull final Person aOwner)
   {
     ValueEnforcer.notNull (aOwner, "Owner");
     m_aOwner = aOwner;

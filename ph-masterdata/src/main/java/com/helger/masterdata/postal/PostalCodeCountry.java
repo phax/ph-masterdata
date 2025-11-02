@@ -18,6 +18,9 @@ package com.helger.masterdata.postal;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.NotThreadSafe;
@@ -27,9 +30,6 @@ import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains postal code information for a single country.
@@ -44,19 +44,19 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
   private final ICommonsList <String> m_aSpecificPostalCodes = new CommonsArrayList <> ();
   private String m_sNote;
 
-  public PostalCodeCountry (@Nonnull @Nonempty final String sISO)
+  public PostalCodeCountry (@NonNull @Nonempty final String sISO)
   {
     m_sISO = ValueEnforcer.notEmpty (sISO, "ISO");
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getISO ()
   {
     return m_sISO;
   }
 
-  void addFormat (@Nonnull final PostalCodeFormat aFormat)
+  void addFormat (@NonNull final PostalCodeFormat aFormat)
   {
     ValueEnforcer.notNull (aFormat, "Format");
     m_aFormats.add (aFormat);
@@ -68,7 +68,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
     return m_aFormats.size ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <PostalCodeFormat> getAllFormats ()
   {
@@ -81,7 +81,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
     return m_aFormats.getAtIndex (nIndex);
   }
 
-  void addSpecificPostalCode (@Nonnull @Nonempty final String sSpecificPostalCode)
+  void addSpecificPostalCode (@NonNull @Nonempty final String sSpecificPostalCode)
   {
     ValueEnforcer.notEmpty (sSpecificPostalCode, "SpecificPostalCode");
     ValueEnforcer.isTrue (isValidPostalCode (sSpecificPostalCode),
@@ -89,7 +89,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
     m_aSpecificPostalCodes.add (sSpecificPostalCode);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <String> getAllSpecificPostalCodes ()
   {
@@ -102,7 +102,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
     return m_aSpecificPostalCodes.size ();
   }
 
-  void setNote (@Nonnull @Nonempty final String sNote)
+  void setNote (@NonNull @Nonempty final String sNote)
   {
     ValueEnforcer.notEmpty (sNote, "Note");
     m_sNote = sNote;
@@ -124,7 +124,7 @@ public class PostalCodeCountry implements IPostalCodeCountry, Serializable
     return m_aFormats.isEmpty ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <String> getAllExamples ()
   {

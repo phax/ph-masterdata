@@ -19,6 +19,9 @@ package com.helger.masterdata.locale;
 import java.util.Locale;
 import java.util.function.Predicate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.id.IHasID;
@@ -27,9 +30,6 @@ import com.helger.collection.CollectionFind;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsSortedSet;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Enumeration with all continents
@@ -50,13 +50,13 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
   private final String m_sID;
   private final EContinentName m_aName;
 
-  EContinent (@Nonnull @Nonempty final String sID, @Nonnull final EContinentName aName)
+  EContinent (@NonNull @Nonempty final String sID, @NonNull final EContinentName aName)
   {
     m_sID = sID;
     m_aName = aName;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -64,7 +64,7 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);
   }
@@ -75,15 +75,15 @@ public enum EContinent implements IHasID <String>, IHasDisplayText
     return EnumHelper.getFromIDOrNull (EContinent.class, sID);
   }
 
-  @Nonnull
-  public static Predicate <Locale> filterLocaleCountryOnContinent (@Nonnull final EContinent eContinent)
+  @NonNull
+  public static Predicate <Locale> filterLocaleCountryOnContinent (@NonNull final EContinent eContinent)
   {
     ValueEnforcer.notNull (eContinent, "Continent");
     return aLocale -> CollectionFind.contains (ContinentHelper.getContinentsOfCountry (aLocale), eContinent);
   }
 
-  @Nonnull
-  public static Predicate <Locale> filterLocaleCountryOnAnyContinent (@Nonnull @Nonempty final EContinent... aContinents)
+  @NonNull
+  public static Predicate <Locale> filterLocaleCountryOnAnyContinent (@NonNull @Nonempty final EContinent... aContinents)
   {
     ValueEnforcer.notEmptyNoNullValue (aContinents, "Continents");
     return aLocale -> {

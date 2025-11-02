@@ -16,7 +16,7 @@
  */
 package com.helger.tenancy.tenant;
 
-import jakarta.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Resolver for {@link ITenant} objects.

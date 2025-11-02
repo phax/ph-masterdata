@@ -18,8 +18,8 @@ package com.helger.masterdata.vat;
 
 import java.util.Locale;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Interface for objects having VAT items.
@@ -48,5 +48,5 @@ public interface IVATItemProvider
    * @return <code>null</code> if no such VAT type exists.
    */
   @Nullable
-  IVATItem getVATItemOfID (@Nonnull Locale aCountry, @Nullable String sID);
+  IVATItem getVATItemOfID (@NonNull Locale aCountry, @Nullable String sID);
 }

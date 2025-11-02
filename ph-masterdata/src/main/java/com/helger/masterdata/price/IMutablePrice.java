@@ -18,14 +18,14 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.currencyvalue.IMutableCurrencyValue;
 import com.helger.masterdata.vat.IVATItem;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Mutable base interface of a price.
@@ -34,7 +34,7 @@ import jakarta.annotation.Nonnull;
  */
 public interface IMutablePrice extends IPrice
 {
-  @Nonnull
+  @NonNull
   IMutableCurrencyValue getNetAmount ();
 
   /**
@@ -44,8 +44,8 @@ public interface IMutablePrice extends IPrice
    *        The new value. May not be <code>null</code>.
    * @return {@link EChange}
    */
-  @Nonnull
-  EChange setNetAmount (@Nonnull ICurrencyValue aValue);
+  @NonNull
+  EChange setNetAmount (@NonNull ICurrencyValue aValue);
 
   /**
    * Change the VAT type of this price.
@@ -54,8 +54,8 @@ public interface IMutablePrice extends IPrice
    *        The new VAT type. May not be <code>null</code>.
    * @return {@link EChange}
    */
-  @Nonnull
-  EChange setVATItem (@Nonnull IVATItem aVATType);
+  @NonNull
+  EChange setVATItem (@NonNull IVATItem aVATType);
 
   /**
    * Set the currency of the price.
@@ -64,8 +64,8 @@ public interface IMutablePrice extends IPrice
    *        The new currency to use. May not be <code>null</code>.
    * @return {@link EChange}
    */
-  @Nonnull
-  EChange setCurrency (@Nonnull ECurrency eCurrency);
+  @NonNull
+  EChange setCurrency (@NonNull ECurrency eCurrency);
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
@@ -74,9 +74,9 @@ public interface IMutablePrice extends IPrice
    *        The value to add.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutablePrice getAdded (@Nonnull BigDecimal aValue);
+  IMutablePrice getAdded (@NonNull BigDecimal aValue);
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
@@ -85,7 +85,7 @@ public interface IMutablePrice extends IPrice
    *        The value to add.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IMutablePrice getAdded (long nValue);
 
@@ -96,9 +96,9 @@ public interface IMutablePrice extends IPrice
    *        The value to subtract.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutablePrice getSubtracted (@Nonnull BigDecimal aValue);
+  IMutablePrice getSubtracted (@NonNull BigDecimal aValue);
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
@@ -107,7 +107,7 @@ public interface IMutablePrice extends IPrice
    *        The value to subtract.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IMutablePrice getSubtracted (long nValue);
 
@@ -118,9 +118,9 @@ public interface IMutablePrice extends IPrice
    *        The value to multiply with.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutablePrice getMultiplied (@Nonnull BigDecimal aValue);
+  IMutablePrice getMultiplied (@NonNull BigDecimal aValue);
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
@@ -129,7 +129,7 @@ public interface IMutablePrice extends IPrice
    *        The value to multiply with.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IMutablePrice getMultiplied (long nValue);
 
@@ -140,9 +140,9 @@ public interface IMutablePrice extends IPrice
    *        The value to divide through.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutablePrice getDivided (@Nonnull BigDecimal aValue);
+  IMutablePrice getDivided (@NonNull BigDecimal aValue);
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
@@ -151,7 +151,7 @@ public interface IMutablePrice extends IPrice
    *        The value to divide through.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IMutablePrice getDivided (long nValue);
 }

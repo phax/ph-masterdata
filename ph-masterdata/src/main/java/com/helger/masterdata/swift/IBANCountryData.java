@@ -21,6 +21,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
@@ -35,9 +38,6 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.datetime.period.ILocalDatePeriod;
 import com.helger.datetime.period.LocalDatePeriod;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * The IBAN country data defines a list of elements that are contained within the IBAN number of
@@ -73,7 +73,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
                           @Nullable final String sFixedCheckDigits,
                           @Nullable final LocalDate aValidFrom,
                           @Nullable final LocalDate aValidTo,
-                          @Nonnull final List <IBANElement> aElements)
+                          @NonNull final List <IBANElement> aElements)
   {
     ValueEnforcer.notNull (aElements, "Elements");
     if (sFixedCheckDigits != null)
@@ -115,7 +115,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
     return m_aPattern;
   }
 
-  public boolean matchesPattern (@Nonnull final String sIBAN)
+  public boolean matchesPattern (@NonNull final String sIBAN)
   {
     if (m_aPattern == null)
       return true;
@@ -125,7 +125,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
   /**
    * @return An list of all IBAN elements for this country.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <IBANElement> getAllElements ()
   {
@@ -163,9 +163,9 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
    *        The IBAN number string to parse. May not be <code>null</code>.
    * @return The list of parsed elements.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  public ICommonsList <IBANElementValue> parseToElementValues (@Nonnull final String sIBAN)
+  public ICommonsList <IBANElementValue> parseToElementValues (@NonNull final String sIBAN)
   {
     ValueEnforcer.notNull (sIBAN, "IBANString");
 
@@ -195,9 +195,9 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
                                        .getToString ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  private static ICommonsList <IBANElement> _parseElements (@Nonnull final String sDesc)
+  private static ICommonsList <IBANElement> _parseElements (@NonNull final String sDesc)
   {
     final ICommonsList <IBANElement> aList = new CommonsArrayList <> ();
     // Always starts with the country code
@@ -241,7 +241,7 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
   }
 
   @Nullable
-  private static Pattern _parseLayout (@Nonnull @Nonempty final String sCountryCode,
+  private static Pattern _parseLayout (@NonNull @Nonempty final String sCountryCode,
                                        @Nonnegative final int nExpectedLength,
                                        @Nullable final String sFixedCheckDigits,
                                        @Nullable final String sLayout)
@@ -313,14 +313,14 @@ public class IBANCountryData implements ILocalDatePeriod, Serializable
    *        The string description of this country data. May not be <code>null</code>.
    * @return The parsed county data.
    */
-  @Nonnull
-  public static IBANCountryData createFromString (@Nonnull @Nonempty final String sCountryCode,
+  @NonNull
+  public static IBANCountryData createFromString (@NonNull @Nonempty final String sCountryCode,
                                                   @Nonnegative final int nExpectedLength,
                                                   @Nullable final String sLayout,
                                                   @Nullable final String sFixedCheckDigits,
                                                   @Nullable final LocalDate aValidFrom,
                                                   @Nullable final LocalDate aValidTo,
-                                                  @Nonnull final String sDesc)
+                                                  @NonNull final String sDesc)
   {
     ValueEnforcer.notEmpty (sDesc, "Desc");
     if (sDesc.length () < 4)

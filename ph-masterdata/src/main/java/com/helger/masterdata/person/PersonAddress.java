@@ -18,15 +18,15 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.address.PostalAddress;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Person specific implementation
@@ -40,12 +40,12 @@ public class PersonAddress extends PostalAddress
   public PersonAddress ()
   {}
 
-  public PersonAddress (@Nonnull final Person aOwner)
+  public PersonAddress (@NonNull final Person aOwner)
   {
     setOwner (aOwner);
   }
 
-  public PersonAddress (@Nonnull final Person aOwner, @Nonnull final IPostalAddress aBase, @Nonnull final Locale aSortLocale)
+  public PersonAddress (@NonNull final Person aOwner, @NonNull final IPostalAddress aBase, @NonNull final Locale aSortLocale)
   {
     super (aBase, aSortLocale);
     setOwner (aOwner);
@@ -57,7 +57,7 @@ public class PersonAddress extends PostalAddress
     return m_aOwner;
   }
 
-  public final void setOwner (@Nonnull final Person aOwner)
+  public final void setOwner (@NonNull final Person aOwner)
   {
     ValueEnforcer.notNull (aOwner, "Owner");
     m_aOwner = aOwner;

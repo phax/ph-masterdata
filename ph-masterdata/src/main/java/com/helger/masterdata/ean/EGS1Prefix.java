@@ -18,14 +18,14 @@ package com.helger.masterdata.ean;
 
 import java.util.function.Consumer;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsHashSet;
 import com.helger.collection.commons.ICommonsSet;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * GS1 company prefix<br>
@@ -172,9 +172,9 @@ public enum EGS1Prefix
   private final String m_sDescription;
   private final String m_sCountryCode;
 
-  EGS1Prefix (@Nonnull @Nonempty final String sFrom,
+  EGS1Prefix (@NonNull @Nonempty final String sFrom,
               @Nullable final String sTo,
-              @Nonnull @Nonempty final String sDescription,
+              @NonNull @Nonempty final String sDescription,
               @Nullable final String sCountryCode)
   {
     m_sFrom = sFrom;
@@ -183,7 +183,7 @@ public enum EGS1Prefix
     m_sCountryCode = sCountryCode;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getFrom ()
   {
@@ -207,7 +207,7 @@ public enum EGS1Prefix
     return m_sTo != null;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getDescription ()
   {
@@ -232,7 +232,7 @@ public enum EGS1Prefix
    *        The consumer to be invoked for all prefixes. May not be
    *        <code>null</code>.
    */
-  public void iterateAllPrefixes (@Nonnull final Consumer <String> aConsumer)
+  public void iterateAllPrefixes (@NonNull final Consumer <String> aConsumer)
   {
     if (m_sTo == null)
       aConsumer.accept (m_sFrom);

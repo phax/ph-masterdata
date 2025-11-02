@@ -19,6 +19,8 @@ package com.helger.masterdata.currencyvalue;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.enforce.ValueEnforcer;
@@ -29,8 +31,6 @@ import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.ECurrency;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * This class represents a single currency value as the combination of a value and a currency.
@@ -43,30 +43,30 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
   private ECurrency m_eCurrency;
   private BigDecimal m_aValue;
 
-  public CurrencyValue (@Nonnull final ICurrencyValue aCurrencyValue)
+  public CurrencyValue (@NonNull final ICurrencyValue aCurrencyValue)
   {
     this (aCurrencyValue.getCurrency (), aCurrencyValue.getValue ());
   }
 
-  public CurrencyValue (@Nonnull final ECurrency eCurrency)
+  public CurrencyValue (@NonNull final ECurrency eCurrency)
   {
     this (eCurrency, BigDecimal.ZERO);
   }
 
-  public CurrencyValue (@Nonnull final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
+  public CurrencyValue (@NonNull final ECurrency eCurrency, @NonNull final BigDecimal aValue)
   {
     setCurrency (eCurrency);
     setValue (aValue);
   }
 
-  @Nonnull
+  @NonNull
   public ECurrency getCurrency ()
   {
     return m_eCurrency;
   }
 
-  @Nonnull
-  public EChange setCurrency (@Nonnull final ECurrency eCurrency)
+  @NonNull
+  public EChange setCurrency (@NonNull final ECurrency eCurrency)
   {
     ValueEnforcer.notNull (eCurrency, "Currency");
 
@@ -76,14 +76,14 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public BigDecimal getValue ()
   {
     return m_aValue;
   }
 
-  @Nonnull
-  public EChange setValue (@Nonnull final BigDecimal aValue)
+  @NonNull
+  public EChange setValue (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
 
@@ -93,15 +93,15 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return EChange.CHANGED;
   }
 
-  public void addValue (@Nonnull final BigDecimal aValue)
+  public void addValue (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     m_aValue = m_aValue.add (aValue);
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public CurrencyValue getAdded (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getAdded (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (BigHelper.isEQ0 (aValue))
@@ -109,9 +109,9 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return new CurrencyValue (getCurrency (), getValue ().add (aValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public CurrencyValue getSubtracted (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getSubtracted (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (BigHelper.isEQ0 (aValue))
@@ -119,9 +119,9 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return new CurrencyValue (getCurrency (), getValue ().subtract (aValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public CurrencyValue getMultiplied (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getMultiplied (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (BigHelper.isEQ1 (aValue))
@@ -129,9 +129,9 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return new CurrencyValue (getCurrency (), getValue ().multiply (aValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  public CurrencyValue getDivided (@Nonnull final BigDecimal aValue)
+  public CurrencyValue getDivided (@NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     if (BigHelper.isEQ1 (aValue))
@@ -140,7 +140,7 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return new CurrencyValue (eCurrency, CurrencyHelper.getDivided (eCurrency, getValue (), aValue));
   }
 
-  @Nonnull
+  @NonNull
   public CurrencyValue getClone ()
   {
     return new CurrencyValue (this);
@@ -169,18 +169,18 @@ public class CurrencyValue implements IMutableCurrencyValue, Serializable
     return new ToStringGenerator (this).append ("currency", m_eCurrency).append ("value", m_aValue).getToString ();
   }
 
-  @Nonnull
-  public static IMutableCurrencyValue fromCurrencyFormattedString (@Nonnull final String sText,
-                                                                   @Nonnull final ECurrency eCurrency,
-                                                                   @Nonnull final BigDecimal aDefaultValue)
+  @NonNull
+  public static IMutableCurrencyValue fromCurrencyFormattedString (@NonNull final String sText,
+                                                                   @NonNull final ECurrency eCurrency,
+                                                                   @NonNull final BigDecimal aDefaultValue)
   {
     return new CurrencyValue (eCurrency, CurrencyHelper.parseCurrencyFormat (eCurrency, sText, aDefaultValue));
   }
 
-  @Nonnull
-  public static IMutableCurrencyValue fromValueFormattedString (@Nonnull final String sText,
-                                                                @Nonnull final ECurrency eCurrency,
-                                                                @Nonnull final BigDecimal aDefaultValue)
+  @NonNull
+  public static IMutableCurrencyValue fromValueFormattedString (@NonNull final String sText,
+                                                                @NonNull final ECurrency eCurrency,
+                                                                @NonNull final BigDecimal aDefaultValue)
   {
     return new CurrencyValue (eCurrency, CurrencyHelper.parseValueFormat (eCurrency, sText, aDefaultValue));
   }

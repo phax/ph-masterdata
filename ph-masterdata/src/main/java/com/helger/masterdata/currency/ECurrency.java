@@ -22,6 +22,8 @@ import java.util.Currency;
 import java.util.Locale;
 import java.util.function.Predicate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,9 +40,6 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.text.display.IHasDisplayText;
 import com.helger.text.locale.LocaleCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * A list of pre-selected currencies as specified in ISO 4217.<br>
@@ -320,24 +319,24 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   private final IHasDisplayText m_aName;
   private final ICommonsList <Locale> m_aLocales = new CommonsArrayList <> ();
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  private static ICommonsList <Locale> _getAsLocales (@Nonnull final String... aCountries)
+  private static ICommonsList <Locale> _getAsLocales (@NonNull final String... aCountries)
   {
     return new CommonsArrayList <> (aCountries, LocaleCache.getInstance ()::getLocale);
   }
 
-  ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
-             @Nonnull final ECurrencyName aName,
-             @Nonnull @Nonempty final String... aLocales)
+  ECurrency (@NonNull @Nonempty final String sCurrencyCode,
+             @NonNull final ECurrencyName aName,
+             @NonNull @Nonempty final String... aLocales)
   {
     this (sCurrencyCode, false, aName, aLocales);
   }
 
-  ECurrency (@Nonnull @Nonempty final String sCurrencyCode,
+  ECurrency (@NonNull @Nonempty final String sCurrencyCode,
              final boolean bIsDeprecated,
-             @Nonnull final ECurrencyName aName,
-             @Nonnull @Nonempty final String... aLocales)
+             @NonNull final ECurrencyName aName,
+             @NonNull @Nonempty final String... aLocales)
   {
     ValueEnforcer.notEmpty (sCurrencyCode, "CurrencyCode");
     ValueEnforcer.notNull (aName, "Name");
@@ -388,7 +387,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   /**
    * @return The currency code of this currency used as the ID.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -396,7 +395,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);
   }
@@ -430,7 +429,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * @return A list of all locales (as {@link Locale} objects) to which this
    *         currency applies.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableObject
   public ICommonsList <Locale> matchingLocales ()
@@ -442,7 +441,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
    * @return A list of all locales (as {@link Locale} objects) to which this
    *         currency applies.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   public ICommonsList <Locale> getAllMatchingLocales ()
@@ -450,14 +449,14 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return m_aLocales.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsList <ECurrency> getAllCurrencies ()
   {
     return getAllCurrencies (filterNotDeprecated ());
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsList <ECurrency> getAllCurrencies (@Nullable final Predicate <? super ECurrency> aFilter)
   {
@@ -490,34 +489,34 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
     return findFirst (filterNotDeprecated ().and (filterContainsLocale (aLocale)));
   }
 
-  @Nonnull
+  @NonNull
   public static Predicate <ECurrency> filterDeprecated ()
   {
     return ECurrency::isDeprecated;
   }
 
-  @Nonnull
+  @NonNull
   public static Predicate <ECurrency> filterNotDeprecated ()
   {
     return eCurrency -> !eCurrency.isDeprecated ();
   }
 
-  @Nonnull
-  public static Predicate <ECurrency> filterContainsLocale (@Nonnull final Locale aLocale)
+  @NonNull
+  public static Predicate <ECurrency> filterContainsLocale (@NonNull final Locale aLocale)
   {
     ValueEnforcer.notNull (aLocale, "Locale");
     return eCurrency -> eCurrency.m_aLocales.contains (aLocale);
   }
 
-  @Nonnull
-  public static Predicate <ECurrency> filterLocaleAny (@Nonnull final Predicate <? super Locale> aLocaleFilter)
+  @NonNull
+  public static Predicate <ECurrency> filterLocaleAny (@NonNull final Predicate <? super Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     return eCurrency -> eCurrency.m_aLocales.containsAny (aLocaleFilter);
   }
 
-  @Nonnull
-  public static Predicate <ECurrency> filterLocaleAll (@Nonnull final Predicate <? super Locale> aLocaleFilter)
+  @NonNull
+  public static Predicate <ECurrency> filterLocaleAll (@NonNull final Predicate <? super Locale> aLocaleFilter)
   {
     ValueEnforcer.notNull (aLocaleFilter, "LocaleFilter");
     return eCurrency -> eCurrency.m_aLocales.containsOnly (aLocaleFilter);

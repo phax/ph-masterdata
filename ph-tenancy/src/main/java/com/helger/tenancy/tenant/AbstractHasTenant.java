@@ -18,13 +18,13 @@ package com.helger.tenancy.tenant;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Abstract base implementation for {@link IHasTenant}.
@@ -34,21 +34,21 @@ import jakarta.annotation.Nonnull;
 @Immutable
 public abstract class AbstractHasTenant implements IHasTenant, Serializable
 {
-  @Nonnull
+  @NonNull
   private final ITenant m_aTenant;
 
-  public AbstractHasTenant (@Nonnull final ITenant aTenant)
+  public AbstractHasTenant (@NonNull final ITenant aTenant)
   {
     m_aTenant = ValueEnforcer.notNull (aTenant, "Tenant");
   }
 
-  @Nonnull
+  @NonNull
   public final ITenant getTenant ()
   {
     return m_aTenant;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @Override
   public final String getTenantID ()

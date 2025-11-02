@@ -19,14 +19,14 @@ package com.helger.masterdata.email;
 import java.io.Serializable;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Default implementation of {@link EmailAddressType}.
@@ -38,7 +38,7 @@ public class EmailAddressType implements IEmailAddressType, Serializable
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  public EmailAddressType (@Nonnull @Nonempty final String sID, @Nonnull final IHasDisplayText aText)
+  public EmailAddressType (@NonNull @Nonempty final String sID, @NonNull final IHasDisplayText aText)
   {
     ValueEnforcer.notEmpty (sID, "ID");
     ValueEnforcer.notNull (aText, "Text");
@@ -46,14 +46,14 @@ public class EmailAddressType implements IEmailAddressType, Serializable
     m_aText = aText;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aText.getDisplayText (aContentLocale);
   }

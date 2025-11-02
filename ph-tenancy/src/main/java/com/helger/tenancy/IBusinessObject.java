@@ -18,6 +18,9 @@ package com.helger.tenancy;
 
 import java.time.LocalDateTime;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableObject;
 import com.helger.base.type.ITypedObject;
 import com.helger.datetime.util.PDTHelper;
@@ -25,9 +28,6 @@ import com.helger.tenancy.datetime.IHasCreationInfo;
 import com.helger.tenancy.datetime.IHasDeletionInfo;
 import com.helger.tenancy.datetime.IHasLastModificationInfo;
 import com.helger.typeconvert.collection.IStringMap;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base interface for all business objects. Has a creation, last modification
@@ -83,7 +83,7 @@ public interface IBusinessObject extends
    *         after the provided date time.
    * @see #getLastChangeDateTime()
    */
-  default boolean isLastChangeAfter (@Nonnull final LocalDateTime aDT)
+  default boolean isLastChangeAfter (@NonNull final LocalDateTime aDT)
   {
     final LocalDateTime aLastChangeDT = getLastChangeDateTime ();
     return aLastChangeDT != null && aLastChangeDT.isAfter (aDT);
@@ -113,7 +113,7 @@ public interface IBusinessObject extends
   /**
    * @return Custom attributes. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   IStringMap attrs ();
 }

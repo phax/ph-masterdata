@@ -19,6 +19,9 @@ package com.helger.masterdata.unit;
 import java.io.Serializable;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
@@ -27,9 +30,6 @@ import com.helger.base.tostring.ToStringGenerator;
 import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayText;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 @Immutable
 public class UnitSector implements IHasIntID, IHasDisplayText, Serializable
 {
@@ -37,7 +37,7 @@ public class UnitSector implements IHasIntID, IHasDisplayText, Serializable
   private final IMultilingualText m_aName;
   private final EISO31 m_eISO31;
 
-  public UnitSector (@Nonnegative final int nGroupNumber, @Nonnull final IMultilingualText aName)
+  public UnitSector (@Nonnegative final int nGroupNumber, @NonNull final IMultilingualText aName)
   {
     ValueEnforcer.isGE0 (nGroupNumber, "GroupNumber");
     ValueEnforcer.notNull (aName, "Name");
@@ -52,14 +52,14 @@ public class UnitSector implements IHasIntID, IHasDisplayText, Serializable
     return m_nGroupNumber;
   }
 
-  @Nonnull
+  @NonNull
   public IMultilingualText getName ()
   {
     return m_aName;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getText (aContentLocale);
   }

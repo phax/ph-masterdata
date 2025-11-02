@@ -18,12 +18,12 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents salutations for persons.
@@ -48,11 +48,11 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
   private final IHasDisplayText m_aGreeting;
   private final IHasDisplayText m_aGreetingComplete;
 
-  ESalutation (@Nonnull final String sID,
+  ESalutation (@NonNull final String sID,
                @Nullable final EGender eGender,
-               @Nonnull final ESalutationName eName,
-               @Nonnull final ESalutationGreeting eGreeting,
-               @Nonnull final ESalutationGreetingComplete eGreetingComplete)
+               @NonNull final ESalutationName eName,
+               @NonNull final ESalutationGreeting eGreeting,
+               @NonNull final ESalutationGreetingComplete eGreetingComplete)
   {
     m_sID = sID;
     m_eGender = eGender;
@@ -61,7 +61,7 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
     m_aGreetingComplete = eGreetingComplete;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
@@ -82,38 +82,38 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
     return m_eGender != null;
   }
 
-  @Nonnull
+  @NonNull
   public IHasDisplayText getName ()
   {
     return m_aName;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);
   }
 
-  @Nonnull
+  @NonNull
   public IHasDisplayText getGreeting ()
   {
     return m_aGreeting;
   }
 
   @Nullable
-  public String getGreeting (@Nonnull final Locale aContentLocale)
+  public String getGreeting (@NonNull final Locale aContentLocale)
   {
     return m_aGreeting.getDisplayText (aContentLocale);
   }
 
-  @Nonnull
+  @NonNull
   public IHasDisplayText getGreetingComplete ()
   {
     return m_aGreetingComplete;
   }
 
   @Nullable
-  public String getGreetingComplete (@Nonnull final Locale aContentLocale)
+  public String getGreetingComplete (@NonNull final Locale aContentLocale)
   {
     return m_aGreetingComplete.getDisplayText (aContentLocale);
   }
@@ -133,14 +133,14 @@ public enum ESalutation implements IHasDisplayText, IHasID <String>
 
   @Nullable
   public static ESalutation getFromDisplayNameOrNull (@Nullable final String sSalutation,
-                                                      @Nonnull final Locale aContentLocale)
+                                                      @NonNull final Locale aContentLocale)
   {
     return getFromDisplayNameOrDefault (sSalutation, aContentLocale, null);
   }
 
   @Nullable
   public static ESalutation getFromDisplayNameOrDefault (@Nullable final String sSalutation,
-                                                         @Nonnull final Locale aContentLocale,
+                                                         @NonNull final Locale aContentLocale,
                                                          @Nullable final ESalutation eDefault)
   {
     if (sSalutation != null)

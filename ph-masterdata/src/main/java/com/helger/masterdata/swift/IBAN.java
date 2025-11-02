@@ -19,6 +19,9 @@ package com.helger.masterdata.swift;
 import java.io.Serializable;
 import java.util.List;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
@@ -27,9 +30,6 @@ import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class represents a single IBAN number (SEPA). An IBAN number is a combination of different
@@ -42,13 +42,13 @@ public class IBAN implements Serializable
 {
   private final ICommonsList <IBANElementValue> m_aValues;
 
-  public IBAN (@Nonnull final List <IBANElementValue> aValues)
+  public IBAN (@NonNull final List <IBANElementValue> aValues)
   {
     ValueEnforcer.notNull (aValues, "Values");
     m_aValues = new CommonsArrayList <> (aValues);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <IBANElementValue> getAllValues ()
   {
@@ -78,8 +78,8 @@ public class IBAN implements Serializable
     return new ToStringGenerator (this).append ("values", m_aValues).getToString ();
   }
 
-  @Nonnull
-  public static String extractCountryCode (@Nonnull final String sIBAN)
+  @NonNull
+  public static String extractCountryCode (@NonNull final String sIBAN)
   {
     return sIBAN.substring (0, 2);
   }

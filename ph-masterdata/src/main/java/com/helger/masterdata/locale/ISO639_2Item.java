@@ -18,15 +18,15 @@ package com.helger.masterdata.locale;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class ISO639_2Item implements Serializable
 {
@@ -36,11 +36,11 @@ public class ISO639_2Item implements Serializable
   private final String m_sEN;
   private final String m_sFR;
 
-  public ISO639_2Item (@Nonnull @Nonempty final String sAlpha3B,
+  public ISO639_2Item (@NonNull @Nonempty final String sAlpha3B,
                        @Nullable final String sAlpha3T,
                        @Nullable final String sAlpha2,
-                       @Nonnull @Nonempty final String sEN,
-                       @Nonnull @Nonempty final String sFR)
+                       @NonNull @Nonempty final String sEN,
+                       @NonNull @Nonempty final String sFR)
   {
     ValueEnforcer.isTrue (StringHelper.getLength (sAlpha3B) == 3,
                           "Alpha3-bibliographic code must be present and have length 3: '" +
@@ -64,7 +64,7 @@ public class ISO639_2Item implements Serializable
    * @return The 3-letter bibliographic version. This is the default ISO-639-2
    *         3-letter code. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getAlpha3Bibliographic ()
   {
@@ -94,7 +94,7 @@ public class ISO639_2Item implements Serializable
   /**
    * @return The English Name of the language. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getEnglishName ()
   {
@@ -104,7 +104,7 @@ public class ISO639_2Item implements Serializable
   /**
    * @return The French Name of the language. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getFrenchName ()
   {

@@ -18,15 +18,15 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * MicroType converter for {@link CurrencyValue}.
@@ -38,10 +38,10 @@ public class CurrencyValueMicroTypeConverter implements IMicroTypeConverter <Cur
   private static final IMicroQName ATTR_CURRENCY = new MicroQName ("currency");
   private static final IMicroQName ATTR_VALUE = new MicroQName ("value");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final CurrencyValue aValue,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final CurrencyValue aValue,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement ePrice = new MicroElement (sNamespaceURI, sTagName);
     ePrice.setAttribute (ATTR_CURRENCY, aValue.getCurrency ().getID ());
@@ -49,8 +49,8 @@ public class CurrencyValueMicroTypeConverter implements IMicroTypeConverter <Cur
     return ePrice;
   }
 
-  @Nonnull
-  public CurrencyValue convertToNative (@Nonnull final IMicroElement ePrice)
+  @NonNull
+  public CurrencyValue convertToNative (@NonNull final IMicroElement ePrice)
   {
     final ECurrency eCurrency = ECurrency.getFromIDOrNull (ePrice.getAttributeValue (ATTR_CURRENCY));
     final BigDecimal aValue = ePrice.getAttributeValueWithConversion (ATTR_VALUE, BigDecimal.class);

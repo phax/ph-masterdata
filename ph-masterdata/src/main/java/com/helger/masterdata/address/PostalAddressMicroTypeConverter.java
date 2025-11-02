@@ -18,6 +18,9 @@ package com.helger.masterdata.address;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.base.system.SystemHelper;
 import com.helger.xml.microdom.IMicroElement;
@@ -25,9 +28,6 @@ import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * MicroType converter for {@link PostalAddress}.
@@ -46,10 +46,10 @@ public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <Pos
   private static final IMicroQName ATTR_POBOX = new MicroQName ("pobox");
   private static final IMicroQName ATTR_CARE_OF = new MicroQName ("careof");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final PostalAddress aAddress,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final PostalAddress aAddress,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement eAddress = new MicroElement (sNamespaceURI, sTagName);
     if (aAddress.getType () != null)
@@ -73,8 +73,8 @@ public class PostalAddressMicroTypeConverter implements IMicroTypeConverter <Pos
     return eAddress;
   }
 
-  @Nonnull
-  public PostalAddress convertToNative (@Nonnull final IMicroElement eAddress)
+  @NonNull
+  public PostalAddress convertToNative (@NonNull final IMicroElement eAddress)
   {
     final Locale aLocale = SystemHelper.getSystemLocale ();
     final EPostalAddressType eType = EPostalAddressType.getFromIDOrNull (eAddress.getAttributeValue (ATTR_TYPE));

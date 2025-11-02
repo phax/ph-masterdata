@@ -18,6 +18,8 @@ package com.helger.masterdata.vat;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckForSigned;
 import com.helger.annotation.style.VisibleForTesting;
 import com.helger.base.enforce.ValueEnforcer;
@@ -27,8 +29,6 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.datetime.helper.PDTFactory;
 import com.helger.masterdata.iso.ISO7064;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Check the syntax of VATINs based on the published rules.
@@ -85,7 +85,7 @@ public class VATINSyntaxChecker
    *        VATIN to check. May not be <code>null</code>.
    * @return <code>true</code> if the VATIN is valid (or unknown).
    */
-  public static boolean isValidVATIN (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN (@NonNull final String sVATIN)
   {
     // For backwards compatibility
     return isValidVATIN (sVATIN, true);
@@ -103,7 +103,7 @@ public class VATINSyntaxChecker
    * @return <code>true</code> if the VATIN is valid (or unknown).
    * @since 6.0.1
    */
-  public static boolean isValidVATIN (@Nonnull final String sVATIN, final boolean bIfNoValidator)
+  public static boolean isValidVATIN (@NonNull final String sVATIN, final boolean bIfNoValidator)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     if (sVATIN.length () > 2)
@@ -126,7 +126,7 @@ public class VATINSyntaxChecker
    * @return <code>true</code> if a validator is present, <code>false</code> if
    *         not.
    */
-  public static boolean isValidatorPresent (@Nonnull final String sVATIN)
+  public static boolean isValidatorPresent (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     if (sVATIN.length () <= 2)
@@ -305,7 +305,7 @@ public class VATINSyntaxChecker
     return n / 5 + (n * 2) % 10;
   }
 
-  public static boolean isValidVATIN_AT (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_AT (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -321,7 +321,7 @@ public class VATINSyntaxChecker
     return _toInt (c[8]) == n9;
   }
 
-  public static boolean isValidVATIN_BE (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_BE (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -338,7 +338,7 @@ public class VATINSyntaxChecker
     return nExpected == nChecksum;
   }
 
-  public static boolean isValidVATIN_DE (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_DE (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -364,7 +364,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_DK (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_DK (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -387,7 +387,7 @@ public class VATINSyntaxChecker
     return (r % 11) == 0;
   }
 
-  public static boolean isValidVATIN_EL (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_EL (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -498,7 +498,7 @@ public class VATINSyntaxChecker
     assert ES_V2.length == 23;
   }
 
-  public static boolean isValidVATIN_ES (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_ES (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -556,7 +556,7 @@ public class VATINSyntaxChecker
     return false;
   }
 
-  public static boolean isValidVATIN_FI (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_FI (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -593,7 +593,7 @@ public class VATINSyntaxChecker
     return 10 + idx;
   }
 
-  public static boolean isValidVATIN_FR (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_FR (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -631,7 +631,7 @@ public class VATINSyntaxChecker
     return r1 == r2;
   }
 
-  public static boolean isValidVATIN_GB (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_GB (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -714,7 +714,7 @@ public class VATINSyntaxChecker
     return c - 'A' + 1;
   }
 
-  private static boolean _ie_isV1 (@Nonnull final char [] c)
+  private static boolean _ie_isV1 (@NonNull final char [] c)
   {
     if (c.length != 8)
       return false;
@@ -740,7 +740,7 @@ public class VATINSyntaxChecker
     return c[7] == cCheck;
   }
 
-  private static boolean _ie_isV2 (@Nonnull final char [] c)
+  private static boolean _ie_isV2 (@NonNull final char [] c)
   {
     if (c.length != 8)
       return false;
@@ -762,7 +762,7 @@ public class VATINSyntaxChecker
     return c[7] == cCheck;
   }
 
-  public static boolean isValidVATIN_IE (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_IE (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -805,7 +805,7 @@ public class VATINSyntaxChecker
     return n / 5 + (2 * n) % 10;
   }
 
-  public static boolean isValidVATIN_IT (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_IT (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -827,7 +827,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_LU (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_LU (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -865,7 +865,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_NL (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_NL (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -889,7 +889,7 @@ public class VATINSyntaxChecker
     return ISO7064.Mod97.isValid ("NL" + sVATIN);
   }
 
-  public static boolean isValidVATIN_PT (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_PT (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -922,7 +922,7 @@ public class VATINSyntaxChecker
     return n / 5 + (n * 2) % 10;
   }
 
-  public static boolean isValidVATIN_SE (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_SE (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -955,7 +955,7 @@ public class VATINSyntaxChecker
     return CY_ODD[c - '0'];
   }
 
-  public static boolean isValidVATIN_CY (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_CY (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -985,7 +985,7 @@ public class VATINSyntaxChecker
     return cChecksum == c[8];
   }
 
-  private static boolean _cz_isV1 (@Nonnull final char [] c)
+  private static boolean _cz_isV1 (@NonNull final char [] c)
   {
     if (c.length != 8)
       return false;
@@ -1009,7 +1009,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static boolean _cz_isV2 (@Nonnull final char [] c)
+  private static boolean _cz_isV2 (@NonNull final char [] c)
   {
     if (c.length != 9)
       return false;
@@ -1034,7 +1034,7 @@ public class VATINSyntaxChecker
 
   private static final int [] CZ_V3 = new int [] { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
 
-  private static boolean _cz_isV3 (@Nonnull final char [] c)
+  private static boolean _cz_isV3 (@NonNull final char [] c)
   {
     if (c.length != 9)
       return false;
@@ -1060,7 +1060,7 @@ public class VATINSyntaxChecker
 
   private static final int CZ_YEAR_MAX = PDTFactory.getCurrentYear () % 100;
 
-  public static boolean isValidVATIN_CZ (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_CZ (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1107,7 +1107,7 @@ public class VATINSyntaxChecker
     return true;
   }
 
-  public static boolean isValidVATIN_EE (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_EE (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1132,7 +1132,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_HU (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_HU (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1155,7 +1155,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static boolean _lt_isLegalPerson (@Nonnull final char [] c)
+  private static boolean _lt_isLegalPerson (@NonNull final char [] c)
   {
     if (c.length != 9)
       return false;
@@ -1196,7 +1196,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_LT (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_LT (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1251,7 +1251,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static boolean _is_lvV1 (@Nonnull final char [] c)
+  private static boolean _is_lvV1 (@NonNull final char [] c)
   {
     if (c.length != 11)
       return false;
@@ -1279,7 +1279,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_LV (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_LV (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1307,7 +1307,7 @@ public class VATINSyntaxChecker
     return true;
   }
 
-  public static boolean isValidVATIN_MT (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_MT (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1328,7 +1328,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_PL (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_PL (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1354,7 +1354,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_SI (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_SI (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1388,7 +1388,7 @@ public class VATINSyntaxChecker
     return c == '2' || c == '3' || c == '4' || c == '7' || c == '8' || c == '9';
   }
 
-  public static boolean isValidVATIN_SK (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_SK (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1408,7 +1408,7 @@ public class VATINSyntaxChecker
     return (v % 11) == 0;
   }
 
-  private static boolean _bg_isV1 (@Nonnull final char [] c)
+  private static boolean _bg_isV1 (@NonNull final char [] c)
   {
     if (c.length != 9)
       return false;
@@ -1445,7 +1445,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static boolean _bg_isV2 (@Nonnull final char [] c)
+  private static boolean _bg_isV2 (@NonNull final char [] c)
   {
     if (c.length != 10)
       return false;
@@ -1473,7 +1473,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  private static boolean _bg_isV3 (@Nonnull final char [] c)
+  private static boolean _bg_isV3 (@NonNull final char [] c)
   {
     if (c.length != 10)
       return false;
@@ -1495,7 +1495,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_BG (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_BG (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();
@@ -1537,7 +1537,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_RO (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_RO (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     char [] c = sVATIN.toCharArray ();
@@ -1569,7 +1569,7 @@ public class VATINSyntaxChecker
     return nChecksum == nExpected;
   }
 
-  public static boolean isValidVATIN_HR (@Nonnull final String sVATIN)
+  public static boolean isValidVATIN_HR (@NonNull final String sVATIN)
   {
     ValueEnforcer.notNull (sVATIN, "VATIN");
     final char [] c = sVATIN.toCharArray ();

@@ -18,11 +18,11 @@ package com.helger.masterdata.ean;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
-
-import jakarta.annotation.Nonnull;
 
 public abstract class AbstractUPCEAN implements Serializable
 {
@@ -39,13 +39,13 @@ public abstract class AbstractUPCEAN implements Serializable
    * @param eMode
    *        the checksum mode
    */
-  public AbstractUPCEAN (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public AbstractUPCEAN (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     m_sMsg = ValueEnforcer.notNull (sMsg, "Msg");
     m_eChecksumMode = ValueEnforcer.notNull (eMode, "ChecksumMode");
   }
 
-  @Nonnull
+  @NonNull
   public String getMessage ()
   {
     return m_sMsg;
@@ -56,7 +56,7 @@ public abstract class AbstractUPCEAN implements Serializable
    *
    * @return the checksum mode
    */
-  @Nonnull
+  @NonNull
   public EEANChecksumMode getChecksumMode ()
   {
     return m_eChecksumMode;
@@ -68,7 +68,7 @@ public abstract class AbstractUPCEAN implements Serializable
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
-  @Nonnull
+  @NonNull
   protected abstract EValidity validate ();
 
   /**
@@ -79,8 +79,8 @@ public abstract class AbstractUPCEAN implements Serializable
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
-  @Nonnull
-  protected static EValidity validateMessage (@Nonnull final String sMsg)
+  @NonNull
+  protected static EValidity validateMessage (@NonNull final String sMsg)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
 
@@ -95,8 +95,8 @@ public abstract class AbstractUPCEAN implements Serializable
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
-  @Nonnull
-  protected static EValidity validateMessage (@Nonnull final char [] aChars)
+  @NonNull
+  protected static EValidity validateMessage (@NonNull final char [] aChars)
   {
     ValueEnforcer.notNull (aChars, "Chars");
 
@@ -116,7 +116,7 @@ public abstract class AbstractUPCEAN implements Serializable
     return Character.forDigit (i, 10);
   }
 
-  protected static int calcChecksum (@Nonnull final char [] aChars, @Nonnegative final int nLen)
+  protected static int calcChecksum (@NonNull final char [] aChars, @Nonnegative final int nLen)
   {
     int nChecksumBase = 0;
     // 13-1=12 chars: 1,3
@@ -145,7 +145,7 @@ public abstract class AbstractUPCEAN implements Serializable
    *        message.length
    * @return char the check character
    */
-  protected static char calcChecksumChar (@Nonnull final String sMsg, @Nonnegative final int nLength)
+  protected static char calcChecksumChar (@NonNull final String sMsg, @Nonnegative final int nLength)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.isBetweenInclusive (nLength, "Length", 0, sMsg.length ());

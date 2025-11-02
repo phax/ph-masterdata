@@ -19,6 +19,9 @@ package com.helger.tenancy.tenant;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
@@ -27,9 +30,6 @@ import com.helger.base.hashcode.IHashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.tenancy.AbstractBusinessObject;
 import com.helger.tenancy.IBusinessObject;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract base implementation of {@link ITenantObject}.
@@ -43,7 +43,7 @@ public abstract class AbstractTenantObject extends AbstractBusinessObject implem
   // Status vars
   private transient int m_nHashCode = IHashCodeGenerator.ILLEGAL_HASHCODE;
 
-  protected AbstractTenantObject (@Nonnull final ITenantObject aBase)
+  protected AbstractTenantObject (@NonNull final ITenantObject aBase)
   {
     super (aBase);
     m_aTenant = aBase.getTenant ();
@@ -51,15 +51,15 @@ public abstract class AbstractTenantObject extends AbstractBusinessObject implem
     // passed implementation class
   }
 
-  public AbstractTenantObject (@Nonnull final ITenant aTenant, @Nonnull final IBusinessObject aObject)
+  public AbstractTenantObject (@NonNull final ITenant aTenant, @NonNull final IBusinessObject aObject)
   {
     super (aObject);
     m_aTenant = ValueEnforcer.notNull (aTenant, "Tenant");
   }
 
-  public AbstractTenantObject (@Nonnull final ITenant aTenant,
-                               @Nonnull @Nonempty final String sID,
-                               @Nonnull final LocalDateTime aCreationDT,
+  public AbstractTenantObject (@NonNull final ITenant aTenant,
+                               @NonNull @Nonempty final String sID,
+                               @NonNull final LocalDateTime aCreationDT,
                                @Nullable final String sCreationUserID,
                                @Nullable final LocalDateTime aLastModificationDT,
                                @Nullable final String sLastModificationUserID,
@@ -77,7 +77,7 @@ public abstract class AbstractTenantObject extends AbstractBusinessObject implem
     m_aTenant = ValueEnforcer.notNull (aTenant, "Tenant");
   }
 
-  @Nonnull
+  @NonNull
   public final ITenant getTenant ()
   {
     return m_aTenant;

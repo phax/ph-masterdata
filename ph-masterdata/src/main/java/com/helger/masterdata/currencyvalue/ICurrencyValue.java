@@ -18,14 +18,14 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.base.numeric.BigHelper;
 import com.helger.masterdata.currency.CurrencyHelper;
 import com.helger.masterdata.currency.IHasCurrency;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Read only interface of a currency value.
@@ -38,7 +38,7 @@ public interface ICurrencyValue extends IHasCurrency
   /**
    * @return The contained numeric currency value.
    */
-  @Nonnull
+  @NonNull
   BigDecimal getValue ();
 
   /**
@@ -102,9 +102,9 @@ public interface ICurrencyValue extends IHasCurrency
    *        The value to add.
    * @return The added value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  ICurrencyValue getAdded (@Nonnull BigDecimal aValue);
+  ICurrencyValue getAdded (@NonNull BigDecimal aValue);
 
   /**
    * Sum up this currency value with the passed scalar value.
@@ -113,7 +113,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The value to add.
    * @return The added value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   default ICurrencyValue getAdded (final long nValue)
   {
@@ -129,9 +129,9 @@ public interface ICurrencyValue extends IHasCurrency
    *        The value to subtract.
    * @return The subtracted value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  ICurrencyValue getSubtracted (@Nonnull BigDecimal aValue);
+  ICurrencyValue getSubtracted (@NonNull BigDecimal aValue);
 
   /**
    * Subtract this currency value with the passed scalar value.
@@ -140,7 +140,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The value to subtract.
    * @return The subtracted value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   default ICurrencyValue getSubtracted (final long nValue)
   {
@@ -156,9 +156,9 @@ public interface ICurrencyValue extends IHasCurrency
    *        The multiplicator to use.
    * @return The multiplied value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  ICurrencyValue getMultiplied (@Nonnull BigDecimal aValue);
+  ICurrencyValue getMultiplied (@NonNull BigDecimal aValue);
 
   /**
    * Multiply this currency value with the passed scalar value.
@@ -167,7 +167,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The multiplicator to use.
    * @return The multiplied value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   default ICurrencyValue getMultiplied (final long nValue)
   {
@@ -183,9 +183,9 @@ public interface ICurrencyValue extends IHasCurrency
    *        The divisor to use.
    * @return The divided value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  ICurrencyValue getDivided (@Nonnull BigDecimal aValue);
+  ICurrencyValue getDivided (@NonNull BigDecimal aValue);
 
   /**
    * Divide this currency value with the passed scalar value.
@@ -194,7 +194,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The divisor to use.
    * @return The divided value with the same currency.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   default ICurrencyValue getDivided (final long nValue)
   {
@@ -207,7 +207,7 @@ public interface ICurrencyValue extends IHasCurrency
    * @return The value as a formatted currency including the currency sign. The scale is defined by
    *         the currency.
    */
-  @Nonnull
+  @NonNull
   default String getCurrencyFormatted ()
   {
     return CurrencyHelper.getCurrencyFormatted (getCurrency (), getValue ());
@@ -218,7 +218,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The number of fraction digits to be used.
    * @return The value as a formatted currency including the currency sign.
    */
-  @Nonnull
+  @NonNull
   default String getCurrencyFormatted (@Nonnegative final int nFractionDigits)
   {
     return CurrencyHelper.getCurrencyFormatted (getCurrency (), getValue (), nFractionDigits);
@@ -228,7 +228,7 @@ public interface ICurrencyValue extends IHasCurrency
    * @return The value as a formatted currency excluding the currency sign. The scale is defined by
    *         the currency.
    */
-  @Nonnull
+  @NonNull
   default String getValueFormatted ()
   {
     return CurrencyHelper.getValueFormatted (getCurrency (), getValue ());
@@ -239,7 +239,7 @@ public interface ICurrencyValue extends IHasCurrency
    *        The number of fraction digits to be used.
    * @return The value as a formatted currency excluding the currency sign.
    */
-  @Nonnull
+  @NonNull
   default String getValueFormatted (@Nonnegative final int nFractionDigits)
   {
     return CurrencyHelper.getValueFormatted (getCurrency (), getValue (), nFractionDigits);

@@ -19,6 +19,8 @@ package com.helger.masterdata.price;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -26,8 +28,6 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.numeric.BigHelper;
 import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Default implementation class of {@link IMutablePriceGraduationItem} and
@@ -40,7 +40,7 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
   private int m_nMinimumQuantity;
   private BigDecimal m_aNetAmount;
 
-  public PriceGraduationItem (@Nonnegative final int nMinimumQuantity, @Nonnull final BigDecimal aUnitNetAmount)
+  public PriceGraduationItem (@Nonnegative final int nMinimumQuantity, @NonNull final BigDecimal aUnitNetAmount)
   {
     setMinimumQuantity (nMinimumQuantity);
     setUnitNetAmount (aUnitNetAmount);
@@ -52,7 +52,7 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
     return m_nMinimumQuantity;
   }
 
-  @Nonnull
+  @NonNull
   public final EChange setMinimumQuantity (@Nonnegative final int nMinimumQuantity)
   {
     ValueEnforcer.isGT0 (nMinimumQuantity, "MinimumQuantity");
@@ -63,14 +63,14 @@ public class PriceGraduationItem implements IMutablePriceGraduationItem, Seriali
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public final BigDecimal getUnitNetAmount ()
   {
     return m_aNetAmount;
   }
 
-  @Nonnull
-  public final EChange setUnitNetAmount (@Nonnull final BigDecimal aNetAmount)
+  @NonNull
+  public final EChange setUnitNetAmount (@NonNull final BigDecimal aNetAmount)
   {
     ValueEnforcer.notNull (aNetAmount, "NetAmount");
 

@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.telephone;
 
-import com.helger.base.string.StringHelper;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nullable;
+import com.helger.base.string.StringHelper;
 
 /**
  * Read-only interface for a telephone number.

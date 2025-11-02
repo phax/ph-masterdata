@@ -21,6 +21,9 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.RegEx;
 import com.helger.annotation.concurrent.Immutable;
@@ -37,9 +40,6 @@ import com.helger.collection.commons.ICommonsList;
 import com.helger.text.locale.country.CountryCache;
 import com.helger.text.locale.country.IHasCountry;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Represents a VATIN structure for a single country.
  *
@@ -53,9 +53,9 @@ public class VATINStructure implements IHasCountry, Serializable
   private final Pattern m_aPattern;
   private final ICommonsList <String> m_aExamples;
 
-  public VATINStructure (@Nonnull final String sCountry,
-                         @Nonnull @RegEx final String sRegEx,
-                         @Nonnull final Collection <String> aExamples)
+  public VATINStructure (@NonNull final String sCountry,
+                         @NonNull @RegEx final String sRegEx,
+                         @NonNull final Collection <String> aExamples)
   {
     ValueEnforcer.notNull (sCountry, "Country");
     ValueEnforcer.notNull (sRegEx, "RegEx");
@@ -85,7 +85,7 @@ public class VATINStructure implements IHasCountry, Serializable
   /**
    * @return The regular expression pattern used for validation.
    */
-  @Nonnull
+  @NonNull
   public String getPattern ()
   {
     return m_sPattern;
@@ -94,7 +94,7 @@ public class VATINStructure implements IHasCountry, Serializable
   /**
    * @return The country for which the structure applies.
    */
-  @Nonnull
+  @NonNull
   public Locale getCountry ()
   {
     return m_aCountry;
@@ -104,7 +104,7 @@ public class VATINStructure implements IHasCountry, Serializable
    * @return A non-<code>null</code> list with example VAT numbers. This list contains at least a
    *         single item.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   public ICommonsList <String> getExamples ()

@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.austria;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.id.IHasIntID;
 import com.helger.base.lang.EnumHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * All Austrian States
@@ -44,7 +44,7 @@ public enum EAustriaState implements IHasIntID
   private final int m_nID;
   private final String m_sPostID;
 
-  EAustriaState (@Nonnegative final int nID, @Nonnull @Nonempty final String sPostID)
+  EAustriaState (@Nonnegative final int nID, @NonNull @Nonempty final String sPostID)
   {
     m_nID = nID;
     m_sPostID = sPostID;
@@ -59,7 +59,7 @@ public enum EAustriaState implements IHasIntID
   /**
    * @return Estimated postal code prefix (inexact).
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getPostID ()
   {
@@ -69,7 +69,7 @@ public enum EAustriaState implements IHasIntID
   /**
    * @return Verwaltungskennzeichen (VKZ) Prefix (L1 to L9).
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getVKZPrefix ()
   {
@@ -82,7 +82,7 @@ public enum EAustriaState implements IHasIntID
     return EnumHelper.getFromIDOrNull (EAustriaState.class, nID);
   }
 
-  @Nonnull
+  @NonNull
   public static EAustriaState getFromIDOrThrow (final int nID)
   {
     return EnumHelper.getFromIDOrThrow (EAustriaState.class, nID);

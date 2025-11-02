@@ -18,13 +18,13 @@ package com.helger.masterdata.currencyvalue;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.base.clone.ICloneable;
 import com.helger.base.numeric.BigHelper;
 import com.helger.base.state.EChange;
 import com.helger.masterdata.currency.ECurrency;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Writable version of a currency value. The reading methods are inherited from
@@ -34,14 +34,14 @@ import jakarta.annotation.Nonnull;
  */
 public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMutableCurrencyValue>
 {
-  @Nonnull
-  EChange setCurrency (@Nonnull ECurrency eCurrency);
+  @NonNull
+  EChange setCurrency (@NonNull ECurrency eCurrency);
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutableCurrencyValue getAdded (@Nonnull BigDecimal aValue);
+  IMutableCurrencyValue getAdded (@NonNull BigDecimal aValue);
 
-  @Nonnull
+  @NonNull
   @Override
   @CheckReturnValue
   default IMutableCurrencyValue getAdded (final long nValue)
@@ -51,11 +51,11 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
     return getAdded (BigHelper.toBigDecimal (nValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutableCurrencyValue getSubtracted (@Nonnull BigDecimal aValue);
+  IMutableCurrencyValue getSubtracted (@NonNull BigDecimal aValue);
 
-  @Nonnull
+  @NonNull
   @Override
   @CheckReturnValue
   default IMutableCurrencyValue getSubtracted (final long nValue)
@@ -65,11 +65,11 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
     return getSubtracted (BigHelper.toBigDecimal (nValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutableCurrencyValue getMultiplied (@Nonnull BigDecimal aValue);
+  IMutableCurrencyValue getMultiplied (@NonNull BigDecimal aValue);
 
-  @Nonnull
+  @NonNull
   @Override
   @CheckReturnValue
   default IMutableCurrencyValue getMultiplied (final long nValue)
@@ -79,11 +79,11 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
     return getMultiplied (BigHelper.toBigDecimal (nValue));
   }
 
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IMutableCurrencyValue getDivided (@Nonnull BigDecimal aValue);
+  IMutableCurrencyValue getDivided (@NonNull BigDecimal aValue);
 
-  @Nonnull
+  @NonNull
   @Override
   @CheckReturnValue
   default IMutableCurrencyValue getDivided (final long nValue)
@@ -93,8 +93,8 @@ public interface IMutableCurrencyValue extends ICurrencyValue, ICloneable <IMuta
     return getDivided (BigHelper.toBigDecimal (nValue));
   }
 
-  @Nonnull
-  EChange setValue (@Nonnull BigDecimal aValue);
+  @NonNull
+  EChange setValue (@NonNull BigDecimal aValue);
 
-  void addValue (@Nonnull BigDecimal aValue);
+  void addValue (@NonNull BigDecimal aValue);
 }

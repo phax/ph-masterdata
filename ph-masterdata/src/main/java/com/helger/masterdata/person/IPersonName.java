@@ -18,11 +18,11 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.clone.ICloneable;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * The name of a person.
@@ -53,21 +53,21 @@ public interface IPersonName extends ICloneable <IPersonName>
   }
 
   @Nullable
-  default String getSalutationDisplayName (@Nonnull final Locale aContentLocale)
+  default String getSalutationDisplayName (@NonNull final Locale aContentLocale)
   {
     final ESalutation e = getSalutation ();
     return e == null ? null : e.getDisplayText (aContentLocale);
   }
 
   @Nullable
-  default String getGreeting (@Nonnull final Locale aContentLocale)
+  default String getGreeting (@NonNull final Locale aContentLocale)
   {
     final ESalutation e = getSalutation ();
     return e == null ? null : e.getGreeting (aContentLocale);
   }
 
   @Nullable
-  default String getGreetingComplete (@Nonnull final Locale aContentLocale)
+  default String getGreetingComplete (@NonNull final Locale aContentLocale)
   {
     final ESalutation e = getSalutation ();
     return e == null ? null : e.getGreetingComplete (aContentLocale);

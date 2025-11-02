@@ -16,9 +16,9 @@
  */
 package com.helger.tenancy.accarea;
 
-import com.helger.tenancy.tenant.IHasTenant;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nullable;
+import com.helger.tenancy.tenant.IHasTenant;
 
 /**
  * Base interface for objects that have an accounting area.

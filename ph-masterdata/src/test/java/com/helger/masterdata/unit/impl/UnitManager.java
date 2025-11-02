@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.unit.impl;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.misc.WorkInProgress;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.CGlobal;
@@ -32,8 +34,6 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.convert.MicroTypeConverter;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * FIXME THIS CLASS IS NOT YET FINISHED!
@@ -52,7 +52,7 @@ public final class UnitManager
 
   private final ICommonsMap <Integer, UnitSector> m_aSectors = new CommonsHashMap <> ();
 
-  private void _readFromFile (@Nonnull final IReadableResource aRes)
+  private void _readFromFile (@NonNull final IReadableResource aRes)
   {
     final IMicroDocument aDoc = MicroReader.readMicroXML (aRes);
     if (aDoc == null)
@@ -82,18 +82,18 @@ public final class UnitManager
     }
   }
 
-  public UnitManager (@Nonnull final IReadableResource aListRes)
+  public UnitManager (@NonNull final IReadableResource aListRes)
   {
     _readFromFile (aListRes);
   }
 
-  @Nonnull
+  @NonNull
   public static UnitManager getDefaultInstance ()
   {
     return SingletonHolder.INSTANCE;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsCollection <UnitSector> getAllSectors ()
   {

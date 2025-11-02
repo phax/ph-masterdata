@@ -18,12 +18,12 @@ package com.helger.masterdata.swift;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Represents the real value of an IBAN element with an IBAN number string.
@@ -36,7 +36,7 @@ public final class IBANElementValue implements Serializable
   private final IBANElement m_aElement;
   private final String m_sValue;
 
-  public IBANElementValue (@Nonnull final IBANElement aElement, @Nonnull final String sValue)
+  public IBANElementValue (@NonNull final IBANElement aElement, @NonNull final String sValue)
   {
     ValueEnforcer.notNull (aElement, "Element");
     ValueEnforcer.notNull (sValue, "Value");
@@ -46,13 +46,13 @@ public final class IBANElementValue implements Serializable
     m_sValue = sValue;
   }
 
-  @Nonnull
+  @NonNull
   public IBANElement getElement ()
   {
     return m_aElement;
   }
 
-  @Nonnull
+  @NonNull
   public String getValue ()
   {
     return m_sValue;

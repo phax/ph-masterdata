@@ -18,13 +18,13 @@ package com.helger.masterdata.address;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.misc.Translatable;
 import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
 
 @Translatable
 public enum EPostalAddressText implements IHasDisplayText
@@ -44,12 +44,12 @@ public enum EPostalAddressText implements IHasDisplayText
 
   private final IMultilingualText m_aTP;
 
-  EPostalAddressText (@Nonnull final String sDE, @Nonnull final String sEN)
+  EPostalAddressText (@NonNull final String sDE, @NonNull final String sEN)
   {
     m_aTP = TextHelper.create_DE_EN (sDE, sEN);
   }
 
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
   }

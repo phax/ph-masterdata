@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.ean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public enum EEANChecksumMode implements IHasID <String>
 {
@@ -45,12 +45,12 @@ public enum EEANChecksumMode implements IHasID <String>
    * @param sID
    *        the name of the ChecksumMode
    */
-  private EEANChecksumMode (@Nonnull @Nonempty final String sID)
+  private EEANChecksumMode (@NonNull @Nonempty final String sID)
   {
     m_sID = sID;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {

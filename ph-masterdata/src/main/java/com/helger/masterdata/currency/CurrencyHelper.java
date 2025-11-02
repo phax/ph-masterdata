@@ -24,6 +24,9 @@ import java.util.Comparator;
 import java.util.Currency;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
@@ -41,9 +44,6 @@ import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsSortedSet;
 import com.helger.text.locale.LocaleCache;
 import com.helger.text.locale.LocaleParser;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Currency helper methods. Heavily extended in 6.1.0.
@@ -115,7 +115,7 @@ public final class CurrencyHelper
   private CurrencyHelper ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsSortedSet <Currency> getAllSupportedCurrencies ()
   {
@@ -132,7 +132,7 @@ public final class CurrencyHelper
     return eCurrency != null && isSupportedCurrency (eCurrency.getAsCurrency ());
   }
 
-  public static boolean isSupportedCurrencyCode (@Nonnull final String sCurrencyCode)
+  public static boolean isSupportedCurrencyCode (@NonNull final String sCurrencyCode)
   {
     try
     {
@@ -159,7 +159,7 @@ public final class CurrencyHelper
   }
 
   @Nullable
-  public static Currency getCurrencyOfLocale (@Nonnull final Locale aContentLocale)
+  public static Currency getCurrencyOfLocale (@NonNull final Locale aContentLocale)
   {
     if (!localeSupportsCurrencyRetrieval (aContentLocale))
       throw new IllegalArgumentException ("Cannot get currency of locale " + aContentLocale);
@@ -170,7 +170,7 @@ public final class CurrencyHelper
   /**
    * @return A map from {@link Locale} to {@link Currency} as offered by the JDK.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsMap <Locale, Currency> getLocaleToCurrencyMap ()
   {
@@ -192,7 +192,7 @@ public final class CurrencyHelper
    */
   @Nullable
   public static BigDecimal parseCurrency (@Nullable final String sStr,
-                                          @Nonnull final DecimalFormat aFormat,
+                                          @NonNull final DecimalFormat aFormat,
                                           @Nullable final BigDecimal aDefault)
   {
     return parseCurrency (sStr, aFormat, aDefault, DEFAULT_ROUNDING_MODE);
@@ -213,9 +213,9 @@ public final class CurrencyHelper
    */
   @Nullable
   public static BigDecimal parseCurrency (@Nullable final String sStr,
-                                          @Nonnull final DecimalFormat aFormat,
+                                          @NonNull final DecimalFormat aFormat,
                                           @Nullable final BigDecimal aDefault,
-                                          @Nonnull final RoundingMode eRoundingMode)
+                                          @NonNull final RoundingMode eRoundingMode)
   {
     // Shortcut
     if (StringHelper.isEmpty (sStr))
@@ -241,7 +241,7 @@ public final class CurrencyHelper
    *        used instead.
    * @return Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static PerCurrencySettings getSettings (@Nullable final ECurrency eCurrency)
   {
     RW_LOCK.readLock ().lock ();
@@ -255,7 +255,7 @@ public final class CurrencyHelper
     }
   }
 
-  @Nonnull
+  @NonNull
   public static String getCurrencySymbol (@Nullable final ECurrency eCurrency)
   {
     return getSettings (eCurrency).getCurrencySymbol ();
@@ -268,7 +268,7 @@ public final class CurrencyHelper
    * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
    *         includes the currency string.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public static String getCurrencyPattern (@Nullable final ECurrency eCurrency)
   {
@@ -282,7 +282,7 @@ public final class CurrencyHelper
    * @return The pattern to be used in {@link DecimalFormat} to format this currency. This pattern
    *         does NOT includes the currency string.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public static String getValuePattern (@Nullable final ECurrency eCurrency)
   {
@@ -296,21 +296,21 @@ public final class CurrencyHelper
    * @return The {@link DecimalFormat} used to format this currency. Always returns a copy of the
    *         contained formatter for thread-safety and modification.
    */
-  @Nonnull
+  @NonNull
   public static DecimalFormat getCurrencyFormat (@Nullable final ECurrency eCurrency)
   {
     return getSettings (eCurrency).getCurrencyFormat ();
   }
 
-  @Nonnull
-  public static String getCurrencyFormatted (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
+  @NonNull
+  public static String getCurrencyFormatted (@Nullable final ECurrency eCurrency, @NonNull final BigDecimal aValue)
   {
     return getSettings (eCurrency).getCurrencyFormatted (aValue);
   }
 
-  @Nonnull
+  @NonNull
   public static String getCurrencyFormatted (@Nullable final ECurrency eCurrency,
-                                             @Nonnull final BigDecimal aValue,
+                                             @NonNull final BigDecimal aValue,
                                              @Nonnegative final int nFractionDigits)
   {
     return getSettings (eCurrency).getCurrencyFormatted (aValue, nFractionDigits);
@@ -323,21 +323,21 @@ public final class CurrencyHelper
    *        used instead. {@link #getCurrencyFormat(ECurrency)} but without the currency sign.
    *        Always returns a copy of the contained formatter for thread-safety and modification.
    */
-  @Nonnull
+  @NonNull
   public static DecimalFormat getValueFormat (@Nullable final ECurrency eCurrency)
   {
     return getSettings (eCurrency).getValueFormat ();
   }
 
-  @Nonnull
-  public static String getValueFormatted (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
+  @NonNull
+  public static String getValueFormatted (@Nullable final ECurrency eCurrency, @NonNull final BigDecimal aValue)
   {
     return getSettings (eCurrency).getValueFormatted (aValue);
   }
 
-  @Nonnull
+  @NonNull
   public static String getValueFormatted (@Nullable final ECurrency eCurrency,
-                                          @Nonnull final BigDecimal aValue,
+                                          @NonNull final BigDecimal aValue,
                                           @Nonnegative final int nFractionDigits)
   {
     return getSettings (eCurrency).getValueFormatted (aValue, nFractionDigits);
@@ -396,8 +396,8 @@ public final class CurrencyHelper
    */
   @Nullable
   private static String _getTextValueForDecimalSeparator (@Nullable final String sTextValue,
-                                                          @Nonnull final EDecimalSeparator eDecimalSep,
-                                                          @Nonnull final EGroupingSeparator eGroupingSep)
+                                                          @NonNull final EDecimalSeparator eDecimalSep,
+                                                          @NonNull final EGroupingSeparator eGroupingSep)
   {
     ValueEnforcer.notNull (eDecimalSep, "DecimalSeparator");
     ValueEnforcer.notNull (eGroupingSep, "GroupingSeparator");
@@ -575,11 +575,11 @@ public final class CurrencyHelper
    *        Divisor
    * @return The divided value with the correct scaling
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public static BigDecimal getDivided (@Nullable final ECurrency eCurrency,
-                                       @Nonnull final BigDecimal aDividend,
-                                       @Nonnull final BigDecimal aDivisor)
+                                       @NonNull final BigDecimal aDividend,
+                                       @NonNull final BigDecimal aDivisor)
   {
     ValueEnforcer.notNull (aDividend, "Dividend");
     ValueEnforcer.notNull (aDivisor, "Divisor");
@@ -605,11 +605,11 @@ public final class CurrencyHelper
    *        A custom scaling to be used.
    * @return The divided value with the provided scaling
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   public static BigDecimal getDivided (@Nullable final ECurrency eCurrency,
-                                       @Nonnull final BigDecimal aDividend,
-                                       @Nonnull final BigDecimal aDivisor,
+                                       @NonNull final BigDecimal aDividend,
+                                       @NonNull final BigDecimal aDivisor,
                                        @Nonnegative final int nFractionDigits)
   {
     ValueEnforcer.notNull (aDividend, "Dividend");
@@ -630,8 +630,8 @@ public final class CurrencyHelper
    *        The value to be rounded. May not be <code>null</code>.
    * @return The rounded value. Never <code>null</code>.
    */
-  @Nonnull
-  public static BigDecimal getRounded (@Nullable final ECurrency eCurrency, @Nonnull final BigDecimal aValue)
+  @NonNull
+  public static BigDecimal getRounded (@Nullable final ECurrency eCurrency, @NonNull final BigDecimal aValue)
   {
     ValueEnforcer.notNull (aValue, "Value");
     final PerCurrencySettings aPCS = getSettings (eCurrency);
@@ -653,9 +653,9 @@ public final class CurrencyHelper
    *        A custom scaling to be used.
    * @return The rounded value. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static BigDecimal getRounded (@Nullable final ECurrency eCurrency,
-                                       @Nonnull final BigDecimal aValue,
+                                       @NonNull final BigDecimal aValue,
                                        @Nonnegative final int nFractionDigits)
   {
     ValueEnforcer.notNull (aValue, "Value");
@@ -670,7 +670,7 @@ public final class CurrencyHelper
    * @return The rounding mode of this currency. If non is specified, {@link #DEFAULT_ROUNDING_MODE}
    *         is returned instead. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static RoundingMode getRoundingMode (@Nullable final ECurrency eCurrency)
   {
     return getSettings (eCurrency).getRoundingMode ();

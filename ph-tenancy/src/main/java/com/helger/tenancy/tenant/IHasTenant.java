@@ -16,9 +16,9 @@
  */
 package com.helger.tenancy.tenant;
 
-import com.helger.base.equals.EqualsHelper;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nullable;
+import com.helger.base.equals.EqualsHelper;
 
 /**
  * Base interface for objects that have a tenant.

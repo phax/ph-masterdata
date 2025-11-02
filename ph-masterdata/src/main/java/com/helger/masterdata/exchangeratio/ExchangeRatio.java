@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
@@ -27,8 +29,6 @@ import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.numeric.BigHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Represents a single currency exchange ratio compared to a base currency (e.g. EUR)
@@ -42,20 +42,20 @@ public class ExchangeRatio implements Serializable
   private final LocalDate m_aDate;
   private final BigDecimal m_aRatio;
 
-  public ExchangeRatio (@Nonnull final LocalDate aDate, @Nonnull @Nonnegative final BigDecimal aRatio)
+  public ExchangeRatio (@NonNull final LocalDate aDate, @NonNull @Nonnegative final BigDecimal aRatio)
   {
     m_aDate = ValueEnforcer.notNull (aDate, "Date");
     m_aRatio = ValueEnforcer.isGT0 (aRatio, "Ratio");
   }
 
-  @Nonnull
+  @NonNull
   public LocalDate getDate ()
   {
     return m_aDate;
   }
 
   @Nonnegative
-  @Nonnull
+  @NonNull
   public BigDecimal getRatio ()
   {
     return m_aRatio;

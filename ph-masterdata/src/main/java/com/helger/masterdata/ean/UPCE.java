@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.ean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
 import com.helger.base.string.StringHelper;
 import com.helger.base.string.StringParser;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * UPC-E implementation (Universal product code)
@@ -37,7 +37,7 @@ public final class UPCE extends AbstractUPCEAN
    * @param sMsg
    *        The code string.
    */
-  public UPCE (@Nonnull final String sMsg)
+  public UPCE (@NonNull final String sMsg)
   {
     this (sMsg, DEFAULT_CHECKSUM_MODE);
   }
@@ -50,13 +50,13 @@ public final class UPCE extends AbstractUPCEAN
    * @param eMode
    *        the checksum mode
    */
-  public UPCE (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public UPCE (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     super (sMsg, eMode);
   }
 
   @Override
-  @Nonnull
+  @NonNull
   public EValidity validate ()
   {
     return validateMessage (getMessage ());
@@ -145,8 +145,8 @@ public final class UPCE extends AbstractUPCEAN
    *        an UPC-E message (7 or 8 characters)
    * @return String the expanded UPC-A message (with checksum, 12 characters)
    */
-  @Nonnull
-  public static String getExpandedMessage (@Nonnull final String sMsg)
+  @NonNull
+  public static String getExpandedMessage (@NonNull final String sMsg)
   {
     final char cCheck = sMsg.length () == 8 ? sMsg.charAt (7) : '\u0000';
     final String sUpce = sMsg.substring (0, 0 + 7);
@@ -198,7 +198,7 @@ public final class UPCE extends AbstractUPCEAN
     return sUpcaFinished + cExpectedCheck;
   }
 
-  private static byte _extractNumberSystem (@Nonnull final String sMsg)
+  private static byte _extractNumberSystem (@NonNull final String sMsg)
   {
     // Only 0 and 1 are considered valid!
     return StringParser.parseByte (sMsg.substring (0, 1), (byte) -1);
@@ -213,7 +213,7 @@ public final class UPCE extends AbstractUPCEAN
    *        the message to validate
    * @return {@link EValidity}
    */
-  @Nonnull
+  @NonNull
   public static EValidity validateMessage (@Nullable final String sMsg)
   {
     final int nLen = StringHelper.getLength (sMsg);
@@ -226,7 +226,7 @@ public final class UPCE extends AbstractUPCEAN
     return EValidity.INVALID;
   }
 
-  public static String handleChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public static String handleChecksum (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

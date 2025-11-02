@@ -21,6 +21,9 @@ import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.function.Predicate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
@@ -31,9 +34,6 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.text.locale.country.IHasCountry;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents all the different VAT items for a single country.
@@ -49,7 +49,7 @@ public class VATCountryData implements IHasCountry, Serializable
   private final String m_sCountryName;
   private final String m_sInternalComment;
 
-  public VATCountryData (@Nonnull final Locale aCountry,
+  public VATCountryData (@NonNull final Locale aCountry,
                          final boolean bZeroVATAllowed,
                          @Nullable final String sCountryName,
                          @Nullable final String sInternalComment)
@@ -60,7 +60,7 @@ public class VATCountryData implements IHasCountry, Serializable
     m_sInternalComment = sInternalComment;
   }
 
-  @Nonnull
+  @NonNull
   public Locale getCountry ()
   {
     return m_aCountry;
@@ -83,8 +83,8 @@ public class VATCountryData implements IHasCountry, Serializable
     return m_sInternalComment;
   }
 
-  @Nonnull
-  public EChange addItem (@Nonnull final VATItem aVATItem)
+  @NonNull
+  public EChange addItem (@NonNull final VATItem aVATItem)
   {
     ValueEnforcer.notNull (aVATItem, "VATItem");
 
@@ -103,16 +103,16 @@ public class VATCountryData implements IHasCountry, Serializable
   /**
    * @return A non-<code>null</code> but may be empty map from VATItem ID to VAT item.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsMap <String, IVATItem> getAllItems ()
   {
     return m_aItems.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  public ICommonsList <IVATItem> getItems (@Nonnull final Predicate <? super IVATItem> aFilter)
+  public ICommonsList <IVATItem> getItems (@NonNull final Predicate <? super IVATItem> aFilter)
   {
     return m_aItems.copyOfValues (aFilter);
   }

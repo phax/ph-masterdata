@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.ean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Validator and checksum creator for EAN13 code (=GTIN-13 and GLN)
@@ -36,7 +36,7 @@ public final class EAN13 extends AbstractUPCEAN
    * @param sMsg
    *        The code string.
    */
-  public EAN13 (@Nonnull final String sMsg)
+  public EAN13 (@NonNull final String sMsg)
   {
     this (sMsg, DEFAULT_CHECKSUM_MODE);
   }
@@ -49,13 +49,13 @@ public final class EAN13 extends AbstractUPCEAN
    * @param eMode
    *        the checksum mode
    */
-  public EAN13 (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  public EAN13 (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     super (sMsg, eMode);
   }
 
   @Override
-  @Nonnull
+  @NonNull
   public EValidity validate ()
   {
     return validateMessage (getMessage ());
@@ -70,7 +70,7 @@ public final class EAN13 extends AbstractUPCEAN
    * @return {@link EValidity#VALID} if the msg is valid,
    *         {@link EValidity#INVALID} otherwise.
    */
-  @Nonnull
+  @NonNull
   public static EValidity validateMessage (@Nullable final String sMsg)
   {
     final int nLen = StringHelper.getLength (sMsg);
@@ -80,14 +80,14 @@ public final class EAN13 extends AbstractUPCEAN
     return EValidity.INVALID;
   }
 
-  @Nonnull
+  @NonNull
   public String getWithCorrectChecksum ()
   {
     return getWithCorrectChecksum (getMessage (), getChecksumMode ());
   }
 
-  @Nonnull
-  public static String getWithCorrectChecksum (@Nonnull final String sMsg, @Nonnull final EEANChecksumMode eMode)
+  @NonNull
+  public static String getWithCorrectChecksum (@NonNull final String sMsg, @NonNull final EEANChecksumMode eMode)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
     ValueEnforcer.notNull (eMode, "ChecksumMode");

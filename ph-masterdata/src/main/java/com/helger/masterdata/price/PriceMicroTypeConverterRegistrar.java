@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.price;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.IsSPIImplementation;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistrarSPI;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistry;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Registrar for micro type converter.
@@ -32,7 +32,7 @@ import jakarta.annotation.Nonnull;
 @IsSPIImplementation
 public final class PriceMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
-  public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
+  public void registerMicroTypeConverter (@NonNull final IMicroTypeConverterRegistry aRegistry)
   {
     aRegistry.registerMicroElementTypeConverter (Price.class, new PriceMicroTypeConverter ());
   }

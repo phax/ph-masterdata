@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.person;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
@@ -24,9 +27,6 @@ import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.email.ExtendedEmailAddress;
 import com.helger.masterdata.email.IEmailAddressType;
 import com.helger.masterdata.email.IExtendedEmailAddress;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Person specific implementation
@@ -41,26 +41,26 @@ public class PersonEmailAddress extends ExtendedEmailAddress
   public PersonEmailAddress ()
   {}
 
-  public PersonEmailAddress (@Nonnull final Person aOwner)
+  public PersonEmailAddress (@NonNull final Person aOwner)
   {
     setOwner (aOwner);
   }
 
-  public PersonEmailAddress (@Nonnull final Person aOwner, @Nonnull final IExtendedEmailAddress aBase)
+  public PersonEmailAddress (@NonNull final Person aOwner, @NonNull final IExtendedEmailAddress aBase)
   {
     super (aBase);
     setOwner (aOwner);
   }
 
-  public PersonEmailAddress (@Nonnull final Person aOwner, @Nullable final IEmailAddressType aAddressType, @Nonnull final String sAddress)
+  public PersonEmailAddress (@NonNull final Person aOwner, @Nullable final IEmailAddressType aAddressType, @NonNull final String sAddress)
   {
     super (aAddressType, sAddress);
     setOwner (aOwner);
   }
 
-  public PersonEmailAddress (@Nonnull final Person aOwner,
+  public PersonEmailAddress (@NonNull final Person aOwner,
                              @Nullable final IEmailAddressType aAddressType,
-                             @Nonnull final String sAddress,
+                             @NonNull final String sAddress,
                              @Nullable final String sPersonal)
   {
     super (aAddressType, sAddress, sPersonal);
@@ -73,7 +73,7 @@ public class PersonEmailAddress extends ExtendedEmailAddress
     return m_aOwner;
   }
 
-  public final void setOwner (@Nonnull final Person aOwner)
+  public final void setOwner (@NonNull final Person aOwner)
   {
     ValueEnforcer.notNull (aOwner, "Owner");
     m_aOwner = aOwner;

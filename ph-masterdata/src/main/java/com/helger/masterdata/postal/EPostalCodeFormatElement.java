@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.postal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents a single element within a postal code format definition
@@ -40,7 +40,7 @@ enum EPostalCodeFormatElement
   private final String m_sRegEx;
   private final String m_sExample;
 
-  EPostalCodeFormatElement (@Nonnull @Nonempty final String sToken,
+  EPostalCodeFormatElement (@NonNull @Nonempty final String sToken,
                             @Nullable final String sRegEx,
                             @Nullable final String sExample)
   {
@@ -52,7 +52,7 @@ enum EPostalCodeFormatElement
   /**
    * @return The token in the format definition string.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getToken ()
   {

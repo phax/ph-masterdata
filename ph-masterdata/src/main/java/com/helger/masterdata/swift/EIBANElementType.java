@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata.swift;
 
-import com.helger.base.lang.EnumHelper;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import com.helger.base.lang.EnumHelper;
 
 /**
  * Possible elements of an IBAN description.
@@ -43,12 +43,12 @@ public enum EIBANElementType
 
   private final String m_sField;
 
-  EIBANElementType (@Nonnull final String sField)
+  EIBANElementType (@NonNull final String sField)
   {
     m_sField = sField;
   }
 
-  @Nonnull
+  @NonNull
   public String getField ()
   {
     return m_sField;

@@ -16,6 +16,9 @@
  */
 package com.helger.tenancy.accarea;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.name.IHasDisplayName;
 import com.helger.base.string.StringHelper;
 import com.helger.base.string.StringImplode;
@@ -23,9 +26,6 @@ import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.tenancy.tenant.ITenantObject;
 import com.helger.tenancy.uitext.IHasUIText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This interface represents a single accounting area.
@@ -54,7 +54,7 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
    *         " " (1 blank).
    * @see #getDisplayNameAndCompanyType(String)
    */
-  @Nonnull
+  @NonNull
   default String getDisplayNameAndCompanyType ()
   {
     return getDisplayNameAndCompanyType (" ");
@@ -70,8 +70,8 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
    * @see #getDisplayName()
    * @see #getCompanyType()
    */
-  @Nonnull
-  default String getDisplayNameAndCompanyType (@Nonnull final String sSep)
+  @NonNull
+  default String getDisplayNameAndCompanyType (@NonNull final String sSep)
   {
     return StringImplode.getImplodedNonEmpty (sSep, getDisplayName (), getCompanyType ());
   }
@@ -124,7 +124,7 @@ public interface IAccountingArea extends ITenantObject, IHasDisplayName, IHasUIT
   /**
    * @return The postal address of the owner. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   IPostalAddress getAddress ();
 
   /**

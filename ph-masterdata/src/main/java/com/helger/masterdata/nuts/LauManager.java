@@ -16,6 +16,7 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +32,6 @@ import com.helger.io.resource.IReadableResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A manager for LAU items. The data of 2021 is accessible via
@@ -58,7 +57,7 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
   public LauManager ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public ICommonsOrderedMap <String, LauItem> lauItems ()
   {
@@ -71,7 +70,7 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
    * @param aItem
    *        The item to be added. May not be <code>null</code>.
    */
-  public void addItem (@Nonnull final LauItem aItem)
+  public void addItem (@NonNull final LauItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
     ValueEnforcer.isTrue ( () -> NutsManager.isValidNutsCode (aItem.getNutsCode ()),
@@ -83,7 +82,7 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
     m_aItems.put (sID, aItem);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public LauManager getClone ()
   {
@@ -92,8 +91,8 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
     return ret;
   }
 
-  @Nonnull
-  public static LauManager createFromXML (@Nonnull final IReadableResource aRes)
+  @NonNull
+  public static LauManager createFromXML (@NonNull final IReadableResource aRes)
   {
     ValueEnforcer.notNull (aRes, "Res");
     ValueEnforcer.isTrue (aRes::exists, "Res must exist");
@@ -119,7 +118,7 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
     return ret;
   }
 
-  @Nonnull
+  @NonNull
   public static LauManager createFor2021 ()
   {
     return createFromXML (new ClassPathResource ("codelists/lau-nuts2021.xml", LauManager.class.getClassLoader ()));

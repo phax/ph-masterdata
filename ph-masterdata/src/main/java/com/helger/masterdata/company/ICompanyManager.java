@@ -16,10 +16,10 @@
  */
 package com.helger.masterdata.company;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.collection.commons.ICommonsCollection;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Generic company manager interface.
@@ -32,7 +32,7 @@ public interface ICompanyManager extends ICompanyResolver
    * @return All registered companies. May not be <code>null</code> but maybe
    *         empty.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsCollection <? extends ICompany> getAllCompanies ();
 }

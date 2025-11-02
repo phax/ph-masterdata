@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.vat;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsArrayList;
@@ -24,9 +27,6 @@ import com.helger.io.resource.ClassPathResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class handles the different VATIN structures for different countries.
@@ -119,7 +119,7 @@ public class VATINStructureManager
   /**
    * @return A list of all available VATIN structures
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsList <VATINStructure> getAllStructures ()
   {

@@ -16,6 +16,8 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,9 +35,6 @@ import com.helger.io.resource.IReadableResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * A manager for NUTS items. The data of 2021 is accessible via {@link #INSTANCE_2021}
@@ -66,7 +65,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
   public NutsManager ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public ICommonsOrderedMap <String, NutsItem> nutsItems ()
   {
@@ -84,7 +83,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
    * @param aItem
    *        The item to be added. May not be <code>null</code>.
    */
-  public void addItem (@Nonnull final NutsItem aItem)
+  public void addItem (@NonNull final NutsItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
     final String sID = aItem.getID ();
@@ -95,7 +94,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
     m_aItems.put (sID, aItem);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public NutsManager getClone ()
   {
@@ -104,8 +103,8 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
     return ret;
   }
 
-  @Nonnull
-  public static NutsManager createFromXML (@Nonnull final IReadableResource aRes)
+  @NonNull
+  public static NutsManager createFromXML (@NonNull final IReadableResource aRes)
   {
     ValueEnforcer.notNull (aRes, "Res");
     ValueEnforcer.isTrue (aRes::exists, "Res must exist");
@@ -132,7 +131,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
     return ret;
   }
 
-  @Nonnull
+  @NonNull
   public static NutsManager createFor2021 ()
   {
     return createFromXML (new ClassPathResource ("codelists/nuts2021.xml", NutsManager.class.getClassLoader ()));

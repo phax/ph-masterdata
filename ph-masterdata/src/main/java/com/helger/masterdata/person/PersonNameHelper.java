@@ -19,6 +19,9 @@ package com.helger.masterdata.person;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.array.ArrayHelper;
@@ -26,9 +29,6 @@ import com.helger.base.string.StringHelper;
 import com.helger.base.string.StringImplode;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 @Immutable
 public final class PersonNameHelper
@@ -107,7 +107,7 @@ public final class PersonNameHelper
    * @return The unified part
    */
   @Nullable
-  private static String _unifySinglePart (@Nonnull final String sPart, @Nonnull final Locale aSortLocale)
+  private static String _unifySinglePart (@NonNull final String sPart, @NonNull final Locale aSortLocale)
   {
     // empty name?
     String s = sPart.trim ();
@@ -130,7 +130,7 @@ public final class PersonNameHelper
   }
 
   @Nullable
-  public static String unifyName (@Nullable final String sName, @Nonnull final Locale aSortLocale)
+  public static String unifyName (@Nullable final String sName, @NonNull final Locale aSortLocale)
   {
     if (sName == null)
       return null;
@@ -175,8 +175,8 @@ public final class PersonNameHelper
     return s;
   }
 
-  @Nonnull
-  public static String getAsDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsDisplayNameFirstNameFirst (@NonNull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringImplode.imploder ()
@@ -186,8 +186,8 @@ public final class PersonNameHelper
                         .build ();
   }
 
-  @Nonnull
-  public static String getAsDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsDisplayNameLastNameFirst (@NonNull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringImplode.imploder ()
@@ -205,16 +205,16 @@ public final class PersonNameHelper
    *        The name to be converted. May not be <code>null</code>.
    * @return The non-<code>null</code> display name
    */
-  @Nonnull
-  public static String getAsDisplayName (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsDisplayName (@NonNull final IPersonName aName)
   {
     if (isFirstNameFirst ())
       return getAsDisplayNameFirstNameFirst (aName);
     return getAsDisplayNameLastNameFirst (aName);
   }
 
-  @Nonnull
-  public static String getAsCompleteDisplayNameFirstNameFirst (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsCompleteDisplayNameFirstNameFirst (@NonNull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringImplode.imploder ()
@@ -228,8 +228,8 @@ public final class PersonNameHelper
                         .build ();
   }
 
-  @Nonnull
-  public static String getAsCompleteDisplayNameLastNameFirst (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsCompleteDisplayNameLastNameFirst (@NonNull final IPersonName aName)
   {
     // Concatenate all non-empty parts
     return StringImplode.imploder ()
@@ -251,15 +251,15 @@ public final class PersonNameHelper
    *        The name to be converted. May not be <code>null</code>.
    * @return The non-<code>null</code> display name
    */
-  @Nonnull
-  public static String getAsCompleteDisplayName (@Nonnull final IPersonName aName)
+  @NonNull
+  public static String getAsCompleteDisplayName (@NonNull final IPersonName aName)
   {
     if (isFirstNameFirst ())
       return getAsCompleteDisplayNameFirstNameFirst (aName);
     return getAsCompleteDisplayNameLastNameFirst (aName);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsList <String> getAllNobiliaryParticles ()
   {

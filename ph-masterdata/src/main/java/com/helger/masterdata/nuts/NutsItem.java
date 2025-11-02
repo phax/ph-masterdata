@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
@@ -24,9 +27,6 @@ import com.helger.base.id.IHasID;
 import com.helger.base.name.IHasDisplayName;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents a single NUTS item from the list.
@@ -47,8 +47,8 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   private final int m_nCountryOrdinal;
   private final int m_nRegionOrdinal;
 
-  public NutsItem (@Nonnull @Nonempty final String sID,
-                   @Nonnull @Nonempty final String sDisplayName,
+  public NutsItem (@NonNull @Nonempty final String sID,
+                   @NonNull @Nonempty final String sDisplayName,
                    @Nullable final String sLatinDisplayName,
                    @Nonnegative final int nCountryOrdinal,
                    @Nonnegative final int nRegionOrdinal)
@@ -70,7 +70,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   /**
    * @return The NUTS code. As in <code>BE</code> or <code>AT130</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {
@@ -81,7 +81,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
    * @return The display name of the NUTS item in local language.
    * @see #getLatinDisplayName() for the Latin version
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getDisplayName ()
   {
@@ -92,7 +92,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
    * @return The Latin display name of the NUTS item. If no specific latin name is provided, it's
    *         identical to {@link #getDisplayName()}.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getLatinDisplayName ()
   {
@@ -102,7 +102,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
   /**
    * @return The NUTS level of the item. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public ENutsLevel getLevel ()
   {
     return m_eNutsLevel;

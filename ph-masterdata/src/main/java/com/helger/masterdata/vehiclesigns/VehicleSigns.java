@@ -18,6 +18,9 @@ package com.helger.masterdata.vehiclesigns;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.exception.InitializationException;
@@ -26,9 +29,6 @@ import com.helger.collection.commons.CommonsLinkedHashSet;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsOrderedSet;
 import com.helger.text.locale.country.CountryCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old
@@ -224,7 +224,7 @@ public final class VehicleSigns
     _add ("ZW", "ZW");
   }
 
-  private static void _add (@Nonnull final String sCountryCode, @Nonnull final String sSign)
+  private static void _add (@NonNull final String sCountryCode, @NonNull final String sSign)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
     if (!COUNTRY_TO_SIGN.computeIfAbsent (aCountry, k -> new CommonsLinkedHashSet <> ()).add (sSign))
@@ -236,7 +236,7 @@ public final class VehicleSigns
   private VehicleSigns ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsOrderedSet <String> getAllVehicleSigns (@Nullable final String sCountry)
   {
@@ -245,7 +245,7 @@ public final class VehicleSigns
     return new CommonsLinkedHashSet <> (aSigns);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsOrderedSet <String> getAllVehicleSigns (@Nullable final Locale aCountry)
   {
@@ -279,14 +279,14 @@ public final class VehicleSigns
    * @return The complete map from country locale to all vehicle signs. Never
    *         <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsMap <Locale, ICommonsOrderedSet <String>> getCountryToVehicleSignMap ()
   {
     return COUNTRY_TO_SIGN.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsOrderedSet <Locale> getAllCountriesFromVehicleSign (@Nullable final String sSign)
   {
@@ -315,7 +315,7 @@ public final class VehicleSigns
    *         <code>null</code>.
    * @since 5.0.6
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static ICommonsMap <String, ICommonsOrderedSet <Locale>> getVehicleSignToCountryMap ()
   {

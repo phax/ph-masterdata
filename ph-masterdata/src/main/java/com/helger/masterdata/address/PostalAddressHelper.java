@@ -19,6 +19,9 @@ package com.helger.masterdata.address;
 import java.util.List;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.GuardedBy;
 import com.helger.annotation.concurrent.ThreadSafe;
 import com.helger.base.concurrent.SimpleReadWriteLock;
@@ -28,9 +31,6 @@ import com.helger.base.string.StringImplode;
 import com.helger.base.string.StringReplace;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains utility methods for addresses.
@@ -75,7 +75,7 @@ public final class PostalAddressHelper
   /**
    * @return The prefix to be added in front of "c/o" lines. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static String getCareOfPrefix ()
   {
     return RW_LOCK.readLockedGet ( () -> s_sCareOfPrefix);
@@ -87,14 +87,14 @@ public final class PostalAddressHelper
    * @param sCareOfPrefix
    *        The c/o prefix. May not be <code>null</code> but maybe empty.
    */
-  public static void setCareOfPrefix (@Nonnull final String sCareOfPrefix)
+  public static void setCareOfPrefix (@NonNull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
     RW_LOCK.writeLocked ( () -> s_sCareOfPrefix = sCareOfPrefix);
   }
 
   @Nullable
-  private static String _unifyPart (@Nonnull final String sPart, @Nonnull final Locale aSortLocale)
+  private static String _unifyPart (@NonNull final String sPart, @NonNull final Locale aSortLocale)
   {
     // empty name?
     String s = sPart.trim ();
@@ -113,7 +113,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedStreet (@Nullable final String sStreet, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedStreet (@Nullable final String sStreet, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sStreet;
@@ -126,7 +126,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedCity (@Nullable final String sCity, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedCity (@Nullable final String sCity, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sCity;
@@ -138,7 +138,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedPOBox (@Nullable final String sPOBox, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedPOBox (@Nullable final String sPOBox, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sPOBox;
@@ -150,7 +150,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedCareOf (@Nullable final String sCareOf, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedCareOf (@Nullable final String sCareOf, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sCareOf;
@@ -162,7 +162,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedState (@Nullable final String sState, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedState (@Nullable final String sState, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sState;
@@ -174,7 +174,7 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getUnifiedCountry (@Nullable final String sCountry, @Nonnull final Locale aSortLocale)
+  public static String getUnifiedCountry (@Nullable final String sCountry, @NonNull final Locale aSortLocale)
   {
     if (!isComplexAddressHandlingEnabled ())
       return sCountry;
@@ -202,15 +202,15 @@ public final class PostalAddressHelper
   }
 
   @Nullable
-  public static String getAddressString (@Nullable final IPostalAddress aAddress, @Nonnull final Locale aDisplayLocale)
+  public static String getAddressString (@Nullable final IPostalAddress aAddress, @NonNull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
   }
 
   @Nullable
   public static String getAddressString (@Nullable final IPostalAddress aAddress,
-                                         @Nonnull final Locale aDisplayLocale,
-                                         @Nonnull final String sLineSeparator)
+                                         @NonNull final Locale aDisplayLocale,
+                                         @NonNull final String sLineSeparator)
   {
     return getAddressString (aAddress,
                              new CommonsArrayList <> (EPostalAddressField.CARE_OF,
@@ -224,17 +224,17 @@ public final class PostalAddressHelper
 
   @Nullable
   public static String getAddressString (@Nullable final IPostalAddress aAddress,
-                                         @Nonnull final List <EPostalAddressField> aFields,
-                                         @Nonnull final Locale aDisplayLocale)
+                                         @NonNull final List <EPostalAddressField> aFields,
+                                         @NonNull final Locale aDisplayLocale)
   {
     return getAddressString (aAddress, aFields, aDisplayLocale, DEFAULT_LINE_SEPARATOR);
   }
 
   @Nullable
   public static String getAddressString (@Nullable final IPostalAddress aAddress,
-                                         @Nonnull final List <EPostalAddressField> aFields,
-                                         @Nonnull final Locale aDisplayLocale,
-                                         @Nonnull final String sLineSeparator)
+                                         @NonNull final List <EPostalAddressField> aFields,
+                                         @NonNull final Locale aDisplayLocale,
+                                         @NonNull final String sLineSeparator)
   {
     ValueEnforcer.notNull (aFields, "Fields");
     ValueEnforcer.notNull (aDisplayLocale, "DisplayLocale");

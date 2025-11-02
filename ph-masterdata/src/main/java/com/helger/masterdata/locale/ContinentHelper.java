@@ -18,6 +18,9 @@ package com.helger.masterdata.locale;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.collection.commons.CommonsHashMap;
@@ -25,9 +28,6 @@ import com.helger.collection.commons.CommonsTreeSet;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsSortedSet;
 import com.helger.text.locale.country.CountryCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains the country to continent assignment
@@ -307,7 +307,7 @@ public final class ContinentHelper
    *        The enum to be used. May not be <code>null</code> but may contain a
    *        single <code>null</code> element.
    */
-  private static void _register (@Nonnull @Nonempty final String sCountryCode, @Nonnull final EContinent... aContinents)
+  private static void _register (@NonNull @Nonempty final String sCountryCode, @NonNull final EContinent... aContinents)
   {
     final Locale aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
     if (s_aMap.containsKey (aCountry))
@@ -366,7 +366,7 @@ public final class ContinentHelper
    * @return A copy of the map from country locale to all matching contintents.
    *         Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static final ICommonsMap <Locale, ICommonsSortedSet <EContinent>> getAll ()
   {

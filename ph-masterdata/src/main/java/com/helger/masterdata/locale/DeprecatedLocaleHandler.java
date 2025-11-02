@@ -19,6 +19,8 @@ package com.helger.masterdata.locale;
 import java.io.InputStream;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,9 +37,6 @@ import com.helger.text.locale.LocaleCache;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class manages the deprecated locales.
@@ -67,7 +66,7 @@ public class DeprecatedLocaleHandler
       m_sVariant = sVariant;
     }
 
-    public boolean matchesLocale (@Nonnull final Locale aLocale)
+    public boolean matchesLocale (@NonNull final Locale aLocale)
     {
       final boolean bLanguage = m_sLanguage == null || m_sLanguage.equals (aLocale.getLanguage ());
       final boolean bCountry = m_sCountry == null || m_sCountry.equals (aLocale.getCountry ());
@@ -84,7 +83,7 @@ public class DeprecatedLocaleHandler
   public DeprecatedLocaleHandler ()
   {}
 
-  public void initFromXML (@Nonnull final IMicroDocument aDoc)
+  public void initFromXML (@NonNull final IMicroDocument aDoc)
   {
     ValueEnforcer.notNull (aDoc, "Doc");
     ValueEnforcer.notNull (aDoc.getDocumentElement (), "Doc.DocumentElement");
@@ -111,7 +110,7 @@ public class DeprecatedLocaleHandler
   /**
    * @return A set of all locales as specified in the file.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsSet <Locale> getAllDeprecatedLocales ()
   {
@@ -158,16 +157,16 @@ public class DeprecatedLocaleHandler
     return new ToStringGenerator (this).append ("locales", m_aLocales).getToString ();
   }
 
-  @Nonnull
-  public static DeprecatedLocaleHandler readFromXML (@Nonnull final IHasInputStream aISP)
+  @NonNull
+  public static DeprecatedLocaleHandler readFromXML (@NonNull final IHasInputStream aISP)
   {
     ValueEnforcer.notNull (aISP, "InputStreamProvider");
 
     return readFromXML (aISP.getInputStream ());
   }
 
-  @Nonnull
-  public static DeprecatedLocaleHandler readFromXML (@Nonnull @WillClose final InputStream aIS)
+  @NonNull
+  public static DeprecatedLocaleHandler readFromXML (@NonNull @WillClose final InputStream aIS)
   {
     ValueEnforcer.notNull (aIS, "InputStream");
 
@@ -180,7 +179,7 @@ public class DeprecatedLocaleHandler
   /**
    * @return The default singleton instance. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static DeprecatedLocaleHandler getDefaultInstance ()
   {
     return SingletonHolder.INSTANCE;

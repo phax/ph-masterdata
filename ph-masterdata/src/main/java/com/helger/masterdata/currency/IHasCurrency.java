@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.currency;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 /**
  * Base interface for objects having a currency.
@@ -31,13 +31,13 @@ public interface IHasCurrency
   /**
    * @return The underlying currency. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   ECurrency getCurrency ();
 
   /**
    * @return The ID of the underlying currency. May not be <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   default String getCurrencyID ()
   {

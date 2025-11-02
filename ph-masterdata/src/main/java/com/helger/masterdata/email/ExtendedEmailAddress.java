@@ -18,6 +18,8 @@ package com.helger.masterdata.email;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,9 +32,6 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.state.EChange;
 import com.helger.base.string.StringHelper;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Default writable implementation of {@link IExtendedEmailAddress}.
@@ -51,7 +50,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
   public ExtendedEmailAddress ()
   {}
 
-  public ExtendedEmailAddress (@Nonnull final ExtendedEmailAddress aBase)
+  public ExtendedEmailAddress (@NonNull final ExtendedEmailAddress aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     m_aAddressType = aBase.m_aAddressType;
@@ -59,7 +58,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     m_sPersonal = aBase.m_sPersonal;
   }
 
-  public ExtendedEmailAddress (@Nonnull final IExtendedEmailAddress aBase)
+  public ExtendedEmailAddress (@NonNull final IExtendedEmailAddress aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setType (aBase.getType ());
@@ -67,13 +66,13 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     setPersonal (aBase.getPersonal ());
   }
 
-  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @Nonnull final String sAddress)
+  public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType, @NonNull final String sAddress)
   {
     this (aAddressType, sAddress, null);
   }
 
   public ExtendedEmailAddress (@Nullable final IEmailAddressType aAddressType,
-                               @Nonnull final String sAddress,
+                               @NonNull final String sAddress,
                                @Nullable final String sPersonal)
   {
     setType (aAddressType);
@@ -87,7 +86,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return m_aAddressType;
   }
 
-  @Nonnull
+  @NonNull
   public final EChange setType (@Nullable final IEmailAddressType aAddressType)
   {
     if (EqualsHelper.equals (aAddressType, m_aAddressType))
@@ -96,7 +95,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public String getAddress ()
   {
     return m_sAddress;
@@ -111,8 +110,8 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
    *         Returns {@link EChange#UNCHANGED} if the email address was the same as before, or the
    *         email address itself was invalid.
    */
-  @Nonnull
-  public final EChange setAddress (@Nonnull final String sAddress)
+  @NonNull
+  public final EChange setAddress (@NonNull final String sAddress)
   {
     ValueEnforcer.notNull (sAddress, "Address");
 
@@ -137,7 +136,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return m_sPersonal;
   }
 
-  @Nonnull
+  @NonNull
   public final EChange setPersonal (@Nullable final String sPersonal)
   {
     final String sRealPersonal = sPersonal;
@@ -147,7 +146,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public String getDisplayName ()
   {
     if (m_sAddress == null)
@@ -158,7 +157,7 @@ public class ExtendedEmailAddress implements IExtendedEmailAddress, ICloneable <
     return m_sAddress;
   }
 
-  @Nonnull
+  @NonNull
   public ExtendedEmailAddress getClone ()
   {
     return new ExtendedEmailAddress (this);

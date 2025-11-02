@@ -16,14 +16,14 @@
  */
 package com.helger.masterdata.telephone;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConverter <TelephoneNumber>
 {
@@ -33,10 +33,10 @@ public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConver
   private static final IMicroQName ATTR_LINE = new MicroQName ("line");
   private static final IMicroQName ATTR_DIRECTDIAL = new MicroQName ("directdial");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final TelephoneNumber aTelNo,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final TelephoneNumber aTelNo,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement eTelNo = new MicroElement (sNamespaceURI, sTagName);
     if (aTelNo.getType () != null)
@@ -48,8 +48,8 @@ public final class TelephoneNumberMicroTypeConverter implements IMicroTypeConver
     return eTelNo;
   }
 
-  @Nonnull
-  public TelephoneNumber convertToNative (@Nonnull final IMicroElement eTelNo)
+  @NonNull
+  public TelephoneNumber convertToNative (@NonNull final IMicroElement eTelNo)
   {
     final ETelephoneType eType = ETelephoneType.getFromIDOrNull (eTelNo.getAttributeValue (ATTR_TYPE));
     final String sCountryCode = eTelNo.getAttributeValue (ATTR_COUNTRYCODE);

@@ -18,12 +18,12 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.CheckReturnValue;
 import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.currencyvalue.ICurrencyValue;
 import com.helger.masterdata.vat.IHasVATItem;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Base interface for a price that has a value, a currency and a VAT type. This is a read-only
@@ -36,13 +36,13 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   /**
    * @return The net amount value and currency of this price (value without VAT).
    */
-  @Nonnull
+  @NonNull
   ICurrencyValue getNetAmount ();
 
   /**
    * @return The net amount value of this price (value without VAT).
    */
-  @Nonnull
+  @NonNull
   default BigDecimal getNetValue ()
   {
     return getNetAmount ().getValue ();
@@ -51,7 +51,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   /**
    * @return The gross amount value and currency of this price (value with VAT).
    */
-  @Nonnull
+  @NonNull
   default ICurrencyValue getGrossAmount ()
   {
     return getNetAmount ().getMultiplied (getVATItem ().getMultiplicationFactorNetToGross ());
@@ -60,7 +60,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   /**
    * @return The gross amount value of this price (value with VAT).
    */
-  @Nonnull
+  @NonNull
   default BigDecimal getGrossValue ()
   {
     return getGrossAmount ().getValue ();
@@ -69,7 +69,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   /**
    * @return The tax amount value and currency of this price (=net amount * percentage / 100).
    */
-  @Nonnull
+  @NonNull
   default ICurrencyValue getTaxAmount ()
   {
     return getNetAmount ().getMultiplied (getVATItem ().getPercentageFactor ());
@@ -78,7 +78,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
   /**
    * @return The tax amount value of this price (=net amount * percentage / 100).
    */
-  @Nonnull
+  @NonNull
   default BigDecimal getTaxValue ()
   {
     return getTaxAmount ().getValue ();
@@ -91,9 +91,9 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to add.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IPrice getAdded (@Nonnull BigDecimal aValue);
+  IPrice getAdded (@NonNull BigDecimal aValue);
 
   /**
    * Add this price and the given value, keeping currency and VAT type.
@@ -102,7 +102,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to add.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IPrice getAdded (long nValue);
 
@@ -113,9 +113,9 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to subtract.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IPrice getSubtracted (@Nonnull BigDecimal aValue);
+  IPrice getSubtracted (@NonNull BigDecimal aValue);
 
   /**
    * Subtract the given value from this price, keeping currency and VAT type.
@@ -124,7 +124,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to subtract.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IPrice getSubtracted (long nValue);
 
@@ -135,9 +135,9 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to multiply with.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IPrice getMultiplied (@Nonnull BigDecimal aValue);
+  IPrice getMultiplied (@NonNull BigDecimal aValue);
 
   /**
    * Multiply this price with given value, keeping currency and VAT type.
@@ -146,7 +146,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to multiply with.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IPrice getMultiplied (long nValue);
 
@@ -157,9 +157,9 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to divide through.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
-  IPrice getDivided (@Nonnull BigDecimal aValue);
+  IPrice getDivided (@NonNull BigDecimal aValue);
 
   /**
    * Divide this price with given value, keeping currency and VAT type.
@@ -168,7 +168,7 @@ public interface IPrice extends IHasCurrency, IHasVATItem
    *        The value to divide through.
    * @return The result value as a new object.
    */
-  @Nonnull
+  @NonNull
   @CheckReturnValue
   IPrice getDivided (long nValue);
 }

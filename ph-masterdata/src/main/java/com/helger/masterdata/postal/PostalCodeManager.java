@@ -18,6 +18,9 @@ package com.helger.masterdata.postal;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.ThreadSafe;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.concurrent.SimpleReadWriteLock;
@@ -31,9 +34,6 @@ import com.helger.collection.commons.ICommonsSet;
 import com.helger.io.resource.ClassPathResource;
 import com.helger.io.resource.IReadableResource;
 import com.helger.text.locale.country.CountryCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Manages postal code definitions for different countries.
@@ -52,7 +52,7 @@ public class PostalCodeManager
   public PostalCodeManager ()
   {}
 
-  public PostalCodeManager (@Nonnull final IReadableResource aRes)
+  public PostalCodeManager (@NonNull final IReadableResource aRes)
   {
     ValueEnforcer.notNull (aRes, "Resource");
 
@@ -60,7 +60,7 @@ public class PostalCodeManager
     aReader.readFromFile (aRes);
   }
 
-  public void addCountry (@Nonnull final IPostalCodeCountry aPostalCountry)
+  public void addCountry (@NonNull final IPostalCodeCountry aPostalCountry)
   {
     ValueEnforcer.notNull (aPostalCountry, "PostalCountry");
 
@@ -87,7 +87,7 @@ public class PostalCodeManager
     return m_aRWLock.readLockedGet ( () -> m_aMap.get (aRealCountry));
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsSet <Locale> getAllAvailableCountries ()
   {
@@ -106,7 +106,7 @@ public class PostalCodeManager
    *         valid or {@link ETriState#FALSE} if the passed postal code is
    *         explicitly not valid for the passed country.
    */
-  @Nonnull
+  @NonNull
   public ETriState isValidPostalCode (@Nullable final Locale aCountry, @Nullable final String sPostalCode)
   {
     final IPostalCodeCountry aPostalCountry = getPostalCountryOfCountry (aCountry);

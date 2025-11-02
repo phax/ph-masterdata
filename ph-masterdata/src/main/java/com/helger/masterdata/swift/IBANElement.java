@@ -18,13 +18,13 @@ package com.helger.masterdata.swift;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Represents a single IBAN element within a country's IBAN description.
@@ -37,13 +37,13 @@ public final class IBANElement implements Serializable
   private final EIBANElementType m_eElementType;
   private final int m_nLength;
 
-  public IBANElement (@Nonnull final EIBANElementType eElementType, @Nonnegative final int nLength)
+  public IBANElement (@NonNull final EIBANElementType eElementType, @Nonnegative final int nLength)
   {
     m_eElementType = ValueEnforcer.notNull (eElementType, "ElementType");
     m_nLength = ValueEnforcer.isGT0 (nLength, "Length");
   }
 
-  @Nonnull
+  @NonNull
   public EIBANElementType getElementType ()
   {
     return m_eElementType;

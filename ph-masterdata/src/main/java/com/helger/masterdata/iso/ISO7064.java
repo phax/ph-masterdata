@@ -16,9 +16,9 @@
  */
 package com.helger.masterdata.iso;
 
-import com.helger.base.CGlobal;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.base.CGlobal;
 
 /**
  * ISO 7064 checksum algorithms.
@@ -41,7 +41,7 @@ public final class ISO7064
     private Mod97 ()
     {}
 
-    public static int getChecksum (@Nonnull final String s)
+    public static int getChecksum (@NonNull final String s)
     {
       int nChecksum = 0;
       for (final char c : s.toCharArray ())
@@ -66,7 +66,7 @@ public final class ISO7064
       return nChecksum;
     }
 
-    public static boolean isValid (@Nonnull final String s)
+    public static boolean isValid (@NonNull final String s)
     {
       return getChecksum (s) == EXPECTED_CHECKSUM;
     }

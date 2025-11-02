@@ -23,6 +23,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.function.Predicate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,9 +50,6 @@ import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 import com.helger.xml.microdom.util.MicroHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Manages the available VAT types.
@@ -103,7 +102,7 @@ public class VATManager implements IVATItemProvider
     return aLocale.getCountry ().toLowerCase (Locale.US);
   }
 
-  public void initFromXML (@Nonnull final IMicroDocument aDoc)
+  public void initFromXML (@NonNull final IMicroDocument aDoc)
   {
     ValueEnforcer.notNull (aDoc, "Doc");
     ValueEnforcer.notNull (aDoc.getDocumentElement (), "Doc.DocumentElement");
@@ -203,7 +202,7 @@ public class VATManager implements IVATItemProvider
    * @return A list with all URLs where the data was gathered from. Purely descriptive. Has no
    *         impact on the logic. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <String> getAllSources ()
   {
@@ -213,7 +212,7 @@ public class VATManager implements IVATItemProvider
   /**
    * @return All countries for which VAT type definitions are present. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsSet <Locale> getAllAvailableCountries ()
   {
@@ -224,7 +223,7 @@ public class VATManager implements IVATItemProvider
    * @return The complete map from locale to VAT country data. Never <code>null</code>.
    * @since 5.0.5
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsMap <Locale, VATCountryData> getAllCountryData ()
   {
@@ -240,7 +239,7 @@ public class VATManager implements IVATItemProvider
    *        The value to be returned, if no VAT data is available for the passed country
    * @return <code>true</code> or <code>false</code>
    */
-  public boolean isZeroVATAllowed (@Nonnull final Locale aCountry, final boolean bUndefinedValue)
+  public boolean isZeroVATAllowed (@NonNull final Locale aCountry, final boolean bUndefinedValue)
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
@@ -257,7 +256,7 @@ public class VATManager implements IVATItemProvider
    * @return <code>null</code> if no such country data is present.
    */
   @Nullable
-  public VATCountryData getVATCountryData (@Nonnull final Locale aLocale)
+  public VATCountryData getVATCountryData (@NonNull final Locale aLocale)
   {
     ValueEnforcer.notNull (aLocale, "Locale");
     final Locale aCountry = CountryCache.getInstance ().getCountry (aLocale);
@@ -287,8 +286,8 @@ public class VATManager implements IVATItemProvider
    *         items are returned! VATTYPE_NONE.getID () is used if zero VAT is allowed
    */
   @ReturnsMutableCopy
-  @Nonnull
-  public ICommonsMap <String, IVATItem> getAllVATItemsForCountry (@Nonnull final Locale aCountry)
+  @NonNull
+  public ICommonsMap <String, IVATItem> getAllVATItemsForCountry (@NonNull final Locale aCountry)
   {
     ValueEnforcer.notNull (aCountry, "Country");
 
@@ -315,7 +314,7 @@ public class VATManager implements IVATItemProvider
   }
 
   @Nullable
-  public IVATItem getVATItemOfID (@Nonnull final Locale aCountry, @Nullable final String sID)
+  public IVATItem getVATItemOfID (@NonNull final Locale aCountry, @Nullable final String sID)
   {
     return getVATItemOfID (_getCountryString (aCountry) + "." + sID);
   }
@@ -346,7 +345,7 @@ public class VATManager implements IVATItemProvider
    * @return <code>null</code> if no matching item could be found,
    */
   @Nullable
-  public IVATItem findFirst (@Nonnull final Predicate <? super IVATItem> aFilter)
+  public IVATItem findFirst (@NonNull final Predicate <? super IVATItem> aFilter)
   {
     return CollectionFind.findFirst (m_aAllVATItems.values (), aFilter);
   }
@@ -360,9 +359,9 @@ public class VATManager implements IVATItemProvider
    *         objects.
    * @since 5.0.5
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  public ICommonsList <IVATItem> findAll (@Nonnull final Predicate <? super IVATItem> aFilter)
+  public ICommonsList <IVATItem> findAll (@NonNull final Predicate <? super IVATItem> aFilter)
   {
     final ICommonsList <IVATItem> ret = new CommonsArrayList <> ();
     CollectionFind.findAll (m_aAllVATItems.values (), aFilter, ret::add);
@@ -378,16 +377,16 @@ public class VATManager implements IVATItemProvider
                                        .getToString ();
   }
 
-  @Nonnull
-  public static VATManager readFromXML (@Nonnull final IHasInputStream aISP)
+  @NonNull
+  public static VATManager readFromXML (@NonNull final IHasInputStream aISP)
   {
     ValueEnforcer.notNull (aISP, "InputStreamProvider");
 
     return readFromXML (aISP.getInputStream ());
   }
 
-  @Nonnull
-  public static VATManager readFromXML (@Nonnull @WillClose final InputStream aIS)
+  @NonNull
+  public static VATManager readFromXML (@NonNull @WillClose final InputStream aIS)
   {
     ValueEnforcer.notNull (aIS, "InputStream");
 
@@ -400,7 +399,7 @@ public class VATManager implements IVATItemProvider
   /**
    * @return The default singleton instance. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public static VATManager getDefaultInstance ()
   {
     return SingletonHolder.INSTANCE;

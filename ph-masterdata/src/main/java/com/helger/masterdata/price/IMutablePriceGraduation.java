@@ -18,15 +18,15 @@ package com.helger.masterdata.price;
 
 import java.math.BigDecimal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsImmutableObject;
 import com.helger.base.state.EChange;
 import com.helger.base.state.IClearable;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.masterdata.vat.IVATItem;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * The writable interface for a single price graduation.
@@ -41,15 +41,15 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
   @Nullable
   IMutablePriceGraduationItem getLargestMinimumQuantityItem ();
 
-  @Nonnull
+  @NonNull
   @ReturnsImmutableObject
   ICommonsList <? extends IMutablePriceGraduationItem> getAllItems ();
 
-  @Nonnull
-  IMutablePrice getSinglePriceOfQuantity (@Nonnegative int nQuantity, @Nonnull IVATItem aVAT);
+  @NonNull
+  IMutablePrice getSinglePriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
-  @Nonnull
-  IMutablePrice getTotalPriceOfQuantity (@Nonnegative int nQuantity, @Nonnull IVATItem aVAT);
+  @NonNull
+  IMutablePrice getTotalPriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
   /**
    * Add a new item based on the default currency and VAT type.
@@ -61,7 +61,7 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
    * @return {@link EChange#CHANGED} if the value changed,
    *         {@link EChange#UNCHANGED} otherwise.
    */
-  @Nonnull
+  @NonNull
   EChange addItem (@Nonnegative int nMinimumQuantity, BigDecimal aNetAmount);
 
   /**
@@ -77,8 +77,8 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
    *         contained. Use the setter methods of
    *         {@link IMutablePriceGraduationItem} instead.
    */
-  @Nonnull
-  EChange addItem (@Nonnull IMutablePriceGraduationItem aItem);
+  @NonNull
+  EChange addItem (@NonNull IMutablePriceGraduationItem aItem);
 
   /**
    * Delivers a writable price object based on the net amount of the passed item
@@ -90,5 +90,5 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
    *        the VAT to be used for the price (depending on the concrete context)
    * @return the resulting {@link IMutablePrice}
    */
-  IMutablePrice getPrice (@Nonnull IPriceGraduationItem aItem, IVATItem aVAT);
+  IMutablePrice getPrice (@NonNull IPriceGraduationItem aItem, IVATItem aVAT);
 }

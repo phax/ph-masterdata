@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.din;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.lang.EnumHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * DIN B. Width and height are in portrait mode.<br>
@@ -49,14 +49,14 @@ public enum EDINB implements IDINSize
   private final int m_nWidthMM;
   private final int m_nHeightMM;
 
-  EDINB (@Nonnull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
+  EDINB (@NonNull @Nonempty final String sID, @Nonnegative final int nWidthMM, @Nonnegative final int nHeightMM)
   {
     m_sID = sID;
     m_nWidthMM = nWidthMM;
     m_nHeightMM = nHeightMM;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {

@@ -16,6 +16,9 @@
  */
 package com.helger.masterdata.price;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
 import com.helger.annotation.style.ReturnsMutableCopy;
@@ -24,9 +27,6 @@ import com.helger.collection.commons.ICommonsList;
 import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.vat.IVATItem;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Read only interface for a single complete price graduation (German:
@@ -50,7 +50,7 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
    * @throws IllegalStateException
    *         if no currency is defined
    */
-  @Nonnull
+  @NonNull
   ECurrency getCurrency ();
 
   /**
@@ -71,7 +71,7 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
    * @return All contained read only items, sorted ascending by the minimum
    *         quantity. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsList <? extends IPriceGraduationItem> getAllItems ();
 
@@ -93,8 +93,8 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
    *        The VAT item to use.
    * @return The price of a single item.
    */
-  @Nonnull
-  IPrice getSinglePriceOfQuantity (@Nonnegative int nQuantity, @Nonnull IVATItem aVAT);
+  @NonNull
+  IPrice getSinglePriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
   /**
    * Get the total price of all items for the given quantity. This is a shortcut
@@ -106,8 +106,8 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
    *        The VAT item to use.
    * @return The total price of all items.
    */
-  @Nonnull
-  IPrice getTotalPriceOfQuantity (@Nonnegative int nQuantity, @Nonnull IVATItem aVAT);
+  @NonNull
+  IPrice getTotalPriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
   /**
    * Delivers a price object based on the net amount of the passed item and the
@@ -119,6 +119,6 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
    *        The VAT item to use.
    * @return the resulting {@link IPrice}
    */
-  @Nonnull
-  IPrice getPrice (@Nonnull IPriceGraduationItem aItem, @Nonnull IVATItem aVAT);
+  @NonNull
+  IPrice getPrice (@NonNull IPriceGraduationItem aItem, @NonNull IVATItem aVAT);
 }

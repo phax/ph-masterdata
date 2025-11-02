@@ -16,12 +16,12 @@
  */
 package com.helger.masterdata.nuts;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * NUTS level
@@ -39,13 +39,13 @@ public enum ENutsLevel implements IHasID <String>
   private final String m_sID;
   private final int m_nCharCount;
 
-  ENutsLevel (@Nonnull final String sID, @Nonnegative final int nCharCount)
+  ENutsLevel (@NonNull final String sID, @Nonnegative final int nCharCount)
   {
     m_sID = sID;
     m_nCharCount = nCharCount;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
@@ -72,7 +72,7 @@ public enum ENutsLevel implements IHasID <String>
     return null;
   }
 
-  @Nonnull
+  @NonNull
   public static ENutsLevel getFromLengthOrThrow (final int nLength)
   {
     final ENutsLevel ret = getFromLengthOrNull (nLength);

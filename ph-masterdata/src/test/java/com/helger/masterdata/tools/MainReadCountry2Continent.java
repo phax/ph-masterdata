@@ -22,6 +22,8 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,15 +37,12 @@ import com.helger.poi.excel.ExcelReadHelper;
 import com.helger.text.compare.ComparatorHelper;
 import com.helger.text.locale.country.CountryCache;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public final class MainReadCountry2Continent
 {
   private static final Locale LOC = Locale.US;
   private static final Logger LOGGER = LoggerFactory.getLogger (MainReadCountry2Continent.class);
 
-  @Nonnull
+  @NonNull
   private static EContinent _findContinent (final String s)
   {
     for (final EContinent e : EContinent.values ())

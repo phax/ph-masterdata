@@ -18,12 +18,12 @@ package com.helger.masterdata.telephone;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains the possible telephone number types.
@@ -49,20 +49,20 @@ public enum ETelephoneType implements ITelephoneType
   private final String m_sID;
   private final IHasDisplayText m_aText;
 
-  ETelephoneType (@Nonnull @Nonempty final String sID, @Nonnull final ETelephoneText eText)
+  ETelephoneType (@NonNull @Nonempty final String sID, @NonNull final ETelephoneText eText)
   {
     m_sID = sID;
     m_aText = eText;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aText.getDisplayText (aContentLocale);
   }

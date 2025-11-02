@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.postal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.collection.commons.ICommonsList;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Postal code country
@@ -34,7 +34,7 @@ public interface IPostalCodeCountry
   /**
    * @return The ISO code of this country. Never <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   String getISO ();
 
@@ -47,7 +47,7 @@ public interface IPostalCodeCountry
   /**
    * @return All formats defined for this country. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsList <PostalCodeFormat> getAllFormats ();
 
@@ -70,7 +70,7 @@ public interface IPostalCodeCountry
   /**
    * @return All specific postal codes but never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsList <String> getAllSpecificPostalCodes ();
 
@@ -96,7 +96,7 @@ public interface IPostalCodeCountry
    * @return A list of all available example postal codes that show the
    *         different formats available.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsList <String> getAllExamples ();
 }

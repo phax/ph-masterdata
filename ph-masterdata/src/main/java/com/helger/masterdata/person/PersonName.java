@@ -19,14 +19,14 @@ package com.helger.masterdata.person;
 import java.io.Serializable;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.state.EChange;
 import com.helger.base.tostring.ToStringGenerator;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class PersonName implements IPersonName, Serializable
 {
@@ -40,7 +40,7 @@ public class PersonName implements IPersonName, Serializable
   public PersonName ()
   {}
 
-  public PersonName (@Nonnull final PersonName aBase)
+  public PersonName (@NonNull final PersonName aBase)
   {
     ValueEnforcer.notNull (aBase, "Base");
     m_eSalutation = aBase.m_eSalutation;
@@ -51,7 +51,7 @@ public class PersonName implements IPersonName, Serializable
     m_sSuffixTitle = aBase.m_sSuffixTitle;
   }
 
-  public PersonName (@Nonnull final IPersonName aBase, @Nonnull final Locale aSortLocale)
+  public PersonName (@NonNull final IPersonName aBase, @NonNull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setSalutation (aBase.getSalutation ());
@@ -68,7 +68,7 @@ public class PersonName implements IPersonName, Serializable
                      @Nullable final String sMiddleName,
                      @Nullable final String sLastName,
                      @Nullable final String sSuffixTitle,
-                     @Nonnull final Locale aSortLocale)
+                     @NonNull final Locale aSortLocale)
   {
     setSalutation (eSalutation);
     setPrefixTitle (sPrefixTitle);
@@ -84,7 +84,7 @@ public class PersonName implements IPersonName, Serializable
     return m_eSalutation;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setSalutation (@Nullable final ESalutation eSalutation)
   {
     if (EqualsHelper.equals (m_eSalutation, eSalutation))
@@ -99,7 +99,7 @@ public class PersonName implements IPersonName, Serializable
     return m_sPrefixTitle;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setPrefixTitle (@Nullable final String sPrefixTitle)
   {
     final String sRealPrefixTitle = sPrefixTitle;
@@ -115,8 +115,8 @@ public class PersonName implements IPersonName, Serializable
     return m_sFirstName;
   }
 
-  @Nonnull
-  public EChange setFirstName (@Nullable final String sFirstName, @Nonnull final Locale aSortLocale)
+  @NonNull
+  public EChange setFirstName (@Nullable final String sFirstName, @NonNull final Locale aSortLocale)
   {
     final String sRealFirstName = PersonNameHelper.unifyName (sFirstName, aSortLocale);
     if (EqualsHelper.equals (m_sFirstName, sRealFirstName))
@@ -131,8 +131,8 @@ public class PersonName implements IPersonName, Serializable
     return m_sMiddleName;
   }
 
-  @Nonnull
-  public EChange setMiddleName (@Nullable final String sMiddleName, @Nonnull final Locale aSortLocale)
+  @NonNull
+  public EChange setMiddleName (@Nullable final String sMiddleName, @NonNull final Locale aSortLocale)
   {
     final String sRealMiddleName = PersonNameHelper.unifyName (sMiddleName, aSortLocale);
     if (EqualsHelper.equals (m_sMiddleName, sRealMiddleName))
@@ -147,8 +147,8 @@ public class PersonName implements IPersonName, Serializable
     return m_sLastName;
   }
 
-  @Nonnull
-  public EChange setLastName (@Nullable final String sLastName, @Nonnull final Locale aSortLocale)
+  @NonNull
+  public EChange setLastName (@Nullable final String sLastName, @NonNull final Locale aSortLocale)
   {
     final String sRealLastName = PersonNameHelper.unifyName (sLastName, aSortLocale);
     if (EqualsHelper.equals (m_sLastName, sRealLastName))
@@ -163,7 +163,7 @@ public class PersonName implements IPersonName, Serializable
     return m_sSuffixTitle;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setSuffixTitle (@Nullable final String sSuffixTitle)
   {
     final String sRealSuffixTitle = sSuffixTitle;
@@ -173,7 +173,7 @@ public class PersonName implements IPersonName, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public PersonName getClone ()
   {
     return new PersonName (this);

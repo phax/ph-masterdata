@@ -18,6 +18,9 @@ package com.helger.masterdata.locale;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.collection.commons.CommonsHashMap;
@@ -27,9 +30,6 @@ import com.helger.io.resource.IReadableResource;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class ISO639_2Handler
 {
@@ -47,7 +47,7 @@ public class ISO639_2Handler
   public ISO639_2Handler ()
   {}
 
-  @Nonnull
+  @NonNull
   public static ISO639_2Handler getDefaultInstance ()
   {
     return SingletonHolder.INSTANCE;
@@ -59,8 +59,8 @@ public class ISO639_2Handler
     return sKey == null ? null : sKey.toLowerCase (Locale.US);
   }
 
-  @Nonnull
-  public ISO639_2Handler readFromResource (@Nonnull final IReadableResource aRes)
+  @NonNull
+  public ISO639_2Handler readFromResource (@NonNull final IReadableResource aRes)
   {
     final IMicroDocument aDoc = MicroReader.readMicroXML (aRes);
     for (final IMicroElement eItem : aDoc.getDocumentElement ().getAllChildElements ("item"))
@@ -76,7 +76,7 @@ public class ISO639_2Handler
     return this;
   }
 
-  public void registerItem (@Nonnull final ISO639_2Item aItem)
+  public void registerItem (@NonNull final ISO639_2Item aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
 

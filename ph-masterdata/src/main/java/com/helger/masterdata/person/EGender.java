@@ -18,12 +18,12 @@ package com.helger.masterdata.person;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents the gender of a person.
@@ -39,26 +39,26 @@ public enum EGender implements IHasDisplayText, IHasID <String>
   private final String m_sID;
   private final EGenderName m_aText;
 
-  EGender (@Nonnull final String sID, @Nonnull final EGenderName eText)
+  EGender (@NonNull final String sID, @NonNull final EGenderName eText)
   {
     m_sID = sID;
     m_aText = eText;
   }
 
-  @Nonnull
+  @NonNull
   public String getID ()
   {
     return m_sID;
   }
 
-  @Nonnull
+  @NonNull
   public EGenderName getName ()
   {
     return m_aText;
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aText.getDisplayText (aContentLocale);
   }

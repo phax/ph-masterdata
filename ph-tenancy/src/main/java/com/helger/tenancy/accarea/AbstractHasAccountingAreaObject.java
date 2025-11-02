@@ -16,6 +16,9 @@
  */
 package com.helger.tenancy.accarea;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
@@ -23,9 +26,6 @@ import com.helger.base.hashcode.HashCodeGenerator;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.tenancy.tenant.AbstractHasTenant;
 import com.helger.tenancy.tenant.ITenant;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract implementation of {@link IHasAccountingArea} based on
@@ -38,18 +38,18 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
 {
   private final IAccountingArea m_aAccountingArea;
 
-  protected AbstractHasAccountingAreaObject (@Nonnull final IAccountingAreaObject aOther)
+  protected AbstractHasAccountingAreaObject (@NonNull final IAccountingAreaObject aOther)
   {
     super (aOther.getTenant ());
     m_aAccountingArea = aOther.getAccountingArea ();
   }
 
-  public AbstractHasAccountingAreaObject (@Nonnull final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaObject (@NonNull final IAccountingArea aAccountingArea)
   {
     this (aAccountingArea.getTenant (), aAccountingArea);
   }
 
-  public AbstractHasAccountingAreaObject (@Nonnull final ITenant aTenant, @Nonnull final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaObject (@NonNull final ITenant aTenant, @NonNull final IAccountingArea aAccountingArea)
   {
     super (aTenant);
     ValueEnforcer.notNull (aAccountingArea, "AccountingArea");
@@ -63,13 +63,13 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
     m_aAccountingArea = aAccountingArea;
   }
 
-  @Nonnull
+  @NonNull
   public final IAccountingArea getAccountingArea ()
   {
     return m_aAccountingArea;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @Override
   public final String getAccountingAreaID ()

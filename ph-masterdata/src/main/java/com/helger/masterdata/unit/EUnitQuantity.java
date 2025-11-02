@@ -18,13 +18,13 @@ package com.helger.masterdata.unit;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.base.id.IHasIntID;
 import com.helger.base.lang.EnumHelper;
 import com.helger.text.display.IHasDisplayText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public enum EUnitQuantity implements IHasIntID, IHasDisplayText
 {
@@ -461,7 +461,7 @@ public enum EUnitQuantity implements IHasIntID, IHasDisplayText
   private final int m_nID;
   private final IHasDisplayText m_aName;
 
-  EUnitQuantity (@Nonnegative final int nNumber, @Nonnull final EUnitQuantityName aName)
+  EUnitQuantity (@Nonnegative final int nNumber, @NonNull final EUnitQuantityName aName)
   {
     m_nID = nNumber;
     m_aName = aName;
@@ -474,7 +474,7 @@ public enum EUnitQuantity implements IHasIntID, IHasDisplayText
   }
 
   @Nullable
-  public String getDisplayText (@Nonnull final Locale aContentLocale)
+  public String getDisplayText (@NonNull final Locale aContentLocale)
   {
     return m_aName.getDisplayText (aContentLocale);
   }

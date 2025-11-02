@@ -19,24 +19,24 @@ package com.helger.masterdata.exchangeratio;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.IMicroQName;
 import com.helger.xml.microdom.MicroElement;
 import com.helger.xml.microdom.MicroQName;
 import com.helger.xml.microdom.convert.IMicroTypeConverter;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverter <ExchangeRatio>
 {
   private static final IMicroQName ATTR_DATE = new MicroQName ("date");
   private static final IMicroQName ATTR_RATIO = new MicroQName ("ratio");
 
-  @Nonnull
-  public IMicroElement convertToMicroElement (@Nonnull final ExchangeRatio aValue,
+  @NonNull
+  public IMicroElement convertToMicroElement (@NonNull final ExchangeRatio aValue,
                                               @Nullable final String sNamespaceURI,
-                                              @Nonnull final String sTagName)
+                                              @NonNull final String sTagName)
   {
     final IMicroElement aElement = new MicroElement (sNamespaceURI, sTagName);
     aElement.setAttributeWithConversion (ATTR_DATE, aValue.getDate ());
@@ -44,8 +44,8 @@ public final class ExchangeRatioMicroTypeConverter implements IMicroTypeConverte
     return aElement;
   }
 
-  @Nonnull
-  public ExchangeRatio convertToNative (@Nonnull final IMicroElement aElement)
+  @NonNull
+  public ExchangeRatio convertToNative (@NonNull final IMicroElement aElement)
   {
     final LocalDate aDate = aElement.getAttributeValueWithConversion (ATTR_DATE, LocalDate.class);
     final BigDecimal aRatio = aElement.getAttributeValueWithConversion (ATTR_RATIO, BigDecimal.class);

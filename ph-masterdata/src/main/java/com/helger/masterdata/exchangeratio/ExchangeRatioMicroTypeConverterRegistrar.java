@@ -16,18 +16,18 @@
  */
 package com.helger.masterdata.exchangeratio;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.IsSPIImplementation;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistrarSPI;
 import com.helger.xml.microdom.convert.IMicroTypeConverterRegistry;
 
-import jakarta.annotation.Nonnull;
-
 @Immutable
 @IsSPIImplementation
 public final class ExchangeRatioMicroTypeConverterRegistrar implements IMicroTypeConverterRegistrarSPI
 {
-  public void registerMicroTypeConverter (@Nonnull final IMicroTypeConverterRegistry aRegistry)
+  public void registerMicroTypeConverter (@NonNull final IMicroTypeConverterRegistry aRegistry)
   {
     aRegistry.registerMicroElementTypeConverter (ExchangeRatio.class, new ExchangeRatioMicroTypeConverter ());
     aRegistry.registerMicroElementTypeConverter (ExchangeRatioList.class, new ExchangeRatioListMicroTypeConverter ());

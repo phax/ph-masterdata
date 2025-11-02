@@ -16,11 +16,11 @@
  */
 package com.helger.masterdata;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Utility methods applies to all packages.

@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.equals.EqualsHelper;
 import com.helger.base.hashcode.HashCodeGenerator;
@@ -28,9 +31,6 @@ import com.helger.base.tostring.ToStringGenerator;
 import com.helger.masterdata.address.IPostalAddress;
 import com.helger.masterdata.email.IExtendedEmailAddress;
 import com.helger.masterdata.telephone.ITelephoneNumber;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class Person implements IPerson, Serializable
 {
@@ -50,7 +50,7 @@ public class Person implements IPerson, Serializable
     m_aName = new PersonName ();
   }
 
-  public Person (@Nonnull final IPerson aBase, @Nonnull final Locale aSortLocale)
+  public Person (@NonNull final IPerson aBase, @NonNull final Locale aSortLocale)
   {
     ValueEnforcer.notNull (aBase, "Base");
     setGender (aBase.getGender ());
@@ -62,12 +62,12 @@ public class Person implements IPerson, Serializable
   }
 
   public Person (@Nullable final EGender eGender,
-                 @Nonnull final IPersonName aName,
+                 @NonNull final IPersonName aName,
                  @Nullable final LocalDate aBirthday,
                  @Nullable final ITelephoneNumber aTelephoneNumber,
                  @Nullable final IExtendedEmailAddress aEmailAddress,
                  @Nullable final IPostalAddress aAddress,
-                 @Nonnull final Locale aSortLocale)
+                 @NonNull final Locale aSortLocale)
   {
     setGender (eGender);
     setName (new PersonName (aName, aSortLocale));
@@ -83,7 +83,7 @@ public class Person implements IPerson, Serializable
     return m_eGender;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setGender (@Nullable final EGender eGender)
   {
     if (EqualsHelper.equals (m_eGender, eGender))
@@ -92,14 +92,14 @@ public class Person implements IPerson, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public PersonName getName ()
   {
     return m_aName;
   }
 
-  @Nonnull
-  public EChange setName (@Nonnull final PersonName aName)
+  @NonNull
+  public EChange setName (@NonNull final PersonName aName)
   {
     ValueEnforcer.notNull (aName, "Name");
     if (aName.equals (m_aName))
@@ -114,7 +114,7 @@ public class Person implements IPerson, Serializable
     return m_aBirthday;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setBirthday (@Nullable final LocalDate aBirthday)
   {
     if (EqualsHelper.equals (m_aBirthday, aBirthday))
@@ -129,7 +129,7 @@ public class Person implements IPerson, Serializable
     return m_aTelephoneNumber;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setTelephoneNumber (@Nullable final PersonTelephoneNumber aTelephoneNumber)
   {
     if (EqualsHelper.equals (m_aTelephoneNumber, aTelephoneNumber))
@@ -138,7 +138,7 @@ public class Person implements IPerson, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setTelephoneNumber (@Nullable final ITelephoneNumber aTelephoneNumber)
   {
     PersonTelephoneNumber aPersonTelNo = null;
@@ -153,7 +153,7 @@ public class Person implements IPerson, Serializable
     return m_aEmailAddress;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setEmailAddress (@Nullable final PersonEmailAddress aEmailAddress)
   {
     if (EqualsHelper.equals (m_aEmailAddress, aEmailAddress))
@@ -162,7 +162,7 @@ public class Person implements IPerson, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setEmailAddress (@Nullable final IExtendedEmailAddress aEmailAddress)
   {
     PersonEmailAddress aPersonEmailAddress = null;
@@ -177,7 +177,7 @@ public class Person implements IPerson, Serializable
     return m_aAddress;
   }
 
-  @Nonnull
+  @NonNull
   public EChange setAddress (@Nullable final PersonAddress aAddress)
   {
     if (EqualsHelper.equals (m_aAddress, aAddress))
@@ -186,8 +186,8 @@ public class Person implements IPerson, Serializable
     return EChange.CHANGED;
   }
 
-  @Nonnull
-  public EChange setAddress (@Nullable final IPostalAddress aAddress, @Nonnull final Locale aSortLocale)
+  @NonNull
+  public EChange setAddress (@Nullable final IPostalAddress aAddress, @NonNull final Locale aSortLocale)
   {
     PersonAddress aPersonAddress = null;
     if (aAddress != null)
