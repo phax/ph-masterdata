@@ -46,6 +46,10 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.1.0 - 2025-11-16
+* Updated to ph-commons 12.1.0
+* Using JSpecify annotations
+
 v8.0.2 - 2025-09-21
 * Updated Belgium VAT number check to include numbers starting with '1'. See [#2](https://github.com/phax/ph-masterdata/pull/2) - thx @Karting06 
 
