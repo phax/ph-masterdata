@@ -17,13 +17,13 @@
 package com.helger.masterdata.vat;
 
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import org.jspecify.annotations.NonNull;
 
 import com.helger.annotation.CheckForSigned;
 import com.helger.annotation.style.VisibleForTesting;
 import com.helger.base.enforce.ValueEnforcer;
-import com.helger.base.functional.IToBooleanFunction;
 import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsMap;
@@ -38,7 +38,7 @@ import com.helger.masterdata.iso.ISO7064;
  */
 public class VATINSyntaxChecker
 {
-  private static final ICommonsMap <String, IToBooleanFunction <String>> MAP = new CommonsHashMap <> ();
+  private static final ICommonsMap <String, Predicate <String>> MAP = new CommonsHashMap <> ();
 
   static
   {
@@ -77,9 +77,8 @@ public class VATINSyntaxChecker
   {}
 
   /**
-   * Check if the provided VATIN is valid. This method handles VATINs for all
-   * countries. This check uses only the checksum algorithm and does not call
-   * any webservice etc.
+   * Check if the provided VATIN is valid. This method handles VATINs for all countries. This check
+   * uses only the checksum algorithm and does not call any webservice etc.
    *
    * @param sVATIN
    *        VATIN to check. May not be <code>null</code>.
@@ -92,9 +91,8 @@ public class VATINSyntaxChecker
   }
 
   /**
-   * Check if the provided VATIN is valid. This method handles VATINs for all
-   * countries. This check uses only the checksum algorithm and does not call
-   * any webservice etc.
+   * Check if the provided VATIN is valid. This method handles VATINs for all countries. This check
+   * uses only the checksum algorithm and does not call any webservice etc.
    *
    * @param sVATIN
    *        VATIN to check. May not be <code>null</code>.
@@ -109,9 +107,9 @@ public class VATINSyntaxChecker
     if (sVATIN.length () > 2)
     {
       final String sCountryCode = sVATIN.substring (0, 2).toUpperCase (Locale.US);
-      final IToBooleanFunction <String> aValidator = MAP.get (sCountryCode);
+      final Predicate <String> aValidator = MAP.get (sCountryCode);
       if (aValidator != null)
-        return aValidator.applyAsBoolean (sVATIN.substring (2));
+        return aValidator.test (sVATIN.substring (2));
     }
 
     // No validator
@@ -123,8 +121,7 @@ public class VATINSyntaxChecker
    *
    * @param sVATIN
    *        VATIN to check. May not be <code>null</code>.
-   * @return <code>true</code> if a validator is present, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if a validator is present, <code>false</code> if not.
    */
   public static boolean isValidatorPresent (@NonNull final String sVATIN)
   {
@@ -182,10 +179,21 @@ public class VATINSyntaxChecker
 
   private static int _toInt (final char c0, final char c1, final char c2, final char c3, final char c4, final char c5)
   {
-    return _toInt (c0) * 100_000 + _toInt (c1) * 10_000 + _toInt (c2) * 1_000 + _toInt (c3) * 100 + _toInt (c4) * 10 + _toInt (c5);
+    return _toInt (c0) * 100_000 +
+           _toInt (c1) * 10_000 +
+           _toInt (c2) * 1_000 +
+           _toInt (c3) * 100 +
+           _toInt (c4) * 10 +
+           _toInt (c5);
   }
 
-  private static int _toInt (final char c0, final char c1, final char c2, final char c3, final char c4, final char c5, final char c6)
+  private static int _toInt (final char c0,
+                             final char c1,
+                             final char c2,
+                             final char c3,
+                             final char c4,
+                             final char c5,
+                             final char c6)
   {
     return _toInt (c0) * 1_000_000 +
            _toInt (c1) * 100_000 +
@@ -438,7 +446,17 @@ public class VATINSyntaxChecker
 
   private static boolean _es_c1valid_c9num (final char c)
   {
-    return c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' || c == 'G' || c == 'H' || c == 'J' || c == 'U' || c == 'V';
+    return c == 'A' ||
+           c == 'B' ||
+           c == 'C' ||
+           c == 'D' ||
+           c == 'E' ||
+           c == 'F' ||
+           c == 'G' ||
+           c == 'H' ||
+           c == 'J' ||
+           c == 'U' ||
+           c == 'V';
   }
 
   private static boolean _es_isV1 (final char c)
@@ -470,29 +488,29 @@ public class VATINSyntaxChecker
     return n / 5 + (2 * n) % 10;
   }
 
-  private static final char [] ES_V2 = new char [] { 'T',
-                                                     'R',
-                                                     'W',
-                                                     'A',
-                                                     'G',
-                                                     'M',
-                                                     'Y',
-                                                     'F',
-                                                     'P',
-                                                     'D',
-                                                     'X',
-                                                     'B',
-                                                     'N',
-                                                     'J',
-                                                     'Z',
-                                                     'S',
-                                                     'Q',
-                                                     'V',
-                                                     'H',
-                                                     'L',
-                                                     'C',
-                                                     'K',
-                                                     'E' };
+  private static final char [] ES_V2 = { 'T',
+                                         'R',
+                                         'W',
+                                         'A',
+                                         'G',
+                                         'M',
+                                         'Y',
+                                         'F',
+                                         'P',
+                                         'D',
+                                         'X',
+                                         'B',
+                                         'N',
+                                         'J',
+                                         'Z',
+                                         'S',
+                                         'Q',
+                                         'V',
+                                         'H',
+                                         'L',
+                                         'C',
+                                         'K',
+                                         'E' };
   static
   {
     assert ES_V2.length == 23;
@@ -513,33 +531,7 @@ public class VATINSyntaxChecker
       return false;
 
     final boolean bAlphabetic9 = _isLetter (c[8]);
-    if (bAlphabetic9)
-    {
-      if (!_es_c1valid_c9alpha (c[0]))
-        return false;
-
-      // Juridical entities other than national ones
-      if (_es_isV1 (c[0]))
-      {
-        final int s1 = _toInt (c[2]) + _toInt (c[4]) + _toInt (c[6]);
-        final int s2 = _es_d (c[1]) + _es_d (c[3]) + _es_d (c[5]) + _es_d (c[7]);
-        final int r = 10 - (s1 + s2) % 10;
-        return c[8] == 'A' + r - 1;
-      }
-
-      // Physical persons:
-      if (_es_isV2 (c[0]))
-      {
-        final char c0 = c[0] == 'Y' ? '1' : c[0] == 'Z' ? '2' : c[0];
-        int r;
-        if (_isNum (c0))
-          r = _toInt (c0, c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
-        else
-          r = _toInt (c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
-        return c[8] == ES_V2[r - 1];
-      }
-    }
-    else
+    if (!bAlphabetic9)
     {
       if (!_es_c1valid_c9num (c[0]))
         return false;
@@ -551,6 +543,29 @@ public class VATINSyntaxChecker
       final int nChecksum = r % 10;
       final int nExpected = _toInt (c[8]);
       return nChecksum == nExpected;
+    }
+    if (!_es_c1valid_c9alpha (c[0]))
+      return false;
+
+    // Juridical entities other than national ones
+    if (_es_isV1 (c[0]))
+    {
+      final int s1 = _toInt (c[2]) + _toInt (c[4]) + _toInt (c[6]);
+      final int s2 = _es_d (c[1]) + _es_d (c[3]) + _es_d (c[5]) + _es_d (c[7]);
+      final int r = 10 - (s1 + s2) % 10;
+      return c[8] == 'A' + r - 1;
+    }
+
+    // Physical persons:
+    if (_es_isV2 (c[0]))
+    {
+      final char c0 = c[0] == 'Y' ? '1' : c[0] == 'Z' ? '2' : c[0];
+      int r;
+      if (_isNum (c0))
+        r = _toInt (c0, c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
+      else
+        r = _toInt (c[1], c[2], c[3], c[4], c[5], c[6], c[7]) % 23 + 1;
+      return c[8] == ES_V2[r - 1];
     }
 
     return false;
@@ -733,8 +748,7 @@ public class VATINSyntaxChecker
                    _toInt (c[4]) * 5 +
                    _toInt (c[5]) * 4 +
                    _toInt (c[6]) * 3 +
-                   _toInt (c[0]) * 2) %
-                  23;
+                   _toInt (c[0]) * 2) % 23;
 
     final char cCheck = _ie_checkChar (r);
     return c[7] == cCheck;
@@ -755,8 +769,7 @@ public class VATINSyntaxChecker
                    _toInt (c[3]) * 5 +
                    _toInt (c[4]) * 4 +
                    _toInt (c[5]) * 3 +
-                   _toInt (c[6]) * 2) %
-                  23;
+                   _toInt (c[6]) * 2) % 23;
 
     final char cCheck = _ie_checkChar (r);
     return c[7] == cCheck;
@@ -792,8 +805,7 @@ public class VATINSyntaxChecker
                    _toInt (c[4]) * 4 +
                    _toInt (c[5]) * 3 +
                    _toInt (c[6]) * 2 +
-                   _ie_toNum (c[8]) * 9) %
-                  23;
+                   _ie_toNum (c[8]) * 9) % 23;
 
     final char cCheck = _ie_checkChar (r);
     return c[7] == cCheck;
@@ -948,7 +960,7 @@ public class VATINSyntaxChecker
     return c == '0' || c == '1' || c == '3' || c == '4' || c == '5' || c == '9';
   }
 
-  private static final int [] CY_ODD = new int [] { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21 };
+  private static final int [] CY_ODD = { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21 };
 
   private static int _cy_odd (final char c)
   {
@@ -1032,7 +1044,7 @@ public class VATINSyntaxChecker
     return true;
   }
 
-  private static final int [] CZ_V3 = new int [] { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
+  private static final int [] CZ_V3 = { 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8 };
 
   private static boolean _cz_isV3 (@NonNull final char [] c)
   {
@@ -1321,7 +1333,12 @@ public class VATINSyntaxChecker
     if (v <= 100_000)
       return false;
 
-    final int a1 = 3 * _toInt (c[0]) + 4 * _toInt (c[1]) + 6 * _toInt (c[2]) + 7 * _toInt (c[3]) + 8 * _toInt (c[4]) + 9 * _toInt (c[5]);
+    final int a1 = 3 * _toInt (c[0]) +
+                   4 * _toInt (c[1]) +
+                   6 * _toInt (c[2]) +
+                   7 * _toInt (c[3]) +
+                   8 * _toInt (c[4]) +
+                   9 * _toInt (c[5]);
     final int r = 37 - (a1 % 37);
     final int nChecksum = r == 0 ? 37 : r;
     final int nExpected = _toInt (c[6], c[7]);
