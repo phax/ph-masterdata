@@ -109,6 +109,6 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("accoutingArea", m_aAccountingArea).getToString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("accountingArea", m_aAccountingArea).getToString ();
   }
 }

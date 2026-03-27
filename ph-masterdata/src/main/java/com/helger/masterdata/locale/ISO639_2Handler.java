@@ -63,6 +63,8 @@ public class ISO639_2Handler
   public ISO639_2Handler readFromResource (@NonNull final IReadableResource aRes)
   {
     final IMicroDocument aDoc = MicroReader.readMicroXML (aRes);
+    if (aDoc == null)
+      throw new IllegalArgumentException ("Failed to read resource: " + aRes);
     for (final IMicroElement eItem : aDoc.getDocumentElement ().getAllChildElements ("item"))
     {
       final String sAlpha3B = eItem.getAttributeValue ("alpha3");

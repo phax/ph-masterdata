@@ -52,7 +52,6 @@ public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHa
   public AbstractHasAccountingAreaOptionalObject (@NonNull final ITenant aTenant, @Nullable final IAccountingArea aAccountingArea)
   {
     super (aTenant);
-    ValueEnforcer.notNull (aAccountingArea, "AccountingArea");
     if (aAccountingArea != null)
       ValueEnforcer.isTrue (aAccountingArea.hasSameTenant (aTenant),
                             () -> "The passed accounting area '" +
@@ -110,6 +109,6 @@ public abstract class AbstractHasAccountingAreaOptionalObject extends AbstractHa
   @Override
   public String toString ()
   {
-    return ToStringGenerator.getDerived (super.toString ()).append ("accoutingArea", m_aAccountingArea).getToString ();
+    return ToStringGenerator.getDerived (super.toString ()).append ("accountingArea", m_aAccountingArea).getToString ();
   }
 }
