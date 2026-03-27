@@ -77,7 +77,7 @@ public interface IVATItem extends IHasDisplayText, IHasID <String>
    */
   default boolean hasPercentage (@Nullable final BigDecimal aPercentage)
   {
-    return EqualsHelper.equals (getPercentage (), aPercentage);
+    return BigHelper.equalValues (getPercentage (), aPercentage);
   }
 
   /**
