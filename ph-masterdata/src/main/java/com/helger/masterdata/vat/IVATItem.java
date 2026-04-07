@@ -24,7 +24,6 @@ import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.MustImplementEqualsAndHashcode;
-import com.helger.base.equals.EqualsHelper;
 import com.helger.base.id.IHasID;
 import com.helger.base.numeric.BigHelper;
 import com.helger.datetime.period.ILocalDatePeriod;
