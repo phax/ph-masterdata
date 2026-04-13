@@ -81,7 +81,7 @@ public final class IBANManager
   private static final Logger LOGGER = LoggerFactory.getLogger (IBANManager.class);
 
   /** Maps country code to IBAn country data */
-  private static final ICommonsMap <String, IBANCountryData> s_aIBANData = new CommonsHashMap <> ();
+  private static final ICommonsMap <String, IBANCountryData> IBAN_DATA = new CommonsHashMap <> ();
 
   static
   {
@@ -133,16 +133,16 @@ public final class IBANManager
       if (nExpectedLength == CGlobal.ILLEGAL_UINT)
         throw new InitializationException ("Failed to convert length '" + sLen + "' to int!");
 
-      if (s_aIBANData.containsKey (sCountryCode))
+      if (IBAN_DATA.containsKey (sCountryCode))
         throw new IllegalArgumentException ("Country " + sCountryCode + " is already contained!");
-      s_aIBANData.put (sCountryCode,
-                       IBANCountryData.createFromString (sCountryCode,
-                                                         nExpectedLength,
-                                                         sLayout,
-                                                         sCheckDigits,
-                                                         aValidFrom,
-                                                         aValidTo,
-                                                         sDesc));
+      IBAN_DATA.put (sCountryCode,
+                     IBANCountryData.createFromString (sCountryCode,
+                                                       nExpectedLength,
+                                                       sLayout,
+                                                       sCheckDigits,
+                                                       aValidFrom,
+                                                       aValidTo,
+                                                       sDesc));
     }
   }
 
@@ -159,7 +159,7 @@ public final class IBANManager
   {
     ValueEnforcer.notNull (sCountryCode, "CountryCode");
 
-    return s_aIBANData.get (sCountryCode.toUpperCase (Locale.US));
+    return IBAN_DATA.get (sCountryCode.toUpperCase (Locale.US));
   }
 
   /**
@@ -170,7 +170,7 @@ public final class IBANManager
   @ReturnsMutableCopy
   public static ICommonsSet <String> getAllSupportedCountries ()
   {
-    return s_aIBANData.copyOfKeySet ();
+    return IBAN_DATA.copyOfKeySet ();
   }
 
   private static boolean _isValidChecksumChar (final char c)
@@ -238,7 +238,7 @@ public final class IBANManager
       return false;
 
     // is the country supported?
-    final IBANCountryData aData = s_aIBANData.get (sRealIBAN.substring (0, 2));
+    final IBANCountryData aData = IBAN_DATA.get (sRealIBAN.substring (0, 2));
     if (aData == null)
       return bReturnCodeIfNoCountryData;
 
