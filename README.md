@@ -47,6 +47,12 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.1.2 - work in progress
+* Updated the IBAN country data code list based on latest Wikipedia data
+* Added 23 new IBAN countries: Belarus, Burundi, Djibouti, East Timor, Egypt, El Salvador, Falkland Islands, Honduras, Iraq, Kosovo, Libya, Mongolia, Nicaragua, Oman, Russia, Saint Lucia, Sao Tome and Principe, Seychelles, Somalia, Sudan, Ukraine, Vatican City, Yemen
+* Updated IBAN data for Costa Rica (length 21 to 22), North Macedonia (name), Serbia (check digits), Bulgaria, Sweden, Guatemala
+* Added IBAN test coverage for all supported countries
+
 v8.1.1 - 2026-03-27
 * Fixed `IVATItem.hasPercentage` returning false if the percentage to compare has a different scale. See [#3](https://github.com/phax/ph-masterdata/pull/3) - thx @domids
 

@@ -184,4 +184,14 @@ public final class IBANManagerTest
                     StringParser.parseInt (sIBAN.substring (2, 4), -1),
                     IBANManager.createChecksumOfNewIBAN (sIBAN.substring (0, 2), sIBAN.substring (4)));
   }
+
+  @Test
+  public void testCreateIBANs ()
+  {
+    assertEquals ("DE79000000001234567890", IBANManager.createIBANWithValidChecksum ("DE", "000000001234567890"));
+    assertTrue (IBANManager.isValidIBAN ("DE79000000001234567890"));
+
+    assertEquals ("DE16000000002345678901", IBANManager.createIBANWithValidChecksum ("DE", "000000002345678901"));
+    assertTrue (IBANManager.isValidIBAN ("DE16000000002345678901"));
+  }
 }
