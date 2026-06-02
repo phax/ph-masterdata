@@ -4,7 +4,7 @@
 [![Sonatype Central](https://maven-badges.sml.io/sonatype-central/com.helger.masterdata/ph-masterdata-parent-pom/badge.svg)](https://maven-badges.sml.io/sonatype-central/com.helger.masterdata/ph-masterdata-parent-pom/)
 [![javadoc](https://javadoc.io/badge2/com.helger.masterdata/ph-masterdata/javadoc.svg)](https://javadoc.io/doc/com.helger.masterdata/ph-masterdata)
 
-If this project saved you some time or made your day a little easier, a star would mean a lot — it helps others find it too.
+> If this project saved you some time or made your day a little easier, a star would mean a lot — it helps others find it too.
 <!-- ph-badge-end -->
 
 Java library with lots of default business objects and algorithms:
