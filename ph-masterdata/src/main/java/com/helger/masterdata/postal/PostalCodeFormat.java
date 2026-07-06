@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
@@ -128,8 +129,10 @@ public class PostalCodeFormat implements Serializable
    * @return <code>true</code> if the passed postal code matches this format,
    *         <code>false</code> otherwise.
    */
-  public boolean isValidPostalCode (final String sPostalCode)
+  public boolean isValidPostalCode (@Nullable final String sPostalCode)
   {
+    if (sPostalCode == null)
+      return false;
     return m_aPattern.matcher (sPostalCode).matches ();
   }
 
