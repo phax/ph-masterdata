@@ -17,7 +17,9 @@
 package com.helger.tenancy;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDateTime;
 
@@ -138,5 +140,61 @@ public final class IBusinessObjectTest
     aBO.m_aLastModDT = aT2;
     aBO.m_aDeletionDT = null;
     assertEquals (aT2, aBO.getLastChangeDateTime ());
+  }
+
+  @Test
+  public void testIsLastChangeAfter ()
+  {
+    final LocalDateTime aNow = PDTFactory.getCurrentLocalDateTime ();
+    final LocalDateTime aT2 = aNow.plusMinutes (1);
+
+    final MockBO aBO = new MockBO ();
+    // No date time at all
+    assertFalse (aBO.isLastChangeAfter (aNow));
+
+    aBO.m_aCreationDT = aNow;
+    assertFalse (aBO.isLastChangeAfter (aNow));
+    assertFalse (aBO.isLastChangeAfter (aT2));
+    assertTrue (aBO.isLastChangeAfter (aNow.minusMinutes (1)));
+
+    aBO.m_aLastModDT = aT2;
+    assertTrue (aBO.isLastChangeAfter (aNow));
+    assertFalse (aBO.isLastChangeAfter (aT2));
+  }
+
+  @Test
+  public void testIsDeleted ()
+  {
+    final MockBO aBO = new MockBO ();
+    assertFalse (aBO.isDeleted ());
+    assertTrue (aBO.isNotDeleted ());
+
+    aBO.m_aDeletionDT = PDTFactory.getCurrentLocalDateTime ();
+    assertTrue (aBO.isDeleted ());
+    assertFalse (aBO.isNotDeleted ());
+  }
+
+  @Test
+  public void testHasUserID ()
+  {
+    final MockBO aBO = new MockBO ();
+    assertFalse (aBO.hasCreationUserID ());
+    assertFalse (aBO.hasLastModificationUserID ());
+    assertFalse (aBO.hasDeletionUserID ());
+
+    // An empty user ID is not a user ID
+    aBO.m_sCreationUserID = "";
+    aBO.m_sLastModUserID = "";
+    aBO.m_sDeletionUserID = "";
+    assertFalse (aBO.hasCreationUserID ());
+    assertFalse (aBO.hasLastModificationUserID ());
+    assertFalse (aBO.hasDeletionUserID ());
+
+    aBO.m_sCreationUserID = "creator";
+    aBO.m_sLastModUserID = "modifier";
+    aBO.m_sDeletionUserID = "deleter";
+    assertTrue (aBO.hasCreationUserID ());
+    assertTrue (aBO.hasLastModificationUserID ());
+    assertTrue (aBO.hasDeletionUserID ());
   }
 }

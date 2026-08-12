@@ -65,6 +65,7 @@ v8.2.0 - 2026-08-12
 * Added 23 new IBAN countries: Belarus, Burundi, Djibouti, East Timor, Egypt, El Salvador, Falkland Islands, Honduras, Iraq, Kosovo, Libya, Mongolia, Nicaragua, Oman, Russia, Saint Lucia, Sao Tome and Principe, Seychelles, Somalia, Sudan, Ukraine, Vatican City, Yemen
 * Updated IBAN data for Costa Rica (length 21 to 22), North Macedonia (name), Serbia (check digits), Bulgaria, Sweden, Guatemala
 * Added IBAN test coverage for all supported countries
+* Added test coverage for `ph-tenancy` - `AbstractBusinessObject`, `AbstractHasTenant`, `AbstractTenantObject`, `IBusinessObject`, `IHasTenant`, `IHasTrashInfo`, `IHasUIText` and `ITenant`
 
 v8.1.1 - 2026-03-27
 * Fixed `IVATItem.hasPercentage` returning false if the percentage to compare has a different scale. See [#3](https://github.com/phax/ph-masterdata/pull/3) - thx @domids
