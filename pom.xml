@@ -104,6 +104,11 @@
         <artifactId>ph-tenancy</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.helger.masterdata</groupId>
+        <artifactId>ph-tenancy-accarea</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -128,6 +133,7 @@
   <modules>
     <module>ph-masterdata</module>
     <module>ph-tenancy</module>
+    <module>ph-tenancy-accarea</module>
   </modules>
 
   <build>

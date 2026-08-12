@@ -47,9 +47,19 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 </dependency>
 ```
 
+```xml
+<dependency>
+  <groupId>com.helger.masterdata</groupId>
+  <artifactId>ph-tenancy-accarea</artifactId>
+  <version>x.y.z</version>
+</dependency>
+```
+
 # News and noteworthy
 
-v8.1.2 - work in progress
+v8.2.0 - 2026-08-12
+* Added new submodule `ph-tenancy-accarea` containing the package `com.helger.tenancy.accarea` that was previously part of `ph-tenancy`. The package name is unchanged, so only the Maven dependency needs to be added
+* `ph-tenancy` no longer depends on `ph-masterdata` and `ph-xml` - the remaining dependencies are `ph-text` and `ph-datetime`
 * Removed OSGI bundling
 * Updated the IBAN country data code list based on latest Wikipedia data
 * Added 23 new IBAN countries: Belarus, Burundi, Djibouti, East Timor, Egypt, El Salvador, Falkland Islands, Honduras, Iraq, Kosovo, Libya, Mongolia, Nicaragua, Oman, Russia, Saint Lucia, Sao Tome and Principe, Seychelles, Somalia, Sudan, Ukraine, Vatican City, Yemen

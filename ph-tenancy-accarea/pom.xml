@@ -24,12 +24,12 @@
     <artifactId>ph-masterdata-parent-pom</artifactId>
     <version>8.1.2-SNAPSHOT</version>
   </parent>
-  <artifactId>ph-tenancy</artifactId>
+  <artifactId>ph-tenancy-accarea</artifactId>
   <packaging>jar</packaging>
-  <name>ph-tenancy</name>
-  <description>Library with support for multi tenancy</description>
-  <url>https://github.com/phax/ph-masterdata/ph-tenancy</url>
-  <inceptionYear>2017</inceptionYear>
+  <name>ph-tenancy-accarea</name>
+  <description>Library with support for accounting areas within multi tenancy</description>
+  <url>https://github.com/phax/ph-masterdata/ph-tenancy-accarea</url>
+  <inceptionYear>2026</inceptionYear>
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -51,12 +51,12 @@
   </developers>
   <dependencies>
     <dependency>
-      <groupId>com.helger.commons</groupId>
-      <artifactId>ph-text</artifactId>
+      <groupId>com.helger.masterdata</groupId>
+      <artifactId>ph-tenancy</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger.commons</groupId>
-      <artifactId>ph-datetime</artifactId>
+      <groupId>com.helger.masterdata</groupId>
+      <artifactId>ph-masterdata</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
