@@ -57,6 +57,23 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.2.1 - 2026-08-27
+* Updated the `EGS1Prefix` code list based on the GS1 Company Prefix list and the latest Wikipedia data
+* Added 11 new GS1 country prefixes: `381` (Kosovo), `605` (Uganda), `606` (Angola), `607` (Oman), `617` (Cameroon), `630` (Qatar), `631` (Namibia), `632` (Rwanda), `680-681` (China), `883` (Myanmar) and `887` (Laos)
+* Added the `EGS1Prefix` entries `X17` (610), `X18` (614), `X19` (758) and `X20` (894) for the prefixes that GS1 manages for a future Member Organisation. Note: Wikipedia lists `894` as Bangladesh, but the GS1 Company Prefix list does not
+* Added `EGS1Prefix.X14` for the prefix 952 that is used for demonstrations and examples of the GS1 system
+* Fixed the country codes of `EGS1Prefix` to be ISO 3166-1 alpha-2 conformant - the entries `TK` (Turkey), `CN_TP` (Taiwan), `CN_HK` (Hong Kong) and `CN_MO` (Macau) were renamed to `TR`, `TW`, `HK` and `MO`
+* `EGS1Prefix` prefixes assigned to more than one country now list all of them - added the country codes `MC` (300-379), `LU` (540-549), `FO` and `GL` (570-579), `LI` (760-769), `SM` and `VA` (800-839) and `AD` (840-849)
+* Added new method `EGS1Prefix.getAllCountryCodes ()` returning all countries of a prefix - `EGS1Prefix.getCountryCode ()` now returns the primary country code only
+* Added new method `EGS1Prefix.getCountryCodeFromCode (String)` as a shortcut to resolve the country of a GS1 identifier
+* Renamed `EGS1Prefix.CN` to `EGS1Prefix.CN_2` because the newly added prefix 680-681 uses `CN_1`
+* Replaced `EGS1Prefix.BN` (Brunei) with `EGS1Prefix.X13` because the prefix 623 is managed by the GS1 Global Office since 2021-05
+* Updated `EGS1Prefix` prefix 880 to 880-881 (South Korea), 981-984 to 981-983 and 99 to 990-999
+* Split the `EGS1Prefix` GTIN-8 prefix 960-969 into `X7` (9600-9624, GS1 UK), `X15` (9625-9626, GS1 Poland) and `X16` (9627-9699, GS1 Global Office) as defined in note 3 of the GS1 Company Prefix list
+* Aligned the `EGS1Prefix` descriptions with the GS1 Company Prefix list - most visibly 760-769 is now "GS1 Switzerland" and 868-869 is now "GS1 Türkiye"
+* `EGS1Prefix.getPrefixFromCode (String)` uses a lookup map instead of iterating all prefixes on every call
+* Added `EGS1Prefix` test coverage for all prefixes, ensuring that no prefix is claimed by more than one entry
+
 v8.2.0 - 2026-08-12
 * Added new submodule `ph-tenancy-accarea` containing the package `com.helger.tenancy.accarea` that was previously part of `ph-tenancy`. The package name is unchanged, so only the Maven dependency needs to be added
 * `ph-tenancy` no longer depends on `ph-masterdata` and `ph-xml` - the remaining dependencies are `ph-text` and `ph-datetime`
