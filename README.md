@@ -57,7 +57,7 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
-v8.2.1 - work in progress
+v8.2.1 - 2026-08-30
 * Updated the `EGS1Prefix` code list based on the GS1 Company Prefix list and the latest Wikipedia data
     * Added 11 new GS1 country prefixes: `381` (Kosovo), `605` (Uganda), `606` (Angola), `607` (Oman), `617` (Cameroon), `630` (Qatar), `631` (Namibia), `632` (Rwanda), `680-681` (China), `883` (Myanmar) and `887` (Laos)
     * Added the `EGS1Prefix` entries `X17` (610), `X18` (614), `X19` (758) and `X20` (894) for the prefixes that GS1 manages for a future Member Organisation. Note: Wikipedia lists `894` as Bangladesh, but the GS1 Company Prefix list does not
