@@ -62,7 +62,7 @@ public class EGS1PrefixTest
         assertTrue (Integer.parseInt (sFrom) < Integer.parseInt (sTo));
       }
       assertTrue (StringHelper.isNotEmpty (sDesc));
-      assertEquals (e.hasCountryCode (), aCCs.isNotEmpty ());
+      assertTrue (e.hasCountryCode () == aCCs.isNotEmpty ());
       if (e.hasCountryCode ())
       {
         assertEquals (aCCs.getFirstOrNull (), e.getCountryCode ());
