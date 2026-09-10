@@ -179,7 +179,9 @@ public enum EGS1Prefix
   AT ("900", "919", "GS1 Austria", "AT"),
   AU ("930", "939", "GS1 Australia", "AU"),
   NZ ("940", "949", "GS1 New Zealand", "NZ"),
-  X5 ("950", null, "GS1 Global Office - used to support territories and countries where no GS1 Member Organisation operates"),
+  X5 ("950",
+      null,
+      "GS1 Global Office - used to support territories and countries where no GS1 Member Organisation operates"),
   X6 ("951", null, "GS1 Global Office - General Manager Number for the EPC General Identifier (GID) scheme"),
   X14 ("952", null, "Used for demonstrations and examples of the GS1 system"),
   MY ("955", null, "GS1 Malaysia", "MY"),
@@ -278,8 +280,7 @@ public enum EGS1Prefix
    * Iterate all valid prefixes for this prefix
    *
    * @param aConsumer
-   *        The consumer to be invoked for all prefixes. May not be
-   *        <code>null</code>.
+   *        The consumer to be invoked for all prefixes. May not be <code>null</code>.
    */
   public void iterateAllPrefixes (@NonNull final Consumer <String> aConsumer)
   {
@@ -320,7 +321,7 @@ public enum EGS1Prefix
     final int [] ret = new int [aLengths.size ()];
     int nIndex = ret.length;
     for (final Integer aLength : aLengths)
-      ret [--nIndex] = aLength.intValue ();
+      ret[--nIndex] = aLength.intValue ();
     return ret;
   }
 

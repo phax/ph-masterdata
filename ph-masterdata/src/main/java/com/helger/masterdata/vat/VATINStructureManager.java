@@ -68,8 +68,7 @@ public class VATINStructureManager
    *
    * @param sVATIN
    *        The VATIN to check
-   * @return <code>null</code> if no VATIN structure was found for the passed
-   *         VATIN.
+   * @return <code>null</code> if no VATIN structure was found for the passed VATIN.
    */
   @Nullable
   public static VATINStructure getFromValidVATIN (@Nullable final String sVATIN)
@@ -82,13 +81,13 @@ public class VATINStructureManager
   }
 
   /**
-   * Resolve the VATIN structure only from the country part of the given VATIN.
-   * This should help indicate how the VATIN is valid.
+   * Resolve the VATIN structure only from the country part of the given VATIN. This should help
+   * indicate how the VATIN is valid.
    *
    * @param sVATIN
    *        The VATIN with at least 2 characters for the country code.
-   * @return <code>null</code> if the passed string is shorter than 2 characters
-   *         or if the passed VATIN country code is invalid/unknown.
+   * @return <code>null</code> if the passed string is shorter than 2 characters or if the passed
+   *         VATIN country code is invalid/unknown.
    */
   @Nullable
   public static VATINStructure getFromVATINCountry (@Nullable final String sVATIN)
@@ -108,8 +107,7 @@ public class VATINStructureManager
    *
    * @param sVATIN
    *        The VATIN to check
-   * @return <code>true</code> if the passed VATIN is valid, <code>false</code>
-   *         otherwise
+   * @return <code>true</code> if the passed VATIN is valid, <code>false</code> otherwise
    */
   public static boolean isValidVATIN (@Nullable final String sVATIN)
   {

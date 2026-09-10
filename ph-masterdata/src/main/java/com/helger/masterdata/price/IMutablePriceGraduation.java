@@ -58,31 +58,28 @@ public interface IMutablePriceGraduation extends IPriceGraduation, IClearable
    *        The minimum quantity to use. Must be &ge; 1.
    * @param aNetAmount
    *        The net amount of a single piece for the given quantity.
-   * @return {@link EChange#CHANGED} if the value changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return {@link EChange#CHANGED} if the value changed, {@link EChange#UNCHANGED} otherwise.
    */
   @NonNull
   EChange addItem (@Nonnegative int nMinimumQuantity, BigDecimal aNetAmount);
 
   /**
-   * Add a new item. The item should be added to the correct position, based on
-   * the minimum quantity, in ascending order.
+   * Add a new item. The item should be added to the correct position, based on the minimum
+   * quantity, in ascending order.
    *
    * @param aItem
    *        The price graduation item to use. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if the value changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return {@link EChange#CHANGED} if the value changed, {@link EChange#UNCHANGED} otherwise.
    * @throws IllegalArgumentException
-   *         If another item with the same minimum quantity is already
-   *         contained. Use the setter methods of
-   *         {@link IMutablePriceGraduationItem} instead.
+   *         If another item with the same minimum quantity is already contained. Use the setter
+   *         methods of {@link IMutablePriceGraduationItem} instead.
    */
   @NonNull
   EChange addItem (@NonNull IMutablePriceGraduationItem aItem);
 
   /**
-   * Delivers a writable price object based on the net amount of the passed item
-   * and the currency and VAT set for the price graduation
+   * Delivers a writable price object based on the net amount of the passed item and the currency
+   * and VAT set for the price graduation
    *
    * @param aItem
    *        the price graduation item for which to retrieve the price

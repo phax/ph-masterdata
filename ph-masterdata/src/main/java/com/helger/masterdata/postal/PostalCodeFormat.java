@@ -46,12 +46,12 @@ public class PostalCodeFormat implements Serializable
    * Create a new postal code format
    *
    * @param sISO
-   *        The owning countries ISO code. May neither be <code>null</code> nor
-   *        empty.
+   *        The owning countries ISO code. May neither be <code>null</code> nor empty.
    * @param aElements
    *        The elements this postal code format is made up
    */
-  public PostalCodeFormat (@NonNull @Nonempty final String sISO, @NonNull @Nonempty final List <EPostalCodeFormatElement> aElements)
+  public PostalCodeFormat (@NonNull @Nonempty final String sISO,
+                           @NonNull @Nonempty final List <EPostalCodeFormatElement> aElements)
   {
     ValueEnforcer.notEmpty (sISO, "ISO");
     ValueEnforcer.notEmpty (aElements, "Elements");
@@ -89,8 +89,7 @@ public class PostalCodeFormat implements Serializable
   }
 
   /**
-   * @return The non-<code>null</code> ISO country string, to which this format
-   *         belongs.
+   * @return The non-<code>null</code> ISO country string, to which this format belongs.
    */
   @NonNull
   @Nonempty
@@ -100,8 +99,7 @@ public class PostalCodeFormat implements Serializable
   }
 
   /**
-   * @return The regular expression pattern used to parse postal codes. Never
-   *         <code>null</code>.
+   * @return The regular expression pattern used to parse postal codes. Never <code>null</code>.
    */
   @NonNull
   @Nonempty
@@ -121,13 +119,13 @@ public class PostalCodeFormat implements Serializable
   }
 
   /**
-   * Check whether the passed postal code is valid for this format using the
-   * build in regular expression.
+   * Check whether the passed postal code is valid for this format using the build in regular
+   * expression.
    *
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
-   * @return <code>true</code> if the passed postal code matches this format,
-   *         <code>false</code> otherwise.
+   * @return <code>true</code> if the passed postal code matches this format, <code>false</code>
+   *         otherwise.
    */
   public boolean isValidPostalCode (@Nullable final String sPostalCode)
   {

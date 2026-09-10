@@ -25,8 +25,7 @@ import com.helger.base.lang.EnumHelper;
 
 /**
  * DIN A. Width and height are in portrait mode.<br>
- * <a href="http://www.din-formate.de/reihe-a-din-groessen-mm-pixel-dpi.html">
- * Source</a>
+ * <a href="http://www.din-formate.de/reihe-a-din-groessen-mm-pixel-dpi.html"> Source</a>
  *
  * @author Philip Helger
  */

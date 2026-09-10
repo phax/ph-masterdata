@@ -35,8 +35,8 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
- * Default implementation of the {@link IMutablePriceGraduation} and
- * {@link IPriceGraduation} interfaces.
+ * Default implementation of the {@link IMutablePriceGraduation} and {@link IPriceGraduation}
+ * interfaces.
  *
  * @author Philip Helger
  */
@@ -48,8 +48,7 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
   private final ICommonsList <IMutablePriceGraduationItem> m_aItems = new CommonsArrayList <> ();
 
   /**
-   * Create a new price graduation valid only for the given currency and VAT
-   * type.
+   * Create a new price graduation valid only for the given currency and VAT type.
    *
    * @param eCurrency
    *        The currency to use. May not be <code>null</code>.
@@ -209,8 +208,7 @@ public class PriceGraduation implements IMutablePriceGraduation, Serializable
   }
 
   /**
-   * Create a simple price graduation that contains one item with the minimum
-   * quantity of 1.
+   * Create a simple price graduation that contains one item with the minimum quantity of 1.
    *
    * @param aPrice
    *        The price to use. May not be <code>null</code>.

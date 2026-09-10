@@ -62,13 +62,12 @@ public final class EAN8 extends AbstractUPCEAN
   }
 
   /**
-   * Validates a EAN-8 message. The method throws IllegalArgumentExceptions if
-   * an invalid message is passed.
+   * Validates a EAN-8 message. The method throws IllegalArgumentExceptions if an invalid message is
+   * passed.
    *
    * @param sMsg
    *        the message to validate
-   * @return {@link EValidity#VALID} if the msg is valid,
-   *         {@link EValidity#INVALID} otherwise.
+   * @return {@link EValidity#VALID} if the msg is valid, {@link EValidity#INVALID} otherwise.
    */
   @NonNull
   public static EValidity validateMessage (@Nullable final String sMsg)

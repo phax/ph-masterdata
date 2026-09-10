@@ -28,8 +28,8 @@ import com.helger.tenancy.tenant.AbstractHasTenant;
 import com.helger.tenancy.tenant.ITenant;
 
 /**
- * Abstract implementation of {@link IHasAccountingArea} based on
- * {@link AbstractHasTenant} with a mandatory accounting area.
+ * Abstract implementation of {@link IHasAccountingArea} based on {@link AbstractHasTenant} with a
+ * mandatory accounting area.
  *
  * @author Philip Helger
  */
@@ -49,7 +49,8 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
     this (aAccountingArea.getTenant (), aAccountingArea);
   }
 
-  public AbstractHasAccountingAreaObject (@NonNull final ITenant aTenant, @NonNull final IAccountingArea aAccountingArea)
+  public AbstractHasAccountingAreaObject (@NonNull final ITenant aTenant,
+                                          @NonNull final IAccountingArea aAccountingArea)
   {
     super (aTenant);
     ValueEnforcer.notNull (aAccountingArea, "AccountingArea");
@@ -79,7 +80,9 @@ public abstract class AbstractHasAccountingAreaObject extends AbstractHasTenant 
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingArea aAccountingArea)
   {
-    return aAccountingArea != null && hasSameTenantID (aAccountingArea) && hasSameAccountingAreaID (aAccountingArea.getID ());
+    return aAccountingArea != null &&
+           hasSameTenantID (aAccountingArea) &&
+           hasSameAccountingAreaID (aAccountingArea.getID ());
   }
 
   public final boolean hasSameTenantAndAccountingAreaID (@Nullable final IAccountingAreaObject aAccountingAreaObject)

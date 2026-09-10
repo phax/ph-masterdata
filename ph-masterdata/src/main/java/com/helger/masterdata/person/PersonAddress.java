@@ -45,7 +45,9 @@ public class PersonAddress extends PostalAddress
     setOwner (aOwner);
   }
 
-  public PersonAddress (@NonNull final Person aOwner, @NonNull final IPostalAddress aBase, @NonNull final Locale aSortLocale)
+  public PersonAddress (@NonNull final Person aOwner,
+                        @NonNull final IPostalAddress aBase,
+                        @NonNull final Locale aSortLocale)
   {
     super (aBase, aSortLocale);
     setOwner (aOwner);

@@ -54,7 +54,7 @@ public class NutsItem implements IHasID <String>, IHasDisplayName
                    @Nonnegative final int nRegionOrdinal)
   {
     ValueEnforcer.notEmpty (sID, "ID");
-    ValueEnforcer.isTrue ( () -> sID.length () >= ID_MIN_LENGTH && sID.length () <= ID_MAX_LENGTH, "Odd ID length");
+    ValueEnforcer.isTrue (() -> sID.length () >= ID_MIN_LENGTH && sID.length () <= ID_MAX_LENGTH, "Odd ID length");
     ValueEnforcer.notEmpty (sDisplayName, "Name");
     ValueEnforcer.isGT0 (nCountryOrdinal, "CountryOrdinal");
     ValueEnforcer.isGT0 (nRegionOrdinal, "RegionOrdinal");

@@ -61,8 +61,8 @@ public class ISO639_2Item implements Serializable
   }
 
   /**
-   * @return The 3-letter bibliographic version. This is the default ISO-639-2
-   *         3-letter code. Never <code>null</code>.
+   * @return The 3-letter bibliographic version. This is the default ISO-639-2 3-letter code. Never
+   *         <code>null</code>.
    */
   @NonNull
   @Nonempty
@@ -72,8 +72,8 @@ public class ISO639_2Item implements Serializable
   }
 
   /**
-   * @return The 3-letter terminologic version. This code is optional and may be
-   *         <code>null</code>. If it is not <code>null</code> the length is 3.
+   * @return The 3-letter terminologic version. This code is optional and may be <code>null</code>.
+   *         If it is not <code>null</code> the length is 3.
    */
   @Nullable
   public String getAlpha3Terminologic ()
@@ -82,8 +82,8 @@ public class ISO639_2Item implements Serializable
   }
 
   /**
-   * @return The 2-letter version. This code is optional and may be
-   *         <code>null</code>. If it is not <code>null</code> the length is 2.
+   * @return The 2-letter version. This code is optional and may be <code>null</code>. If it is not
+   *         <code>null</code> the length is 2.
    */
   @Nullable
   public String getAlpha2 ()

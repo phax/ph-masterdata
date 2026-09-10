@@ -99,7 +99,7 @@ public final class CurrencyHelper
    */
   public static void reinitializeCurrencySettings ()
   {
-    RW_LOCK.writeLocked ( () -> {
+    RW_LOCK.writeLocked (() -> {
       SETTINGS_MAP.clear ();
       for (final ECurrency e : ECurrency.values ())
       {

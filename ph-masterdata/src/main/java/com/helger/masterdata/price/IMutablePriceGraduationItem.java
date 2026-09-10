@@ -37,8 +37,7 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
    *
    * @param nMinimumQuantity
    *        The minimum quantity. Must be &ge; 1.
-   * @return {@link EChange#CHANGED} if the value changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return {@link EChange#CHANGED} if the value changed, {@link EChange#UNCHANGED} otherwise.
    */
   @NonNull
   EChange setMinimumQuantity (@Nonnegative int nMinimumQuantity);
@@ -48,8 +47,7 @@ public interface IMutablePriceGraduationItem extends IPriceGraduationItem
    *
    * @param aAmount
    *        The new price amount to set. May not be <code>null</code>.
-   * @return {@link EChange#CHANGED} if the value changed,
-   *         {@link EChange#UNCHANGED} otherwise.
+   * @return {@link EChange#CHANGED} if the value changed, {@link EChange#UNCHANGED} otherwise.
    */
   @NonNull
   EChange setUnitNetAmount (@NonNull BigDecimal aAmount);

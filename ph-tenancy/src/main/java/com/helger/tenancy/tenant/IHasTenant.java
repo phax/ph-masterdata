@@ -59,8 +59,8 @@ public interface IHasTenant extends IHasTenantID
    *
    * @param aObj
    *        The object to check. May be <code>null</code>.
-   * @return <code>true</code> if this object and the passed object (if not
-   *         <code>null</code>) have the same tenant ID
+   * @return <code>true</code> if this object and the passed object (if not <code>null</code>) have
+   *         the same tenant ID
    */
   default boolean hasSameTenantID (@Nullable final ITenantObject aObj)
   {
@@ -72,8 +72,7 @@ public interface IHasTenant extends IHasTenantID
    *
    * @param aTenant
    *        The tenant to check. May be <code>null</code>.
-   * @return <code>true</code> if this object and the passed object have the
-   *         same tenant.
+   * @return <code>true</code> if this object and the passed object have the same tenant.
    */
   default boolean hasSameTenant (@Nullable final ITenant aTenant)
   {

@@ -218,7 +218,7 @@ public class MainReadPostalCodeListExcel
       for (final List <Item> aSubList : aMap.values ())
       {
         // null-safe sorting
-        aSubList.sort ( (x, y) -> CompareHelper.compare (x.getValidFrom (), y.getValidFrom (), true));
+        aSubList.sort ((x, y) -> CompareHelper.compare (x.getValidFrom (), y.getValidFrom (), true));
         for (int i = 1; i < aSubList.size (); ++i)
         {
           final Item aPrevItem = aSubList.get (i - 1);

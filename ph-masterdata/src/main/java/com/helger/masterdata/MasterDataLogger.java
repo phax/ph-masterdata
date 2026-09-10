@@ -22,8 +22,7 @@ import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.diagnostics.log.InMemoryLogger;
 
 /**
- * A singleton instance that keeps master data relevant messages, but may bloat
- * the default logging.
+ * A singleton instance that keeps master data relevant messages, but may bloat the default logging.
  *
  * @author Philip Helger
  */

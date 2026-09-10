@@ -130,9 +130,8 @@ public class DeprecatedLocaleHandler
   }
 
   /**
-   * Check if the passed locale is deprecated. Also checks fallbacks (e.g. the
-   * country "CS" is marked deprecated, therefore the locale "sr_CS" is also
-   * implicitly deprecated)
+   * Check if the passed locale is deprecated. Also checks fallbacks (e.g. the country "CS" is
+   * marked deprecated, therefore the locale "sr_CS" is also implicitly deprecated)
    *
    * @param aLocale
    *        The locale to check

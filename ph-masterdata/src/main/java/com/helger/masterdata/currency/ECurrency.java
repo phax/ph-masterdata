@@ -401,9 +401,8 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   /**
-   * @return this as {@link java.util.Currency}. May be <code>null</code> if the
-   *         currency is not supported by the JDK! Before v3.3.8 the currency
-   *         was non-<code>null</code>.
+   * @return this as {@link java.util.Currency}. May be <code>null</code> if the currency is not
+   *         supported by the JDK! Before v3.3.8 the currency was non-<code>null</code>.
    */
   @Nullable
   public Currency getAsCurrency ()
@@ -417,8 +416,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   /**
-   * @return <code>true</code> if this currency is deprecated and no longer
-   *         exists.
+   * @return <code>true</code> if this currency is deprecated and no longer exists.
    */
   public boolean isDeprecated ()
   {
@@ -426,8 +424,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   /**
-   * @return A list of all locales (as {@link Locale} objects) to which this
-   *         currency applies.
+   * @return A list of all locales (as {@link Locale} objects) to which this currency applies.
    */
   @NonNull
   @Nonempty
@@ -438,8 +435,7 @@ public enum ECurrency implements IHasID <String>, IHasDisplayText
   }
 
   /**
-   * @return A list of all locales (as {@link Locale} objects) to which this
-   *         currency applies.
+   * @return A list of all locales (as {@link Locale} objects) to which this currency applies.
    */
   @NonNull
   @Nonempty

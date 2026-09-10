@@ -40,19 +40,17 @@ public enum ETaxCategoryUN5305Name implements IHasDisplayText
   /** Tax rate is lower than standard rate. */
   AA ("Niedrigerer Steuersatz", "Lower rate"),
   /**
-   * A tax category code indicating the item is tax exempt when the item is
-   * bought for future resale.
+   * A tax category code indicating the item is tax exempt when the item is bought for future
+   * resale.
    */
   AB ("Ausnahme für Wiederverkauf", "Exempt for resale"),
   /**
-   * A code to indicate that the Value Added Tax (VAT) amount which is due on
-   * the current invoice is to be paid on receipt of a separate VAT payment
-   * request.
+   * A code to indicate that the Value Added Tax (VAT) amount which is due on the current invoice is
+   * to be paid on receipt of a separate VAT payment request.
    */
   AC ("MwSt. ist noch nicht zu zahlen", "Value Added Tax (VAT) not now due for payment"),
   /**
-   * A code to indicate that the Value Added Tax (VAT) amount of a previous
-   * invoice is to be paid.
+   * A code to indicate that the Value Added Tax (VAT) amount of a previous invoice is to be paid.
    */
   AD ("MwSt. von einer vorherigen Rechnung offen", "Value Added Tax (VAT) due from a previous invoice"),
   /**
@@ -60,13 +58,12 @@ public enum ETaxCategoryUN5305Name implements IHasDisplayText
    */
   AE ("Umkehr der Steuerschuld", "VAT Reverse Charge"),
   /**
-   * VAT not to be paid to the issuer of the invoice but directly to relevant
-   * tax authority.
+   * VAT not to be paid to the issuer of the invoice but directly to relevant tax authority.
    */
   B ("Steuer direkt ans Finanzamt abzuführen", "Transferred (VAT)"),
   /**
-   * Duty associated with shipment of goods is paid by the supplier; customer
-   * receives goods with duty paid.
+   * Duty associated with shipment of goods is paid by the supplier; customer receives goods with
+   * duty paid.
    */
   C ("Lieferant zahlt Schuld", "Duty paid by supplier"),
   /**
@@ -87,28 +84,27 @@ public enum ETaxCategoryUN5305Name implements IHasDisplayText
   I ("Mehrwertsteuer-Margenregelung - Kunstwerke Margenregelung - Kunstwerke",
      "Value Added Tax (VAT) margin scheme - works of art Margin scheme - Works of art"),
   /**
-   * Indication that the VAT margin scheme for collector’s items and antiques is
-   * applied.
+   * Indication that the VAT margin scheme for collector’s items and antiques is applied.
    */
   J ("Mehrwertsteuer-Margenregelung - Sammlerstücke und Antiquitäten",
      "Value Added Tax (VAT) margin scheme - collector’s items and antiques"),
   /**
-   * A tax category code indicating the item is VAT exempt due to an
-   * intra-community supply in the European Economic Area.
+   * A tax category code indicating the item is VAT exempt due to an intra-community supply in the
+   * European Economic Area.
    */
   K ("Mehrwertsteuerbefreiung für innergemeinschaftliche Lieferungen von Gegenständen und Dienstleistungen im EWR",
      "VAT exempt for EEA intra-community supply of goods and services"),
   /**
-   * Impuesto General Indirecto Canario (IGIC) is an indirect tax levied on
-   * goods and services supplied in the Canary Islands (Spain) by traders and
-   * professionals, as well as on import of goods.
+   * Impuesto General Indirecto Canario (IGIC) is an indirect tax levied on goods and services
+   * supplied in the Canary Islands (Spain) by traders and professionals, as well as on import of
+   * goods.
    */
   L ("Allgemeine indirekte Steuern der Kanarischen Inseln", "Canary Islands general indirect tax"),
   /**
-   * Impuesto sobre la Producción, los Servicios y la Importación (IPSI) is an
-   * indirect municipal tax, levied on the production, processing and import of
-   * all kinds of movable tangible property, the supply of services and the
-   * transfer of immovable property located in the cities of Ceuta and Melilla.
+   * Impuesto sobre la Producción, los Servicios y la Importación (IPSI) is an indirect municipal
+   * tax, levied on the production, processing and import of all kinds of movable tangible property,
+   * the supply of services and the transfer of immovable property located in the cities of Ceuta
+   * and Melilla.
    */
   M ("Steuer für Produktion, Dienstleistungen und Import in Ceuta und Melilla",
      "Tax for production, services and importation in Ceuta and Melilla"),

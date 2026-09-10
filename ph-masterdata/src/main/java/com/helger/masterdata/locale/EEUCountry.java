@@ -79,7 +79,9 @@ public enum EEUCountry implements IHasID <String>
    * @param aLeaveDate
    *        The date when the country left the EU. May be <code>null</code>.
    */
-  EEUCountry (@NonNull @Nonempty final String sCountryCode, @NonNull final LocalDate aJoinDate, @Nullable final LocalDate aLeaveDate)
+  EEUCountry (@NonNull @Nonempty final String sCountryCode,
+              @NonNull final LocalDate aJoinDate,
+              @Nullable final LocalDate aLeaveDate)
   {
     m_sCountryCode = sCountryCode;
     m_aCountry = CountryCache.getInstance ().getCountry (sCountryCode);
@@ -122,8 +124,8 @@ public enum EEUCountry implements IHasID <String>
   }
 
   /**
-   * @return Get the leave date of the country. May be <code>null</code> if the
-   *         country is still in the EU.
+   * @return Get the leave date of the country. May be <code>null</code> if the country is still in
+   *         the EU.
    * @since 6.1.9
    */
   @Nullable
@@ -133,8 +135,8 @@ public enum EEUCountry implements IHasID <String>
   }
 
   /**
-   * @return <code>true</code> if the country has left the EU,
-   *         <code>false</code> if not. Introduced for EU leave 2020.
+   * @return <code>true</code> if the country has left the EU, <code>false</code> if not. Introduced
+   *         for EU leave 2020.
    * @since 6.1.9
    */
   public boolean hasLeaveDate ()
@@ -147,8 +149,8 @@ public enum EEUCountry implements IHasID <String>
    *
    * @param aDate
    *        The date to check. May not be <code>null</code>.
-   * @return <code>true</code> if this country was in the EU at the specified
-   *         time, <code>false</code> if not.
+   * @return <code>true</code> if this country was in the EU at the specified time,
+   *         <code>false</code> if not.
    * @since 6.1.9
    */
   public boolean isInEUAt (@NonNull final LocalDate aDate)
@@ -179,15 +181,14 @@ public enum EEUCountry implements IHasID <String>
   }
 
   /**
-   * Check if the provided Locale is an EU country at the provided point in
-   * time.
+   * Check if the provided Locale is an EU country at the provided point in time.
    *
    * @param aLocale
    *        The country locale to check. May be <code>null</code>.
    * @param aDate
    *        The date to check at. May not be <code>null</code>.
-   * @return <code>true</code> if the provided country is an EU member at the
-   *         provided point in time.
+   * @return <code>true</code> if the provided country is an EU member at the provided point in
+   *         time.
    * @since 6.1.9
    */
   public static boolean isEUCountryAt (@Nullable final Locale aLocale, @NonNull final LocalDate aDate)

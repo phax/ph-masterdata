@@ -51,11 +51,11 @@ public class LauItem implements IHasID <String>, IHasDisplayName
                   @Nullable final String sLatinDisplayName)
   {
     ValueEnforcer.notEmpty (sLau, "LAU");
-    ValueEnforcer.isTrue ( () -> sLau.length () >= ID_MIN_LENGTH && sLau.length () <= ID_MAX_LENGTH,
-                           () -> "Odd LAU length of '" + sLau + "'");
+    ValueEnforcer.isTrue (() -> sLau.length () >= ID_MIN_LENGTH && sLau.length () <= ID_MAX_LENGTH,
+                          () -> "Odd LAU length of '" + sLau + "'");
     ValueEnforcer.notEmpty (sNuts, "NUTS");
-    ValueEnforcer.isTrue ( () -> sNuts.length () <= ENutsLevel.NUTS3.getCharCount (),
-                           "() ->Odd NUTS length of '" + sNuts + "'");
+    ValueEnforcer.isTrue (() -> sNuts.length () <= ENutsLevel.NUTS3.getCharCount (),
+                          "() ->Odd NUTS length of '" + sNuts + "'");
     ValueEnforcer.notEmpty (sDisplayName, "Name");
 
     m_sLau = sLau;

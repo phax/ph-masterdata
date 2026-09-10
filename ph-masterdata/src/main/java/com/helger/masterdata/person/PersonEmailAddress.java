@@ -52,7 +52,9 @@ public class PersonEmailAddress extends ExtendedEmailAddress
     setOwner (aOwner);
   }
 
-  public PersonEmailAddress (@NonNull final Person aOwner, @Nullable final IEmailAddressType aAddressType, @NonNull final String sAddress)
+  public PersonEmailAddress (@NonNull final Person aOwner,
+                             @Nullable final IEmailAddressType aAddressType,
+                             @NonNull final String sAddress)
   {
     super (aAddressType, sAddress);
     setOwner (aOwner);

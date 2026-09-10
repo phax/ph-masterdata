@@ -32,8 +32,7 @@ public enum EEANChecksumMode implements IHasID <String>
   /** "add" adds the necessary checksum anyway */
   ADD ("add"),
   /**
-   * "check" requires the check character to be present in the message. It will
-   * be checked.
+   * "check" requires the check character to be present in the message. It will be checked.
    */
   CHECK ("check");
 

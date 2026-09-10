@@ -67,7 +67,7 @@ public class PostalCodeManager
     // Unify ISO code
     final Locale aCountry = CountryCache.getInstance ().getCountry (aPostalCountry.getISO ());
 
-    m_aRWLock.writeLocked ( () -> {
+    m_aRWLock.writeLocked (() -> {
       if (m_aMap.containsKey (aCountry))
         throw new IllegalArgumentException ("A country with code '" + aCountry + "' was already regsitered!");
       m_aMap.put (aCountry, aPostalCountry);
@@ -84,7 +84,7 @@ public class PostalCodeManager
   public IPostalCodeCountry getPostalCountryOfCountry (@Nullable final Locale aCountry)
   {
     final Locale aRealCountry = CountryCache.getInstance ().getCountry (aCountry);
-    return m_aRWLock.readLockedGet ( () -> m_aMap.get (aRealCountry));
+    return m_aRWLock.readLockedGet (() -> m_aMap.get (aRealCountry));
   }
 
   @NonNull
@@ -101,10 +101,9 @@ public class PostalCodeManager
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
-   * @return {@link ETriState#UNDEFINED} if no information for the passed
-   *         country are present, {@link ETriState#TRUE} if the postal code is
-   *         valid or {@link ETriState#FALSE} if the passed postal code is
-   *         explicitly not valid for the passed country.
+   * @return {@link ETriState#UNDEFINED} if no information for the passed country are present,
+   *         {@link ETriState#TRUE} if the postal code is valid or {@link ETriState#FALSE} if the
+   *         passed postal code is explicitly not valid for the passed country.
    */
   @NonNull
   public ETriState isValidPostalCode (@Nullable final Locale aCountry, @Nullable final String sPostalCode)
@@ -116,17 +115,15 @@ public class PostalCodeManager
   }
 
   /**
-   * Check if the passed postal code is valid for the passed country. If no
-   * information for that specific country is defined, the postal code is
-   * assumed valid!
+   * Check if the passed postal code is valid for the passed country. If no information for that
+   * specific country is defined, the postal code is assumed valid!
    *
    * @param aCountry
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
-   * @return <code>true</code> if the postal code is valid for the passed
-   *         country or if no information for that country are present,
-   *         <code>false</code> otherwise.
+   * @return <code>true</code> if the postal code is valid for the passed country or if no
+   *         information for that country are present, <code>false</code> otherwise.
    */
   public boolean isValidPostalCodeDefaultYes (@Nullable final Locale aCountry, @Nullable final String sPostalCode)
   {
@@ -134,17 +131,15 @@ public class PostalCodeManager
   }
 
   /**
-   * Check if the passed postal code is valid for the passed country. If no
-   * information for that specific country is defined, the postal code is
-   * assumed invalid!
+   * Check if the passed postal code is valid for the passed country. If no information for that
+   * specific country is defined, the postal code is assumed invalid!
    *
    * @param aCountry
    *        The country to check. May be <code>null</code>.
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
-   * @return <code>true</code> if the postal code is valid for the passed
-   *         country, <code>false</code> otherwise also if no information for
-   *         the passed country are present.
+   * @return <code>true</code> if the postal code is valid for the passed country,
+   *         <code>false</code> otherwise also if no information for the passed country are present.
    */
   public boolean isValidPostalCodeDefaultNo (@Nullable final Locale aCountry, @Nullable final String sPostalCode)
   {
@@ -155,10 +150,9 @@ public class PostalCodeManager
    * Get a list of possible postal code examples for the passed country.
    *
    * @param aCountry
-   *        The country for which the examples are to be retrieved. May be
-   *        <code>null</code>.
-   * @return <code>null</code> if no postal code definitions exists for the
-   *         passed country, a non-empty list with all examples otherwise.
+   *        The country for which the examples are to be retrieved. May be <code>null</code>.
+   * @return <code>null</code> if no postal code definitions exists for the passed country, a
+   *         non-empty list with all examples otherwise.
    */
   @Nullable
   @ReturnsMutableCopy

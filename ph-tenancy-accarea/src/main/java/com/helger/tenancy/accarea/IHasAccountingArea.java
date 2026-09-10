@@ -34,8 +34,7 @@ public interface IHasAccountingArea extends IHasTenant, IHasAccountingAreaID
   IAccountingArea getAccountingArea ();
 
   /**
-   * @return The accounting area ID to which the object is assigned to. May be
-   *         <code>null</code>.
+   * @return The accounting area ID to which the object is assigned to. May be <code>null</code>.
    * @see #getAccountingArea()
    */
   @Nullable
@@ -46,24 +45,24 @@ public interface IHasAccountingArea extends IHasTenant, IHasAccountingAreaID
   }
 
   /**
-   * Check if the passed object has the same tenant ID and the same accounting
-   * area ID as this object
+   * Check if the passed object has the same tenant ID and the same accounting area ID as this
+   * object
    *
    * @param aAccountingArea
    *        The object to check. May be <code>null</code>.
-   * @return <code>true</code> if this object and the passed object have the
-   *         same tenant ID <b>and</b> the same accounting area ID
+   * @return <code>true</code> if this object and the passed object have the same tenant ID
+   *         <b>and</b> the same accounting area ID
    */
   boolean hasSameTenantAndAccountingAreaID (@Nullable IAccountingArea aAccountingArea);
 
   /**
-   * Check if the passed object has the same tenant ID and the same accounting
-   * area ID as this object
+   * Check if the passed object has the same tenant ID and the same accounting area ID as this
+   * object
    *
    * @param aAccountingAreaObject
    *        The object to check. May be <code>null</code>.
-   * @return <code>true</code> if this object and the passed object have the
-   *         same tenant ID <b>and</b> the same accounting area ID
+   * @return <code>true</code> if this object and the passed object have the same tenant ID
+   *         <b>and</b> the same accounting area ID
    */
   boolean hasSameTenantAndAccountingAreaID (@Nullable IAccountingAreaObject aAccountingAreaObject);
 }

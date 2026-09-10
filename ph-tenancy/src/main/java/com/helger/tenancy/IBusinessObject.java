@@ -30,8 +30,8 @@ import com.helger.tenancy.datetime.IHasLastModificationInfo;
 import com.helger.typeconvert.collection.IStringMap;
 
 /**
- * Base interface for all business objects. Has a creation, last modification
- * and deletion user ID and date time.
+ * Base interface for all business objects. Has a creation, last modification and deletion user ID
+ * and date time.
  *
  * @author Philip Helger
  */
@@ -42,11 +42,10 @@ public interface IBusinessObject extends
                                  IHasDeletionInfo
 {
   /**
-   * @return The latest date time that something changed. This is the latest
-   *         date time from {@link #getCreationDateTime()},
-   *         {@link #getLastModificationDateTime()} and
-   *         {@link #getDeletionDateTime()}. It may be <code>null</code> if no
-   *         time is defined at all.
+   * @return The latest date time that something changed. This is the latest date time from
+   *         {@link #getCreationDateTime()}, {@link #getLastModificationDateTime()} and
+   *         {@link #getDeletionDateTime()}. It may be <code>null</code> if no time is defined at
+   *         all.
    */
   @Nullable
   default LocalDateTime getLastChangeDateTime ()
@@ -79,8 +78,8 @@ public interface IBusinessObject extends
    *
    * @param aDT
    *        The date time to check against. May not be <code>null</code>.
-   * @return <code>true</code> if a last change date time is present and is
-   *         after the provided date time.
+   * @return <code>true</code> if a last change date time is present and is after the provided date
+   *         time.
    * @see #getLastChangeDateTime()
    */
   default boolean isLastChangeAfter (@NonNull final LocalDateTime aDT)
@@ -90,8 +89,7 @@ public interface IBusinessObject extends
   }
 
   /**
-   * @return <code>true</code> if this object is deleted, <code>false</code> if
-   *         not.
+   * @return <code>true</code> if this object is deleted, <code>false</code> if not.
    * @see #isNotDeleted()
    */
   default boolean isDeleted ()
@@ -100,8 +98,7 @@ public interface IBusinessObject extends
   }
 
   /**
-   * @return <code>true</code> if this object is not deleted, <code>false</code>
-   *         if it is deleted.
+   * @return <code>true</code> if this object is not deleted, <code>false</code> if it is deleted.
    * @see #isDeleted()
    * @since 6.1.1
    */

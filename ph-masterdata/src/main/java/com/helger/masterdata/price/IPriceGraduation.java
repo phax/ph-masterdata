@@ -29,15 +29,13 @@ import com.helger.masterdata.currency.IHasCurrency;
 import com.helger.masterdata.vat.IVATItem;
 
 /**
- * Read only interface for a single complete price graduation (German:
- * Preisstaffelung). A price graduation is assembled from a list of price
- * graduation items.<br>
- * The implementation needs to ensure, that each price graduation item's price
- * has the same currency, and that all items are sorted according to the minimum
- * quantity. The implementation should also ensure, that at least one entry for
- * the minimum quantity 1 exists. If you're selling certain items only in higher
- * quantities (e.g. balloons or other small things), you should instead use a
- * packaging unit (German: Verpackungseinheit) and define a quantity of 1.
+ * Read only interface for a single complete price graduation (German: Preisstaffelung). A price
+ * graduation is assembled from a list of price graduation items.<br>
+ * The implementation needs to ensure, that each price graduation item's price has the same
+ * currency, and that all items are sorted according to the minimum quantity. The implementation
+ * should also ensure, that at least one entry for the minimum quantity 1 exists. If you're selling
+ * certain items only in higher quantities (e.g. balloons or other small things), you should instead
+ * use a packaging unit (German: Verpackungseinheit) and define a quantity of 1.
  *
  * @see IPriceGraduationItem
  * @author Philip Helger
@@ -54,22 +52,22 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
   ECurrency getCurrency ();
 
   /**
-   * @return The price graduation item with the smallest minimum quantity. May
-   *         be <code>null</code> if no item is contained at all!
+   * @return The price graduation item with the smallest minimum quantity. May be <code>null</code>
+   *         if no item is contained at all!
    */
   @Nullable
   IPriceGraduationItem getSmallestMinimumQuantityItem ();
 
   /**
-   * @return The price graduation item with the smallest minimum quantity. May
-   *         be <code>null</code> if no item is contained at all!
+   * @return The price graduation item with the smallest minimum quantity. May be <code>null</code>
+   *         if no item is contained at all!
    */
   @Nullable
   IPriceGraduationItem getLargestMinimumQuantityItem ();
 
   /**
-   * @return All contained read only items, sorted ascending by the minimum
-   *         quantity. Never <code>null</code>.
+   * @return All contained read only items, sorted ascending by the minimum quantity. Never
+   *         <code>null</code>.
    */
   @NonNull
   @ReturnsMutableCopy
@@ -78,8 +76,7 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
   /**
    * @param nIndex
    *        the index to be retrieved
-   * @return The item at the given index or <code>null</code> if no such index
-   *         is present.
+   * @return The item at the given index or <code>null</code> if no such index is present.
    */
   @Nullable
   IPriceGraduationItem getItemOfIndex (@Nonnegative int nIndex);
@@ -97,8 +94,8 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
   IPrice getSinglePriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
   /**
-   * Get the total price of all items for the given quantity. This is a shortcut
-   * for <code>getSinglePriceOfQuantity (nQuantity).multiply (nQuantity)</code>
+   * Get the total price of all items for the given quantity. This is a shortcut for
+   * <code>getSinglePriceOfQuantity (nQuantity).multiply (nQuantity)</code>
    *
    * @param nQuantity
    *        The quantity to query. Must be &ge; 1.
@@ -110,8 +107,8 @@ public interface IPriceGraduation extends IHasSize, IHasCurrency
   IPrice getTotalPriceOfQuantity (@Nonnegative int nQuantity, @NonNull IVATItem aVAT);
 
   /**
-   * Delivers a price object based on the net amount of the passed item and the
-   * currency and VAT set for the price graduation
+   * Delivers a price object based on the net amount of the passed item and the currency and VAT set
+   * for the price graduation
    *
    * @param aItem
    *        the price graduation item for which to retrieve the price

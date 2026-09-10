@@ -64,12 +64,12 @@ public final class PostalAddressHelper
 
   public static boolean isComplexAddressHandlingEnabled ()
   {
-    return RW_LOCK.readLockedBoolean ( () -> s_bComplexAddressHandlingEnabled);
+    return RW_LOCK.readLockedBoolean (() -> s_bComplexAddressHandlingEnabled);
   }
 
   public static void setComplexAddressHandlingEnabled (final boolean bEnabled)
   {
-    RW_LOCK.writeLocked ( () -> s_bComplexAddressHandlingEnabled = bEnabled);
+    RW_LOCK.writeLocked (() -> s_bComplexAddressHandlingEnabled = bEnabled);
   }
 
   /**
@@ -78,7 +78,7 @@ public final class PostalAddressHelper
   @NonNull
   public static String getCareOfPrefix ()
   {
-    return RW_LOCK.readLockedGet ( () -> s_sCareOfPrefix);
+    return RW_LOCK.readLockedGet (() -> s_sCareOfPrefix);
   }
 
   /**
@@ -90,7 +90,7 @@ public final class PostalAddressHelper
   public static void setCareOfPrefix (@NonNull final String sCareOfPrefix)
   {
     ValueEnforcer.notNull (sCareOfPrefix, "CareOfPrefix");
-    RW_LOCK.writeLocked ( () -> s_sCareOfPrefix = sCareOfPrefix);
+    RW_LOCK.writeLocked (() -> s_sCareOfPrefix = sCareOfPrefix);
   }
 
   @Nullable

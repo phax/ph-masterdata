@@ -81,20 +81,18 @@ public interface IPostalCodeCountry
   String getNote ();
 
   /**
-   * Check if the passed postal code is valid for this country. A postal code is
-   * considered valid, if it matches any of the formats defined for this
-   * country.
+   * Check if the passed postal code is valid for this country. A postal code is considered valid,
+   * if it matches any of the formats defined for this country.
    *
    * @param sPostalCode
    *        The postal code to check. May be <code>null</code>.
-   * @return <code>true</code> if the passed postal code matches at least any
-   *         format defined for this country.
+   * @return <code>true</code> if the passed postal code matches at least any format defined for
+   *         this country.
    */
   boolean isValidPostalCode (@Nullable String sPostalCode);
 
   /**
-   * @return A list of all available example postal codes that show the
-   *         different formats available.
+   * @return A list of all available example postal codes that show the different formats available.
    */
   @NonNull
   @ReturnsMutableCopy

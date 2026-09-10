@@ -44,27 +44,25 @@ public interface ICompanySite extends ITypedObject <String>
   String getDisplayName ();
 
   /**
-   * @return The long name of the company site, e.g. containing the city or
-   *         similar stuff.
+   * @return The long name of the company site, e.g. containing the city or similar stuff.
    */
   @Nullable
   String getLongName ();
 
   /**
-   * @return <code>false</code> if this site is undeletable, because it is
-   *         required by business logic!
+   * @return <code>false</code> if this site is undeletable, because it is required by business
+   *         logic!
    */
   boolean isDeletable ();
 
   /**
-   * @return <code>true</code> if it is a virtual site (e.g. a WebShop) or
-   *         <code>false</code> if it is a real site.
+   * @return <code>true</code> if it is a virtual site (e.g. a WebShop) or <code>false</code> if it
+   *         is a real site.
    */
   boolean isVirtualSite ();
 
   /**
-   * @return <code>true</code> if it is a physical site (the opposite of virtual
-   *         site).
+   * @return <code>true</code> if it is a physical site (the opposite of virtual site).
    */
   default boolean isPhysicalSite ()
   {

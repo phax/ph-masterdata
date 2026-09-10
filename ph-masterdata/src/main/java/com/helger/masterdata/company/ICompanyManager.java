@@ -29,8 +29,7 @@ import com.helger.collection.commons.ICommonsCollection;
 public interface ICompanyManager extends ICompanyResolver
 {
   /**
-   * @return All registered companies. May not be <code>null</code> but maybe
-   *         empty.
+   * @return All registered companies. May not be <code>null</code> but maybe empty.
    */
   @NonNull
   @ReturnsMutableCopy

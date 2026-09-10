@@ -65,8 +65,7 @@ public abstract class AbstractUPCEAN implements Serializable
   /**
    * Validate this code.
    *
-   * @return {@link EValidity#VALID} if the msg is valid,
-   *         {@link EValidity#INVALID} otherwise.
+   * @return {@link EValidity#VALID} if the msg is valid, {@link EValidity#INVALID} otherwise.
    */
   @NonNull
   protected abstract EValidity validate ();
@@ -76,8 +75,7 @@ public abstract class AbstractUPCEAN implements Serializable
    *
    * @param sMsg
    *        the message to validate
-   * @return {@link EValidity#VALID} if the msg is valid,
-   *         {@link EValidity#INVALID} otherwise.
+   * @return {@link EValidity#VALID} if the msg is valid, {@link EValidity#INVALID} otherwise.
    */
   @NonNull
   protected static EValidity validateMessage (@NonNull final String sMsg)
@@ -92,8 +90,7 @@ public abstract class AbstractUPCEAN implements Serializable
    *
    * @param aChars
    *        the chars to validate
-   * @return {@link EValidity#VALID} if the msg is valid,
-   *         {@link EValidity#INVALID} otherwise.
+   * @return {@link EValidity#VALID} if the msg is valid, {@link EValidity#INVALID} otherwise.
    */
   @NonNull
   protected static EValidity validateMessage (@NonNull final char [] aChars)
@@ -141,8 +138,7 @@ public abstract class AbstractUPCEAN implements Serializable
    * @param sMsg
    *        the message
    * @param nLength
-   *        The number of characters to be checked. Must be &ge; 0 and &lt;
-   *        message.length
+   *        The number of characters to be checked. Must be &ge; 0 and &lt; message.length
    * @return char the check character
    */
   protected static char calcChecksumChar (@NonNull final String sMsg, @Nonnegative final int nLength)

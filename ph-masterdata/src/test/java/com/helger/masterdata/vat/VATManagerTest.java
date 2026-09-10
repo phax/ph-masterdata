@@ -67,7 +67,8 @@ public final class VATManagerTest
   public void testHU ()
   {
     final VATManager aVATMgr = VATManager.getDefaultInstance ();
-    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("hu"));
+    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ()
+                                                                                       .getCountry ("hu"));
     assertNotNull (aData);
 
     IVATItem aItem = aData.get ("hu.v25");
@@ -86,7 +87,8 @@ public final class VATManagerTest
   public void testDE ()
   {
     final VATManager aVATMgr = VATManager.getDefaultInstance ();
-    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ().getCountry ("de"));
+    final Map <String, IVATItem> aData = aVATMgr.getAllVATItemsForCountry (CountryCache.getInstance ()
+                                                                                       .getCountry ("de"));
     assertNotNull (aData);
 
     IVATItem aItem = aData.get ("de.v16");

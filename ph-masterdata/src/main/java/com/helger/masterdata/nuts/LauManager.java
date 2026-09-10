@@ -34,8 +34,7 @@ import com.helger.xml.microdom.IMicroElement;
 import com.helger.xml.microdom.serialize.MicroReader;
 
 /**
- * A manager for LAU items. The data of 2021 is accessible via
- * {@link #INSTANCE_2021}
+ * A manager for LAU items. The data of 2021 is accessible via {@link #INSTANCE_2021}
  *
  * @author Philip Helger
  * @since 6.2.4
@@ -46,9 +45,9 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
   private static final Logger LOGGER = LoggerFactory.getLogger (LauManager.class);
 
   /**
-   * This is the default instance of the {@link LauManager} using the 2021 data
-   * for reference. Never modify the default instance. Instead create a clone
-   * using {@link #getClone()} and work on the clone.
+   * This is the default instance of the {@link LauManager} using the 2021 data for reference. Never
+   * modify the default instance. Instead create a clone using {@link #getClone()} and work on the
+   * clone.
    */
   public static final LauManager INSTANCE_2021 = LauManager.createFor2021 ();
 
@@ -73,8 +72,8 @@ public class LauManager implements ILauManager, ICloneable <LauManager>
   public void addItem (@NonNull final LauItem aItem)
   {
     ValueEnforcer.notNull (aItem, "Item");
-    ValueEnforcer.isTrue ( () -> NutsManager.isValidNutsCode (aItem.getNutsCode ()),
-                           () -> "NUTS Code '" + aItem.getNutsCode () + "' is invalid");
+    ValueEnforcer.isTrue (() -> NutsManager.isValidNutsCode (aItem.getNutsCode ()),
+                          () -> "NUTS Code '" + aItem.getNutsCode () + "' is invalid");
 
     final String sID = aItem.getID ();
     if (m_aItems.containsKey (sID))

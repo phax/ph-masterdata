@@ -87,7 +87,7 @@ public class NutsManager implements INutsManager, ICloneable <NutsManager>
   {
     ValueEnforcer.notNull (aItem, "Item");
     final String sID = aItem.getID ();
-    ValueEnforcer.isTrue ( () -> isValidNutsCode (sID), () -> "NUTS Code '" + sID + "' is invalid");
+    ValueEnforcer.isTrue (() -> isValidNutsCode (sID), () -> "NUTS Code '" + sID + "' is invalid");
 
     if (m_aItems.containsKey (sID))
       throw new IllegalArgumentException ("A NUTS item with ID '" + sID + "' is already contained");

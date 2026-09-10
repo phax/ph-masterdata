@@ -38,8 +38,7 @@ public interface ICompany extends ITypedObject <String>
   String getPublicName ();
 
   /**
-   * @return The official name of the company like "International Business
-   *         Machines Corp.".
+   * @return The official name of the company like "International Business Machines Corp.".
    */
   @Nullable
   String getOfficialName ();
@@ -51,8 +50,8 @@ public interface ICompany extends ITypedObject <String>
   int getSiteCount ();
 
   /**
-   * @return A collection of all sites belonging to this company. Includes both
-   *         virtual and non-virtual sites.
+   * @return A collection of all sites belonging to this company. Includes both virtual and
+   *         non-virtual sites.
    */
   @NonNull
   @ReturnsMutableCopy
@@ -83,15 +82,14 @@ public interface ICompany extends ITypedObject <String>
   ICommonsCollection <? extends ICompanySite> getAllVirtualSites ();
 
   /**
-   * @return The head quarter site of this company. May be <code>null</code> if
-   *         not a single head quarter is available.
+   * @return The head quarter site of this company. May be <code>null</code> if not a single head
+   *         quarter is available.
    */
   @Nullable
   ICompanySite getHeadQuarterSite ();
 
   /**
-   * @return <code>true</code> if at least one site has the "deletable" flag set
-   *         to false
+   * @return <code>true</code> if at least one site has the "deletable" flag set to false
    */
   boolean containsAtLeastOneNotDeletableSite ();
 }

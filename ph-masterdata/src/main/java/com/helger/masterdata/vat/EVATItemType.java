@@ -27,8 +27,7 @@ import com.helger.masterdata.tax.ETaxCategoryUN5305;
 /**
  * Determines the different VAT types.<br>
  * Source: http://de.wikipedia.org/wiki/Umsatzsteuer<br>
- * Source:
- * http://ec.europa.eu/taxation_customs/taxation/vat/how_vat_works/rates/
+ * Source: http://ec.europa.eu/taxation_customs/taxation/vat/how_vat_works/rates/
  *
  * @author Philip Helger
  */
@@ -62,8 +61,7 @@ public enum EVATItemType implements IHasID <String>
   }
 
   /**
-   * @return Tax category code. <code>null</code> only for
-   *         {@link EVATItemType#OTHER}
+   * @return Tax category code. <code>null</code> only for {@link EVATItemType#OTHER}
    */
   @Nullable
   public ETaxCategoryUN5305 getTaxCategory ()

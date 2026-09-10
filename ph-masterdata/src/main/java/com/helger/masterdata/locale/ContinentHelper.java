@@ -304,8 +304,8 @@ public final class ContinentHelper
    * @param sCountryCode
    *        Country code to be used. May not be <code>null</code> nor empty
    * @param aContinents
-   *        The enum to be used. May not be <code>null</code> but may contain a
-   *        single <code>null</code> element.
+   *        The enum to be used. May not be <code>null</code> but may contain a single
+   *        <code>null</code> element.
    */
   private static void _register (@NonNull @Nonempty final String sCountryCode, @NonNull final EContinent... aContinents)
   {
@@ -321,9 +321,8 @@ public final class ContinentHelper
    *
    * @param aLocale
    *        The locale to be used. May be <code>null</code>.
-   * @return <code>null</code> if no continent data is defined. Otherwise a non-
-   *         <code>null</code> Set with all continents, without
-   *         <code>null</code> elements.
+   * @return <code>null</code> if no continent data is defined. Otherwise a non- <code>null</code>
+   *         Set with all continents, without <code>null</code> elements.
    */
   @Nullable
   @ReturnsMutableCopy
@@ -344,9 +343,8 @@ public final class ContinentHelper
    *
    * @param sCountryID
    *        The country ID to be used. May be <code>null</code>.
-   * @return <code>null</code> if no continent data is defined. Otherwise a non-
-   *         <code>null</code> Set with all continents, without
-   *         <code>null</code> elements.
+   * @return <code>null</code> if no continent data is defined. Otherwise a non- <code>null</code>
+   *         Set with all continents, without <code>null</code> elements.
    */
   @Nullable
   @ReturnsMutableCopy
@@ -363,8 +361,8 @@ public final class ContinentHelper
   }
 
   /**
-   * @return A copy of the map from country locale to all matching contintents.
-   *         Never <code>null</code>.
+   * @return A copy of the map from country locale to all matching contintents. Never
+   *         <code>null</code>.
    */
   @NonNull
   @ReturnsMutableCopy

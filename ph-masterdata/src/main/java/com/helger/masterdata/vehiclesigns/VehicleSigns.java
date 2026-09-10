@@ -31,8 +31,8 @@ import com.helger.collection.commons.ICommonsOrderedSet;
 import com.helger.text.locale.country.CountryCache;
 
 /**
- * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old
- * Source: http://www.unece.org/trans/main/wp1/wp1fdoc/disting-signs-5-2001.pdf
+ * Source: http://www.unece.org/fileadmin/DAM/trans/conventn/Distsigns.pdf Old Source:
+ * http://www.unece.org/trans/main/wp1/wp1fdoc/disting-signs-5-2001.pdf
  *
  * @author Philip Helger
  */
@@ -276,8 +276,8 @@ public final class VehicleSigns
   }
 
   /**
-   * @return The complete map from country locale to all vehicle signs. Never
-   *         <code>null</code> nor empty.
+   * @return The complete map from country locale to all vehicle signs. Never <code>null</code> nor
+   *         empty.
    */
   @NonNull
   @ReturnsMutableCopy
@@ -311,8 +311,7 @@ public final class VehicleSigns
   }
 
   /**
-   * @return A copy of the full map from vehicle sign to country locales. Never
-   *         <code>null</code>.
+   * @return A copy of the full map from vehicle sign to country locales. Never <code>null</code>.
    * @since 5.0.6
    */
   @NonNull

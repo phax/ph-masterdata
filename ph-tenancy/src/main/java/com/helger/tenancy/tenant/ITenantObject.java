@@ -29,15 +29,14 @@ import com.helger.tenancy.IBusinessObject;
 public interface ITenantObject extends IBusinessObject, IHasTenant
 {
   /**
-   * @return The tenant to which the object is assigned to. May not be
-   *         <code>null</code>.
+   * @return The tenant to which the object is assigned to. May not be <code>null</code>.
    */
   @NonNull
   ITenant getTenant ();
 
   /**
-   * @return The tenant ID to which the object is assigned to. May neither be
-   *         <code>null</code> nor empty.
+   * @return The tenant ID to which the object is assigned to. May neither be <code>null</code> nor
+   *         empty.
    * @see #getTenant()
    */
   @NonNull

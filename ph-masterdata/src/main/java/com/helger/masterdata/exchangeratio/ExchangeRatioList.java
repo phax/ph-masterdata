@@ -36,8 +36,7 @@ import com.helger.masterdata.currency.ECurrency;
 import com.helger.masterdata.currency.IHasCurrency;
 
 /**
- * This class maintains an ordered list of {@link ExchangeRatio}, sorted
- * ascending by date.
+ * This class maintains an ordered list of {@link ExchangeRatio}, sorted ascending by date.
  *
  * @author Philip Helger
  */
