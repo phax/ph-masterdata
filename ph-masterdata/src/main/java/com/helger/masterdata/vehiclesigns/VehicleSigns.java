@@ -260,7 +260,7 @@ public final class VehicleSigns
     if (aSigns != null)
     {
       if (aSigns.size () == 1)
-        return aSigns.getFirst ();
+        return aSigns.getFirstOrNull ();
       throw new IllegalArgumentException ("Multiple vehicle signs are assigned to the country locale '" +
                                           sCountry +
                                           "': " +
@@ -301,7 +301,7 @@ public final class VehicleSigns
     if (aCountries != null)
     {
       if (aCountries.size () == 1)
-        return aCountries.getFirst ();
+        return aCountries.getFirstOrNull ();
       throw new IllegalArgumentException ("Multiple country locales are assigned to the vehicle sign '" +
                                           sSign +
                                           "': " +

@@ -57,6 +57,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and noteworthy
 
+v8.2.2 - work in progress
+* Requires at least ph-commons 12.5.0
+
 v8.2.1 - 2026-08-30
 * Updated the `EGS1Prefix` code list based on the GS1 Company Prefix list and the latest Wikipedia data
     * Added 11 new GS1 country prefixes: `381` (Kosovo), `605` (Uganda), `606` (Angola), `607` (Oman), `617` (Cameroon), `630` (Qatar), `631` (Namibia), `632` (Rwanda), `680-681` (China), `883` (Myanmar) and `887` (Laos)
