@@ -55,10 +55,39 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 </dependency>
 ```
 
+## BOM
+
+Since v8.2.2 a Maven BOM (Bill of Materials) is available to align the versions of all ph-masterdata artifacts.
+Import it in the `<dependencyManagement>` section of your pom.xml, replacing `x.y.z` with the effective version number:
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.helger.masterdata</groupId>
+      <artifactId>ph-masterdata-bom</artifactId>
+      <version>x.y.z</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+Afterwards the dependencies can be declared without a version:
+
+```xml
+<dependency>
+  <groupId>com.helger.masterdata</groupId>
+  <artifactId>ph-masterdata</artifactId>
+</dependency>
+```
+
 # News and noteworthy
 
-v8.2.2 - work in progress
+v8.2.2 - 2026-11-14
 * Requires at least ph-commons 12.5.0
+* Added the new module `ph-masterdata-bom` as a Maven BOM (Bill of Materials) for all ph-masterdata artifacts
 
 v8.2.1 - 2026-08-30
 * Updated the `EGS1Prefix` code list based on the GS1 Company Prefix list and the latest Wikipedia data
