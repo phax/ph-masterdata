@@ -31,7 +31,8 @@ import com.helger.unittest.property.PropertyChecker;
 /**
  * Characterization test for the checksum handling of {@link IBANManager}. It captures the behaviour
  * of the implementation of v8.2.2, so that it stays unchanged when delegating to the check digit
- * package.
+ * package. The only intended change is that the check digits 00, 01 and 99 are rejected by
+ * {@link IBANManager#isValidIBAN(String)} since v8.3.0.
  *
  * @author Philip Helger
  */
@@ -130,6 +131,15 @@ public final class IBANManagerCharacterizationTest
     assertFalse (IBANManager.isValidIBAN (""));
     assertFalse (IBANManager.isValidIBAN ("DE8"));
 
+    // Check digits 00, 01 and 99 are never issued (ISO 13616-1:2020, 6.3.3) - accepted before v8.3.0
+    // Source: https://github.com/ktsu-dev/Semantics/issues/438
+    assertFalse (IBANManager.isValidIBAN ("GB01WEST12340000000012"));
+    assertFalse (IBANManager.isValidIBAN ("GB00WEST12340000000030"));
+    assertEquals ("GB98WEST12340000000012", IBANManager.createIBANWithValidChecksum ("GB", "WEST12340000000012"));
+    assertEquals ("GB97WEST12340000000030", IBANManager.createIBANWithValidChecksum ("GB", "WEST12340000000030"));
+    assertTrue (IBANManager.isValidIBAN ("GB98WEST12340000000012"));
+    assertTrue (IBANManager.isValidIBAN ("GB97WEST12340000000030"));
+
   }
 
   @Test
@@ -153,8 +163,8 @@ public final class IBANManagerCharacterizationTest
   public void testIsValidIBANCheckDigits ()
   {
     // For all supported countries: the created IBAN is valid if the BBAN matches the country
-    // pattern. Other check digits are only accepted if they are congruent modulo 97 (00, 01 and 99
-    // instead of 97, 98 and 02), because only "checksum == 1" is checked.
+    // pattern. No other check digits are accepted - since v8.3.0 also not the congruent values 00,
+    // 01 and 99 (instead of 97, 98 and 02), because ISO 13616-1 only allows 02 to 98.
     for (final String sCountry : IBANManager.getAllSupportedCountries ())
     {
       final IBANCountryData aData = IBANManager.getCountryData (sCountry);
@@ -165,7 +175,7 @@ public final class IBANManagerCharacterizationTest
       for (int i = 0; i <= 99; ++i)
       {
         final String sOther = sCountry + (i < 10 ? "0" : "") + i + sBBAN;
-        final boolean bExpected = bValid && i % 97 == nCheck % 97;
+        final boolean bExpected = bValid && i == nCheck;
         assertEquals (sOther, Boolean.valueOf (bExpected), Boolean.valueOf (IBANManager.isValidIBAN (sOther)));
       }
     }

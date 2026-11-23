@@ -251,6 +251,12 @@ public final class IBANManager
     if (!_isValidChecksumChar (sRealIBAN.charAt (2)) || !_isValidChecksumChar (sRealIBAN.charAt (3)))
       return false;
 
+    // The check digits can only be in the range 02 to 98 (ISO 13616-1:2020, 6.3.3). The congruent
+    // values 00, 01 and 99 would pass the MOD 97-10 check below, but are never issued.
+    final int nCheckDigits = (sRealIBAN.charAt (2) - '0') * 10 + (sRealIBAN.charAt (3) - '0');
+    if (nCheckDigits < 2 || nCheckDigits > 98)
+      return false;
+
     // Is existing checksum valid?
     if (_calculateChecksum (sRealIBAN) != ISO7064.Mod97.EXPECTED_CHECKSUM)
       return false;

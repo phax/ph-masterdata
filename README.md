@@ -95,6 +95,7 @@ v8.3.0 - work in progress
     * `ECheckDigitAlgorithm` lists all predefined algorithms with stable IDs
 * `ISO7064.Mod97`, `IBANManager`, `LeitwegID`, `AbstractUPCEAN`, `GTINValidator` and `ISBN` now use the new check digit algorithms internally - the behaviour is unchanged
 * Fixed `ISBN.isValidISBN10Number` (and `isValidISBNNumber`) to accept ISBN-10 numbers with the check digit `0` - previously they were always rejected
+* `IBANManager.isValidIBAN` now rejects the check digits `00`, `01` and `99`, as ISO 13616-1 only allows `02` to `98` - previously they were accepted because they pass the MOD 97-10 check
 * `VATINSyntaxChecker` now checks the ISO 7064 MOD 11,10 check digit of Croatian (`HR`) VAT numbers (OIB) - previously every 11 digit number was accepted
 
 v8.2.2 - 2026-11-14
