@@ -29,14 +29,17 @@ import com.helger.unittest.property.PropertyChecker;
 
 /**
  * Characterization test for {@link ISBN}. It captures the behaviour of the implementation of
- * v8.2.2, so that it stays unchanged when delegating to the check digit package.
+ * v8.2.2, so that it stays unchanged when delegating to the check digit package. The only intended
+ * change is the ISBN-10 check digit 0, that is accepted since v8.3.0.
  *
  * @author Philip Helger
  */
 public final class ISBNCharacterizationTest
 {
   /**
-   * Verbatim copy of <code>ISBN.isValidISBN10Number</code> of v8.2.2, used as the oracle.
+   * Copy of <code>ISBN.isValidISBN10Number</code> of v8.2.2, used as the oracle. It contains the
+   * fix of v8.3.0: the check digit for the remainder 0 is <code>0</code> (v8.2.2 never accepted
+   * it).
    */
   private static boolean _legacyIsValidISBN10Number (@Nullable final String sValue)
   {
@@ -51,7 +54,7 @@ public final class ISBNCharacterizationTest
       nRes += ((j * (10 - i)) % 11);
     }
     nRes = 11 - (nRes % 11);
-    final char cChkSum = (nRes == 10 ? 'X' : Character.forDigit (nRes, 10));
+    final char cChkSum = (nRes == 10 ? 'X' : nRes == 11 ? '0' : Character.forDigit (nRes, 10));
     return cChkSum == sValue.charAt (9);
   }
 
@@ -82,10 +85,13 @@ public final class ISBNCharacterizationTest
     assertTrue (ISBN.isValidISBN10Number ("0306406152"));
     assertTrue (ISBN.isValidISBN13Number ("9780306406157"));
 
-    // Known limitation of v8.2.2: an ISBN-10 with the check digit 0 (weighted sum divisible by 11)
-    // is never valid, because "11 - 0" is not mapped to 0
-    assertFalse (ISBN.isValidISBN10Number ("0000000000"));
-    assertFalse (ISBN.isValidISBNNumber ("0000000000"));
+    // An ISBN-10 with the check digit 0 (weighted sum divisible by 11) - v8.2.2 never accepted it
+    // 0 + 0 + ... = 0
+    assertTrue (ISBN.isValidISBN10Number ("0000000000"));
+    assertTrue (ISBN.isValidISBNNumber ("0000000000"));
+    // 10*1 + 2*6 = 22
+    assertTrue (ISBN.isValidISBN10Number ("1000000060"));
+    assertFalse (ISBN.isValidISBN10Number ("1000000061"));
 
     // X only as the last character, uppercase only
     assertFalse (ISBN.isValidISBN10Number ("X000000000"));

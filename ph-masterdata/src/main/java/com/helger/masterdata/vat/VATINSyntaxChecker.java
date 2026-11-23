@@ -28,6 +28,7 @@ import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.datetime.helper.PDTFactory;
+import com.helger.masterdata.checkdigit.ISO7064HybridSystem;
 import com.helger.masterdata.iso.ISO7064;
 
 /**
@@ -1596,7 +1597,7 @@ public class VATINSyntaxChecker
       if (!_isNum (c[i]))
         return false;
 
-    // TODO HR vatin rule details
-    return true;
+    // The Croatian VAT number is the OIB, protected by ISO 7064 MOD 11,10
+    return ISO7064HybridSystem.MOD_11_10.isValid (sVATIN);
   }
 }

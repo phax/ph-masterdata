@@ -94,6 +94,8 @@ v8.3.0 - work in progress
     * `WeightedModulusCheckDigit` as a configurable builder for weighted Mod 10/11/97 schemes
     * `ECheckDigitAlgorithm` lists all predefined algorithms with stable IDs
 * `ISO7064.Mod97`, `IBANManager`, `LeitwegID`, `AbstractUPCEAN`, `GTINValidator` and `ISBN` now use the new check digit algorithms internally - the behaviour is unchanged
+* Fixed `ISBN.isValidISBN10Number` (and `isValidISBNNumber`) to accept ISBN-10 numbers with the check digit `0` - previously they were always rejected
+* `VATINSyntaxChecker` now checks the ISO 7064 MOD 11,10 check digit of Croatian (`HR`) VAT numbers (OIB) - previously every 11 digit number was accepted
 
 v8.2.2 - 2026-11-14
 * Requires at least ph-commons 12.5.0

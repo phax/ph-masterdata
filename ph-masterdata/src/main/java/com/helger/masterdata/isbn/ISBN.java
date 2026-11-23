@@ -33,11 +33,8 @@ import com.helger.masterdata.checkdigit.WeightedModulusCheckDigit;
 public final class ISBN
 {
   /**
-   * ISBN-10: weights 10 to 2 from the left, check character <code>11 - (sum mod 11)</code>, with
-   * <code>X</code> for 10.<br>
-   * Note: the value 11 (remainder 0) is mapped to "no check character" instead of <code>0</code>.
-   * This keeps the behaviour of previous versions, where an ISBN-10 with the check digit
-   * <code>0</code> was never considered valid.
+   * ISBN-10: weights 10 to 2 from the left, check character <code>(11 - (sum mod 11)) mod
+   * 11</code>, with <code>X</code> for 10.
    */
   private static final WeightedModulusCheckDigit ISBN10_CHECK_DIGIT = WeightedModulusCheckDigit.builder ()
                                                                                               .id ("isbn10")
@@ -53,7 +50,7 @@ public final class ISBN
                                                                                               .modulus (11)
                                                                                               .remainderMapper (IRemainderToCheckChars.complement (11,
                                                                                                                                                    "X",
-                                                                                                                                                   null))
+                                                                                                                                                   "0"))
                                                                                               .build ();
 
   private ISBN ()

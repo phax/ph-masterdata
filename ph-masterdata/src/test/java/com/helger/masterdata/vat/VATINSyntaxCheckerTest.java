@@ -205,8 +205,13 @@ public final class VATINSyntaxCheckerTest
     assertFalse (VATINSyntaxChecker.isValidVATIN ("RO9"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("RO99999999999"));
 
-    assertTrue (VATINSyntaxChecker.isValidVATIN ("HR99999999999"));
+    // Source: python-stdnum 2.2, stdnum/hr/oib.py
+    assertTrue (VATINSyntaxChecker.isValidVATIN ("HR33392005961"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("HR33392005962"));
+    // Invalid ISO 7064 MOD 11,10 check digit - was accepted before v8.3.0
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("HR99999999999"));
     assertFalse (VATINSyntaxChecker.isValidVATIN ("HR999999999"));
+    assertFalse (VATINSyntaxChecker.isValidVATIN ("HR3339200596A"));
   }
 
   @Test
