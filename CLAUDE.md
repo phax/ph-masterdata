@@ -33,7 +33,7 @@ This is a Java library providing standard business master data objects, publishe
 - **Code list resources**: Static reference data lives in `ph-masterdata/src/main/resources/codelists/` as XML files (VAT rates, IBAN rules, dial codes, postal codes, NUTS regions, ISO language codes, etc.).
 - **Null-safety annotations**: Uses JSpecify `@Nullable`/`@NonNull` annotations throughout.
 - **Characterization tests**: `*CharacterizationTest` classes pin the behaviour of existing check digit code with a copy of the old implementation as oracle. Intended behaviour changes are documented in the class Javadoc and in the release notes.
-- **Packaging**: All modules use plain `jar` packaging. The jars carry no OSGi bundle headers (`Bundle-*`, `Export-Package`) - the `maven-bundle-plugin` of the parent POM is not active here.
+- **No OSGi**: OSGi bundle packaging was removed in v8.2.0. All modules use plain `jar` packaging - do not add `maven-bundle-plugin` configuration or OSGi manifest headers.
 
 ### Key Dependencies
 
