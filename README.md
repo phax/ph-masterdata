@@ -86,7 +86,7 @@ Afterwards the dependencies can be declared without a version:
 
 # News and noteworthy
 
-v8.3.0 - work in progress
+v8.3.0 - 2026-11-23
 * Requires at least ph-commons 12.8.0
 * Added the new package `com.helger.masterdata.checkdigit` with reusable check digit algorithms based on the new interface `ICheckDigitAlgorithm`
     * `ISO7064PureSystem` with the constants `MOD_11_2`, `MOD_37_2`, `MOD_97_10` (digits only) and `MOD_97_10_ALPHA` (with the ISO 13616 letter conversion as used by the IBAN and the Leitweg-ID)
@@ -107,7 +107,8 @@ v8.2.2 - 2026-11-14
 v8.2.1 - 2026-08-30
 * Updated the `EGS1Prefix` code list based on the GS1 Company Prefix list and the latest Wikipedia data
     * Added 11 new GS1 country prefixes: `381` (Kosovo), `605` (Uganda), `606` (Angola), `607` (Oman), `617` (Cameroon), `630` (Qatar), `631` (Namibia), `632` (Rwanda), `680-681` (China), `883` (Myanmar) and `887` (Laos)
-    * Added the `EGS1Prefix` entries `X17` (610), `X18` (614), `X19` (758) and `X20` (894) for the prefixes that GS1 manages for a future Member Organisation. Note: Wikipedia lists `894` as Bangladesh, but the GS1 Company Prefix list does not
+    * Added the `EGS1Prefix` entries `X17` (610), `X18` (614), `X19` (758) and `X20` (894) for the prefixes that GS1 manages for a future Member Organisation.
+      Note: Wikipedia lists `894` as Bangladesh, but the GS1 Company Prefix list does not
     * Added `EGS1Prefix.X14` for the prefix 952 that is used for demonstrations and examples of the GS1 system
     * Fixed the country codes of `EGS1Prefix` to be ISO 3166-1 alpha-2 conformant - the entries `TK` (Turkey), `CN_TP` (Taiwan), `CN_HK` (Hong Kong) and `CN_MO` (Macau) were renamed to `TR`, `TW`, `HK` and `MO`
     * `EGS1Prefix` prefixes assigned to more than one country now list all of them - added the country codes `MC` (300-379), `LU` (540-549), `FO` and `GL` (570-579), `LI` (760-769), `SM` and `VA` (800-839) and `AD` (840-849)
@@ -122,7 +123,8 @@ v8.2.1 - 2026-08-30
 * Added `EGS1Prefix` test coverage for all prefixes, ensuring that no prefix is claimed by more than one entry
 
 v8.2.0 - 2026-08-12
-* Added new submodule `ph-tenancy-accarea` containing the package `com.helger.tenancy.accarea` that was previously part of `ph-tenancy`. The package name is unchanged, so only the Maven dependency needs to be added
+* Added new submodule `ph-tenancy-accarea` containing the package `com.helger.tenancy.accarea` that was previously part of `ph-tenancy`.
+  The package name is unchanged, so only the Maven dependency needs to be added
 * `ph-tenancy` no longer depends on `ph-masterdata` and `ph-xml` - the remaining dependencies are `ph-text` and `ph-datetime`
 * Removed OSGI bundling
 * Updated the IBAN country data code list based on latest Wikipedia data
@@ -132,14 +134,16 @@ v8.2.0 - 2026-08-12
 * Added test coverage for `ph-tenancy` - `AbstractBusinessObject`, `AbstractHasTenant`, `AbstractTenantObject`, `IBusinessObject`, `IHasTenant`, `IHasTrashInfo`, `IHasUIText` and `ITenant`
 
 v8.1.1 - 2026-03-27
-* Fixed `IVATItem.hasPercentage` returning false if the percentage to compare has a different scale. See [#3](https://github.com/phax/ph-masterdata/pull/3) - thx @domids
+* Fixed `IVATItem.hasPercentage` returning false if the percentage to compare has a different scale.
+  See [#3](https://github.com/phax/ph-masterdata/pull/3) - thx @domids
 
 v8.1.0 - 2025-11-16
 * Updated to ph-commons 12.1.0
 * Using JSpecify annotations
 
 v8.0.2 - 2025-09-21
-* Updated Belgium VAT number check to include numbers starting with '1'. See [#2](https://github.com/phax/ph-masterdata/pull/2) - thx @Karting06 
+* Updated Belgium VAT number check to include numbers starting with '1'.
+  See [#2](https://github.com/phax/ph-masterdata/pull/2) - thx @Karting06 
 
 v8.0.1 - 2025-09-18
 * Fixed some `BigDecimal` equals implementations
