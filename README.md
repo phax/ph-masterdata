@@ -23,6 +23,7 @@ Java library with lots of default business objects and algorithms:
 * Tax category and type handling
 * Telephone number handling
 * Incoterms support
+* Check digit algorithms (ISO 7064, Luhn, GS1, weighted modulus)
 * Units of measure (work in progress)
 * VAT and VATIN handling
 * Vehicle sign handling 
@@ -95,6 +96,7 @@ v8.3.0 - work in progress
     * `ECheckDigitAlgorithm` lists all predefined algorithms with stable IDs
 * `ISO7064.Mod97`, `IBANManager`, `LeitwegID`, `AbstractUPCEAN`, `GTINValidator` and `ISBN` now use the new check digit algorithms internally - the behaviour is unchanged
 * Fixed `ISBN.isValidISBN10Number` (and `isValidISBNNumber`) to accept ISBN-10 numbers with the check digit `0` - previously they were always rejected
+* `AbstractUPCEAN.calcChecksum` (used by `EAN8`, `EAN13`, `UPCA` and `UPCE`) is now strict: other characters than the ASCII digits 0-9 and an invalid length lead to an `IllegalArgumentException` - previously letters were counted as -1, other Unicode digits were accepted and very long input returned negative values
 * `IBANManager.isValidIBAN` now rejects the check digits `00`, `01` and `99`, as ISO 13616-1 only allows `02` to `98` - previously they were accepted because they pass the MOD 97-10 check
 * `VATINSyntaxChecker` now checks the ISO 7064 MOD 11,10 check digit of Croatian (`HR`) VAT numbers (OIB) - previously every 11 digit number was accepted
 

@@ -23,15 +23,17 @@ This is a Java library providing standard business master data objects, publishe
 
 - **ph-masterdata-bom** — Maven BOM (Bill of Materials) managing the versions of all ph-masterdata artifacts. Must be updated when a module is added or removed.
 - **ph-masterdata** — Core library with business objects for addresses, currencies, VAT, EAN/GTIN, ISBN, IBAN, SWIFT/BIC, telephone numbers, postal codes, companies, persons, DIN paper sizes, trade/incoterms, and more. 157 source files across 26 packages under `com.helger.masterdata.*`. Check digit algorithms (ISO 7064, Luhn, GS1, weighted modulus) live in `com.helger.masterdata.checkdigit`.
-- **ph-tenancy** — Multi-tenancy support (tenant/Mandant, accounting areas, UI text). 23 source files under `com.helger.tenancy.*`. Depends on ph-masterdata.
+- **ph-tenancy** — Multi-tenancy support (tenant/Mandant, date/time, UI text). 15 source files under `com.helger.tenancy.*`.
+- **ph-tenancy-accarea** — Accounting areas within multi-tenancy. 8 source files under `com.helger.tenancy.accarea`. Depends on ph-tenancy and ph-masterdata.
 
 ### Key Design Patterns
 
 - **Interface-driven**: Business objects implement `I*` interfaces (e.g., `IPostalAddress`, `IVATItem`, `ITenantObject`).
 - **Microtype converters**: XML serialization via the ph-commons MicroTypeConverter registry, using the Microdom XML framework (not JAXB/DOM).
-- **Codelist resources**: Static reference data lives in `ph-masterdata/src/main/resources/codelists/` as XML files (VAT rates, IBAN rules, dial codes, postal codes, NUTS regions, ISO language codes, etc.).
+- **Code list resources**: Static reference data lives in `ph-masterdata/src/main/resources/codelists/` as XML files (VAT rates, IBAN rules, dial codes, postal codes, NUTS regions, ISO language codes, etc.).
 - **Null-safety annotations**: Uses JSpecify `@Nullable`/`@NonNull` annotations throughout.
-- **OSGi bundles**: Both modules are packaged as OSGi bundles via `maven-bundle-plugin`.
+- **Characterization tests**: `*CharacterizationTest` classes pin the behaviour of existing check digit code with a copy of the old implementation as oracle. Intended behaviour changes are documented in the class Javadoc and in the release notes.
+- **Packaging**: All modules use plain `jar` packaging. The jars carry no OSGi bundle headers (`Bundle-*`, `Export-Package`) - the `maven-bundle-plugin` of the parent POM is not active here.
 
 ### Key Dependencies
 
