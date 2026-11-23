@@ -22,7 +22,7 @@ This is a Java library providing standard business master data objects, publishe
 ### Modules
 
 - **ph-masterdata-bom** — Maven BOM (Bill of Materials) managing the versions of all ph-masterdata artifacts. Must be updated when a module is added or removed.
-- **ph-masterdata** — Core library with business objects for addresses, currencies, VAT, EAN/GTIN, ISBN, IBAN, SWIFT/BIC, telephone numbers, postal codes, companies, persons, DIN paper sizes, trade/incoterms, and more. 147 source files across 25 packages under `com.helger.masterdata.*`.
+- **ph-masterdata** — Core library with business objects for addresses, currencies, VAT, EAN/GTIN, ISBN, IBAN, SWIFT/BIC, telephone numbers, postal codes, companies, persons, DIN paper sizes, trade/incoterms, and more. 157 source files across 26 packages under `com.helger.masterdata.*`. Check digit algorithms (ISO 7064, Luhn, GS1, weighted modulus) live in `com.helger.masterdata.checkdigit`.
 - **ph-tenancy** — Multi-tenancy support (tenant/Mandant, accounting areas, UI text). 23 source files under `com.helger.tenancy.*`. Depends on ph-masterdata.
 
 ### Key Design Patterns

@@ -85,6 +85,14 @@ Afterwards the dependencies can be declared without a version:
 
 # News and noteworthy
 
+v8.3.0 - work in progress
+* Added the new package `com.helger.masterdata.checkdigit` with reusable check digit algorithms based on the new interface `ICheckDigitAlgorithm`
+    * `ISO7064PureSystem` with the constants `MOD_11_2`, `MOD_37_2`, `MOD_97_10` (digits only) and `MOD_97_10_ALPHA` (with the ISO 13616 letter conversion as used by the IBAN and the Leitweg-ID)
+    * `ISO7064HybridSystem` with the constants `MOD_11_10` and `MOD_37_36`
+    * `LuhnCheckDigit` and `GS1CheckDigit`
+    * `WeightedModulusCheckDigit` as a configurable builder for weighted Mod 10/11/97 schemes
+    * `ECheckDigitAlgorithm` lists all predefined algorithms with stable IDs
+
 v8.2.2 - 2026-11-14
 * Requires at least ph-commons 12.5.0
 * Added the new module `ph-masterdata-bom` as a Maven BOM (Bill of Materials) for all ph-masterdata artifacts
