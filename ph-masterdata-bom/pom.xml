@@ -27,7 +27,7 @@
   </parent>
   <groupId>com.helger.masterdata</groupId>
   <artifactId>ph-masterdata-bom</artifactId>
-  <version>8.3.0</version>
+  <version>8.3.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>ph-masterdata-bom</name>
   <description>Bill of Materials for all ph-masterdata artifacts</description>
@@ -71,8 +71,4 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <scm>
-    <tag>ph-masterdata-parent-pom-8.3.0</tag>
-  </scm>
 </project>
