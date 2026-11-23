@@ -86,6 +86,7 @@ Afterwards the dependencies can be declared without a version:
 # News and noteworthy
 
 v8.3.0 - work in progress
+* Requires at least ph-commons 12.8.0
 * Added the new package `com.helger.masterdata.checkdigit` with reusable check digit algorithms based on the new interface `ICheckDigitAlgorithm`
     * `ISO7064PureSystem` with the constants `MOD_11_2`, `MOD_37_2`, `MOD_97_10` (digits only) and `MOD_97_10_ALPHA` (with the ISO 13616 letter conversion as used by the IBAN and the Leitweg-ID)
     * `ISO7064HybridSystem` with the constants `MOD_11_10` and `MOD_37_36`

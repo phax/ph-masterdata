@@ -28,6 +28,8 @@ import java.util.Random;
 import org.junit.Test;
 
 import com.helger.base.CGlobal;
+import com.helger.unittest.property.Generators;
+import com.helger.unittest.property.PropertyChecker;
 
 /**
  * Test class for class {@link ISO7064PureSystem}.
@@ -166,27 +168,25 @@ public final class ISO7064PureSystemTest
   public void testMod97_10NumericEquivalence ()
   {
     // For numeric payloads both variants must behave identically
-    final Random aRandom = new Random (7064);
-    for (int nRun = 0; nRun < 10_000; ++nRun)
-    {
-      final StringBuilder aPayload = new StringBuilder ();
-      final int nLen = 1 + aRandom.nextInt (40);
-      for (int i = 0; i < nLen; ++i)
-        aPayload.append ((char) ('0' + aRandom.nextInt (10)));
-      final String sPayload = aPayload.toString ();
-      final String sCheck = ISO7064PureSystem.MOD_97_10.calculateCheckChars (sPayload);
-      assertEquals (sPayload, sCheck, ISO7064PureSystem.MOD_97_10_ALPHA.calculateCheckChars (sPayload));
-      final String sCheck2 = Integer.toString (aRandom.nextInt (100));
-      assertEquals (sPayload + sCheck2,
-                    ISO7064PureSystem.MOD_97_10.getChecksum (sPayload + sCheck2),
-                    ISO7064PureSystem.MOD_97_10_ALPHA.getChecksum (sPayload + sCheck2));
-    }
+    new PropertyChecker ().setTries (10_000)
+                          .setSeed (7064)
+                          .forAll (Generators.strings (CheckDigitHelper.DIGITS, 1, 40),
+                                   Generators.strings (CheckDigitHelper.DIGITS, 2, 2),
+                                   (sPayload, sCheckChars) -> {
+                                     assertEquals (sPayload,
+                                                   ISO7064PureSystem.MOD_97_10.calculateCheckChars (sPayload),
+                                                   ISO7064PureSystem.MOD_97_10_ALPHA.calculateCheckChars (sPayload));
+                                     assertEquals (sPayload + sCheckChars,
+                                                   ISO7064PureSystem.MOD_97_10.getChecksum (sPayload + sCheckChars),
+                                                   ISO7064PureSystem.MOD_97_10_ALPHA.getChecksum (sPayload + sCheckChars));
+                                   });
   }
 
   @Test
   public void testMod97_10LongInput ()
   {
-    // Compare the running remainder with a BigInteger reference implementation for long inputs
+    // Compare the running remainder with a BigInteger reference implementation for long inputs. A
+    // plain Random is used, because the property generators keep strings short on average
     final ISO7064PureSystem a = ISO7064PureSystem.MOD_97_10_ALPHA;
     final Random aRandom = new Random (7064);
     for (int nRun = 0; nRun < 200; ++nRun)

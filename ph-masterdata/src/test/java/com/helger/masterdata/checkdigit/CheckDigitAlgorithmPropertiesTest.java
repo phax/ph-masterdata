@@ -16,34 +16,45 @@
  */
 package com.helger.masterdata.checkdigit;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Random;
-
 import org.jspecify.annotations.NonNull;
 import org.junit.Test;
 
+import com.helger.unittest.property.Generators;
+import com.helger.unittest.property.IGenerator;
+import com.helger.unittest.property.PropertyAssume;
+import com.helger.unittest.property.PropertyChecker;
+
 /**
- * Property based tests for all {@link ECheckDigitAlgorithm} algorithms, using random payloads with a
- * fixed seed.
+ * Property based tests for all {@link ECheckDigitAlgorithm} algorithms, using the
+ * ph-unittest-property {@link PropertyChecker} with a fixed seed. Failing samples are shrunk to a
+ * minimal example.
  *
  * @author Philip Helger
  */
 public final class CheckDigitAlgorithmPropertiesTest
 {
-  private static final int RUNS = 10_000;
+  private static final int TRIES = 10_000;
   private static final int MAX_PAYLOAD_LEN = 30;
   private static final long SEED = 20261123L;
   /** Characters that are not part of any alphabet */
   private static final String ILLEGAL_CHARS = "#-+ abä€\t";
 
+  @NonNull
+  private static PropertyChecker _checker ()
+  {
+    return new PropertyChecker ().setTries (TRIES).setSeed (SEED);
+  }
+
   /**
-   * @return The alphabet to generate payloads from. For MOD 97-10 alpha only digits are used, because
-   *         the error detection guarantees of ISO 7064 do not hold for the ISO 13616 letter
-   *         conversion.
+   * @return The alphabet to generate payloads from, for which all error detection guarantees hold.
+   *         For MOD 97-10 alpha only digits are used, because the error detection guarantees of ISO
+   *         7064 do not hold for the ISO 13616 letter conversion.
    */
   @NonNull
   private static String _getPayloadAlphabet (@NonNull final ECheckDigitAlgorithm e)
@@ -56,6 +67,17 @@ public final class CheckDigitAlgorithmPropertiesTest
       default:
         return CheckDigitHelper.DIGITS;
     }
+  }
+
+  /**
+   * @return The complete payload alphabet of the algorithm.
+   */
+  @NonNull
+  private static String _getFullPayloadAlphabet (@NonNull final ECheckDigitAlgorithm e)
+  {
+    if (e == ECheckDigitAlgorithm.ISO7064_MOD_97_10_ALPHA)
+      return CheckDigitHelper.DIGITS_AND_UPPERCASE_LETTERS;
+    return _getPayloadAlphabet (e);
   }
 
   /**
@@ -79,45 +101,36 @@ public final class CheckDigitAlgorithmPropertiesTest
 
   /**
    * @return <code>true</code> if the algorithm detects all adjacent transpositions. This holds for
-   *         the ISO 7064 pure systems only. The hybrid systems, Luhn (09/90) and GS1 (difference of 5)
-   *         do not detect all of them.
+   *         the ISO 7064 pure systems only. The hybrid systems, Luhn (09/90) and GS1 (difference of
+   *         5) do not detect all of them.
    */
   private static boolean _detectsAllTranspositions (@NonNull final ECheckDigitAlgorithm e)
   {
     return e.getAlgorithm () instanceof ISO7064PureSystem;
   }
 
+  /**
+   * @return A generator for valid values (payload + check characters) of the algorithm.
+   */
   @NonNull
-  private static String _createRandom (@NonNull final Random aRandom,
-                                       @NonNull final String sAlphabet,
-                                       final int nLen)
+  private static IGenerator <String> _validValues (@NonNull final ECheckDigitAlgorithm e)
   {
-    final StringBuilder aSB = new StringBuilder (nLen);
-    for (int i = 0; i < nLen; ++i)
-      aSB.append (sAlphabet.charAt (aRandom.nextInt (sAlphabet.length ())));
-    return aSB.toString ();
+    return Generators.strings (_getPayloadAlphabet (e), 1, MAX_PAYLOAD_LEN).map (e::appendCheckChars);
   }
 
   @Test
   public void testRoundTrip ()
   {
     for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
-    {
-      final Random aRandom = new Random (SEED);
-      // Use the full payload alphabet here, including the letters for MOD 97-10 alpha
-      final String sAlphabet = e == ECheckDigitAlgorithm.ISO7064_MOD_97_10_ALPHA ? CheckDigitHelper.DIGITS_AND_UPPERCASE_LETTERS
-                                                                           : _getPayloadAlphabet (e);
-      for (int i = 0; i < RUNS; ++i)
-      {
-        final String sPayload = _createRandom (aRandom, sAlphabet, 1 + aRandom.nextInt (MAX_PAYLOAD_LEN));
+      _checker ().forAll (Generators.strings (_getFullPayloadAlphabet (e), 1, MAX_PAYLOAD_LEN), sPayload -> {
         assertTrue (e + " " + sPayload, e.isValidPayload (sPayload));
-        final String sValue = e.appendCheckChars (sPayload);
-        // All predefined algorithms always produce a check character for a valid payload
-        assertNotNull (e + " " + sPayload, sValue);
-        assertTrue (e + " " + sValue, sValue.length () == sPayload.length () + e.getCheckCharCount ());
-        assertTrue (e + " " + sValue, e.isValid (sValue));
-      }
-    }
+        final String sCheckChars = e.calculateCheckChars (sPayload);
+        // All predefined algorithms always produce check characters for a valid payload
+        assertNotNull (e + " " + sPayload, sCheckChars);
+        assertEquals (e + " " + sPayload, e.getCheckCharCount (), sCheckChars.length ());
+        assertEquals (e + " " + sPayload, sPayload + sCheckChars, e.appendCheckChars (sPayload));
+        assertTrue (e + " " + sPayload + sCheckChars, e.isValid (sPayload + sCheckChars));
+      });
   }
 
   @Test
@@ -126,29 +139,21 @@ public final class CheckDigitAlgorithmPropertiesTest
     // All predefined algorithms detect every single character substitution
     for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
     {
-      final Random aRandom = new Random (SEED);
-      final String sPayloadAlphabet = _getPayloadAlphabet (e);
       final String sValueAlphabet = _getValueAlphabet (e);
-      for (int i = 0; i < RUNS; ++i)
-      {
-        final String sValue = e.appendCheckChars (_createRandom (aRandom,
-                                                                 sPayloadAlphabet,
-                                                                 1 + aRandom.nextInt (MAX_PAYLOAD_LEN)));
-        final char [] aChars = sValue.toCharArray ();
-        for (int nPos = 0; nPos < aChars.length; ++nPos)
-        {
-          final char cOld = aChars[nPos];
-          char cNew;
-          do
-          {
-            cNew = sValueAlphabet.charAt (aRandom.nextInt (sValueAlphabet.length ()));
-          } while (cNew == cOld);
-          aChars[nPos] = cNew;
-          final String sChanged = new String (aChars);
-          assertFalse (e + " " + sValue + " -> " + sChanged, e.isValid (sChanged));
-          aChars[nPos] = cOld;
-        }
-      }
+      _checker ().forAll (_validValues (e),
+                          Generators.ints (0, MAX_PAYLOAD_LEN + e.getCheckCharCount () - 1),
+                          Generators.ints (1, sValueAlphabet.length () - 1),
+                          (sValue, aPos, aOffset) -> {
+                            final int nPos = aPos.intValue () % sValue.length ();
+                            final char cOld = sValue.charAt (nPos);
+                            // The offset is never 0, so the new character always differs
+                            final int nNewIndex = (sValueAlphabet.indexOf (cOld) + aOffset.intValue ()) %
+                                                  sValueAlphabet.length ();
+                            final String sChanged = sValue.substring (0, nPos) +
+                                                    sValueAlphabet.charAt (nNewIndex) +
+                                                    sValue.substring (nPos + 1);
+                            assertFalse (e + " " + sValue + " -> " + sChanged, e.isValid (sChanged));
+                          });
     }
   }
 
@@ -157,35 +162,86 @@ public final class CheckDigitAlgorithmPropertiesTest
   {
     for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
       if (_detectsAllTranspositions (e))
-      {
-        final Random aRandom = new Random (SEED);
-        final String sPayloadAlphabet = _getPayloadAlphabet (e);
-        for (int i = 0; i < RUNS; ++i)
-        {
-          final String sValue = e.appendCheckChars (_createRandom (aRandom,
-                                                                   sPayloadAlphabet,
-                                                                   1 + aRandom.nextInt (MAX_PAYLOAD_LEN)));
-          final char [] aChars = sValue.toCharArray ();
-          for (int nPos = 0; nPos < aChars.length - 1; ++nPos)
-          {
-            final char c1 = aChars[nPos];
-            final char c2 = aChars[nPos + 1];
-            if (c1 != c2)
-            {
-              aChars[nPos] = c2;
-              aChars[nPos + 1] = c1;
-              final String sChanged = new String (aChars);
-              assertFalse (e + " " + sValue + " -> " + sChanged, e.isValid (sChanged));
-              aChars[nPos] = c1;
-              aChars[nPos + 1] = c2;
-            }
-          }
-        }
-      }
+        _checker ().forAll (_validValues (e),
+                            Generators.ints (0, MAX_PAYLOAD_LEN + e.getCheckCharCount () - 2),
+                            (sValue, aPos) -> {
+                              final int nPos = aPos.intValue () % (sValue.length () - 1);
+                              final char c1 = sValue.charAt (nPos);
+                              final char c2 = sValue.charAt (nPos + 1);
+                              PropertyAssume.that (c1 != c2);
+                              final String sChanged = sValue.substring (0, nPos) +
+                                                      c2 +
+                                                      c1 +
+                                                      sValue.substring (nPos + 2);
+                              assertFalse (e + " " + sValue + " -> " + sChanged, e.isValid (sChanged));
+                            });
   }
 
   @Test
-  public void testInvalidInput ()
+  public void testIllegalCharacters ()
+  {
+    for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
+      _checker ().forAll (_validValues (e),
+                          Generators.strings (ILLEGAL_CHARS, 1, 1),
+                          Generators.ints (0, MAX_PAYLOAD_LEN + e.getCheckCharCount ()),
+                          Generators.booleans (),
+                          (sValue, sIllegal, aPos, aReplace) -> {
+                            final String sPayload = sValue.substring (0, sValue.length () - e.getCheckCharCount ());
+
+                            // Insert into the payload
+                            final int nPayloadPos = aPos.intValue () % (sPayload.length () + 1);
+                            final String sIllegalPayload = sPayload.substring (0, nPayloadPos) +
+                                                           sIllegal +
+                                                           sPayload.substring (nPayloadPos);
+                            assertFalse (e + " '" + sIllegalPayload + "'", e.isValidPayload (sIllegalPayload));
+                            assertNull (e + " '" + sIllegalPayload + "'", e.calculateCheckChars (sIllegalPayload));
+                            assertNull (e + " '" + sIllegalPayload + "'", e.appendCheckChars (sIllegalPayload));
+
+                            // Replace in or insert into the value
+                            final String sIllegalValue;
+                            if (aReplace.booleanValue ())
+                            {
+                              final int nValuePos = aPos.intValue () % sValue.length ();
+                              sIllegalValue = sValue.substring (0, nValuePos) + sIllegal + sValue.substring (nValuePos + 1);
+                            }
+                            else
+                            {
+                              final int nValuePos = aPos.intValue () % (sValue.length () + 1);
+                              sIllegalValue = sValue.substring (0, nValuePos) + sIllegal + sValue.substring (nValuePos);
+                            }
+                            assertFalse (e + " '" + sIllegalValue + "'", e.isValid (sIllegalValue));
+                          });
+  }
+
+  @Test
+  public void testArbitraryInputIsConsistent ()
+  {
+    // Arbitrary input never throws and the methods are consistent with each other
+    for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
+      _checker ().forAll (Generators.oneOf (Generators.unicodeStrings (0, 40),
+                                            Generators.strings (_getValueAlphabet (e), 0, 40)),
+                          s -> {
+                            final String sCheckChars = e.calculateCheckChars (s);
+                            // All predefined algorithms produce check characters exactly for valid
+                            // payloads
+                            assertEquals (e + " '" + s + "'",
+                                          Boolean.valueOf (e.isValidPayload (s)),
+                                          Boolean.valueOf (sCheckChars != null));
+                            assertEquals (e + " '" + s + "'",
+                                          sCheckChars == null ? null : s + sCheckChars,
+                                          e.appendCheckChars (s));
+                            if (e.isValid (s))
+                            {
+                              // A valid value is a valid payload followed by the check characters
+                              final int nPayloadLen = s.length () - e.getCheckCharCount ();
+                              assertTrue (e + " '" + s + "'", nPayloadLen > 0);
+                              assertTrue (e + " '" + s + "'", e.isValidPayload (s.substring (0, nPayloadLen)));
+                            }
+                          });
+  }
+
+  @Test
+  public void testNullAndEmpty ()
   {
     for (final ECheckDigitAlgorithm e : ECheckDigitAlgorithm.values ())
     {
@@ -198,33 +254,10 @@ public final class CheckDigitAlgorithmPropertiesTest
       assertFalse (e.isValid (null));
       assertFalse (e.isValid (""));
 
-      final Random aRandom = new Random (SEED);
-      final String sPayloadAlphabet = _getPayloadAlphabet (e);
-      for (int i = 0; i < RUNS; ++i)
-      {
-        final String sPayload = _createRandom (aRandom, sPayloadAlphabet, 1 + aRandom.nextInt (MAX_PAYLOAD_LEN));
-        final String sValue = e.appendCheckChars (sPayload);
-
-        // Only the check characters (or less) are never valid
-        assertFalse (e.isValid (sValue.substring (sValue.length () - e.getCheckCharCount ())));
-
-        // Insert an illegal character at a random position
-        final char cIllegal = ILLEGAL_CHARS.charAt (aRandom.nextInt (ILLEGAL_CHARS.length ()));
-        final int nPayloadPos = aRandom.nextInt (sPayload.length () + 1);
-        final String sIllegalPayload = sPayload.substring (0, nPayloadPos) + cIllegal + sPayload.substring (nPayloadPos);
-        assertFalse (e + " '" + sIllegalPayload + "'", e.isValidPayload (sIllegalPayload));
-        assertNull (e + " '" + sIllegalPayload + "'", e.calculateCheckChars (sIllegalPayload));
-        assertNull (e + " '" + sIllegalPayload + "'", e.appendCheckChars (sIllegalPayload));
-
-        final int nValuePos = aRandom.nextInt (sValue.length () + 1);
-        final String sIllegalValue = sValue.substring (0, nValuePos) + cIllegal + sValue.substring (nValuePos);
-        assertFalse (e + " '" + sIllegalValue + "'", e.isValid (sIllegalValue));
-
-        // Replace a character with an illegal one
-        final int nReplacePos = aRandom.nextInt (sValue.length ());
-        final String sReplacedValue = sValue.substring (0, nReplacePos) + cIllegal + sValue.substring (nReplacePos + 1);
-        assertFalse (e + " '" + sReplacedValue + "'", e.isValid (sReplacedValue));
-      }
+      // Values consisting of the check characters only are never valid
+      _checker ().forAll (_validValues (e),
+                          sValue -> assertFalse (e.isValid (sValue.substring (sValue.length () -
+                                                                              e.getCheckCharCount ()))));
     }
   }
 }

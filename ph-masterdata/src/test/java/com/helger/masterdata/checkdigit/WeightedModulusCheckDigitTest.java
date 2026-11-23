@@ -24,10 +24,13 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.jspecify.annotations.NonNull;
 import org.junit.Test;
+
+import com.helger.unittest.property.Generators;
+import com.helger.unittest.property.PropertyChecker;
 
 /**
  * Test class for class {@link WeightedModulusCheckDigit}.
@@ -36,7 +39,8 @@ import org.junit.Test;
  */
 public final class WeightedModulusCheckDigitTest
 {
-  private static final int RUNS = 10_000;
+  private static final int TRIES = 10_000;
+  private static final long SEED = 20261123L;
 
   private static final WeightedModulusCheckDigit LUHN_AS_WEIGHTED = WeightedModulusCheckDigit.builder ()
                                                                                              .id ("luhn-weighted")
@@ -76,12 +80,9 @@ public final class WeightedModulusCheckDigitTest
                                                                                                .build ();
 
   @NonNull
-  private static String _createRandomDigits (@NonNull final Random aRandom, final int nLen)
+  private static PropertyChecker _checker ()
   {
-    final StringBuilder aSB = new StringBuilder (nLen);
-    for (int i = 0; i < nLen; ++i)
-      aSB.append ((char) ('0' + aRandom.nextInt (10)));
-    return aSB.toString ();
+    return new PropertyChecker ().setTries (TRIES).setSeed (SEED);
   }
 
   @Test
@@ -91,14 +92,10 @@ public final class WeightedModulusCheckDigitTest
     assertTrue (LUHN_AS_WEIGHTED.isValid ("79927398713"));
     assertEquals ("3", LUHN_AS_WEIGHTED.calculateCheckChars ("7992739871"));
 
-    final Random aRandom = new Random (20261123);
-    for (int i = 0; i < RUNS; ++i)
-    {
-      final String sPayload = _createRandomDigits (aRandom, 1 + aRandom.nextInt (30));
-      assertEquals (sPayload,
-                    LuhnCheckDigit.INSTANCE.calculateCheckChars (sPayload),
-                    LUHN_AS_WEIGHTED.calculateCheckChars (sPayload));
-    }
+    _checker ().forAll (Generators.strings (CheckDigitHelper.DIGITS, 1, 30),
+                        sPayload -> assertEquals (sPayload,
+                                                  LuhnCheckDigit.INSTANCE.calculateCheckChars (sPayload),
+                                                  LUHN_AS_WEIGHTED.calculateCheckChars (sPayload)));
   }
 
   @Test
@@ -107,14 +104,10 @@ public final class WeightedModulusCheckDigitTest
     // Source: Wikipedia "International Article Number" (EAN-13 4006381333931)
     assertTrue (GS1_AS_WEIGHTED.isValid ("4006381333931"));
 
-    final Random aRandom = new Random (20261123);
-    for (int i = 0; i < RUNS; ++i)
-    {
-      final String sPayload = _createRandomDigits (aRandom, 1 + aRandom.nextInt (30));
-      assertEquals (sPayload,
-                    GS1CheckDigit.INSTANCE.calculateCheckChars (sPayload),
-                    GS1_AS_WEIGHTED.calculateCheckChars (sPayload));
-    }
+    _checker ().forAll (Generators.strings (CheckDigitHelper.DIGITS, 1, 30),
+                        sPayload -> assertEquals (sPayload,
+                                                  GS1CheckDigit.INSTANCE.calculateCheckChars (sPayload),
+                                                  GS1_AS_WEIGHTED.calculateCheckChars (sPayload)));
   }
 
   @Test
@@ -145,25 +138,23 @@ public final class WeightedModulusCheckDigitTest
                                                                                                                       null,
                                                                                                                       "0"))
                                                                  .build ();
-    final Random aRandom = new Random (20261123);
-    int nNullCount = 0;
-    for (int i = 0; i < RUNS; ++i)
-    {
-      final String sPayload = _createRandomDigits (aRandom, 1 + aRandom.nextInt (12));
+    final AtomicInteger aNullCount = new AtomicInteger (0);
+    _checker ().forAll (Generators.strings (CheckDigitHelper.DIGITS, 1, 12), sPayload -> {
       final String sCheck = a.calculateCheckChars (sPayload);
       if (sCheck == null)
       {
         // No digit can make this payload valid
-        nNullCount++;
+        aNullCount.incrementAndGet ();
         for (char c = '0'; c <= '9'; ++c)
           assertFalse (a.isValid (sPayload + c));
         assertNull (a.appendCheckChars (sPayload));
       }
       else
         assertTrue (a.isValid (sPayload + sCheck));
-    }
+    });
     // About 1/11 of all payloads have no check digit
-    assertTrue (Integer.toString (nNullCount), nNullCount > RUNS / 20 && nNullCount < RUNS / 5);
+    final int nNullCount = aNullCount.get ();
+    assertTrue (Integer.toString (nNullCount), nNullCount > TRIES / 20 && nNullCount < TRIES / 5);
   }
 
   @Test

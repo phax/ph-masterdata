@@ -35,4 +35,4 @@ This is a Java library providing standard business master data objects, publishe
 
 ### Key Dependencies
 
-Built on the `com.helger.commons` library ecosystem (ph-commons, ph-xml, ph-datetime). Parent POM is `com.helger:parent-pom`. Tests use JUnit 4.
+Built on the `com.helger.commons` library ecosystem (ph-commons, ph-xml, ph-datetime). Parent POM is `com.helger:parent-pom`. Tests use JUnit 4. Property based tests use `ph-unittest-property` (`PropertyChecker`, `Generators`) with a fixed seed - no jqwik or JUnit Platform.
