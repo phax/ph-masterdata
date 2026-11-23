@@ -33,7 +33,10 @@ import com.helger.unittest.property.PropertyChecker;
 /**
  * Characterization test for the GS1 checksum handling of {@link AbstractUPCEAN}, the EAN/UPC
  * classes and {@link GTINValidator}. It captures the behaviour of the implementation of v8.2.2, so
- * that it stays unchanged when delegating to the check digit package.
+ * that it stays unchanged when delegating to the check digit package. The only intended change is
+ * that since v8.3.0 <code>AbstractUPCEAN.calcChecksum</code> is strict: other characters than the
+ * ASCII digits and an invalid length lead to an {@link IllegalArgumentException} (v8.2.2 counted
+ * letters as -1, accepted other Unicode digits and returned negative values for very long input).
  *
  * @author Philip Helger
  */
@@ -58,6 +61,26 @@ public final class GS1ChecksumCharacterizationTest
   }
 
   /**
+   * The expected strict calculation since v8.3.0, used as the oracle.
+   */
+  private static int _expectedCalcChecksum (final char @NonNull [] aChars, final int nLen)
+  {
+    if (nLen < 1 || nLen > aChars.length)
+      throw new IllegalArgumentException ("Invalid length");
+    int nSum = 0;
+    boolean bWeight3 = true;
+    for (int i = nLen - 1; i >= 0; --i)
+    {
+      final char c = aChars[i];
+      if (c < '0' || c > '9')
+        throw new IllegalArgumentException ("Invalid character");
+      nSum += (c - '0') * (bWeight3 ? 3 : 1);
+      bWeight3 = !bWeight3;
+    }
+    return (10 - nSum % 10) % 10;
+  }
+
+  /**
    * Copy of <code>GTINValidator._isValidGTIN</code> of v8.2.2, used as the oracle.
    */
   private static boolean _legacyIsValidGTIN (@Nullable final String sGTIN, final int nExpectedLength)
@@ -72,11 +95,11 @@ public final class GS1ChecksumCharacterizationTest
   }
 
   /**
-   * Copy of <code>EAN13.getWithCorrectChecksum</code> of v8.2.2 (without the null checks), used as
-   * the oracle.
+   * Copy of <code>EAN13.getWithCorrectChecksum</code> of v8.2.2 (without the null checks), with the
+   * strict checksum calculation of v8.3.0, used as the oracle.
    */
   @NonNull
-  private static String _legacyEAN13GetWithCorrectChecksum (@NonNull final String sMsg,
+  private static String _expectedEAN13GetWithCorrectChecksum (@NonNull final String sMsg,
                                                            @NonNull final EEANChecksumMode eMode)
   {
     EEANChecksumMode eRealMode = eMode;
@@ -95,11 +118,11 @@ public final class GS1ChecksumCharacterizationTest
       case ADD:
         if (sMsg.length () != 12)
           throw new IllegalArgumentException ("Message must be 12 characters long");
-        return sMsg + Character.forDigit (_legacyCalcChecksum (sMsg.toCharArray (), 12), 10);
+        return sMsg + Character.forDigit (_expectedCalcChecksum (sMsg.toCharArray (), 12), 10);
       case CHECK:
         if (sMsg.length () != 13)
           throw new IllegalArgumentException ("Message must be 13 characters long");
-        if (sMsg.charAt (12) != Character.forDigit (_legacyCalcChecksum (sMsg.toCharArray (), 12), 10))
+        if (sMsg.charAt (12) != Character.forDigit (_expectedCalcChecksum (sMsg.toCharArray (), 12), 10))
           throw new IllegalArgumentException ("Checksum is bad");
         return sMsg;
       case IGNORE:
@@ -138,25 +161,22 @@ public final class GS1ChecksumCharacterizationTest
     assertEquals (1, AbstractUPCEAN.calcChecksum ("400638133393".toCharArray (), 12));
     // Only the first nLen characters are used
     assertEquals (1, AbstractUPCEAN.calcChecksum ("4006381333931XYZ".toCharArray (), 12));
-    // Empty
-    assertEquals (0, AbstractUPCEAN.calcChecksum (new char [0], 0));
-    // Letters count as -1 (Character.digit)
-    assertEquals (_legacyCalcChecksum ("ABCDEFGHIJKL".toCharArray (), 12),
-                  AbstractUPCEAN.calcChecksum ("ABCDEFGHIJKL".toCharArray (), 12));
-    // Other Unicode digits are accepted by Character.digit
-    assertEquals (_legacyCalcChecksum ("４006381333931".toCharArray (), 12),
-                  AbstractUPCEAN.calcChecksum ("４006381333931".toCharArray (), 12));
-    assertEquals (1, AbstractUPCEAN.calcChecksum ("４00638133393".toCharArray (), 12));
-    // Very long input: the sum exceeds 1000 and the result becomes negative (56 nines: sum 1008)
+    // Since v8.3.0: empty, letters (counted as -1 before), other Unicode digits (accepted before)
+    // and an out of bounds length (ArrayIndexOutOfBoundsException before) are rejected
+    final String sIAE = "exception:java.lang.IllegalArgumentException";
+    assertEquals (sIAE, _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum (new char [0], 0))));
+    assertEquals (sIAE, _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum ("ABCDEFGHIJKL".toCharArray (), 12))));
+    assertEquals (sIAE,
+                  _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum ("\uff1400638133393".toCharArray (), 12))));
+    assertEquals (sIAE, _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum ("123".toCharArray (), 4))));
+    assertEquals (sIAE, _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum ("123".toCharArray (), -1))));
+    // Since v8.3.0: very long input is calculated correctly (56 nines: sum 1008 - before: -8)
     final char [] aNines = "9".repeat (56).toCharArray ();
-    assertEquals (-8, AbstractUPCEAN.calcChecksum (aNines, 56));
-    // Length out of bounds
-    assertEquals ("exception:java.lang.ArrayIndexOutOfBoundsException",
-                  _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum ("123".toCharArray (), 4))));
+    assertEquals (2, AbstractUPCEAN.calcChecksum (aNines, 56));
   }
 
   @Test
-  public void testCalcChecksumSameAsLegacy ()
+  public void testCalcChecksumAsExpected ()
   {
     final IGenerator <String> aStrings = Generators.oneOf (Generators.strings ("0123456789", 0, 20),
                                                            Generators.strings ("0123456789", 30, 80),
@@ -164,18 +184,23 @@ public final class GS1ChecksumCharacterizationTest
     _checker ().forAll (aStrings, Generators.ints (0, 82), (s, aLen) -> {
       final char [] aChars = s.toCharArray ();
       final int nLen = aLen.intValue ();
-      assertEquals (s + "/" + nLen,
-                    _outcome ( () -> Integer.valueOf (_legacyCalcChecksum (aChars, nLen))),
-                    _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum (aChars, nLen))));
+      final String sExpected = _outcome ( () -> Integer.valueOf (_expectedCalcChecksum (aChars, nLen)));
+      assertEquals (s + "/" + nLen, sExpected, _outcome ( () -> Integer.valueOf (AbstractUPCEAN.calcChecksum (aChars, nLen))));
+      // For valid input up to 55 digits (sum <= 999) the result is the same as in v8.2.2
+      if (nLen <= 55 && sExpected.startsWith ("result:"))
+        assertEquals (s + "/" + nLen,
+                      "result:" + _legacyCalcChecksum (aChars, nLen),
+                      sExpected);
     });
   }
 
   @Test
-  public void testEANUPCSameAsLegacy ()
+  public void testEANUPCAsExpected ()
   {
-    // getWithCorrectChecksum does not validate the characters
-    assertEquals ("ABCDEFGHIJKL" + Character.forDigit (_legacyCalcChecksum ("ABCDEFGHIJKL".toCharArray (), 12), 10),
-                  EAN13.getWithCorrectChecksum ("ABCDEFGHIJKL", EEANChecksumMode.ADD));
+    // getWithCorrectChecksum does not validate the characters itself - since v8.3.0 the checksum
+    // calculation rejects them
+    assertEquals ("exception:java.lang.IllegalArgumentException",
+                  _outcome ( () -> EAN13.getWithCorrectChecksum ("ABCDEFGHIJKL", EEANChecksumMode.ADD)));
 
     _checker ().forAll (Generators.oneOf (Generators.strings ("0123456789", 7, 13),
                                           Generators.strings (LENIENT_ALPHABET, 7, 13)),
@@ -184,16 +209,16 @@ public final class GS1ChecksumCharacterizationTest
                           for (final EEANChecksumMode eMode : EEANChecksumMode.values ())
                           {
                             assertEquals (s + " " + eMode,
-                                          _outcome ( () -> _legacyEAN13GetWithCorrectChecksum (s, eMode)),
+                                          _outcome ( () -> _expectedEAN13GetWithCorrectChecksum (s, eMode)),
                                           _outcome ( () -> EAN13.getWithCorrectChecksum (s, eMode)));
                           }
                           // EAN-8 and UPC-A in ADD mode
                           if (s.length () == 7)
-                            assertEquals (s + Character.forDigit (_legacyCalcChecksum (aChars, 7), 10),
-                                          EAN8.getWithCorrectChecksum (s, EEANChecksumMode.ADD));
+                            assertEquals (_outcome ( () -> s + Character.forDigit (_expectedCalcChecksum (aChars, 7), 10)),
+                                          _outcome ( () -> EAN8.getWithCorrectChecksum (s, EEANChecksumMode.ADD)));
                           if (s.length () == 11)
-                            assertEquals (s + Character.forDigit (_legacyCalcChecksum (aChars, 11), 10),
-                                          UPCA.handleChecksum (s, EEANChecksumMode.ADD));
+                            assertEquals (_outcome ( () -> s + Character.forDigit (_expectedCalcChecksum (aChars, 11), 10)),
+                                          _outcome ( () -> UPCA.handleChecksum (s, EEANChecksumMode.ADD)));
                         });
   }
 

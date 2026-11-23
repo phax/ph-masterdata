@@ -28,11 +28,6 @@ import com.helger.masterdata.checkdigit.GS1CheckDigit;
 public abstract class AbstractUPCEAN implements Serializable
 {
   protected static final EEANChecksumMode DEFAULT_CHECKSUM_MODE = EEANChecksumMode.AUTO;
-  /**
-   * The maximum payload length for which the weighted sum cannot exceed 1000 (55 nines sum up to
-   * 999), so that {@link GS1CheckDigit} produces the same result as the lenient calculation.
-   */
-  private static final int MAX_GS1_LENGTH = 55;
 
   private final String m_sMsg;
   private final EEANChecksumMode m_eChecksumMode;
@@ -109,51 +104,32 @@ public abstract class AbstractUPCEAN implements Serializable
     return EValidity.VALID;
   }
 
-  static int asInt (final char c)
-  {
-    return Character.digit (c, 10);
-  }
-
   static char asChar (final int i)
   {
     return Character.forDigit (i, 10);
   }
 
   /**
-   * The lenient calculation of v8.2.2, used for all input that the GS1 check digit algorithm does not
-   * handle identically: other characters than the ASCII digits (letters count as -1, other Unicode
-   * digits by their value), an empty or out of bounds length, and payloads so long that the sum
-   * exceeds 1000 (where the result becomes negative).
+   * Calculate the GS1 Mod 10 check digit of the first <code>nLen</code> characters.
+   *
+   * @param aChars
+   *        The characters to use. May not be <code>null</code>.
+   * @param nLen
+   *        The number of characters to use. Must be between 1 and the number of characters.
+   * @return The check digit in the range 0-9.
+   * @throws IllegalArgumentException
+   *         If the length is invalid or if the characters to use are not all ASCII digits 0-9
    */
-  private static int _calcChecksumLenient (@NonNull final char [] aChars, @Nonnegative final int nLen)
-  {
-    int nChecksumBase = 0;
-    // 13-1=12 chars: 1,3
-    // 12-1=11 chars: 3,1
-    // 8-1= 7 chars: 3,1
-    int nFactor = (nLen % 2) == 0 ? 1 : 3;
-    for (int i = 0; i < nLen; ++i)
-    {
-      nChecksumBase += asInt (aChars[i]) * nFactor;
-      // Alternate between 1 and 3
-      nFactor = 4 - nFactor;
-    }
-
-    // 1000 is larger as "18*9*3" (18 == length of SSCC; 9 == largest possible
-    // number; 3 == largest multiplication factor)
-    return (1000 - nChecksumBase) % 10;
-  }
-
   protected static int calcChecksum (@NonNull final char [] aChars, @Nonnegative final int nLen)
   {
-    if (nLen > 0 && nLen <= aChars.length && nLen <= MAX_GS1_LENGTH)
-    {
-      final String sCheckChars = GS1CheckDigit.INSTANCE.calculateCheckChars (new String (aChars, 0, nLen));
-      if (sCheckChars != null)
-        return sCheckChars.charAt (0) - '0';
-    }
-    // Keep the lenient behaviour for all other input
-    return _calcChecksumLenient (aChars, nLen);
+    ValueEnforcer.notNull (aChars, "Chars");
+    ValueEnforcer.isBetweenInclusive (nLen, "Length", 1, aChars.length);
+
+    final String sPayload = new String (aChars, 0, nLen);
+    final String sCheckChars = GS1CheckDigit.INSTANCE.calculateCheckChars (sPayload);
+    if (sCheckChars == null)
+      throw new IllegalArgumentException ("The message may only contain the digits 0-9: '" + sPayload + "'");
+    return sCheckChars.charAt (0) - '0';
   }
 
   /**
@@ -162,13 +138,15 @@ public abstract class AbstractUPCEAN implements Serializable
    * @param sMsg
    *        the message
    * @param nLength
-   *        The number of characters to be checked. Must be &ge; 0 and &lt; message.length
+   *        The number of characters to be checked. Must be &ge; 1 and &le; message length.
    * @return char the check character
+   * @throws IllegalArgumentException
+   *         If the length is invalid or if the characters to be checked are not all ASCII digits 0-9
    */
   protected static char calcChecksumChar (@NonNull final String sMsg, @Nonnegative final int nLength)
   {
     ValueEnforcer.notNull (sMsg, "Msg");
-    ValueEnforcer.isBetweenInclusive (nLength, "Length", 0, sMsg.length ());
+    ValueEnforcer.isBetweenInclusive (nLength, "Length", 1, sMsg.length ());
 
     return asChar (calcChecksum (sMsg.toCharArray (), nLength));
   }
