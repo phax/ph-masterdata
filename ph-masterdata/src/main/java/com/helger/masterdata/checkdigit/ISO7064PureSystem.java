@@ -258,6 +258,28 @@ public class ISO7064PureSystem extends AbstractCheckDigitAlgorithm
   }
 
   /**
+   * Get the remainder <code>&sum; a<sub>i</sub> &middot; r<sup>n-i</sup> mod M</code> of the
+   * provided string, where every character is interpreted with the payload alphabet. In contrast to
+   * {@link #getChecksum(String)} there is no separation between payload and check characters. If
+   * the check alphabet is a subset of the payload alphabet (as for {@link #MOD_97_10} and
+   * {@link #MOD_97_10_ALPHA}), the result for a complete value is identical to
+   * {@link #getChecksum(String)}.
+   *
+   * @param sPayload
+   *        The string to use. May be <code>null</code>.
+   * @return The remainder in the range 0 to M-1, 0 for an empty string, or
+   *         {@link CGlobal#ILLEGAL_UINT} if the string is <code>null</code> or contains a character
+   *         that is not in the payload alphabet.
+   */
+  public int getPayloadRemainder (@Nullable final String sPayload)
+  {
+    if (sPayload == null)
+      return CGlobal.ILLEGAL_UINT;
+    final long nRemainder = _getPayloadRemainder (sPayload);
+    return nRemainder < 0 ? CGlobal.ILLEGAL_UINT : (int) nRemainder;
+  }
+
+  /**
    * Get the ISO 7064 checksum of a complete value, consisting of the payload followed by
    * {@link #getCheckCharCount()} check characters. A value is valid if the checksum is 1.
    *

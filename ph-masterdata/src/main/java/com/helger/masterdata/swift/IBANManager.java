@@ -39,6 +39,7 @@ import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsSet;
 import com.helger.datetime.format.PDTFromString;
 import com.helger.io.resource.ClassPathResource;
+import com.helger.masterdata.checkdigit.ISO7064PureSystem;
 import com.helger.masterdata.iso.ISO7064;
 import com.helger.text.locale.country.CountryCache;
 import com.helger.xml.microdom.IMicroDocument;
@@ -218,7 +219,7 @@ public final class IBANManager
   private static int _calculateChecksum (@NonNull final String sIBAN)
   {
     final String sCalcBase = sIBAN.substring (4) + sIBAN.substring (0, 4);
-    return ISO7064.Mod97.getChecksum (sCalcBase);
+    return ISO7064PureSystem.MOD_97_10_ALPHA.getPayloadRemainder (sCalcBase);
   }
 
   /**
@@ -278,7 +279,8 @@ public final class IBANManager
     if (nChecksum == ISO7064.Mod97.ILLEGAL_CHECKSUM)
       throw new IllegalArgumentException ("The passed data does not resemble an IBAN!");
 
-    return 98 - (((nChecksum - 1) % 97) + 1);
+    // The check digits are in the range 02 to 98
+    return 98 - nChecksum;
   }
 
   @NonNull

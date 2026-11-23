@@ -16,13 +16,13 @@
  */
 package com.helger.masterdata.ean;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.base.string.StringHelper;
+import com.helger.masterdata.checkdigit.GS1CheckDigit;
 
 /**
  * Utility class that makes verification of GTIN numbers a bit simpler :)
@@ -38,21 +38,13 @@ public final class GTINValidator
   private GTINValidator ()
   {}
 
-  private static boolean _containsValidChecksum (@NonNull final char [] aChars)
-  {
-    final int nCalcedChecksum = AbstractUPCEAN.calcChecksum (aChars, aChars.length - 1);
-    final int nChecksum = AbstractUPCEAN.asInt (aChars[aChars.length - 1]);
-    return nCalcedChecksum == nChecksum;
-  }
-
   private static boolean _isValidGTIN (@Nullable final String sGTIN, @Nonnegative final int nExpectedLength)
   {
     if (StringHelper.getLength (sGTIN) != nExpectedLength)
       return false;
-    final char [] aChars = sGTIN.toCharArray ();
-    if (AbstractUPCEAN.validateMessage (aChars).isInvalid ())
+    if (AbstractUPCEAN.validateMessage (sGTIN).isInvalid ())
       return false;
-    return _containsValidChecksum (aChars);
+    return GS1CheckDigit.INSTANCE.isValid (sGTIN);
   }
 
   public static boolean isValidGTIN8 (@Nullable final String sGTIN8)

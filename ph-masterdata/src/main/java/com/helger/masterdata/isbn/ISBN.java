@@ -20,6 +20,9 @@ import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.cache.regex.RegExHelper;
+import com.helger.masterdata.checkdigit.GS1CheckDigit;
+import com.helger.masterdata.checkdigit.IRemainderToCheckChars;
+import com.helger.masterdata.checkdigit.WeightedModulusCheckDigit;
 
 /**
  * Helper class for validating ISBN numbers.
@@ -29,6 +32,30 @@ import com.helger.cache.regex.RegExHelper;
 @Immutable
 public final class ISBN
 {
+  /**
+   * ISBN-10: weights 10 to 2 from the left, check character <code>11 - (sum mod 11)</code>, with
+   * <code>X</code> for 10.<br>
+   * Note: the value 11 (remainder 0) is mapped to "no check character" instead of <code>0</code>.
+   * This keeps the behaviour of previous versions, where an ISBN-10 with the check digit
+   * <code>0</code> was never considered valid.
+   */
+  private static final WeightedModulusCheckDigit ISBN10_CHECK_DIGIT = WeightedModulusCheckDigit.builder ()
+                                                                                              .id ("isbn10")
+                                                                                              .weights (10,
+                                                                                                        9,
+                                                                                                        8,
+                                                                                                        7,
+                                                                                                        6,
+                                                                                                        5,
+                                                                                                        4,
+                                                                                                        3,
+                                                                                                        2)
+                                                                                              .modulus (11)
+                                                                                              .remainderMapper (IRemainderToCheckChars.complement (11,
+                                                                                                                                                   "X",
+                                                                                                                                                   null))
+                                                                                              .build ();
+
   private ISBN ()
   {}
 
@@ -41,16 +68,7 @@ public final class ISBN
     if (!RegExHelper.stringMatchesPattern ("^[0-9]+[0-9X]?$", sValue))
       return false;
 
-    // calc checksum
-    int nRes = 0;
-    for (int i = 0; i < 9; i++)
-    {
-      final int j = Character.digit (sValue.charAt (i), 10);
-      nRes += ((j * (10 - i)) % 11);
-    }
-    nRes = 11 - (nRes % 11);
-    final char cChkSum = (nRes == 10 ? 'X' : Character.forDigit (nRes, 10));
-    return cChkSum == sValue.charAt (9);
+    return ISBN10_CHECK_DIGIT.isValid (sValue);
   }
 
   public static boolean isValidISBN13Number (@Nullable final String sValue)
@@ -61,16 +79,7 @@ public final class ISBN
     if (!RegExHelper.stringMatchesPattern ("^[0-9]+$", sValue))
       return false;
 
-    // calc checksum
-    int nRes = 0;
-    for (int i = 0; i < 12; i++)
-    {
-      final int j = Character.digit (sValue.charAt (i), 10);
-      final int k = 1 + ((i % 2) * 2);
-      nRes += ((j * k) % 10);
-    }
-    nRes = (10 - (nRes % 10)) % 10;
-    return Character.forDigit (nRes, 10) == sValue.charAt (12);
+    return GS1CheckDigit.INSTANCE.isValid (sValue);
   }
 
   public static boolean isValidISBNNumber (@Nullable final String sValue)

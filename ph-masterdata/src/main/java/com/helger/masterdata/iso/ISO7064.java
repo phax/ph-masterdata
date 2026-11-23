@@ -19,6 +19,8 @@ package com.helger.masterdata.iso;
 import org.jspecify.annotations.NonNull;
 
 import com.helger.base.CGlobal;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.masterdata.checkdigit.ISO7064PureSystem;
 
 /**
  * ISO 7064 checksum algorithms.
@@ -41,29 +43,20 @@ public final class ISO7064
     private Mod97 ()
     {}
 
+    /**
+     * Get the MOD 97-10 remainder of the provided string. Digits are used as is, the uppercase
+     * letters <code>A-Z</code> are converted to the two-digit numbers 10-35 (ISO 13616). The
+     * calculation is delegated to {@link ISO7064PureSystem#MOD_97_10_ALPHA}.
+     *
+     * @param s
+     *        The string to use. May not be <code>null</code>.
+     * @return The remainder in the range 0 to 96 (0 for an empty string), or
+     *         {@link #ILLEGAL_CHECKSUM} if the string contains another character.
+     */
     public static int getChecksum (@NonNull final String s)
     {
-      int nChecksum = 0;
-      for (final char c : s.toCharArray ())
-      {
-        final int nCurChecksumValue;
-        if (c >= '0' && c <= '9')
-          nCurChecksumValue = c - '0';
-        else
-          if (c >= 'A' && c <= 'Z')
-          {
-            // Same as "- '7'" but more clear
-            nCurChecksumValue = c - 'A' + 10;
-          }
-          else
-            return ILLEGAL_CHECKSUM;
-
-        if (nCurChecksumValue > 9)
-          nChecksum = (100 * nChecksum + nCurChecksumValue) % 97;
-        else
-          nChecksum = (10 * nChecksum + nCurChecksumValue) % 97;
-      }
-      return nChecksum;
+      ValueEnforcer.notNull (s, "String");
+      return ISO7064PureSystem.MOD_97_10_ALPHA.getPayloadRemainder (s);
     }
 
     public static boolean isValid (@NonNull final String s)

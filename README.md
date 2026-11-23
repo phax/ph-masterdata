@@ -93,6 +93,7 @@ v8.3.0 - work in progress
     * `LuhnCheckDigit` and `GS1CheckDigit`
     * `WeightedModulusCheckDigit` as a configurable builder for weighted Mod 10/11/97 schemes
     * `ECheckDigitAlgorithm` lists all predefined algorithms with stable IDs
+* `ISO7064.Mod97`, `IBANManager`, `LeitwegID`, `AbstractUPCEAN`, `GTINValidator` and `ISBN` now use the new check digit algorithms internally - the behaviour is unchanged
 
 v8.2.2 - 2026-11-14
 * Requires at least ph-commons 12.5.0

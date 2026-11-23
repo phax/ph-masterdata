@@ -23,10 +23,16 @@ import org.jspecify.annotations.NonNull;
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EValidity;
+import com.helger.masterdata.checkdigit.GS1CheckDigit;
 
 public abstract class AbstractUPCEAN implements Serializable
 {
   protected static final EEANChecksumMode DEFAULT_CHECKSUM_MODE = EEANChecksumMode.AUTO;
+  /**
+   * The maximum payload length for which the weighted sum cannot exceed 1000 (55 nines sum up to
+   * 999), so that {@link GS1CheckDigit} produces the same result as the lenient calculation.
+   */
+  private static final int MAX_GS1_LENGTH = 55;
 
   private final String m_sMsg;
   private final EEANChecksumMode m_eChecksumMode;
@@ -113,7 +119,13 @@ public abstract class AbstractUPCEAN implements Serializable
     return Character.forDigit (i, 10);
   }
 
-  protected static int calcChecksum (@NonNull final char [] aChars, @Nonnegative final int nLen)
+  /**
+   * The lenient calculation of v8.2.2, used for all input that the GS1 check digit algorithm does not
+   * handle identically: other characters than the ASCII digits (letters count as -1, other Unicode
+   * digits by their value), an empty or out of bounds length, and payloads so long that the sum
+   * exceeds 1000 (where the result becomes negative).
+   */
+  private static int _calcChecksumLenient (@NonNull final char [] aChars, @Nonnegative final int nLen)
   {
     int nChecksumBase = 0;
     // 13-1=12 chars: 1,3
@@ -130,6 +142,18 @@ public abstract class AbstractUPCEAN implements Serializable
     // 1000 is larger as "18*9*3" (18 == length of SSCC; 9 == largest possible
     // number; 3 == largest multiplication factor)
     return (1000 - nChecksumBase) % 10;
+  }
+
+  protected static int calcChecksum (@NonNull final char [] aChars, @Nonnegative final int nLen)
+  {
+    if (nLen > 0 && nLen <= aChars.length && nLen <= MAX_GS1_LENGTH)
+    {
+      final String sCheckChars = GS1CheckDigit.INSTANCE.calculateCheckChars (new String (aChars, 0, nLen));
+      if (sCheckChars != null)
+        return sCheckChars.charAt (0) - '0';
+    }
+    // Keep the lenient behaviour for all other input
+    return _calcChecksumLenient (aChars, nLen);
   }
 
   /**

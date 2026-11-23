@@ -16,16 +16,14 @@
  */
 package com.helger.masterdata.leitwegid;
 
-import java.math.BigInteger;
-
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.Immutable;
-import com.helger.base.CGlobal;
-import com.helger.base.numeric.BigHelper;
 import com.helger.base.string.StringHelper;
 import com.helger.cache.regex.RegExHelper;
+import com.helger.masterdata.checkdigit.ISO7064PureSystem;
 
 /**
  * Handler for Leitweg-ID specific stuff.
@@ -48,34 +46,18 @@ public final class LeitwegID
   public static final int MIN_TOTAL_LENGTH = MIN_COARSE_LENGTH + 1 + CHECKSUM_LENGTH;
   public static final int MAX_TOTAL_LENGTH = MAX_COARSE_LENGTH + 1 + MAX_FINE_LENGTH + 1 + CHECKSUM_LENGTH;
 
-  private static final BigInteger BI97 = BigInteger.valueOf (97);
-
   private LeitwegID ()
   {}
 
-  private static int _calcChecksum (@Nonempty final String s)
+  /**
+   * Calculate the checksum with ISO 7064 MOD 97-10 and the ISO 13616 letter conversion.
+   *
+   * @return The 2 digit checksum in the range 02 to 98.
+   */
+  @NonNull
+  private static String _calcChecksum (@Nonempty final String s)
   {
-    BigInteger aBI = BigInteger.ZERO;
-    for (final char c : s.toCharArray ())
-      if (c >= '0' && c <= '9')
-      {
-        // Simple case
-        aBI = aBI.multiply (BigInteger.TEN).add (BigHelper.toBigInteger (c - '0'));
-      }
-      else
-      {
-        // Must be A-Z
-        // 10 <= n <= 35
-        final int n = 10 + (c - 'A');
-        aBI = aBI.multiply (CGlobal.BIGINT_100).add (BigHelper.toBigInteger (n));
-      }
-
-    // Add the trailing "00"
-    aBI = aBI.multiply (CGlobal.BIGINT_100);
-
-    final int nMod = aBI.mod (BI97).intValueExact ();
-    // Use 98 to avoid that the result can be 0
-    return 98 - nMod;
+    return ISO7064PureSystem.MOD_97_10_ALPHA.calculateCheckChars (s);
   }
 
   /**
@@ -127,8 +109,7 @@ public final class LeitwegID
     if (sChecksum.length () != CHECKSUM_LENGTH)
       return false;
 
-    final int nCheckSum = _calcChecksum (bHasFineAddressing ? aParts[0] + aParts[1] : aParts[0]);
-    return sChecksum.equals (StringHelper.getLeadingZero (nCheckSum, CHECKSUM_LENGTH));
+    return sChecksum.equals (_calcChecksum (bHasFineAddressing ? aParts[0] + aParts[1] : aParts[0]));
   }
 
   /**
@@ -172,7 +153,6 @@ public final class LeitwegID
         return null;
     }
 
-    final int nCheckSum = _calcChecksum (nParts == 2 ? aParts[0] + aParts[1] : aParts[0]);
-    return StringHelper.getLeadingZero (nCheckSum, CHECKSUM_LENGTH);
+    return _calcChecksum (nParts == 2 ? aParts[0] + aParts[1] : aParts[0]);
   }
 }

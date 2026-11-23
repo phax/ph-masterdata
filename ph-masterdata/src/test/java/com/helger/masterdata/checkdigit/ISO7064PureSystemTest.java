@@ -219,6 +219,31 @@ public final class ISO7064PureSystemTest
   }
 
   @Test
+  public void testGetPayloadRemainder ()
+  {
+    final ISO7064PureSystem a = ISO7064PureSystem.MOD_97_10_ALPHA;
+    assertEquals (CGlobal.ILLEGAL_UINT, a.getPayloadRemainder (null));
+    assertEquals (0, a.getPayloadRemainder (""));
+    assertEquals (CGlobal.ILLEGAL_UINT, a.getPayloadRemainder ("1a"));
+    assertEquals (10, a.getPayloadRemainder ("A"));
+    // 1011 mod 97 = 41
+    assertEquals (41, a.getPayloadRemainder ("AB"));
+    assertEquals (1, a.getPayloadRemainder ("79444"));
+    // Only digits for MOD_97_10
+    assertEquals (CGlobal.ILLEGAL_UINT, ISO7064PureSystem.MOD_97_10.getPayloadRemainder ("A"));
+
+    // For complete values with digit check characters it is identical to getChecksum
+    new PropertyChecker ().setTries (10_000)
+                          .setSeed (7064)
+                          .forAll (Generators.strings (CheckDigitHelper.DIGITS_AND_UPPERCASE_LETTERS, 1, 40),
+                                   Generators.strings (CheckDigitHelper.DIGITS, 2, 2),
+                                   (sPayload, sCheckChars) -> assertEquals (sPayload + sCheckChars,
+                                                                            a.getChecksum (sPayload + sCheckChars),
+                                                                            a.getPayloadRemainder (sPayload +
+                                                                                                   sCheckChars)));
+  }
+
+  @Test
   public void testInvalidConstructorArguments ()
   {
     final String sDigits = CheckDigitHelper.DIGITS;
